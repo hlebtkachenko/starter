@@ -10,7 +10,7 @@ Imperative. Steps are atomic actions, not narration. Always end with one verify 
 
 | Command | Purpose |
 |---|---|
-| (none yet: copy `_TEMPLATE.md`) | – |
+| [`/digest`](digest.md) | Print repo state digest on demand (wraps `.claude/scripts/boot-digest.sh`) |
 
 ## Planned roster
 
