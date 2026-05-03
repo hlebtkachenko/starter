@@ -48,7 +48,7 @@ Diagnose: `bash scripts/doctor.sh`
 
 ## Where to find what
 
-See [AGENTS.md](AGENTS.md) "Doc scope" table.
+See [CLAUDE.md](CLAUDE.md) "Doc scope" table.
 
 ## Release
 

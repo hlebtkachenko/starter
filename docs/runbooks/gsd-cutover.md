@@ -67,7 +67,7 @@ Strip GSD-specific logic from:
 
 ### 6. README sweep
 
-Remove "GSD epoch" mentions from `README.md`, `AGENTS.md`, `STATE.md`.
+Remove "GSD epoch" mentions from `README.md`, `CLAUDE.md`, `STATE.md`.
 
 ### 7. Verify
 
