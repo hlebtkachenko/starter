@@ -39,7 +39,7 @@ jobs:
           fi
 
       - if: steps.gate.outputs.skip == 'false'
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - if: steps.gate.outputs.skip == 'false'
         name: Pick model
