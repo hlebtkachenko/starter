@@ -1,0 +1,48 @@
+{
+  // Typecheck-only config. Extends the Next-facing root tsconfig.json with broader include
+  // so `pnpm typecheck` validates files Next's build doesn't ingest.
+  //
+  // Today's reach: root config files whose deps are already installed.
+  //
+  // Expand the include list as the matching deps land:
+  //   - infra/**/*.ts, sst.config.ts             once `sst` is in devDependencies
+  //   - db/**/*.ts                               once `drizzle-orm` + `drizzle-kit` are installed
+  //   - tests/**/*.ts                            once `vitest` is installed
+  //   - tests/e2e/**/*.spec.ts, playwright.config.ts   once `@playwright/test` is installed
+  //   - vitest.config.ts                         once `vitest` is installed
+  //
+  // Until then, including those files would surface "Cannot find module" errors that block
+  // every commit and obscure real type drift.
+  "extends": "./tsconfig.json",
+  "include": [
+    "next-env.d.ts",
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "next.config.ts",
+    "postcss.config.mjs",
+    "eslint.config.mjs",
+    "commitlint.config.ts",
+    "knip.config.ts",
+    ".next/types/**/*.ts",
+    ".next/dev/types/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    ".planning",
+    ".next",
+    ".sst",
+    ".turbo",
+    "dist",
+    "build",
+    "out",
+    "infra",
+    "db",
+    "tests",
+    "scripts",
+    ".claude",
+    "vitest.config.ts",
+    "playwright.config.ts",
+    "sst.config.ts",
+    "**/_TEMPLATE*"
+  ]
+}
