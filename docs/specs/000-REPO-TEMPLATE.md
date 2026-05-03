@@ -249,7 +249,8 @@ updated: 2026-05-03
 
 ├── package.json                          # scripts (dev/build/lint/typecheck/format/knip + test/db/deploy referenced); deps; engines.node ">=24"; packageManager "pnpm@10.33.2"
 ├── pnpm-workspace.yaml                   # workspace + ignoredBuiltDependencies (sharp, unrs-resolver); future-proofs packages/* split
-├── tsconfig.json                         # strict + noUncheckedIndexedAccess + exactOptionalPropertyTypes + noImplicitOverride; @/* alias; bundler resolution
+├── tsconfig.json                         # strict + noUncheckedIndexedAccess + exactOptionalPropertyTypes + noImplicitOverride; @/* alias; bundler resolution; narrow include for Next build
+├── tsconfig.check.json                   # extends tsconfig.json; broader include consumed by `pnpm typecheck` so root config files (and infra/db/tests once their deps land) are validated
 ├── next.config.ts                        # minimal: react-strict, typedRoutes; hardening (standalone, headers, csp) deferred Area 8
 ├── eslint.config.mjs                     # flat: eslint-config-next core-web-vitals + typescript; parserOptions.projectService=true (no separate tsconfig.eslint.json); ignores .planning, .claude, docs, .next
 ├── biome.jsonc                           # formatter ONLY (linter.enabled=false to avoid ESLint overlap); ignores match ESLint
