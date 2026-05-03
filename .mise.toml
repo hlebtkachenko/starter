@@ -1,7 +1,7 @@
 # Canonical runtime pins. CI consumes via `jdx/mise-action`.
 # `.nvmrc` is a compat shim that mirrors the node version below.
+# Postgres CLI lives in the docker container locally; CI doesn't need it.
 
 [tools]
 node = "24"
 pnpm = "10.33.2"
-"npm:postgres-cli" = "latest"

@@ -1,4 +1,4 @@
-// withRollbackTx — opens a transaction, runs the body, rolls back. No leaked rows.
+// withRollbackTx: opens a transaction, runs the body, rolls back. No leaked rows.
 //
 // Usage:
 //   import { db } from "@/lib/db";
@@ -17,16 +17,13 @@ type AnyDb = {
   transaction: <T>(fn: (tx: AnyDb) => Promise<T>) => Promise<T>;
 };
 
-export async function withRollbackTx<T>(
-  db: AnyDb,
-  fn: (tx: AnyDb) => Promise<T>,
-): Promise<T> {
+export async function withRollbackTx<T>(db: AnyDb, fn: (tx: AnyDb) => Promise<T>): Promise<T> {
   let result!: T;
   let captured: unknown;
   try {
     await db.transaction(async (tx) => {
       result = await fn(tx);
-      // Force rollback by throwing a sentinel — caller's result is preserved above.
+      // Force rollback by throwing a sentinel: caller's result is preserved above.
       throw new RollbackSentinel();
     });
   } catch (err) {

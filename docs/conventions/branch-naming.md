@@ -6,8 +6,8 @@
 <git-user>/<short>
 ```
 
-- `<git-user>` — GitHub username (e.g., the maintainer's handle).
-- `<short>` — kebab-case, ≤ 30 chars, action-oriented.
+- `<git-user>`: GitHub username (e.g., the maintainer's handle).
+- `<short>`: kebab-case, ≤ 30 chars, action-oriented.
 - Total branch length ≤ 50 chars.
 
 Enforced by lefthook `pre-push` regex: `^[a-z0-9-]+/[a-z0-9-]+$`.

@@ -1,12 +1,10 @@
 import { z } from "zod";
 
 // Boot-time env validation. Throws if a required var is missing or wrong shape.
-// Consumers import `env` (typed) — never `process.env` directly.
+// Consumers import `env` (typed): never `process.env` directly.
 
 const Schema = z.object({
-  NODE_ENV: z
-    .enum(["development", "test", "production"])
-    .default("development"),
+  NODE_ENV: z.enum(["development", "test", "production"]).default("development"),
   NEXT_PUBLIC_APP_URL: z.string().url(),
 
   DATABASE_URL: z.string().url(),
@@ -44,7 +42,7 @@ const parsed = Schema.safeParse(process.env);
 
 if (!parsed.success) {
   console.error("Invalid environment:", parsed.error.flatten().fieldErrors);
-  throw new Error("Invalid environment — see logs above");
+  throw new Error("Invalid environment: see logs above");
 }
 
 export const env = Object.freeze(parsed.data);

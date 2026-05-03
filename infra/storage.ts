@@ -1,6 +1,6 @@
 /// <reference path="../.sst/platform/config.d.ts" />
 
-// S3 buckets — assets (public-readable, CDN-fronted) + uploads (private, signed URLs).
+// S3 buckets: assets (public-readable, CDN-fronted) + uploads (private, signed URLs).
 // Naming: `{app}-{env}-{purpose}` (shared) or `{app}-dev-{user}-{purpose}` (per-dev).
 
 const stage = $app.stage;

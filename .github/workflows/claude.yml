@@ -1,5 +1,7 @@
 name: claude
 
+# Requires repo secret ANTHROPIC_API_KEY. Job no-ops gracefully when the secret is unset.
+
 on:
   issue_comment:
     types: [created]
@@ -17,13 +19,30 @@ permissions:
 
 jobs:
   claude:
-    if: contains(github.event.comment.body, '@claude') || contains(github.event.review.body, '@claude') || contains(github.event.issue.body, '@claude')
+    if: |
+      (contains(github.event.comment.body, '@claude')
+       || contains(github.event.review.body, '@claude')
+       || contains(github.event.issue.body, '@claude'))
     runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:
-      - uses: actions/checkout@v4
+      - name: Skip if no API key
+        id: gate
+        env:
+          KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          if [ -z "$KEY" ]; then
+            echo "ANTHROPIC_API_KEY not set; skipping. Set in repo Settings → Secrets to enable."
+            echo "skip=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "skip=false" >> "$GITHUB_OUTPUT"
+          fi
 
-      - name: Pick model
+      - if: steps.gate.outputs.skip == 'false'
+        uses: actions/checkout@v4
+
+      - if: steps.gate.outputs.skip == 'false'
+        name: Pick model
         id: model
         run: |
           body="${{ github.event.comment.body || github.event.review.body || github.event.issue.body }}"
@@ -35,7 +54,8 @@ jobs:
             echo "max_turns=10" >> "$GITHUB_OUTPUT"
           fi
 
-      - uses: anthropics/claude-code-action@v3
+      - if: steps.gate.outputs.skip == 'false'
+        uses: anthropics/claude-code-action@v3
         with:
           anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
           model: ${{ steps.model.outputs.model }}

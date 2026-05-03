@@ -16,7 +16,7 @@ POST /api/auth/forgot-password { email }
 POST /api/auth/reset-password  { token, password }
 ```
 
-Better Auth defines exact contracts. Read `node_modules/better-auth/dist/types/` for current shape — this file documents what we customize, not the upstream surface.
+Better Auth defines exact contracts. Read `node_modules/better-auth/dist/types/` for current shape: this file documents what we customize, not the upstream surface.
 
 ### OAuth (LATER)
 

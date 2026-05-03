@@ -41,14 +41,14 @@ flowchart LR
 
 - Server actions for mutations (zod-validated at boundary).
 - Route handlers for: auth catch-all (Better Auth), webhooks (Stripe), `/api/health`, `/api/ready`.
-- Org tenancy resolved in `middleware.ts` from session, set on request context, propagated to DB session via `SET LOCAL app.org_id` (see `src/server/rls.ts`).
+- Org tenancy resolved in `src/proxy.ts` (Next 16 proxy, formerly middleware) from session, set on request context, propagated to DB session via `SET LOCAL app.org_id` (see `src/server/rls.ts`).
 
 ## Data flow (server action)
 
 ```mermaid
 sequenceDiagram
   participant C as Client
-  participant M as middleware
+  participant M as proxy
   participant A as Server action
   participant W as actions wrapper
   participant DB as Postgres
@@ -85,7 +85,7 @@ See `db/schema/_TEMPLATE.ts` and [`db/README.md`](../db/README.md).
 | Staging | `staging` | `<aws-region>` | RDS t4g.small | Lambda | `staging.<domain>` |
 | Production | `prod` | `<aws-region>` | RDS m7g.large multi-AZ | Lambda + Fargate fallback | `app.<domain>` |
 
-Apex `<domain>` and `www.<domain>` host the marketing site externally — not managed by this repo.
+Apex `<domain>` and `www.<domain>` host the marketing site externally: not managed by this repo.
 
 ## Auth + sessions
 
@@ -112,14 +112,13 @@ Apex `<domain>` and `www.<domain>` host the marketing site externally — not ma
 ## Observability
 
 - Sentry: client + server + edge configs in `src/sentry.*.config.ts`. Release tagged with git SHA.
-- pino logger via `lib/logger.ts` — pretty in dev, JSON in prod. Request-bound child loggers.
+- pino logger via `lib/logger.ts`: pretty in dev, JSON in prod. Request-bound child loggers.
 - CloudWatch alarms: RDS CPU/storage, Lambda errors + p99 latency, pgmq queue depth (see `infra/monitoring.ts`).
 
 ## Tech-debt log
 
-| Item | Cost | Trigger to fix |
+Add an entry only when the cost is observed (alert fired, customer asked, regression measured). Speculation belongs in `BACKLOG.md`, not here.
+
+| Item | Cost (observed when) | Trigger to fix |
 |---|---|---|
-| Single-region | latency outside EU | first non-EU enterprise customer |
-| pgmq tick poll | 5s job latency | first job-latency-sensitive feature |
-| Lambda Next | cold start ~1s | p99 budget breached |
-| No SSO | enterprise gate | first enterprise lead asks |
+| (none yet) | – | – |

@@ -15,7 +15,7 @@ severity: block
 
 ## No em-dash
 
-- Avoid `—` (em-dash) in user-facing communication (UI copy, emails, PR descriptions, commit bodies).
+- Avoid `, ` (em-dash) in user-facing communication (UI copy, emails, PR descriptions, commit bodies).
 - Use comma, colon, parentheses, or sentence break instead.
 
 **Why:** maintainer style preference; consistency.

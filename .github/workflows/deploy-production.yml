@@ -1,6 +1,6 @@
 name: deploy-production
 
-# LATER — activated after staging cycle is healthy and approval gate is set.
+# LATER: activated after staging cycle is healthy and approval gate is set.
 
 on:
   workflow_dispatch:

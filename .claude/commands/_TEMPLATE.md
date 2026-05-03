@@ -1,29 +1,24 @@
 ---
 name: <kebab-name>
-description: <one-line: what this does>
+description: <imperative one-liner>
 args: none | optional | required
 ---
 
 # /<kebab-name>
 
-## Purpose
-
-<one paragraph: when to invoke, what changes, what's safe>
+I do <one outcome>.
 
 ## Steps
 
 1. <atomic action>
 2. <atomic action>
-3. <verify step>
+3. Verify: `<command>`.
 
-## Verify
+## Pre-conditions
 
-```bash
-<command that proves success>
-```
+- <thing that must be true before invoking>
 
-## Notes
+## Side effects
 
-- <pre-conditions>
-- <side effects to expect>
-- <rollback if needed>
+- <what changes on disk / remote>
+- Rollback: `<command or runbook ref>`

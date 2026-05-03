@@ -15,7 +15,7 @@ An item leaves the backlog when at least one is true:
 
 ### Product
 
-- <idea> — source: <where this came from>, size: <S/M/L>
+- <idea>: source: <where this came from>, size: <S/M/L>
 
 ### Platform / DX
 
@@ -27,4 +27,4 @@ An item leaves the backlog when at least one is true:
 
 ### Tech debt (deferred from milestones)
 
-- <idea> — opened by: <ADR or commit ref>
+- <idea>: opened by: <ADR or commit ref>

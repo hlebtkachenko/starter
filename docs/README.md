@@ -33,4 +33,4 @@
 
 ## README per dir
 
-Required at every significant subdir. Route groups (`(auth)/`, `(app)/`) and per-feature subfolders (`server/`, `ui/`) may skip — context comes from parent.
+Required at every significant subdir. Route groups (`(auth)/`, `(app)/`) and per-feature subfolders (`server/`, `ui/`) may skip: context comes from parent.

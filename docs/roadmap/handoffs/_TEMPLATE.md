@@ -6,7 +6,7 @@ author: <git-user>
 status: in-flight  # in-flight | blocked | review | merged
 ---
 
-# HANDOFF — <branch>
+# HANDOFF: <branch>
 
 ## Goal
 
@@ -31,7 +31,7 @@ status: in-flight  # in-flight | blocked | review | merged
 
 ## Files touched
 
-- `path/to/file` — <one-line why>
+- `path/to/file`: <one-line why>
 
 ## Verify
 

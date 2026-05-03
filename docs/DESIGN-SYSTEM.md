@@ -59,13 +59,11 @@ Tailwind defaults (`shadow-sm`, `shadow`, `shadow-md`, `shadow-lg`). Avoid `shad
 
 ## Component map
 
-| shadcn primitive | File | Notes |
-|---|---|---|
-| Button | `src/components/ui/button.tsx` | cva variants (default, ghost, destructive, outline, link) |
-| Input | `src/components/ui/input.tsx` | Always pair with Label + react-hook-form |
-| ... | | Add as feature requires |
+Primitives live in `src/components/ui/`. Composed components (org switcher, billing portal link, etc.) live in feature `ui/` folders.
 
-Composed components (org-switcher, billing-portal-link, etc.) live in feature `ui/` folders.
+| shadcn primitive | File | Status |
+|---|---|---|
+| (none yet) | – | Add per `_TEMPLATE.tsx` when first feature needs one |
 
 ## Motion
 
@@ -76,7 +74,7 @@ Composed components (org-switcher, billing-portal-link, etc.) live in feature `u
 | Exit | 120ms | `ease-in` |
 | Page transition | 200ms | `ease-out` |
 
-Reduce motion: respect `prefers-reduced-motion` — gate non-essential motion.
+Reduce motion: respect `prefers-reduced-motion`: gate non-essential motion.
 
 ## Iconography
 

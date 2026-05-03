@@ -41,8 +41,8 @@ Promote to `schema/auth/*` when Better Auth plugin count > 3 (e.g., `core`, `org
 
 | File | Generator | Hand-edit OK |
 |---|---|---|
-| `auth.ts` | `pnpm exec better-auth generate` | no — re-run regenerates |
-| `auth-policies.ts` | – | yes — RLS supplements survive regen |
+| `auth.ts` | `pnpm exec better-auth generate` | no: re-run regenerates |
+| `auth-policies.ts` | – | yes: RLS supplements survive regen |
 | `orgs.ts` | `pnpm exec better-auth generate` (org plugin) | no |
 | `index.ts` | – | yes (barrel re-export) |
 | Feature schemas | – | yes |
@@ -51,4 +51,4 @@ Promote to `schema/auth/*` when Better Auth plugin count > 3 (e.g., `core`, `org
 
 | Schema | Scope | Generator |
 |---|---|---|
-| (none yet — copy `_TEMPLATE.ts`) | – | – |
+| (none yet: copy `_TEMPLATE.ts`) | – | – |

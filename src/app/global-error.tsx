@@ -24,13 +24,9 @@ export default function GlobalError({
             fontFamily: "system-ui, sans-serif",
           }}
         >
-          <h2 style={{ fontSize: "1.25rem", fontWeight: 600 }}>
-            Application error
-          </h2>
+          <h2 style={{ fontSize: "1.25rem", fontWeight: 600 }}>Application error</h2>
           {error.digest ? (
-            <p style={{ fontSize: "0.875rem", color: "#71717a" }}>
-              Reference: {error.digest}
-            </p>
+            <p style={{ fontSize: "0.875rem", color: "#71717a" }}>Reference: {error.digest}</p>
           ) : null}
           <button
             type="button"

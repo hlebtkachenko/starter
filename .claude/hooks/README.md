@@ -22,7 +22,7 @@
 
 ## Polyglot
 
-`.sh` (bash), `.py`, `.ts` (via `tsx`/`bun`) all valid. Keep dependencies minimal — these run on every lifecycle event.
+`.sh` (bash), `.py`, `.ts` (via `tsx`/`bun`) all valid. Keep dependencies minimal: these run on every lifecycle event.
 
 ## Index
 
@@ -36,6 +36,6 @@
 
 ## Exit-code conventions
 
-- `0` — continue normally.
-- `2` — block the operation; surface stderr as the reason.
-- other — error logged; agent continues (best-effort hooks).
+- `0`: continue normally.
+- `2`: block the operation; surface stderr as the reason.
+- other: error logged; agent continues (best-effort hooks).

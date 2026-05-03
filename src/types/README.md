@@ -10,9 +10,9 @@
 
 ## What does NOT go here
 
-- Env types — derived from `lib/env.ts` via `z.infer`. **No `env.d.ts`**.
-- Feature-specific types — colocate with the feature in its `schema.ts`.
-- DB row types — derived from Drizzle schema in `db/schema/*`.
+- Env types: derived from `lib/env.ts` via `z.infer`. **No `env.d.ts`**.
+- Feature-specific types: colocate with the feature in its `schema.ts`.
+- DB row types: derived from Drizzle schema in `db/schema/*`.
 
 ## Import style
 

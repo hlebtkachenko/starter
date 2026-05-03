@@ -36,26 +36,11 @@ export const POST = handler(z.object({ ... }), async (input, ctx) => {
 });
 ```
 
-## Status codes
+## Status codes + error envelope
 
-| Code | When |
-|---|---|
-| 200 | OK with body |
-| 201 | Created |
-| 204 | No content |
-| 400 | Validation error (zod parse failed) |
-| 401 | Unauthenticated |
-| 403 | Authenticated but not authorized (RLS / role) |
-| 404 | Resource not found (or hidden by RLS) |
-| 409 | Conflict (unique violation, version mismatch) |
-| 422 | Semantically invalid (well-formed but rejected) |
-| 429 | Rate limited |
-| 500 | Unhandled error (also reported to Sentry) |
-| 503 | Dependency down (`/api/ready` fails) |
+Single source: [error-envelope.md](error-envelope.md). It defines the envelope shape, the code namespace, and the status mapping. Don't re-list codes here.
 
-## Error envelope
-
-See [error-envelope.md](error-envelope.md). Single shape across actions, route handlers, webhooks.
+For success: `200` with body, `201` for create, `204` for no content. Everything else is an error envelope.
 
 ## Pagination
 

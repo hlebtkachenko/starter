@@ -17,21 +17,14 @@ export function handler<I extends z.ZodTypeAny, O>(
     let raw: unknown;
     try {
       raw =
-        req.method === "GET"
-          ? Object.fromEntries(new URL(req.url).searchParams)
-          : await req.json();
+        req.method === "GET" ? Object.fromEntries(new URL(req.url).searchParams) : await req.json();
     } catch {
       return envelope("validation.failed", "Invalid JSON body", 400);
     }
 
     const parsed = input.safeParse(raw);
     if (!parsed.success) {
-      return envelope(
-        "validation.failed",
-        "Input validation failed",
-        400,
-        parsed.error.flatten(),
-      );
+      return envelope("validation.failed", "Input validation failed", 400, parsed.error.flatten());
     }
 
     const ctx: Ctx = { user: null, org: null };
@@ -40,11 +33,7 @@ export function handler<I extends z.ZodTypeAny, O>(
       const data = await fn(parsed.data, ctx);
       return NextResponse.json({ data }, { status: 200 });
     } catch (err) {
-      if (
-        err instanceof Error &&
-        "code" in err &&
-        typeof err.code === "string"
-      ) {
+      if (err instanceof Error && "code" in err && typeof err.code === "string") {
         return envelope(err.code, err.message, statusFor(err.code));
       }
       return envelope("server.internal", "Unexpected error", 500);
@@ -52,20 +41,14 @@ export function handler<I extends z.ZodTypeAny, O>(
   };
 }
 
-function envelope(
-  code: string,
-  message: string,
-  status: number,
-  details?: unknown,
-) {
+function envelope(code: string, message: string, status: number, details?: unknown) {
   return NextResponse.json({ error: { code, message, details } }, { status });
 }
 
 function statusFor(code: string): number {
   if (code.startsWith("validation.")) return 400;
   if (code === "auth.unauthenticated") return 401;
-  if (code === "auth.forbidden" || code === "billing.subscription_required")
-    return 403;
+  if (code === "auth.forbidden" || code === "billing.subscription_required") return 403;
   if (code.endsWith(".not_found")) return 404;
   if (code.endsWith(".conflict")) return 409;
   if (code === "rate_limit.exceeded") return 429;

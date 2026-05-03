@@ -2,23 +2,14 @@
 // Replace with: user-scoped | system
 
 import { sql } from "drizzle-orm";
-import {
-  index,
-  pgPolicy,
-  pgTable,
-  text,
-  timestamp,
-  uuid,
-} from "drizzle-orm/pg-core";
+import { index, pgPolicy, pgTable, text, timestamp, uuid } from "drizzle-orm/pg-core";
 
 import { organizations } from "./orgs";
 
 export const exampleTable = pgTable(
   "example_table",
   {
-    id: uuid()
-      .primaryKey()
-      .default(sql`gen_random_uuid()`),
+    id: uuid().primaryKey().default(sql`gen_random_uuid()`),
     org_id: uuid()
       .notNull()
       .references(() => organizations.id, { onDelete: "cascade" }),
@@ -33,9 +24,7 @@ export const exampleTable = pgTable(
   },
   (t) => [
     index("idx_example_table_org_id").on(t.org_id),
-    index("idx_example_table_deleted_at")
-      .on(t.deleted_at)
-      .where(sql`${t.deleted_at} IS NULL`),
+    index("idx_example_table_deleted_at").on(t.deleted_at).where(sql`${t.deleted_at} IS NULL`),
 
     pgPolicy("rls_example_table_tenant_isolation", {
       for: "all",

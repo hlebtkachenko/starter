@@ -87,5 +87,5 @@ gh release create v1.01.000 --notes "GSD epoch retired."
 
 ## Post-cutover
 
-- This runbook stays — historical record.
+- This runbook stays: historical record.
 - Future planning lives in `docs/specs/` + `docs/adr/` + `docs/roadmap/`.

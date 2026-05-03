@@ -8,7 +8,7 @@ export const alarmTopic = new aws.sns.Topic("AlarmTopic", {
   name: `<project-name>-${stage}-alarms`,
 });
 
-// Email subscription — admin mailbox catches infra alerts.
+// Email subscription: admin mailbox catches infra alerts.
 new aws.sns.TopicSubscription("AlarmEmail", {
   topic: alarmTopic.arn,
   protocol: "email",
@@ -42,7 +42,7 @@ new aws.cloudwatch.MetricAlarm("WebP99Latency", {
   alarmActions: [alarmTopic.arn],
 });
 
-// RDS baseline (CPU + storage) — DB cluster identifier injected once db.ts exposes it.
+// RDS baseline (CPU + storage): DB cluster identifier injected once db.ts exposes it.
 // new aws.cloudwatch.MetricAlarm("DbCpu", { ... });
 
-// pgmq queue-depth alarm placeholder — emit a custom metric from the worker poller, then alarm here.
+// pgmq queue-depth alarm placeholder: emit a custom metric from the worker poller, then alarm here.

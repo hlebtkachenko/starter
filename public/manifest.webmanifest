@@ -5,7 +5,5 @@
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#0ea5e9",
-  "icons": [
-    { "src": "/favicon.ico", "sizes": "48x48", "type": "image/x-icon" }
-  ]
+  "icons": [{ "src": "/favicon.ico", "sizes": "48x48", "type": "image/x-icon" }]
 }

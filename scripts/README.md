@@ -25,10 +25,10 @@
 
 - `kebab-case.sh`, executable.
 - `set -euo pipefail` mandatory.
-- Idempotent — re-running is safe.
+- Idempotent: re-running is safe.
 - Single CLI source: scripts may use `pnpm` / `mise` / `docker` / `aws`; pin via `.mise.toml`.
 - Naming convention preserved across CI / hooks / commands.
 
 ## Never deploy-time
 
-These scripts are local-only. Deploy workflows (`.github/workflows/deploy-*.yml`) must **not** invoke `bootstrap.sh`, `db-reset.sh`, or any other utility here. Production migrations run in their own CI job ([`db/README.md`](../db/README.md#production-migration-execution)). Production seeding does not happen — `db/seed.ts` is local + CI only.
+These scripts are local-only. Deploy workflows (`.github/workflows/deploy-*.yml`) must **not** invoke `bootstrap.sh`, `db-reset.sh`, or any other utility here. Production migrations run in their own CI job ([`db/README.md`](../db/README.md#production-migration-execution)). Production seeding does not happen: `db/seed.ts` is local + CI only.

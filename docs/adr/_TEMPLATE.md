@@ -13,7 +13,7 @@ supersedes: ~
 superseded_by: ~
 ---
 
-# ADR-NNN — <title>
+# ADR-NNN: <title>
 
 ## Context
 

@@ -1,53 +1,16 @@
 # Product
 
-> Detailed product spec. VISION.md = thesis ("why"); this = shape ("what").
+> Detailed product spec. VISION.md is the thesis ("why"); this file is the shape ("what").
 
-## Personas
+**Status: not yet written.** Fill before MILESTONE-002.
 
-### Primary
+When you fill this, cover:
 
-**<persona-name>** — <role> at <company-shape>.
-- **Pain:** <current-status-quo cost or friction>
-- **Goal:** <outcome they buy>
-- **Constraints:** <budget, tools, regulation>
+- Personas (primary + secondary), each with one concrete pain.
+- Jobs-to-be-done (When / I want to / So I can).
+- Feature matrix per pricing tier, marked per milestone.
+- Pricing model.
+- Positioning vs status quo and direct competitor.
+- Out-of-scope cuts.
 
-### Secondary
-
-**<persona-name>** — <role>.
-- (same shape)
-
-## Jobs-to-be-done
-
-| When | I want to | So I can |
-|---|---|---|
-| <trigger> | <action> | <outcome> |
-| <trigger> | <action> | <outcome> |
-
-## Feature matrix
-
-| Feature | Free | Pro | Enterprise | Milestone |
-|---|---|---|---|---|
-| Org + auth | ✓ | ✓ | ✓ | M001 |
-| Billing (Stripe) | – | ✓ | ✓ | M00x |
-| <feature> | – | – | ✓ | M00x |
-
-## Pricing model sketch
-
-| Tier | Price | Limits |
-|---|---|---|
-| Free | $0 | <quota> |
-| Pro | $<n>/seat/mo | <quota> |
-| Enterprise | contact | unlimited / SSO / SLA |
-
-## Positioning
-
-| | Us | Status quo | Direct competitor |
-|---|---|---|---|
-| Wedge | <one line> | <gap> | <gap> |
-| Pricing | <model> | <model> | <model> |
-| Deploy | self-host AWS | SaaS | SaaS |
-
-## Out of scope (this product)
-
-- <explicit cut>
-- <explicit cut>
+Keep each section to facts you'd defend in a sales call. Placeholder skeletons are noise; an empty section is honest.

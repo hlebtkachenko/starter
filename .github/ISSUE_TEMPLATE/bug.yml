@@ -6,13 +6,13 @@ body:
   - type: markdown
     attributes:
       value: |
-        Thanks for the report. Please fill in everything you can — repro is the most useful field.
+        Thanks for the report. Please fill in everything you can: repro is the most useful field.
 
   - type: textarea
     id: summary
     attributes:
       label: Summary
-      description: One paragraph — what is broken.
+      description: One paragraph: what is broken.
     validations:
       required: true
 
@@ -21,10 +21,10 @@ body:
     attributes:
       label: Severity
       options:
-        - P0 — total outage / data loss
-        - P1 — major degradation
-        - P2 — partial degradation
-        - P3 — cosmetic / single user
+        - P0: total outage / data loss
+        - P1: major degradation
+        - P2: partial degradation
+        - P3: cosmetic / single user
       default: 2
     validations:
       required: true

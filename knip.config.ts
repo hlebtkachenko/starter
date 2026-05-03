@@ -1,5 +1,7 @@
 import type { KnipConfig } from "knip";
 
+// Knip runs as a warn-day-1 check (CI: `pnpm knip || true`). Tighten as the codebase fills.
+
 const config: KnipConfig = {
   entry: [
     "src/app/**/page.tsx",
@@ -8,19 +10,13 @@ const config: KnipConfig = {
     "src/app/**/not-found.tsx",
     "src/app/**/error.tsx",
     "src/app/**/global-error.tsx",
-    "src/middleware.ts",
-    "src/instrumentation.ts",
+    "src/proxy.ts",
     "src/sentry.*.config.ts",
+    "src/instrumentation.ts",
     "scripts/*.sh",
-    "infra/*.ts",
-    "sst.config.ts",
-    "db/seed.ts",
-    "drizzle.config.ts",
-    "vitest.config.ts",
-    "playwright.config.ts",
     ".claude/scripts/*.sh",
   ],
-  project: ["**/*.ts", "**/*.tsx"],
+  project: ["src/**/*.ts", "src/**/*.tsx"],
   ignore: [
     ".planning/**",
     ".claude/**",
@@ -29,10 +25,11 @@ const config: KnipConfig = {
     ".next/**",
     ".turbo/**",
     ".sst/**",
-    "db/migrations/**",
-    "tests/**/*.spec.ts",
+    "infra/**",
+    "db/**",
+    "tests/**",
+    "**/_TEMPLATE*",
   ],
-  ignoreBinaries: ["pnpm", "node", "bash"],
 };
 
 export default config;

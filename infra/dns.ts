@@ -6,8 +6,7 @@
 const stage = $app.stage;
 const rootDomain = "<domain>";
 
-const subdomain =
-  stage === "prod" ? `app.${rootDomain}` : `${stage}.${rootDomain}`;
+const subdomain = stage === "prod" ? `app.${rootDomain}` : `${stage}.${rootDomain}`;
 
 const zone = aws.route53.getZoneOutput({ name: rootDomain });
 

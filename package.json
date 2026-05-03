@@ -34,12 +34,18 @@
     "zod": "4.4.2"
   },
   "devDependencies": {
+    "@biomejs/biome": "2.4.14",
+    "@commitlint/cli": "20.5.3",
+    "@commitlint/config-conventional": "20.5.3",
+    "@commitlint/types": "20.5.0",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "16.2.4",
+    "knip": "6.11.0",
+    "lefthook": "2.1.6",
     "tailwindcss": "^4",
     "typescript": "^5"
   }

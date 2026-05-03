@@ -1,5 +1,7 @@
 name: claude-review
 
+# Requires repo secret ANTHROPIC_API_KEY. The review matrix no-ops when unset.
+
 on:
   pull_request:
     types: [opened, ready_for_review, synchronize]
@@ -15,7 +17,19 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       agents: ${{ steps.pick.outputs.agents }}
+      has_key: ${{ steps.gate.outputs.has_key }}
     steps:
+      - id: gate
+        env:
+          KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          if [ -n "$KEY" ]; then
+            echo "has_key=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "has_key=false" >> "$GITHUB_OUTPUT"
+            echo "ANTHROPIC_API_KEY not set; review matrix will no-op."
+          fi
+
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
@@ -28,14 +42,13 @@ jobs:
           if echo "$changed" | grep -qE '^db/'; then agents+=("migration-reviewer" "tenancy-reviewer"); fi
           if echo "$changed" | grep -qE '^src/features/billing/'; then agents+=("billing-reviewer"); fi
           if echo "$changed" | grep -qE '^infra/'; then agents+=("cost-reviewer" "security-reviewer"); fi
-          if echo "$changed" | grep -qE '^src/(middleware\.ts|lib/auth\.ts)'; then agents+=("security-reviewer"); fi
-          # de-dupe
+          if echo "$changed" | grep -qE '^src/(proxy\.ts|lib/auth\.ts)'; then agents+=("security-reviewer"); fi
           uniq=$(printf "%s\n" "${agents[@]:-}" | awk 'NF' | sort -u | jq -R . | jq -sc .)
           echo "agents=${uniq:-[]}" >> "$GITHUB_OUTPUT"
 
   review:
     needs: route
-    if: needs.route.outputs.agents != '[]'
+    if: needs.route.outputs.agents != '[]' && needs.route.outputs.has_key == 'true'
     runs-on: ubuntu-latest
     timeout-minutes: 30
     strategy:

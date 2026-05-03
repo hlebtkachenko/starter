@@ -24,5 +24,5 @@
 
 - `kebab-case.sh`, executable.
 - `set -euo pipefail` mandatory.
-- Idempotent — safe to re-run.
+- Idempotent: safe to re-run.
 - Fail-fast with non-zero exit; no swallowing errors.

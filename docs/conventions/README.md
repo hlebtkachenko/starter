@@ -18,4 +18,4 @@
 
 ## Drift policy
 
-Changes to a convention require an ADR. Conventions reflect decided practice — drifting silently invites inconsistency.
+Changes to a convention require an ADR. Conventions reflect decided practice: drifting silently invites inconsistency.
