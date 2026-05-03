@@ -11,7 +11,7 @@ Versioning: [SemVer 2.0](https://semver.org/spec/v2.0.0.html).
 ### Added
 
 - Repo template applied across 11 areas (root, docs, agents, github, dotfiles, build, gates, dev, deploy, db, app, tests).
-- Agent-native documentation (`AGENTS.md` aliased by `CLAUDE.md`).
+- Agent-native documentation (`CLAUDE.md` as canonical agent entry).
 - Quality gates: lefthook, commitlint, gitleaks.
 - Local dev: docker-compose (postgres 18 + mailpit), bootstrap/doctor scripts.
 - Deploy scaffold: SST stacks (web, db, iam, dns, storage, secrets, monitoring).
