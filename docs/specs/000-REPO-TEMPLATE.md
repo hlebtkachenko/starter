@@ -103,9 +103,12 @@ updated: 2026-05-03
 │   │   ├── db-restore.md              #
 │   │   ├── incident-response.md       #
 │   │   ├── on-call.md                 #
-│   │   └── secret-rotation.md         #
-│   │   └── branch-protection.md       # explains how to deploy .github/rulesets/main.json via gh ruleset import
-│   │   └── ...
+│   │   ├── secret-rotation.md         #
+│   │   ├── branch-protection.md       # explains how to deploy .github/rulesets/main.json via gh ruleset import
+│   │   ├── aws-bootstrap.md           # one-shot AWS account + IAM + DNS prep (referenced by ADR-? and infra/README.md)
+│   │   ├── gsd-cutover.md             # GSD epoch transition: clean .planning/ at v1.01.000
+│   │   ├── scaffold-migration.md      # one-shot record of deviations applied during initial scaffold
+│   │   └── ...                        # add per ops procedure
 │   │
 │   ├── conventions/
 │   │   ├── README.md                  # explains format, index, navigation
@@ -114,9 +117,11 @@ updated: 2026-05-03
 │   │   ├── api-conventions.md         # route shape, status codes, error envelope
 │   │   ├── ui-conventions.md          # component structure, shadcn rules, hex tokens
 │   │   ├── test-conventions.md        # co-located unit + tests/e2e
-│   │   └── commit-conventions.md      # conventional commits, scope list
-│   │   └── pr-conventions.md          # conventional PR, scope list
-│   │   └── ...
+│   │   ├── commit-conventions.md      # conventional commits, scope list
+│   │   ├── pr-conventions.md          # conventional PR, scope list
+│   │   ├── branch-naming.md           # <git-user>/<short> ≤30 chars, kebab-case (mirrors .claude/rules/global.md)
+│   │   ├── error-envelope.md          # canonical {ok, data | error} JSON shape (referenced by api-conventions.md)
+│   │   └── ...                        # add per area
 │   │
 │   └── api/
 │       ├── README.md                  # xplains format, index, navigation
