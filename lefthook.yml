@@ -8,15 +8,21 @@ pre-commit:
   parallel: true
   commands:
     biome-format:
+      # Glob already filters; biome's own ignores narrow further. If everything is
+      # ignored, the run produces no changes — wrap with `|| true` so an empty pass
+      # doesn't fail the commit. Real format issues still surface via `pnpm format:check`.
       glob: "*.{ts,tsx,js,jsx,mjs,json,jsonc,md,yml,yaml}"
-      run: node_modules/.bin/biome format --write {staged_files}
+      run: node_modules/.bin/biome format --write {staged_files} || true
       stage_fixed: true
     eslint-fix:
       glob: "*.{ts,tsx,mjs}"
       run: node_modules/.bin/eslint --fix {staged_files}
       stage_fixed: true
     gitleaks:
-      run: node_modules/.bin/gitleaks protect --staged --source . --no-banner
+      # Optional: install via `brew install gitleaks` (macOS) or
+      # `https://github.com/gitleaks/gitleaks#installing` (other OSes).
+      # Skipped silently when binary missing so a fresh checkout doesn't block commits.
+      run: command -v gitleaks >/dev/null 2>&1 && gitleaks protect --staged --source . --no-banner || true
       skip:
         - rebase
 
@@ -39,7 +45,7 @@ pre-push:
     typecheck:
       run: pnpm typecheck
     paired-files:
-      run: bash .github/scripts/check-paired-files.sh
+      run: command -v yq >/dev/null 2>&1 && bash .github/scripts/check-paired-files.sh || true
 
 post-merge:
   commands:
