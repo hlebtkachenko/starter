@@ -1,0 +1,8 @@
+# Default owner for everything in this repo.
+* @<git-user>
+
+# Future per-area owners (uncomment when team grows or specialist agents handle reviews):
+# /db/                 @<git-user>
+# /infra/              @<git-user>
+# /src/features/billing/ @<git-user>
+# /.github/            @<git-user>

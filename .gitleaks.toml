@@ -1,0 +1,36 @@
+title = "<project-name> secret-scan"
+
+[extend]
+useDefault = true
+
+# Custom rules (add per-provider patterns as integrations land):
+
+[[rules]]
+id = "smtp-pass"
+description = "Inline SMTP password in env / config"
+regex = '''(?i)(SMTP[A-Z_]*PASS|smtp[_-]?password)\s*[:=]\s*["']?[^"'\s]{8,}["']?'''
+tags = ["smtp", "secret"]
+
+[[rules]]
+id = "stripe-secret-key"
+description = "Stripe live secret key"
+regex = '''sk_live_[0-9a-zA-Z]{24,}'''
+tags = ["stripe", "secret"]
+
+[[rules]]
+id = "stripe-restricted-key"
+description = "Stripe restricted secret"
+regex = '''rk_live_[0-9a-zA-Z]{24,}'''
+tags = ["stripe", "secret"]
+
+[allowlist]
+description = "False positives — each entry must reference a justifying commit hash."
+paths = [
+  '''\.env\.example$''',
+  '''docs/specs/.*\.md$''',
+  '''docs/api/openapi\.yaml$''',
+]
+regexes = [
+  '''<random-32-bytes-base64>''',
+  '''<sentry-dsn>''',
+]

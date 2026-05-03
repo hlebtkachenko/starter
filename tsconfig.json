@@ -1,10 +1,13 @@
 {
   "compilerOptions": {
-    "target": "ES2017",
+    "target": "ES2022",
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
+    "noUncheckedIndexedAccess": true,
+    "exactOptionalPropertyTypes": true,
+    "noImplicitOverride": true,
     "noEmit": true,
     "esModuleInterop": true,
     "module": "esnext",
@@ -14,9 +17,7 @@
     "jsx": "react-jsx",
     "incremental": true,
     "plugins": [
-      {
-        "name": "next"
-      }
+      { "name": "next" }
     ],
     "paths": {
       "@/*": ["./src/*"]
@@ -24,11 +25,33 @@
   },
   "include": [
     "next-env.d.ts",
-    "**/*.ts",
-    "**/*.tsx",
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "next.config.ts",
+    "postcss.config.mjs",
+    "eslint.config.mjs",
     ".next/types/**/*.ts",
-    ".next/dev/types/**/*.ts",
-    "**/*.mts"
+    ".next/dev/types/**/*.ts"
   ],
-  "exclude": ["node_modules"]
+  "exclude": [
+    "node_modules",
+    ".planning",
+    ".next",
+    ".sst",
+    ".turbo",
+    "dist",
+    "build",
+    "out",
+    "infra",
+    "db",
+    "tests",
+    "scripts",
+    ".claude",
+    "commitlint.config.ts",
+    "knip.config.ts",
+    "vitest.config.ts",
+    "playwright.config.ts",
+    "sst.config.ts",
+    "**/_TEMPLATE*"
+  ]
 }

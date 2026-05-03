@@ -1,0 +1,3 @@
+# app.<domain> — authed app surface. Not for indexing.
+User-agent: *
+Disallow: /

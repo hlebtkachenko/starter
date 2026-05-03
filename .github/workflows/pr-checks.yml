@@ -1,0 +1,102 @@
+name: pr-checks
+
+on:
+  pull_request:
+    types: [opened, edited, synchronize, reopened]
+
+permissions:
+  pull-requests: read
+  contents: read
+
+jobs:
+  conv-title:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: amannn/action-semantic-pull-request@v5
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          types: |
+            feat
+            fix
+            refactor
+            perf
+            chore
+            docs
+            test
+            build
+            ci
+            style
+            revert
+          scopes: |
+            auth
+            billing
+            db
+            ui
+            infra
+            docs
+            deps
+            ci
+            tests
+            gates
+            agents
+          requireScope: false
+          subjectPattern: ^[a-z0-9].+$
+
+  paired-files:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: mikefarah/yq@v4
+      - name: check-paired-files
+        env:
+          GITHUB_BASE_REF: ${{ github.base_ref }}
+          GITHUB_HEAD_REF: ${{ github.head_ref }}
+        run: bash .github/scripts/check-paired-files.sh
+
+  handoff-gate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: verify-handoff
+        env:
+          BRANCH: ${{ github.head_ref }}
+        run: |
+          slug="${BRANCH//\//-}"
+          file="docs/roadmap/handoffs/HANDOFF-$slug.md"
+          if [ ! -f "$file" ]; then
+            echo "::error::Missing handoff: $file"
+            exit 1
+          fi
+          if grep -q "^name: <" "$file" 2>/dev/null; then
+            echo "::error::Handoff still contains template placeholders: $file"
+            exit 1
+          fi
+
+  size-cap:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: size-cap
+        env:
+          BASE: ${{ github.base_ref }}
+        run: |
+          loc=$(git diff --shortstat "origin/$BASE...HEAD" -- \
+            ':!pnpm-lock.yaml' \
+            ':!db/migrations/meta/**' \
+            ':!**/*.svg' \
+            ':!**/*.png' \
+            | awk '{print $4 + $6}')
+          loc=${loc:-0}
+          echo "loc delta: $loc"
+          if [ "$loc" -gt 1000 ]; then
+            echo "::error::PR too large ($loc lines). Split into smaller PRs."
+            exit 1
+          fi
+          if [ "$loc" -gt 500 ]; then
+            echo "::warning::PR is large ($loc lines). Justify in description."
+          fi

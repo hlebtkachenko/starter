@@ -1,0 +1,52 @@
+name: claude-review
+
+on:
+  pull_request:
+    types: [opened, ready_for_review, synchronize]
+    paths-ignore:
+      - ".planning/**"
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  route:
+    runs-on: ubuntu-latest
+    outputs:
+      agents: ${{ steps.pick.outputs.agents }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - id: pick
+        env:
+          BASE: ${{ github.base_ref }}
+        run: |
+          changed=$(git diff --name-only "origin/$BASE...HEAD")
+          agents=()
+          if echo "$changed" | grep -qE '^db/'; then agents+=("migration-reviewer" "tenancy-reviewer"); fi
+          if echo "$changed" | grep -qE '^src/features/billing/'; then agents+=("billing-reviewer"); fi
+          if echo "$changed" | grep -qE '^infra/'; then agents+=("cost-reviewer" "security-reviewer"); fi
+          if echo "$changed" | grep -qE '^src/(middleware\.ts|lib/auth\.ts)'; then agents+=("security-reviewer"); fi
+          # de-dupe
+          uniq=$(printf "%s\n" "${agents[@]:-}" | awk 'NF' | sort -u | jq -R . | jq -sc .)
+          echo "agents=${uniq:-[]}" >> "$GITHUB_OUTPUT"
+
+  review:
+    needs: route
+    if: needs.route.outputs.agents != '[]'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      matrix:
+        agent: ${{ fromJson(needs.route.outputs.agents) }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: anthropics/claude-code-action@v3
+        with:
+          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          model: claude-sonnet-4-6
+          max_turns: 5
+          subagent: ${{ matrix.agent }}

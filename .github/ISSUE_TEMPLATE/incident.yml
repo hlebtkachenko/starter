@@ -1,0 +1,55 @@
+name: Incident
+description: Production is degraded or at risk.
+title: "[<P0|P1|P2>] <short summary>"
+labels: ["incident", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        For active incidents follow [`incident-response.md`](https://github.com/<git-user>/<repo>/blob/master/docs/runbooks/incident-response.md). This issue tracks the post-incident record.
+
+  - type: dropdown
+    id: severity
+    attributes:
+      label: Severity
+      options:
+        - P0 — total outage / data loss
+        - P1 — major degradation / revenue path broken
+        - P2 — partial degradation / workaround exists
+      default: 1
+    validations:
+      required: true
+
+  - type: textarea
+    id: impact
+    attributes:
+      label: Impact
+      description: Who is affected; how many; for how long.
+    validations:
+      required: true
+
+  - type: input
+    id: customers
+    attributes:
+      label: Affected customers
+      placeholder: "count or names"
+
+  - type: textarea
+    id: state
+    attributes:
+      label: Current state
+      description: investigating / mitigating / monitoring / resolved
+    validations:
+      required: true
+
+  - type: input
+    id: runbook
+    attributes:
+      label: Runbook in use
+      placeholder: "docs/runbooks/<name>.md"
+
+  - type: textarea
+    id: timeline
+    attributes:
+      label: Timeline (UTC)
+      description: Updated as the incident evolves.

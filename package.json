@@ -1,17 +1,37 @@
 {
   "name": "starter",
-  "version": "0.1.0",
+  "version": "0.0.1",
   "private": true,
+  "packageManager": "pnpm@10.33.2",
+  "engines": {
+    "node": ">=24"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "lint:fix": "eslint --fix",
+    "format": "biome format --write .",
+    "format:check": "biome format .",
+    "typecheck": "tsc --noEmit",
+    "knip": "knip",
+    "test": "vitest",
+    "test:watch": "vitest watch",
+    "test:e2e": "playwright test",
+    "db:generate": "drizzle-kit generate",
+    "db:migrate": "drizzle-kit migrate",
+    "db:seed": "tsx db/seed.ts",
+    "db:studio": "drizzle-kit studio",
+    "deploy:staging": "sst deploy --stage staging",
+    "deploy:prod": "sst deploy --stage prod",
+    "prepare": "lefthook install || true"
   },
   "dependencies": {
     "next": "16.2.4",
     "react": "19.2.4",
-    "react-dom": "19.2.4"
+    "react-dom": "19.2.4",
+    "zod": "4.4.2"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",

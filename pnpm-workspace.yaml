@@ -1,3 +1,4 @@
+# Single root package today; future-proofs `packages/*` split.
 ignoredBuiltDependencies:
   - sharp
   - unrs-resolver

@@ -1,0 +1,56 @@
+name: deploy-production
+
+# LATER — activated after staging cycle is healthy and approval gate is set.
+
+on:
+  workflow_dispatch:
+  push:
+    tags: ["v*.*.*"]
+
+permissions:
+  id-token: write   # OIDC
+  contents: read
+
+concurrency:
+  group: deploy-production
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment: production   # configure required reviewers in repo settings
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: jdx/mise-action@v2
+        with: { install: true, cache: true }
+
+      - run: pnpm install --frozen-lockfile
+
+      - uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ secrets.AWS_ROLE_ARN }}
+          aws-region: ${{ secrets.AWS_REGION }}
+
+      - name: DB migrate (production)
+        run: pnpm db:migrate
+        env:
+          DATABASE_URL: ${{ secrets.PROD_DATABASE_URL }}
+
+      - run: pnpm deploy:prod
+        env:
+          SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
+          SENTRY_RELEASE: ${{ github.sha }}
+
+      - name: Smoke check
+        run: |
+          curl -fsS https://app.<domain>/api/health
+          curl -fsS https://app.<domain>/api/ready
+
+      - name: Sentry release notify
+        run: |
+          curl -fsS -X POST https://sentry.io/api/0/organizations/<sentry-org>/releases/ \
+            -H "Authorization: Bearer ${{ secrets.SENTRY_AUTH_TOKEN }}" \
+            -H "Content-Type: application/json" \
+            -d "{\"version\":\"${{ github.sha }}\",\"projects\":[\"<sentry-project>\"]}"
