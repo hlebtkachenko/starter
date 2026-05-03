@@ -8,8 +8,13 @@ permissions:
   pull-requests: read
   contents: read
 
+# Dependabot PRs skip the human-targeted gates (handoff, conv-title strict).
+# CI still runs (real signal), and dependabot's own commit titles are CC-compliant
+# but use scopes outside our list (`deps-dev`, raw `actions`).
+
 jobs:
   conv-title:
+    if: github.actor != 'dependabot[bot]'
     runs-on: ubuntu-latest
     steps:
       - uses: amannn/action-semantic-pull-request@v5
@@ -36,10 +41,14 @@ jobs:
             infra
             docs
             deps
+            deps-dev
             ci
             tests
             gates
             agents
+            epoch
+            release
+            actions
           requireScope: false
           subjectPattern: ^[a-z0-9].+$
 
@@ -57,6 +66,7 @@ jobs:
         run: bash .github/scripts/check-paired-files.sh
 
   handoff-gate:
+    if: github.actor != 'dependabot[bot]'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
