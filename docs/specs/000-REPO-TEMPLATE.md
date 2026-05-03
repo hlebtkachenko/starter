@@ -181,10 +181,11 @@ updated: 2026-05-03
 │   │
 │   ├── scripts/                         # manual/command-invoked utilities (non-lifecycle)
 │   │   ├── README.md                    # explains scripts vs hooks boundary, index
+│   │   ├── _TEMPLATE.sh                 # script scaffold (matches hooks/_TEMPLATE.sh shape)
 │   │   ├── boot-digest.sh               # repo state digest (branch + open PRs + STATE pointers)
 │   │   ├── format.sh                    # idempotent biome + knip + eslint-fix runner
-│   │   └── gh-state.sh                  # GitHub state probe (PR statuses, CI, reviews)
-│   │   └── ...                          # 
+│   │   ├── gh-state.sh                  # GitHub state probe (PR statuses, CI, reviews)
+│   │   └── ...                          # add per script kind
 │
 ├── .mcp.json                            # single file, grows per trigger areas, github + context7 by default
 │
