@@ -214,8 +214,9 @@ updated: 2026-05-03
 │   │
 │   ├── scripts/                           # CI-invoked + lefthook-invoked utilities (distinct from .claude/scripts/, scripts/)
 │   │   ├── README.md                      # explains scripts boundary (.github vs .claude vs root), index
-│   │   └── check-paired-files.sh          # reads related-files.yml; invoked by lefthook + pr-checks.yml
-│   │   └── ...                            #
+│   │   ├── _TEMPLATE.sh                   # script scaffold (matches .claude/scripts/_TEMPLATE.sh shape)
+│   │   ├── check-paired-files.sh          # reads related-files.yml; invoked by lefthook + pr-checks.yml
+│   │   └── ...                            # add per CI utility
 │   │
 │   └── workflows/
 │       ├── README.md                      # workflow index, run order, secrets list, paths-ignore policy per workflow
@@ -240,6 +241,7 @@ updated: 2026-05-03
 ├── .env.example                           # required vars template w/ inline comments; header note: real .env.local is Conductor symlink
 ├── .dockerignore                          # build inputs — exclude node_modules, .git, .next, .turbo, dist, .env* (allow .env.example), .planning, docs, *.md, .claude, .github, coverage, e2e, tests, Dockerfile*; future-proofs Fargate + local Docker
 ├── .npmrc                                 # pnpm monorepo config: auto-install-peers, save-exact (Dependabot writes exact anyway), engine-strict, node-linker=isolated, prefer-workspace-packages, link-workspace-packages
+├── .gitleaks.toml                         # gitleaks ruleset (allowlist, custom patterns); consumed by lefthook pre-commit hook (Area 6)
 ├── release-please-config.json             # release-please monorepo config (per-package bump strategy, CC scopes → version bumps); aligns w/ Area 3 release.yml
 └── .release-please-manifest.json          # release-please manifest (auto-updated by bot, tracks version per package)
 

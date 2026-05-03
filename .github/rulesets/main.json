@@ -27,8 +27,10 @@
         "strict_required_status_checks_policy": true,
         "required_status_checks": [
           { "context": "ci" },
-          { "context": "pr-checks" },
-          { "context": "claude-review" }
+          { "context": "conv-title" },
+          { "context": "paired-files" },
+          { "context": "handoff-gate" },
+          { "context": "size-cap" }
         ]
       }
     },
