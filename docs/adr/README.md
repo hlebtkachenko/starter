@@ -34,6 +34,7 @@ Skip when: trivial choice, easily reversible, or fully captured by a convention.
 
 | # | Title | Status | Date |
 |---:|---|---|---|
-| – | (none accepted yet) | – | – |
+| 001 | [Single-agent stack — Claude only](001-single-agent-stack.md) | accepted | 2026-05-03 |
+| 002 | [Canonical structure spec lives at docs/specs/000-REPO-TEMPLATE.md](002-canonical-spec-location.md) | accepted | 2026-05-03 |
 
 Add a new ADR by copying [`_TEMPLATE.md`](_TEMPLATE.md), incrementing the number, and registering here.
