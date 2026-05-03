@@ -1,7 +1,13 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+# Build outputs
+/.next/
+/.turbo/
+/.sst/
+/dist/
+/build/
+/out/
 
-# dependencies
-/node_modules
+# Dependencies
+/node_modules/
 /.pnp
 .pnp.*
 .yarn/*
@@ -9,33 +15,56 @@
 !.yarn/plugins
 !.yarn/releases
 !.yarn/versions
+.pnpm-store/
 
-# testing
+# TypeScript
+*.tsbuildinfo
+next-env.d.ts
+
+# Env (allow .env.example only)
+.env
+.env.*
+!.env.example
+
+# Tests
 /coverage
+.nyc_output/
+playwright-report/
+test-results/
 
-# next.js
-/.next/
-/out/
-
-# production
-/build
-
-# misc
+# OS
 .DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+.vscode/launch.json
+docker-compose.override.yml
+*.swp
+*.swo
 *.pem
 
-# debug
+# Conductor
+.context/
+
+# Claude (per-machine)
+.claude/settings.local.json
+
+# mise
+.mise.local.toml
+
+# AWS
+.aws/config
+
+# Logs
+*.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
 
-# env files (can opt-in for committing if needed)
-.env*
-
-# vercel
+# Vercel
 .vercel
 
-# typescript
-*.tsbuildinfo
-next-env.d.ts
+# Soft-delete bucket
+_junk/

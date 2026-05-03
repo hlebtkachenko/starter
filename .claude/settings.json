@@ -1,0 +1,68 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
+  "permissions": {
+    "allow": [
+      "Bash(pnpm *)",
+      "Bash(npx *)",
+      "Bash(node *)",
+      "Bash(git *)",
+      "Bash(gh *)",
+      "Bash(docker *)",
+      "Bash(docker compose *)",
+      "Bash(mise *)",
+      "Bash(biome *)",
+      "Bash(eslint *)",
+      "Bash(tsc *)",
+      "Bash(vitest *)",
+      "Bash(playwright *)",
+      "Bash(drizzle-kit *)",
+      "Bash(sst *)",
+      "Bash(curl -fsS *)",
+      "Bash(jq *)",
+      "Bash(yq *)",
+      "Read",
+      "Glob",
+      "Grep",
+      "WebFetch"
+    ],
+    "ask": [
+      "Bash(rm -rf *)",
+      "Bash(git push *)",
+      "Bash(gh pr merge *)",
+      "Bash(sst deploy --stage prod*)",
+      "Bash(aws rds *)",
+      "Bash(aws secretsmanager *)"
+    ],
+    "deny": [
+      "Bash(git push --force *)",
+      "Bash(rm -rf /)",
+      "Bash(rm -rf ~)"
+    ]
+  },
+  "hooks": {
+    "SessionStart": [
+      { "type": "command", "command": "bash .claude/hooks/session-start.sh" }
+    ],
+    "UserPromptSubmit": [
+      { "type": "command", "command": "bash .claude/hooks/user-prompt-submit.sh" }
+    ],
+    "PreToolUse": [
+      { "type": "command", "command": "bash .claude/hooks/pre-tool-use.sh" }
+    ],
+    "PostToolUse": [
+      { "type": "command", "command": "bash .claude/hooks/post-tool-use.sh" }
+    ],
+    "Stop": [
+      { "type": "command", "command": "bash .claude/hooks/stop.sh" }
+    ]
+  },
+  "env": {
+    "PROJECT_NAME": "<project-name>",
+    "PROJECT_ROOT": "${workspaceFolder}"
+  },
+  "model": {
+    "default": "claude-sonnet-4-6",
+    "planner": "claude-opus-4-7",
+    "fast": "claude-haiku-4-5-20251001"
+  }
+}

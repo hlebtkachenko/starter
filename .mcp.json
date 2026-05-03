@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json.schemastore.org/mcp.json",
+  "mcpServers": {
+    "github": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-github"],
+      "env": {
+        "GITHUB_PERSONAL_ACCESS_TOKEN": "${GITHUB_TOKEN}"
+      }
+    },
+    "context7": {
+      "command": "npx",
+      "args": ["-y", "@upstash/context7-mcp"]
+    }
+  },
+  "_notes": {
+    "later": [
+      "postgres — when DB queries via MCP help (Area 9)",
+      "sentry — when issue triage via MCP helps (Area 8)",
+      "stripe — when billing slices ship",
+      "smtp-provider — if your SMTP provider ships an MCP server"
+    ]
+  }
+}

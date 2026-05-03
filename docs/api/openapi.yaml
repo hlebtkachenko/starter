@@ -1,0 +1,101 @@
+openapi: 3.1.0
+info:
+  title: <project-name> API
+  version: 0.0.1
+  description: |
+    Public + internal API surface. Hand-curated until codegen from zod schemas lands.
+servers:
+  - url: https://app.<domain>/api
+    description: Production
+  - url: https://staging.<domain>/api
+    description: Staging
+  - url: http://localhost:3000/api
+    description: Local
+tags:
+  - name: health
+    description: Liveness + readiness probes.
+  - name: auth
+    description: Better Auth catch-all (see auth-api.md).
+  - name: webhooks
+    description: Inbound webhook receivers (see webhooks-api.md).
+paths:
+  /health:
+    get:
+      tags: [health]
+      summary: Liveness probe
+      description: Returns 200 if the process is up. No DB check.
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/HealthOk"
+  /ready:
+    get:
+      tags: [health]
+      summary: Readiness probe
+      description: Returns 200 if the process can serve requests (DB + pgmq reachable).
+      responses:
+        "200":
+          description: Ready
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ReadyOk"
+        "503":
+          description: Not ready
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorEnvelope"
+components:
+  schemas:
+    HealthOk:
+      type: object
+      required: [status]
+      properties:
+        status:
+          type: string
+          enum: [ok]
+    ReadyOk:
+      type: object
+      required: [status, checks]
+      properties:
+        status:
+          type: string
+          enum: [ok]
+        checks:
+          type: object
+          properties:
+            db:
+              type: string
+              enum: [ok]
+            pgmq:
+              type: string
+              enum: [ok]
+    ErrorEnvelope:
+      type: object
+      required: [error]
+      properties:
+        error:
+          type: object
+          required: [code, message]
+          properties:
+            code:
+              type: string
+              description: Stable machine code (snake_case).
+            message:
+              type: string
+            details:
+              type: object
+              additionalProperties: true
+            request_id:
+              type: string
+  securitySchemes:
+    cookieAuth:
+      type: apiKey
+      in: cookie
+      name: <auth-cookie-name>
+security:
+  - cookieAuth: []

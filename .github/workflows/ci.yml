@@ -1,0 +1,49 @@
+name: ci
+
+on:
+  push:
+    branches: [master]
+    paths-ignore:
+      - ".planning/**"
+      - "docs/**"
+      - "**/*.md"
+      - ".claude/**"
+      - "LICENSE"
+  pull_request:
+    paths-ignore:
+      - ".planning/**"
+      - "docs/**"
+      - "**/*.md"
+      - ".claude/**"
+      - "LICENSE"
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: jdx/mise-action@v2
+        with:
+          install: true
+          cache: true
+
+      - name: Cache pnpm store
+        uses: actions/cache@v4
+        with:
+          path: ~/.pnpm-store
+          key: pnpm-${{ hashFiles('pnpm-lock.yaml') }}
+
+      - run: pnpm install --frozen-lockfile
+
+      - run: pnpm format:check
+      - run: pnpm lint
+      - run: pnpm typecheck
+      - run: pnpm knip || true   # warn day 1
+      - run: pnpm build
+      - run: pnpm test --run --coverage

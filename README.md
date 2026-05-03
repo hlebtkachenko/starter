@@ -1,36 +1,48 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# <project-name>
 
-## Getting Started
+> Web SaaS scaffold: Next 16 (App Router) + React 19 + TS 5 + Tailwind v4 + pnpm. Multi-tenant, agent-native, AWS-deployed via SST.
 
-First, run the development server:
+**Status:** alpha · pre-PMF · GSD epoch (until v1.01.000)
+
+## Quickstart
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+mise install                 # node 24, pnpm, postgres-cli
+pnpm install
+cp .env.example .env.local   # or symlink (Conductor)
+docker compose up --wait     # postgres + mailpit
+pnpm db:migrate && pnpm db:seed
+pnpm dev                     # http://localhost:3000
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Full bootstrap: `bash scripts/bootstrap.sh` · diagnose: `bash scripts/doctor.sh`
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Repo map
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Dir | Purpose |
+|---|---|
+| `src/` | App source (Next App Router, features, lib) — Area 10 |
+| `db/` | Drizzle schema + migrations + seed — Area 9 |
+| `infra/` | SST stacks (web, db, iam, dns, monitoring) — Area 8 |
+| `docs/` | Authoritative docs (specs, ADRs, runbooks, conventions, api) — Area 1 |
+| `.claude/` | Agent config (rules, commands, skills, agents, hooks) — Area 2 |
+| `.github/` | CI, CODEOWNERS, rulesets, workflows — Area 3 |
+| `scripts/` | Local dev utilities (bootstrap, doctor, db-reset) — Area 7 |
+| `tests/` | E2E (Playwright), fixtures, helpers — Area 11 |
+| `.planning/` | GSD throwaway, deleted at v1.01.000 |
 
-## Learn More
+Full structure: [`docs/specs/000-REPO-TEMPLATE.md`](docs/specs/000-REPO-TEMPLATE.md)
 
-To learn more about Next.js, take a look at the following resources:
+## Links
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- [VISION.md](VISION.md) · why this exists
+- [STATE.md](STATE.md) · current milestone, blockers, KPIs
+- [ARCHITECTURE.md](ARCHITECTURE.md) · system overview
+- [CONTRIBUTING.md](CONTRIBUTING.md) · dev workflow
+- [SECURITY.md](SECURITY.md) · vuln disclosure
+- [CHANGELOG.md](CHANGELOG.md) · release notes
+- [docs/](docs/README.md) · all docs
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## License
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+See [LICENSE](LICENSE).

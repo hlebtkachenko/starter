@@ -1,0 +1,36 @@
+# Paired-files policy.
+# Enforced by .github/scripts/check-paired-files.sh, invoked by lefthook pre-push and pr-checks.yml.
+
+pairs:
+  - name: schema-migrations
+    when_changed: ["db/schema/**"]
+    require_one_of: ["db/migrations/**"]
+    severity: block
+
+  - name: feature-spec
+    when_changed: ["src/features/**"]
+    require_one_of: ["docs/specs/*.md"]
+    severity: warn
+
+  - name: infra-runbook
+    when_changed: ["infra/**"]
+    require_one_of: ["docs/runbooks/*.md"]
+    severity: warn
+
+  - name: middleware-rules
+    when_changed: ["src/middleware.ts"]
+    require_one_of: [".claude/rules/security.md", "docs/conventions/api-conventions.md"]
+    severity: warn
+
+  - name: design-tokens
+    when_changed: ["src/app/globals.css"]
+    require_one_of: ["docs/DESIGN-SYSTEM.md"]
+    severity: warn
+
+forbid_in_master_pr:
+  - "docs/roadmap/handoffs/HANDOFF-*.md"   # handoffs are deleted on merge; never land in master
+
+require_in_master_pr:
+  - when: "loc_delta > 200"
+    require: "STATE.md"
+    severity: warn

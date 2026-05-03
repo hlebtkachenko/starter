@@ -1,0 +1,25 @@
+* text=auto eol=lf
+
+# Scripts: always LF
+*.sh text eol=lf
+
+# Lockfile: treat as binary in diffs; mark generated for linguist
+pnpm-lock.yaml -diff linguist-generated
+
+# Binary assets
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.webp binary
+*.avif binary
+*.woff binary
+*.woff2 binary
+*.zip binary
+*.tar.gz binary
+*.tgz binary
+*.pdf binary
+
+# SVGs are text but shouldn't skew language stats
+*.svg text linguist-detectable=false

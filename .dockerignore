@@ -1,0 +1,51 @@
+# Build context excludes — keep image small and reproducible.
+
+# Dependencies (re-installed inside image)
+node_modules/
+
+# Git
+.git/
+.gitignore
+.gitattributes
+
+# CI + agent + planning
+.github/
+.claude/
+.planning/
+.context/
+
+# Build outputs
+.next/
+.turbo/
+.sst/
+dist/
+build/
+out/
+
+# Env (allow example only)
+.env
+.env.*
+!.env.example
+
+# Docs + markdown
+docs/
+*.md
+
+# Tests
+coverage/
+.nyc_output/
+tests/
+e2e/
+playwright-report/
+test-results/
+
+# OS / IDE
+.DS_Store
+.idea/
+.vscode/
+.mise.local.toml
+
+# Docker meta
+Dockerfile*
+docker-compose*.yml
+docker-compose.override.yml.example
