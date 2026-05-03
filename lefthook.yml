@@ -48,7 +48,30 @@ pre-push:
       run: command -v yq >/dev/null 2>&1 && bash .github/scripts/check-paired-files.sh || true
 
 post-merge:
+  parallel: false
   commands:
     install:
+      # Re-install only when the lockfile actually moved in this merge.
+      # `glob` filters by changed files in the merge range.
       glob: pnpm-lock.yaml
-      run: pnpm install --frozen-lockfile
+      run: |
+        echo "[post-merge] pnpm-lock.yaml changed -> pnpm install"
+        pnpm install --frozen-lockfile
+    migrations:
+      glob: db/migrations/**
+      run: |
+        echo "[post-merge] new migrations:"
+        git diff --name-only HEAD@{1} HEAD -- db/migrations/ | sed 's/^/  /'
+        echo "  run: pnpm db:migrate"
+    env:
+      glob: .env.example
+      run: |
+        echo "[post-merge] .env.example changed -> compare keys with .env.local"
+        if [ -f .env.local ]; then
+          diff <(grep -oE '^[A-Z_][A-Z0-9_]*=' .env.example | sort -u) \
+               <(grep -oE '^[A-Z_][A-Z0-9_]*=' .env.local | sort -u) || true
+        else
+          echo "  no .env.local present"
+        fi
+    summary:
+      run: echo "[post-merge] done"

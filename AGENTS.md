@@ -27,6 +27,7 @@ Next 16.2.4 · React 19.2.4 · TS 5 (target 6) · Tailwind v4 · pnpm 10 · Post
 | DB migrate | `pnpm db:migrate` |
 | DB seed | `pnpm db:seed` |
 | Boot digest | `bash .claude/scripts/boot-digest.sh` |
+| Safe pull | `pnpm pull` (ff-only, autostash, blocks on untracked-file collisions; `post-merge` hook then reports lockfile, migration, and `.env.example` drift) |
 
 ## Doc scope (where to look)
 
