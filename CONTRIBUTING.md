@@ -27,7 +27,7 @@ Diagnose: `bash scripts/doctor.sh`
 ## PR flow
 
 1. Open PR with conventional title.
-2. Fill [PR template](.github/PULL_REQUEST_TEMPLATE.md) — confirm checklist.
+2. Fill [PR template](.github/PULL_REQUEST_TEMPLATE.md): confirm checklist.
 3. Paired-files check passes ([`.github/related-files.yml`](.github/related-files.yml)).
 4. Active handoff at `docs/roadmap/handoffs/HANDOFF-<branch>.md` is up to date.
 5. CI green: `ci.yml` (lint/typecheck/build), `pr-checks.yml` (title/paired/handoff/size), `claude-review.yml`.

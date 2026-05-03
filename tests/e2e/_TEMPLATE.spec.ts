@@ -3,12 +3,12 @@ import { expect, test } from "@playwright/test";
 
 test.describe("<flow name>", () => {
   test("<persona> can <outcome> @smoke", async ({ page }) => {
-    // Arrange — fixtures (typed) imported from "../fixtures"
+    // Arrange: fixtures (typed) imported from "../fixtures"
 
-    // Act — drive the page via a page-object pattern when interactions repeat
+    // Act: drive the page via a page-object pattern when interactions repeat
     await page.goto("/");
 
-    // Assert — observable outcome
+    // Assert: observable outcome
     await expect(page).toHaveTitle(/.+/);
 
     // A11y scan after the page settles (uncomment once @axe-core/playwright installed)

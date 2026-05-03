@@ -1,7 +1,7 @@
 <!-- BEGIN:nextjs-agent-rules -->
 # This is NOT the Next.js you know
 
-This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` before writing any code. Heed deprecation notices.
+This version has breaking changes: APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` before writing any code. Heed deprecation notices.
 <!-- END:nextjs-agent-rules -->
 
 # Agent entry
@@ -60,7 +60,7 @@ Next 16.2.4 · React 19.2.4 · TS 5 (target 6) · Tailwind v4 · pnpm 10 · Post
 - Never log secrets or PII.
 - Never commit `.env*` (except `.env.example`), `*.key`, `*.enc`, `client_secret*.json`.
 - No em-dash in user-facing communication.
-- `.env.local` is a Conductor symlink — don't edit at the symlink end.
+- `.env.local` is a Conductor symlink: don't edit at the symlink end.
 
 Full rules: [.claude/rules/](.claude/rules/README.md)
 

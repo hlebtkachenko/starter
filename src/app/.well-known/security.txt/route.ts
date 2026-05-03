@@ -1,4 +1,4 @@
-// RFC 9116 — security.txt. Mirrors SECURITY.md at machine-readable shape.
+// RFC 9116: security.txt. Mirrors SECURITY.md at machine-readable shape.
 
 const body = `Contact: mailto:security@<domain>
 Expires: 2027-01-01T00:00:00.000Z

@@ -1,6 +1,6 @@
 import "server-only";
 
-// Stripe SDK singleton. LATER — wire when first billing slice ships.
+// Stripe SDK singleton. LATER: wire when first billing slice ships.
 //
 // import Stripe from "stripe";
 // import { env } from "./env";

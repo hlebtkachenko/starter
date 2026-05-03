@@ -3,23 +3,15 @@ area: <global | frontend | backend | db | security | tests>
 severity: <block | warn>
 ---
 
-# <rule title>
+# <rule>
 
-## Rule
+**Never** <X> / **Always** <Y>.
 
-<one-sentence imperative: "Never X" or "Always Y">
+**Why:** <one concrete consequence: past incident, class of bug, user pain>.
 
-## Why
+**Where it binds:** <files / globs / contexts where the rule applies>.
 
-<the cost of breaking this rule, in concrete terms — incidents, classes of bugs, user pain>
-
-## How to apply
-
-- <where this binds in code>
-- <how to detect a violation>
-- <how to fix when found>
-
-## Examples
+**How to fix when violated:** <one sentence>.
 
 **Don't**
 
@@ -30,5 +22,5 @@ severity: <block | warn>
 **Do**
 
 ```ts
-// the right shape
+// right shape
 ```

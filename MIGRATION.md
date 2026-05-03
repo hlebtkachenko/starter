@@ -1,4 +1,4 @@
-# Migration delta — original template → applied
+# Migration delta: original template → applied
 
 > Records every deviation from `repo-template.md` introduced when scaffolding this repo. Generated 2026-05-03 on branch `<git-user>/repo-restructure`.
 
@@ -20,7 +20,7 @@ Advisor verdict actions applied:
 | F6 | Low | APPLY | `.planning/README.md` reads "must not override canonical sources" (typo "Don't override" fixed in spirit) |
 | F7 | Med | APPLY | `.claude/scripts/_TEMPLATE.sh` added |
 | F8 | Med | APPLY | `.github/scripts/_TEMPLATE.sh` added |
-| F9 | Low | APPLY | `docs/README.md` header line: "README per dir — required at every significant subdir; route groups + per-feature subfolders may skip" |
+| F9 | Low | APPLY | `docs/README.md` header line: "README per dir: required at every significant subdir; route groups + per-feature subfolders may skip" |
 | F10 | Low | APPLY-LITE | `db/migrations/README.md` notes `meta/` is auto-managed |
 | F11 | High | APPLY | `db/README.md` "Seed scope" + "Production migration execution" sections; `scripts/README.md` "Never deploy-time" section |
 | F12 | Med | REJECT | `lefthook.yml` calls binaries directly; comment documents the exception |
@@ -35,7 +35,7 @@ Advisor verdict actions applied:
 | F21 | Low | DEFER | Sentry sourcemap upload deferred to content phase |
 | F22 | Med | APPLY-PARTIAL | `docs/conventions/branch-naming.md` + `docs/conventions/error-envelope.md` added |
 | F23 | Low | APPLY | `docs/runbooks/aws-bootstrap.md` |
-| F24 | Low | APPLY-LITE | `tests/README.md` notes "no `tests/integration/` — co-located in features" |
+| F24 | Low | APPLY-LITE | `tests/README.md` notes "no `tests/integration/`: co-located in features" |
 | F25 | Low | REJECT | – |
 | F27 | Low | REJECT | – |
 | F28 | Low | APPLY | `docs/runbooks/gsd-cutover.md` |
@@ -50,11 +50,11 @@ The following changes were made beyond the verdict matrix because the existing s
 |---|---|---|
 | `middleware.ts` → `proxy.ts` | Next 16 deprecates `middleware` file convention; `proxy` is the new name | `src/proxy.ts` |
 | `tsconfig.json` excludes config files (commitlint, knip, vitest, playwright, sst) and `**/_TEMPLATE*` | Their dependency packages are not yet installed; configs are stubs awaiting their respective installs | `tsconfig.json` |
-| `tsconfig.json` excludes `infra/`, `db/`, `tests/`, `scripts/` | Same — stubs awaiting drizzle, sst, vitest, etc. | `tsconfig.json` |
+| `tsconfig.json` excludes `infra/`, `db/`, `tests/`, `scripts/` | Same: stubs awaiting drizzle, sst, vitest, etc. | `tsconfig.json` |
 | Sentry configs are stub (`export {}`) instead of real init | `@sentry/nextjs` not installed yet; configs document the real init in comments | `src/sentry.*.config.ts`, `src/instrumentation.ts` |
 | `lib/db.ts`, `lib/auth.ts`, `lib/logger.ts`, `lib/stripe.ts`, `lib/email.ts`, `lib/rate-limit.ts` ship as stubs | Their packages (`drizzle-orm`, `better-auth`, `pino`, `stripe`, `nodemailer`) are not installed yet; comments document the real shape | `src/lib/*` |
-| `db/seed.ts` has stub body | Same — drizzle not installed yet | `db/seed.ts` |
-| `tests/helpers/*.ts` ship as stubs | Same — vitest, playwright, drizzle not installed yet | `tests/helpers/*` |
+| `db/seed.ts` has stub body | Same: drizzle not installed yet | `db/seed.ts` |
+| `tests/helpers/*.ts` ship as stubs | Same: vitest, playwright, drizzle not installed yet | `tests/helpers/*` |
 | `zod` installed | Required by `lib/env.ts`, `lib/errors.ts`, `server/actions.ts`, `server/api.ts`, `features/_TEMPLATE/schema.ts` to typecheck | `package.json` |
 
 These stubs document the intended shape so the next dependency-install pass can drop in working code without restructuring.

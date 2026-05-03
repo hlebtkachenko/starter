@@ -8,11 +8,11 @@
 | Integration | `src/features/<x>/**/*.test.ts` | Vitest + real Postgres via `withRollbackTx` |
 | E2E (critical flows only) | `tests/e2e/*.spec.ts` | Playwright |
 
-No `tests/integration/` folder — integration tests live with the feature they cover.
+No `tests/integration/` folder: integration tests live with the feature they cover.
 
 ## Pattern
 
-Arrange / Act / Assert — one logical assertion per test (multiple `expect`s for one assertion are fine).
+Arrange / Act / Assert: one logical assertion per test (multiple `expect`s for one assertion are fine).
 
 ## Naming
 
@@ -67,4 +67,4 @@ Fix at root cause. CI retry budget: 2 in CI / 0 locally. Persistent flakes get a
 
 ## Fixtures
 
-`tests/fixtures/*.ts` — typed against `@/db` schema. Importable in Vitest + Playwright.
+`tests/fixtures/*.ts`: typed against `@/db` schema. Importable in Vitest + Playwright.

@@ -7,8 +7,8 @@
 - One markdown file per feature.
 - Numbered `NNN-<short-name>.md`. Lexical sort. Never reuse a number.
 - Numbering reservations:
-  - `000` — repo template (locked, do not edit; mirrors `repo-template.md` source).
-  - `001+` — features.
+  - `000`: repo template (locked, do not edit; mirrors `repo-template.md` source).
+  - `001+`: features.
 
 ## Lifecycle
 

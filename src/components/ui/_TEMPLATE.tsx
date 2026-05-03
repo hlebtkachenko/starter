@@ -13,11 +13,9 @@ const exampleVariants = cva(
   {
     variants: {
       variant: {
-        default:
-          "bg-[var(--foreground)] text-[var(--background)] hover:opacity-90",
+        default: "bg-[var(--foreground)] text-[var(--background)] hover:opacity-90",
         ghost: "hover:bg-[var(--muted)]",
-        outline:
-          "border border-[var(--border)] bg-transparent hover:bg-[var(--muted)]",
+        outline: "border border-[var(--border)] bg-transparent hover:bg-[var(--muted)]",
       },
       size: {
         sm: "h-8 px-3",
@@ -32,15 +30,16 @@ const exampleVariants = cva(
 export type ExampleProps = React.ComponentPropsWithoutRef<"button"> &
   VariantProps<typeof exampleVariants> & { asChild?: boolean };
 
-export const Example = React.forwardRef<HTMLButtonElement, ExampleProps>(
-  function Example({ asChild, className, variant, size, ...props }, ref) {
-    const Comp = asChild ? Slot : "button";
-    return (
-      <Comp
-        ref={ref}
-        className={[exampleVariants({ variant, size }), className].join(" ")}
-        {...props}
-      />
-    );
-  },
-);
+export const Example = React.forwardRef<HTMLButtonElement, ExampleProps>(function Example(
+  { asChild, className, variant, size, ...props },
+  ref,
+) {
+  const Comp = asChild ? Slot : "button";
+  return (
+    <Comp
+      ref={ref}
+      className={[exampleVariants({ variant, size }), className].join(" ")}
+      {...props}
+    />
+  );
+});

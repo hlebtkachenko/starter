@@ -1,6 +1,6 @@
 /// <reference path="../.sst/platform/config.d.ts" />
 
-// SST Secrets — bound to Lambda env at runtime via web.ts `link`.
+// SST Secrets: bound to Lambda env at runtime via web.ts `link`.
 // Set values per stage with: `pnpm sst secret set <NAME> <value> --stage <stage>`.
 
 export const databaseUrl = new sst.Secret("DATABASE_URL");

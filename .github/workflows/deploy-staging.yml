@@ -1,6 +1,6 @@
 name: deploy-staging
 
-# LATER — activated after Area 8 infra applied + AWS_ROLE_ARN secret set.
+# LATER: activated after Area 8 infra applied + AWS_ROLE_ARN secret set.
 
 on:
   push:

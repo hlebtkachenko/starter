@@ -8,12 +8,12 @@ Conventional Commits format ([commit-conventions.md](commit-conventions.md)). En
 
 Use [`.github/PULL_REQUEST_TEMPLATE.md`](../../.github/PULL_REQUEST_TEMPLATE.md). Required sections:
 
-- **What** — one paragraph user-visible summary.
-- **Why** — motivation; link spec / ADR / issue.
-- **How to test** — atomic steps anyone can follow.
-- **Screenshots** — for any UI change.
-- **Risks** — what could break, mitigations.
-- **Checklist** — paired files, handoff, STATE update, tests, docs.
+- **What**: one paragraph user-visible summary.
+- **Why**: motivation; link spec / ADR / issue.
+- **How to test**: atomic steps anyone can follow.
+- **Screenshots**: for any UI change.
+- **Risks**: what could break, mitigations.
+- **Checklist**: paired files, handoff, STATE update, tests, docs.
 
 ## Paired files
 
@@ -27,14 +27,16 @@ Examples:
 
 ## Size cap
 
-| Bucket | LOC delta | Action |
-|---|---|---|
-| Small | ≤ 200 | OK |
-| Medium | 200–500 | OK; slow review |
-| Large | 500–1000 | Warn; justify in PR body |
-| XL | > 1000 | Block by `pr-checks.yml` `size-cap` job; split |
+Counts **lines added** (deletions are cheap to review; additions are the real burden).
 
-Generated files (lockfile, migrations `meta/`) excluded from count.
+| Bucket | Lines added | Action |
+|---|---|---|
+| Small | ≤ 300 | OK |
+| Medium | 300-800 | OK; slow review |
+| Large | 800-2000 | Warn; justify in PR body |
+| XL | > 2000 | Block by `pr-checks.yml` `size-cap` job; split |
+
+Generated/binary files (lockfile, migrations `meta/`, `*.svg`, `*.png`, `*.ico`) excluded from count.
 
 ## Handoff
 

@@ -7,11 +7,11 @@ created: 2026-05-03
 updated: 2026-05-03
 ---
 
-# SPEC-000 — Repo template
+# SPEC-000: Repo template
 
 > Canonical structure spec. The on-disk source of truth lives at the repo root as `repo-template.md` (when present); this file pins the same shape inside `docs/specs/` for spec-numbering and discoverability.
 
-This spec is **locked** — changes flow through ADRs in [`docs/adr/`](../adr/).
+This spec is **locked**: changes flow through ADRs in [`docs/adr/`](../adr/).
 
 ## Areas (all locked)
 
@@ -20,14 +20,14 @@ This spec is **locked** — changes flow through ADRs in [`docs/adr/`](../adr/).
 | 0 | Root | README, CLAUDE→AGENTS, ARCHITECTURE, CONTRIBUTING, VISION, STATE, CHANGELOG, SECURITY, LICENSE |
 | 1 | Docs | PRODUCT, SYSTEM, DESIGN-SYSTEM, DOMAIN + roadmap/specs/adr/runbooks/conventions/api |
 | 2 | Agents | `.claude/` (rules, commands, skills, agents, hooks, scripts), `.mcp.json`, `.planning/` |
-| 3 | GitHub | `.github/` — CODEOWNERS, dependabot, related-files, rulesets, ISSUE/PR templates, scripts, workflows |
+| 3 | GitHub | `.github/`: CODEOWNERS, dependabot, related-files, rulesets, ISSUE/PR templates, scripts, workflows |
 | 4 | Dotfiles | editorconfig, gitattributes, gitignore, mise, nvmrc, env.example, dockerignore, npmrc, release-please configs |
 | 5 | Build tooling | package.json, pnpm-workspace, tsconfig, next.config, eslint, biome, knip, postcss |
 | 6 | Quality gates | lefthook, commitlint, gitleaks |
 | 7 | Local dev | docker-compose + override stub, scripts/ (bootstrap, doctor, db-reset, tunnel) |
 | 8 | Deploy / IaC + Obs | sst.config, Dockerfile, infra/ stacks |
-| 9 | Database | db/ — drizzle config, init.sql, schema/, migrations/, seed |
-| 10 | App source | src/ — app router groups, components, features slices, server, lib, hooks, types, sentry, middleware + public/ |
+| 9 | Database | db/: drizzle config, init.sql, schema/, migrations/, seed |
+| 10 | App source | src/: app router groups, components, features slices, server, lib, hooks, types, sentry, proxy.ts (Next 16) + public/ |
 | 11 | Tests | vitest, playwright, tests/ (e2e, fixtures, helpers) |
 
 ## Conventions baked in

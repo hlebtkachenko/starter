@@ -42,8 +42,13 @@ Never hand-edit `migrations/meta/`.
 
 ## Zero-downtime policy
 
-Pre-PMF: maintenance window OK; brief lock acceptable.
-Post-PMF: pgroll layered for online migrations (Add-When-Pain — switch when first migration causes >30s lock).
+Today: maintenance window OK. Brief locks (sub-second) acceptable.
+
+Switch to pgroll for online migrations when **either** is true:
+- A migration in staging takes a measured lock > 5s (timed via `\timing` in `psql`).
+- A paid customer SLA forbids planned downtime.
+
+Until then, drizzle-kit's plain SQL is enough.
 
 ## Multi-tenancy via Better Auth org plugin
 
@@ -57,7 +62,7 @@ RDS Proxy day 1 (configured in `infra/db.ts`). App connects through proxy endpoi
 
 ## Extensions
 
-`init.sql` is the **strict minimum** — `pgmq` + `citext`. New extensions land via numbered migrations:
+`init.sql` is the **strict minimum**: `pgmq` + `citext`. New extensions land via numbered migrations:
 
 ```sql
 -- 0NNN_enable_<extension>.sql

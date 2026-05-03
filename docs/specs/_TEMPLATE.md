@@ -7,7 +7,7 @@ created: YYYY-MM-DD
 updated: YYYY-MM-DD
 ---
 
-# SPEC-NNN — <title>
+# SPEC-NNN: <title>
 
 ## Problem
 

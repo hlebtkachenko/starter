@@ -18,7 +18,7 @@ Each file exports the resources downstream stacks reference.
 | `staging` | RDS t4g.small | Lambda | `staging.<domain>` | no | 7 days | remove |
 | `prod` | RDS m7g.large | Lambda + Fargate fallback | `app.<domain>` | yes | 30 days | retain |
 
-Apex `<domain>` and `www.<domain>` host the marketing site externally — not managed here.
+Apex `<domain>` and `www.<domain>` host the marketing site externally: not managed here.
 
 ## Bootstrap order
 
@@ -26,7 +26,7 @@ See [`docs/runbooks/aws-bootstrap.md`](../docs/runbooks/aws-bootstrap.md) for fi
 
 ## SMTP
 
-Mailbox-keyed transports — one mailbox per purpose. Repo-instance picks an SMTP provider; this scaffold targets a generic SMTP/465 SSL flow:
+Mailbox-keyed transports: one mailbox per purpose. Repo-instance picks an SMTP provider; this scaffold targets a generic SMTP/465 SSL flow:
 
 | Mailbox purpose | Default address | Used by |
 |---|---|---|
@@ -68,7 +68,11 @@ Extend by adding to `monitoring.ts` + entry in [`docs/runbooks/`](../docs/runboo
 
 ## WAF
 
-Add-When-Pain. Enable when first paid customer or first abuse incident.
+Not provisioned. Enable when **either** is true:
+- A request from a single IP exceeds the per-IP rate limit by 10x for an hour (signal: `rate_limit.exceeded` count in CloudWatch).
+- A paid customer SLA requires WAF in their security review.
+
+Until then: per-IP rate limit in `src/lib/rate-limit.ts` is the only abuse defense.
 
 ## OIDC trust
 

@@ -39,11 +39,7 @@ export function action<I extends z.ZodTypeAny, O>(
       const data = await fn(parsed.data, ctx);
       return { data };
     } catch (err) {
-      if (
-        err instanceof Error &&
-        "code" in err &&
-        typeof err.code === "string"
-      ) {
+      if (err instanceof Error && "code" in err && typeof err.code === "string") {
         return { error: { code: err.code, message: err.message } };
       }
       return {

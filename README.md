@@ -21,14 +21,14 @@ Full bootstrap: `bash scripts/bootstrap.sh` · diagnose: `bash scripts/doctor.sh
 
 | Dir | Purpose |
 |---|---|
-| `src/` | App source (Next App Router, features, lib) — Area 10 |
-| `db/` | Drizzle schema + migrations + seed — Area 9 |
-| `infra/` | SST stacks (web, db, iam, dns, monitoring) — Area 8 |
-| `docs/` | Authoritative docs (specs, ADRs, runbooks, conventions, api) — Area 1 |
-| `.claude/` | Agent config (rules, commands, skills, agents, hooks) — Area 2 |
-| `.github/` | CI, CODEOWNERS, rulesets, workflows — Area 3 |
-| `scripts/` | Local dev utilities (bootstrap, doctor, db-reset) — Area 7 |
-| `tests/` | E2E (Playwright), fixtures, helpers — Area 11 |
+| `src/` | App source (Next App Router, features, lib): Area 10 |
+| `db/` | Drizzle schema + migrations + seed: Area 9 |
+| `infra/` | SST stacks (web, db, iam, dns, monitoring): Area 8 |
+| `docs/` | Authoritative docs (specs, ADRs, runbooks, conventions, api): Area 1 |
+| `.claude/` | Agent config (rules, commands, skills, agents, hooks): Area 2 |
+| `.github/` | CI, CODEOWNERS, rulesets, workflows: Area 3 |
+| `scripts/` | Local dev utilities (bootstrap, doctor, db-reset): Area 7 |
+| `tests/` | E2E (Playwright), fixtures, helpers: Area 11 |
 | `.planning/` | GSD throwaway, deleted at v1.01.000 |
 
 Full structure: [`docs/specs/000-REPO-TEMPLATE.md`](docs/specs/000-REPO-TEMPLATE.md)

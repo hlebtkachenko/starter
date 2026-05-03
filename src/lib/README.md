@@ -17,7 +17,7 @@
 
 ## Env
 
-Consumers import the typed `env` symbol — never `process.env` directly:
+Consumers import the typed `env` symbol: never `process.env` directly:
 
 ```ts
 import { env } from "@/lib/env";

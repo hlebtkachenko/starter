@@ -1,42 +1,43 @@
 # State
 
 **Last updated:** 2026-05-03
-**Branch:** `<git-user>/repo-restructure`
-**Last commit marker:** initial scaffold
+**Branch:** master (between PRs)
+**Last shipped:** PR #1 scaffold + PR #6 scaffold polish
 
 ## Current milestone
 
-[`MILESTONE-001-scaffold`](docs/roadmap/milestones/MILESTONE-001-scaffold.md) — establish repo template, lock all 11 areas, prepare for SaaS feature work.
+[`MILESTONE-001-scaffold`](docs/roadmap/milestones/MILESTONE-001-scaffold.md): scaffold landed, now polished. Closes when ADR-001 (license), ADR-002 (Drizzle), and Better Auth bootstrap PRs ship.
 
 ## Top priorities
 
-1. Land repo restructure (this branch).
-2. Fill ADR-001 (license decision).
-3. Fill ADR-002 (Drizzle vs Prisma — Drizzle confirmed; record).
-4. Implement Better Auth + org plugin (first real feature).
+1. ADR-001: lock license decision.
+2. ADR-002: record Drizzle vs Prisma choice (Drizzle).
+3. Install dependency batch (Sentry, Drizzle, Better Auth, vitest, sst, lefthook, biome) and remove stubs in `src/lib/*`.
+4. Replace template placeholders (`<git-user>`, `<domain>`, `<aws-region>`, `<smtp-provider>`, `<project-name>`, `<legal-entity>`).
+5. Implement Better Auth + organization plugin (first real feature).
 
 ## In flight
 
-- Repo restructure to template (this branch).
+- (idle between sessions)
 
 ## KPIs snapshot
 
 | Metric | Target | Now |
 |---|---|---|
 | Active orgs | 1 (demo) | 0 |
-| MRR | – | – |
-| Uptime | 99.9% | – (pre-deploy) |
-| p99 latency | <500ms | – |
+| MRR | (post-pricing) | – |
+| Uptime | 99.9% | (pre-deploy) |
+| p99 latency | <500ms | (pre-deploy) |
 
 ## Top blockers
 
-- None — pre-PMF. Block list reactivates after first deploy.
+- None. Pre-PMF; block list activates after first deploy.
 
 ## Active handoffs
 
 | Branch | Owner | Status |
 |---|---|---|
-| `<git-user>/repo-restructure` | maintainer | in-flight |
+| (none) | – | – |
 
 ## Last 5 ADRs
 
@@ -44,4 +45,4 @@ See [`docs/adr/README.md`](docs/adr/README.md). None accepted yet.
 
 ## Next concrete step
 
-Verify build + push branch + open PR.
+Open ADR-001 (license).

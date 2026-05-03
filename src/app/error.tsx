@@ -19,9 +19,7 @@ export default function Error({
     <main className="flex min-h-[60vh] flex-col items-center justify-center gap-4 p-8">
       <h2 className="text-xl font-semibold">Something went wrong.</h2>
       {error.digest ? (
-        <p className="text-sm text-[var(--muted-foreground)]">
-          Reference: {error.digest}
-        </p>
+        <p className="text-sm text-[var(--muted-foreground)]">Reference: {error.digest}</p>
       ) : null}
       <button
         type="button"

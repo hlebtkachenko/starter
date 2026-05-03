@@ -6,7 +6,7 @@
 
 ## Wedge
 
-**Who:** <specific persona — role, company size, geography>
+**Who:** <specific persona: role, company size, geography>
 **What jobs:** <2-3 jobs-to-be-done they hire us for>
 
 ## Solution thesis
@@ -29,7 +29,7 @@
 
 ## North star
 
-<one number, one definition, one cadence — e.g., "weekly active org count, queried Mondays">
+<one number, one definition, one cadence: e.g., "weekly active org count, queried Mondays">
 
 ## 3-year picture
 

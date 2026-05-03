@@ -1,29 +1,22 @@
 # Project commands
 
-> Repo-local slash commands. Invoked as `/<name>` in Claude Code.
+> Repo-local slash commands. Invoked as `/<name>`.
 
-## Format
+## Style
 
-Markdown file with YAML frontmatter:
-
-```yaml
----
-name: <kebab-name>
-description: <one-line>
-args: optional | required | none
----
-```
-
-Body: numbered steps the agent follows + expected output / verification.
+Imperative. Steps are atomic actions, not narration. Always end with one verify command. State pre-conditions and side effects so the human can decide whether to run.
 
 ## Index
 
 | Command | Purpose |
 |---|---|
-| (none yet — copy `_TEMPLATE.md` to add) | – |
+| (none yet: copy `_TEMPLATE.md`) | – |
 
-## Conventions
+## Planned roster
 
-- Filename matches `name` frontmatter.
-- Imperative tone in steps.
-- Always end with a verify step (curl, test, status check).
+| Command | Purpose |
+|---|---|
+| `/db-migrate` | `pnpm db:migrate` against current `DATABASE_URL` |
+| `/seed` | Reset + reseed local DB (`bash scripts/db-reset.sh --yes`) |
+| `/handoff` | Refresh `docs/roadmap/handoffs/HANDOFF-<branch>.md` from current state |
+| `/ship` | Open PR for current branch with conventional title + filled template |

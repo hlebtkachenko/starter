@@ -1,68 +1,39 @@
 version: 2
 
+# Monthly cadence: pre-PMF this repo doesn't need weekly bump churn.
+# Bump to weekly once we have paying customers + on-call rotation.
+
 updates:
   - package-ecosystem: npm
     directory: "/"
     schedule:
-      interval: weekly
+      interval: monthly
       day: monday
       time: "06:00"
       timezone: Europe/Prague
-    open-pull-requests-limit: 10
+    open-pull-requests-limit: 3
     commit-message:
       prefix: "chore(deps)"
       prefix-development: "chore(deps-dev)"
     versioning-strategy: increase
     groups:
-      next:
-        patterns:
-          - "next"
-          - "next-*"
-          - "eslint-config-next"
-          - "@next/*"
-      react:
-        patterns:
-          - "react"
-          - "react-dom"
-          - "@types/react*"
-      tailwind:
-        patterns:
-          - "tailwindcss"
-          - "@tailwindcss/*"
+      runtime:
+        applies-to: version-updates
+        update-types: [minor, patch]
+        patterns: ["*"]
+        exclude-patterns: ["@types/*", "eslint*", "@biomejs/*", "vitest", "@vitest/*", "@playwright/*", "knip", "lefthook", "@commitlint/*", "typescript"]
       tooling:
-        patterns:
-          - "typescript"
-          - "@biomejs/biome"
-          - "knip"
-          - "eslint*"
-          - "@commitlint/*"
-          - "lefthook"
-      drizzle:
-        patterns:
-          - "drizzle-orm"
-          - "drizzle-kit"
-          - "postgres"
-      sst:
-        patterns:
-          - "sst"
-          - "@aws-sdk/*"
-      sentry:
-        patterns:
-          - "@sentry/*"
-      testing:
-        patterns:
-          - "vitest"
-          - "@vitest/*"
-          - "@playwright/test"
-          - "@axe-core/*"
+        applies-to: version-updates
+        update-types: [minor, patch]
+        patterns: ["@types/*", "eslint*", "@biomejs/*", "vitest", "@vitest/*", "@playwright/*", "knip", "lefthook", "@commitlint/*", "typescript"]
 
   - package-ecosystem: github-actions
     directory: "/"
     schedule:
-      interval: weekly
+      interval: monthly
+    open-pull-requests-limit: 1
     commit-message:
       prefix: "ci(deps)"
     groups:
       actions:
-        patterns:
-          - "*"
+        patterns: ["*"]

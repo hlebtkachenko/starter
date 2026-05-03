@@ -19,36 +19,35 @@ Wire format identical for HTTP responses and serialized server-action errors.
 
 ## Code namespace
 
-`<area>.<reason>` — examples:
+`<area>.<reason>`. snake_case. Stable across releases; renaming is a breaking change.
+
+Codes shipped today (only the ones referenced from code in this repo right now):
 
 | Code | When |
 |---|---|
-| `auth.unauthenticated` | No valid session |
-| `auth.forbidden` | Authed but role / RLS blocks |
-| `validation.failed` | zod parse error (details = issues) |
-| `org.not_found` | Org slug missing |
-| `org.limit_seats` | Org over plan seat limit |
-| `billing.webhook_signature_invalid` | Stripe signature mismatch |
-| `billing.subscription_required` | Feature gated by paid plan |
-| `rate_limit.exceeded` | Rate limiter rejected |
-| `server.internal` | Unhandled (also reported to Sentry) |
-| `dependency.unavailable` | DB / external down (used by `/api/ready`) |
+| `validation.failed` | zod parse failed (details = zod issues) |
+| `server.internal` | Unhandled error in a wrapper (also reported to Sentry once Sentry is wired) |
+| `dependency.unavailable` | `/api/ready` saw a dependency down |
 
-New codes added by feature; document in feature `schema.ts` next to the error class.
+Codes ship as the matching feature lands. Each new code is documented next to its `AppError` call site in the feature `schema.ts`.
+
+Forward-looking namespaces (not yet shipped, listed here so the namespace is reserved):
+`auth.*`, `org.*`, `billing.*`, `rate_limit.*`.
 
 ## HTTP status mapping
 
-| Status | Codes that produce it |
+The wrapper in `src/server/api.ts` resolves `AppError.code` to a status by suffix or prefix:
+
+| Code pattern | Status |
 |---|---|
-| 400 | `validation.*` |
-| 401 | `auth.unauthenticated` |
-| 403 | `auth.forbidden`, `billing.subscription_required` |
-| 404 | `*.not_found` |
-| 409 | `*.conflict` |
-| 422 | semantic validation (`org.limit_seats`) |
-| 429 | `rate_limit.*` |
-| 500 | `server.internal` |
-| 503 | `dependency.*` |
+| `validation.*` | 400 |
+| `auth.unauthenticated` | 401 |
+| `auth.forbidden`, `*.subscription_required` | 403 |
+| `*.not_found` | 404 |
+| `*.conflict` | 409 |
+| `rate_limit.*` | 429 |
+| `dependency.*` | 503 |
+| anything else | 500 |
 
 ## Producing
 

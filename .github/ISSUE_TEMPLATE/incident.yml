@@ -13,9 +13,9 @@ body:
     attributes:
       label: Severity
       options:
-        - P0 — total outage / data loss
-        - P1 — major degradation / revenue path broken
-        - P2 — partial degradation / workaround exists
+        - P0: total outage / data loss
+        - P1: major degradation / revenue path broken
+        - P2: partial degradation / workaround exists
       default: 1
     validations:
       required: true

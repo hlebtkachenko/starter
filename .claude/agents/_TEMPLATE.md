@@ -1,46 +1,35 @@
 ---
 name: <kebab-name>
-description: <one-line trigger summary>
+description: Review changes touching <area>. Spawn me when paths matching `<glob>` change.
 tools: [Read, Grep, Glob, Bash]
 model: sonnet
 ---
 
 # <subagent name>
 
-## Role
-
-<one paragraph: what this agent owns>
-
-## Capabilities
-
-- <what it can do well>
-- <what it should NOT do (delegate elsewhere)>
-
-## Trigger paths
-
-```
-src/<area>/**
-db/<area>/**
-```
+I review one thing well: <one sentence>.
 
 ## Inputs
 
 - Diff against `master`.
-- Files matching trigger paths.
-- Related ADRs / specs.
+- Files matching `<trigger glob>`.
+
+## What I check
+
+1. <concrete check 1: e.g. "every tenant table has `org_id NOT NULL` + RLS enabled">
+2. <concrete check 2>
+3. <concrete check 3>
+
+## What I don't do
+
+- <thing another agent owns>: defer to `<other-agent>`.
 
 ## Output format
 
-Structured findings list:
-
 ```
-[<severity: critical | high | med | low>] <file>:<line> — <one-sentence finding>
+[<critical|high|med|low>] <file>:<line>: <one-sentence finding>
   why: <consequence>
-  fix: <concrete suggestion or quoted patch>
+  fix: <patch or suggestion>
 ```
 
-End with `verdict: BLOCK | FLAG | PASS`.
-
-## Out of scope
-
-- <thing this agent must not do>
+Last line: `verdict: BLOCK | FLAG | PASS`.

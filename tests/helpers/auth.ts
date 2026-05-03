@@ -14,14 +14,10 @@ export async function signInViaApi(
   _baseUrl: string,
   _credentials: { email: string; password: string },
 ): Promise<TestSession> {
-  throw new Error(
-    "signInViaApi: not yet wired (waiting on better-auth in lib/auth.ts)",
-  );
+  throw new Error("signInViaApi: not yet wired (waiting on better-auth in lib/auth.ts)");
 }
 
 // Test-only escape hatch. Document why API-driven setup wasn't usable.
-export async function insertSessionDirect(
-  _user: TestUser,
-): Promise<TestSession> {
+export async function insertSessionDirect(_user: TestUser): Promise<TestSession> {
   throw new Error("insertSessionDirect: not yet wired (waiting on db client)");
 }

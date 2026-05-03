@@ -1,40 +1,28 @@
 # Project skills
 
-> Reusable agent skills scoped to this repo. Loaded on demand.
+> Reusable agent skills scoped to this repo. Folder-per-skill; main file is **`SKILL.md`**.
 
-## Format
+## Style
 
-Each skill lives in its own folder:
+Write skills like Karpathy: tiny scope, first-person voice, numbered procedural steps, concrete paths, idempotency notes. No scaffolding ceremony, no nested headers, no "When to use" / "When not to use" sections: let the `description` frontmatter trigger.
+
+Counter-examples to avoid:
+
+- Multi-section skills with "Overview", "Background", "Considerations".
+- Vague triggers ("use when working with X"). Pick a concrete signal.
+- Steps that aren't atomic actions ("set up the project").
+
+## Layout
 
 ```
 skills/<skill-name>/
-├── SKILL.md            # main file (frontmatter + body)
-├── references/         # optional: deep-dive docs loaded on demand
-└── assets/             # optional: scripts, templates the skill ships
+├── SKILL.md         # name + description frontmatter, then steps
+├── references/      # optional: docs loaded only when invoked
+└── assets/          # optional: scripts, templates the skill ships
 ```
-
-The main file is always **`SKILL.md`** (matches Anthropic convention; matches `_TEMPLATE/SKILL.md`).
-
-## SKILL.md frontmatter
-
-```yaml
----
-name: <skill-name>
-description: <one line — used to decide when to load>
-when_to_use: |
-  <multi-line trigger guidance for the agent>
----
-```
-
-Body: Steps, Examples, References, Pitfalls.
 
 ## Index
 
-| Skill | Purpose |
+| Skill | Trigger |
 |---|---|
-| (none yet — copy `_TEMPLATE/`) | – |
-
-## Conventions
-
-- Folder name matches `name` frontmatter.
-- Lazy-load: only the index reads frontmatter; full body loaded when invoked.
+| (none yet: copy `_TEMPLATE/`) | – |

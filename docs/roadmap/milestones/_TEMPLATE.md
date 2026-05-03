@@ -6,7 +6,7 @@ target_date: YYYY-MM
 theme: <quarter theme>
 ---
 
-# MILESTONE-NNN — <name>
+# MILESTONE-NNN: <name>
 
 ## Goal
 

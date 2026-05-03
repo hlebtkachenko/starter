@@ -2,7 +2,7 @@
 #
 # Note: commands call binaries directly (`biome`, `eslint`) instead of `pnpm exec ...`
 # to keep `{staged_files}` interpolation correct. Wrapping in a pnpm script swallows the
-# argument list — accepted exception per advisor verdict F12.
+# argument list: accepted exception per advisor verdict F12.
 
 pre-commit:
   parallel: true

@@ -15,7 +15,7 @@ severity: block
 
 ## shadcn primitives copy-pasted, not forked
 
-- Components in `src/components/ui/` are owned source — re-paste from upstream when needed; do not publish to npm.
+- Components in `src/components/ui/` are owned source: re-paste from upstream when needed; do not publish to npm.
 - Variants via `cva`. Composition via Radix `Slot` (`asChild`).
 
 ## No inline styles

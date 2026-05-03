@@ -34,7 +34,7 @@ No public proof-of-concept exploits before fix is shipped.
 
 **Out of scope**
 
-- Third-party providers (Stripe, AWS, Sentry, SMTP) — report directly to vendor.
+- Third-party providers (Stripe, AWS, Sentry, SMTP): report directly to vendor.
 - Findings against `staging.<domain>` (use scope only as testbed; production findings preferred).
 - DoS, volumetric attacks.
 - Social engineering of staff.

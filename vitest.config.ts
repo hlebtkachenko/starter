@@ -10,10 +10,7 @@ export default defineConfig({
         test: {
           name: "ui",
           environment: "jsdom",
-          include: [
-            "src/components/**/*.test.{ts,tsx}",
-            "src/hooks/**/*.test.{ts,tsx}",
-          ],
+          include: ["src/components/**/*.test.{ts,tsx}", "src/hooks/**/*.test.{ts,tsx}"],
           setupFiles: ["./tests/helpers/setup-ui.ts"],
         },
       },

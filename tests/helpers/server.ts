@@ -1,7 +1,7 @@
 // Spawn an isolated test server on a separate port. Used when a test needs a fresh
 // Next runtime (e.g., to assert middleware behavior with a custom env).
 //
-// Most tests should NOT need this — Playwright's `webServer` config covers the
+// Most tests should NOT need this: Playwright's `webServer` config covers the
 // common case. Use this only when isolation is unavoidable.
 
 import { type ChildProcess, spawn } from "node:child_process";
@@ -40,7 +40,5 @@ async function waitFor(url: string, timeoutMs = 30_000): Promise<void> {
     }
     await new Promise((r) => setTimeout(r, 250));
   }
-  throw new Error(
-    `server at ${url} did not become ready within ${timeoutMs}ms`,
-  );
+  throw new Error(`server at ${url} did not become ready within ${timeoutMs}ms`);
 }

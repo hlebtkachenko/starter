@@ -1,6 +1,6 @@
 name: handoff-cleanup
 
-# LATER — failsafe. Primary cleanup happens at merge via the squash-commit
+# LATER: failsafe. Primary cleanup happens at merge via the squash-commit
 # stripping the handoff. This workflow catches drift if the handoff was
 # left behind in a follow-up commit on master.
 

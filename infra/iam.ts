@@ -26,11 +26,8 @@ const trustPolicy = aws.iam.getPolicyDocumentOutput({
         {
           test: "StringLike",
           variable: "token.actions.githubusercontent.com:sub",
-          // master for prod; any branch for staging — split if blast radius requires
-          values: [
-            `repo:${repo}:ref:refs/heads/master`,
-            `repo:${repo}:pull_request`,
-          ],
+          // master for prod; any branch for staging: split if blast radius requires
+          values: [`repo:${repo}:ref:refs/heads/master`, `repo:${repo}:pull_request`],
         },
       ],
     },

@@ -1,7 +1,7 @@
 import "server-only";
 
 // Token bucket on a Postgres counter table. Shared across Lambda instances.
-// pgmq is reserved for jobs — not counters.
+// pgmq is reserved for jobs: not counters.
 //
 // Stub until db client + counter table land.
 
@@ -15,9 +15,7 @@ export type RateLimitResult =
   | { ok: true; remaining: number; reset_at: number }
   | { ok: false; limit: number; reset_at: number };
 
-export async function rateLimit(
-  _input: RateLimitInput,
-): Promise<RateLimitResult> {
+export async function rateLimit(_input: RateLimitInput): Promise<RateLimitResult> {
   // TODO: implement against rate_limit_counters table.
   return {
     ok: true,

@@ -1,7 +1,7 @@
 /// <reference path="./.sst/platform/config.d.ts" />
 
 // SST entry. Stages: per-dev (`<user>`), `staging`, `prod`.
-// Resources defined in infra/* — composed here.
+// Resources defined in infra/*: composed here.
 
 export default $config({
   app(input) {

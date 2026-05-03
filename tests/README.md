@@ -10,7 +10,7 @@
 | Integration | `src/features/**/*.test.ts` (real Postgres via `withRollbackTx`) | Vitest |
 | E2E (critical flows) | `tests/e2e/*.spec.ts` | Playwright |
 
-There is **no `tests/integration/`** directory — integration tests live with the feature they cover. This keeps "what to mock vs hit the DB" close to the code that decides.
+There is **no `tests/integration/`** directory: integration tests live with the feature they cover. This keeps "what to mock vs hit the DB" close to the code that decides.
 
 ## DB rule
 
@@ -26,7 +26,7 @@ The wrapper opens a transaction, runs the test body, rolls back. No leaked rows.
 
 ## Fixtures
 
-`tests/fixtures/*.ts` — typed against `@/db/schema` so they never drift. Importable from Vitest **and** Playwright. Prefer TS over JSON for type safety.
+`tests/fixtures/*.ts`: typed against `@/db/schema` so they never drift. Importable from Vitest **and** Playwright. Prefer TS over JSON for type safety.
 
 ## Helpers
 

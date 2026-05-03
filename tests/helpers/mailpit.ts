@@ -33,9 +33,7 @@ export async function findMessageTo(
   );
 }
 
-export async function getMessageBody(
-  id: string,
-): Promise<{ html?: string; text?: string }> {
+export async function getMessageBody(id: string): Promise<{ html?: string; text?: string }> {
   const res = await fetch(`${MAILPIT_API}/message/${id}`);
   if (!res.ok) throw new Error(`mailpit get failed: ${res.status}`);
   const json = (await res.json()) as { HTML?: string; Text?: string };

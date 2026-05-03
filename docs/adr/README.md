@@ -1,4 +1,4 @@
-# ADR — Architecture Decision Records
+# ADR: Architecture Decision Records
 
 > Immutable log of accepted architectural decisions. Format: [MADR 4.0](https://adr.github.io/madr/).
 
@@ -16,7 +16,7 @@ proposed → accepted → superseded | deprecated
 ```
 
 - `proposed` may be edited freely.
-- `accepted` is **append-only** — change only by writing a new ADR that supersedes.
+- `accepted` is **append-only**: change only by writing a new ADR that supersedes.
 - `superseded` records the superseding ADR number in frontmatter.
 
 ## When to write an ADR

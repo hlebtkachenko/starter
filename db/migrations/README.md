@@ -17,7 +17,7 @@ pnpm db:migrate             # applies pending migrations
 
 Once a migration is **on `master`**, never edit it. Mistakes get a new migration.
 
-Pre-merge edits are fine — drop the file and re-generate, or hand-tweak the SQL.
+Pre-merge edits are fine: drop the file and re-generate, or hand-tweak the SQL.
 
 ## Hand-edit exceptions
 
@@ -49,7 +49,7 @@ git checkout master -- db/migrations/meta
 pnpm db:generate           # regenerate against current snapshot
 ```
 
-## meta/ — auto-managed
+## meta/: auto-managed
 
 `meta/` holds drizzle-kit's snapshot + journal. **Never hand-edit.** Always commit alongside the SQL change.
 

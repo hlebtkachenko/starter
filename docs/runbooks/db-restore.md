@@ -22,7 +22,7 @@ related_adrs: []
 ## Diagnosis
 
 1. Identify time T just before damage.
-2. `aws rds describe-db-instances --db-instance-identifier <id>` — confirm PITR window covers T.
+2. `aws rds describe-db-instances --db-instance-identifier <id>`: confirm PITR window covers T.
 3. Decide: PITR to new instance vs snapshot restore vs targeted backfill.
 
 ## Mitigation
@@ -66,4 +66,4 @@ App: `/api/ready` returns 200; tenant isolation spot-check via two seeded orgs.
 
 - File post-mortem.
 - If a migration caused it, add backfill + safety check to `db/migrations/README.md` exceptions list.
-- Drill this runbook quarterly — update `last_drilled`.
+- Drill this runbook quarterly: update `last_drilled`.

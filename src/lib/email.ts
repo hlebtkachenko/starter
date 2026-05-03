@@ -1,6 +1,6 @@
 import "server-only";
 
-// Mailbox-keyed transports. Provider-agnostic — SMTP creds resolved from env / Secrets Manager.
+// Mailbox-keyed transports. Provider-agnostic: SMTP creds resolved from env / Secrets Manager.
 // Local dev points at mailpit (no auth, port 1025).
 
 // Stub until nodemailer is installed.

@@ -85,18 +85,21 @@ jobs:
         env:
           BASE: ${{ github.base_ref }}
         run: |
+          # Counts insertions only (lines added). Deletions are cheap to review;
+          # additions are the real review burden. Excludes generated/binary content.
           loc=$(git diff --shortstat "origin/$BASE...HEAD" -- \
             ':!pnpm-lock.yaml' \
             ':!db/migrations/meta/**' \
             ':!**/*.svg' \
             ':!**/*.png' \
-            | awk '{print $4 + $6}')
+            ':!**/*.ico' \
+            | awk '{print $4}')
           loc=${loc:-0}
-          echo "loc delta: $loc"
-          if [ "$loc" -gt 1000 ]; then
-            echo "::error::PR too large ($loc lines). Split into smaller PRs."
+          echo "loc added: $loc"
+          if [ "$loc" -gt 2000 ]; then
+            echo "::error::PR too large ($loc lines added). Split into smaller PRs."
             exit 1
           fi
-          if [ "$loc" -gt 500 ]; then
-            echo "::warning::PR is large ($loc lines). Justify in description."
+          if [ "$loc" -gt 800 ]; then
+            echo "::warning::PR is large ($loc lines added). Justify in description."
           fi

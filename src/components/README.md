@@ -21,7 +21,7 @@
 ## Adding a primitive
 
 1. `pnpm dlx shadcn@latest add <component>` (or copy from upstream).
-2. Re-paste — do not import from a fork.
+2. Re-paste: do not import from a fork.
 3. Adapt to project tokens (replace `oklch` references with our hex CSS vars).
 4. Add to design system map in [`docs/DESIGN-SYSTEM.md`](../../docs/DESIGN-SYSTEM.md).
 

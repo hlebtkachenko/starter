@@ -46,4 +46,13 @@ jobs:
       - run: pnpm typecheck
       - run: pnpm knip || true   # warn day 1
       - run: pnpm build
-      - run: pnpm test --run --coverage
+
+      # Tests step gated on vitest being installed. The first feature PR that
+      # adds vitest unlocks coverage enforcement; until then the step is a no-op.
+      - name: tests (gated on vitest install)
+        run: |
+          if [ -x node_modules/.bin/vitest ]; then
+            pnpm test --run --coverage
+          else
+            echo "vitest not installed yet; skipping. Add vitest with the first feature PR."
+          fi

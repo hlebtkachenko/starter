@@ -3,10 +3,10 @@ id: MILESTONE-001
 name: scaffold
 status: in-flight
 target_date: 2026-05
-theme: 2026 Q2 — Scaffold + auth + first paying org
+theme: 2026 Q2: Scaffold + auth + first paying org
 ---
 
-# MILESTONE-001 — Scaffold
+# MILESTONE-001: Scaffold
 
 ## Goal
 
