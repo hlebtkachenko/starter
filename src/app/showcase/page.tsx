@@ -40,7 +40,7 @@ export default function ShowcasePage() {
           ))}
         </nav>
       </header>
-      <main className="mx-auto max-w-6xl px-6 pb-24">
+      <main className="mx-auto max-w-6xl px-6 pb-24 pt-12">
         <Mounted>
           <InputsGroup />
           <DisplayGroup />

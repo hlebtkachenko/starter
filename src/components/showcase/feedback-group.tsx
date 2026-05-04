@@ -3,11 +3,20 @@
 import { CheckCircle2Icon, InfoIcon, TerminalIcon, TriangleAlertIcon } from "lucide-react";
 import { toast } from "sonner";
 
-import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
+import { Alert, AlertAction, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
 import { Toaster } from "@/components/ui/sonner";
 
 import { Demo, Section } from "./section";
+
+const POSITIONS = [
+  "top-left",
+  "top-center",
+  "top-right",
+  "bottom-left",
+  "bottom-center",
+  "bottom-right",
+] as const;
 
 export function FeedbackGroup() {
   return (
@@ -18,19 +27,11 @@ export function FeedbackGroup() {
     >
       <Toaster />
 
-      <Demo name="Alert — info">
+      <Demo name="Alert — basic">
         <Alert>
           <TerminalIcon />
           <AlertTitle>Heads up</AlertTitle>
           <AlertDescription>You can add components from the registry.</AlertDescription>
-        </Alert>
-      </Demo>
-
-      <Demo name="Alert — success">
-        <Alert>
-          <CheckCircle2Icon />
-          <AlertTitle>Saved</AlertTitle>
-          <AlertDescription>Your changes have been synced to the server.</AlertDescription>
         </Alert>
       </Demo>
 
@@ -42,24 +43,30 @@ export function FeedbackGroup() {
         </Alert>
       </Demo>
 
-      <Demo name="Alert — title only">
+      <Demo name="Alert — with action">
         <Alert>
           <InfoIcon />
-          <AlertTitle>Read-only mode is active</AlertTitle>
+          <AlertTitle>New version available</AlertTitle>
+          <AlertDescription>v3.0 is out with redesigned AI.</AlertDescription>
+          <AlertAction>
+            <Button size="sm" variant="outline">
+              Update
+            </Button>
+          </AlertAction>
         </Alert>
       </Demo>
 
-      <Demo name="Toast — basic">
-        <Button onClick={() => toast("Event has been created.")}>Show toast</Button>
-        <Button
-          variant="outline"
-          onClick={() => toast("Event scheduled.", { description: "Friday, 3:00 PM" })}
-        >
-          With description
-        </Button>
+      <Demo name="Alert — custom colors">
+        <Alert className="border-emerald-200 bg-emerald-50 text-emerald-950 dark:border-emerald-900 dark:bg-emerald-950/40 dark:text-emerald-100">
+          <CheckCircle2Icon />
+          <AlertTitle>Saved</AlertTitle>
+          <AlertDescription>All changes synced.</AlertDescription>
+        </Alert>
       </Demo>
 
-      <Demo name="Toast — variants">
+      {/* Sonner */}
+      <Demo name="Toast — types">
+        <Button onClick={() => toast("Event has been created.")}>Default</Button>
         <Button
           variant="outline"
           onClick={() => toast.success("Saved.", { description: "All changes synced." })}
@@ -84,19 +91,6 @@ export function FeedbackGroup() {
         >
           Error
         </Button>
-      </Demo>
-
-      <Demo name="Toast — with action / promise">
-        <Button
-          variant="outline"
-          onClick={() =>
-            toast("Email archived.", {
-              action: { label: "Undo", onClick: () => toast("Restored.") },
-            })
-          }
-        >
-          With action
-        </Button>
         <Button
           variant="outline"
           onClick={() =>
@@ -109,6 +103,41 @@ export function FeedbackGroup() {
         >
           Promise
         </Button>
+      </Demo>
+
+      <Demo name="Toast — description / action">
+        <Button
+          variant="outline"
+          onClick={() => toast("Event scheduled.", { description: "Friday, 3:00 PM" })}
+        >
+          With description
+        </Button>
+        <Button
+          variant="outline"
+          onClick={() =>
+            toast("Email archived.", {
+              action: { label: "Undo", onClick: () => toast("Restored.") },
+            })
+          }
+        >
+          With action
+        </Button>
+      </Demo>
+
+      <Demo name="Toast — position" span={2}>
+        <p className="w-full text-xs text-muted-foreground">
+          Click any position to fire a toast there.
+        </p>
+        {POSITIONS.map((p) => (
+          <Button
+            key={p}
+            variant="outline"
+            size="sm"
+            onClick={() => toast(`Position: ${p}`, { position: p })}
+          >
+            {p}
+          </Button>
+        ))}
       </Demo>
     </Section>
   );

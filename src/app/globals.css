@@ -9,7 +9,7 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-  --font-heading: var(--font-geist-sans);
+  --font-heading: "Roobert", "Roobert PRO", var(--font-geist-sans), system-ui, sans-serif;
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -126,5 +126,55 @@
   }
   html {
     @apply font-sans;
+  }
+}
+
+/* Roobert local + bundled fallback. Drop woff2 files in public/fonts/ to enable. */
+@font-face {
+  font-family: "Roobert";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local("Roobert"), local("Roobert PRO"), url("/fonts/Roobert-Regular.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Roobert";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: local("Roobert SemiBold"), local("Roobert PRO SemiBold"), url("/fonts/Roobert-SemiBold.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Roobert";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: local("Roobert Bold"), local("Roobert PRO Bold"), url("/fonts/Roobert-Bold.woff2") format("woff2");
+}
+
+/* Animated conic gradient border for /login-3 AI block. */
+@property --login3-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+@keyframes login3-rotate-angle {
+  to {
+    --login3-angle: 360deg;
+  }
+}
+.login3-ai-border {
+  background: conic-gradient(
+    from var(--login3-angle),
+    #6366f1 0deg,
+    #ec4899 120deg,
+    #f59e0b 240deg,
+    #6366f1 360deg
+  );
+  animation: login3-rotate-angle 8s linear infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .login3-ai-border {
+    animation: none;
   }
 }

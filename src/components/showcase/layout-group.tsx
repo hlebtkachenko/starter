@@ -1,6 +1,16 @@
 "use client";
 
-import { ChevronsUpDownIcon, FolderIcon, HomeIcon, InboxIcon, SettingsIcon } from "lucide-react";
+import {
+  ChevronRightIcon,
+  ChevronsUpDownIcon,
+  FileTextIcon,
+  FolderIcon,
+  HomeIcon,
+  InboxIcon,
+  PlusIcon,
+  SettingsIcon,
+  UserIcon,
+} from "lucide-react";
 import { useState } from "react";
 
 import {
@@ -16,14 +26,19 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 import {
   Sidebar,
   SidebarContent,
+  SidebarFooter,
   SidebarGroup,
   SidebarGroupContent,
   SidebarGroupLabel,
   SidebarHeader,
   SidebarInset,
   SidebarMenu,
+  SidebarMenuAction,
   SidebarMenuButton,
   SidebarMenuItem,
+  SidebarMenuSub,
+  SidebarMenuSubButton,
+  SidebarMenuSubItem,
   SidebarProvider,
   SidebarTrigger,
 } from "@/components/ui/sidebar";
@@ -41,7 +56,8 @@ export function LayoutGroup() {
       title="Layout"
       description="Accordion, collapsible, resizable, scroll area, sidebar."
     >
-      <Demo name="Accordion — single">
+      {/* Accordion */}
+      <Demo name="Accordion — basic">
         <Accordion type="single" collapsible className="w-full">
           <AccordionItem value="a">
             <AccordionTrigger>Is it accessible?</AccordionTrigger>
@@ -71,7 +87,36 @@ export function LayoutGroup() {
         </Accordion>
       </Demo>
 
-      <Demo name="Collapsible">
+      <Demo name="Accordion — disabled">
+        <Accordion type="single" collapsible className="w-full">
+          <AccordionItem value="a">
+            <AccordionTrigger>Active</AccordionTrigger>
+            <AccordionContent>This item works.</AccordionContent>
+          </AccordionItem>
+          <AccordionItem value="b" disabled>
+            <AccordionTrigger>Disabled</AccordionTrigger>
+            <AccordionContent>Can&apos;t open.</AccordionContent>
+          </AccordionItem>
+        </Accordion>
+      </Demo>
+
+      <Demo name="Accordion — borders / card">
+        <Accordion
+          type="single"
+          collapsible
+          className="w-full divide-y rounded-[var(--radius)] border border-border"
+        >
+          {[1, 2, 3].map((i) => (
+            <AccordionItem key={i} value={`card-${i}`} className="border-b-0 px-4">
+              <AccordionTrigger>Card section {i}</AccordionTrigger>
+              <AccordionContent>Body of section {i}.</AccordionContent>
+            </AccordionItem>
+          ))}
+        </Accordion>
+      </Demo>
+
+      {/* Collapsible */}
+      <Demo name="Collapsible — basic">
         <Collapsible open={open} onOpenChange={setOpen} className="w-full">
           <div className="flex items-center justify-between rounded-[var(--radius)] border border-border px-4 py-3">
             <span className="text-sm font-medium">@hlebtkachenko starred 3 repos</span>
@@ -95,6 +140,53 @@ export function LayoutGroup() {
         </Collapsible>
       </Demo>
 
+      <Demo name="Collapsible — settings panel">
+        <Collapsible className="w-full" defaultOpen>
+          <CollapsibleTrigger asChild>
+            <Button variant="ghost" className="w-full justify-between font-medium">
+              Advanced settings
+              <ChevronsUpDownIcon className="size-4" />
+            </Button>
+          </CollapsibleTrigger>
+          <CollapsibleContent className="mt-2 space-y-2 rounded-[var(--radius)] border border-border p-3 text-sm">
+            <p className="text-muted-foreground">Toggles for power users only.</p>
+            <p>Experimental flags: 2</p>
+            <p>Feature gates: 4</p>
+          </CollapsibleContent>
+        </Collapsible>
+      </Demo>
+
+      <Demo name="Collapsible — file tree">
+        <div className="w-full text-sm">
+          <Collapsible defaultOpen>
+            <CollapsibleTrigger className="flex w-full items-center gap-1 rounded-md px-2 py-1 hover:bg-accent">
+              <ChevronRightIcon className="size-3.5 transition-transform data-[state=open]:rotate-90" />
+              <FolderIcon className="size-4" /> src
+            </CollapsibleTrigger>
+            <CollapsibleContent className="ml-4">
+              <Collapsible defaultOpen>
+                <CollapsibleTrigger className="flex w-full items-center gap-1 rounded-md px-2 py-1 hover:bg-accent">
+                  <ChevronRightIcon className="size-3.5 transition-transform data-[state=open]:rotate-90" />
+                  <FolderIcon className="size-4" /> components
+                </CollapsibleTrigger>
+                <CollapsibleContent className="ml-4">
+                  <div className="flex items-center gap-1 rounded-md px-2 py-1 hover:bg-accent">
+                    <FileTextIcon className="size-4" /> button.tsx
+                  </div>
+                  <div className="flex items-center gap-1 rounded-md px-2 py-1 hover:bg-accent">
+                    <FileTextIcon className="size-4" /> card.tsx
+                  </div>
+                </CollapsibleContent>
+              </Collapsible>
+              <div className="flex items-center gap-1 rounded-md px-2 py-1 hover:bg-accent">
+                <FileTextIcon className="size-4" /> page.tsx
+              </div>
+            </CollapsibleContent>
+          </Collapsible>
+        </div>
+      </Demo>
+
+      {/* Scroll area */}
       <Demo name="Scroll area — vertical">
         <ScrollArea className="h-48 w-full rounded-[var(--radius)] border border-border p-3">
           {ITEMS.map((it) => (
@@ -106,7 +198,7 @@ export function LayoutGroup() {
       </Demo>
 
       <Demo name="Scroll area — horizontal">
-        <ScrollArea className="w-full whitespace-nowrap rounded-[var(--radius)] border border-border">
+        <div className="w-full overflow-x-auto whitespace-nowrap rounded-[var(--radius)] border border-border">
           <div className="flex gap-2 p-3">
             {Array.from({ length: 20 }, (_, i) => (
               <div
@@ -117,9 +209,10 @@ export function LayoutGroup() {
               </div>
             ))}
           </div>
-        </ScrollArea>
+        </div>
       </Demo>
 
+      {/* Resizable */}
       <Demo name="Resizable — horizontal" span={2}>
         <ResizablePanelGroup
           orientation="horizontal"
@@ -150,13 +243,33 @@ export function LayoutGroup() {
         </ResizablePanelGroup>
       </Demo>
 
-      <Demo name="Sidebar (mini)" span={3} height="tall">
-        <div className="h-80 w-full overflow-hidden rounded-[var(--radius)] border border-border">
+      <Demo name="Resizable — three-pane (handle)">
+        <ResizablePanelGroup
+          orientation="horizontal"
+          className="h-40 w-full rounded-[var(--radius)] border border-border"
+        >
+          <ResizablePanel defaultSize={25} className="grid place-items-center text-sm">
+            Nav
+          </ResizablePanel>
+          <ResizableHandle withHandle />
+          <ResizablePanel defaultSize={50} className="grid place-items-center text-sm">
+            Main
+          </ResizablePanel>
+          <ResizableHandle withHandle />
+          <ResizablePanel defaultSize={25} className="grid place-items-center text-sm">
+            Aside
+          </ResizablePanel>
+        </ResizablePanelGroup>
+      </Demo>
+
+      {/* Sidebar */}
+      <Demo name="Sidebar — default" span={3} height="tall">
+        <div className="relative h-80 w-full overflow-hidden rounded-[var(--radius)] border border-border [&_[data-slot=sidebar-container]]:!absolute [&_[data-slot=sidebar-container]]:!h-full [&_[data-slot=sidebar-container]]:!min-h-0">
           <SidebarProvider
             className="h-full min-h-0"
-            style={{ "--sidebar-width": "12rem" } as React.CSSProperties}
+            style={{ "--sidebar-width": "13rem" } as React.CSSProperties}
           >
-            <Sidebar collapsible="none" className="border-r border-border">
+            <Sidebar collapsible="icon">
               <SidebarHeader className="text-sm font-semibold">Acme Inc.</SidebarHeader>
               <SidebarContent>
                 <SidebarGroup>
@@ -164,38 +277,65 @@ export function LayoutGroup() {
                   <SidebarGroupContent>
                     <SidebarMenu>
                       <SidebarMenuItem>
-                        <SidebarMenuButton>
-                          <HomeIcon /> Home
+                        <SidebarMenuButton tooltip="Home">
+                          <HomeIcon />
+                          <span>Home</span>
                         </SidebarMenuButton>
                       </SidebarMenuItem>
                       <SidebarMenuItem>
-                        <SidebarMenuButton isActive>
-                          <InboxIcon /> Inbox
+                        <SidebarMenuButton isActive tooltip="Inbox">
+                          <InboxIcon />
+                          <span>Inbox</span>
                         </SidebarMenuButton>
+                        <SidebarMenuAction>
+                          <PlusIcon className="size-3.5" />
+                        </SidebarMenuAction>
                       </SidebarMenuItem>
                       <SidebarMenuItem>
-                        <SidebarMenuButton>
-                          <FolderIcon /> Projects
+                        <SidebarMenuButton tooltip="Projects">
+                          <FolderIcon />
+                          <span>Projects</span>
                         </SidebarMenuButton>
+                        <SidebarMenuSub>
+                          <SidebarMenuSubItem>
+                            <SidebarMenuSubButton>Phoenix</SidebarMenuSubButton>
+                          </SidebarMenuSubItem>
+                          <SidebarMenuSubItem>
+                            <SidebarMenuSubButton>Atlas</SidebarMenuSubButton>
+                          </SidebarMenuSubItem>
+                        </SidebarMenuSub>
                       </SidebarMenuItem>
                       <SidebarMenuItem>
-                        <SidebarMenuButton>
-                          <SettingsIcon /> Settings
+                        <SidebarMenuButton tooltip="Settings">
+                          <SettingsIcon />
+                          <span>Settings</span>
                         </SidebarMenuButton>
                       </SidebarMenuItem>
                     </SidebarMenu>
                   </SidebarGroupContent>
                 </SidebarGroup>
               </SidebarContent>
+              <SidebarFooter>
+                <SidebarMenuButton tooltip="Hleb">
+                  <UserIcon />
+                  <span>Hleb</span>
+                </SidebarMenuButton>
+              </SidebarFooter>
             </Sidebar>
             <SidebarInset className="flex flex-col">
-              <div className="flex items-center gap-2 border-b border-border p-2">
+              <div className="flex items-center gap-2 border-b border-border p-2 text-sm">
                 <SidebarTrigger />
-                <span className="text-sm">Main panel</span>
+                Main panel
               </div>
               <div className="flex-1 p-4 text-sm text-muted-foreground">
-                Content area. Use Sidebar with `collapsible=&quot;icon&quot;` or
-                `collapsible=&quot;offcanvas&quot;` in real apps.
+                Native shadcn{" "}
+                <code className="rounded bg-muted px-1">collapsible=&quot;icon&quot;</code>. Default
+                uses <code className="rounded bg-muted px-1">position: fixed</code> for full-page
+                apps; this demo scopes it to the card via{" "}
+                <code className="rounded bg-muted px-1">
+                  [data-slot=sidebar-container]:!absolute
+                </code>
+                .
               </div>
             </SidebarInset>
           </SidebarProvider>

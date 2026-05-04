@@ -6,6 +6,7 @@ const eslintConfig = defineConfig([
   ...nextVitals,
   ...nextTs,
   globalIgnores([
+    "_junk/**",
     ".next/**",
     ".turbo/**",
     ".sst/**",

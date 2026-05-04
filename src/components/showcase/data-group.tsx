@@ -1,10 +1,24 @@
 "use client";
 
-import { Area, AreaChart, Bar, BarChart, CartesianGrid, Line, LineChart, XAxis } from "recharts";
+import { MoreHorizontalIcon, PauseIcon, PlayIcon } from "lucide-react";
+import { useEffect, useState } from "react";
+import {
+  Area,
+  AreaChart,
+  Bar,
+  BarChart,
+  CartesianGrid,
+  Line,
+  LineChart,
+  XAxis,
+  YAxis,
+} from "recharts";
 
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import {
   Carousel,
+  type CarouselApi,
   CarouselContent,
   CarouselItem,
   CarouselNext,
@@ -12,10 +26,18 @@ import {
 } from "@/components/ui/carousel";
 import {
   ChartContainer,
+  ChartLegend,
+  ChartLegendContent,
   ChartTooltip,
   ChartTooltipContent,
   type ChartConfig,
 } from "@/components/ui/chart";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 import {
   Table,
   TableBody,
@@ -58,9 +80,24 @@ const STATUS_COLOR: Record<string, "default" | "secondary" | "outline" | "destru
 };
 
 export function DataGroup() {
+  const [api, setApi] = useState<CarouselApi>();
+  const [current, setCurrent] = useState(0);
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    if (!api) return;
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- embla mount sync
+    setCount(api.scrollSnapList().length);
+    setCurrent(api.selectedScrollSnap() + 1);
+    api.on("select", () => {
+      setCurrent(api.selectedScrollSnap() + 1);
+    });
+  }, [api]);
+
   return (
     <Section id="data" title="Data" description="Table, carousel, charts (bar, line, area).">
-      <Demo name="Table — invoices" span={3}>
+      {/* Table */}
+      <Demo name="Table — basic" span={2}>
         <Table className="w-full">
           <TableCaption>Recent invoices.</TableCaption>
           <TableHeader>
@@ -83,6 +120,29 @@ export function DataGroup() {
               </TableRow>
             ))}
           </TableBody>
+        </Table>
+      </Demo>
+
+      <Demo name="Table — with footer" span={2}>
+        <Table className="w-full">
+          <TableHeader>
+            <TableRow>
+              <TableHead>Invoice</TableHead>
+              <TableHead>Status</TableHead>
+              <TableHead>Method</TableHead>
+              <TableHead className="text-right">Amount</TableHead>
+            </TableRow>
+          </TableHeader>
+          <TableBody>
+            {INVOICES.map((row) => (
+              <TableRow key={row.id}>
+                <TableCell className="font-medium">{row.id}</TableCell>
+                <TableCell>{row.status}</TableCell>
+                <TableCell>{row.method}</TableCell>
+                <TableCell className="text-right">${row.amount.toFixed(2)}</TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
           <TableFooter>
             <TableRow>
               <TableCell colSpan={3}>Total</TableCell>
@@ -94,6 +154,47 @@ export function DataGroup() {
         </Table>
       </Demo>
 
+      <Demo name="Table — actions row" span={2}>
+        <Table className="w-full">
+          <TableHeader>
+            <TableRow>
+              <TableHead>Project</TableHead>
+              <TableHead>Owner</TableHead>
+              <TableHead>Updated</TableHead>
+              <TableHead className="w-12 text-right">Actions</TableHead>
+            </TableRow>
+          </TableHeader>
+          <TableBody>
+            {[
+              { p: "Phoenix", o: "Hleb", u: "2h ago" },
+              { p: "Atlas", o: "Jane", u: "yesterday" },
+              { p: "Orion", o: "Sam", u: "Apr 28" },
+            ].map((r) => (
+              <TableRow key={r.p}>
+                <TableCell className="font-medium">{r.p}</TableCell>
+                <TableCell>{r.o}</TableCell>
+                <TableCell>{r.u}</TableCell>
+                <TableCell className="text-right">
+                  <DropdownMenu>
+                    <DropdownMenuTrigger asChild>
+                      <Button variant="ghost" size="icon" aria-label="row actions">
+                        <MoreHorizontalIcon />
+                      </Button>
+                    </DropdownMenuTrigger>
+                    <DropdownMenuContent align="end">
+                      <DropdownMenuItem>View</DropdownMenuItem>
+                      <DropdownMenuItem>Rename</DropdownMenuItem>
+                      <DropdownMenuItem variant="destructive">Delete</DropdownMenuItem>
+                    </DropdownMenuContent>
+                  </DropdownMenu>
+                </TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </Demo>
+
+      {/* Carousel */}
       <Demo name="Carousel — basic" span={2} height="tall">
         <div className="mx-auto w-full max-w-md py-4">
           <Carousel className="w-full">
@@ -112,7 +213,7 @@ export function DataGroup() {
         </div>
       </Demo>
 
-      <Demo name="Carousel — multi-item">
+      <Demo name="Carousel — sizes (basis)">
         <div className="w-full py-4">
           <Carousel opts={{ align: "start" }} className="w-full">
             <CarouselContent className="-ml-2">
@@ -130,12 +231,142 @@ export function DataGroup() {
         </div>
       </Demo>
 
-      <Demo name="Chart — bar">
+      <Demo name="Carousel — spacing">
+        <div className="w-full py-4">
+          <Carousel opts={{ align: "start" }} className="w-full">
+            <CarouselContent className="-ml-4">
+              {Array.from({ length: 6 }, (_, i) => (
+                <CarouselItem key={i} className="basis-1/2 pl-4 md:basis-1/3">
+                  <div className="flex aspect-video items-center justify-center rounded-[var(--radius)] border border-border bg-card">
+                    {i + 1}
+                  </div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious />
+            <CarouselNext />
+          </Carousel>
+        </div>
+      </Demo>
+
+      <Demo name="Carousel — vertical">
+        <div className="w-full py-4">
+          <Carousel orientation="vertical" className="w-full">
+            <CarouselContent className="-mt-2 h-48">
+              {Array.from({ length: 4 }, (_, i) => (
+                <CarouselItem key={i} className="pt-2">
+                  <div className="flex h-full items-center justify-center rounded-[var(--radius)] border border-border bg-card">
+                    {i + 1}
+                  </div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious />
+            <CarouselNext />
+          </Carousel>
+        </div>
+      </Demo>
+
+      <Demo name="Carousel — API (slide N of M)">
+        <div className="w-full py-2">
+          <Carousel setApi={setApi} className="w-full">
+            <CarouselContent>
+              {Array.from({ length: 6 }, (_, i) => (
+                <CarouselItem key={i}>
+                  <div className="flex aspect-video items-center justify-center rounded-[var(--radius)] border border-border bg-card">
+                    Slide {i + 1}
+                  </div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious />
+            <CarouselNext />
+          </Carousel>
+          <p className="mt-2 text-center text-xs text-muted-foreground">
+            Slide {current} of {count}
+          </p>
+        </div>
+      </Demo>
+
+      <Demo name="Carousel — controlled (manual autoplay)">
+        <ManualAutoplay />
+      </Demo>
+
+      {/* Chart */}
+      <Demo name="Chart — bar (interactive)">
         <ChartContainer config={CHART_CONFIG} className="h-56 w-full">
           <BarChart data={CHART_DATA}>
             <CartesianGrid vertical={false} />
             <XAxis dataKey="month" tickLine={false} axisLine={false} />
             <ChartTooltip content={<ChartTooltipContent />} />
+            <Bar dataKey="desktop" fill="var(--color-desktop)" radius={4} />
+            <Bar dataKey="mobile" fill="var(--color-mobile)" radius={4} />
+          </BarChart>
+        </ChartContainer>
+      </Demo>
+
+      <Demo name="Chart — bar with data">
+        <ChartContainer config={CHART_CONFIG} className="h-56 w-full">
+          <BarChart data={CHART_DATA} layout="vertical">
+            <CartesianGrid horizontal={false} />
+            <XAxis type="number" tickLine={false} axisLine={false} />
+            <YAxis dataKey="month" type="category" tickLine={false} axisLine={false} width={40} />
+            <ChartTooltip content={<ChartTooltipContent />} />
+            <Bar dataKey="desktop" fill="var(--color-desktop)" radius={4} />
+          </BarChart>
+        </ChartContainer>
+      </Demo>
+
+      <Demo name="Chart — with grid only">
+        <ChartContainer config={CHART_CONFIG} className="h-56 w-full">
+          <BarChart data={CHART_DATA}>
+            <CartesianGrid />
+            <Bar dataKey="desktop" fill="var(--color-desktop)" radius={4} />
+          </BarChart>
+        </ChartContainer>
+      </Demo>
+
+      <Demo name="Chart — with axis labels">
+        <ChartContainer config={CHART_CONFIG} className="h-56 w-full">
+          <BarChart data={CHART_DATA}>
+            <CartesianGrid vertical={false} />
+            <XAxis dataKey="month" tickLine={false} axisLine={false} />
+            <YAxis tickLine={false} axisLine={false} />
+            <Bar dataKey="desktop" fill="var(--color-desktop)" radius={4} />
+          </BarChart>
+        </ChartContainer>
+      </Demo>
+
+      <Demo name="Chart — with tooltip (label)">
+        <ChartContainer config={CHART_CONFIG} className="h-56 w-full">
+          <BarChart data={CHART_DATA}>
+            <CartesianGrid vertical={false} />
+            <XAxis dataKey="month" tickLine={false} axisLine={false} />
+            <ChartTooltip content={<ChartTooltipContent indicator="line" />} />
+            <Bar dataKey="desktop" fill="var(--color-desktop)" radius={4} />
+            <Bar dataKey="mobile" fill="var(--color-mobile)" radius={4} />
+          </BarChart>
+        </ChartContainer>
+      </Demo>
+
+      <Demo name="Chart — with tooltip (dot/name)">
+        <ChartContainer config={CHART_CONFIG} className="h-56 w-full">
+          <BarChart data={CHART_DATA}>
+            <CartesianGrid vertical={false} />
+            <XAxis dataKey="month" tickLine={false} axisLine={false} />
+            <ChartTooltip content={<ChartTooltipContent indicator="dot" />} />
+            <Bar dataKey="desktop" fill="var(--color-desktop)" radius={4} />
+          </BarChart>
+        </ChartContainer>
+      </Demo>
+
+      <Demo name="Chart — with legend" span={2}>
+        <ChartContainer config={CHART_CONFIG} className="h-56 w-full">
+          <BarChart data={CHART_DATA}>
+            <CartesianGrid vertical={false} />
+            <XAxis dataKey="month" tickLine={false} axisLine={false} />
+            <ChartTooltip content={<ChartTooltipContent />} />
+            <ChartLegend content={<ChartLegendContent />} />
             <Bar dataKey="desktop" fill="var(--color-desktop)" radius={4} />
             <Bar dataKey="mobile" fill="var(--color-mobile)" radius={4} />
           </BarChart>
@@ -166,7 +397,7 @@ export function DataGroup() {
         </ChartContainer>
       </Demo>
 
-      <Demo name="Chart — area">
+      <Demo name="Chart — area (stacked)">
         <ChartContainer config={CHART_CONFIG} className="h-56 w-full">
           <AreaChart data={CHART_DATA}>
             <CartesianGrid vertical={false} />
@@ -192,5 +423,38 @@ export function DataGroup() {
         </ChartContainer>
       </Demo>
     </Section>
+  );
+}
+
+function ManualAutoplay() {
+  const [api, setApi] = useState<CarouselApi>();
+  const [playing, setPlaying] = useState(false);
+  useEffect(() => {
+    if (!api || !playing) return;
+    const id = setInterval(() => api.scrollNext(), 1500);
+    return () => clearInterval(id);
+  }, [api, playing]);
+  return (
+    <div className="w-full py-2">
+      <Carousel setApi={setApi} className="w-full">
+        <CarouselContent>
+          {Array.from({ length: 5 }, (_, i) => (
+            <CarouselItem key={i}>
+              <div className="flex aspect-video items-center justify-center rounded-[var(--radius)] border border-border bg-card">
+                {i + 1}
+              </div>
+            </CarouselItem>
+          ))}
+        </CarouselContent>
+        <CarouselPrevious />
+        <CarouselNext />
+      </Carousel>
+      <div className="mt-2 flex justify-center">
+        <Button size="sm" variant="outline" onClick={() => setPlaying((p) => !p)}>
+          {playing ? <PauseIcon /> : <PlayIcon />}
+          {playing ? "Pause" : "Autoplay"}
+        </Button>
+      </div>
+    </div>
   );
 }
