@@ -39,6 +39,7 @@ const config: UserConfig = {
         "deps-dev",
         "epoch",
         "release",
+        "actions",
       ],
     ],
     "subject-case": [2, "never", ["upper-case", "pascal-case"]],
