@@ -4,6 +4,9 @@
 // Apex <domain> and www.<domain> are managed externally (marketing site).
 
 const stage = $app.stage;
+// DOMAIN slot — set the apex domain when forking template (e.g., "starter.io").
+// Keep `<domain>` until a real domain is registered; deploy will fail-fast on the
+// route53 zone lookup so the unfilled slot can't ship to prod silently.
 const rootDomain = "<domain>";
 
 const subdomain = stage === "prod" ? `app.${rootDomain}` : `${stage}.${rootDomain}`;

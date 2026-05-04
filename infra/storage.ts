@@ -21,6 +21,8 @@ export const uploads = new sst.aws.Bucket("Uploads", {
   cors: [
     {
       allowMethods: ["PUT", "POST", "GET", "HEAD"],
+      // DOMAIN slot — set production + staging origins when forking template.
+      // Keep `<domain>` literal until a real domain is registered.
       allowOrigins:
         stage === "prod"
           ? ["https://app.<domain>"]

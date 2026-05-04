@@ -5,13 +5,15 @@
 const stage = $app.stage;
 
 export const alarmTopic = new aws.sns.Topic("AlarmTopic", {
-  name: `<project-name>-${stage}-alarms`,
+  // PROJECT NAME slot — change `starter-` prefix when forking template
+  name: `starter-${stage}-alarms`,
 });
 
 // Email subscription: admin mailbox catches infra alerts.
 new aws.sns.TopicSubscription("AlarmEmail", {
   topic: alarmTopic.arn,
   protocol: "email",
+  // DOMAIN slot — set when forking template; matches infra/README.md SMTP table
   endpoint: `admin@<domain>`,
 });
 
@@ -19,7 +21,8 @@ new aws.sns.TopicSubscription("AlarmEmail", {
 
 // Lambda baseline (Web)
 new aws.cloudwatch.MetricAlarm("WebErrors", {
-  alarmName: `<project-name>-${stage}-web-errors`,
+  // PROJECT NAME slot — keep `starter-` prefix in sync with alarmTopic name above
+  alarmName: `starter-${stage}-web-errors`,
   comparisonOperator: "GreaterThanThreshold",
   evaluationPeriods: 5,
   metricName: "Errors",
@@ -31,7 +34,8 @@ new aws.cloudwatch.MetricAlarm("WebErrors", {
 });
 
 new aws.cloudwatch.MetricAlarm("WebP99Latency", {
-  alarmName: `<project-name>-${stage}-web-p99`,
+  // PROJECT NAME slot — keep `starter-` prefix in sync with alarmTopic name above
+  alarmName: `starter-${stage}-web-p99`,
   comparisonOperator: "GreaterThanThreshold",
   evaluationPeriods: 5,
   metricName: "Duration",

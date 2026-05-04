@@ -13,7 +13,6 @@ WORKDIR /app
 COPY pnpm-lock.yaml package.json pnpm-workspace.yaml .npmrc ./
 RUN pnpm fetch --prod=false
 
-COPY package.json ./
 RUN pnpm install --frozen-lockfile --offline
 
 # --- build ----------------------------------------------------------------

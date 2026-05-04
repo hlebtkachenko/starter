@@ -7,13 +7,14 @@ export default $config({
   app(input) {
     const stage = input?.stage ?? "dev";
     return {
-      name: "<project-name>",
+      name: "starter", // PROJECT NAME slot — change when forking this template
       removal: stage === "prod" ? "retain" : "remove",
       protect: stage === "prod",
       home: "aws",
       providers: {
         aws: {
-          region: process.env.AWS_REGION ?? "<aws-region>",
+          // AWS REGION slot — eu-central-1 per GDPR + CLAUDE.md EU preference; change when forking
+          region: process.env.AWS_REGION ?? "eu-central-1",
         },
       },
     };

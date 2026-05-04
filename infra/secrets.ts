@@ -7,6 +7,7 @@ export const databaseUrl = new sst.Secret("DATABASE_URL");
 export const betterAuthSecret = new sst.Secret("BETTER_AUTH_SECRET");
 
 // SMTP per-mailbox (host + port shared across mailboxes)
+// SMTP PROVIDER slot — replace `<smtp-provider>` with the chosen host (e.g., "adm.tools", "sendgrid.net") when forking template.
 export const smtpHost = new sst.Secret("SMTP_HOST", "smtp.<smtp-provider>");
 export const smtpPort = new sst.Secret("SMTP_PORT", "465");
 
