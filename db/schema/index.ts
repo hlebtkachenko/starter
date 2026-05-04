@@ -1,7 +1,8 @@
 // Barrel re-export. Consumers: `import * as schema from "@/db/schema"` (via `lib/db.ts`).
 //
-// Add a re-export here for every new schema file in this directory.
-// Lint rule: every `*.ts` (except _TEMPLATE.ts) under db/schema/ should appear below.
+// Convention (not lint-enforced): every `*.ts` (except `_TEMPLATE.ts`) under
+// `db/schema/` should appear below. Reviewer enforces during PR review until a
+// knip/eslint rule is added.
 
 export {};
 
