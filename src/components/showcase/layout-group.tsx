@@ -41,8 +41,8 @@ export function LayoutGroup() {
       title="Layout"
       description="Accordion, collapsible, resizable, scroll area, sidebar."
     >
-      <Demo name="Accordion">
-        <Accordion type="single" collapsible className="w-full max-w-md">
+      <Demo name="Accordion — single">
+        <Accordion type="single" collapsible className="w-full">
           <AccordionItem value="a">
             <AccordionTrigger>Is it accessible?</AccordionTrigger>
             <AccordionContent>Yes. Follows WAI-ARIA design pattern.</AccordionContent>
@@ -58,8 +58,21 @@ export function LayoutGroup() {
         </Accordion>
       </Demo>
 
+      <Demo name="Accordion — multiple">
+        <Accordion type="multiple" defaultValue={["a"]} className="w-full">
+          <AccordionItem value="a">
+            <AccordionTrigger>Section one</AccordionTrigger>
+            <AccordionContent>Multiple items can be open.</AccordionContent>
+          </AccordionItem>
+          <AccordionItem value="b">
+            <AccordionTrigger>Section two</AccordionTrigger>
+            <AccordionContent>Try opening this too.</AccordionContent>
+          </AccordionItem>
+        </Accordion>
+      </Demo>
+
       <Demo name="Collapsible">
-        <Collapsible open={open} onOpenChange={setOpen} className="w-full max-w-md">
+        <Collapsible open={open} onOpenChange={setOpen} className="w-full">
           <div className="flex items-center justify-between rounded-[var(--radius)] border border-border px-4 py-3">
             <span className="text-sm font-medium">@hlebtkachenko starred 3 repos</span>
             <CollapsibleTrigger asChild>
@@ -82,10 +95,35 @@ export function LayoutGroup() {
         </Collapsible>
       </Demo>
 
-      <Demo name="Resizable">
+      <Demo name="Scroll area — vertical">
+        <ScrollArea className="h-48 w-full rounded-[var(--radius)] border border-border p-3">
+          {ITEMS.map((it) => (
+            <p key={it} className="py-1 text-sm">
+              {it}
+            </p>
+          ))}
+        </ScrollArea>
+      </Demo>
+
+      <Demo name="Scroll area — horizontal">
+        <ScrollArea className="w-full whitespace-nowrap rounded-[var(--radius)] border border-border">
+          <div className="flex gap-2 p-3">
+            {Array.from({ length: 20 }, (_, i) => (
+              <div
+                key={i}
+                className="flex size-20 shrink-0 items-center justify-center rounded-[var(--radius)] bg-muted text-xs"
+              >
+                Card {i + 1}
+              </div>
+            ))}
+          </div>
+        </ScrollArea>
+      </Demo>
+
+      <Demo name="Resizable — horizontal" span={2}>
         <ResizablePanelGroup
           orientation="horizontal"
-          className="h-40 w-full max-w-2xl rounded-[var(--radius)] border border-border"
+          className="h-40 w-full rounded-[var(--radius)] border border-border"
         >
           <ResizablePanel defaultSize={30} className="flex items-center justify-center text-sm">
             Left
@@ -97,18 +135,23 @@ export function LayoutGroup() {
         </ResizablePanelGroup>
       </Demo>
 
-      <Demo name="Scroll area">
-        <ScrollArea className="h-48 w-64 rounded-[var(--radius)] border border-border p-3">
-          {ITEMS.map((it) => (
-            <p key={it} className="py-1 text-sm">
-              {it}
-            </p>
-          ))}
-        </ScrollArea>
+      <Demo name="Resizable — vertical">
+        <ResizablePanelGroup
+          orientation="vertical"
+          className="h-48 w-full rounded-[var(--radius)] border border-border"
+        >
+          <ResizablePanel defaultSize={50} className="flex items-center justify-center text-sm">
+            Top
+          </ResizablePanel>
+          <ResizableHandle withHandle />
+          <ResizablePanel defaultSize={50} className="flex items-center justify-center text-sm">
+            Bottom
+          </ResizablePanel>
+        </ResizablePanelGroup>
       </Demo>
 
-      <Demo name="Sidebar (mini)">
-        <div className="h-72 w-full max-w-3xl overflow-hidden rounded-[var(--radius)] border border-border">
+      <Demo name="Sidebar (mini)" span={3} height="tall">
+        <div className="h-80 w-full overflow-hidden rounded-[var(--radius)] border border-border">
           <SidebarProvider
             className="h-full min-h-0"
             style={{ "--sidebar-width": "12rem" } as React.CSSProperties}
@@ -126,7 +169,7 @@ export function LayoutGroup() {
                         </SidebarMenuButton>
                       </SidebarMenuItem>
                       <SidebarMenuItem>
-                        <SidebarMenuButton>
+                        <SidebarMenuButton isActive>
                           <InboxIcon /> Inbox
                         </SidebarMenuButton>
                       </SidebarMenuItem>
@@ -151,8 +194,8 @@ export function LayoutGroup() {
                 <span className="text-sm">Main panel</span>
               </div>
               <div className="flex-1 p-4 text-sm text-muted-foreground">
-                Content area. Sidebar collapsible=&quot;none&quot; for demo; in real apps use
-                icon/offcanvas.
+                Content area. Use Sidebar with `collapsible=&quot;icon&quot;` or
+                `collapsible=&quot;offcanvas&quot;` in real apps.
               </div>
             </SidebarInset>
           </SidebarProvider>

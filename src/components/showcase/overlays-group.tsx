@@ -1,6 +1,17 @@
 "use client";
 
 import {
+  CopyIcon,
+  EditIcon,
+  LogOutIcon,
+  MailIcon,
+  SettingsIcon,
+  TrashIcon,
+  UserIcon,
+} from "lucide-react";
+import { useState } from "react";
+
+import {
   AlertDialog,
   AlertDialogAction,
   AlertDialogCancel,
@@ -14,8 +25,12 @@ import {
 import { Button } from "@/components/ui/button";
 import {
   ContextMenu,
+  ContextMenuCheckboxItem,
   ContextMenuContent,
   ContextMenuItem,
+  ContextMenuLabel,
+  ContextMenuRadioGroup,
+  ContextMenuRadioItem,
   ContextMenuSeparator,
   ContextMenuShortcut,
   ContextMenuTrigger,
@@ -40,9 +55,13 @@ import {
 } from "@/components/ui/drawer";
 import {
   DropdownMenu,
+  DropdownMenuCheckboxItem,
   DropdownMenuContent,
+  DropdownMenuGroup,
   DropdownMenuItem,
   DropdownMenuLabel,
+  DropdownMenuRadioGroup,
+  DropdownMenuRadioItem,
   DropdownMenuSeparator,
   DropdownMenuShortcut,
   DropdownMenuTrigger,
@@ -55,6 +74,7 @@ import {
   Sheet,
   SheetContent,
   SheetDescription,
+  SheetFooter,
   SheetHeader,
   SheetTitle,
   SheetTrigger,
@@ -64,11 +84,14 @@ import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip
 import { Demo, Section } from "./section";
 
 export function OverlaysGroup() {
+  const [showStatus, setShowStatus] = useState(true);
+  const [position, setPosition] = useState("bottom");
+
   return (
     <Section
       id="overlays"
       title="Overlays"
-      description="Dialog, sheet, drawer, popover, hover card, tooltip, context menu, dropdown menu, alert dialog."
+      description="Dialog, sheet, drawer, popover, hover card, tooltip, context menu, dropdown menu."
     >
       <Demo name="Dialog">
         <Dialog>
@@ -93,10 +116,12 @@ export function OverlaysGroup() {
         </Dialog>
       </Demo>
 
-      <Demo name="Alert dialog">
+      <Demo name="Alert dialog — destructive confirm">
         <AlertDialog>
           <AlertDialogTrigger asChild>
-            <Button variant="destructive">Delete account</Button>
+            <Button variant="destructive">
+              <TrashIcon /> Delete
+            </Button>
           </AlertDialogTrigger>
           <AlertDialogContent>
             <AlertDialogHeader>
@@ -111,20 +136,25 @@ export function OverlaysGroup() {
         </AlertDialog>
       </Demo>
 
-      <Demo name="Sheet">
-        <Sheet>
-          <SheetTrigger asChild>
-            <Button variant="outline">Open sheet</Button>
-          </SheetTrigger>
-          <SheetContent>
-            <SheetHeader>
-              <SheetTitle>Edit profile</SheetTitle>
-              <SheetDescription>
-                Slides from the side. Use for drawer-style panels on desktop.
-              </SheetDescription>
-            </SheetHeader>
-          </SheetContent>
-        </Sheet>
+      <Demo name="Sheet — sides">
+        {(["right", "left", "top", "bottom"] as const).map((side) => (
+          <Sheet key={side}>
+            <SheetTrigger asChild>
+              <Button variant="outline" size="sm" className="capitalize">
+                {side}
+              </Button>
+            </SheetTrigger>
+            <SheetContent side={side}>
+              <SheetHeader>
+                <SheetTitle>{side} sheet</SheetTitle>
+                <SheetDescription>Slides in from the {side} edge.</SheetDescription>
+              </SheetHeader>
+              <SheetFooter>
+                <Button>Save</Button>
+              </SheetFooter>
+            </SheetContent>
+          </Sheet>
+        ))}
       </Demo>
 
       <Demo name="Drawer (vaul)">
@@ -145,13 +175,23 @@ export function OverlaysGroup() {
         </Drawer>
       </Demo>
 
-      <Demo name="Popover">
+      <Demo name="Popover — form">
         <Popover>
           <PopoverTrigger asChild>
-            <Button variant="outline">Open popover</Button>
+            <Button variant="outline">Dimensions</Button>
           </PopoverTrigger>
           <PopoverContent className="w-72">
-            <p className="text-sm">Popover with arbitrary content.</p>
+            <div className="space-y-3">
+              <p className="text-sm font-medium">Dimensions</p>
+              <div className="grid gap-2">
+                <Label htmlFor="w">Width</Label>
+                <Input id="w" defaultValue="100%" />
+              </div>
+              <div className="grid gap-2">
+                <Label htmlFor="h">Height</Label>
+                <Input id="h" defaultValue="auto" />
+              </div>
+            </div>
           </PopoverContent>
         </Popover>
       </Demo>
@@ -168,48 +208,98 @@ export function OverlaysGroup() {
         </HoverCard>
       </Demo>
 
-      <Demo name="Tooltip">
-        <Tooltip>
-          <TooltipTrigger asChild>
-            <Button variant="outline">Hover me</Button>
-          </TooltipTrigger>
-          <TooltipContent>Tooltip text</TooltipContent>
-        </Tooltip>
+      <Demo name="Tooltip — sides">
+        {(["top", "right", "bottom", "left"] as const).map((side) => (
+          <Tooltip key={side}>
+            <TooltipTrigger asChild>
+              <Button variant="outline" size="sm" className="capitalize">
+                {side}
+              </Button>
+            </TooltipTrigger>
+            <TooltipContent side={side}>{side} tooltip</TooltipContent>
+          </Tooltip>
+        ))}
       </Demo>
 
-      <Demo name="Context menu (right-click target)">
-        <ContextMenu>
-          <ContextMenuTrigger className="flex h-24 w-64 items-center justify-center rounded-[var(--radius)] border border-dashed border-border text-sm text-muted-foreground">
-            Right-click here
-          </ContextMenuTrigger>
-          <ContextMenuContent>
-            <ContextMenuItem>
-              Back <ContextMenuShortcut>⌘[</ContextMenuShortcut>
-            </ContextMenuItem>
-            <ContextMenuItem>
-              Forward <ContextMenuShortcut>⌘]</ContextMenuShortcut>
-            </ContextMenuItem>
-            <ContextMenuSeparator />
-            <ContextMenuItem>Reload</ContextMenuItem>
-          </ContextMenuContent>
-        </ContextMenu>
-      </Demo>
-
-      <Demo name="Dropdown menu">
+      <Demo name="Dropdown — menu with checks + radios">
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <Button variant="outline">Account</Button>
           </DropdownMenuTrigger>
-          <DropdownMenuContent>
+          <DropdownMenuContent className="w-56">
             <DropdownMenuLabel>My Account</DropdownMenuLabel>
             <DropdownMenuSeparator />
-            <DropdownMenuItem>
-              Profile <DropdownMenuShortcut>⇧⌘P</DropdownMenuShortcut>
-            </DropdownMenuItem>
-            <DropdownMenuItem>Settings</DropdownMenuItem>
-            <DropdownMenuItem>Log out</DropdownMenuItem>
+            <DropdownMenuGroup>
+              <DropdownMenuItem>
+                <UserIcon /> Profile
+                <DropdownMenuShortcut>⇧⌘P</DropdownMenuShortcut>
+              </DropdownMenuItem>
+              <DropdownMenuItem>
+                <SettingsIcon /> Settings
+              </DropdownMenuItem>
+              <DropdownMenuItem variant="destructive">
+                <LogOutIcon /> Log out
+              </DropdownMenuItem>
+            </DropdownMenuGroup>
+            <DropdownMenuSeparator />
+            <DropdownMenuLabel>Preferences</DropdownMenuLabel>
+            <DropdownMenuCheckboxItem
+              checked={showStatus}
+              onCheckedChange={(v) => setShowStatus(v === true)}
+            >
+              Show status
+            </DropdownMenuCheckboxItem>
+            <DropdownMenuSeparator />
+            <DropdownMenuLabel>Panel</DropdownMenuLabel>
+            <DropdownMenuRadioGroup value={position} onValueChange={setPosition}>
+              <DropdownMenuRadioItem value="top">Top</DropdownMenuRadioItem>
+              <DropdownMenuRadioItem value="bottom">Bottom</DropdownMenuRadioItem>
+              <DropdownMenuRadioItem value="right">Right</DropdownMenuRadioItem>
+            </DropdownMenuRadioGroup>
           </DropdownMenuContent>
         </DropdownMenu>
+      </Demo>
+
+      <Demo name="Context menu (right-click)" span={2}>
+        <ContextMenu>
+          <ContextMenuTrigger className="flex h-32 w-full items-center justify-center rounded-[var(--radius)] border border-dashed border-border text-sm text-muted-foreground">
+            Right-click anywhere
+          </ContextMenuTrigger>
+          <ContextMenuContent className="w-56">
+            <ContextMenuLabel>Actions</ContextMenuLabel>
+            <ContextMenuItem>
+              <EditIcon /> Edit
+              <ContextMenuShortcut>⌘E</ContextMenuShortcut>
+            </ContextMenuItem>
+            <ContextMenuItem>
+              <CopyIcon /> Copy
+              <ContextMenuShortcut>⌘C</ContextMenuShortcut>
+            </ContextMenuItem>
+            <ContextMenuSeparator />
+            <ContextMenuCheckboxItem checked>Show grid</ContextMenuCheckboxItem>
+            <ContextMenuSeparator />
+            <ContextMenuRadioGroup value="medium">
+              <ContextMenuRadioItem value="small">Small</ContextMenuRadioItem>
+              <ContextMenuRadioItem value="medium">Medium</ContextMenuRadioItem>
+              <ContextMenuRadioItem value="large">Large</ContextMenuRadioItem>
+            </ContextMenuRadioGroup>
+            <ContextMenuSeparator />
+            <ContextMenuItem variant="destructive">
+              <TrashIcon /> Delete
+            </ContextMenuItem>
+          </ContextMenuContent>
+        </ContextMenu>
+      </Demo>
+
+      <Demo name="Tooltip — with icon button">
+        <Tooltip>
+          <TooltipTrigger asChild>
+            <Button variant="outline" size="icon" aria-label="Compose">
+              <MailIcon />
+            </Button>
+          </TooltipTrigger>
+          <TooltipContent>Compose email</TooltipContent>
+        </Tooltip>
       </Demo>
     </Section>
   );

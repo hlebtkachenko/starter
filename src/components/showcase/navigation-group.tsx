@@ -4,6 +4,7 @@ import { useState } from "react";
 
 import {
   Breadcrumb,
+  BreadcrumbEllipsis,
   BreadcrumbItem,
   BreadcrumbLink,
   BreadcrumbList,
@@ -22,9 +23,12 @@ import {
 } from "@/components/ui/command";
 import {
   Menubar,
+  MenubarCheckboxItem,
   MenubarContent,
   MenubarItem,
   MenubarMenu,
+  MenubarRadioGroup,
+  MenubarRadioItem,
   MenubarSeparator,
   MenubarShortcut,
   MenubarTrigger,
@@ -77,50 +81,64 @@ export function NavigationGroup() {
         </Breadcrumb>
       </Demo>
 
-      <Demo name="Tabs">
-        <Tabs defaultValue="account" className="w-[400px]">
+      <Demo name="Breadcrumb — with ellipsis">
+        <Breadcrumb>
+          <BreadcrumbList>
+            <BreadcrumbItem>
+              <BreadcrumbLink href="#">Home</BreadcrumbLink>
+            </BreadcrumbItem>
+            <BreadcrumbSeparator />
+            <BreadcrumbItem>
+              <BreadcrumbEllipsis />
+            </BreadcrumbItem>
+            <BreadcrumbSeparator />
+            <BreadcrumbItem>
+              <BreadcrumbLink href="#">Settings</BreadcrumbLink>
+            </BreadcrumbItem>
+            <BreadcrumbSeparator />
+            <BreadcrumbItem>
+              <BreadcrumbPage>Profile</BreadcrumbPage>
+            </BreadcrumbItem>
+          </BreadcrumbList>
+        </Breadcrumb>
+      </Demo>
+
+      <Demo name="Tabs" height="tall">
+        <Tabs defaultValue="account" className="w-full">
           <TabsList>
             <TabsTrigger value="account">Account</TabsTrigger>
             <TabsTrigger value="password">Password</TabsTrigger>
             <TabsTrigger value="api">API keys</TabsTrigger>
           </TabsList>
-          <TabsContent value="account">Account settings panel.</TabsContent>
-          <TabsContent value="password">Password reset panel.</TabsContent>
-          <TabsContent value="api">API keys panel.</TabsContent>
+          <TabsContent value="account" className="mt-4 text-sm">
+            Account settings panel content.
+          </TabsContent>
+          <TabsContent value="password" className="mt-4 text-sm">
+            Password reset panel content.
+          </TabsContent>
+          <TabsContent value="api" className="mt-4 text-sm">
+            API keys panel content.
+          </TabsContent>
         </Tabs>
       </Demo>
 
-      <Demo name="Navigation menu">
+      <Demo name="Navigation menu" height="tall">
         <NavigationMenu>
           <NavigationMenuList>
             <NavigationMenuItem>
               <NavigationMenuTrigger>Products</NavigationMenuTrigger>
               <NavigationMenuContent>
                 <ul className="grid w-64 gap-1 p-3">
-                  <li>
-                    <NavigationMenuLink
-                      href="#"
-                      className="block rounded-[var(--radius)] p-2 hover:bg-accent"
-                    >
-                      Auth
-                    </NavigationMenuLink>
-                  </li>
-                  <li>
-                    <NavigationMenuLink
-                      href="#"
-                      className="block rounded-[var(--radius)] p-2 hover:bg-accent"
-                    >
-                      Billing
-                    </NavigationMenuLink>
-                  </li>
-                  <li>
-                    <NavigationMenuLink
-                      href="#"
-                      className="block rounded-[var(--radius)] p-2 hover:bg-accent"
-                    >
-                      Database
-                    </NavigationMenuLink>
-                  </li>
+                  {["Auth", "Billing", "Database", "Storage"].map((item) => (
+                    <li key={item}>
+                      <NavigationMenuLink
+                        href="#"
+                        className="block rounded-[var(--radius)] p-2 hover:bg-accent"
+                      >
+                        {item}
+                      </NavigationMenuLink>
+                    </li>
+                  ))}
                 </ul>
               </NavigationMenuContent>
             </NavigationMenuItem>
@@ -129,11 +147,16 @@ export function NavigationGroup() {
                 Docs
               </NavigationMenuLink>
             </NavigationMenuItem>
+            <NavigationMenuItem>
+              <NavigationMenuLink href="#" className="px-3 py-2 text-sm">
+                Pricing
+              </NavigationMenuLink>
+            </NavigationMenuItem>
           </NavigationMenuList>
         </NavigationMenu>
       </Demo>
 
-      <Demo name="Menubar">
+      <Demo name="Menubar (app-style)" span={2}>
         <Menubar>
           <MenubarMenu>
             <MenubarTrigger>File</MenubarTrigger>
@@ -159,6 +182,18 @@ export function NavigationGroup() {
               <MenubarItem>
                 Redo <MenubarShortcut>⇧⌘Z</MenubarShortcut>
               </MenubarItem>
+              <MenubarSeparator />
+              <MenubarCheckboxItem checked>Auto-save</MenubarCheckboxItem>
+            </MenubarContent>
+          </MenubarMenu>
+          <MenubarMenu>
+            <MenubarTrigger>View</MenubarTrigger>
+            <MenubarContent>
+              <MenubarRadioGroup value="comfortable">
+                <MenubarRadioItem value="compact">Compact</MenubarRadioItem>
+                <MenubarRadioItem value="comfortable">Comfortable</MenubarRadioItem>
+                <MenubarRadioItem value="cozy">Cozy</MenubarRadioItem>
+              </MenubarRadioGroup>
             </MenubarContent>
           </MenubarMenu>
         </Menubar>
@@ -207,8 +242,8 @@ export function NavigationGroup() {
         <p className="w-full text-xs text-muted-foreground">Active page: {page}</p>
       </Demo>
 
-      <Demo name="Command (inline palette)">
-        <Command className="w-[320px] rounded-[var(--radius)] border border-border">
+      <Demo name="Command (inline palette)" span={2} height="tall">
+        <Command className="w-full rounded-[var(--radius)] border border-border">
           <CommandInput placeholder="Type a command..." />
           <CommandList>
             <CommandEmpty>No results found.</CommandEmpty>
@@ -224,6 +259,9 @@ export function NavigationGroup() {
               </CommandItem>
               <CommandItem>
                 Billing <CommandShortcut>⌘B</CommandShortcut>
+              </CommandItem>
+              <CommandItem>
+                Mail <CommandShortcut>⌘M</CommandShortcut>
               </CommandItem>
             </CommandGroup>
           </CommandList>

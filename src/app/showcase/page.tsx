@@ -3,6 +3,7 @@ import { DisplayGroup } from "@/components/showcase/display-group";
 import { FeedbackGroup } from "@/components/showcase/feedback-group";
 import { InputsGroup } from "@/components/showcase/inputs-group";
 import { LayoutGroup } from "@/components/showcase/layout-group";
+import { Mounted } from "@/components/showcase/mounted";
 import { NavigationGroup } from "@/components/showcase/navigation-group";
 import { OverlaysGroup } from "@/components/showcase/overlays-group";
 import { TokenControls } from "@/components/showcase/token-controls";
@@ -40,13 +41,15 @@ export default function ShowcasePage() {
         </nav>
       </header>
       <main className="mx-auto max-w-6xl px-6 pb-24">
-        <InputsGroup />
-        <DisplayGroup />
-        <OverlaysGroup />
-        <NavigationGroup />
-        <FeedbackGroup />
-        <LayoutGroup />
-        <DataGroup />
+        <Mounted>
+          <InputsGroup />
+          <DisplayGroup />
+          <OverlaysGroup />
+          <NavigationGroup />
+          <FeedbackGroup />
+          <LayoutGroup />
+          <DataGroup />
+        </Mounted>
       </main>
     </div>
   );
