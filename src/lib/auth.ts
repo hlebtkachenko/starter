@@ -4,6 +4,7 @@
 // Browser: createAuthClient() for use in client components and hooks.
 //
 // Cookie domain scoped to app.<domain> via baseURL env.
+// DOMAIN slot — `<domain>` is descriptive only here; real value comes from env at runtime.
 
 // Stub until better-auth is installed.
 //

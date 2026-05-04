@@ -416,7 +416,7 @@ updated: 2026-05-03
 │   ├── sentry.client.config.ts           # client init: DSN, replay, tracing sample rate
 │   ├── sentry.server.config.ts           # server init: DSN, profiling, integrations
 │   ├── sentry.edge.config.ts             # edge runtime init
-│   └── middleware.ts                     # rate-limit (per-IP+per-user) + auth check (redirect unauthed to /(auth)/login) + org resolution (from session) + Sentry request context (tag user/org/route); no marketing-redirect — marketing site external
+│   └── proxy.ts                          # Next 16 proxy (formerly middleware.ts): rate-limit (per-IP+per-user) + auth check (redirect unauthed to /(auth)/login) + org resolution (from session) + Sentry request context (tag user/org/route); no marketing-redirect — marketing site external
 │
 └── public/
     ├── favicon.ico

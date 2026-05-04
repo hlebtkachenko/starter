@@ -20,8 +20,12 @@ export function proxy(_req: NextRequest) {
 
 export const config = {
   matcher: [
-    // Run on everything except: Next internals, static files, public assets, and webhooks
-    // (webhooks verify their own signature and need raw body).
+    // Run on everything except:
+    //   - Next internals (_next/static, _next/image)
+    //   - favicon.ico
+    //   - webhooks (verify their own signature; need raw body untouched)
+    //   - any path containing a literal `.` — catches static assets AND
+    //     `/.well-known/security.txt` (force-static, no auth context needed)
     "/((?!_next/static|_next/image|favicon\\.ico|api/webhooks/.*|.*\\..*).*)",
   ],
 };
