@@ -3,6 +3,14 @@
 
 const MAILPIT_API = process.env.MAILPIT_API ?? "http://localhost:8025/api/v1";
 
+// 5s ceiling per request: if mailpit is down, fail loud instead of hanging
+// the Playwright global timeout.
+const FETCH_TIMEOUT_MS = 5_000;
+
+function timeout(): RequestInit {
+  return { signal: AbortSignal.timeout(FETCH_TIMEOUT_MS) };
+}
+
 export type MailpitMessage = {
   ID: string;
   From: { Address: string; Name?: string };
@@ -13,7 +21,7 @@ export type MailpitMessage = {
 };
 
 export async function listMessages(): Promise<MailpitMessage[]> {
-  const res = await fetch(`${MAILPIT_API}/messages`);
+  const res = await fetch(`${MAILPIT_API}/messages`, timeout());
   if (!res.ok) throw new Error(`mailpit list failed: ${res.status}`);
   const json = (await res.json()) as { messages: MailpitMessage[] };
   return json.messages;
@@ -34,12 +42,12 @@ export async function findMessageTo(
 }
 
 export async function getMessageBody(id: string): Promise<{ html?: string; text?: string }> {
-  const res = await fetch(`${MAILPIT_API}/message/${id}`);
+  const res = await fetch(`${MAILPIT_API}/message/${id}`, timeout());
   if (!res.ok) throw new Error(`mailpit get failed: ${res.status}`);
   const json = (await res.json()) as { HTML?: string; Text?: string };
   return { html: json.HTML, text: json.Text };
 }
 
 export async function purgeMailpit(): Promise<void> {
-  await fetch(`${MAILPIT_API}/messages`, { method: "DELETE" });
+  await fetch(`${MAILPIT_API}/messages`, { method: "DELETE", ...timeout() });
 }

@@ -1,33 +1,36 @@
 import { defineConfig } from "vitest/config";
 import tsconfigPaths from "vite-tsconfig-paths";
 
+// Vitest 3.2+ deprecated `test.workspace` in favor of top-level `projects`;
+// vitest 4 removes the old key. Use `projects` so the config is forward-compatible
+// with the install target.
 export default defineConfig({
   plugins: [tsconfigPaths()],
+  projects: [
+    {
+      extends: true,
+      test: {
+        name: "ui",
+        environment: "jsdom",
+        include: ["src/components/**/*.test.{ts,tsx}", "src/hooks/**/*.test.{ts,tsx}"],
+        setupFiles: ["./tests/helpers/setup-ui.ts"],
+      },
+    },
+    {
+      extends: true,
+      test: {
+        name: "server",
+        environment: "node",
+        include: [
+          "src/lib/**/*.test.ts",
+          "src/server/**/*.test.ts",
+          "src/features/**/server/**/*.test.ts",
+        ],
+        setupFiles: ["./tests/helpers/setup-server.ts"],
+      },
+    },
+  ],
   test: {
-    workspace: [
-      {
-        extends: true,
-        test: {
-          name: "ui",
-          environment: "jsdom",
-          include: ["src/components/**/*.test.{ts,tsx}", "src/hooks/**/*.test.{ts,tsx}"],
-          setupFiles: ["./tests/helpers/setup-ui.ts"],
-        },
-      },
-      {
-        extends: true,
-        test: {
-          name: "server",
-          environment: "node",
-          include: [
-            "src/lib/**/*.test.ts",
-            "src/server/**/*.test.ts",
-            "src/features/**/server/**/*.test.ts",
-          ],
-          setupFiles: ["./tests/helpers/setup-server.ts"],
-        },
-      },
-    ],
     coverage: {
       provider: "v8",
       reporter: ["text", "html", "json-summary"],
@@ -57,7 +60,7 @@ export default defineConfig({
           branches: 20,
           statements: 30,
         },
-        "**": { lines: 50, functions: 50, branches: 40, statements: 50 },
+        "**/*": { lines: 50, functions: 50, branches: 40, statements: 50 },
       },
       exclude: [
         "**/_TEMPLATE*",
