@@ -3,6 +3,7 @@
 // Strategy: upsert by deterministic key (slug or fixed UUID). Re-running this script
 // must produce the same DB state, never duplicates. Demo identities use the demo
 // SMTP mailbox (demo@<domain>) so they cannot accidentally email real users.
+// DOMAIN slot — replace `<domain>` with the apex domain when forking template (matches infra/secrets.ts + infra/dns.ts slots).
 
 import "dotenv/config";
 
