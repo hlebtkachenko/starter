@@ -3,7 +3,8 @@
 // GitHub OIDC trust + deploy role. No static AWS keys in CI.
 // `sub` claim scopes role assumption to this repo + ref pattern.
 
-const repo = "<git-user>/<repo>";
+// REPO slot — owner/name pair scopes the OIDC sub claim. Change when forking template.
+const repo = "hlebtkachenko/starter";
 
 const oidcProvider = new aws.iam.OpenIdConnectProvider("GitHubOidc", {
   url: "https://token.actions.githubusercontent.com",
