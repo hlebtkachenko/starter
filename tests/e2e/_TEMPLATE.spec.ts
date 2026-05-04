@@ -2,7 +2,10 @@ import { expect, test } from "@playwright/test";
 // import AxeBuilder from "@axe-core/playwright";
 
 test.describe("<flow name>", () => {
-  test("<persona> can <outcome> @smoke", async ({ page }) => {
+  // Tag conventions are intentionally absent until a corresponding `--grep` filter
+  // exists (see playwright.config.ts). Add `@smoke` (or similar) to a test name only
+  // when the matching CI job / pnpm script is wired.
+  test("<persona> can <outcome>", async ({ page }) => {
     // Arrange: fixtures (typed) imported from "../fixtures"
 
     // Act: drive the page via a page-object pattern when interactions repeat

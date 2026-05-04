@@ -451,5 +451,7 @@ updated: 2026-05-03
         ├── README.md
         ├── db.ts                         # withRollbackTx(db, async (tx) => {...}) wrapper using Drizzle db.transaction(); BEGIN before, ROLLBACK after; tests use tx not raw db
         ├── auth.ts                       # API-driven session fixture (preferred); direct DB session insert escape hatch (test-only)
-        ├── mailpit.ts                    # query mailpit HTTP API for email assertions in e2e
-        └── server.ts                     # spawn isolated test server (separate port)
+        ├── mailpit.ts                    # query mailpit HTTP API for email assertions in e2e (per-fetch AbortSignal.timeout)
+        ├── server.ts                     # spawn isolated test server (separate port)
+        ├── setup-server.ts               # vitest setupFiles for the `server` project; loads `.env.local` explicitly
+        └── setup-ui.ts                   # vitest setupFiles for the `ui` (jsdom) project; polyfills ResizeObserver, IntersectionObserver, matchMedia, pointer-capture, scrollIntoView
