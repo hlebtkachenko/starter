@@ -34,10 +34,23 @@ command -v docker >/dev/null 2>&1 || err "docker not installed"
 docker compose up --wait
 
 # 5. DB migrate + seed
-step "pnpm db:migrate"
-pnpm db:migrate
-step "pnpm db:seed"
-pnpm db:seed
+# Gated on the underlying tools being installed. The scaffold scripts reference
+# drizzle-kit (db:migrate, db:generate, db:studio) and tsx (db:seed) before
+# those packages are added to devDependencies. First feature PR that adds them
+# unlocks these steps; until then, skip with a hint instead of failing bootstrap.
+if [ -x node_modules/.bin/drizzle-kit ]; then
+  step "pnpm db:migrate"
+  pnpm db:migrate
+else
+  info "skip pnpm db:migrate — drizzle-kit not installed yet (add with first DB-touching PR)"
+fi
+
+if [ -x node_modules/.bin/tsx ]; then
+  step "pnpm db:seed"
+  pnpm db:seed
+else
+  info "skip pnpm db:seed — tsx not installed yet (add with first DB-touching PR)"
+fi
 
 ok "bootstrap complete"
 echo

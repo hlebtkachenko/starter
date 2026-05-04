@@ -23,7 +23,8 @@ check "node 24+ resolved"       bash -c 'mise current node | grep -E "^(2[4-9]|[
 check "pnpm resolved"           command -v pnpm
 check "docker daemon up"        docker info
 check "postgres container up"   bash -c 'docker compose ps postgres | grep -q "healthy\|running"'
-check "pgmq extension loaded"   bash -c 'docker compose exec -T postgres psql -U postgres -d <project-name>_dev -c "SELECT 1 FROM pg_extension WHERE extname='\''pgmq'\''" | grep -q 1'
+# PROJECT NAME slot in `-d starter_dev` — keep in sync with docker-compose.yml POSTGRES_DB when forking template.
+check "pgmq extension loaded"   bash -c 'docker compose exec -T postgres psql -U postgres -d starter_dev -c "SELECT 1 FROM pg_extension WHERE extname='\''pgmq'\''" | grep -q 1'
 check "mailpit up"              bash -c 'docker compose ps mailpit | grep -q "healthy\|running"'
 check ".env.local present"      bash -c 'test -e .env.local || test -L .env.local'
 check "port 3000 free"          bash -c '! lsof -i :3000'

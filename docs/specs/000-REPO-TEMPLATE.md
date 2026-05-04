@@ -279,7 +279,8 @@ updated: 2026-05-03
     ├── doctor.sh                         # read-only diagnostic: mise tools resolved, docker running, postgres healthy + pgmq extension loaded, .env.local valid, ports free (POSTGRES_PORT, 3000), git remote reachable
     ├── db-reset.sh                       # docker compose down postgres + up; drop schema; pnpm db:migrate; pnpm db:seed
     ├── tunnel.sh                         # cloudflared quick tunnel for webhook testing (Stripe etc); prints HTTPS URL
-    └── ...                               #
+    ├── safe-pull.sh                      # ff-only `git pull` with autostash + pre-merge collision guard; exposed as `pnpm pull`
+    └── ...                               # add per dev utility
 
 ## AREA 8 - DEPLOY / IAC + OBSERVABILITY
 
