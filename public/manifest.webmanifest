@@ -1,6 +1,7 @@
 {
-  "name": "<project-name>",
-  "short_name": "<project-name>",
+  "_comment_project_name_slot": "PROJECT NAME slot — change name + short_name when forking this template",
+  "name": "starter",
+  "short_name": "starter",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",

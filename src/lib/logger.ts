@@ -30,11 +30,14 @@ import "server-only";
 //
 // export type Logger = typeof logger;
 
+// Stub fallbacks until pino is installed. `warn` and `error` route to console
+// so security-relevant events are not silently dropped during the scaffold
+// phase; `info` and `debug` stay silent to match production noise budget.
 const noop = () => {};
 export const logger = {
   info: noop,
-  warn: noop,
-  error: noop,
   debug: noop,
+  warn: (...args: unknown[]) => console.warn(...args),
+  error: (...args: unknown[]) => console.error(...args),
   child: () => logger,
 };

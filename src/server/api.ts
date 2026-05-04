@@ -1,6 +1,7 @@
 import "server-only";
 import { NextResponse } from "next/server";
 import type { z } from "zod";
+import { AppError } from "@/lib/errors";
 
 // Route-handler wrapper. Mirrors actions.ts behavior at HTTP shape.
 
@@ -33,8 +34,8 @@ export function handler<I extends z.ZodTypeAny, O>(
       const data = await fn(parsed.data, ctx);
       return NextResponse.json({ data }, { status: 200 });
     } catch (err) {
-      if (err instanceof Error && "code" in err && typeof err.code === "string") {
-        return envelope(err.code, err.message, statusFor(err.code));
+      if (err instanceof AppError) {
+        return envelope(err.code, err.message, statusFor(err.code), err.details);
       }
       return envelope("server.internal", "Unexpected error", 500);
     }

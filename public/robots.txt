@@ -1,3 +1,4 @@
 # app.<domain> — authed app surface. Not for indexing.
+# DOMAIN slot — `<domain>` in the comment above is descriptive; rule below is domain-agnostic.
 User-agent: *
 Disallow: /

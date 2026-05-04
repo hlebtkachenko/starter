@@ -9,7 +9,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "<project-name>",
+  // PROJECT NAME slot — change when forking this template
+  title: "starter",
   description: "Web SaaS scaffold.",
   robots: { index: false, follow: false },
 };

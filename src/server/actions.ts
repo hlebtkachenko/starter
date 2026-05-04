@@ -1,5 +1,6 @@
 import "server-only";
 import type { z } from "zod";
+import { AppError } from "@/lib/errors";
 
 // Base server-action wrapper. Once auth + db land, fill in:
 //   - resolve session via Better Auth
@@ -39,8 +40,10 @@ export function action<I extends z.ZodTypeAny, O>(
       const data = await fn(parsed.data, ctx);
       return { data };
     } catch (err) {
-      if (err instanceof Error && "code" in err && typeof err.code === "string") {
-        return { error: { code: err.code, message: err.message } };
+      if (err instanceof AppError) {
+        return {
+          error: { code: err.code, message: err.message, details: err.details },
+        };
       }
       return {
         error: { code: "server.internal", message: "Unexpected error" },
