@@ -70,9 +70,33 @@ const TOC = [
   { id: "typography", label: "Typography" },
 ];
 
+const SCROLL_GUARD = `
+(function(){
+  try {
+    if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+    var nav = performance.getEntriesByType('navigation')[0];
+    var isReload = nav && nav.type === 'reload';
+    if (isReload && location.hash) {
+      history.replaceState(null, '', location.pathname + location.search);
+    }
+    if (location.hash) return;
+    var stop = Date.now() + 2000;
+    var pin = function(){
+      window.scrollTo(0, 0);
+      if (Date.now() < stop) requestAnimationFrame(pin);
+    };
+    pin();
+  } catch(e) {}
+})();
+`;
+
 export default function ShowcasePage() {
   return (
     <div className="min-h-svh bg-background">
+      <script
+         
+        dangerouslySetInnerHTML={{ __html: SCROLL_GUARD }}
+      />
       <TokenControls />
       <header className="mx-auto max-w-6xl px-6 pt-12">
         <h1 className="text-4xl font-bold tracking-tight">shadcn showcase</h1>
