@@ -15,6 +15,17 @@ export function Mounted({ children }: { children: ReactNode }) {
 
   useLayoutEffect(() => {
     if (!mounted) return;
+    const navEntry = performance.getEntriesByType("navigation")[0] as
+      | PerformanceNavigationTiming
+      | undefined;
+    const isReload = navEntry?.type === "reload";
+
+    if (isReload) {
+      history.replaceState(null, "", window.location.pathname + window.location.search);
+      window.scrollTo(0, 0);
+      return;
+    }
+
     const hash = window.location.hash.slice(1);
     if (hash) {
       const el = document.getElementById(hash);
