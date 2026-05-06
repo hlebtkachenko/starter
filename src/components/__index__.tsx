@@ -10587,12 +10587,164 @@ export const Index: Record<string, RegistryIndexEntry> = {
   },
     Component: React.lazy(() => import("@/components/examples/kbd-input-group")),
   },
+  "login-card": {
+    meta: {
+    "name": "login-card",
+    "type": "registry:block",
+    "title": "Login Card",
+    "description": "Split-screen login page: brand logo + email/password form left, decorative image right. Composes Field, Input, Button, and a GitHub OAuth button. Drop into any auth route as a zero-config starting point.",
+    "registryDependencies": [
+      "card",
+      "input",
+      "button",
+      "label",
+      "field"
+    ],
+    "files": [
+      {
+        "path": "components/blocks/login-card.tsx",
+        "type": "registry:block"
+      }
+    ],
+    "categories": [
+      "auth",
+      "marketing"
+    ],
+    "related": [
+      "login-card-2",
+      "login-card-3",
+      "signup-card",
+      "forgot-password-card"
+    ]
+  },
+    Component: React.lazy(() => import("@/components/blocks/login-card")),
+  },
+  "login-card-2": {
+    meta: {
+    "name": "login-card-2",
+    "type": "registry:block",
+    "title": "Login Card (Multi-provider + MFA)",
+    "description": "Split-screen login with two-stage flow: credentials then TOTP OTP verification. Includes Google, GitHub, Apple, Microsoft OAuth buttons, passkey option, remember-me checkbox, and a decorative gradient right panel. Composes Alert, Checkbox, InputOTP, Field, Input, Button.",
+    "registryDependencies": [
+      "alert",
+      "checkbox",
+      "input-otp",
+      "input",
+      "button",
+      "label",
+      "field"
+    ],
+    "files": [
+      {
+        "path": "components/blocks/login-card-2.tsx",
+        "type": "registry:block"
+      }
+    ],
+    "categories": [
+      "auth"
+    ],
+    "related": [
+      "login-card",
+      "login-card-3",
+      "signup-card"
+    ]
+  },
+    Component: React.lazy(() => import("@/components/blocks/login-card-2")),
+  },
+  "login-card-3": {
+    meta: {
+    "name": "login-card-3",
+    "type": "registry:block",
+    "title": "Login Card (Maintenance + i18n)",
+    "description": "Full-page login with maintenance-mode banner, locale toggle (en/cs auto-detect), maintenance dialog, and a marketing right panel with stats cards and AI feature card. Composes Badge, Card, Dialog, Alert, Field, Input, Button, and internal i18n provider.",
+    "registryDependencies": [
+      "badge",
+      "card",
+      "dialog",
+      "alert",
+      "input",
+      "button",
+      "label",
+      "field"
+    ],
+    "files": [
+      {
+        "path": "components/blocks/login-card-3.tsx",
+        "type": "registry:block"
+      }
+    ],
+    "categories": [
+      "auth",
+      "marketing"
+    ],
+    "related": [
+      "login-card",
+      "login-card-2"
+    ]
+  },
+    Component: React.lazy(() => import("@/components/blocks/login-card-3")),
+  },
+  "signup-card": {
+    meta: {
+    "name": "signup-card",
+    "type": "registry:block",
+    "title": "Signup Card",
+    "description": "Centered signup form with full name, email, and password fields, plus a link back to sign-in. Scaffold following the login-card pattern; wire submit handler to Better Auth sign-up when implementing. Composes Field, Input, Button.",
+    "registryDependencies": [
+      "input",
+      "button",
+      "label",
+      "field"
+    ],
+    "files": [
+      {
+        "path": "components/blocks/signup-card.tsx",
+        "type": "registry:block"
+      }
+    ],
+    "categories": [
+      "auth"
+    ],
+    "related": [
+      "login-card",
+      "forgot-password-card"
+    ]
+  },
+    Component: React.lazy(() => import("@/components/blocks/signup-card")),
+  },
+  "forgot-password-card": {
+    meta: {
+    "name": "forgot-password-card",
+    "type": "registry:block",
+    "title": "Forgot Password Card",
+    "description": "Centered forgot-password form with a single email field that triggers a reset-link email. Scaffold following the login-card pattern; wire submit handler to Better Auth forgot-password endpoint when implementing. Composes Field, Input, Button.",
+    "registryDependencies": [
+      "input",
+      "button",
+      "field"
+    ],
+    "files": [
+      {
+        "path": "components/blocks/forgot-password-card.tsx",
+        "type": "registry:block"
+      }
+    ],
+    "categories": [
+      "auth"
+    ],
+    "related": [
+      "login-card",
+      "signup-card"
+    ]
+  },
+    Component: React.lazy(() => import("@/components/blocks/forgot-password-card")),
+  },
 };
 
 export const ItemsByArea = {
   ui: ["accordion","alert","alert-dialog","aspect-ratio","avatar","badge","breadcrumb","button","button-group","calendar","card","carousel","chart","checkbox","collapsible","combobox","command","context-menu","dialog","drawer","dropdown-menu","empty","field","hover-card","input","input-group","input-otp","item","kbd","label","menubar","native-select","navigation-menu","pagination","popover","progress","radio-group","resizable","scroll-area","select","separator","sheet","sidebar","skeleton","slider","sonner","spinner","switch","table","tabs","textarea","toggle","toggle-group","tooltip"],
   examples: ["button-size","button-default","button-outline","button-secondary","button-ghost","button-destructive","button-link","button-icon","button-with-icon","button-rounded","button-spinner","button-button-group","button-as-child","button-group-default","button-group-orientation","button-group-size","button-group-nested","button-group-separator","button-group-split","button-group-input","button-group-input-group","button-group-dropdown-menu","button-group-select","button-group-popover","toggle-default","toggle-outline","toggle-with-text","toggle-size","toggle-disabled","toggle-group-default","toggle-group-outline","toggle-group-size","toggle-group-spacing","toggle-group-vertical","toggle-group-disabled","toggle-group-custom","avatar-default","avatar-basic","avatar-badge","avatar-badge-with-icon","avatar-avatar-group","avatar-avatar-group-count","avatar-avatar-group-with-icon","avatar-sizes","avatar-dropdown","badge-default","badge-variants","badge-with-icon","badge-with-spinner","badge-link","badge-custom-colors","calendar-default","calendar-basic","calendar-range-calendar","calendar-month-and-year-selector","calendar-presets","calendar-date-and-time-picker","calendar-booked-dates","calendar-custom-cell-size","calendar-week-numbers","calendar-with-timezone","calendar-hijri","chart-default","chart-your-first-chart","chart-chart-config","chart-tooltip","chart-legend","chart-bar-chart","chart-with-grid","chart-with-axis","chart-with-tooltip","chart-with-legend","chart-tooltip-demo","data-table-default","data-table-basic-table","data-table-cell-formatting","data-table-row-actions","data-table-pagination","data-table-sorting","data-table-filtering","data-table-visibility","data-table-row-selection","skeleton-default","skeleton-avatar","skeleton-card","skeleton-text","skeleton-form","skeleton-table","table-default","table-footer","table-actions","typography-h1","typography-h2","typography-h3","typography-h4","typography-p","typography-blockquote","typography-table","typography-list","typography-inline-code","typography-lead","typography-large","typography-small","typography-muted","typography-demo","alert-default","alert-basic","alert-destructive","alert-action","alert-custom-colors","progress-default","progress-label","progress-controlled","sonner-default","sonner-types","sonner-description","sonner-position","spinner-default","spinner-size","spinner-button","spinner-badge","spinner-input-group","spinner-empty","checkbox-default","checkbox-basic","checkbox-description","checkbox-disabled","checkbox-group","checkbox-table","checkbox-indeterminate-select-all","combobox-default","combobox-basic","combobox-multiple","combobox-clear-button","combobox-groups","combobox-custom-items","combobox-invalid","combobox-disabled","combobox-auto-highlight","combobox-popup","combobox-input-group","date-picker-default","date-picker-basic","date-picker-range-picker","date-picker-date-of-birth","date-picker-input","date-picker-time-picker","date-picker-natural-language-picker","field-default","field-input","field-textarea","field-select","field-slider","field-fieldset","field-checkbox","field-radio","field-switch","field-choice-card","field-field-group","input-default","input-basic","input-field","input-field-group","input-disabled","input-invalid","input-file","input-inline","input-grid","input-required","input-badge","input-input-group","input-button-group","input-form","input-group-default","input-group-icon","input-group-text","input-group-button","input-group-kbd","input-group-dropdown","input-group-spinner","input-group-textarea","input-group-custom-input","input-group-credit-card","input-group-locked-password","input-otp-default","input-otp-separator","input-otp-disabled","input-otp-controlled","input-otp-invalid","input-otp-four-digits","input-otp-alphanumeric","input-otp-form","label-label-in-field","label-default","label-in-field-component","native-select-groups","native-select-disabled","native-select-invalid","native-select-default","radio-group-description","radio-group-choice-card","radio-group-fieldset","radio-group-disabled","radio-group-invalid","radio-group-default","select-default","select-align-item-with-trigger","select-groups","select-scrollable","select-disabled","select-invalid","slider-default","slider-range","slider-multiple-thumbs","slider-vertical","slider-controlled","slider-disabled","switch-default","switch-description","switch-choice-card","switch-disabled","switch-invalid","switch-size","textarea-default","textarea-field","textarea-disabled","textarea-invalid","textarea-button","aspect-ratio-default","aspect-ratio-square","aspect-ratio-portrait","card-default","card-size","card-image","card-with-form","collapsible-default","collapsible-basic","collapsible-settings-panel","collapsible-file-tree","resizable-default","resizable-vertical","resizable-handle","scroll-area-default","scroll-area-horizontal","separator-default","separator-vertical","separator-menu","separator-list","sidebar-default","sidebar-offcanvas","sidebar-none","sidebar-floating","sidebar-inset","sidebar-right","command-default","command-basic","command-shortcuts","command-groups","command-scrollable","context-menu-default","context-menu-basic","context-menu-submenu","context-menu-shortcuts","context-menu-groups","context-menu-icons","context-menu-checkboxes","context-menu-radio","context-menu-destructive","dropdown-menu-default","dropdown-menu-basic","dropdown-menu-submenu","dropdown-menu-shortcuts","dropdown-menu-icons","dropdown-menu-checkboxes","dropdown-menu-checkboxes-icons","dropdown-menu-radio-group","dropdown-menu-radio-icons","dropdown-menu-destructive","dropdown-menu-avatar","dropdown-menu-complex","breadcrumb-default","breadcrumb-basic","breadcrumb-custom-separator","breadcrumb-dropdown","breadcrumb-collapsed","breadcrumb-link-component","menubar-default","menubar-checkbox","menubar-radio","menubar-submenu","menubar-with-icons","navigation-menu-default","navigation-menu-link-component","pagination-default","pagination-simple","pagination-icons-only","tabs-default","tabs-line","tabs-vertical","tabs-disabled","tabs-icons","alert-dialog-default","alert-dialog-basic","alert-dialog-small","alert-dialog-media","alert-dialog-small-with-media","alert-dialog-destructive","dialog-default","dialog-custom-close-button","dialog-no-close-button","dialog-sticky-footer","dialog-scrollable-content","drawer-default","drawer-scrollable-content","drawer-sides","drawer-responsive-dialog","hover-card-default","hover-card-basic","hover-card-sides","popover-default","popover-basic","popover-align","popover-with-form","sheet-default","sheet-side","sheet-no-close-button","tooltip-default","tooltip-side","tooltip-with-keyboard-shortcut","tooltip-disabled-button","accordion-default","accordion-basic","accordion-multiple","accordion-disabled","accordion-borders","accordion-card","carousel-default","carousel-sizes","carousel-spacing","carousel-orientation","carousel-api-slide-n-of-m","carousel-plugins","empty-default","empty-outline","empty-background","empty-avatar","empty-avatar-group","empty-input-group","item-default","item-variants","item-sizes","item-icon","item-avatar","item-image","item-group","item-header","item-link","item-dropdown","kbd-default","kbd-group","kbd-button","kbd-tooltip","kbd-input-group"],
-  blocks: [],
+  blocks: ["login-card","login-card-2","login-card-3","signup-card","forgot-password-card"],
 };
 
 export const ExamplesBySlug: Record<string, string[]> = {

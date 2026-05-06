@@ -93,10 +93,7 @@ export type LoginCard2Props = {
   brandName?: string;
 };
 
-export default function LoginCard2({
-  logoHref = "#",
-  brandName = "Acme Inc.",
-}: LoginCard2Props) {
+export default function LoginCard2({ logoHref = "#", brandName = "Acme Inc." }: LoginCard2Props) {
   return (
     <div className="grid min-h-svh lg:grid-cols-2">
       <div className="flex flex-col gap-4 p-6 md:p-10">
@@ -156,12 +153,7 @@ import { LocaleToggle } from "@/components/login-3/locale-toggle";
 import { LoginFormMaintenance } from "@/components/login-form-maintenance";
 import { MaintenanceDialog } from "@/components/maintenance-acknowledge";
 import { Badge } from "@/components/ui/badge";
-import {
-  Card,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { Card, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 
 export type LoginCard3Props = Record<string, never>;
 
@@ -213,9 +205,7 @@ function LoginCard3Inner() {
             <h2 className="max-w-md font-heading text-4xl font-bold tracking-tight">
               {t("right_headline")}
             </h2>
-            <p className="max-w-md text-sm text-muted-foreground">
-              {t("right_desc")}
-            </p>
+            <p className="max-w-md text-sm text-muted-foreground">{t("right_desc")}</p>
           </div>
 
           <div className="grid w-full max-w-md gap-3">
@@ -235,9 +225,7 @@ function LoginCard3Inner() {
               <Card>
                 <CardHeader>
                   <CardDescription>{t("card_speed")}</CardDescription>
-                  <CardTitle className="text-2xl font-semibold">
-                    {t("card_speed_value")}
-                  </CardTitle>
+                  <CardTitle className="text-2xl font-semibold">{t("card_speed_value")}</CardTitle>
                 </CardHeader>
               </Card>
             </div>
@@ -250,12 +238,8 @@ function LoginCard3Inner() {
                       <SparklesIcon /> {t("ai_kicker")}
                     </Badge>
                   </CardDescription>
-                  <CardTitle className="text-base font-semibold">
-                    {t("ai_title")}
-                  </CardTitle>
-                  <p className="text-sm text-muted-foreground">
-                    {t("ai_desc")}
-                  </p>
+                  <CardTitle className="text-base font-semibold">{t("ai_title")}</CardTitle>
+                  <p className="text-sm text-muted-foreground">{t("ai_desc")}</p>
                 </CardHeader>
               </Card>
             </div>
@@ -284,12 +268,7 @@ function LoginCard3Inner() {
 import { GalleryVerticalEndIcon } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
-import {
-  Field,
-  FieldDescription,
-  FieldGroup,
-  FieldLabel,
-} from "@/components/ui/field";
+import { Field, FieldDescription, FieldGroup, FieldLabel } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
 
 export type SignupCardProps = {
@@ -328,12 +307,7 @@ export default function SignupCard({
             </Field>
             <Field>
               <FieldLabel htmlFor="email">Email</FieldLabel>
-              <Input
-                id="email"
-                type="email"
-                placeholder="m@example.com"
-                required
-              />
+              <Input id="email" type="email" placeholder="m@example.com" required />
             </Field>
             <Field>
               <FieldLabel htmlFor="password">Password</FieldLabel>
@@ -373,12 +347,7 @@ export default function SignupCard({
 import { GalleryVerticalEndIcon } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
-import {
-  Field,
-  FieldDescription,
-  FieldGroup,
-  FieldLabel,
-} from "@/components/ui/field";
+import { Field, FieldDescription, FieldGroup, FieldLabel } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
 
 export type ForgotPasswordCardProps = {
@@ -413,12 +382,7 @@ export default function ForgotPasswordCard({
             </div>
             <Field>
               <FieldLabel htmlFor="email">Email</FieldLabel>
-              <Input
-                id="email"
-                type="email"
-                placeholder="m@example.com"
-                required
-              />
+              <Input id="email" type="email" placeholder="m@example.com" required />
             </Field>
             <Field>
               <Button type="submit">Send reset link</Button>
