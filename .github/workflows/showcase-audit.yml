@@ -1,0 +1,88 @@
+name: showcase-audit
+
+# Validates the component registry pipeline end-to-end:
+# typecheck, lint, registry build + idempotency, orphan check,
+# content-drift report, generated-artifact freshness, unit tests.
+# Playwright e2e is scaffolded but skipped until Wave 4 visual snapshots are captured.
+
+on:
+  push:
+    branches:
+      - master
+      - hlebtkachenko/shadcn-check
+  pull_request:
+    branches:
+      - master
+
+concurrency:
+  group: showcase-audit-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  audit:
+    runs-on: [self-hosted, linux, ovh, starter]
+    timeout-minutes: 20
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          # Version sourced from packageManager field in package.json (pnpm 10.33.2).
+          # pnpm/action-setup reads packageManager automatically when version is omitted.
+          run_install: false
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          # No .nvmrc in repo; engines.node requires >=24.
+          node-version: "24"
+          cache: "pnpm"
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Typecheck
+        run: pnpm typecheck
+
+      - name: Lint
+        # Baseline allows 21 warnings; do NOT pass --max-warnings here.
+        run: pnpm lint
+
+      - name: Build registry
+        run: pnpm registry:build
+
+      - name: Check registry idempotency
+        # Verifies that re-building the registry emits no diff against committed __index__.tsx.
+        run: pnpm registry:check
+
+      - name: Check orphan examples
+        # Fails if any file in src/components/examples/ has no matching registry entry,
+        # or any registry entry has no matching file.
+        run: pnpm registry:check-orphans
+
+      - name: Content drift report
+        # Informational: diffs each variant's local Demo set against the upstream shadcn
+        # docs for that slug. Non-blocking for now; promoted to hard fail after Wave 4.
+        continue-on-error: true
+        run: pnpm registry:drift-check
+
+      - name: Export showcase artifacts
+        # Regenerates docs/showcase-export.md, docs/showcase-export/, and
+        # docs/components-manifest.json, then fails if anything drifted from committed state.
+        # This makes the pre-commit lefthook hook redundant in CI but keeps both in sync.
+        run: |
+          pnpm registry:export
+          git diff --exit-code -- docs/showcase-export.md docs/showcase-export/ docs/components-manifest.json
+
+      - name: Unit tests (Vitest)
+        run: pnpm test --run
+
+      # Wave 4 TODO: remove `if: false` once Playwright visual snapshots are captured
+      # and committed. Enabling before snapshots exist causes the job to fail with
+      # "missing snapshot" errors on every run.
+      - name: E2E tests (Playwright)
+        if: false
+        run: pnpm test:e2e

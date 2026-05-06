@@ -73,31 +73,38 @@ pnpm tsx scripts/generate-progress-rows.ts >> docs/plans/component-registry-prog
 
 | File / script | Status |
 |---|---|
-| `scripts/generate-showcase-export.ts` | PENDING |
-| `scripts/generate-manifest.ts` | PENDING |
-| `scripts/check-content-drift.ts` (productize from runbook) | PENDING |
-| `docs/showcase-export.md` (generated) | PENDING |
-| `docs/components-manifest.json` (generated) | PENDING |
-| `package.json` registry:export, registry:drift-check | PENDING |
-| `lefthook.yml` pre-commit drift hook | PENDING |
+| `scripts/generate-showcase-export.ts` | ✓ |
+| `scripts/generate-manifest.ts` | ✓ |
+| `scripts/check-orphans.ts` | ✓ |
+| `scripts/check-content-drift.ts` (productize from runbook) | ✓ |
+| `src/lib/registry.test.ts` (Vitest unit tests) | ✓ |
+| `docs/showcase-export.md` (generated index) | ✓ |
+| `docs/showcase-export/{ui,examples-*,blocks}.md` (generated) | ✓ |
+| `docs/components-manifest.json` (generated) | ✓ |
+| `package.json` registry:export, registry:check-orphans, registry:drift-check | ✓ |
+| `lefthook.yml` pre-commit drift hook | ✓ |
 
 ## Phase 3f — Blocks
 
 | Block | Status |
 |---|---|
-| `login-card` | PENDING |
-| `login-card-3` | PENDING |
-| `signup-card` | PENDING |
-| `forgot-password-card` | PENDING |
-| `_registry-blocks.ts` populated | PENDING |
-| `src/app/showcase/blocks/page.tsx` | PENDING |
+| `login-card` | ✓ |
+| `login-card-2` | ✓ |
+| `login-card-3` | ✓ |
+| `signup-card` | ✓ |
+| `forgot-password-card` | ✓ |
+| `_registry-blocks.ts` populated | ✓ |
+| `src/app/showcase/blocks/page.tsx` | ✓ |
+| `/login` page migrated (≤20 LoC) | ✓ |
+| `/login-2` page migrated (≤20 LoC) | ✓ |
+| `/login-3` page migrated (≤20 LoC) | ✓ |
 
 ## Phase 3g — CI
 
 | Step | Status |
 |---|---|
-| Self-hosted runner registered for repo | PENDING |
-| `.github/workflows/showcase-audit.yml` | PENDING |
+| Self-hosted runner registered for repo | DONE |
+| `.github/workflows/showcase-audit.yml` | DONE |
 | Workflow green on first PR push | PENDING |
 
 ## Phase 3h — Verify + ship
