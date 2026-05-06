@@ -28,6 +28,7 @@ const eslintConfig = defineConfig([
     "vitest.config.ts",
     "playwright.config.ts",
     "**/_TEMPLATE*",
+    "src/components/__index__.tsx",
   ]),
   {
     rules: {

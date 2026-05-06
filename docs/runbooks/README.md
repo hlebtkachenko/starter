@@ -29,6 +29,8 @@
 | [branch-protection.md](branch-protection.md) | meta | – |
 | [aws-bootstrap.md](aws-bootstrap.md) | one-shot | – |
 | [gsd-cutover.md](gsd-cutover.md) | one-shot @ v1.01.000 | – |
+| [shadcn-primitive-intake.md](shadcn-primitive-intake.md) | meta | 2026-05-06 |
+| [showcase-rebuild.md](showcase-rebuild.md) | meta | 2026-05-06 |
 
 ## When to write a runbook
 
