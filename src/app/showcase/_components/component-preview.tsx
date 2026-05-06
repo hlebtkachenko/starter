@@ -15,6 +15,9 @@ import { cn } from "@/lib/utils";
  *
  * Pages can also `import Outline from "@/components/examples/button-outline"`
  * directly when they need the component eagerly without the wrapper.
+ *
+ * App-private to /showcase: anything outside the showcase route should import
+ * the example or block module directly rather than going through this preview.
  */
 export function ComponentPreview({ name, className }: { name: string; className?: string }) {
   const Component = getRegistryComponent(name);

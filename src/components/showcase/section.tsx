@@ -38,9 +38,15 @@ export function Section({
 /**
  * Demo wraps one variant inside a Section.
  *
+ * Children are the resolved registry component: typically a single
+ * `<ComponentPreview name="…" />`, which lazy-loads the variant module
+ * from `src/components/examples/<name>.tsx`. The page no longer hand-writes
+ * variant JSX inline; everything routes through the registry.
+ *
  * `name` matches the `### <name>` heading under `## Examples` in the
  * component's shadcn .md file (e.g. "Basic", "Avatar Group with Icon").
- * AI agents grep the .md file by this exact name.
+ * AI agents grep the .md file by this exact name. It also lines up with
+ * the registry item's `title` field.
  *
  * `span` widens the grid cell (2 or 3 cols) for variants that need room.
  * `height="tall"` raises min-height for components that render large
