@@ -1,3 +1,9 @@
+/**
+ * @slug toggle-group
+ * @variant outline
+ * @upstream https://ui.shadcn.com/docs/components/toggle-group#outline
+ * @deviations []
+ */
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 
 export default function ToggleGroupOutline() {

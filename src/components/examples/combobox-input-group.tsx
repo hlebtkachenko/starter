@@ -1,3 +1,9 @@
+/**
+ * @slug combobox
+ * @variant input-group
+ * @upstream https://ui.shadcn.com/docs/components/combobox
+ * @deviations []
+ */
 import { GlobeIcon } from "lucide-react";
 
 import { COMBOBOX_TIMEZONES } from "@/components/examples/_fixtures/combobox";

@@ -1,7 +1,14 @@
+/**
+ * @slug dropdown-menu
+ * @variant radio-icons
+ * @upstream https://ui.shadcn.com/docs/components/dropdown-menu
+ * @deviations ["Import order corrected: react before lucide-react."]
+ */
 "use client";
 
-import { Building2Icon, CreditCardIcon, WalletIcon } from "lucide-react";
 import * as React from "react";
+
+import { Building2Icon, CreditCardIcon, WalletIcon } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import {

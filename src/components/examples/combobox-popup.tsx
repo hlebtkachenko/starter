@@ -1,3 +1,9 @@
+/**
+ * @slug combobox
+ * @variant popup
+ * @upstream https://ui.shadcn.com/docs/components/combobox
+ * @deviations []
+ */
 import { COMBOBOX_COUNTRIES } from "@/components/examples/_fixtures/combobox";
 import { Button } from "@/components/ui/button";
 import {

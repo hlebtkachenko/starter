@@ -1,3 +1,9 @@
+/**
+ * @slug toggle-group
+ * @variant default
+ * @upstream https://ui.shadcn.com/docs/components/toggle-group
+ * @deviations ["Used BoldIcon, ItalicIcon, UnderlineIcon (-Icon suffix) instead of Bold, Italic, Underline; both are lucide-react aliases for the same icons."]
+ */
 import { BoldIcon, ItalicIcon, UnderlineIcon } from "lucide-react";
 
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";

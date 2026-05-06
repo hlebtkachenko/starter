@@ -1,5 +1,11 @@
 "use client";
 
+/**
+ * @slug drawer
+ * @variant responsive-dialog
+ * @upstream https://ui.shadcn.com/docs/components/drawer
+ * @deviations ["Substituted upstream useMediaQuery hook with project-local useIsMobile from @/hooks/use-mobile; isDesktop derived as !isMobile."]
+ */
 import * as React from "react";
 
 import { Button } from "@/components/ui/button";
@@ -26,9 +32,6 @@ import { Label } from "@/components/ui/label";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { cn } from "@/lib/utils";
 
-// NOTE: upstream shadcn example uses a `useMediaQuery` hook. Substituted with
-// project-local `useIsMobile` from `@/hooks/use-mobile` (logic flipped to
-// `isDesktop = !isMobile`). See docs/showcase.md "Per-component deviations".
 export default function DrawerResponsiveDialog() {
   const [open, setOpen] = React.useState(false);
   const isMobile = useIsMobile();

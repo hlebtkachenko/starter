@@ -1,3 +1,9 @@
+/**
+ * @slug badge
+ * @variant default
+ * @upstream https://ui.shadcn.com/docs/components/badge
+ * @deviations ["Hero renders all four badge variants in one row rather than a single badge."]
+ */
 import { Badge } from "@/components/ui/badge";
 
 export default function BadgeDefault() {

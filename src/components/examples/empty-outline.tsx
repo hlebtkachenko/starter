@@ -1,3 +1,9 @@
+/**
+ * @slug empty
+ * @variant outline
+ * @upstream https://ui.shadcn.com/docs/components/empty
+ * @deviations []
+ */
 import { CloudIcon } from "lucide-react";
 
 import { Button } from "@/components/ui/button";

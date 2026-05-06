@@ -1119,7 +1119,7 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "name": "button-default",
     "type": "registry:example",
     "title": "Default",
-    "description": "Canonical primary Button rendering plain text, the baseline shape every other variant overrides.",
+    "description": "Canonical primary Button rendering plain text with the default variant, the baseline shape every other variant and size override.",
     "slug": "button",
     "variant": "default",
     "isDefault": true,
@@ -1245,7 +1245,7 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "name": "button-link",
     "type": "registry:example",
     "title": "Link",
-    "description": "Button styled as an inline text link with underline-on-hover, for navigation cues that need button semantics.",
+    "description": "Button styled as an inline text link with underline-on-hover, for navigation cues that need button semantics without a solid background.",
     "slug": "button",
     "variant": "link",
     "upstreamUrl": "https://ui.shadcn.com/docs/components/button",
@@ -1295,7 +1295,7 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "name": "button-with-icon",
     "type": "registry:example",
     "title": "With Icon",
-    "description": "Compact small Button combining a leading lucide icon with a text label, the standard shape for inline actions like 'New Branch'.",
+    "description": "Small Button combining a leading lucide icon with a text label, the standard shape for inline actions like 'New Branch' in toolbars.",
     "slug": "button",
     "variant": "with-icon",
     "upstreamUrl": "https://ui.shadcn.com/docs/components/button",
@@ -1311,6 +1311,9 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "categories": [
       "actions",
       "forms"
+    ],
+    "deviations": [
+      "Replaced @tabler/icons-react IconGitBranch with lucide-react GitBranchIcon per project iconLibrary rule."
     ]
   },
     Component: React.lazy(() => import("@/components/examples/button-with-icon")),
@@ -1320,7 +1323,7 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "name": "button-rounded",
     "type": "registry:example",
     "title": "Rounded",
-    "description": "Icon Button with a fully circular shape via rounded-full, used for floating action buttons and pill-style controls.",
+    "description": "Icon Button with a fully circular shape via rounded-full inside a flex column wrapper, used for floating action buttons and pill-style controls.",
     "slug": "button",
     "variant": "rounded",
     "upstreamUrl": "https://ui.shadcn.com/docs/components/button",
@@ -1345,7 +1348,7 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "name": "button-spinner",
     "type": "registry:example",
     "title": "Spinner",
-    "description": "Disabled loading Buttons composing the Spinner primitive on either side of the label to communicate in-flight work.",
+    "description": "Two disabled loading Buttons composing the Spinner primitive on either side of the label to communicate in-flight work, wrapped in a flex row.",
     "slug": "button",
     "variant": "spinner",
     "upstreamUrl": "https://ui.shadcn.com/docs/components/button",
@@ -1362,6 +1365,9 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "categories": [
       "actions",
       "forms"
+    ],
+    "deviations": [
+      "Replaced React fragment root with upstream div.flex.gap-2 wrapper to match upstream layout."
     ]
   },
     Component: React.lazy(() => import("@/components/examples/button-spinner")),
@@ -1452,7 +1458,7 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "name": "button-group-orientation",
     "type": "registry:example",
     "title": "Orientation",
-    "description": "Vertical Button Group with stacked plus/minus icon buttons, the pattern for media-control and stepper layouts.",
+    "description": "Vertical Button Group with stacked plus/minus icon buttons, the pattern for media-control and stepper layouts that stack rather than row.",
     "slug": "button-group",
     "variant": "orientation",
     "upstreamUrl": "https://ui.shadcn.com/docs/components/button-group",
@@ -1477,7 +1483,7 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "name": "button-group-size",
     "type": "registry:example",
     "title": "Size",
-    "description": "Three Button Groups stacked at sm, default, and lg sizes to compare shared-edge rendering across the size scale.",
+    "description": "Three Button Groups stacked at sm, default, and lg sizes to compare shared-edge rendering and hit areas across the size scale.",
     "slug": "button-group",
     "variant": "size",
     "upstreamUrl": "https://ui.shadcn.com/docs/components/button-group",
@@ -1554,7 +1560,7 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "name": "button-group-split",
     "type": "registry:example",
     "title": "Split",
-    "description": "Split-button pattern: a labeled Button on the left and a single icon trigger on the right, divided by a ButtonGroupSeparator.",
+    "description": "Split-button pattern: a labeled secondary Button on the left and a single icon trigger on the right, divided by a ButtonGroupSeparator.",
     "slug": "button-group",
     "variant": "split",
     "upstreamUrl": "https://ui.shadcn.com/docs/components/button-group",
@@ -1570,6 +1576,9 @@ export const Index: Record<string, RegistryIndexEntry> = {
     ],
     "categories": [
       "actions"
+    ],
+    "deviations": [
+      "Replaced @tabler/icons-react IconPlus with lucide-react PlusIcon per project iconLibrary rule."
     ]
   },
     Component: React.lazy(() => import("@/components/examples/button-group-split")),
@@ -1705,6 +1714,9 @@ export const Index: Record<string, RegistryIndexEntry> = {
     ],
     "categories": [
       "actions"
+    ],
+    "deviations": [
+      "Used id='bg-task' instead of 'task' for DOM uniqueness in the showcase context."
     ]
   },
     Component: React.lazy(() => import("@/components/examples/button-group-popover")),
@@ -1714,7 +1726,7 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "name": "toggle-default",
     "type": "registry:example",
     "title": "Default",
-    "description": "Outline Toggle with a Bookmark icon that fills its glyph when active, the canonical bookmark-style two-state control.",
+    "description": "Outline Toggle with a Bookmark icon that fills its glyph when active, the canonical bookmark-style two-state control for favoriting content.",
     "slug": "toggle",
     "variant": "default",
     "isDefault": true,
@@ -1739,7 +1751,7 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "name": "toggle-outline",
     "type": "registry:example",
     "title": "Outline",
-    "description": "Pair of outline Toggles for italic and bold, illustrating the bordered variant typical in rich-text editor toolbars.",
+    "description": "Pair of outline Toggles for italic and bold, illustrating the bordered variant typical in rich-text editor toolbars where selected state must be obvious.",
     "slug": "toggle",
     "variant": "outline",
     "upstreamUrl": "https://ui.shadcn.com/docs/components/toggle",
@@ -1763,7 +1775,7 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "name": "toggle-with-text",
     "type": "registry:example",
     "title": "With Text",
-    "description": "Default-variant Toggle combining an italic icon and visible text label, showing how to render label-plus-icon affordances.",
+    "description": "Default-variant Toggle combining an italic icon and visible text label, showing how to render label-plus-icon affordances for explicit toggle actions.",
     "slug": "toggle",
     "variant": "with-text",
     "upstreamUrl": "https://ui.shadcn.com/docs/components/toggle",
@@ -1787,7 +1799,7 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "name": "toggle-size",
     "type": "registry:example",
     "title": "Size",
-    "description": "Three outline Toggles displayed side by side at sm, default, and lg sizes for visual size-token comparison.",
+    "description": "Three outline Toggles displayed side by side at sm, default, and lg sizes for visual size-token comparison across the full Toggle scale.",
     "slug": "toggle",
     "variant": "size",
     "upstreamUrl": "https://ui.shadcn.com/docs/components/toggle",
@@ -1835,7 +1847,7 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "name": "toggle-group-default",
     "type": "registry:example",
     "title": "Default",
-    "description": "Multiple-selection ToggleGroup with bold, italic, and strikethrough icon buttons, the canonical formatting-toolbar shape.",
+    "description": "Multiple-selection ToggleGroup with bold, italic, and strikethrough icon buttons, the canonical formatting-toolbar shape for rich-text editors.",
     "slug": "toggle-group",
     "variant": "default",
     "isDefault": true,
@@ -1852,6 +1864,9 @@ export const Index: Record<string, RegistryIndexEntry> = {
     ],
     "categories": [
       "actions"
+    ],
+    "deviations": [
+      "Used BoldIcon, ItalicIcon, UnderlineIcon (-Icon suffix) instead of Bold, Italic, Underline; both are lucide-react aliases for the same icons."
     ]
   },
     Component: React.lazy(() => import("@/components/examples/toggle-group-default")),
@@ -1861,7 +1876,7 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "name": "toggle-group-outline",
     "type": "registry:example",
     "title": "Outline",
-    "description": "Single-selection outline ToggleGroup with All/Missed labels, suited to filter pills above call-log or message lists.",
+    "description": "Single-selection outline ToggleGroup with All/Missed labels, suited to filter pills above call-log or message lists where only one option is active.",
     "slug": "toggle-group",
     "variant": "outline",
     "upstreamUrl": "https://ui.shadcn.com/docs/components/toggle-group",
@@ -1911,7 +1926,7 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "name": "toggle-group-spacing",
     "type": "registry:example",
     "title": "Spacing",
-    "description": "Outline ToggleGroup with spacing={2}, showing how the spacing prop separates items into discrete pills instead of shared-edge segments.",
+    "description": "Outline ToggleGroup with spacing={2}, showing how the spacing prop separates items into discrete pills instead of a shared-edge segment strip.",
     "slug": "toggle-group",
     "variant": "spacing",
     "upstreamUrl": "https://ui.shadcn.com/docs/components/toggle-group",
@@ -1936,7 +1951,7 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "name": "toggle-group-vertical",
     "type": "registry:example",
     "title": "Vertical",
-    "description": "Vertical multi-select ToggleGroup with bold/italic/underline icons preselected, demonstrating the orientation prop with spacing.",
+    "description": "Vertical multi-select ToggleGroup with bold/italic/underline icons preselected, demonstrating the orientation prop combined with spacing for stacked toolbars.",
     "slug": "toggle-group",
     "variant": "vertical",
     "upstreamUrl": "https://ui.shadcn.com/docs/components/toggle-group",
@@ -1961,7 +1976,7 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "name": "toggle-group-disabled",
     "type": "registry:example",
     "title": "Disabled",
-    "description": "Multi-select ToggleGroup rendered with the disabled prop on the group, propagating disabled state to every item.",
+    "description": "Multi-select ToggleGroup rendered with the disabled prop on the group, propagating disabled state to every item simultaneously.",
     "slug": "toggle-group",
     "variant": "disabled",
     "upstreamUrl": "https://ui.shadcn.com/docs/components/toggle-group",
@@ -1977,6 +1992,9 @@ export const Index: Record<string, RegistryIndexEntry> = {
     ],
     "categories": [
       "actions"
+    ],
+    "deviations": [
+      "Used BoldIcon, ItalicIcon, UnderlineIcon (-Icon suffix) instead of Bold, Italic, Underline; both are lucide-react aliases for the same icons."
     ]
   },
     Component: React.lazy(() => import("@/components/examples/toggle-group-disabled")),
@@ -4018,7 +4036,7 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "name": "progress-default",
     "type": "registry:example",
     "title": "Default",
-    "description": "Progress bar that animates from 13% to 66% on mount via a delayed setState.",
+    "description": "Progress bar that animates from 13% to 66% on mount via a delayed setState, demonstrating the canonical indeterminate-to-loaded pattern.",
     "slug": "progress",
     "variant": "default",
     "isDefault": true,
@@ -4044,7 +4062,7 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "name": "progress-label",
     "type": "registry:example",
     "title": "Label",
-    "description": "Progress bar paired with a Field label that shows the upload percentage inline.",
+    "description": "Progress bar paired with a Field label showing the upload percentage inline; use when the value needs an accessible text caption.",
     "slug": "progress",
     "variant": "label",
     "isDefault": false,
@@ -4072,7 +4090,7 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "name": "progress-controlled",
     "type": "registry:example",
     "title": "Controlled",
-    "description": "Progress bar driven by a Slider so the user can interactively set its value.",
+    "description": "Progress bar driven by a Slider so the user can scrub its value interactively; demonstrates controlled two-way binding between progress and range input.",
     "slug": "progress",
     "variant": "controlled",
     "isDefault": false,
@@ -4100,7 +4118,7 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "name": "sonner-default",
     "type": "registry:example",
     "title": "Default",
-    "description": "Outline Button that fires a toast with description and an Undo action callback.",
+    "description": "Outline Button that fires a Sonner toast with a description line and an Undo action callback; the canonical starting point for toast integration.",
     "slug": "sonner",
     "variant": "default",
     "isDefault": true,
@@ -4155,7 +4173,7 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "name": "sonner-description",
     "type": "registry:example",
     "title": "Description",
-    "description": "Toast trigger that adds a secondary description line under the title.",
+    "description": "Toast trigger that adds a secondary description line under the title; use when a single-line message is not enough to communicate context.",
     "slug": "sonner",
     "variant": "description",
     "isDefault": false,
@@ -4182,7 +4200,7 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "name": "sonner-position",
     "type": "registry:example",
     "title": "Position",
-    "description": "Six anchor buttons that fire a toast at each corner and edge of the viewport.",
+    "description": "Six anchor buttons that fire a toast at each corner and edge of the viewport; reference when choosing the correct position prop value for your layout.",
     "slug": "sonner",
     "variant": "position",
     "isDefault": false,
@@ -4237,7 +4255,7 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "name": "spinner-size",
     "type": "registry:example",
     "title": "Size",
-    "description": "Four Spinners scaled via Tailwind size utilities from size-3 through size-8.",
+    "description": "Four Spinners scaled via Tailwind size utilities from size-3 through size-8; reference when selecting the right spinner size for dense or spacious contexts.",
     "slug": "spinner",
     "variant": "size",
     "isDefault": false,
@@ -4263,7 +4281,7 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "name": "spinner-button",
     "type": "registry:example",
     "title": "Button",
-    "description": "Disabled Button variants pairing an inline-start Spinner with loading copy.",
+    "description": "Disabled Button variants pairing an inline-start Spinner with loading copy; shows the correct data-icon placement pattern for default, outline, and secondary styles.",
     "slug": "spinner",
     "variant": "button",
     "isDefault": false,
@@ -6041,18 +6059,32 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "name": "select-default",
     "type": "registry:example",
     "title": "Default",
+    "description": "Basic Select dropdown showing a list of fruits, demonstrating the default trigger and popover content layout. Use as the canonical starting point when adding a single-choice dropdown to a form.",
     "slug": "select",
     "variant": "default",
     "isDefault": true,
     "isFlagged": true,
+    "upstreamUrl": "https://ui.shadcn.com/docs/components/select",
     "registryDependencies": [
       "select"
+    ],
+    "categories": [
+      "forms",
+      "input"
+    ],
+    "related": [
+      "select-groups",
+      "select-scrollable",
+      "native-select-default"
     ],
     "files": [
       {
         "path": "components/examples/select-default.tsx",
         "type": "registry:example"
       }
+    ],
+    "deviations": [
+      "isFlagged: not present in upstream Examples block — project-local default demo."
     ]
   },
     Component: React.lazy(() => import("@/components/examples/select-default")),
@@ -6062,12 +6094,22 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "name": "select-align-item-with-trigger",
     "type": "registry:example",
     "title": "Align Item With Trigger",
+    "description": "Interactive demo toggling SelectContent position between item-aligned and popper modes via a Switch. Use when you need to compare placement strategies or expose alignment as a user preference. Composes Select + Switch + Field.",
     "slug": "select",
     "variant": "align-item-with-trigger",
+    "upstreamUrl": "https://ui.shadcn.com/docs/components/select",
     "registryDependencies": [
       "select",
       "switch",
       "field"
+    ],
+    "categories": [
+      "forms",
+      "input"
+    ],
+    "related": [
+      "select-default",
+      "select-scrollable"
     ],
     "files": [
       {
@@ -6083,10 +6125,20 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "name": "select-groups",
     "type": "registry:example",
     "title": "Groups",
+    "description": "Select with two labeled option groups separated by a divider, showing fruits and vegetables. Use when options belong to distinct categories that benefit from visual separation and group labels.",
     "slug": "select",
     "variant": "groups",
+    "upstreamUrl": "https://ui.shadcn.com/docs/components/select",
     "registryDependencies": [
       "select"
+    ],
+    "categories": [
+      "forms",
+      "input"
+    ],
+    "related": [
+      "select-default",
+      "select-scrollable"
     ],
     "files": [
       {
@@ -6102,10 +6154,20 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "name": "select-scrollable",
     "type": "registry:example",
     "title": "Scrollable",
+    "description": "Select populated with a large timezone list across five regional groups, triggering the built-in scroll area. Use when the option count exceeds the visible viewport and keyboard navigation plus scrolling must both work correctly.",
     "slug": "select",
     "variant": "scrollable",
+    "upstreamUrl": "https://ui.shadcn.com/docs/components/select",
     "registryDependencies": [
       "select"
+    ],
+    "categories": [
+      "forms",
+      "input"
+    ],
+    "related": [
+      "select-groups",
+      "select-default"
     ],
     "files": [
       {
@@ -6121,10 +6183,20 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "name": "select-disabled",
     "type": "registry:example",
     "title": "Disabled",
+    "description": "Select rendered in a fully disabled state with one additional item-level disabled option inside. Use to demonstrate read-only form state or unavailable field conditions.",
     "slug": "select",
     "variant": "disabled",
+    "upstreamUrl": "https://ui.shadcn.com/docs/components/select",
     "registryDependencies": [
       "select"
+    ],
+    "categories": [
+      "forms",
+      "input"
+    ],
+    "related": [
+      "select-invalid",
+      "select-default"
     ],
     "files": [
       {
@@ -6140,11 +6212,22 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "name": "select-invalid",
     "type": "registry:example",
     "title": "Invalid",
+    "description": "Select inside a Field marked data-invalid with aria-invalid on the trigger and a FieldError message below. Use to show validation failure state with accessible error messaging. Composes Select + Field.",
     "slug": "select",
     "variant": "invalid",
+    "upstreamUrl": "https://ui.shadcn.com/docs/components/select",
     "registryDependencies": [
       "select",
       "field"
+    ],
+    "categories": [
+      "forms",
+      "input",
+      "validation"
+    ],
+    "related": [
+      "select-disabled",
+      "select-default"
     ],
     "files": [
       {
@@ -6160,18 +6243,32 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "name": "slider-default",
     "type": "registry:example",
     "title": "Default",
+    "description": "Single-thumb Slider set to 75 out of 100, illustrating the default horizontal track and filled range. Use as the baseline reference when adding a simple numeric input to a settings or filter form.",
     "slug": "slider",
     "variant": "default",
     "isDefault": true,
     "isFlagged": true,
+    "upstreamUrl": "https://ui.shadcn.com/docs/components/slider",
     "registryDependencies": [
       "slider"
+    ],
+    "categories": [
+      "forms",
+      "input"
+    ],
+    "related": [
+      "slider-range",
+      "slider-controlled",
+      "slider-disabled"
     ],
     "files": [
       {
         "path": "components/examples/slider-default.tsx",
         "type": "registry:example"
       }
+    ],
+    "deviations": [
+      "isFlagged: not present in upstream Examples block — project-local default demo."
     ]
   },
     Component: React.lazy(() => import("@/components/examples/slider-default")),
@@ -6181,10 +6278,20 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "name": "slider-range",
     "type": "registry:example",
     "title": "Range",
+    "description": "Two-thumb Slider with defaultValue [25, 50] defining a selected range along the track. Use when users must pick a min/max interval, such as price filters or date span selectors.",
     "slug": "slider",
     "variant": "range",
+    "upstreamUrl": "https://ui.shadcn.com/docs/components/slider",
     "registryDependencies": [
       "slider"
+    ],
+    "categories": [
+      "forms",
+      "input"
+    ],
+    "related": [
+      "slider-default",
+      "slider-multiple-thumbs"
     ],
     "files": [
       {
@@ -6200,10 +6307,20 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "name": "slider-multiple-thumbs",
     "type": "registry:example",
     "title": "Multiple Thumbs",
+    "description": "Three-thumb Slider with values [10, 20, 70] demonstrating independent thumb control across a single track. Use when the UI requires more than two breakpoints, such as a multi-band equalizer or tiered pricing boundary.",
     "slug": "slider",
     "variant": "multiple-thumbs",
+    "upstreamUrl": "https://ui.shadcn.com/docs/components/slider",
     "registryDependencies": [
       "slider"
+    ],
+    "categories": [
+      "forms",
+      "input"
+    ],
+    "related": [
+      "slider-range",
+      "slider-default"
     ],
     "files": [
       {
@@ -6219,10 +6336,20 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "name": "slider-vertical",
     "type": "registry:example",
     "title": "Vertical",
+    "description": "Two vertical Sliders side by side using orientation='vertical' and an explicit height, showing how the component reflows for column-based layouts. Use in audio mixers, chart annotation tools, or any design where a vertical axis is more intuitive.",
     "slug": "slider",
     "variant": "vertical",
+    "upstreamUrl": "https://ui.shadcn.com/docs/components/slider",
     "registryDependencies": [
       "slider"
+    ],
+    "categories": [
+      "forms",
+      "input"
+    ],
+    "related": [
+      "slider-default",
+      "slider-range"
     ],
     "files": [
       {
@@ -6238,11 +6365,21 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "name": "slider-controlled",
     "type": "registry:example",
     "title": "Controlled",
+    "description": "Controlled two-thumb Slider wired to React state via onValueChange, displaying live numeric output next to the label. Use when parent state must read or reset the slider value, such as in a settings panel with a reset button. Composes Slider + Label.",
     "slug": "slider",
     "variant": "controlled",
+    "upstreamUrl": "https://ui.shadcn.com/docs/components/slider",
     "registryDependencies": [
       "slider",
       "label"
+    ],
+    "categories": [
+      "forms",
+      "input"
+    ],
+    "related": [
+      "slider-default",
+      "slider-range"
     ],
     "files": [
       {
@@ -6258,10 +6395,20 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "name": "slider-disabled",
     "type": "registry:example",
     "title": "Disabled",
+    "description": "Slider rendered in a disabled state, blocking pointer and keyboard interaction while preserving the visual track. Use to indicate that the value is locked by a higher-level condition in the form.",
     "slug": "slider",
     "variant": "disabled",
+    "upstreamUrl": "https://ui.shadcn.com/docs/components/slider",
     "registryDependencies": [
       "slider"
+    ],
+    "categories": [
+      "forms",
+      "input"
+    ],
+    "related": [
+      "slider-default",
+      "slider-controlled"
     ],
     "files": [
       {
@@ -6277,19 +6424,33 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "name": "switch-default",
     "type": "registry:example",
     "title": "Default",
+    "description": "Minimal Switch paired with a Label for airplane mode, demonstrating the base on/off toggle layout. Use as the simplest reference when adding a boolean preference toggle that needs no extra description. Composes Switch + Label.",
     "slug": "switch",
     "variant": "default",
     "isDefault": true,
     "isFlagged": true,
+    "upstreamUrl": "https://ui.shadcn.com/docs/components/switch",
     "registryDependencies": [
       "switch",
       "label"
+    ],
+    "categories": [
+      "forms",
+      "input"
+    ],
+    "related": [
+      "switch-description",
+      "switch-choice-card",
+      "switch-disabled"
     ],
     "files": [
       {
         "path": "components/examples/switch-default.tsx",
         "type": "registry:example"
       }
+    ],
+    "deviations": [
+      "isFlagged: not present in upstream Examples block — project-local default demo."
     ]
   },
     Component: React.lazy(() => import("@/components/examples/switch-default")),
@@ -6299,11 +6460,21 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "name": "switch-description",
     "type": "registry:example",
     "title": "Description",
+    "description": "Horizontal Field layout with a Switch aligned to the right of a label and supporting description text. Use for settings rows where users need context before toggling, such as focus-sharing or notification preferences. Composes Switch + Field.",
     "slug": "switch",
     "variant": "description",
+    "upstreamUrl": "https://ui.shadcn.com/docs/components/switch",
     "registryDependencies": [
       "switch",
       "field"
+    ],
+    "categories": [
+      "forms",
+      "input"
+    ],
+    "related": [
+      "switch-default",
+      "switch-choice-card"
     ],
     "files": [
       {
@@ -6319,11 +6490,21 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "name": "switch-choice-card",
     "type": "registry:example",
     "title": "Choice Card",
+    "description": "FieldGroup of two clickable card rows, each wrapping a FieldLabel around a horizontal Field with title, description, and a Switch. Use for settings panels where each option has a name plus an explanatory sentence and both the label and card area must be click targets. Composes Switch + Field.",
     "slug": "switch",
     "variant": "choice-card",
+    "upstreamUrl": "https://ui.shadcn.com/docs/components/switch",
     "registryDependencies": [
       "switch",
       "field"
+    ],
+    "categories": [
+      "forms",
+      "input"
+    ],
+    "related": [
+      "switch-description",
+      "switch-default"
     ],
     "files": [
       {
@@ -6339,11 +6520,21 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "name": "switch-disabled",
     "type": "registry:example",
     "title": "Disabled",
+    "description": "Switch rendered disabled inside a data-disabled Field, graying out both the toggle and its label. Use to show a locked boolean preference when its value is determined by another condition in the form. Composes Switch + Field.",
     "slug": "switch",
     "variant": "disabled",
+    "upstreamUrl": "https://ui.shadcn.com/docs/components/switch",
     "registryDependencies": [
       "switch",
       "field"
+    ],
+    "categories": [
+      "forms",
+      "input"
+    ],
+    "related": [
+      "switch-invalid",
+      "switch-default"
     ],
     "files": [
       {
@@ -6359,11 +6550,22 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "name": "switch-invalid",
     "type": "registry:example",
     "title": "Invalid",
+    "description": "Switch inside a data-invalid Field with aria-invalid set, showing the error ring and accessible invalid state. Use when a required boolean (e.g. terms acceptance) has not been toggled on before form submission. Composes Switch + Field.",
     "slug": "switch",
     "variant": "invalid",
+    "upstreamUrl": "https://ui.shadcn.com/docs/components/switch",
     "registryDependencies": [
       "switch",
       "field"
+    ],
+    "categories": [
+      "forms",
+      "input",
+      "validation"
+    ],
+    "related": [
+      "switch-disabled",
+      "switch-default"
     ],
     "files": [
       {
@@ -6379,11 +6581,21 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "name": "switch-size",
     "type": "registry:example",
     "title": "Size",
+    "description": "Side-by-side comparison of Switch size tokens — sm and default — each paired with a FieldLabel. Use when choosing the correct toggle size for dense toolbars versus standard form rows. Composes Switch + Field.",
     "slug": "switch",
     "variant": "size",
+    "upstreamUrl": "https://ui.shadcn.com/docs/components/switch",
     "registryDependencies": [
       "switch",
       "field"
+    ],
+    "categories": [
+      "forms",
+      "input"
+    ],
+    "related": [
+      "switch-default",
+      "switch-description"
     ],
     "files": [
       {
@@ -6399,18 +6611,32 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "name": "textarea-default",
     "type": "registry:example",
     "title": "Default",
+    "description": "Bare Textarea with a placeholder, showing the default resizable multi-line text input without any surrounding field chrome. Use as the minimal reference before wrapping with Field or pairing with a submit button.",
     "slug": "textarea",
     "variant": "default",
     "isDefault": true,
     "isFlagged": true,
+    "upstreamUrl": "https://ui.shadcn.com/docs/components/textarea",
     "registryDependencies": [
       "textarea"
+    ],
+    "categories": [
+      "forms",
+      "input"
+    ],
+    "related": [
+      "textarea-field",
+      "textarea-button",
+      "textarea-disabled"
     ],
     "files": [
       {
         "path": "components/examples/textarea-default.tsx",
         "type": "registry:example"
       }
+    ],
+    "deviations": [
+      "isFlagged: not present in upstream Examples block — project-local default demo."
     ]
   },
     Component: React.lazy(() => import("@/components/examples/textarea-default")),
@@ -6420,11 +6646,22 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "name": "textarea-field",
     "type": "registry:example",
     "title": "Field",
+    "description": "Textarea inside a Field with a FieldLabel and FieldDescription, demonstrating the standard accessible layout for multi-line text. Use when the textarea needs a visible label and supporting hint text below it. Composes Textarea + Field.",
     "slug": "textarea",
     "variant": "field",
+    "upstreamUrl": "https://ui.shadcn.com/docs/components/textarea",
     "registryDependencies": [
       "textarea",
       "field"
+    ],
+    "categories": [
+      "forms",
+      "input"
+    ],
+    "related": [
+      "textarea-default",
+      "textarea-invalid",
+      "textarea-disabled"
     ],
     "files": [
       {
@@ -6440,11 +6677,21 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "name": "textarea-disabled",
     "type": "registry:example",
     "title": "Disabled",
+    "description": "Textarea inside a data-disabled Field, rendering the input and its label in a muted, non-interactive state. Use to show that a long-text field is locked until a prerequisite condition is met. Composes Textarea + Field.",
     "slug": "textarea",
     "variant": "disabled",
+    "upstreamUrl": "https://ui.shadcn.com/docs/components/textarea",
     "registryDependencies": [
       "textarea",
       "field"
+    ],
+    "categories": [
+      "forms",
+      "input"
+    ],
+    "related": [
+      "textarea-invalid",
+      "textarea-default"
     ],
     "files": [
       {
@@ -6460,11 +6707,22 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "name": "textarea-invalid",
     "type": "registry:example",
     "title": "Invalid",
+    "description": "Textarea inside a data-invalid Field with aria-invalid on the input and a FieldDescription acting as the error message. Use to surface validation errors on multi-line text fields in a form submission flow. Composes Textarea + Field.",
     "slug": "textarea",
     "variant": "invalid",
+    "upstreamUrl": "https://ui.shadcn.com/docs/components/textarea",
     "registryDependencies": [
       "textarea",
       "field"
+    ],
+    "categories": [
+      "forms",
+      "input",
+      "validation"
+    ],
+    "related": [
+      "textarea-disabled",
+      "textarea-field"
     ],
     "files": [
       {
@@ -6480,11 +6738,21 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "name": "textarea-button",
     "type": "registry:example",
     "title": "Button",
+    "description": "Textarea stacked above a full-width Button in a grid gap layout, forming a minimal message composer. Use when the primary action following text entry is a single submit — such as a comment box or support request form. Composes Textarea + Button.",
     "slug": "textarea",
     "variant": "button",
+    "upstreamUrl": "https://ui.shadcn.com/docs/components/textarea",
     "registryDependencies": [
       "textarea",
       "button"
+    ],
+    "categories": [
+      "forms",
+      "input"
+    ],
+    "related": [
+      "textarea-default",
+      "textarea-field"
     ],
     "files": [
       {
@@ -6918,7 +7186,7 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "name": "separator-default",
     "type": "registry:example",
     "title": "Default",
-    "description": "Horizontal Separator dividing a heading block from a description paragraph, the most common rule-line layout.",
+    "description": "Horizontal Separator between a heading block and a description paragraph, the page-hero pattern and most common rule-line layout in content sections.",
     "slug": "separator",
     "variant": "default",
     "isDefault": true,
@@ -6933,7 +7201,13 @@ export const Index: Record<string, RegistryIndexEntry> = {
       }
     ],
     "categories": [
-      "layout"
+      "layout",
+      "surface"
+    ],
+    "related": [
+      "separator-vertical",
+      "separator-list",
+      "separator-menu"
     ]
   },
     Component: React.lazy(() => import("@/components/examples/separator-default")),
@@ -6943,7 +7217,7 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "name": "separator-vertical",
     "type": "registry:example",
     "title": "Vertical",
-    "description": "Inline vertical Separators between Blog/Docs/Source labels, the breadcrumb-style horizontal-row divider.",
+    "description": "Inline vertical Separators with orientation=vertical between Blog/Docs/Source labels, the breadcrumb-style horizontal-row divider for nav bars and toolbars.",
     "slug": "separator",
     "variant": "vertical",
     "upstreamUrl": "https://ui.shadcn.com/docs/components/separator",
@@ -6957,7 +7231,12 @@ export const Index: Record<string, RegistryIndexEntry> = {
       }
     ],
     "categories": [
-      "layout"
+      "layout",
+      "surface"
+    ],
+    "related": [
+      "separator-default",
+      "separator-menu"
     ]
   },
     Component: React.lazy(() => import("@/components/examples/separator-vertical")),
@@ -6967,7 +7246,7 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "name": "separator-menu",
     "type": "registry:example",
     "title": "Menu",
-    "description": "Three-column menu row split by vertical Separators with responsive visibility on the third column.",
+    "description": "Three-column settings/account/help row split by vertical Separators with responsive md: visibility on the third column; shows real-world nav bar application.",
     "slug": "separator",
     "variant": "menu",
     "upstreamUrl": "https://ui.shadcn.com/docs/components/separator",
@@ -6981,7 +7260,12 @@ export const Index: Record<string, RegistryIndexEntry> = {
       }
     ],
     "categories": [
-      "layout"
+      "layout",
+      "surface"
+    ],
+    "related": [
+      "separator-vertical",
+      "separator-default"
     ]
   },
     Component: React.lazy(() => import("@/components/examples/separator-menu")),
@@ -6991,7 +7275,7 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "name": "separator-list",
     "type": "registry:example",
     "title": "List",
-    "description": "Description-list rows separated by horizontal Separators between dt/dd pairs, a clean alternative to a bordered table.",
+    "description": "Description-list rows (dt/dd pairs) divided by horizontal Separators, a clean key-value display alternative to a bordered table or striped rows.",
     "slug": "separator",
     "variant": "list",
     "upstreamUrl": "https://ui.shadcn.com/docs/components/separator",
@@ -7005,7 +7289,11 @@ export const Index: Record<string, RegistryIndexEntry> = {
       }
     ],
     "categories": [
-      "layout"
+      "layout",
+      "surface"
+    ],
+    "related": [
+      "separator-default"
     ]
   },
     Component: React.lazy(() => import("@/components/examples/separator-list")),
@@ -7015,13 +7303,17 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "name": "sidebar-default",
     "type": "registry:example",
     "title": "Default",
-    "description": "SidebarShowcase with variant=\"sidebar\", side=\"left\", collapsible=\"icon\", the canonical icon-collapse left rail.",
+    "description": "SidebarShowcase fixture with variant=sidebar, side=left, collapsible=icon — the canonical icon-collapse left rail used as the page-hero demo for this primitive.",
     "slug": "sidebar",
     "variant": "default",
     "isDefault": true,
+    "isFlagged": true,
     "upstreamUrl": "https://ui.shadcn.com/docs/components/sidebar",
     "registryDependencies": [
       "sidebar"
+    ],
+    "deviations": [
+      "Sidebar has no upstream ## Examples block; all variants are project-authored SidebarShowcase fixtures."
     ],
     "files": [
       {
@@ -7033,6 +7325,13 @@ export const Index: Record<string, RegistryIndexEntry> = {
       "layout",
       "navigation"
     ],
+    "related": [
+      "sidebar-offcanvas",
+      "sidebar-none",
+      "sidebar-floating",
+      "sidebar-inset",
+      "sidebar-right"
+    ],
     "span": 3,
     "height": "tall"
   },
@@ -7043,12 +7342,16 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "name": "sidebar-offcanvas",
     "type": "registry:example",
     "title": "Offcanvas",
-    "description": "Sidebar with collapsible=\"offcanvas\" so the trigger slides the rail entirely off screen instead of collapsing to icons.",
+    "description": "Sidebar with collapsible=offcanvas; the trigger slides the entire rail off screen instead of collapsing to icon width. Use when vertical space is scarce on mobile.",
     "slug": "sidebar",
     "variant": "offcanvas",
+    "isFlagged": true,
     "upstreamUrl": "https://ui.shadcn.com/docs/components/sidebar",
     "registryDependencies": [
       "sidebar"
+    ],
+    "deviations": [
+      "Sidebar has no upstream ## Examples block; all variants are project-authored SidebarShowcase fixtures."
     ],
     "files": [
       {
@@ -7060,6 +7363,10 @@ export const Index: Record<string, RegistryIndexEntry> = {
       "layout",
       "navigation"
     ],
+    "related": [
+      "sidebar-default",
+      "sidebar-none"
+    ],
     "span": 3,
     "height": "tall"
   },
@@ -7070,12 +7377,16 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "name": "sidebar-none",
     "type": "registry:example",
     "title": "None",
-    "description": "Sidebar with collapsible=\"none\", a permanent fixed rail; the trigger is rendered for layout parity but has no effect.",
+    "description": "Sidebar with collapsible=none rendering a permanent fixed rail; the SidebarTrigger is present for layout parity but has no collapse effect at runtime.",
     "slug": "sidebar",
     "variant": "none",
+    "isFlagged": true,
     "upstreamUrl": "https://ui.shadcn.com/docs/components/sidebar",
     "registryDependencies": [
       "sidebar"
+    ],
+    "deviations": [
+      "Sidebar has no upstream ## Examples block; all variants are project-authored SidebarShowcase fixtures."
     ],
     "files": [
       {
@@ -7087,6 +7398,10 @@ export const Index: Record<string, RegistryIndexEntry> = {
       "layout",
       "navigation"
     ],
+    "related": [
+      "sidebar-default",
+      "sidebar-offcanvas"
+    ],
     "span": 3,
     "height": "tall"
   },
@@ -7097,12 +7412,16 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "name": "sidebar-floating",
     "type": "registry:example",
     "title": "Floating",
-    "description": "Sidebar with variant=\"floating\", separating the rail from the page edge with rounded chrome.",
+    "description": "Sidebar with variant=floating, detaching the rail from the page edge with rounded chrome and a visible gap; use when the layout calls for a card-elevation feel.",
     "slug": "sidebar",
     "variant": "floating",
+    "isFlagged": true,
     "upstreamUrl": "https://ui.shadcn.com/docs/components/sidebar",
     "registryDependencies": [
       "sidebar"
+    ],
+    "deviations": [
+      "Sidebar has no upstream ## Examples block; all variants are project-authored SidebarShowcase fixtures."
     ],
     "files": [
       {
@@ -7114,6 +7433,10 @@ export const Index: Record<string, RegistryIndexEntry> = {
       "layout",
       "navigation"
     ],
+    "related": [
+      "sidebar-default",
+      "sidebar-inset"
+    ],
     "span": 3,
     "height": "tall"
   },
@@ -7124,12 +7447,16 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "name": "sidebar-inset",
     "type": "registry:example",
     "title": "Inset",
-    "description": "Sidebar with variant=\"inset\", embedding the SidebarInset surface inside a card-like container with elevated chrome.",
+    "description": "Sidebar with variant=inset, embedding the SidebarInset content surface inside a card-like container with elevated chrome and a visible inner border.",
     "slug": "sidebar",
     "variant": "inset",
+    "isFlagged": true,
     "upstreamUrl": "https://ui.shadcn.com/docs/components/sidebar",
     "registryDependencies": [
       "sidebar"
+    ],
+    "deviations": [
+      "Sidebar has no upstream ## Examples block; all variants are project-authored SidebarShowcase fixtures."
     ],
     "files": [
       {
@@ -7141,6 +7468,10 @@ export const Index: Record<string, RegistryIndexEntry> = {
       "layout",
       "navigation"
     ],
+    "related": [
+      "sidebar-default",
+      "sidebar-floating"
+    ],
     "span": 3,
     "height": "tall"
   },
@@ -7151,12 +7482,16 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "name": "sidebar-right",
     "type": "registry:example",
     "title": "Right",
-    "description": "Sidebar mirrored to side=\"right\", showing the same icon-collapse rail anchored to the trailing edge.",
+    "description": "Sidebar with side=right, mirroring the icon-collapse rail to the trailing edge of the viewport; suited to inspector panels and secondary tool rails.",
     "slug": "sidebar",
     "variant": "right",
+    "isFlagged": true,
     "upstreamUrl": "https://ui.shadcn.com/docs/components/sidebar",
     "registryDependencies": [
       "sidebar"
+    ],
+    "deviations": [
+      "Sidebar has no upstream ## Examples block; all variants are project-authored SidebarShowcase fixtures."
     ],
     "files": [
       {
@@ -7167,6 +7502,9 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "categories": [
       "layout",
       "navigation"
+    ],
+    "related": [
+      "sidebar-default"
     ],
     "span": 3,
     "height": "tall"
@@ -7486,7 +7824,7 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "name": "dropdown-menu-default",
     "type": "registry:example",
     "title": "Default",
-    "description": "Dropdown menu with account label, items, submenu, shortcuts, separators, and disabled entry.",
+    "description": "Full-featured dropdown menu showing account group with label, profile/billing/settings shortcuts, a nested invite-users submenu, and a log-out action separated by dividers. Use this as the canonical reference when building app-header account menus.",
     "registryDependencies": [
       "dropdown-menu",
       "button"
@@ -7500,6 +7838,18 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "slug": "dropdown-menu",
     "variant": "default",
     "isDefault": true,
+    "categories": [
+      "menus",
+      "navigation",
+      "overlay"
+    ],
+    "related": [
+      "dropdown-menu-basic",
+      "dropdown-menu-submenu",
+      "dropdown-menu-avatar",
+      "dropdown-menu-complex",
+      "context-menu-default"
+    ],
     "upstreamUrl": "https://ui.shadcn.com/docs/components/dropdown-menu"
   },
     Component: React.lazy(() => import("@/components/examples/dropdown-menu-default")),
@@ -7509,7 +7859,7 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "name": "dropdown-menu-basic",
     "type": "registry:example",
     "title": "Basic",
-    "description": "Minimal dropdown with account label, items, separator, and disabled entry.",
+    "description": "Minimal dropdown with a labelled account group, three navigation items, a separator, and a disabled API entry. Good starting point when you need a simple action list without submenus or shortcuts.",
     "registryDependencies": [
       "dropdown-menu",
       "button"
@@ -7522,6 +7872,16 @@ export const Index: Record<string, RegistryIndexEntry> = {
     ],
     "slug": "dropdown-menu",
     "variant": "basic",
+    "categories": [
+      "menus",
+      "navigation",
+      "overlay"
+    ],
+    "related": [
+      "dropdown-menu-default",
+      "dropdown-menu-shortcuts",
+      "dropdown-menu-icons"
+    ],
     "upstreamUrl": "https://ui.shadcn.com/docs/components/dropdown-menu"
   },
     Component: React.lazy(() => import("@/components/examples/dropdown-menu-basic")),
@@ -7531,7 +7891,7 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "name": "dropdown-menu-submenu",
     "type": "registry:example",
     "title": "Submenu",
-    "description": "Dropdown menu with two-level nested submenus for invite users.",
+    "description": "Dropdown with a two-level nested submenu for invite-users flow: Email, Message, and a deeper More-options sub-submenu containing Calendly, Slack, and Webhook. Use when actions have secondary choices that would clutter the top-level list.",
     "registryDependencies": [
       "dropdown-menu",
       "button"
@@ -7544,6 +7904,16 @@ export const Index: Record<string, RegistryIndexEntry> = {
     ],
     "slug": "dropdown-menu",
     "variant": "submenu",
+    "categories": [
+      "menus",
+      "navigation",
+      "overlay"
+    ],
+    "related": [
+      "dropdown-menu-default",
+      "dropdown-menu-complex",
+      "context-menu-submenu"
+    ],
     "upstreamUrl": "https://ui.shadcn.com/docs/components/dropdown-menu"
   },
     Component: React.lazy(() => import("@/components/examples/dropdown-menu-submenu")),
@@ -7553,7 +7923,7 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "name": "dropdown-menu-shortcuts",
     "type": "registry:example",
     "title": "Shortcuts",
-    "description": "Dropdown menu items with keyboard shortcuts beside each label.",
+    "description": "Dropdown with an account group showing Profile (⇧⌘P), Billing (⌘B), and Settings (⌘S) shortcuts, plus a Log out entry with ⇧⌘Q. Use in power-user interfaces where keyboard discoverability matters.",
     "registryDependencies": [
       "dropdown-menu",
       "button"
@@ -7566,6 +7936,16 @@ export const Index: Record<string, RegistryIndexEntry> = {
     ],
     "slug": "dropdown-menu",
     "variant": "shortcuts",
+    "categories": [
+      "menus",
+      "navigation",
+      "overlay"
+    ],
+    "related": [
+      "dropdown-menu-basic",
+      "dropdown-menu-default",
+      "context-menu-shortcuts"
+    ],
     "upstreamUrl": "https://ui.shadcn.com/docs/components/dropdown-menu"
   },
     Component: React.lazy(() => import("@/components/examples/dropdown-menu-shortcuts")),
@@ -7575,7 +7955,7 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "name": "dropdown-menu-icons",
     "type": "registry:example",
     "title": "Icons",
-    "description": "Dropdown menu items with leading icons and a destructive log out.",
+    "description": "Dropdown menu with Profile, Billing, and Settings items each prefixed by a lucide icon, plus a destructive Log out row. Use when visual scanning speed is important and icons provide instant recognition.",
     "registryDependencies": [
       "dropdown-menu",
       "button"
@@ -7588,6 +7968,17 @@ export const Index: Record<string, RegistryIndexEntry> = {
     ],
     "slug": "dropdown-menu",
     "variant": "icons",
+    "categories": [
+      "menus",
+      "navigation",
+      "overlay"
+    ],
+    "related": [
+      "dropdown-menu-basic",
+      "dropdown-menu-destructive",
+      "dropdown-menu-checkboxes-icons",
+      "context-menu-icons"
+    ],
     "upstreamUrl": "https://ui.shadcn.com/docs/components/dropdown-menu"
   },
     Component: React.lazy(() => import("@/components/examples/dropdown-menu-icons")),
@@ -7597,7 +7988,7 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "name": "dropdown-menu-checkboxes",
     "type": "registry:example",
     "title": "Checkboxes",
-    "description": "Dropdown with three DropdownMenuCheckboxItem rows including a disabled one.",
+    "description": "Controlled dropdown with three DropdownMenuCheckboxItem rows under an Appearance label: Status Bar (checked), Activity Bar (disabled), and Panel. Use for toggling persistent UI preferences inline without a form.",
     "registryDependencies": [
       "dropdown-menu",
       "button"
@@ -7610,6 +8001,16 @@ export const Index: Record<string, RegistryIndexEntry> = {
     ],
     "slug": "dropdown-menu",
     "variant": "checkboxes",
+    "categories": [
+      "menus",
+      "overlay",
+      "forms"
+    ],
+    "related": [
+      "dropdown-menu-checkboxes-icons",
+      "dropdown-menu-radio-group",
+      "context-menu-checkboxes"
+    ],
     "upstreamUrl": "https://ui.shadcn.com/docs/components/dropdown-menu"
   },
     Component: React.lazy(() => import("@/components/examples/dropdown-menu-checkboxes")),
@@ -7619,7 +8020,7 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "name": "dropdown-menu-checkboxes-icons",
     "type": "registry:example",
     "title": "Checkboxes Icons",
-    "description": "Notification preferences dropdown with checkbox rows and leading icons.",
+    "description": "Notification-preferences dropdown with three DropdownMenuCheckboxItem rows (Email, SMS, Push) each prefixed by a lucide icon. Use when icon context helps users identify notification channels at a glance.",
     "registryDependencies": [
       "dropdown-menu",
       "button"
@@ -7632,6 +8033,19 @@ export const Index: Record<string, RegistryIndexEntry> = {
     ],
     "slug": "dropdown-menu",
     "variant": "checkboxes-icons",
+    "categories": [
+      "menus",
+      "overlay",
+      "forms"
+    ],
+    "related": [
+      "dropdown-menu-checkboxes",
+      "dropdown-menu-icons",
+      "context-menu-checkboxes"
+    ],
+    "deviations": [
+      "Import order corrected: react before lucide-react."
+    ],
     "upstreamUrl": "https://ui.shadcn.com/docs/components/dropdown-menu"
   },
     Component: React.lazy(() => import("@/components/examples/dropdown-menu-checkboxes-icons")),
@@ -7641,7 +8055,7 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "name": "dropdown-menu-radio-group",
     "type": "registry:example",
     "title": "Radio Group",
-    "description": "Dropdown menu with a controlled radio group selecting panel position.",
+    "description": "Controlled dropdown with a DropdownMenuRadioGroup offering Top, Bottom, and Right panel-position options, persisted via useState. Use when the user must commit to exactly one choice from a short exclusive list.",
     "registryDependencies": [
       "dropdown-menu",
       "button"
@@ -7654,6 +8068,16 @@ export const Index: Record<string, RegistryIndexEntry> = {
     ],
     "slug": "dropdown-menu",
     "variant": "radio-group",
+    "categories": [
+      "menus",
+      "overlay",
+      "forms"
+    ],
+    "related": [
+      "dropdown-menu-radio-icons",
+      "dropdown-menu-checkboxes",
+      "context-menu-radio"
+    ],
     "upstreamUrl": "https://ui.shadcn.com/docs/components/dropdown-menu"
   },
     Component: React.lazy(() => import("@/components/examples/dropdown-menu-radio-group")),
@@ -7663,7 +8087,7 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "name": "dropdown-menu-radio-icons",
     "type": "registry:example",
     "title": "Radio Icons",
-    "description": "Dropdown radio group for payment method with icons next to each option.",
+    "description": "Controlled payment-method selector using DropdownMenuRadioGroup with Credit Card, PayPal, and Bank Transfer options, each with a leading lucide icon. Use when radio choices benefit from icon context to reduce cognitive load.",
     "registryDependencies": [
       "dropdown-menu",
       "button"
@@ -7676,6 +8100,19 @@ export const Index: Record<string, RegistryIndexEntry> = {
     ],
     "slug": "dropdown-menu",
     "variant": "radio-icons",
+    "categories": [
+      "menus",
+      "overlay",
+      "forms"
+    ],
+    "related": [
+      "dropdown-menu-radio-group",
+      "dropdown-menu-icons",
+      "context-menu-radio"
+    ],
+    "deviations": [
+      "Import order corrected: react before lucide-react."
+    ],
     "upstreamUrl": "https://ui.shadcn.com/docs/components/dropdown-menu"
   },
     Component: React.lazy(() => import("@/components/examples/dropdown-menu-radio-icons")),
@@ -7685,7 +8122,7 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "name": "dropdown-menu-destructive",
     "type": "registry:example",
     "title": "Destructive",
-    "description": "Action dropdown with edit and share groups plus a destructive delete entry.",
+    "description": "Action dropdown with Edit and Share items in the first group and a destructive Delete entry in the second group, separated by a divider. Use to surface irreversible actions with visual warning via variant=\"destructive\".",
     "registryDependencies": [
       "dropdown-menu",
       "button"
@@ -7698,6 +8135,15 @@ export const Index: Record<string, RegistryIndexEntry> = {
     ],
     "slug": "dropdown-menu",
     "variant": "destructive",
+    "categories": [
+      "menus",
+      "overlay"
+    ],
+    "related": [
+      "dropdown-menu-icons",
+      "dropdown-menu-basic",
+      "context-menu-destructive"
+    ],
     "upstreamUrl": "https://ui.shadcn.com/docs/components/dropdown-menu"
   },
     Component: React.lazy(() => import("@/components/examples/dropdown-menu-destructive")),
@@ -7707,7 +8153,7 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "name": "dropdown-menu-avatar",
     "type": "registry:example",
     "title": "Avatar",
-    "description": "Avatar trigger that opens a dropdown for account, billing, notifications, and sign out.",
+    "description": "Ghost icon-button wrapping an Avatar that opens a dropdown with Account, Billing, and Notifications items plus a Sign Out action. Use in app headers where the user avatar is the conventional trigger for account actions.",
     "registryDependencies": [
       "dropdown-menu",
       "button",
@@ -7721,6 +8167,16 @@ export const Index: Record<string, RegistryIndexEntry> = {
     ],
     "slug": "dropdown-menu",
     "variant": "avatar",
+    "categories": [
+      "menus",
+      "navigation",
+      "overlay"
+    ],
+    "related": [
+      "dropdown-menu-default",
+      "dropdown-menu-icons",
+      "dropdown-menu-complex"
+    ],
     "upstreamUrl": "https://ui.shadcn.com/docs/components/dropdown-menu"
   },
     Component: React.lazy(() => import("@/components/examples/dropdown-menu-avatar")),
@@ -7730,7 +8186,7 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "name": "dropdown-menu-complex",
     "type": "registry:example",
     "title": "Complex",
-    "description": "Deep multi-level dropdown with file, view (checkbox + theme radio), account (settings sub-submenu with notifications), help, and sign out groups.",
+    "description": "Deep multi-level dropdown combining File group (New File, New Folder, Open Recent sub-submenu, Save, Export), View group (checkbox toggles + Theme radio sub-menu), Account group (Profile, Billing, Settings sub-submenu with Notifications), Help group, and destructive Sign Out. Use as a reference for full IDE-style menus.",
     "registryDependencies": [
       "dropdown-menu",
       "button"
@@ -7744,6 +8200,21 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "slug": "dropdown-menu",
     "variant": "complex",
     "span": 2,
+    "categories": [
+      "menus",
+      "navigation",
+      "overlay"
+    ],
+    "related": [
+      "dropdown-menu-default",
+      "dropdown-menu-submenu",
+      "dropdown-menu-checkboxes",
+      "dropdown-menu-radio-group",
+      "dropdown-menu-avatar"
+    ],
+    "deviations": [
+      "Import order corrected: react before lucide-react."
+    ],
     "upstreamUrl": "https://ui.shadcn.com/docs/components/dropdown-menu"
   },
     Component: React.lazy(() => import("@/components/examples/dropdown-menu-complex")),
@@ -7753,7 +8224,7 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "name": "breadcrumb-default",
     "type": "registry:example",
     "title": "Default",
-    "description": "Breadcrumb with Home, ellipsis dropdown menu of pages, Components link, and a current page leaf.",
+    "description": "Breadcrumb with Home, ellipsis dropdown menu of collapsed pages, a Components link, and a current page leaf — demonstrates the full composition pattern.",
     "registryDependencies": [
       "breadcrumb",
       "button",
@@ -7769,6 +8240,16 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "variant": "default",
     "isDefault": true,
     "upstreamUrl": "https://ui.shadcn.com/docs/components/breadcrumb",
+    "categories": [
+      "navigation"
+    ],
+    "related": [
+      "breadcrumb-collapsed",
+      "breadcrumb-dropdown"
+    ],
+    "deviations": [
+      "Uses DropdownMenu with an ellipsis trigger instead of the upstream 3-item linear breadcrumb, to demonstrate the dropdown pattern as the canonical default."
+    ],
     "span": 2
   },
     Component: React.lazy(() => import("@/components/examples/breadcrumb-default")),
@@ -7778,7 +8259,7 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "name": "breadcrumb-basic",
     "type": "registry:example",
     "title": "Basic",
-    "description": "Breadcrumb with two link segments and a current page, default chevron separator.",
+    "description": "Breadcrumb with two link segments and a current page leaf, using the default chevron separator — the minimal starting point for any breadcrumb trail.",
     "registryDependencies": [
       "breadcrumb"
     ],
@@ -7790,7 +8271,14 @@ export const Index: Record<string, RegistryIndexEntry> = {
     ],
     "slug": "breadcrumb",
     "variant": "basic",
-    "upstreamUrl": "https://ui.shadcn.com/docs/components/breadcrumb"
+    "upstreamUrl": "https://ui.shadcn.com/docs/components/breadcrumb",
+    "categories": [
+      "navigation"
+    ],
+    "related": [
+      "breadcrumb-default",
+      "breadcrumb-link-component"
+    ]
   },
     Component: React.lazy(() => import("@/components/examples/breadcrumb-basic")),
   },
@@ -7799,7 +8287,7 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "name": "breadcrumb-custom-separator",
     "type": "registry:example",
     "title": "Custom separator",
-    "description": "Breadcrumb using a Lucide DotIcon between segments instead of the default chevron.",
+    "description": "Breadcrumb using a Lucide DotIcon as the separator child instead of the default chevron, showing how to slot any icon or string between segments.",
     "registryDependencies": [
       "breadcrumb"
     ],
@@ -7811,7 +8299,13 @@ export const Index: Record<string, RegistryIndexEntry> = {
     ],
     "slug": "breadcrumb",
     "variant": "custom-separator",
-    "upstreamUrl": "https://ui.shadcn.com/docs/components/breadcrumb"
+    "upstreamUrl": "https://ui.shadcn.com/docs/components/breadcrumb",
+    "categories": [
+      "navigation"
+    ],
+    "related": [
+      "breadcrumb-basic"
+    ]
   },
     Component: React.lazy(() => import("@/components/examples/breadcrumb-custom-separator")),
   },
@@ -7820,7 +8314,7 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "name": "breadcrumb-dropdown",
     "type": "registry:example",
     "title": "Dropdown",
-    "description": "Breadcrumb segment that opens a dropdown menu of pages via chevron-down trigger.",
+    "description": "Breadcrumb segment that opens a DropdownMenu of sub-pages via a chevron-down trigger, useful for long paths where one segment has multiple peer routes.",
     "registryDependencies": [
       "breadcrumb",
       "dropdown-menu"
@@ -7833,7 +8327,14 @@ export const Index: Record<string, RegistryIndexEntry> = {
     ],
     "slug": "breadcrumb",
     "variant": "dropdown",
-    "upstreamUrl": "https://ui.shadcn.com/docs/components/breadcrumb"
+    "upstreamUrl": "https://ui.shadcn.com/docs/components/breadcrumb",
+    "categories": [
+      "navigation"
+    ],
+    "related": [
+      "breadcrumb-collapsed",
+      "breadcrumb-default"
+    ]
   },
     Component: React.lazy(() => import("@/components/examples/breadcrumb-dropdown")),
   },
@@ -7842,7 +8343,7 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "name": "breadcrumb-collapsed",
     "type": "registry:example",
     "title": "Collapsed",
-    "description": "Breadcrumb that collapses middle segments with an ellipsis between Home and the active leaf.",
+    "description": "Breadcrumb that collapses middle segments behind a BreadcrumbEllipsis, preserving Home and the active leaf for deep navigation hierarchies.",
     "registryDependencies": [
       "breadcrumb"
     ],
@@ -7854,7 +8355,14 @@ export const Index: Record<string, RegistryIndexEntry> = {
     ],
     "slug": "breadcrumb",
     "variant": "collapsed",
-    "upstreamUrl": "https://ui.shadcn.com/docs/components/breadcrumb"
+    "upstreamUrl": "https://ui.shadcn.com/docs/components/breadcrumb",
+    "categories": [
+      "navigation"
+    ],
+    "related": [
+      "breadcrumb-dropdown",
+      "breadcrumb-default"
+    ]
   },
     Component: React.lazy(() => import("@/components/examples/breadcrumb-collapsed")),
   },
@@ -7863,7 +8371,7 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "name": "breadcrumb-link-component",
     "type": "registry:example",
     "title": "Link component",
-    "description": "Breadcrumb wired to next/link via asChild for client-side navigation.",
+    "description": "Breadcrumb wired to next/link via BreadcrumbLink asChild for client-side navigation, enabling prefetch and app-router transitions inside the trail.",
     "registryDependencies": [
       "breadcrumb"
     ],
@@ -7875,7 +8383,13 @@ export const Index: Record<string, RegistryIndexEntry> = {
     ],
     "slug": "breadcrumb",
     "variant": "link-component",
-    "upstreamUrl": "https://ui.shadcn.com/docs/components/breadcrumb"
+    "upstreamUrl": "https://ui.shadcn.com/docs/components/breadcrumb",
+    "categories": [
+      "navigation"
+    ],
+    "related": [
+      "breadcrumb-basic"
+    ]
   },
     Component: React.lazy(() => import("@/components/examples/breadcrumb-link-component")),
   },
@@ -7884,7 +8398,7 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "name": "menubar-default",
     "type": "registry:example",
     "title": "Default",
-    "description": "Menubar with File, Edit, View, and Profiles menus. Demonstrates groups, separators, submenus, checkbox items, radio group, shortcuts, inset items.",
+    "description": "Menubar with File, Edit, View, and Profiles menus demonstrating groups, separators, submenus, checkbox items, radio group, keyboard shortcuts, and inset items.",
     "registryDependencies": [
       "menubar"
     ],
@@ -7898,6 +8412,16 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "variant": "default",
     "isDefault": true,
     "upstreamUrl": "https://ui.shadcn.com/docs/components/menubar",
+    "categories": [
+      "navigation",
+      "menus"
+    ],
+    "related": [
+      "menubar-checkbox",
+      "menubar-radio",
+      "menubar-submenu",
+      "menubar-with-icons"
+    ],
     "span": 2
   },
     Component: React.lazy(() => import("@/components/examples/menubar-default")),
@@ -7907,7 +8431,7 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "name": "menubar-checkbox",
     "type": "registry:example",
     "title": "Checkbox",
-    "description": "Menubar showcasing checkbox items with checked state for toggleable view and format options.",
+    "description": "Menubar with MenubarCheckboxItem entries in View and Format menus, showing toggleable boolean options for bookmarks bar, full URLs, and text styling.",
     "registryDependencies": [
       "menubar"
     ],
@@ -7920,6 +8444,14 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "slug": "menubar",
     "variant": "checkbox",
     "upstreamUrl": "https://ui.shadcn.com/docs/components/menubar",
+    "categories": [
+      "navigation",
+      "menus"
+    ],
+    "related": [
+      "menubar-radio",
+      "menubar-default"
+    ],
     "span": 2
   },
     Component: React.lazy(() => import("@/components/examples/menubar-checkbox")),
@@ -7929,7 +8461,7 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "name": "menubar-radio",
     "type": "registry:example",
     "title": "Radio",
-    "description": "Menubar with controlled radio groups for profile and theme selection using useState.",
+    "description": "Menubar with controlled MenubarRadioGroup items for profile and theme selection, using useState to track single-select state across menu sessions.",
     "registryDependencies": [
       "menubar"
     ],
@@ -7942,6 +8474,14 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "slug": "menubar",
     "variant": "radio",
     "upstreamUrl": "https://ui.shadcn.com/docs/components/menubar",
+    "categories": [
+      "navigation",
+      "menus"
+    ],
+    "related": [
+      "menubar-checkbox",
+      "menubar-default"
+    ],
     "span": 2
   },
     Component: React.lazy(() => import("@/components/examples/menubar-radio")),
@@ -7951,7 +8491,7 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "name": "menubar-submenu",
     "type": "registry:example",
     "title": "Submenu",
-    "description": "Menubar with nested submenus on File > Share and Edit > Find triggers.",
+    "description": "Menubar with nested MenubarSub panels on File > Share and Edit > Find triggers, illustrating multi-level menu hierarchy for complex action sets.",
     "registryDependencies": [
       "menubar"
     ],
@@ -7964,6 +8504,13 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "slug": "menubar",
     "variant": "submenu",
     "upstreamUrl": "https://ui.shadcn.com/docs/components/menubar",
+    "categories": [
+      "navigation",
+      "menus"
+    ],
+    "related": [
+      "menubar-default"
+    ],
     "span": 2
   },
     Component: React.lazy(() => import("@/components/examples/menubar-submenu")),
@@ -7973,7 +8520,7 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "name": "menubar-with-icons",
     "type": "registry:example",
     "title": "With Icons",
-    "description": "Menubar items decorated with Lucide icons (FileIcon, FolderIcon, SaveIcon, SettingsIcon, HelpCircleIcon, TrashIcon) plus a destructive variant.",
+    "description": "Menubar items decorated with Lucide icons — FileIcon, FolderIcon, SaveIcon, SettingsIcon, HelpCircleIcon, TrashIcon — plus a destructive Delete variant.",
     "registryDependencies": [
       "menubar"
     ],
@@ -7986,6 +8533,13 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "slug": "menubar",
     "variant": "with-icons",
     "upstreamUrl": "https://ui.shadcn.com/docs/components/menubar",
+    "categories": [
+      "navigation",
+      "menus"
+    ],
+    "related": [
+      "menubar-default"
+    ],
     "span": 2
   },
     Component: React.lazy(() => import("@/components/examples/menubar-with-icons")),
@@ -7995,7 +8549,7 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "name": "navigation-menu-default",
     "type": "registry:example",
     "title": "Default",
-    "description": "Navigation menu with Getting started panel, Components panel listing primitives in a 2-column grid, and a standalone Docs link.",
+    "description": "Navigation menu with a Getting started flyout panel, a Components panel listing six primitives in a 2-column grid, and a standalone Docs link item.",
     "registryDependencies": [
       "navigation-menu"
     ],
@@ -8009,6 +8563,15 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "variant": "default",
     "isDefault": true,
     "upstreamUrl": "https://ui.shadcn.com/docs/components/navigation-menu",
+    "categories": [
+      "navigation"
+    ],
+    "related": [
+      "navigation-menu-link-component"
+    ],
+    "deviations": [
+      "Replaced `import * as React from 'react'` namespace with named ComponentPropsWithoutRef import to avoid unnecessary namespace bundle."
+    ],
     "span": 2,
     "height": "tall"
   },
@@ -8019,7 +8582,7 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "name": "navigation-menu-link-component",
     "type": "registry:example",
     "title": "Link Component",
-    "description": "Single navigation menu link composed with next/link via asChild and navigationMenuTriggerStyle.",
+    "description": "Single navigation menu link composed with next/link via NavigationMenuLink asChild and navigationMenuTriggerStyle — the minimal pattern for router-aware nav items.",
     "registryDependencies": [
       "navigation-menu"
     ],
@@ -8031,7 +8594,13 @@ export const Index: Record<string, RegistryIndexEntry> = {
     ],
     "slug": "navigation-menu",
     "variant": "link-component",
-    "upstreamUrl": "https://ui.shadcn.com/docs/components/navigation-menu"
+    "upstreamUrl": "https://ui.shadcn.com/docs/components/navigation-menu",
+    "categories": [
+      "navigation"
+    ],
+    "related": [
+      "navigation-menu-default"
+    ]
   },
     Component: React.lazy(() => import("@/components/examples/navigation-menu-link-component")),
   },
@@ -8040,7 +8609,7 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "name": "pagination-default",
     "type": "registry:example",
     "title": "Default",
-    "description": "Pagination with previous, three numbered pages (page 2 active), ellipsis, and next controls.",
+    "description": "Pagination with previous, three numbered page links (page 2 active), ellipsis, and next controls — the full-featured starting point for paginated lists.",
     "registryDependencies": [
       "pagination"
     ],
@@ -8054,6 +8623,13 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "variant": "default",
     "isDefault": true,
     "upstreamUrl": "https://ui.shadcn.com/docs/components/pagination",
+    "categories": [
+      "navigation"
+    ],
+    "related": [
+      "pagination-simple",
+      "pagination-icons-only"
+    ],
     "span": 2
   },
     Component: React.lazy(() => import("@/components/examples/pagination-default")),
@@ -8063,7 +8639,7 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "name": "pagination-simple",
     "type": "registry:example",
     "title": "Simple",
-    "description": "Pagination with five numbered page links and no previous/next chrome.",
+    "description": "Pagination with five numbered page links and no previous/next chrome, suitable for compact surfaces where directional controls would add visual noise.",
     "registryDependencies": [
       "pagination"
     ],
@@ -8075,7 +8651,14 @@ export const Index: Record<string, RegistryIndexEntry> = {
     ],
     "slug": "pagination",
     "variant": "simple",
-    "upstreamUrl": "https://ui.shadcn.com/docs/components/pagination"
+    "upstreamUrl": "https://ui.shadcn.com/docs/components/pagination",
+    "categories": [
+      "navigation"
+    ],
+    "related": [
+      "pagination-default",
+      "pagination-icons-only"
+    ]
   },
     Component: React.lazy(() => import("@/components/examples/pagination-simple")),
   },
@@ -8084,7 +8667,7 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "name": "pagination-icons-only",
     "type": "registry:example",
     "title": "Icons Only",
-    "description": "Pagination with rows-per-page Select on the left and previous/next icon-only controls on the right.",
+    "description": "Pagination combining a rows-per-page Select on the left with icon-only previous/next controls on the right — composing Pagination, Field, and Select for data table footers.",
     "registryDependencies": [
       "pagination",
       "field",
@@ -8098,7 +8681,18 @@ export const Index: Record<string, RegistryIndexEntry> = {
     ],
     "slug": "pagination",
     "variant": "icons-only",
+    "isFlagged": true,
     "upstreamUrl": "https://ui.shadcn.com/docs/components/pagination",
+    "categories": [
+      "navigation"
+    ],
+    "related": [
+      "pagination-default",
+      "pagination-simple"
+    ],
+    "deviations": [
+      "Project-local variant combining Pagination previous/next icon controls with a rows-per-page Select; not present in upstream examples."
+    ],
     "span": 2
   },
     Component: React.lazy(() => import("@/components/examples/pagination-icons-only")),
@@ -8108,7 +8702,7 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "name": "tabs-default",
     "type": "registry:example",
     "title": "Default",
-    "description": "Tabs with Overview, Analytics, Reports, Settings panels each rendering a Card with header and description.",
+    "description": "Tabs with Overview, Analytics, Reports, and Settings panels each rendering a Card with a title, description, and summary content — the canonical full-panel composition.",
     "registryDependencies": [
       "tabs",
       "card"
@@ -8123,6 +8717,16 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "variant": "default",
     "isDefault": true,
     "upstreamUrl": "https://ui.shadcn.com/docs/components/tabs",
+    "categories": [
+      "navigation"
+    ],
+    "related": [
+      "tabs-line",
+      "tabs-vertical"
+    ],
+    "deviations": [
+      "Panel content uses project-themed descriptions (active projects, analytics, reports, settings) instead of upstream's account/password example."
+    ],
     "span": 2,
     "height": "tall"
   },
@@ -8133,7 +8737,7 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "name": "tabs-line",
     "type": "registry:example",
     "title": "Line",
-    "description": "Tabs using the line variant trigger style without panels.",
+    "description": "Tabs using the line variant on TabsList for a bottom-border trigger style without panel content — use this for navigation-style tab bars above content sections.",
     "registryDependencies": [
       "tabs"
     ],
@@ -8145,7 +8749,14 @@ export const Index: Record<string, RegistryIndexEntry> = {
     ],
     "slug": "tabs",
     "variant": "line",
-    "upstreamUrl": "https://ui.shadcn.com/docs/components/tabs"
+    "upstreamUrl": "https://ui.shadcn.com/docs/components/tabs",
+    "categories": [
+      "navigation"
+    ],
+    "related": [
+      "tabs-default",
+      "tabs-vertical"
+    ]
   },
     Component: React.lazy(() => import("@/components/examples/tabs-line")),
   },
@@ -8154,7 +8765,7 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "name": "tabs-vertical",
     "type": "registry:example",
     "title": "Vertical",
-    "description": "Tabs with vertical orientation and three triggers.",
+    "description": "Tabs with orientation=vertical stacking Account, Password, and Notifications triggers in a column — suited for settings sidebars and multi-section forms.",
     "registryDependencies": [
       "tabs"
     ],
@@ -8166,7 +8777,14 @@ export const Index: Record<string, RegistryIndexEntry> = {
     ],
     "slug": "tabs",
     "variant": "vertical",
-    "upstreamUrl": "https://ui.shadcn.com/docs/components/tabs"
+    "upstreamUrl": "https://ui.shadcn.com/docs/components/tabs",
+    "categories": [
+      "navigation"
+    ],
+    "related": [
+      "tabs-default",
+      "tabs-line"
+    ]
   },
     Component: React.lazy(() => import("@/components/examples/tabs-vertical")),
   },
@@ -8175,7 +8793,7 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "name": "tabs-disabled",
     "type": "registry:example",
     "title": "Disabled",
-    "description": "Tabs with one disabled trigger alongside an active Home tab.",
+    "description": "Tabs with one disabled trigger alongside an active Home tab, demonstrating how to mark a tab as unavailable while keeping it visible in the trigger list.",
     "registryDependencies": [
       "tabs"
     ],
@@ -8187,7 +8805,13 @@ export const Index: Record<string, RegistryIndexEntry> = {
     ],
     "slug": "tabs",
     "variant": "disabled",
-    "upstreamUrl": "https://ui.shadcn.com/docs/components/tabs"
+    "upstreamUrl": "https://ui.shadcn.com/docs/components/tabs",
+    "categories": [
+      "navigation"
+    ],
+    "related": [
+      "tabs-default"
+    ]
   },
     Component: React.lazy(() => import("@/components/examples/tabs-disabled")),
   },
@@ -8196,7 +8820,7 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "name": "tabs-icons",
     "type": "registry:example",
     "title": "Icons",
-    "description": "Tabs with Lucide icons (AppWindowIcon, CodeIcon) inside Preview and Code triggers.",
+    "description": "Tabs with Lucide icons (AppWindowIcon, CodeIcon) placed inside Preview and Code triggers, showing the icon-plus-label pattern for richer tab affordances.",
     "registryDependencies": [
       "tabs"
     ],
@@ -8208,7 +8832,14 @@ export const Index: Record<string, RegistryIndexEntry> = {
     ],
     "slug": "tabs",
     "variant": "icons",
-    "upstreamUrl": "https://ui.shadcn.com/docs/components/tabs"
+    "upstreamUrl": "https://ui.shadcn.com/docs/components/tabs",
+    "categories": [
+      "navigation"
+    ],
+    "related": [
+      "tabs-default",
+      "tabs-line"
+    ]
   },
     Component: React.lazy(() => import("@/components/examples/tabs-icons")),
   },
@@ -8723,7 +9354,7 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "name": "sheet-default",
     "type": "registry:example",
     "title": "Default",
-    "description": "Page-hero Sheet with profile-edit form (Name, Username) and Save/Close footer actions.",
+    "description": "Page-hero Sheet with profile-edit form (Name, Username) and Save/Close footer actions. Use when a task needs a persistent side panel instead of a modal.",
     "registryDependencies": [
       "sheet",
       "button",
@@ -8740,7 +9371,15 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "variant": "default",
     "isDefault": true,
     "isFlagged": true,
-    "upstreamUrl": "https://ui.shadcn.com/docs/components/sheet"
+    "upstreamUrl": "https://ui.shadcn.com/docs/components/sheet",
+    "categories": [
+      "overlay",
+      "navigation"
+    ],
+    "related": [
+      "dialog-default",
+      "drawer-default"
+    ]
   },
     Component: React.lazy(() => import("@/components/examples/sheet-default")),
   },
@@ -8749,7 +9388,7 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "name": "sheet-side",
     "type": "registry:example",
     "title": "Side",
-    "description": "Four Sheet triggers, one per `side` (top/right/bottom/left), each containing scrollable content and a submit/cancel footer.",
+    "description": "Four Sheet triggers, one per `side` (top/right/bottom/left), each containing scrollable content and a submit/cancel footer. Use to compare all anchoring options.",
     "registryDependencies": [
       "sheet",
       "button"
@@ -8762,7 +9401,18 @@ export const Index: Record<string, RegistryIndexEntry> = {
     ],
     "slug": "sheet",
     "variant": "side",
-    "upstreamUrl": "https://ui.shadcn.com/docs/components/sheet"
+    "upstreamUrl": "https://ui.shadcn.com/docs/components/sheet",
+    "categories": [
+      "overlay",
+      "navigation"
+    ],
+    "related": [
+      "sheet-default",
+      "drawer-sides"
+    ],
+    "deviations": [
+      "SHEET_SIDES constant extracted to _fixtures/sheet.ts instead of inlined, to share the type across variants."
+    ]
   },
     Component: React.lazy(() => import("@/components/examples/sheet-side")),
   },
@@ -8771,7 +9421,7 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "name": "sheet-no-close-button",
     "type": "registry:example",
     "title": "No Close Button",
-    "description": "Sheet with `showCloseButton={false}` to hide the default top-right close icon.",
+    "description": "Sheet with `showCloseButton={false}` to hide the default top-right close icon. Use when the dismiss affordance should be explicit (a footer Cancel button only).",
     "registryDependencies": [
       "sheet",
       "button"
@@ -8784,7 +9434,15 @@ export const Index: Record<string, RegistryIndexEntry> = {
     ],
     "slug": "sheet",
     "variant": "no-close-button",
-    "upstreamUrl": "https://ui.shadcn.com/docs/components/sheet"
+    "upstreamUrl": "https://ui.shadcn.com/docs/components/sheet",
+    "categories": [
+      "overlay",
+      "navigation"
+    ],
+    "related": [
+      "sheet-default",
+      "dialog-no-close-button"
+    ]
   },
     Component: React.lazy(() => import("@/components/examples/sheet-no-close-button")),
   },
@@ -8793,7 +9451,7 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "name": "tooltip-default",
     "type": "registry:example",
     "title": "Default",
-    "description": "Page-hero Tooltip with outline trigger and short content text.",
+    "description": "Page-hero Tooltip with an outline Button trigger and a short text label. Minimal example for hover-based supplementary information.",
     "registryDependencies": [
       "tooltip",
       "button"
@@ -8808,7 +9466,16 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "variant": "default",
     "isDefault": true,
     "isFlagged": true,
-    "upstreamUrl": "https://ui.shadcn.com/docs/components/tooltip"
+    "upstreamUrl": "https://ui.shadcn.com/docs/components/tooltip",
+    "categories": [
+      "overlay",
+      "feedback"
+    ],
+    "related": [
+      "tooltip-side",
+      "tooltip-with-keyboard-shortcut",
+      "hover-card-default"
+    ]
   },
     Component: React.lazy(() => import("@/components/examples/tooltip-default")),
   },
@@ -8817,7 +9484,7 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "name": "tooltip-side",
     "type": "registry:example",
     "title": "Side",
-    "description": "Four Tooltip triggers showing the `side` prop on each of left/top/bottom/right.",
+    "description": "Four Tooltip triggers showing the `side` prop on each of left/top/bottom/right. Use when picking the best placement for a constrained viewport area.",
     "registryDependencies": [
       "tooltip",
       "button"
@@ -8830,7 +9497,15 @@ export const Index: Record<string, RegistryIndexEntry> = {
     ],
     "slug": "tooltip",
     "variant": "side",
-    "upstreamUrl": "https://ui.shadcn.com/docs/components/tooltip"
+    "upstreamUrl": "https://ui.shadcn.com/docs/components/tooltip",
+    "categories": [
+      "overlay",
+      "feedback"
+    ],
+    "related": [
+      "tooltip-default",
+      "popover-align"
+    ]
   },
     Component: React.lazy(() => import("@/components/examples/tooltip-side")),
   },
@@ -8839,7 +9514,7 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "name": "tooltip-with-keyboard-shortcut",
     "type": "registry:example",
     "title": "With Keyboard Shortcut",
-    "description": "Icon-button Tooltip whose content combines a label with a `<Kbd>` shortcut indicator.",
+    "description": "Icon-button Tooltip whose content combines a label with a `<Kbd>` shortcut indicator. Composes Tooltip and Kbd; ideal for toolbar icon buttons.",
     "registryDependencies": [
       "tooltip",
       "button",
@@ -8853,7 +9528,15 @@ export const Index: Record<string, RegistryIndexEntry> = {
     ],
     "slug": "tooltip",
     "variant": "with-keyboard-shortcut",
-    "upstreamUrl": "https://ui.shadcn.com/docs/components/tooltip"
+    "upstreamUrl": "https://ui.shadcn.com/docs/components/tooltip",
+    "categories": [
+      "overlay",
+      "feedback"
+    ],
+    "related": [
+      "tooltip-default",
+      "tooltip-disabled-button"
+    ]
   },
     Component: React.lazy(() => import("@/components/examples/tooltip-with-keyboard-shortcut")),
   },
@@ -8862,7 +9545,7 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "name": "tooltip-disabled-button",
     "type": "registry:example",
     "title": "Disabled Button",
-    "description": "Tooltip on a disabled Button. The button is wrapped in a span so pointer events still reach the trigger.",
+    "description": "Tooltip on a disabled Button. The button is wrapped in a span so pointer events still reach the trigger; use when the action is unavailable but context is needed.",
     "registryDependencies": [
       "tooltip",
       "button"
@@ -8875,7 +9558,15 @@ export const Index: Record<string, RegistryIndexEntry> = {
     ],
     "slug": "tooltip",
     "variant": "disabled-button",
-    "upstreamUrl": "https://ui.shadcn.com/docs/components/tooltip"
+    "upstreamUrl": "https://ui.shadcn.com/docs/components/tooltip",
+    "categories": [
+      "overlay",
+      "feedback"
+    ],
+    "related": [
+      "tooltip-default",
+      "tooltip-with-keyboard-shortcut"
+    ]
   },
     Component: React.lazy(() => import("@/components/examples/tooltip-disabled-button")),
   },
@@ -8884,7 +9575,7 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "name": "accordion-default",
     "type": "registry:example",
     "title": "Default",
-    "description": "Default Accordion demo with single collapsible items: shipping, returns, and customer support questions.",
+    "description": "Default Accordion demo with single collapsible items: shipping, returns, and customer support questions. Use when you need a standard FAQ or disclosure list with one item open at a time.",
     "registryDependencies": [
       "accordion"
     ],
@@ -8896,7 +9587,17 @@ export const Index: Record<string, RegistryIndexEntry> = {
     ],
     "slug": "accordion",
     "variant": "default",
-    "isDefault": true
+    "isDefault": true,
+    "upstreamUrl": "https://ui.shadcn.com/docs/components/accordion",
+    "categories": [
+      "disclosure",
+      "layout"
+    ],
+    "related": [
+      "accordion-multiple",
+      "accordion-borders",
+      "accordion-card"
+    ]
   },
     Component: React.lazy(() => import("@/components/examples/accordion-default")),
   },
@@ -8905,7 +9606,7 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "name": "accordion-basic",
     "type": "registry:example",
     "title": "Basic",
-    "description": "Basic Accordion in single-collapsible mode driven by the ACCORDION_BASIC fixture (password reset, plan changes, payment methods).",
+    "description": "Basic Accordion in single-collapsible mode driven by the ACCORDION_BASIC fixture (password reset, plan changes, payment methods). Use for settings or billing FAQ sections.",
     "registryDependencies": [
       "accordion"
     ],
@@ -8916,7 +9617,16 @@ export const Index: Record<string, RegistryIndexEntry> = {
       }
     ],
     "slug": "accordion",
-    "variant": "basic"
+    "variant": "basic",
+    "upstreamUrl": "https://ui.shadcn.com/docs/components/accordion",
+    "categories": [
+      "disclosure",
+      "layout"
+    ],
+    "related": [
+      "accordion-default",
+      "accordion-multiple"
+    ]
   },
     Component: React.lazy(() => import("@/components/examples/accordion-basic")),
   },
@@ -8925,7 +9635,7 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "name": "accordion-multiple",
     "type": "registry:example",
     "title": "Multiple",
-    "description": "Accordion in multiple-open mode with the ACCORDION_MULTIPLE fixture (notifications, privacy, billing sections).",
+    "description": "Accordion in multiple-open mode with the ACCORDION_MULTIPLE fixture (notifications, privacy, billing sections). Pick this when users need to compare content across several panels simultaneously.",
     "registryDependencies": [
       "accordion"
     ],
@@ -8936,7 +9646,16 @@ export const Index: Record<string, RegistryIndexEntry> = {
       }
     ],
     "slug": "accordion",
-    "variant": "multiple"
+    "variant": "multiple",
+    "upstreamUrl": "https://ui.shadcn.com/docs/components/accordion",
+    "categories": [
+      "disclosure",
+      "layout"
+    ],
+    "related": [
+      "accordion-default",
+      "accordion-basic"
+    ]
   },
     Component: React.lazy(() => import("@/components/examples/accordion-multiple")),
   },
@@ -8945,7 +9664,7 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "name": "accordion-disabled",
     "type": "registry:example",
     "title": "Disabled",
-    "description": "Accordion with one disabled item demonstrating the disabled state on AccordionItem.",
+    "description": "Accordion with one disabled item demonstrating the disabled state on AccordionItem. Use to show feature gating or locked content within a disclosure list.",
     "registryDependencies": [
       "accordion"
     ],
@@ -8956,7 +9675,15 @@ export const Index: Record<string, RegistryIndexEntry> = {
       }
     ],
     "slug": "accordion",
-    "variant": "disabled"
+    "variant": "disabled",
+    "upstreamUrl": "https://ui.shadcn.com/docs/components/accordion",
+    "categories": [
+      "disclosure",
+      "layout"
+    ],
+    "related": [
+      "accordion-default"
+    ]
   },
     Component: React.lazy(() => import("@/components/examples/accordion-disabled")),
   },
@@ -8965,7 +9692,7 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "name": "accordion-borders",
     "type": "registry:example",
     "title": "Borders",
-    "description": "Accordion wrapped in a bordered container with per-item bottom borders, driven by the ACCORDION_BORDERS fixture.",
+    "description": "Accordion wrapped in a bordered container with per-item bottom borders, driven by the ACCORDION_BORDERS fixture. Use when the accordion sits inside a card or panel that needs visual containment.",
     "registryDependencies": [
       "accordion"
     ],
@@ -8976,7 +9703,16 @@ export const Index: Record<string, RegistryIndexEntry> = {
       }
     ],
     "slug": "accordion",
-    "variant": "borders"
+    "variant": "borders",
+    "upstreamUrl": "https://ui.shadcn.com/docs/components/accordion",
+    "categories": [
+      "disclosure",
+      "layout"
+    ],
+    "related": [
+      "accordion-card",
+      "accordion-default"
+    ]
   },
     Component: React.lazy(() => import("@/components/examples/accordion-borders")),
   },
@@ -8985,7 +9721,7 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "name": "accordion-card",
     "type": "registry:example",
     "title": "Card",
-    "description": "Accordion nested inside a Card with header/title/description, driven by the ACCORDION_CARD fixture (subscription, billing, cancellation).",
+    "description": "Accordion nested inside a Card with header, title, and description, driven by the ACCORDION_CARD fixture (subscription, billing, cancellation). Composes Accordion + Card for a self-contained help widget.",
     "registryDependencies": [
       "accordion",
       "card"
@@ -8997,7 +9733,16 @@ export const Index: Record<string, RegistryIndexEntry> = {
       }
     ],
     "slug": "accordion",
-    "variant": "card"
+    "variant": "card",
+    "upstreamUrl": "https://ui.shadcn.com/docs/components/accordion",
+    "categories": [
+      "disclosure",
+      "layout"
+    ],
+    "related": [
+      "accordion-borders",
+      "accordion-default"
+    ]
   },
     Component: React.lazy(() => import("@/components/examples/accordion-card")),
   },
@@ -9006,7 +9751,7 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "name": "carousel-default",
     "type": "registry:example",
     "title": "Default",
-    "description": "Default Carousel demo with five numbered cards and previous/next controls. Flagged: not in upstream MD examples.",
+    "description": "Default Carousel demo with five numbered cards and previous/next controls. Flagged: not in upstream MD examples. Use as the canonical starting point when adding a slideshow or image gallery.",
     "registryDependencies": [
       "carousel",
       "card"
@@ -9020,7 +9765,17 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "slug": "carousel",
     "variant": "default",
     "isDefault": true,
-    "isFlagged": true
+    "isFlagged": true,
+    "upstreamUrl": "https://ui.shadcn.com/docs/components/carousel",
+    "categories": [
+      "display",
+      "layout"
+    ],
+    "related": [
+      "carousel-sizes",
+      "carousel-spacing",
+      "carousel-orientation"
+    ]
   },
     Component: React.lazy(() => import("@/components/examples/carousel-default")),
   },
@@ -9029,7 +9784,7 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "name": "carousel-sizes",
     "type": "registry:example",
     "title": "Sizes",
-    "description": "Carousel with multiple visible items per slide using basis-1/2 / lg:basis-1/3 and align: start.",
+    "description": "Carousel with multiple visible items per slide using basis-1/2 and lg:basis-1/3 with align: start. Use when you need to show several cards simultaneously (e.g. a product shelf).",
     "registryDependencies": [
       "carousel",
       "card"
@@ -9041,7 +9796,16 @@ export const Index: Record<string, RegistryIndexEntry> = {
       }
     ],
     "slug": "carousel",
-    "variant": "sizes"
+    "variant": "sizes",
+    "upstreamUrl": "https://ui.shadcn.com/docs/components/carousel",
+    "categories": [
+      "display",
+      "layout"
+    ],
+    "related": [
+      "carousel-default",
+      "carousel-spacing"
+    ]
   },
     Component: React.lazy(() => import("@/components/examples/carousel-sizes")),
   },
@@ -9050,7 +9814,7 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "name": "carousel-spacing",
     "type": "registry:example",
     "title": "Spacing",
-    "description": "Carousel with custom horizontal spacing between items using -ml-1 on content and pl-1 on items.",
+    "description": "Carousel with custom horizontal gap between items using -ml-1 on CarouselContent and pl-1 on CarouselItem. Use when items need visual breathing room without changing item width.",
     "registryDependencies": [
       "carousel",
       "card"
@@ -9062,7 +9826,16 @@ export const Index: Record<string, RegistryIndexEntry> = {
       }
     ],
     "slug": "carousel",
-    "variant": "spacing"
+    "variant": "spacing",
+    "upstreamUrl": "https://ui.shadcn.com/docs/components/carousel",
+    "categories": [
+      "display",
+      "layout"
+    ],
+    "related": [
+      "carousel-sizes",
+      "carousel-default"
+    ]
   },
     Component: React.lazy(() => import("@/components/examples/carousel-spacing")),
   },
@@ -9071,7 +9844,7 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "name": "carousel-orientation",
     "type": "registry:example",
     "title": "Orientation",
-    "description": "Vertically-oriented carousel with fixed height and align: start.",
+    "description": "Vertically-oriented carousel with fixed height and align: start. Use when a horizontal scroll does not fit the layout, such as a vertical image stack or step-by-step guide.",
     "registryDependencies": [
       "carousel",
       "card"
@@ -9084,6 +9857,14 @@ export const Index: Record<string, RegistryIndexEntry> = {
     ],
     "slug": "carousel",
     "variant": "orientation",
+    "upstreamUrl": "https://ui.shadcn.com/docs/components/carousel",
+    "categories": [
+      "display",
+      "layout"
+    ],
+    "related": [
+      "carousel-default"
+    ],
     "height": "tall"
   },
     Component: React.lazy(() => import("@/components/examples/carousel-orientation")),
@@ -9093,7 +9874,7 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "name": "carousel-api-slide-n-of-m",
     "type": "registry:example",
     "title": "API (slide N of M)",
-    "description": "Carousel using setApi to expose the embla API and render a 'Slide N of M' indicator that updates on selection. Flagged: not in upstream MD examples.",
+    "description": "Carousel using setApi to expose the embla API and render a 'Slide N of M' indicator that updates on selection. Flagged: not in upstream MD examples. Use when users need pagination context.",
     "registryDependencies": [
       "carousel",
       "card"
@@ -9106,7 +9887,16 @@ export const Index: Record<string, RegistryIndexEntry> = {
     ],
     "slug": "carousel",
     "variant": "api-slide-n-of-m",
-    "isFlagged": true
+    "isFlagged": true,
+    "upstreamUrl": "https://ui.shadcn.com/docs/components/carousel",
+    "categories": [
+      "display",
+      "layout"
+    ],
+    "related": [
+      "carousel-plugins",
+      "carousel-default"
+    ]
   },
     Component: React.lazy(() => import("@/components/examples/carousel-api-slide-n-of-m")),
   },
@@ -9115,7 +9905,7 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "name": "carousel-plugins",
     "type": "registry:example",
     "title": "Plugins",
-    "description": "Carousel with the embla-carousel-autoplay plugin (2s delay, stop on interaction). Pause/resume on mouse enter/leave. Flagged: not in upstream MD examples.",
+    "description": "Carousel with the embla-carousel-autoplay plugin (2s delay, stop on interaction). Pause/resume on mouse enter/leave. Flagged: not in upstream MD examples. Composes Carousel + embla-carousel-autoplay.",
     "registryDependencies": [
       "carousel",
       "card"
@@ -9129,6 +9919,15 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "slug": "carousel",
     "variant": "plugins",
     "isFlagged": true,
+    "upstreamUrl": "https://ui.shadcn.com/docs/components/carousel",
+    "categories": [
+      "display",
+      "layout"
+    ],
+    "related": [
+      "carousel-api-slide-n-of-m",
+      "carousel-default"
+    ],
     "deviations": [
       "Replaced upstream useRef(Autoplay(...)) with useMemo(() => Autoplay(...), []) — React 19 react-hooks/refs rule blocks reading ref.current during render."
     ]
@@ -9140,7 +9939,7 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "name": "empty-default",
     "type": "registry:example",
     "title": "Default",
-    "description": "Default Empty state with folder-code icon, title, description, two action buttons, and a 'Learn More' link. Flagged: not in upstream MD examples.",
+    "description": "Default Empty state with folder-code icon, title, description, two action buttons, and a Learn More link. Flagged: not in upstream MD examples. Use as the hero empty state for data-less views.",
     "registryDependencies": [
       "empty",
       "button"
@@ -9154,7 +9953,17 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "slug": "empty",
     "variant": "default",
     "isDefault": true,
-    "isFlagged": true
+    "isFlagged": true,
+    "upstreamUrl": "https://ui.shadcn.com/docs/components/empty",
+    "categories": [
+      "feedback",
+      "display"
+    ],
+    "related": [
+      "empty-outline",
+      "empty-background",
+      "empty-avatar"
+    ]
   },
     Component: React.lazy(() => import("@/components/examples/empty-default")),
   },
@@ -9163,7 +9972,7 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "name": "empty-outline",
     "type": "registry:example",
     "title": "Outline",
-    "description": "Empty state with a dashed border, cloud icon, and a single Upload Files action.",
+    "description": "Empty state with a dashed border, cloud icon, and a single Upload Files action button. Use for file-drop zones or storage empty states where a clear call-to-action is needed.",
     "registryDependencies": [
       "empty",
       "button"
@@ -9175,7 +9984,16 @@ export const Index: Record<string, RegistryIndexEntry> = {
       }
     ],
     "slug": "empty",
-    "variant": "outline"
+    "variant": "outline",
+    "upstreamUrl": "https://ui.shadcn.com/docs/components/empty",
+    "categories": [
+      "feedback",
+      "display"
+    ],
+    "related": [
+      "empty-default",
+      "empty-background"
+    ]
   },
     Component: React.lazy(() => import("@/components/examples/empty-outline")),
   },
@@ -9184,7 +10002,7 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "name": "empty-background",
     "type": "registry:example",
     "title": "Background",
-    "description": "Empty state with a muted background, bell icon, and a Refresh action.",
+    "description": "Empty state with a muted background fill, bell icon, and a Refresh action. Use for notification panels or activity feeds where subtle background contrast signals an inactive state.",
     "registryDependencies": [
       "empty",
       "button"
@@ -9196,7 +10014,16 @@ export const Index: Record<string, RegistryIndexEntry> = {
       }
     ],
     "slug": "empty",
-    "variant": "background"
+    "variant": "background",
+    "upstreamUrl": "https://ui.shadcn.com/docs/components/empty",
+    "categories": [
+      "feedback",
+      "display"
+    ],
+    "related": [
+      "empty-default",
+      "empty-outline"
+    ]
   },
     Component: React.lazy(() => import("@/components/examples/empty-background")),
   },
@@ -9205,7 +10032,7 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "name": "empty-avatar",
     "type": "registry:example",
     "title": "Avatar",
-    "description": "Empty state using an Avatar as the media slot for an offline-user message with a Leave Message action.",
+    "description": "Empty state using an Avatar as the media slot for an offline-user message with a Leave Message action. Use when the empty state is person-centric — composes Empty + Avatar + Button.",
     "registryDependencies": [
       "empty",
       "avatar",
@@ -9218,7 +10045,16 @@ export const Index: Record<string, RegistryIndexEntry> = {
       }
     ],
     "slug": "empty",
-    "variant": "avatar"
+    "variant": "avatar",
+    "upstreamUrl": "https://ui.shadcn.com/docs/components/empty",
+    "categories": [
+      "feedback",
+      "display"
+    ],
+    "related": [
+      "empty-avatar-group",
+      "empty-default"
+    ]
   },
     Component: React.lazy(() => import("@/components/examples/empty-avatar")),
   },
@@ -9227,7 +10063,7 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "name": "empty-avatar-group",
     "type": "registry:example",
     "title": "Avatar Group",
-    "description": "Empty state with an overlapping avatar group as media for a 'No Team Members' invite scenario.",
+    "description": "Empty state with an overlapping avatar group as media for a No Team Members invite scenario. Use for collaborative features where the empty state should suggest social context.",
     "registryDependencies": [
       "empty",
       "avatar",
@@ -9240,7 +10076,16 @@ export const Index: Record<string, RegistryIndexEntry> = {
       }
     ],
     "slug": "empty",
-    "variant": "avatar-group"
+    "variant": "avatar-group",
+    "upstreamUrl": "https://ui.shadcn.com/docs/components/empty",
+    "categories": [
+      "feedback",
+      "display"
+    ],
+    "related": [
+      "empty-avatar",
+      "empty-default"
+    ]
   },
     Component: React.lazy(() => import("@/components/examples/empty-avatar-group")),
   },
@@ -9249,7 +10094,7 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "name": "empty-input-group",
     "type": "registry:example",
     "title": "InputGroup",
-    "description": "404 Empty state composing InputGroup + Kbd inside the content area for a search-driven recovery prompt.",
+    "description": "404 Empty state composing InputGroup and Kbd inside the content area for a search-driven recovery prompt. Use for not-found pages where search is the primary recovery action.",
     "registryDependencies": [
       "empty",
       "input-group",
@@ -9262,7 +10107,16 @@ export const Index: Record<string, RegistryIndexEntry> = {
       }
     ],
     "slug": "empty",
-    "variant": "input-group"
+    "variant": "input-group",
+    "upstreamUrl": "https://ui.shadcn.com/docs/components/empty",
+    "categories": [
+      "feedback",
+      "display"
+    ],
+    "related": [
+      "empty-default",
+      "kbd-input-group"
+    ]
   },
     Component: React.lazy(() => import("@/components/examples/empty-input-group")),
   },
@@ -9271,7 +10125,7 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "name": "item-default",
     "type": "registry:example",
     "title": "Default",
-    "description": "Default Item demo: outline variant with title/description/action plus a small asChild link Item with verified-profile message. Flagged: 'Default (outline)' not in upstream MD examples.",
+    "description": "Default Item demo: outline variant with title, description, and action, plus a small asChild link Item with verified-profile message. Flagged: Default (outline) not in upstream MD examples.",
     "registryDependencies": [
       "item",
       "button"
@@ -9286,6 +10140,16 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "variant": "default",
     "isDefault": true,
     "isFlagged": true,
+    "upstreamUrl": "https://ui.shadcn.com/docs/components/item",
+    "categories": [
+      "display",
+      "layout"
+    ],
+    "related": [
+      "item-variants",
+      "item-sizes",
+      "item-icon"
+    ],
     "span": 2
   },
     Component: React.lazy(() => import("@/components/examples/item-default")),
@@ -9295,7 +10159,7 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "name": "item-variants",
     "type": "registry:example",
     "title": "Variants",
-    "description": "Item rendered in default, outline, and muted variants stacked vertically. Flagged: not in upstream MD examples.",
+    "description": "Item rendered in default, outline, and muted variants stacked vertically. Flagged: not in upstream MD examples. Use to compare visual weight across all three variant options.",
     "registryDependencies": [
       "item"
     ],
@@ -9307,7 +10171,16 @@ export const Index: Record<string, RegistryIndexEntry> = {
     ],
     "slug": "item",
     "variant": "variants",
-    "isFlagged": true
+    "isFlagged": true,
+    "upstreamUrl": "https://ui.shadcn.com/docs/components/item",
+    "categories": [
+      "display",
+      "layout"
+    ],
+    "related": [
+      "item-default",
+      "item-sizes"
+    ]
   },
     Component: React.lazy(() => import("@/components/examples/item-variants")),
   },
@@ -9316,7 +10189,7 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "name": "item-sizes",
     "type": "registry:example",
     "title": "Sizes (default / sm / xs)",
-    "description": "Item rendered at default, sm, and xs sizes for size-prop visual reference. Flagged: not in upstream MD examples.",
+    "description": "Item rendered at default, sm, and xs sizes for size-prop visual reference. Flagged: not in upstream MD examples. Use when selecting the correct hit area for toolbars or dense lists.",
     "registryDependencies": [
       "item"
     ],
@@ -9328,7 +10201,16 @@ export const Index: Record<string, RegistryIndexEntry> = {
     ],
     "slug": "item",
     "variant": "sizes",
-    "isFlagged": true
+    "isFlagged": true,
+    "upstreamUrl": "https://ui.shadcn.com/docs/components/item",
+    "categories": [
+      "display",
+      "layout"
+    ],
+    "related": [
+      "item-variants",
+      "item-default"
+    ]
   },
     Component: React.lazy(() => import("@/components/examples/item-sizes")),
   },
@@ -9337,7 +10219,7 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "name": "item-icon",
     "type": "registry:example",
     "title": "Icon",
-    "description": "Item with a ShieldAlert lucide icon as the media slot for a security-alert row.",
+    "description": "Item with a ShieldAlert lucide icon as the media slot for a security-alert row with Review action. Use for status or alert list items where an icon communicates urgency.",
     "registryDependencies": [
       "item",
       "button"
@@ -9349,7 +10231,16 @@ export const Index: Record<string, RegistryIndexEntry> = {
       }
     ],
     "slug": "item",
-    "variant": "icon"
+    "variant": "icon",
+    "upstreamUrl": "https://ui.shadcn.com/docs/components/item",
+    "categories": [
+      "display",
+      "layout"
+    ],
+    "related": [
+      "item-avatar",
+      "item-default"
+    ]
   },
     Component: React.lazy(() => import("@/components/examples/item-icon")),
   },
@@ -9358,7 +10249,7 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "name": "item-avatar",
     "type": "registry:example",
     "title": "Avatar",
-    "description": "Item demos using single Avatar and an overlapping avatar group as the media slot.",
+    "description": "Item demos using a single Avatar and an overlapping avatar group as the media slot. Use for people lists, team membership rows, or chat participant displays — composes Item + Avatar.",
     "registryDependencies": [
       "item",
       "avatar",
@@ -9372,7 +10263,19 @@ export const Index: Record<string, RegistryIndexEntry> = {
     ],
     "slug": "item",
     "variant": "avatar",
-    "span": 2
+    "upstreamUrl": "https://ui.shadcn.com/docs/components/item",
+    "categories": [
+      "display",
+      "layout"
+    ],
+    "related": [
+      "item-group",
+      "item-icon"
+    ],
+    "span": 2,
+    "deviations": [
+      "Replaced upstream Plus icon import with PlusIcon to match lucide-react named export convention."
+    ]
   },
     Component: React.lazy(() => import("@/components/examples/item-avatar")),
   },
@@ -9381,7 +10284,7 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "name": "item-image",
     "type": "registry:example",
     "title": "Image",
-    "description": "Item rendered as a list of music tracks with image media (vercel avatar URLs) and dual ItemContent slots (title/artist + duration).",
+    "description": "Item rendered as a list of music tracks with image media (vercel avatar URLs) and dual ItemContent slots for title/artist and duration. Use for media catalogs or playlist UIs.",
     "registryDependencies": [
       "item"
     ],
@@ -9393,7 +10296,19 @@ export const Index: Record<string, RegistryIndexEntry> = {
     ],
     "slug": "item",
     "variant": "image",
-    "span": 2
+    "upstreamUrl": "https://ui.shadcn.com/docs/components/item",
+    "categories": [
+      "display",
+      "layout"
+    ],
+    "related": [
+      "item-header",
+      "item-group"
+    ],
+    "span": 2,
+    "deviations": [
+      "Uses native <img> with eslint-disable instead of next/image for showcase fixture URLs."
+    ]
   },
     Component: React.lazy(() => import("@/components/examples/item-image")),
   },
@@ -9402,7 +10317,7 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "name": "item-group",
     "type": "registry:example",
     "title": "Group",
-    "description": "ItemGroup of people rows with avatar, username, email, and a ghost icon-button action. Driven by the ITEM_GROUP_PEOPLE fixture.",
+    "description": "ItemGroup of people rows with avatar, username, email, and a ghost icon-button action. Driven by the ITEM_GROUP_PEOPLE fixture. Use for user search results or team member lists.",
     "registryDependencies": [
       "item",
       "avatar",
@@ -9415,7 +10330,16 @@ export const Index: Record<string, RegistryIndexEntry> = {
       }
     ],
     "slug": "item",
-    "variant": "group"
+    "variant": "group",
+    "upstreamUrl": "https://ui.shadcn.com/docs/components/item",
+    "categories": [
+      "display",
+      "layout"
+    ],
+    "related": [
+      "item-avatar",
+      "item-dropdown"
+    ]
   },
     Component: React.lazy(() => import("@/components/examples/item-group")),
   },
@@ -9424,7 +10348,7 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "name": "item-header",
     "type": "registry:example",
     "title": "Header",
-    "description": "Three-column ItemGroup grid with ItemHeader image previews of v0 model cards.",
+    "description": "Three-column ItemGroup grid with ItemHeader image previews of v0 model cards. Use when items need a prominent visual thumbnail above the text content, such as model or product cards.",
     "registryDependencies": [
       "item"
     ],
@@ -9436,8 +10360,20 @@ export const Index: Record<string, RegistryIndexEntry> = {
     ],
     "slug": "item",
     "variant": "header",
+    "upstreamUrl": "https://ui.shadcn.com/docs/components/item",
+    "categories": [
+      "display",
+      "layout"
+    ],
+    "related": [
+      "item-image",
+      "item-group"
+    ],
     "span": 2,
-    "height": "tall"
+    "height": "tall",
+    "deviations": [
+      "Uses native <img> with eslint-disable instead of next/image for showcase fixture URLs."
+    ]
   },
     Component: React.lazy(() => import("@/components/examples/item-header")),
   },
@@ -9446,7 +10382,7 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "name": "item-link",
     "type": "registry:example",
     "title": "Link",
-    "description": "Item demos with asChild anchor wrappers: internal documentation link with chevron and external link with target=_blank.",
+    "description": "Item demos with asChild anchor wrappers: an internal documentation link with chevron and an external link with target=_blank. Use when the entire item row must be keyboard- and click-navigable.",
     "registryDependencies": [
       "item"
     ],
@@ -9458,6 +10394,15 @@ export const Index: Record<string, RegistryIndexEntry> = {
     ],
     "slug": "item",
     "variant": "link",
+    "upstreamUrl": "https://ui.shadcn.com/docs/components/item",
+    "categories": [
+      "display",
+      "layout"
+    ],
+    "related": [
+      "item-default",
+      "item-group"
+    ],
     "span": 2
   },
     Component: React.lazy(() => import("@/components/examples/item-link")),
@@ -9467,7 +10412,7 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "name": "item-dropdown",
     "type": "registry:example",
     "title": "Dropdown",
-    "description": "DropdownMenu whose items are xs Item rows with avatar, username, and email. Uses the ITEM_GROUP_PEOPLE fixture.",
+    "description": "DropdownMenu whose items are xs Item rows with avatar, username, and email. Uses the ITEM_GROUP_PEOPLE fixture. Use for user-picker dropdowns inside toolbars or assignee selectors.",
     "registryDependencies": [
       "item",
       "dropdown-menu",
@@ -9481,7 +10426,16 @@ export const Index: Record<string, RegistryIndexEntry> = {
       }
     ],
     "slug": "item",
-    "variant": "dropdown"
+    "variant": "dropdown",
+    "upstreamUrl": "https://ui.shadcn.com/docs/components/item",
+    "categories": [
+      "display",
+      "layout"
+    ],
+    "related": [
+      "item-group",
+      "item-avatar"
+    ]
   },
     Component: React.lazy(() => import("@/components/examples/item-dropdown")),
   },
@@ -9490,7 +10444,7 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "name": "kbd-default",
     "type": "registry:example",
     "title": "Default",
-    "description": "Default Kbd demo: macOS modifier keys grouped, plus a Ctrl + B chord with text separator. Flagged: not in upstream MD examples.",
+    "description": "Default Kbd demo: macOS modifier keys grouped, plus a Ctrl + B chord with text separator. Flagged: not in upstream MD examples. Use as the reference for displaying keyboard shortcut notation.",
     "registryDependencies": [
       "kbd"
     ],
@@ -9503,7 +10457,16 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "slug": "kbd",
     "variant": "default",
     "isDefault": true,
-    "isFlagged": true
+    "isFlagged": true,
+    "upstreamUrl": "https://ui.shadcn.com/docs/components/kbd",
+    "categories": [
+      "display"
+    ],
+    "related": [
+      "kbd-group",
+      "kbd-button",
+      "kbd-tooltip"
+    ]
   },
     Component: React.lazy(() => import("@/components/examples/kbd-default")),
   },
@@ -9512,7 +10475,7 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "name": "kbd-group",
     "type": "registry:example",
     "title": "Group",
-    "description": "Kbd inline within prose using KbdGroup to chain two chords (Ctrl + B, Ctrl + K).",
+    "description": "Kbd inline within prose using KbdGroup to chain two chords (Ctrl + B, Ctrl + K). Use when multiple shortcuts appear in a sentence or help text paragraph.",
     "registryDependencies": [
       "kbd"
     ],
@@ -9523,7 +10486,15 @@ export const Index: Record<string, RegistryIndexEntry> = {
       }
     ],
     "slug": "kbd",
-    "variant": "group"
+    "variant": "group",
+    "upstreamUrl": "https://ui.shadcn.com/docs/components/kbd",
+    "categories": [
+      "display"
+    ],
+    "related": [
+      "kbd-default",
+      "kbd-tooltip"
+    ]
   },
     Component: React.lazy(() => import("@/components/examples/kbd-group")),
   },
@@ -9532,7 +10503,7 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "name": "kbd-button",
     "type": "registry:example",
     "title": "Button",
-    "description": "Outline Button with a trailing Kbd return-key icon (data-icon=inline-end).",
+    "description": "Outline Button with a trailing Kbd return-key icon (data-icon=inline-end). Use when a primary action button should hint its keyboard shortcut inline within the button itself.",
     "registryDependencies": [
       "kbd",
       "button"
@@ -9544,7 +10515,15 @@ export const Index: Record<string, RegistryIndexEntry> = {
       }
     ],
     "slug": "kbd",
-    "variant": "button"
+    "variant": "button",
+    "upstreamUrl": "https://ui.shadcn.com/docs/components/kbd",
+    "categories": [
+      "display"
+    ],
+    "related": [
+      "kbd-tooltip",
+      "kbd-input-group"
+    ]
   },
     Component: React.lazy(() => import("@/components/examples/kbd-button")),
   },
@@ -9553,7 +10532,7 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "name": "kbd-tooltip",
     "type": "registry:example",
     "title": "Tooltip",
-    "description": "ButtonGroup with Save and Print buttons whose tooltips include single and chorded Kbd shortcuts.",
+    "description": "ButtonGroup with Save and Print buttons whose tooltips include single and chorded Kbd shortcuts. Use when shortcut hints belong in a tooltip rather than cluttering the button label.",
     "registryDependencies": [
       "kbd",
       "button",
@@ -9567,7 +10546,15 @@ export const Index: Record<string, RegistryIndexEntry> = {
       }
     ],
     "slug": "kbd",
-    "variant": "tooltip"
+    "variant": "tooltip",
+    "upstreamUrl": "https://ui.shadcn.com/docs/components/kbd",
+    "categories": [
+      "display"
+    ],
+    "related": [
+      "kbd-button",
+      "kbd-group"
+    ]
   },
     Component: React.lazy(() => import("@/components/examples/kbd-tooltip")),
   },
@@ -9576,7 +10563,7 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "name": "kbd-input-group",
     "type": "registry:example",
     "title": "Input Group",
-    "description": "InputGroup search field with leading SearchIcon and trailing ⌘ + K Kbd shortcut hint.",
+    "description": "InputGroup search field with leading SearchIcon and trailing Cmd + K Kbd shortcut hint. Use for command palette triggers or search inputs where the activation shortcut should be visible.",
     "registryDependencies": [
       "kbd",
       "input-group"
@@ -9588,7 +10575,15 @@ export const Index: Record<string, RegistryIndexEntry> = {
       }
     ],
     "slug": "kbd",
-    "variant": "input-group"
+    "variant": "input-group",
+    "upstreamUrl": "https://ui.shadcn.com/docs/components/kbd",
+    "categories": [
+      "display"
+    ],
+    "related": [
+      "kbd-button",
+      "empty-input-group"
+    ]
   },
     Component: React.lazy(() => import("@/components/examples/kbd-input-group")),
   },

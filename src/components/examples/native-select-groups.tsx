@@ -1,3 +1,9 @@
+/**
+ * @slug native-select
+ * @variant groups
+ * @upstream https://ui.shadcn.com/docs/components/native-select
+ * @deviations []
+ */
 import {
   NativeSelect,
   NativeSelectOptGroup,

@@ -1,3 +1,9 @@
+/**
+ * @slug typography
+ * @variant large
+ * @upstream https://ui.shadcn.com/docs/components/typography
+ * @deviations []
+ */
 export default function TypographyLarge() {
   return <div className="text-lg font-semibold">Are you absolutely sure?</div>;
 }

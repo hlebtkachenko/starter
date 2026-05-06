@@ -1,3 +1,9 @@
+/**
+ * @slug collapsible
+ * @variant basic
+ * @upstream https://ui.shadcn.com/docs/components/collapsible
+ * @deviations ["upstream imports ChevronDownIcon from @/registry/icons/__lucide__; substituted direct lucide-react import per project rule."]
+ */
 import { ChevronDownIcon } from "lucide-react";
 
 import { Button } from "@/components/ui/button";

@@ -1,3 +1,9 @@
+/**
+ * @slug input
+ * @variant badge
+ * @upstream https://ui.shadcn.com/docs/components/input
+ * @deviations []
+ */
 import { Badge } from "@/components/ui/badge";
 import { Field, FieldLabel } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";

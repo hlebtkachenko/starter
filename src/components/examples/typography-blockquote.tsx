@@ -1,3 +1,9 @@
+/**
+ * @slug typography
+ * @variant blockquote
+ * @upstream https://ui.shadcn.com/docs/components/typography
+ * @deviations []
+ */
 export default function TypographyBlockquote() {
   return (
     <blockquote className="mt-6 border-l-2 pl-6 italic">

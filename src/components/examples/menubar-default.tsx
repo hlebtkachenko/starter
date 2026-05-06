@@ -1,3 +1,9 @@
+/**
+ * @slug menubar
+ * @variant default
+ * @upstream https://ui.shadcn.com/docs/components/menubar
+ * @deviations []
+ */
 import {
   Menubar,
   MenubarCheckboxItem,

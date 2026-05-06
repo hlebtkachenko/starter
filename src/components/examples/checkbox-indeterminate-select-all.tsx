@@ -1,3 +1,9 @@
+/**
+ * @slug checkbox
+ * @variant indeterminate-select-all
+ * @upstream https://ui.shadcn.com/docs/components/checkbox
+ * @deviations ["isFlagged: project-specific variant not in upstream examples."]
+ */
 "use client";
 
 import { useState } from "react";

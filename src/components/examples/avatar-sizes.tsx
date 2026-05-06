@@ -1,3 +1,9 @@
+/**
+ * @slug avatar
+ * @variant sizes
+ * @upstream https://ui.shadcn.com/docs/components/avatar
+ * @deviations []
+ */
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 export default function AvatarSizes() {

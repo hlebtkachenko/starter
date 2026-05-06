@@ -1,3 +1,9 @@
+/**
+ * @slug toggle-group
+ * @variant spacing
+ * @upstream https://ui.shadcn.com/docs/components/toggle-group#spacing
+ * @deviations []
+ */
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 
 export default function ToggleGroupSpacing() {

@@ -1,3 +1,9 @@
+/**
+ * @slug button-group
+ * @variant separator
+ * @upstream https://ui.shadcn.com/docs/components/button-group#separator
+ * @deviations []
+ */
 import { Button } from "@/components/ui/button";
 import { ButtonGroup, ButtonGroupSeparator } from "@/components/ui/button-group";
 

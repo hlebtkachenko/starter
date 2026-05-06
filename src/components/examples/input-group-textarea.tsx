@@ -1,3 +1,9 @@
+/**
+ * @slug input-group
+ * @variant textarea
+ * @upstream https://ui.shadcn.com/docs/components/input-group
+ * @deviations []
+ */
 import { BracesIcon, CopyIcon, CornerDownLeftIcon, RotateCwIcon } from "lucide-react";
 
 import {

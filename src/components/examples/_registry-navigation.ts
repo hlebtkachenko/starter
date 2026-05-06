@@ -12,7 +12,7 @@ export const items = defineItems([
     type: "registry:example",
     title: "Default",
     description:
-      "Breadcrumb with Home, ellipsis dropdown menu of pages, Components link, and a current page leaf.",
+      "Breadcrumb with Home, ellipsis dropdown menu of collapsed pages, a Components link, and a current page leaf — demonstrates the full composition pattern.",
     registryDependencies: ["breadcrumb", "button", "dropdown-menu"],
     files: [
       {
@@ -24,13 +24,19 @@ export const items = defineItems([
     variant: "default",
     isDefault: true,
     upstreamUrl: "https://ui.shadcn.com/docs/components/breadcrumb",
+    categories: ["navigation"],
+    related: ["breadcrumb-collapsed", "breadcrumb-dropdown"],
+    deviations: [
+      "Uses DropdownMenu with an ellipsis trigger instead of the upstream 3-item linear breadcrumb, to demonstrate the dropdown pattern as the canonical default.",
+    ],
     span: 2,
   },
   {
     name: "breadcrumb-basic",
     type: "registry:example",
     title: "Basic",
-    description: "Breadcrumb with two link segments and a current page, default chevron separator.",
+    description:
+      "Breadcrumb with two link segments and a current page leaf, using the default chevron separator — the minimal starting point for any breadcrumb trail.",
     registryDependencies: ["breadcrumb"],
     files: [
       {
@@ -41,13 +47,15 @@ export const items = defineItems([
     slug: "breadcrumb",
     variant: "basic",
     upstreamUrl: "https://ui.shadcn.com/docs/components/breadcrumb",
+    categories: ["navigation"],
+    related: ["breadcrumb-default", "breadcrumb-link-component"],
   },
   {
     name: "breadcrumb-custom-separator",
     type: "registry:example",
     title: "Custom separator",
     description:
-      "Breadcrumb using a Lucide DotIcon between segments instead of the default chevron.",
+      "Breadcrumb using a Lucide DotIcon as the separator child instead of the default chevron, showing how to slot any icon or string between segments.",
     registryDependencies: ["breadcrumb"],
     files: [
       {
@@ -58,12 +66,15 @@ export const items = defineItems([
     slug: "breadcrumb",
     variant: "custom-separator",
     upstreamUrl: "https://ui.shadcn.com/docs/components/breadcrumb",
+    categories: ["navigation"],
+    related: ["breadcrumb-basic"],
   },
   {
     name: "breadcrumb-dropdown",
     type: "registry:example",
     title: "Dropdown",
-    description: "Breadcrumb segment that opens a dropdown menu of pages via chevron-down trigger.",
+    description:
+      "Breadcrumb segment that opens a DropdownMenu of sub-pages via a chevron-down trigger, useful for long paths where one segment has multiple peer routes.",
     registryDependencies: ["breadcrumb", "dropdown-menu"],
     files: [
       {
@@ -74,13 +85,15 @@ export const items = defineItems([
     slug: "breadcrumb",
     variant: "dropdown",
     upstreamUrl: "https://ui.shadcn.com/docs/components/breadcrumb",
+    categories: ["navigation"],
+    related: ["breadcrumb-collapsed", "breadcrumb-default"],
   },
   {
     name: "breadcrumb-collapsed",
     type: "registry:example",
     title: "Collapsed",
     description:
-      "Breadcrumb that collapses middle segments with an ellipsis between Home and the active leaf.",
+      "Breadcrumb that collapses middle segments behind a BreadcrumbEllipsis, preserving Home and the active leaf for deep navigation hierarchies.",
     registryDependencies: ["breadcrumb"],
     files: [
       {
@@ -91,12 +104,15 @@ export const items = defineItems([
     slug: "breadcrumb",
     variant: "collapsed",
     upstreamUrl: "https://ui.shadcn.com/docs/components/breadcrumb",
+    categories: ["navigation"],
+    related: ["breadcrumb-dropdown", "breadcrumb-default"],
   },
   {
     name: "breadcrumb-link-component",
     type: "registry:example",
     title: "Link component",
-    description: "Breadcrumb wired to next/link via asChild for client-side navigation.",
+    description:
+      "Breadcrumb wired to next/link via BreadcrumbLink asChild for client-side navigation, enabling prefetch and app-router transitions inside the trail.",
     registryDependencies: ["breadcrumb"],
     files: [
       {
@@ -107,6 +123,8 @@ export const items = defineItems([
     slug: "breadcrumb",
     variant: "link-component",
     upstreamUrl: "https://ui.shadcn.com/docs/components/breadcrumb",
+    categories: ["navigation"],
+    related: ["breadcrumb-basic"],
   },
 
   // menubar
@@ -115,7 +133,7 @@ export const items = defineItems([
     type: "registry:example",
     title: "Default",
     description:
-      "Menubar with File, Edit, View, and Profiles menus. Demonstrates groups, separators, submenus, checkbox items, radio group, shortcuts, inset items.",
+      "Menubar with File, Edit, View, and Profiles menus demonstrating groups, separators, submenus, checkbox items, radio group, keyboard shortcuts, and inset items.",
     registryDependencies: ["menubar"],
     files: [
       {
@@ -127,6 +145,8 @@ export const items = defineItems([
     variant: "default",
     isDefault: true,
     upstreamUrl: "https://ui.shadcn.com/docs/components/menubar",
+    categories: ["navigation", "menus"],
+    related: ["menubar-checkbox", "menubar-radio", "menubar-submenu", "menubar-with-icons"],
     span: 2,
   },
   {
@@ -134,7 +154,7 @@ export const items = defineItems([
     type: "registry:example",
     title: "Checkbox",
     description:
-      "Menubar showcasing checkbox items with checked state for toggleable view and format options.",
+      "Menubar with MenubarCheckboxItem entries in View and Format menus, showing toggleable boolean options for bookmarks bar, full URLs, and text styling.",
     registryDependencies: ["menubar"],
     files: [
       {
@@ -145,6 +165,8 @@ export const items = defineItems([
     slug: "menubar",
     variant: "checkbox",
     upstreamUrl: "https://ui.shadcn.com/docs/components/menubar",
+    categories: ["navigation", "menus"],
+    related: ["menubar-radio", "menubar-default"],
     span: 2,
   },
   {
@@ -152,7 +174,7 @@ export const items = defineItems([
     type: "registry:example",
     title: "Radio",
     description:
-      "Menubar with controlled radio groups for profile and theme selection using useState.",
+      "Menubar with controlled MenubarRadioGroup items for profile and theme selection, using useState to track single-select state across menu sessions.",
     registryDependencies: ["menubar"],
     files: [
       {
@@ -163,13 +185,16 @@ export const items = defineItems([
     slug: "menubar",
     variant: "radio",
     upstreamUrl: "https://ui.shadcn.com/docs/components/menubar",
+    categories: ["navigation", "menus"],
+    related: ["menubar-checkbox", "menubar-default"],
     span: 2,
   },
   {
     name: "menubar-submenu",
     type: "registry:example",
     title: "Submenu",
-    description: "Menubar with nested submenus on File > Share and Edit > Find triggers.",
+    description:
+      "Menubar with nested MenubarSub panels on File > Share and Edit > Find triggers, illustrating multi-level menu hierarchy for complex action sets.",
     registryDependencies: ["menubar"],
     files: [
       {
@@ -180,6 +205,8 @@ export const items = defineItems([
     slug: "menubar",
     variant: "submenu",
     upstreamUrl: "https://ui.shadcn.com/docs/components/menubar",
+    categories: ["navigation", "menus"],
+    related: ["menubar-default"],
     span: 2,
   },
   {
@@ -187,7 +214,7 @@ export const items = defineItems([
     type: "registry:example",
     title: "With Icons",
     description:
-      "Menubar items decorated with Lucide icons (FileIcon, FolderIcon, SaveIcon, SettingsIcon, HelpCircleIcon, TrashIcon) plus a destructive variant.",
+      "Menubar items decorated with Lucide icons — FileIcon, FolderIcon, SaveIcon, SettingsIcon, HelpCircleIcon, TrashIcon — plus a destructive Delete variant.",
     registryDependencies: ["menubar"],
     files: [
       {
@@ -198,6 +225,8 @@ export const items = defineItems([
     slug: "menubar",
     variant: "with-icons",
     upstreamUrl: "https://ui.shadcn.com/docs/components/menubar",
+    categories: ["navigation", "menus"],
+    related: ["menubar-default"],
     span: 2,
   },
 
@@ -207,7 +236,7 @@ export const items = defineItems([
     type: "registry:example",
     title: "Default",
     description:
-      "Navigation menu with Getting started panel, Components panel listing primitives in a 2-column grid, and a standalone Docs link.",
+      "Navigation menu with a Getting started flyout panel, a Components panel listing six primitives in a 2-column grid, and a standalone Docs link item.",
     registryDependencies: ["navigation-menu"],
     files: [
       {
@@ -219,6 +248,11 @@ export const items = defineItems([
     variant: "default",
     isDefault: true,
     upstreamUrl: "https://ui.shadcn.com/docs/components/navigation-menu",
+    categories: ["navigation"],
+    related: ["navigation-menu-link-component"],
+    deviations: [
+      "Replaced `import * as React from 'react'` namespace with named ComponentPropsWithoutRef import to avoid unnecessary namespace bundle.",
+    ],
     span: 2,
     height: "tall",
   },
@@ -227,7 +261,7 @@ export const items = defineItems([
     type: "registry:example",
     title: "Link Component",
     description:
-      "Single navigation menu link composed with next/link via asChild and navigationMenuTriggerStyle.",
+      "Single navigation menu link composed with next/link via NavigationMenuLink asChild and navigationMenuTriggerStyle — the minimal pattern for router-aware nav items.",
     registryDependencies: ["navigation-menu"],
     files: [
       {
@@ -238,6 +272,8 @@ export const items = defineItems([
     slug: "navigation-menu",
     variant: "link-component",
     upstreamUrl: "https://ui.shadcn.com/docs/components/navigation-menu",
+    categories: ["navigation"],
+    related: ["navigation-menu-default"],
   },
 
   // pagination
@@ -246,7 +282,7 @@ export const items = defineItems([
     type: "registry:example",
     title: "Default",
     description:
-      "Pagination with previous, three numbered pages (page 2 active), ellipsis, and next controls.",
+      "Pagination with previous, three numbered page links (page 2 active), ellipsis, and next controls — the full-featured starting point for paginated lists.",
     registryDependencies: ["pagination"],
     files: [
       {
@@ -258,13 +294,16 @@ export const items = defineItems([
     variant: "default",
     isDefault: true,
     upstreamUrl: "https://ui.shadcn.com/docs/components/pagination",
+    categories: ["navigation"],
+    related: ["pagination-simple", "pagination-icons-only"],
     span: 2,
   },
   {
     name: "pagination-simple",
     type: "registry:example",
     title: "Simple",
-    description: "Pagination with five numbered page links and no previous/next chrome.",
+    description:
+      "Pagination with five numbered page links and no previous/next chrome, suitable for compact surfaces where directional controls would add visual noise.",
     registryDependencies: ["pagination"],
     files: [
       {
@@ -275,13 +314,15 @@ export const items = defineItems([
     slug: "pagination",
     variant: "simple",
     upstreamUrl: "https://ui.shadcn.com/docs/components/pagination",
+    categories: ["navigation"],
+    related: ["pagination-default", "pagination-icons-only"],
   },
   {
     name: "pagination-icons-only",
     type: "registry:example",
     title: "Icons Only",
     description:
-      "Pagination with rows-per-page Select on the left and previous/next icon-only controls on the right.",
+      "Pagination combining a rows-per-page Select on the left with icon-only previous/next controls on the right — composing Pagination, Field, and Select for data table footers.",
     registryDependencies: ["pagination", "field", "select"],
     files: [
       {
@@ -291,7 +332,13 @@ export const items = defineItems([
     ],
     slug: "pagination",
     variant: "icons-only",
+    isFlagged: true,
     upstreamUrl: "https://ui.shadcn.com/docs/components/pagination",
+    categories: ["navigation"],
+    related: ["pagination-default", "pagination-simple"],
+    deviations: [
+      "Project-local variant combining Pagination previous/next icon controls with a rows-per-page Select; not present in upstream examples.",
+    ],
     span: 2,
   },
 
@@ -301,7 +348,7 @@ export const items = defineItems([
     type: "registry:example",
     title: "Default",
     description:
-      "Tabs with Overview, Analytics, Reports, Settings panels each rendering a Card with header and description.",
+      "Tabs with Overview, Analytics, Reports, and Settings panels each rendering a Card with a title, description, and summary content — the canonical full-panel composition.",
     registryDependencies: ["tabs", "card"],
     files: [
       {
@@ -313,6 +360,11 @@ export const items = defineItems([
     variant: "default",
     isDefault: true,
     upstreamUrl: "https://ui.shadcn.com/docs/components/tabs",
+    categories: ["navigation"],
+    related: ["tabs-line", "tabs-vertical"],
+    deviations: [
+      "Panel content uses project-themed descriptions (active projects, analytics, reports, settings) instead of upstream's account/password example.",
+    ],
     span: 2,
     height: "tall",
   },
@@ -320,18 +372,22 @@ export const items = defineItems([
     name: "tabs-line",
     type: "registry:example",
     title: "Line",
-    description: "Tabs using the line variant trigger style without panels.",
+    description:
+      "Tabs using the line variant on TabsList for a bottom-border trigger style without panel content — use this for navigation-style tab bars above content sections.",
     registryDependencies: ["tabs"],
     files: [{ path: "components/examples/tabs-line.tsx", type: "registry:example" }],
     slug: "tabs",
     variant: "line",
     upstreamUrl: "https://ui.shadcn.com/docs/components/tabs",
+    categories: ["navigation"],
+    related: ["tabs-default", "tabs-vertical"],
   },
   {
     name: "tabs-vertical",
     type: "registry:example",
     title: "Vertical",
-    description: "Tabs with vertical orientation and three triggers.",
+    description:
+      "Tabs with orientation=vertical stacking Account, Password, and Notifications triggers in a column — suited for settings sidebars and multi-section forms.",
     registryDependencies: ["tabs"],
     files: [
       {
@@ -342,12 +398,15 @@ export const items = defineItems([
     slug: "tabs",
     variant: "vertical",
     upstreamUrl: "https://ui.shadcn.com/docs/components/tabs",
+    categories: ["navigation"],
+    related: ["tabs-default", "tabs-line"],
   },
   {
     name: "tabs-disabled",
     type: "registry:example",
     title: "Disabled",
-    description: "Tabs with one disabled trigger alongside an active Home tab.",
+    description:
+      "Tabs with one disabled trigger alongside an active Home tab, demonstrating how to mark a tab as unavailable while keeping it visible in the trigger list.",
     registryDependencies: ["tabs"],
     files: [
       {
@@ -358,17 +417,21 @@ export const items = defineItems([
     slug: "tabs",
     variant: "disabled",
     upstreamUrl: "https://ui.shadcn.com/docs/components/tabs",
+    categories: ["navigation"],
+    related: ["tabs-default"],
   },
   {
     name: "tabs-icons",
     type: "registry:example",
     title: "Icons",
     description:
-      "Tabs with Lucide icons (AppWindowIcon, CodeIcon) inside Preview and Code triggers.",
+      "Tabs with Lucide icons (AppWindowIcon, CodeIcon) placed inside Preview and Code triggers, showing the icon-plus-label pattern for richer tab affordances.",
     registryDependencies: ["tabs"],
     files: [{ path: "components/examples/tabs-icons.tsx", type: "registry:example" }],
     slug: "tabs",
     variant: "icons",
     upstreamUrl: "https://ui.shadcn.com/docs/components/tabs",
+    categories: ["navigation"],
+    related: ["tabs-default", "tabs-line"],
   },
 ]);

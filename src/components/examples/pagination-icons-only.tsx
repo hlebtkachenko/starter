@@ -1,3 +1,9 @@
+/**
+ * @slug pagination
+ * @variant icons-only
+ * @upstream https://ui.shadcn.com/docs/components/pagination
+ * @deviations ["Project-local variant combining Pagination previous/next icon controls with a rows-per-page Select, not present in upstream examples."]
+ */
 import { Field, FieldLabel } from "@/components/ui/field";
 import {
   Pagination,

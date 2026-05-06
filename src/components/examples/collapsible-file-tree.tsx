@@ -1,3 +1,9 @@
+/**
+ * @slug collapsible
+ * @variant file-tree
+ * @upstream https://ui.shadcn.com/docs/components/collapsible
+ * @deviations []
+ */
 import { ChevronRightIcon, FileIcon, FolderIcon } from "lucide-react";
 
 import { Button } from "@/components/ui/button";

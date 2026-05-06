@@ -1,3 +1,9 @@
+/**
+ * @slug button-group
+ * @variant split
+ * @upstream https://ui.shadcn.com/docs/components/button-group#split
+ * @deviations ["Replaced @tabler/icons-react IconPlus with lucide-react PlusIcon per project iconLibrary rule."]
+ */
 import { PlusIcon } from "lucide-react";
 
 import { Button } from "@/components/ui/button";

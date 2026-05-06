@@ -1,3 +1,9 @@
+/**
+ * @slug input-otp
+ * @variant four-digits
+ * @upstream https://ui.shadcn.com/docs/components/input-otp
+ * @deviations []
+ */
 import { REGEXP_ONLY_DIGITS } from "input-otp";
 
 import { InputOTP, InputOTPGroup, InputOTPSlot } from "@/components/ui/input-otp";

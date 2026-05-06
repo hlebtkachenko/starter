@@ -1,3 +1,9 @@
+/**
+ * @slug date-picker
+ * @variant date-of-birth
+ * @upstream https://ui.shadcn.com/docs/components/date-picker
+ * @deviations []
+ */
 "use client";
 
 import * as React from "react";

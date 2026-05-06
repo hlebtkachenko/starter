@@ -1160,25 +1160,36 @@ export const items = defineItems([
     name: "select-default",
     type: "registry:example",
     title: "Default",
+    description:
+      "Basic Select dropdown showing a list of fruits, demonstrating the default trigger and popover content layout. Use as the canonical starting point when adding a single-choice dropdown to a form.",
     slug: "select",
     variant: "default",
     isDefault: true,
     isFlagged: true,
+    upstreamUrl: "https://ui.shadcn.com/docs/components/select",
     registryDependencies: ["select"],
+    categories: ["forms", "input"],
+    related: ["select-groups", "select-scrollable", "native-select-default"],
     files: [
       {
         path: "components/examples/select-default.tsx",
         type: "registry:example",
       },
     ],
+    deviations: ["isFlagged: not present in upstream Examples block — project-local default demo."],
   },
   {
     name: "select-align-item-with-trigger",
     type: "registry:example",
     title: "Align Item With Trigger",
+    description:
+      "Interactive demo toggling SelectContent position between item-aligned and popper modes via a Switch. Use when you need to compare placement strategies or expose alignment as a user preference. Composes Select + Switch + Field.",
     slug: "select",
     variant: "align-item-with-trigger",
+    upstreamUrl: "https://ui.shadcn.com/docs/components/select",
     registryDependencies: ["select", "switch", "field"],
+    categories: ["forms", "input"],
+    related: ["select-default", "select-scrollable"],
     files: [
       {
         path: "components/examples/select-align-item-with-trigger.tsx",
@@ -1190,9 +1201,14 @@ export const items = defineItems([
     name: "select-groups",
     type: "registry:example",
     title: "Groups",
+    description:
+      "Select with two labeled option groups separated by a divider, showing fruits and vegetables. Use when options belong to distinct categories that benefit from visual separation and group labels.",
     slug: "select",
     variant: "groups",
+    upstreamUrl: "https://ui.shadcn.com/docs/components/select",
     registryDependencies: ["select"],
+    categories: ["forms", "input"],
+    related: ["select-default", "select-scrollable"],
     files: [
       {
         path: "components/examples/select-groups.tsx",
@@ -1204,9 +1220,14 @@ export const items = defineItems([
     name: "select-scrollable",
     type: "registry:example",
     title: "Scrollable",
+    description:
+      "Select populated with a large timezone list across five regional groups, triggering the built-in scroll area. Use when the option count exceeds the visible viewport and keyboard navigation plus scrolling must both work correctly.",
     slug: "select",
     variant: "scrollable",
+    upstreamUrl: "https://ui.shadcn.com/docs/components/select",
     registryDependencies: ["select"],
+    categories: ["forms", "input"],
+    related: ["select-groups", "select-default"],
     files: [
       {
         path: "components/examples/select-scrollable.tsx",
@@ -1218,9 +1239,14 @@ export const items = defineItems([
     name: "select-disabled",
     type: "registry:example",
     title: "Disabled",
+    description:
+      "Select rendered in a fully disabled state with one additional item-level disabled option inside. Use to demonstrate read-only form state or unavailable field conditions.",
     slug: "select",
     variant: "disabled",
+    upstreamUrl: "https://ui.shadcn.com/docs/components/select",
     registryDependencies: ["select"],
+    categories: ["forms", "input"],
+    related: ["select-invalid", "select-default"],
     files: [
       {
         path: "components/examples/select-disabled.tsx",
@@ -1232,9 +1258,14 @@ export const items = defineItems([
     name: "select-invalid",
     type: "registry:example",
     title: "Invalid",
+    description:
+      "Select inside a Field marked data-invalid with aria-invalid on the trigger and a FieldError message below. Use to show validation failure state with accessible error messaging. Composes Select + Field.",
     slug: "select",
     variant: "invalid",
+    upstreamUrl: "https://ui.shadcn.com/docs/components/select",
     registryDependencies: ["select", "field"],
+    categories: ["forms", "input", "validation"],
+    related: ["select-disabled", "select-default"],
     files: [
       {
         path: "components/examples/select-invalid.tsx",
@@ -1248,25 +1279,36 @@ export const items = defineItems([
     name: "slider-default",
     type: "registry:example",
     title: "Default",
+    description:
+      "Single-thumb Slider set to 75 out of 100, illustrating the default horizontal track and filled range. Use as the baseline reference when adding a simple numeric input to a settings or filter form.",
     slug: "slider",
     variant: "default",
     isDefault: true,
     isFlagged: true,
+    upstreamUrl: "https://ui.shadcn.com/docs/components/slider",
     registryDependencies: ["slider"],
+    categories: ["forms", "input"],
+    related: ["slider-range", "slider-controlled", "slider-disabled"],
     files: [
       {
         path: "components/examples/slider-default.tsx",
         type: "registry:example",
       },
     ],
+    deviations: ["isFlagged: not present in upstream Examples block — project-local default demo."],
   },
   {
     name: "slider-range",
     type: "registry:example",
     title: "Range",
+    description:
+      "Two-thumb Slider with defaultValue [25, 50] defining a selected range along the track. Use when users must pick a min/max interval, such as price filters or date span selectors.",
     slug: "slider",
     variant: "range",
+    upstreamUrl: "https://ui.shadcn.com/docs/components/slider",
     registryDependencies: ["slider"],
+    categories: ["forms", "input"],
+    related: ["slider-default", "slider-multiple-thumbs"],
     files: [
       {
         path: "components/examples/slider-range.tsx",
@@ -1278,9 +1320,14 @@ export const items = defineItems([
     name: "slider-multiple-thumbs",
     type: "registry:example",
     title: "Multiple Thumbs",
+    description:
+      "Three-thumb Slider with values [10, 20, 70] demonstrating independent thumb control across a single track. Use when the UI requires more than two breakpoints, such as a multi-band equalizer or tiered pricing boundary.",
     slug: "slider",
     variant: "multiple-thumbs",
+    upstreamUrl: "https://ui.shadcn.com/docs/components/slider",
     registryDependencies: ["slider"],
+    categories: ["forms", "input"],
+    related: ["slider-range", "slider-default"],
     files: [
       {
         path: "components/examples/slider-multiple-thumbs.tsx",
@@ -1292,9 +1339,14 @@ export const items = defineItems([
     name: "slider-vertical",
     type: "registry:example",
     title: "Vertical",
+    description:
+      "Two vertical Sliders side by side using orientation='vertical' and an explicit height, showing how the component reflows for column-based layouts. Use in audio mixers, chart annotation tools, or any design where a vertical axis is more intuitive.",
     slug: "slider",
     variant: "vertical",
+    upstreamUrl: "https://ui.shadcn.com/docs/components/slider",
     registryDependencies: ["slider"],
+    categories: ["forms", "input"],
+    related: ["slider-default", "slider-range"],
     files: [
       {
         path: "components/examples/slider-vertical.tsx",
@@ -1306,9 +1358,14 @@ export const items = defineItems([
     name: "slider-controlled",
     type: "registry:example",
     title: "Controlled",
+    description:
+      "Controlled two-thumb Slider wired to React state via onValueChange, displaying live numeric output next to the label. Use when parent state must read or reset the slider value, such as in a settings panel with a reset button. Composes Slider + Label.",
     slug: "slider",
     variant: "controlled",
+    upstreamUrl: "https://ui.shadcn.com/docs/components/slider",
     registryDependencies: ["slider", "label"],
+    categories: ["forms", "input"],
+    related: ["slider-default", "slider-range"],
     files: [
       {
         path: "components/examples/slider-controlled.tsx",
@@ -1320,9 +1377,14 @@ export const items = defineItems([
     name: "slider-disabled",
     type: "registry:example",
     title: "Disabled",
+    description:
+      "Slider rendered in a disabled state, blocking pointer and keyboard interaction while preserving the visual track. Use to indicate that the value is locked by a higher-level condition in the form.",
     slug: "slider",
     variant: "disabled",
+    upstreamUrl: "https://ui.shadcn.com/docs/components/slider",
     registryDependencies: ["slider"],
+    categories: ["forms", "input"],
+    related: ["slider-default", "slider-controlled"],
     files: [
       {
         path: "components/examples/slider-disabled.tsx",
@@ -1336,25 +1398,36 @@ export const items = defineItems([
     name: "switch-default",
     type: "registry:example",
     title: "Default",
+    description:
+      "Minimal Switch paired with a Label for airplane mode, demonstrating the base on/off toggle layout. Use as the simplest reference when adding a boolean preference toggle that needs no extra description. Composes Switch + Label.",
     slug: "switch",
     variant: "default",
     isDefault: true,
     isFlagged: true,
+    upstreamUrl: "https://ui.shadcn.com/docs/components/switch",
     registryDependencies: ["switch", "label"],
+    categories: ["forms", "input"],
+    related: ["switch-description", "switch-choice-card", "switch-disabled"],
     files: [
       {
         path: "components/examples/switch-default.tsx",
         type: "registry:example",
       },
     ],
+    deviations: ["isFlagged: not present in upstream Examples block — project-local default demo."],
   },
   {
     name: "switch-description",
     type: "registry:example",
     title: "Description",
+    description:
+      "Horizontal Field layout with a Switch aligned to the right of a label and supporting description text. Use for settings rows where users need context before toggling, such as focus-sharing or notification preferences. Composes Switch + Field.",
     slug: "switch",
     variant: "description",
+    upstreamUrl: "https://ui.shadcn.com/docs/components/switch",
     registryDependencies: ["switch", "field"],
+    categories: ["forms", "input"],
+    related: ["switch-default", "switch-choice-card"],
     files: [
       {
         path: "components/examples/switch-description.tsx",
@@ -1366,9 +1439,14 @@ export const items = defineItems([
     name: "switch-choice-card",
     type: "registry:example",
     title: "Choice Card",
+    description:
+      "FieldGroup of two clickable card rows, each wrapping a FieldLabel around a horizontal Field with title, description, and a Switch. Use for settings panels where each option has a name plus an explanatory sentence and both the label and card area must be click targets. Composes Switch + Field.",
     slug: "switch",
     variant: "choice-card",
+    upstreamUrl: "https://ui.shadcn.com/docs/components/switch",
     registryDependencies: ["switch", "field"],
+    categories: ["forms", "input"],
+    related: ["switch-description", "switch-default"],
     files: [
       {
         path: "components/examples/switch-choice-card.tsx",
@@ -1380,9 +1458,14 @@ export const items = defineItems([
     name: "switch-disabled",
     type: "registry:example",
     title: "Disabled",
+    description:
+      "Switch rendered disabled inside a data-disabled Field, graying out both the toggle and its label. Use to show a locked boolean preference when its value is determined by another condition in the form. Composes Switch + Field.",
     slug: "switch",
     variant: "disabled",
+    upstreamUrl: "https://ui.shadcn.com/docs/components/switch",
     registryDependencies: ["switch", "field"],
+    categories: ["forms", "input"],
+    related: ["switch-invalid", "switch-default"],
     files: [
       {
         path: "components/examples/switch-disabled.tsx",
@@ -1394,9 +1477,14 @@ export const items = defineItems([
     name: "switch-invalid",
     type: "registry:example",
     title: "Invalid",
+    description:
+      "Switch inside a data-invalid Field with aria-invalid set, showing the error ring and accessible invalid state. Use when a required boolean (e.g. terms acceptance) has not been toggled on before form submission. Composes Switch + Field.",
     slug: "switch",
     variant: "invalid",
+    upstreamUrl: "https://ui.shadcn.com/docs/components/switch",
     registryDependencies: ["switch", "field"],
+    categories: ["forms", "input", "validation"],
+    related: ["switch-disabled", "switch-default"],
     files: [
       {
         path: "components/examples/switch-invalid.tsx",
@@ -1408,9 +1496,14 @@ export const items = defineItems([
     name: "switch-size",
     type: "registry:example",
     title: "Size",
+    description:
+      "Side-by-side comparison of Switch size tokens — sm and default — each paired with a FieldLabel. Use when choosing the correct toggle size for dense toolbars versus standard form rows. Composes Switch + Field.",
     slug: "switch",
     variant: "size",
+    upstreamUrl: "https://ui.shadcn.com/docs/components/switch",
     registryDependencies: ["switch", "field"],
+    categories: ["forms", "input"],
+    related: ["switch-default", "switch-description"],
     files: [{ path: "components/examples/switch-size.tsx", type: "registry:example" }],
   },
 
@@ -1419,25 +1512,36 @@ export const items = defineItems([
     name: "textarea-default",
     type: "registry:example",
     title: "Default",
+    description:
+      "Bare Textarea with a placeholder, showing the default resizable multi-line text input without any surrounding field chrome. Use as the minimal reference before wrapping with Field or pairing with a submit button.",
     slug: "textarea",
     variant: "default",
     isDefault: true,
     isFlagged: true,
+    upstreamUrl: "https://ui.shadcn.com/docs/components/textarea",
     registryDependencies: ["textarea"],
+    categories: ["forms", "input"],
+    related: ["textarea-field", "textarea-button", "textarea-disabled"],
     files: [
       {
         path: "components/examples/textarea-default.tsx",
         type: "registry:example",
       },
     ],
+    deviations: ["isFlagged: not present in upstream Examples block — project-local default demo."],
   },
   {
     name: "textarea-field",
     type: "registry:example",
     title: "Field",
+    description:
+      "Textarea inside a Field with a FieldLabel and FieldDescription, demonstrating the standard accessible layout for multi-line text. Use when the textarea needs a visible label and supporting hint text below it. Composes Textarea + Field.",
     slug: "textarea",
     variant: "field",
+    upstreamUrl: "https://ui.shadcn.com/docs/components/textarea",
     registryDependencies: ["textarea", "field"],
+    categories: ["forms", "input"],
+    related: ["textarea-default", "textarea-invalid", "textarea-disabled"],
     files: [
       {
         path: "components/examples/textarea-field.tsx",
@@ -1449,9 +1553,14 @@ export const items = defineItems([
     name: "textarea-disabled",
     type: "registry:example",
     title: "Disabled",
+    description:
+      "Textarea inside a data-disabled Field, rendering the input and its label in a muted, non-interactive state. Use to show that a long-text field is locked until a prerequisite condition is met. Composes Textarea + Field.",
     slug: "textarea",
     variant: "disabled",
+    upstreamUrl: "https://ui.shadcn.com/docs/components/textarea",
     registryDependencies: ["textarea", "field"],
+    categories: ["forms", "input"],
+    related: ["textarea-invalid", "textarea-default"],
     files: [
       {
         path: "components/examples/textarea-disabled.tsx",
@@ -1463,9 +1572,14 @@ export const items = defineItems([
     name: "textarea-invalid",
     type: "registry:example",
     title: "Invalid",
+    description:
+      "Textarea inside a data-invalid Field with aria-invalid on the input and a FieldDescription acting as the error message. Use to surface validation errors on multi-line text fields in a form submission flow. Composes Textarea + Field.",
     slug: "textarea",
     variant: "invalid",
+    upstreamUrl: "https://ui.shadcn.com/docs/components/textarea",
     registryDependencies: ["textarea", "field"],
+    categories: ["forms", "input", "validation"],
+    related: ["textarea-disabled", "textarea-field"],
     files: [
       {
         path: "components/examples/textarea-invalid.tsx",
@@ -1477,9 +1591,14 @@ export const items = defineItems([
     name: "textarea-button",
     type: "registry:example",
     title: "Button",
+    description:
+      "Textarea stacked above a full-width Button in a grid gap layout, forming a minimal message composer. Use when the primary action following text entry is a single submit — such as a comment box or support request form. Composes Textarea + Button.",
     slug: "textarea",
     variant: "button",
+    upstreamUrl: "https://ui.shadcn.com/docs/components/textarea",
     registryDependencies: ["textarea", "button"],
+    categories: ["forms", "input"],
+    related: ["textarea-default", "textarea-field"],
     files: [
       {
         path: "components/examples/textarea-button.tsx",

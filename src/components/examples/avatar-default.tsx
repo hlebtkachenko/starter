@@ -1,3 +1,9 @@
+/**
+ * @slug avatar
+ * @variant default
+ * @upstream https://ui.shadcn.com/docs/components/avatar
+ * @deviations ["Hero composes solo avatar, badged avatar, and avatar group in one view rather than one element per demo."]
+ */
 import {
   Avatar,
   AvatarBadge,

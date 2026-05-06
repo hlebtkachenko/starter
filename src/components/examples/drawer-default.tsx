@@ -1,6 +1,13 @@
 "use client";
 
+/**
+ * @slug drawer
+ * @variant default
+ * @upstream https://ui.shadcn.com/docs/components/drawer
+ * @deviations ["isFlagged: page-hero variant with recharts BarChart and stepper UI; data moved to _fixtures/drawer.ts fixture."]
+ */
 import * as React from "react";
+
 import { MinusIcon, PlusIcon } from "lucide-react";
 import { Bar, BarChart, ResponsiveContainer } from "recharts";
 

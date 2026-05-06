@@ -1,7 +1,13 @@
+/**
+ * @slug button-group
+ * @variant input-group
+ * @upstream https://ui.shadcn.com/docs/components/button-group#input-group
+ * @deviations []
+ */
 "use client";
 
-import { AudioLinesIcon, PlusIcon } from "lucide-react";
 import * as React from "react";
+import { AudioLinesIcon, PlusIcon } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { ButtonGroup } from "@/components/ui/button-group";

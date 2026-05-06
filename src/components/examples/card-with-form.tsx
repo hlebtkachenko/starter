@@ -1,3 +1,9 @@
+/**
+ * @slug card
+ * @variant with-form
+ * @upstream https://ui.shadcn.com/docs/components/card
+ * @deviations ["isFlagged: this variant is a project addition not present in upstream Examples block."]
+ */
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";

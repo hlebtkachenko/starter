@@ -1,3 +1,9 @@
+/**
+ * @slug table
+ * @variant actions
+ * @upstream https://ui.shadcn.com/docs/components/table
+ * @deviations []
+ */
 import { MoreHorizontalIcon } from "lucide-react";
 
 import { Button } from "@/components/ui/button";

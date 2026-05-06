@@ -1,3 +1,9 @@
+/**
+ * @slug collapsible
+ * @variant default
+ * @upstream https://ui.shadcn.com/docs/components/collapsible
+ * @deviations ["ChevronsUpDown imported as ChevronsUpDownIcon (lucide-react named export convention used in this project)."]
+ */
 "use client";
 
 import * as React from "react";

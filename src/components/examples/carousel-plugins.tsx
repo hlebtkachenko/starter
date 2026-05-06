@@ -1,3 +1,9 @@
+/**
+ * @slug carousel
+ * @variant plugins
+ * @upstream https://ui.shadcn.com/docs/components/carousel
+ * @deviations ["Replaced upstream useRef(Autoplay(...)) with useMemo(() => Autoplay(...), []) — React 19 react-hooks/refs rule blocks reading ref.current during render."]
+ */
 "use client";
 
 import Autoplay from "embla-carousel-autoplay";

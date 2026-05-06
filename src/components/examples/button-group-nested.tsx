@@ -1,3 +1,9 @@
+/**
+ * @slug button-group
+ * @variant nested
+ * @upstream https://ui.shadcn.com/docs/components/button-group#nested
+ * @deviations []
+ */
 import { AudioLinesIcon, PlusIcon } from "lucide-react";
 
 import { Button } from "@/components/ui/button";

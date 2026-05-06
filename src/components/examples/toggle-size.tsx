@@ -1,3 +1,9 @@
+/**
+ * @slug toggle
+ * @variant size
+ * @upstream https://ui.shadcn.com/docs/components/toggle#size
+ * @deviations []
+ */
 import { Toggle } from "@/components/ui/toggle";
 
 export default function ToggleSize() {

@@ -1,3 +1,9 @@
+/**
+ * @slug sonner
+ * @variant default
+ * @upstream https://ui.shadcn.com/docs/components/sonner
+ * @deviations []
+ */
 "use client";
 
 import { toast } from "sonner";

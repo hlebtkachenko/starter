@@ -1,3 +1,9 @@
+/**
+ * @slug item
+ * @variant image
+ * @upstream https://ui.shadcn.com/docs/components/item
+ * @deviations ["Uses native <img> with eslint-disable instead of next/image for showcase fixture URLs."]
+ */
 import {
   Item,
   ItemContent,

@@ -1,3 +1,9 @@
+/**
+ * @slug chart
+ * @variant chart-config
+ * @upstream https://ui.shadcn.com/docs/components/chart
+ * @deviations ["Uses CHART_CONFIG_DEMO fixture which has theme-based colors only (no color key) per project discriminated-union rule."]
+ */
 import { Bar, BarChart } from "recharts";
 
 import { ChartContainer } from "@/components/ui/chart";

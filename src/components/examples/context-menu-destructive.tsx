@@ -1,3 +1,9 @@
+/**
+ * @slug context-menu
+ * @variant destructive
+ * @upstream https://ui.shadcn.com/docs/components/context-menu
+ * @deviations []
+ */
 import { PencilIcon, ShareIcon, TrashIcon } from "lucide-react";
 
 import {

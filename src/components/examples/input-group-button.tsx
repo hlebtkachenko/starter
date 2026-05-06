@@ -1,3 +1,9 @@
+/**
+ * @slug input-group
+ * @variant button
+ * @upstream https://ui.shadcn.com/docs/components/input-group
+ * @deviations ["Inline setTimeout clipboard pattern retained; no useCopyToClipboard abstraction needed for single use."]
+ */
 "use client";
 
 import { CheckIcon, CopyIcon, InfoIcon, StarIcon } from "lucide-react";

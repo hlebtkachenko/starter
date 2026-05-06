@@ -1,3 +1,9 @@
+/**
+ * @slug chart
+ * @variant with-grid
+ * @upstream https://ui.shadcn.com/docs/components/chart
+ * @deviations ["Step-by-step build-up variant; not in upstream Examples block (isFlagged)."]
+ */
 import { Bar, BarChart, CartesianGrid } from "recharts";
 
 import { ChartContainer } from "@/components/ui/chart";

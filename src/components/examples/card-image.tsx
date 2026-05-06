@@ -1,3 +1,9 @@
+/**
+ * @slug card
+ * @variant image
+ * @upstream https://ui.shadcn.com/docs/components/card
+ * @deviations ["next/image replaced with <img> + eslint-disable per project rule (no remote patterns in next.config.ts)."]
+ */
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {

@@ -1,3 +1,9 @@
+/**
+ * @slug context-menu
+ * @variant checkboxes
+ * @upstream https://ui.shadcn.com/docs/components/context-menu
+ * @deviations []
+ */
 import {
   ContextMenu,
   ContextMenuCheckboxItem,

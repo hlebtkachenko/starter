@@ -1,3 +1,9 @@
+/**
+ * @slug slider
+ * @variant vertical
+ * @upstream https://ui.shadcn.com/docs/components/slider
+ * @deviations []
+ */
 import { Slider } from "@/components/ui/slider";
 
 export default function SliderVertical() {

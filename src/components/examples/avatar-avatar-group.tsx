@@ -1,3 +1,9 @@
+/**
+ * @slug avatar
+ * @variant avatar-group
+ * @upstream https://ui.shadcn.com/docs/components/avatar
+ * @deviations []
+ */
 import { Avatar, AvatarFallback, AvatarGroup, AvatarImage } from "@/components/ui/avatar";
 
 export default function AvatarAvatarGroup() {

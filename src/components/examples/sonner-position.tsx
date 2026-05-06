@@ -1,3 +1,9 @@
+/**
+ * @slug sonner
+ * @variant position
+ * @upstream https://ui.shadcn.com/docs/components/sonner
+ * @deviations ["POSITIONS array extracted to _fixtures/sonner.ts and iterated via .map() instead of six inline Button elements, reducing repetition while preserving the same six anchors."]
+ */
 "use client";
 
 import { toast } from "sonner";

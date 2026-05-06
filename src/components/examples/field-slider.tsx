@@ -1,3 +1,9 @@
+/**
+ * @slug field
+ * @variant slider
+ * @upstream https://ui.shadcn.com/docs/components/field
+ * @deviations []
+ */
 "use client";
 
 import * as React from "react";

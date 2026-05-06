@@ -1,3 +1,9 @@
+/**
+ * @slug input-otp
+ * @variant form
+ * @upstream https://ui.shadcn.com/docs/components/input-otp
+ * @deviations []
+ */
 import { RefreshCwIcon } from "lucide-react";
 
 import { Button } from "@/components/ui/button";

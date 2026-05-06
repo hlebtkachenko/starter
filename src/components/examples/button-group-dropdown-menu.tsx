@@ -1,3 +1,9 @@
+/**
+ * @slug button-group
+ * @variant dropdown-menu
+ * @upstream https://ui.shadcn.com/docs/components/button-group#dropdown-menu
+ * @deviations []
+ */
 import {
   AlertTriangleIcon,
   CheckIcon,

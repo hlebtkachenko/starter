@@ -1,3 +1,9 @@
+/**
+ * @slug radio-group
+ * @variant default
+ * @upstream https://ui.shadcn.com/docs/components/radio-group
+ * @deviations ["isFlagged: not present in upstream Examples block — project-local default demo."]
+ */
 import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 

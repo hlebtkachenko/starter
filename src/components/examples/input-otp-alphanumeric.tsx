@@ -1,3 +1,9 @@
+/**
+ * @slug input-otp
+ * @variant alphanumeric
+ * @upstream https://ui.shadcn.com/docs/components/input-otp
+ * @deviations []
+ */
 import { REGEXP_ONLY_DIGITS_AND_CHARS } from "input-otp";
 
 import {

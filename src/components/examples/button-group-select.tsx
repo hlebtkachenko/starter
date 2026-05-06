@@ -1,7 +1,13 @@
+/**
+ * @slug button-group
+ * @variant select
+ * @upstream https://ui.shadcn.com/docs/components/button-group#select
+ * @deviations []
+ */
 "use client";
 
-import { ArrowRightIcon } from "lucide-react";
 import * as React from "react";
+import { ArrowRightIcon } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { ButtonGroup } from "@/components/ui/button-group";

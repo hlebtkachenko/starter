@@ -1,3 +1,9 @@
+/**
+ * @slug menubar
+ * @variant submenu
+ * @upstream https://ui.shadcn.com/docs/components/menubar
+ * @deviations []
+ */
 import {
   Menubar,
   MenubarContent,

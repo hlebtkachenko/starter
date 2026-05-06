@@ -1,3 +1,9 @@
+/**
+ * @slug toggle
+ * @variant outline
+ * @upstream https://ui.shadcn.com/docs/components/toggle#outline
+ * @deviations []
+ */
 import { BoldIcon, ItalicIcon } from "lucide-react";
 
 import { Toggle } from "@/components/ui/toggle";

@@ -1,3 +1,9 @@
+/**
+ * @slug alert
+ * @variant action
+ * @upstream https://ui.shadcn.com/docs/components/alert
+ * @deviations []
+ */
 import { Alert, AlertAction, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
 

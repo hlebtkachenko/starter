@@ -1,3 +1,9 @@
+/**
+ * @slug typography
+ * @variant demo
+ * @upstream https://ui.shadcn.com/docs/components/typography
+ * @deviations ["Full-page composition combining all typography levels; not a single upstream example block — flagged as isFlagged in registry."]
+ */
 export default function TypographyDemo() {
   return (
     <div>

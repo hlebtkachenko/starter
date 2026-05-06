@@ -1,3 +1,9 @@
+/**
+ * @slug slider
+ * @variant default
+ * @upstream https://ui.shadcn.com/docs/components/slider
+ * @deviations ["isFlagged: not present in upstream Examples block — project-local default demo."]
+ */
 import { Slider } from "@/components/ui/slider";
 
 export default function SliderDefault() {

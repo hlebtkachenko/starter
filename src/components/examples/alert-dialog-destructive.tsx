@@ -1,3 +1,9 @@
+/**
+ * @slug alert-dialog
+ * @variant destructive
+ * @upstream https://ui.shadcn.com/docs/components/alert-dialog
+ * @deviations []
+ */
 import { Trash2Icon } from "lucide-react";
 
 import {

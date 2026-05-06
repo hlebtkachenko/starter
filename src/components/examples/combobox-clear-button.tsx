@@ -1,3 +1,9 @@
+/**
+ * @slug combobox
+ * @variant clear-button
+ * @upstream https://ui.shadcn.com/docs/components/combobox
+ * @deviations []
+ */
 import { COMBOBOX_FRAMEWORKS } from "@/components/examples/_fixtures/combobox";
 import {
   Combobox,

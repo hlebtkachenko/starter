@@ -1,3 +1,9 @@
+/**
+ * @slug skeleton
+ * @variant card
+ * @upstream https://ui.shadcn.com/docs/components/skeleton
+ * @deviations []
+ */
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
 

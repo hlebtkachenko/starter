@@ -1,3 +1,9 @@
+/**
+ * @slug calendar
+ * @variant with-timezone
+ * @upstream https://ui.shadcn.com/docs/components/calendar
+ * @deviations ["Pins timeZone to Europe/Prague; not in upstream examples (isFlagged)."]
+ */
 "use client";
 
 import { useState } from "react";

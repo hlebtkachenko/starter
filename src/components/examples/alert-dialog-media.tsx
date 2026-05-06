@@ -1,3 +1,9 @@
+/**
+ * @slug alert-dialog
+ * @variant media
+ * @upstream https://ui.shadcn.com/docs/components/alert-dialog
+ * @deviations []
+ */
 import { CircleFadingPlusIcon } from "lucide-react";
 
 import {

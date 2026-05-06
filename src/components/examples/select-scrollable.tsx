@@ -1,3 +1,9 @@
+/**
+ * @slug select
+ * @variant scrollable
+ * @upstream https://ui.shadcn.com/docs/components/select
+ * @deviations []
+ */
 import {
   Select,
   SelectContent,

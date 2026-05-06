@@ -1,3 +1,9 @@
+/**
+ * @slug chart
+ * @variant tooltip-demo
+ * @upstream https://ui.shadcn.com/docs/components/chart
+ * @deviations ["Uses line indicator tooltip style; not in upstream Examples block (isFlagged)."]
+ */
 import { Bar, BarChart, CartesianGrid, XAxis } from "recharts";
 
 import { ChartContainer, ChartTooltip, ChartTooltipContent } from "@/components/ui/chart";

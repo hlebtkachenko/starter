@@ -1,3 +1,9 @@
+/**
+ * @slug item
+ * @variant icon
+ * @upstream https://ui.shadcn.com/docs/components/item
+ * @deviations []
+ */
 import { ShieldAlertIcon } from "lucide-react";
 
 import { Button } from "@/components/ui/button";

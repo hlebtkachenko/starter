@@ -1,5 +1,12 @@
+/**
+ * @slug command
+ * @variant scrollable
+ * @upstream https://ui.shadcn.com/docs/components/command
+ * @deviations []
+ */
 "use client";
 
+import * as React from "react";
 import {
   BellIcon,
   CalculatorIcon,
@@ -25,7 +32,6 @@ import {
   ZoomInIcon,
   ZoomOutIcon,
 } from "lucide-react";
-import * as React from "react";
 
 import { Button } from "@/components/ui/button";
 import {

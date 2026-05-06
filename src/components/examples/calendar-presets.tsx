@@ -1,3 +1,9 @@
+/**
+ * @slug calendar
+ * @variant presets
+ * @upstream https://ui.shadcn.com/docs/components/calendar
+ * @deviations []
+ */
 "use client";
 
 import { addDays } from "date-fns";

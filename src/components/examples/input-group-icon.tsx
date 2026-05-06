@@ -1,3 +1,9 @@
+/**
+ * @slug input-group
+ * @variant icon
+ * @upstream https://ui.shadcn.com/docs/components/input-group
+ * @deviations []
+ */
 import { CheckIcon, CreditCardIcon, InfoIcon, MailIcon, SearchIcon, StarIcon } from "lucide-react";
 
 import { InputGroup, InputGroupAddon, InputGroupInput } from "@/components/ui/input-group";

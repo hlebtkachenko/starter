@@ -1,3 +1,9 @@
+/**
+ * @slug input-otp
+ * @variant default
+ * @upstream https://ui.shadcn.com/docs/components/input-otp
+ * @deviations ["Upstream page-hero uses defaultValue='123456' which triggers React controlled/uncontrolled warning inside input-otp; replaced with useState controlled wrapper."]
+ */
 "use client";
 
 import * as React from "react";

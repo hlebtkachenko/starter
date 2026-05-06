@@ -109,7 +109,8 @@ export const items = defineItems([
     name: "progress-default",
     type: "registry:example",
     title: "Default",
-    description: "Progress bar that animates from 13% to 66% on mount via a delayed setState.",
+    description:
+      "Progress bar that animates from 13% to 66% on mount via a delayed setState, demonstrating the canonical indeterminate-to-loaded pattern.",
     slug: "progress",
     variant: "default",
     isDefault: true,
@@ -128,7 +129,8 @@ export const items = defineItems([
     name: "progress-label",
     type: "registry:example",
     title: "Label",
-    description: "Progress bar paired with a Field label that shows the upload percentage inline.",
+    description:
+      "Progress bar paired with a Field label showing the upload percentage inline; use when the value needs an accessible text caption.",
     slug: "progress",
     variant: "label",
     isDefault: false,
@@ -147,7 +149,8 @@ export const items = defineItems([
     name: "progress-controlled",
     type: "registry:example",
     title: "Controlled",
-    description: "Progress bar driven by a Slider so the user can interactively set its value.",
+    description:
+      "Progress bar driven by a Slider so the user can scrub its value interactively; demonstrates controlled two-way binding between progress and range input.",
     slug: "progress",
     variant: "controlled",
     isDefault: false,
@@ -168,7 +171,8 @@ export const items = defineItems([
     name: "sonner-default",
     type: "registry:example",
     title: "Default",
-    description: "Outline Button that fires a toast with description and an Undo action callback.",
+    description:
+      "Outline Button that fires a Sonner toast with a description line and an Undo action callback; the canonical starting point for toast integration.",
     slug: "sonner",
     variant: "default",
     isDefault: true,
@@ -208,7 +212,8 @@ export const items = defineItems([
     name: "sonner-description",
     type: "registry:example",
     title: "Description",
-    description: "Toast trigger that adds a secondary description line under the title.",
+    description:
+      "Toast trigger that adds a secondary description line under the title; use when a single-line message is not enough to communicate context.",
     slug: "sonner",
     variant: "description",
     isDefault: false,
@@ -227,7 +232,8 @@ export const items = defineItems([
     name: "sonner-position",
     type: "registry:example",
     title: "Position",
-    description: "Six anchor buttons that fire a toast at each corner and edge of the viewport.",
+    description:
+      "Six anchor buttons that fire a toast at each corner and edge of the viewport; reference when choosing the correct position prop value for your layout.",
     slug: "sonner",
     variant: "position",
     isDefault: false,
@@ -269,7 +275,8 @@ export const items = defineItems([
     name: "spinner-size",
     type: "registry:example",
     title: "Size",
-    description: "Four Spinners scaled via Tailwind size utilities from size-3 through size-8.",
+    description:
+      "Four Spinners scaled via Tailwind size utilities from size-3 through size-8; reference when selecting the right spinner size for dense or spacious contexts.",
     slug: "spinner",
     variant: "size",
     isDefault: false,
@@ -288,7 +295,8 @@ export const items = defineItems([
     name: "spinner-button",
     type: "registry:example",
     title: "Button",
-    description: "Disabled Button variants pairing an inline-start Spinner with loading copy.",
+    description:
+      "Disabled Button variants pairing an inline-start Spinner with loading copy; shows the correct data-icon placement pattern for default, outline, and secondary styles.",
     slug: "spinner",
     variant: "button",
     isDefault: false,

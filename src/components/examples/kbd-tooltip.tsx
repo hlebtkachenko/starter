@@ -1,3 +1,9 @@
+/**
+ * @slug kbd
+ * @variant tooltip
+ * @upstream https://ui.shadcn.com/docs/components/kbd
+ * @deviations []
+ */
 import { Button } from "@/components/ui/button";
 import { ButtonGroup } from "@/components/ui/button-group";
 import { Kbd, KbdGroup } from "@/components/ui/kbd";

@@ -1,3 +1,9 @@
+/**
+ * @slug card
+ * @variant size
+ * @upstream https://ui.shadcn.com/docs/components/card
+ * @deviations []
+ */
 import { Button } from "@/components/ui/button";
 import {
   Card,

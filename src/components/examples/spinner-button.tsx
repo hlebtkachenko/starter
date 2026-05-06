@@ -1,3 +1,9 @@
+/**
+ * @slug spinner
+ * @variant button
+ * @upstream https://ui.shadcn.com/docs/components/spinner
+ * @deviations []
+ */
 import { Button } from "@/components/ui/button";
 import { Spinner } from "@/components/ui/spinner";
 

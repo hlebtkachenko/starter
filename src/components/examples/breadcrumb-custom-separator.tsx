@@ -1,3 +1,9 @@
+/**
+ * @slug breadcrumb
+ * @variant custom-separator
+ * @upstream https://ui.shadcn.com/docs/components/breadcrumb
+ * @deviations []
+ */
 import { DotIcon } from "lucide-react";
 import Link from "next/link";
 

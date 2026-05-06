@@ -1,3 +1,9 @@
+/**
+ * @slug avatar
+ * @variant avatar-group-with-icon
+ * @upstream https://ui.shadcn.com/docs/components/avatar
+ * @deviations []
+ */
 import { PlusIcon } from "lucide-react";
 
 import {

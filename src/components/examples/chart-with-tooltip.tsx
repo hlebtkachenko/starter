@@ -1,3 +1,9 @@
+/**
+ * @slug chart
+ * @variant with-tooltip
+ * @upstream https://ui.shadcn.com/docs/components/chart
+ * @deviations ["Step-by-step build-up variant; not in upstream Examples block (isFlagged)."]
+ */
 import { Bar, BarChart, CartesianGrid, XAxis } from "recharts";
 
 import { ChartContainer, ChartTooltip, ChartTooltipContent } from "@/components/ui/chart";

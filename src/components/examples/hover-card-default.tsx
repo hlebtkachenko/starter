@@ -1,3 +1,9 @@
+/**
+ * @slug hover-card
+ * @variant default
+ * @upstream https://ui.shadcn.com/docs/components/hover-card
+ * @deviations []
+ */
 import { Button } from "@/components/ui/button";
 import { HoverCard, HoverCardContent, HoverCardTrigger } from "@/components/ui/hover-card";
 

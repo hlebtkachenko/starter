@@ -1,3 +1,9 @@
+/**
+ * @slug input
+ * @variant grid
+ * @upstream https://ui.shadcn.com/docs/components/input
+ * @deviations []
+ */
 import { Field, FieldGroup, FieldLabel } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
 

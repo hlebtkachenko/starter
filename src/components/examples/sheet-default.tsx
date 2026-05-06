@@ -1,3 +1,9 @@
+/**
+ * @slug sheet
+ * @variant default
+ * @upstream https://ui.shadcn.com/docs/components/sheet
+ * @deviations ["isFlagged: page-hero variant matches upstream SheetDemo exactly."]
+ */
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";

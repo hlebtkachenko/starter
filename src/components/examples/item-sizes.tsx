@@ -1,3 +1,9 @@
+/**
+ * @slug item
+ * @variant sizes
+ * @upstream https://ui.shadcn.com/docs/components/item
+ * @deviations []
+ */
 import { Item, ItemContent, ItemTitle } from "@/components/ui/item";
 
 export default function ItemSizes() {

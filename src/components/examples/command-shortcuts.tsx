@@ -1,7 +1,13 @@
+/**
+ * @slug command
+ * @variant shortcuts
+ * @upstream https://ui.shadcn.com/docs/components/command
+ * @deviations []
+ */
 "use client";
 
-import { CreditCardIcon, SettingsIcon, UserIcon } from "lucide-react";
 import * as React from "react";
+import { CreditCardIcon, SettingsIcon, UserIcon } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import {

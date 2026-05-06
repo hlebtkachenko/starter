@@ -1,3 +1,9 @@
+/**
+ * @slug date-picker
+ * @variant natural-language-picker
+ * @upstream https://ui.shadcn.com/docs/components/date-picker
+ * @deviations []
+ */
 "use client";
 
 import { parseDate } from "chrono-node";

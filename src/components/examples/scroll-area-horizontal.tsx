@@ -1,3 +1,9 @@
+/**
+ * @slug scroll-area
+ * @variant horizontal
+ * @upstream https://ui.shadcn.com/docs/components/scroll-area
+ * @deviations ["Artwork data array moved to _fixtures/scroll-area.ts (SCROLL_AREA_WORKS) to share across variants; native <img> used instead of next/image per project rule."]
+ */
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 
 import { SCROLL_AREA_WORKS } from "./_fixtures/scroll-area";

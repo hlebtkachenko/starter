@@ -1,3 +1,9 @@
+/**
+ * @slug input-otp
+ * @variant disabled
+ * @upstream https://ui.shadcn.com/docs/components/input-otp
+ * @deviations []
+ */
 import {
   InputOTP,
   InputOTPGroup,

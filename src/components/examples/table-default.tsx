@@ -1,3 +1,9 @@
+/**
+ * @slug table
+ * @variant default
+ * @upstream https://ui.shadcn.com/docs/components/table
+ * @deviations ["Inline invoice data extracted to _fixtures/table.ts to keep the component clean."]
+ */
 import {
   Table,
   TableBody,

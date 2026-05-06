@@ -1,3 +1,9 @@
+/**
+ * @slug input
+ * @variant button-group
+ * @upstream https://ui.shadcn.com/docs/components/input
+ * @deviations []
+ */
 import { Button } from "@/components/ui/button";
 import { ButtonGroup } from "@/components/ui/button-group";
 import { Field, FieldLabel } from "@/components/ui/field";

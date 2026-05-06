@@ -1,3 +1,9 @@
+/**
+ * @slug breadcrumb
+ * @variant default
+ * @upstream https://ui.shadcn.com/docs/components/breadcrumb
+ * @deviations ["Uses DropdownMenu with an ellipsis trigger instead of the upstream 3-item linear breadcrumb, to demonstrate the dropdown pattern as the canonical default."]
+ */
 import Link from "next/link";
 
 import {

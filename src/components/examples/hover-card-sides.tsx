@@ -1,3 +1,9 @@
+/**
+ * @slug hover-card
+ * @variant sides
+ * @upstream https://ui.shadcn.com/docs/components/hover-card
+ * @deviations ["HOVER_CARD_SIDES constant moved to _fixtures/hover-card.ts fixture."]
+ */
 import { Button } from "@/components/ui/button";
 import { HoverCard, HoverCardContent, HoverCardTrigger } from "@/components/ui/hover-card";
 

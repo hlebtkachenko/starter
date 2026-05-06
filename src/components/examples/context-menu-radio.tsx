@@ -1,3 +1,9 @@
+/**
+ * @slug context-menu
+ * @variant radio
+ * @upstream https://ui.shadcn.com/docs/components/context-menu
+ * @deviations []
+ */
 "use client";
 
 import * as React from "react";

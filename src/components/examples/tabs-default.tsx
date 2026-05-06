@@ -1,3 +1,9 @@
+/**
+ * @slug tabs
+ * @variant default
+ * @upstream https://ui.shadcn.com/docs/components/tabs
+ * @deviations ["Panel content uses project-themed descriptions (active projects, analytics, reports, settings) instead of upstream's account/password example."]
+ */
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 

@@ -1,3 +1,9 @@
+/**
+ * @slug date-picker
+ * @variant time-picker
+ * @upstream https://ui.shadcn.com/docs/components/date-picker
+ * @deviations []
+ */
 "use client";
 
 import { format } from "date-fns";

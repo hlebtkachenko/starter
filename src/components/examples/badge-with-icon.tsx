@@ -1,3 +1,9 @@
+/**
+ * @slug badge
+ * @variant with-icon
+ * @upstream https://ui.shadcn.com/docs/components/badge
+ * @deviations []
+ */
 import { BadgeCheck, BookmarkIcon } from "lucide-react";
 
 import { Badge } from "@/components/ui/badge";

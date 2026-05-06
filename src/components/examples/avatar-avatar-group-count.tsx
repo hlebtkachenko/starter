@@ -1,3 +1,9 @@
+/**
+ * @slug avatar
+ * @variant avatar-group-count
+ * @upstream https://ui.shadcn.com/docs/components/avatar
+ * @deviations []
+ */
 import {
   Avatar,
   AvatarFallback,

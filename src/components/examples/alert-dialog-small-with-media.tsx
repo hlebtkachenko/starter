@@ -1,3 +1,9 @@
+/**
+ * @slug alert-dialog
+ * @variant small-with-media
+ * @upstream https://ui.shadcn.com/docs/components/alert-dialog
+ * @deviations []
+ */
 import { BluetoothIcon } from "lucide-react";
 
 import {

@@ -1,3 +1,9 @@
+/**
+ * @slug spinner
+ * @variant empty
+ * @upstream https://ui.shadcn.com/docs/components/spinner
+ * @deviations []
+ */
 import { Button } from "@/components/ui/button";
 import {
   Empty,

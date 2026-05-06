@@ -1,3 +1,9 @@
+/**
+ * @slug calendar
+ * @variant default
+ * @upstream https://ui.shadcn.com/docs/components/calendar
+ * @deviations ["Uses captionLayout=dropdown (month/year dropdowns) instead of the plain upstream default."]
+ */
 "use client";
 
 import { useState } from "react";

@@ -1,3 +1,9 @@
+/**
+ * @slug dropdown-menu
+ * @variant icons
+ * @upstream https://ui.shadcn.com/docs/components/dropdown-menu
+ * @deviations []
+ */
 import { CreditCardIcon, LogOutIcon, SettingsIcon, UserIcon } from "lucide-react";
 
 import { Button } from "@/components/ui/button";

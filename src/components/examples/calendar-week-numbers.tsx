@@ -1,3 +1,9 @@
+/**
+ * @slug calendar
+ * @variant week-numbers
+ * @upstream https://ui.shadcn.com/docs/components/calendar
+ * @deviations []
+ */
 "use client";
 
 import { useState } from "react";

@@ -1,3 +1,9 @@
+/**
+ * @slug command
+ * @variant default
+ * @upstream https://ui.shadcn.com/docs/components/command
+ * @deviations []
+ */
 import {
   CalculatorIcon,
   CalendarIcon,

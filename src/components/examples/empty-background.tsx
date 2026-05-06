@@ -1,3 +1,9 @@
+/**
+ * @slug empty
+ * @variant background
+ * @upstream https://ui.shadcn.com/docs/components/empty
+ * @deviations []
+ */
 import { BellIcon, RefreshCcwIcon } from "lucide-react";
 
 import { Button } from "@/components/ui/button";

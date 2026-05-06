@@ -1,3 +1,9 @@
+/**
+ * @slug switch
+ * @variant invalid
+ * @upstream https://ui.shadcn.com/docs/components/switch
+ * @deviations []
+ */
 import { Field, FieldContent, FieldDescription, FieldLabel } from "@/components/ui/field";
 import { Switch } from "@/components/ui/switch";
 

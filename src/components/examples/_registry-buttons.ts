@@ -26,7 +26,7 @@ export const items = defineItems([
     type: "registry:example",
     title: "Default",
     description:
-      "Canonical primary Button rendering plain text, the baseline shape every other variant overrides.",
+      "Canonical primary Button rendering plain text with the default variant, the baseline shape every other variant and size override.",
     slug: "button",
     variant: "default",
     isDefault: true,
@@ -117,7 +117,7 @@ export const items = defineItems([
     type: "registry:example",
     title: "Link",
     description:
-      "Button styled as an inline text link with underline-on-hover, for navigation cues that need button semantics.",
+      "Button styled as an inline text link with underline-on-hover, for navigation cues that need button semantics without a solid background.",
     slug: "button",
     variant: "link",
     upstreamUrl: "https://ui.shadcn.com/docs/components/button",
@@ -143,7 +143,7 @@ export const items = defineItems([
     type: "registry:example",
     title: "With Icon",
     description:
-      "Compact small Button combining a leading lucide icon with a text label, the standard shape for inline actions like 'New Branch'.",
+      "Small Button combining a leading lucide icon with a text label, the standard shape for inline actions like 'New Branch' in toolbars.",
     slug: "button",
     variant: "with-icon",
     upstreamUrl: "https://ui.shadcn.com/docs/components/button",
@@ -155,13 +155,16 @@ export const items = defineItems([
       },
     ],
     categories: ["actions", "forms"],
+    deviations: [
+      "Replaced @tabler/icons-react IconGitBranch with lucide-react GitBranchIcon per project iconLibrary rule.",
+    ],
   },
   {
     name: "button-rounded",
     type: "registry:example",
     title: "Rounded",
     description:
-      "Icon Button with a fully circular shape via rounded-full, used for floating action buttons and pill-style controls.",
+      "Icon Button with a fully circular shape via rounded-full inside a flex column wrapper, used for floating action buttons and pill-style controls.",
     slug: "button",
     variant: "rounded",
     upstreamUrl: "https://ui.shadcn.com/docs/components/button",
@@ -179,7 +182,7 @@ export const items = defineItems([
     type: "registry:example",
     title: "Spinner",
     description:
-      "Disabled loading Buttons composing the Spinner primitive on either side of the label to communicate in-flight work.",
+      "Two disabled loading Buttons composing the Spinner primitive on either side of the label to communicate in-flight work, wrapped in a flex row.",
     slug: "button",
     variant: "spinner",
     upstreamUrl: "https://ui.shadcn.com/docs/components/button",
@@ -191,6 +194,9 @@ export const items = defineItems([
       },
     ],
     categories: ["actions", "forms"],
+    deviations: [
+      "Replaced React fragment root with upstream div.flex.gap-2 wrapper to match upstream layout.",
+    ],
   },
   {
     name: "button-button-group",
@@ -256,7 +262,7 @@ export const items = defineItems([
     type: "registry:example",
     title: "Orientation",
     description:
-      "Vertical Button Group with stacked plus/minus icon buttons, the pattern for media-control and stepper layouts.",
+      "Vertical Button Group with stacked plus/minus icon buttons, the pattern for media-control and stepper layouts that stack rather than row.",
     slug: "button-group",
     variant: "orientation",
     upstreamUrl: "https://ui.shadcn.com/docs/components/button-group",
@@ -274,7 +280,7 @@ export const items = defineItems([
     type: "registry:example",
     title: "Size",
     description:
-      "Three Button Groups stacked at sm, default, and lg sizes to compare shared-edge rendering across the size scale.",
+      "Three Button Groups stacked at sm, default, and lg sizes to compare shared-edge rendering and hit areas across the size scale.",
     slug: "button-group",
     variant: "size",
     upstreamUrl: "https://ui.shadcn.com/docs/components/button-group",
@@ -328,7 +334,7 @@ export const items = defineItems([
     type: "registry:example",
     title: "Split",
     description:
-      "Split-button pattern: a labeled Button on the left and a single icon trigger on the right, divided by a ButtonGroupSeparator.",
+      "Split-button pattern: a labeled secondary Button on the left and a single icon trigger on the right, divided by a ButtonGroupSeparator.",
     slug: "button-group",
     variant: "split",
     upstreamUrl: "https://ui.shadcn.com/docs/components/button-group",
@@ -340,6 +346,9 @@ export const items = defineItems([
       },
     ],
     categories: ["actions"],
+    deviations: [
+      "Replaced @tabler/icons-react IconPlus with lucide-react PlusIcon per project iconLibrary rule.",
+    ],
   },
   {
     name: "button-group-input",
@@ -431,6 +440,7 @@ export const items = defineItems([
       },
     ],
     categories: ["actions"],
+    deviations: ["Used id='bg-task' instead of 'task' for DOM uniqueness in the showcase context."],
   },
 
   // toggle
@@ -439,7 +449,7 @@ export const items = defineItems([
     type: "registry:example",
     title: "Default",
     description:
-      "Outline Toggle with a Bookmark icon that fills its glyph when active, the canonical bookmark-style two-state control.",
+      "Outline Toggle with a Bookmark icon that fills its glyph when active, the canonical bookmark-style two-state control for favoriting content.",
     slug: "toggle",
     variant: "default",
     isDefault: true,
@@ -458,7 +468,7 @@ export const items = defineItems([
     type: "registry:example",
     title: "Outline",
     description:
-      "Pair of outline Toggles for italic and bold, illustrating the bordered variant typical in rich-text editor toolbars.",
+      "Pair of outline Toggles for italic and bold, illustrating the bordered variant typical in rich-text editor toolbars where selected state must be obvious.",
     slug: "toggle",
     variant: "outline",
     upstreamUrl: "https://ui.shadcn.com/docs/components/toggle",
@@ -476,7 +486,7 @@ export const items = defineItems([
     type: "registry:example",
     title: "With Text",
     description:
-      "Default-variant Toggle combining an italic icon and visible text label, showing how to render label-plus-icon affordances.",
+      "Default-variant Toggle combining an italic icon and visible text label, showing how to render label-plus-icon affordances for explicit toggle actions.",
     slug: "toggle",
     variant: "with-text",
     upstreamUrl: "https://ui.shadcn.com/docs/components/toggle",
@@ -494,7 +504,7 @@ export const items = defineItems([
     type: "registry:example",
     title: "Size",
     description:
-      "Three outline Toggles displayed side by side at sm, default, and lg sizes for visual size-token comparison.",
+      "Three outline Toggles displayed side by side at sm, default, and lg sizes for visual size-token comparison across the full Toggle scale.",
     slug: "toggle",
     variant: "size",
     upstreamUrl: "https://ui.shadcn.com/docs/components/toggle",
@@ -532,7 +542,7 @@ export const items = defineItems([
     type: "registry:example",
     title: "Default",
     description:
-      "Multiple-selection ToggleGroup with bold, italic, and strikethrough icon buttons, the canonical formatting-toolbar shape.",
+      "Multiple-selection ToggleGroup with bold, italic, and strikethrough icon buttons, the canonical formatting-toolbar shape for rich-text editors.",
     slug: "toggle-group",
     variant: "default",
     isDefault: true,
@@ -545,13 +555,16 @@ export const items = defineItems([
       },
     ],
     categories: ["actions"],
+    deviations: [
+      "Used BoldIcon, ItalicIcon, UnderlineIcon (-Icon suffix) instead of Bold, Italic, Underline; both are lucide-react aliases for the same icons.",
+    ],
   },
   {
     name: "toggle-group-outline",
     type: "registry:example",
     title: "Outline",
     description:
-      "Single-selection outline ToggleGroup with All/Missed labels, suited to filter pills above call-log or message lists.",
+      "Single-selection outline ToggleGroup with All/Missed labels, suited to filter pills above call-log or message lists where only one option is active.",
     slug: "toggle-group",
     variant: "outline",
     upstreamUrl: "https://ui.shadcn.com/docs/components/toggle-group",
@@ -587,7 +600,7 @@ export const items = defineItems([
     type: "registry:example",
     title: "Spacing",
     description:
-      "Outline ToggleGroup with spacing={2}, showing how the spacing prop separates items into discrete pills instead of shared-edge segments.",
+      "Outline ToggleGroup with spacing={2}, showing how the spacing prop separates items into discrete pills instead of a shared-edge segment strip.",
     slug: "toggle-group",
     variant: "spacing",
     upstreamUrl: "https://ui.shadcn.com/docs/components/toggle-group",
@@ -605,7 +618,7 @@ export const items = defineItems([
     type: "registry:example",
     title: "Vertical",
     description:
-      "Vertical multi-select ToggleGroup with bold/italic/underline icons preselected, demonstrating the orientation prop with spacing.",
+      "Vertical multi-select ToggleGroup with bold/italic/underline icons preselected, demonstrating the orientation prop combined with spacing for stacked toolbars.",
     slug: "toggle-group",
     variant: "vertical",
     upstreamUrl: "https://ui.shadcn.com/docs/components/toggle-group",
@@ -623,7 +636,7 @@ export const items = defineItems([
     type: "registry:example",
     title: "Disabled",
     description:
-      "Multi-select ToggleGroup rendered with the disabled prop on the group, propagating disabled state to every item.",
+      "Multi-select ToggleGroup rendered with the disabled prop on the group, propagating disabled state to every item simultaneously.",
     slug: "toggle-group",
     variant: "disabled",
     upstreamUrl: "https://ui.shadcn.com/docs/components/toggle-group",
@@ -635,6 +648,9 @@ export const items = defineItems([
       },
     ],
     categories: ["actions"],
+    deviations: [
+      "Used BoldIcon, ItalicIcon, UnderlineIcon (-Icon suffix) instead of Bold, Italic, Underline; both are lucide-react aliases for the same icons.",
+    ],
   },
   {
     name: "toggle-group-custom",

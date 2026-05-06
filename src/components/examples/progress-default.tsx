@@ -1,3 +1,9 @@
+/**
+ * @slug progress
+ * @variant default
+ * @upstream https://ui.shadcn.com/docs/components/progress
+ * @deviations []
+ */
 "use client";
 
 import { useEffect, useState } from "react";

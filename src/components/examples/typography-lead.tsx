@@ -1,3 +1,9 @@
+/**
+ * @slug typography
+ * @variant lead
+ * @upstream https://ui.shadcn.com/docs/components/typography
+ * @deviations []
+ */
 export default function TypographyLead() {
   return (
     <p className="text-xl text-muted-foreground">

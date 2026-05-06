@@ -1,3 +1,9 @@
+/**
+ * @slug checkbox
+ * @variant table
+ * @upstream https://ui.shadcn.com/docs/components/checkbox
+ * @deviations []
+ */
 "use client";
 
 import * as React from "react";

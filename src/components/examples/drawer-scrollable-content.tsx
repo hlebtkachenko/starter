@@ -1,3 +1,9 @@
+/**
+ * @slug drawer
+ * @variant scrollable-content
+ * @upstream https://ui.shadcn.com/docs/components/drawer
+ * @deviations ["Removed upstream style-lyra: utility classes (project-specific theme variant not used here)."]
+ */
 import { Button } from "@/components/ui/button";
 import {
   Drawer,

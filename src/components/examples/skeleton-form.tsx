@@ -1,3 +1,9 @@
+/**
+ * @slug skeleton
+ * @variant form
+ * @upstream https://ui.shadcn.com/docs/components/skeleton
+ * @deviations []
+ */
 import { Skeleton } from "@/components/ui/skeleton";
 
 export default function SkeletonForm() {

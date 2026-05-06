@@ -1,3 +1,9 @@
+/**
+ * @slug dropdown-menu
+ * @variant default
+ * @upstream https://ui.shadcn.com/docs/components/dropdown-menu
+ * @deviations []
+ */
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,

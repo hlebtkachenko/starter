@@ -1,3 +1,9 @@
+/**
+ * @slug alert-dialog
+ * @variant basic
+ * @upstream https://ui.shadcn.com/docs/components/alert-dialog
+ * @deviations []
+ */
 import {
   AlertDialog,
   AlertDialogAction,

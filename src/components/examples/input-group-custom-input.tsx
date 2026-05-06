@@ -1,3 +1,9 @@
+/**
+ * @slug input-group
+ * @variant custom-input
+ * @upstream https://ui.shadcn.com/docs/components/input-group
+ * @deviations ["Uses react-textarea-autosize for auto-resizing textarea as data-slot=input-group-control."]
+ */
 import TextareaAutosize from "react-textarea-autosize";
 
 import { InputGroup, InputGroupAddon, InputGroupButton } from "@/components/ui/input-group";

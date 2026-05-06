@@ -1,3 +1,9 @@
+/**
+ * @slug chart
+ * @variant default
+ * @upstream https://ui.shadcn.com/docs/components/chart
+ * @deviations []
+ */
 "use client";
 
 import * as React from "react";

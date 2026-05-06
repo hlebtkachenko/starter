@@ -1,3 +1,9 @@
+/**
+ * @slug button-group
+ * @variant input
+ * @upstream https://ui.shadcn.com/docs/components/button-group#input
+ * @deviations []
+ */
 import { SearchIcon } from "lucide-react";
 
 import { Button } from "@/components/ui/button";

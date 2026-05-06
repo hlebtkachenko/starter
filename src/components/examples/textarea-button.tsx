@@ -1,3 +1,9 @@
+/**
+ * @slug textarea
+ * @variant button
+ * @upstream https://ui.shadcn.com/docs/components/textarea
+ * @deviations []
+ */
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 

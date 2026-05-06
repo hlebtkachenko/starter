@@ -1,3 +1,9 @@
+/**
+ * @slug breadcrumb
+ * @variant basic
+ * @upstream https://ui.shadcn.com/docs/components/breadcrumb
+ * @deviations []
+ */
 import {
   Breadcrumb,
   BreadcrumbItem,

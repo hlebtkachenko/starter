@@ -1,3 +1,9 @@
+/**
+ * @slug switch
+ * @variant default
+ * @upstream https://ui.shadcn.com/docs/components/switch
+ * @deviations ["isFlagged: not present in upstream Examples block — project-local default demo."]
+ */
 import { Label } from "@/components/ui/label";
 import { Switch } from "@/components/ui/switch";
 

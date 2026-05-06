@@ -1,3 +1,9 @@
+/**
+ * @slug item
+ * @variant link
+ * @upstream https://ui.shadcn.com/docs/components/item
+ * @deviations []
+ */
 import { ChevronRightIcon, ExternalLinkIcon } from "lucide-react";
 
 import { Item, ItemActions, ItemContent, ItemDescription, ItemTitle } from "@/components/ui/item";

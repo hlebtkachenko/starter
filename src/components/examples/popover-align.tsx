@@ -1,3 +1,9 @@
+/**
+ * @slug popover
+ * @variant align
+ * @upstream https://ui.shadcn.com/docs/components/popover
+ * @deviations []
+ */
 import { Button } from "@/components/ui/button";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 

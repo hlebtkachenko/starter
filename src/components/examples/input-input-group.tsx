@@ -1,3 +1,9 @@
+/**
+ * @slug input
+ * @variant input-group
+ * @upstream https://ui.shadcn.com/docs/components/input
+ * @deviations []
+ */
 import { InfoIcon } from "lucide-react";
 
 import { Field, FieldLabel } from "@/components/ui/field";

@@ -1,3 +1,9 @@
+/**
+ * @slug badge
+ * @variant link
+ * @upstream https://ui.shadcn.com/docs/components/badge
+ * @deviations []
+ */
 import { ArrowUpRightIcon } from "lucide-react";
 
 import { Badge } from "@/components/ui/badge";

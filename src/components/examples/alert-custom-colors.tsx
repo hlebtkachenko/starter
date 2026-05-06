@@ -1,3 +1,9 @@
+/**
+ * @slug alert
+ * @variant custom-colors
+ * @upstream https://ui.shadcn.com/docs/components/alert
+ * @deviations ["Uses Tailwind palette classes (bg-amber-50, dark:bg-amber-950) per the shadcn Custom Colors escape hatch — not a violation of the no-inline-hex rule."]
+ */
 import { AlertTriangleIcon } from "lucide-react";
 
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";

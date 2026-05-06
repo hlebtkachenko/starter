@@ -1,4 +1,10 @@
-import { Plus } from "lucide-react";
+/**
+ * @slug item
+ * @variant avatar
+ * @upstream https://ui.shadcn.com/docs/components/item
+ * @deviations ["Replaced upstream Plus icon import with PlusIcon to match lucide-react named export convention."]
+ */
+import { PlusIcon } from "lucide-react";
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
@@ -27,7 +33,7 @@ export default function ItemAvatar() {
         </ItemContent>
         <ItemActions>
           <Button size="icon-sm" variant="outline" className="rounded-full" aria-label="Invite">
-            <Plus />
+            <PlusIcon />
           </Button>
         </ItemActions>
       </Item>

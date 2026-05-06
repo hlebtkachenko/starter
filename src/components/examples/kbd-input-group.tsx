@@ -1,3 +1,9 @@
+/**
+ * @slug kbd
+ * @variant input-group
+ * @upstream https://ui.shadcn.com/docs/components/kbd
+ * @deviations []
+ */
 import { SearchIcon } from "lucide-react";
 
 import { InputGroup, InputGroupAddon, InputGroupInput } from "@/components/ui/input-group";

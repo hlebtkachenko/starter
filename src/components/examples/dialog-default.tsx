@@ -1,3 +1,9 @@
+/**
+ * @slug dialog
+ * @variant default
+ * @upstream https://ui.shadcn.com/docs/components/dialog
+ * @deviations ["Page-hero variant: profile-edit form with Field/FieldGroup/Input/Label inside a <form> wrapper. Not in upstream examples block."]
+ */
 import { Button } from "@/components/ui/button";
 import {
   Dialog,

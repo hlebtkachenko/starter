@@ -1,3 +1,9 @@
+/**
+ * @slug typography
+ * @variant table
+ * @upstream https://ui.shadcn.com/docs/components/typography
+ * @deviations []
+ */
 export default function TypographyTable() {
   return (
     <div className="my-6 w-full overflow-y-auto">

@@ -1,3 +1,9 @@
+/**
+ * @slug empty
+ * @variant avatar
+ * @upstream https://ui.shadcn.com/docs/components/empty
+ * @deviations []
+ */
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import {

@@ -1,3 +1,9 @@
+/**
+ * @slug input-group
+ * @variant text
+ * @upstream https://ui.shadcn.com/docs/components/input-group
+ * @deviations []
+ */
 import {
   InputGroup,
   InputGroupAddon,

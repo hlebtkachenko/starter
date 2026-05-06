@@ -1,3 +1,9 @@
+/**
+ * @slug chart
+ * @variant bar-chart
+ * @upstream https://ui.shadcn.com/docs/components/chart
+ * @deviations ["Bare bar chart without grid or axis; used as a build-up step (isFlagged)."]
+ */
 import { Bar, BarChart } from "recharts";
 
 import { ChartContainer } from "@/components/ui/chart";

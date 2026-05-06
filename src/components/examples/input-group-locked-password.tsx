@@ -1,3 +1,9 @@
+/**
+ * @slug input-group
+ * @variant locked-password
+ * @upstream https://ui.shadcn.com/docs/components/input-group
+ * @deviations []
+ */
 "use client";
 
 import { LockIcon } from "lucide-react";

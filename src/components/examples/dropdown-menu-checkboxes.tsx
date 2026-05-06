@@ -1,3 +1,9 @@
+/**
+ * @slug dropdown-menu
+ * @variant checkboxes
+ * @upstream https://ui.shadcn.com/docs/components/dropdown-menu
+ * @deviations []
+ */
 "use client";
 
 import * as React from "react";

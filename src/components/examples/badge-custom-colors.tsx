@@ -1,3 +1,9 @@
+/**
+ * @slug badge
+ * @variant custom-colors
+ * @upstream https://ui.shadcn.com/docs/components/badge
+ * @deviations []
+ */
 import { Badge } from "@/components/ui/badge";
 
 export default function BadgeCustomColors() {

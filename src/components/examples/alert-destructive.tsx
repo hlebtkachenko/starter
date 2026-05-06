@@ -1,3 +1,9 @@
+/**
+ * @slug alert
+ * @variant destructive
+ * @upstream https://ui.shadcn.com/docs/components/alert
+ * @deviations []
+ */
 import { AlertCircleIcon } from "lucide-react";
 
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";

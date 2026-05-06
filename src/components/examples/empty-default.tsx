@@ -1,3 +1,9 @@
+/**
+ * @slug empty
+ * @variant default
+ * @upstream https://ui.shadcn.com/docs/components/empty
+ * @deviations []
+ */
 import { ArrowUpRightIcon, FolderCodeIcon } from "lucide-react";
 
 import { Button } from "@/components/ui/button";

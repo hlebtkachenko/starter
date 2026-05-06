@@ -1,3 +1,9 @@
+/**
+ * @slug data-table
+ * @variant pagination
+ * @upstream https://ui.shadcn.com/docs/components/data-table
+ * @deviations []
+ */
 "use client";
 
 import {

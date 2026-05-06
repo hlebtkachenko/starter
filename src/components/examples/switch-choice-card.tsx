@@ -1,3 +1,9 @@
+/**
+ * @slug switch
+ * @variant choice-card
+ * @upstream https://ui.shadcn.com/docs/components/switch
+ * @deviations []
+ */
 import {
   Field,
   FieldContent,

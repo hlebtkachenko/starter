@@ -1,3 +1,9 @@
+/**
+ * @slug field
+ * @variant fieldset
+ * @upstream https://ui.shadcn.com/docs/components/field
+ * @deviations []
+ */
 import {
   Field,
   FieldDescription,

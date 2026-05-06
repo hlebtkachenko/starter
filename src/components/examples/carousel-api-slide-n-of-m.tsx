@@ -1,3 +1,9 @@
+/**
+ * @slug carousel
+ * @variant api-slide-n-of-m
+ * @upstream https://ui.shadcn.com/docs/components/carousel
+ * @deviations []
+ */
 "use client";
 
 import { useEffect, useState } from "react";

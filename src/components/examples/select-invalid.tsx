@@ -1,3 +1,9 @@
+/**
+ * @slug select
+ * @variant invalid
+ * @upstream https://ui.shadcn.com/docs/components/select
+ * @deviations []
+ */
 import { Field, FieldError, FieldLabel } from "@/components/ui/field";
 import {
   Select,

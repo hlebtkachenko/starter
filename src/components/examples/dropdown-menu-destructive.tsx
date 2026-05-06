@@ -1,3 +1,9 @@
+/**
+ * @slug dropdown-menu
+ * @variant destructive
+ * @upstream https://ui.shadcn.com/docs/components/dropdown-menu
+ * @deviations []
+ */
 import { PencilIcon, ShareIcon, TrashIcon } from "lucide-react";
 
 import { Button } from "@/components/ui/button";

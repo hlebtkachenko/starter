@@ -1,3 +1,9 @@
+/**
+ * @slug empty
+ * @variant input-group
+ * @upstream https://ui.shadcn.com/docs/components/empty
+ * @deviations []
+ */
 import { SearchIcon } from "lucide-react";
 
 import {

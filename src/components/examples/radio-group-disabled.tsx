@@ -1,3 +1,9 @@
+/**
+ * @slug radio-group
+ * @variant disabled
+ * @upstream https://ui.shadcn.com/docs/components/radio-group
+ * @deviations []
+ */
 import { Field, FieldLabel } from "@/components/ui/field";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 

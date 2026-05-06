@@ -1,3 +1,9 @@
+/**
+ * @slug kbd
+ * @variant group
+ * @upstream https://ui.shadcn.com/docs/components/kbd
+ * @deviations []
+ */
 import { Kbd, KbdGroup } from "@/components/ui/kbd";
 
 export default function KbdGroupDemo() {

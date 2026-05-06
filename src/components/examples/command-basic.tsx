@@ -1,3 +1,9 @@
+/**
+ * @slug command
+ * @variant basic
+ * @upstream https://ui.shadcn.com/docs/components/command
+ * @deviations []
+ */
 "use client";
 
 import * as React from "react";

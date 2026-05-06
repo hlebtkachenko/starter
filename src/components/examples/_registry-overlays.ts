@@ -399,7 +399,7 @@ export const items = defineItems([
     type: "registry:example",
     title: "Default",
     description:
-      "Page-hero Sheet with profile-edit form (Name, Username) and Save/Close footer actions.",
+      "Page-hero Sheet with profile-edit form (Name, Username) and Save/Close footer actions. Use when a task needs a persistent side panel instead of a modal.",
     registryDependencies: ["sheet", "button", "input", "label"],
     files: [
       {
@@ -412,13 +412,15 @@ export const items = defineItems([
     isDefault: true,
     isFlagged: true,
     upstreamUrl: "https://ui.shadcn.com/docs/components/sheet",
+    categories: ["overlay", "navigation"],
+    related: ["dialog-default", "drawer-default"],
   },
   {
     name: "sheet-side",
     type: "registry:example",
     title: "Side",
     description:
-      "Four Sheet triggers, one per `side` (top/right/bottom/left), each containing scrollable content and a submit/cancel footer.",
+      "Four Sheet triggers, one per `side` (top/right/bottom/left), each containing scrollable content and a submit/cancel footer. Use to compare all anchoring options.",
     registryDependencies: ["sheet", "button"],
     files: [
       {
@@ -429,12 +431,18 @@ export const items = defineItems([
     slug: "sheet",
     variant: "side",
     upstreamUrl: "https://ui.shadcn.com/docs/components/sheet",
+    categories: ["overlay", "navigation"],
+    related: ["sheet-default", "drawer-sides"],
+    deviations: [
+      "SHEET_SIDES constant extracted to _fixtures/sheet.ts instead of inlined, to share the type across variants.",
+    ],
   },
   {
     name: "sheet-no-close-button",
     type: "registry:example",
     title: "No Close Button",
-    description: "Sheet with `showCloseButton={false}` to hide the default top-right close icon.",
+    description:
+      "Sheet with `showCloseButton={false}` to hide the default top-right close icon. Use when the dismiss affordance should be explicit (a footer Cancel button only).",
     registryDependencies: ["sheet", "button"],
     files: [
       {
@@ -445,6 +453,8 @@ export const items = defineItems([
     slug: "sheet",
     variant: "no-close-button",
     upstreamUrl: "https://ui.shadcn.com/docs/components/sheet",
+    categories: ["overlay", "navigation"],
+    related: ["sheet-default", "dialog-no-close-button"],
   },
 
   // tooltip
@@ -452,7 +462,8 @@ export const items = defineItems([
     name: "tooltip-default",
     type: "registry:example",
     title: "Default",
-    description: "Page-hero Tooltip with outline trigger and short content text.",
+    description:
+      "Page-hero Tooltip with an outline Button trigger and a short text label. Minimal example for hover-based supplementary information.",
     registryDependencies: ["tooltip", "button"],
     files: [
       {
@@ -465,12 +476,15 @@ export const items = defineItems([
     isDefault: true,
     isFlagged: true,
     upstreamUrl: "https://ui.shadcn.com/docs/components/tooltip",
+    categories: ["overlay", "feedback"],
+    related: ["tooltip-side", "tooltip-with-keyboard-shortcut", "hover-card-default"],
   },
   {
     name: "tooltip-side",
     type: "registry:example",
     title: "Side",
-    description: "Four Tooltip triggers showing the `side` prop on each of left/top/bottom/right.",
+    description:
+      "Four Tooltip triggers showing the `side` prop on each of left/top/bottom/right. Use when picking the best placement for a constrained viewport area.",
     registryDependencies: ["tooltip", "button"],
     files: [
       {
@@ -481,13 +495,15 @@ export const items = defineItems([
     slug: "tooltip",
     variant: "side",
     upstreamUrl: "https://ui.shadcn.com/docs/components/tooltip",
+    categories: ["overlay", "feedback"],
+    related: ["tooltip-default", "popover-align"],
   },
   {
     name: "tooltip-with-keyboard-shortcut",
     type: "registry:example",
     title: "With Keyboard Shortcut",
     description:
-      "Icon-button Tooltip whose content combines a label with a `<Kbd>` shortcut indicator.",
+      "Icon-button Tooltip whose content combines a label with a `<Kbd>` shortcut indicator. Composes Tooltip and Kbd; ideal for toolbar icon buttons.",
     registryDependencies: ["tooltip", "button", "kbd"],
     files: [
       {
@@ -498,13 +514,15 @@ export const items = defineItems([
     slug: "tooltip",
     variant: "with-keyboard-shortcut",
     upstreamUrl: "https://ui.shadcn.com/docs/components/tooltip",
+    categories: ["overlay", "feedback"],
+    related: ["tooltip-default", "tooltip-disabled-button"],
   },
   {
     name: "tooltip-disabled-button",
     type: "registry:example",
     title: "Disabled Button",
     description:
-      "Tooltip on a disabled Button. The button is wrapped in a span so pointer events still reach the trigger.",
+      "Tooltip on a disabled Button. The button is wrapped in a span so pointer events still reach the trigger; use when the action is unavailable but context is needed.",
     registryDependencies: ["tooltip", "button"],
     files: [
       {
@@ -515,5 +533,7 @@ export const items = defineItems([
     slug: "tooltip",
     variant: "disabled-button",
     upstreamUrl: "https://ui.shadcn.com/docs/components/tooltip",
+    categories: ["overlay", "feedback"],
+    related: ["tooltip-default", "tooltip-with-keyboard-shortcut"],
   },
 ]);

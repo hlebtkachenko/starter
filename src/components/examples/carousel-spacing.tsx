@@ -1,3 +1,9 @@
+/**
+ * @slug carousel
+ * @variant spacing
+ * @upstream https://ui.shadcn.com/docs/components/carousel
+ * @deviations []
+ */
 import { Card, CardContent } from "@/components/ui/card";
 import {
   Carousel,

@@ -1,3 +1,9 @@
+/**
+ * @slug spinner
+ * @variant input-group
+ * @upstream https://ui.shadcn.com/docs/components/spinner
+ * @deviations []
+ */
 import { ArrowUpIcon } from "lucide-react";
 
 import {

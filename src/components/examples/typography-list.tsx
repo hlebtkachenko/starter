@@ -1,3 +1,9 @@
+/**
+ * @slug typography
+ * @variant list
+ * @upstream https://ui.shadcn.com/docs/components/typography
+ * @deviations []
+ */
 export default function TypographyList() {
   return (
     <ul className="my-6 ml-6 list-disc [&>li]:mt-2">

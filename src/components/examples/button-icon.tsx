@@ -1,3 +1,9 @@
+/**
+ * @slug button
+ * @variant icon
+ * @upstream https://ui.shadcn.com/docs/components/button#icon
+ * @deviations []
+ */
 import { CircleFadingArrowUpIcon } from "lucide-react";
 
 import { Button } from "@/components/ui/button";

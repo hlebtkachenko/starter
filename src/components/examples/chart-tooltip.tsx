@@ -1,3 +1,9 @@
+/**
+ * @slug chart
+ * @variant tooltip
+ * @upstream https://ui.shadcn.com/docs/components/chart
+ * @deviations []
+ */
 import { Bar, BarChart, CartesianGrid, XAxis } from "recharts";
 
 import { ChartContainer, ChartTooltip, ChartTooltipContent } from "@/components/ui/chart";

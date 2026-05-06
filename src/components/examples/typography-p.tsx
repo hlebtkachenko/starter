@@ -1,3 +1,9 @@
+/**
+ * @slug typography
+ * @variant p
+ * @upstream https://ui.shadcn.com/docs/components/typography
+ * @deviations []
+ */
 export default function TypographyP() {
   return (
     <p className="leading-7 [&:not(:first-child)]:mt-6">

@@ -1,3 +1,9 @@
+/**
+ * @slug avatar
+ * @variant badge-with-icon
+ * @upstream https://ui.shadcn.com/docs/components/avatar
+ * @deviations []
+ */
 import { PlusIcon } from "lucide-react";
 
 import { Avatar, AvatarBadge, AvatarFallback, AvatarImage } from "@/components/ui/avatar";

@@ -1,3 +1,9 @@
+/**
+ * @slug input-group
+ * @variant credit-card
+ * @upstream https://ui.shadcn.com/docs/components/input-group
+ * @deviations []
+ */
 import { CreditCardIcon } from "lucide-react";
 
 import {

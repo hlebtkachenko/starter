@@ -1,3 +1,9 @@
+/**
+ * @slug slider
+ * @variant controlled
+ * @upstream https://ui.shadcn.com/docs/components/slider
+ * @deviations []
+ */
 "use client";
 
 import * as React from "react";

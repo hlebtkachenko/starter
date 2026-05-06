@@ -1,3 +1,9 @@
+/**
+ * @slug toggle
+ * @variant disabled
+ * @upstream https://ui.shadcn.com/docs/components/toggle#disabled
+ * @deviations []
+ */
 import { Toggle } from "@/components/ui/toggle";
 
 export default function ToggleDisabled() {

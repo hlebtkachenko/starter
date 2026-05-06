@@ -1,3 +1,9 @@
+/**
+ * @slug progress
+ * @variant controlled
+ * @upstream https://ui.shadcn.com/docs/components/progress
+ * @deviations []
+ */
 "use client";
 
 import { useState } from "react";

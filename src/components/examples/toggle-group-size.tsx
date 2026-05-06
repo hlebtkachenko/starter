@@ -1,3 +1,9 @@
+/**
+ * @slug toggle-group
+ * @variant size
+ * @upstream https://ui.shadcn.com/docs/components/toggle-group#size
+ * @deviations []
+ */
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 
 export default function ToggleGroupSize() {

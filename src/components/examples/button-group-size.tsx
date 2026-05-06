@@ -1,3 +1,9 @@
+/**
+ * @slug button-group
+ * @variant size
+ * @upstream https://ui.shadcn.com/docs/components/button-group#size
+ * @deviations []
+ */
 import { PlusIcon } from "lucide-react";
 
 import { Button } from "@/components/ui/button";

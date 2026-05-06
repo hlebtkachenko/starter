@@ -1,3 +1,9 @@
+/**
+ * @slug collapsible
+ * @variant settings-panel
+ * @upstream https://ui.shadcn.com/docs/components/collapsible
+ * @deviations []
+ */
 "use client";
 
 import * as React from "react";

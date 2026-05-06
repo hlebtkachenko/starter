@@ -1,3 +1,9 @@
+/**
+ * @slug field
+ * @variant input
+ * @upstream https://ui.shadcn.com/docs/components/field
+ * @deviations []
+ */
 import { Field, FieldDescription, FieldGroup, FieldLabel, FieldSet } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
 

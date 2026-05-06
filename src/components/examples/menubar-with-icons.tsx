@@ -1,3 +1,9 @@
+/**
+ * @slug menubar
+ * @variant with-icons
+ * @upstream https://ui.shadcn.com/docs/components/menubar
+ * @deviations []
+ */
 import {
   FileIcon,
   FolderIcon,

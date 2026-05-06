@@ -1,3 +1,9 @@
+/**
+ * @slug scroll-area
+ * @variant default
+ * @upstream https://ui.shadcn.com/docs/components/scroll-area
+ * @deviations ["Inline tags array moved to _fixtures/scroll-area.ts (SCROLL_AREA_TAGS) to share across variants and keep this file concise."]
+ */
 import * as React from "react";
 
 import { ScrollArea } from "@/components/ui/scroll-area";

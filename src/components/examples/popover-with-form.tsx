@@ -1,3 +1,9 @@
+/**
+ * @slug popover
+ * @variant with-form
+ * @upstream https://ui.shadcn.com/docs/components/popover
+ * @deviations []
+ */
 import { Button } from "@/components/ui/button";
 import { Field, FieldGroup, FieldLabel } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";

@@ -1,3 +1,9 @@
+/**
+ * @slug context-menu
+ * @variant icons
+ * @upstream https://ui.shadcn.com/docs/components/context-menu
+ * @deviations []
+ */
 import { ClipboardPasteIcon, CopyIcon, ScissorsIcon, TrashIcon } from "lucide-react";
 
 import {

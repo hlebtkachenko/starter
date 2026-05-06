@@ -1,3 +1,9 @@
+/**
+ * @slug navigation-menu
+ * @variant link-component
+ * @upstream https://ui.shadcn.com/docs/components/navigation-menu
+ * @deviations []
+ */
 import Link from "next/link";
 
 import {

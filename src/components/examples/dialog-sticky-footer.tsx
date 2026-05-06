@@ -1,3 +1,9 @@
+/**
+ * @slug dialog
+ * @variant sticky-footer
+ * @upstream https://ui.shadcn.com/docs/components/dialog
+ * @deviations []
+ */
 import { Button } from "@/components/ui/button";
 import {
   Dialog,

@@ -1,3 +1,9 @@
+/**
+ * @slug toggle-group
+ * @variant vertical
+ * @upstream https://ui.shadcn.com/docs/components/toggle-group#vertical
+ * @deviations []
+ */
 import { BoldIcon, ItalicIcon, UnderlineIcon } from "lucide-react";
 
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";

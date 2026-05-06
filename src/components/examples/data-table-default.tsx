@@ -1,3 +1,9 @@
+/**
+ * @slug data-table
+ * @variant default
+ * @upstream https://ui.shadcn.com/docs/components/data-table
+ * @deviations ["Full hero table combining all features in one view rather than per-step variants (isFlagged). useReactTable emits react-hooks/incompatible-library warnings — documented baseline, not fixed."]
+ */
 "use client";
 
 import {

@@ -1,3 +1,9 @@
+/**
+ * @slug breadcrumb
+ * @variant dropdown
+ * @upstream https://ui.shadcn.com/docs/components/breadcrumb
+ * @deviations []
+ */
 import { ChevronDownIcon, DotIcon } from "lucide-react";
 import Link from "next/link";
 

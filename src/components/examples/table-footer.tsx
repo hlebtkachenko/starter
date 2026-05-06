@@ -1,3 +1,9 @@
+/**
+ * @slug table
+ * @variant footer
+ * @upstream https://ui.shadcn.com/docs/components/table
+ * @deviations ["Inline invoice data extracted to _fixtures/table.ts; only the first 3 items are sliced."]
+ */
 import {
   Table,
   TableBody,

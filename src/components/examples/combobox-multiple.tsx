@@ -1,3 +1,9 @@
+/**
+ * @slug combobox
+ * @variant multiple
+ * @upstream https://ui.shadcn.com/docs/components/combobox
+ * @deviations []
+ */
 "use client";
 
 import * as React from "react";

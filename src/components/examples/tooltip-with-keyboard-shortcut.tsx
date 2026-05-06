@@ -1,3 +1,9 @@
+/**
+ * @slug tooltip
+ * @variant with-keyboard-shortcut
+ * @upstream https://ui.shadcn.com/docs/components/tooltip
+ * @deviations []
+ */
 import { SaveIcon } from "lucide-react";
 
 import { Button } from "@/components/ui/button";

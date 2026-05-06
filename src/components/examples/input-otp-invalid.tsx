@@ -1,3 +1,9 @@
+/**
+ * @slug input-otp
+ * @variant invalid
+ * @upstream https://ui.shadcn.com/docs/components/input-otp
+ * @deviations []
+ */
 "use client";
 
 import * as React from "react";

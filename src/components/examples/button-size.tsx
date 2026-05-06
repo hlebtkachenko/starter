@@ -1,3 +1,9 @@
+/**
+ * @slug button
+ * @variant size
+ * @upstream https://ui.shadcn.com/docs/components/button#size
+ * @deviations []
+ */
 import { ArrowUpRightIcon } from "lucide-react";
 
 import { Button } from "@/components/ui/button";

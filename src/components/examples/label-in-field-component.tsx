@@ -1,3 +1,9 @@
+/**
+ * @slug label
+ * @variant in-field-component
+ * @upstream https://ui.shadcn.com/docs/components/label
+ * @deviations ["Not present in upstream examples block; local showcase-only demo showing bare Label+Input pairing without the Field wrapper."]
+ */
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 

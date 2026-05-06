@@ -1,3 +1,9 @@
+/**
+ * @slug toggle-group
+ * @variant custom
+ * @upstream https://ui.shadcn.com/docs/components/toggle-group#custom
+ * @deviations []
+ */
 "use client";
 
 import * as React from "react";

@@ -1,3 +1,9 @@
+/**
+ * @slug input-group
+ * @variant default
+ * @upstream https://ui.shadcn.com/docs/components/input-group
+ * @deviations []
+ */
 import { SearchIcon } from "lucide-react";
 
 import { InputGroup, InputGroupAddon, InputGroupInput } from "@/components/ui/input-group";

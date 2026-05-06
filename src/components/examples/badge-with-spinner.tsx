@@ -1,3 +1,9 @@
+/**
+ * @slug badge
+ * @variant with-spinner
+ * @upstream https://ui.shadcn.com/docs/components/badge
+ * @deviations []
+ */
 import { Badge } from "@/components/ui/badge";
 import { Spinner } from "@/components/ui/spinner";
 

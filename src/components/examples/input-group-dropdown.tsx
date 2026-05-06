@@ -1,3 +1,9 @@
+/**
+ * @slug input-group
+ * @variant dropdown
+ * @upstream https://ui.shadcn.com/docs/components/input-group
+ * @deviations []
+ */
 import { ChevronDownIcon, MoreHorizontalIcon } from "lucide-react";
 
 import {

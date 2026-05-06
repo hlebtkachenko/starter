@@ -1,3 +1,9 @@
+/**
+ * @slug select
+ * @variant default
+ * @upstream https://ui.shadcn.com/docs/components/select
+ * @deviations ["isFlagged: not present in upstream Examples block — project-local default demo."]
+ */
 import {
   Select,
   SelectContent,

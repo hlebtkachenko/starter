@@ -1,3 +1,9 @@
+/**
+ * @slug progress
+ * @variant label
+ * @upstream https://ui.shadcn.com/docs/components/progress
+ * @deviations []
+ */
 import { Field, FieldLabel } from "@/components/ui/field";
 import { Progress } from "@/components/ui/progress";
 

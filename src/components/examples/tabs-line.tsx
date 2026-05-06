@@ -1,3 +1,9 @@
+/**
+ * @slug tabs
+ * @variant line
+ * @upstream https://ui.shadcn.com/docs/components/tabs
+ * @deviations []
+ */
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 export default function TabsLine() {

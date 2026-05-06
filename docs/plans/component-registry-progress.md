@@ -23,14 +23,25 @@
 
 ## Phase 3b — Apply template to examples (363 files)
 
-Auto-generated from `src/components/examples/_registry.ts`. Phase 3a populates this section with one row per example file. Each row tracks `template applied`, `description audited`, `dependencies validated`.
+One row per agent (slug-prefix scope). Each agent toggles its own row.
+Wave-4 ship audit fails if any row is not DONE.
+
+| Agent | Slug scope | Files | Fragment | Status |
+|---|---|---|---|---|
+| A | button*, toggle* | 36 | `_registry-buttons.ts` | DONE |
+| B | avatar, badge, calendar, chart, data-table, skeleton, table, typography | 69 | `_registry-display.ts` | DONE |
+| C | alert, progress, sonner, spinner | 18 | `_registry-feedback.ts` | DONE |
+| D | checkbox, combobox, date-picker, field, input*, label, native-select, radio-group, select, slider, switch, textarea | 105 | `_registry-forms.ts` | DONE |
+| E | aspect-ratio, card, collapsible, resizable, scroll-area, separator, sidebar | 26 | `_registry-layout.ts` | DONE |
+| F | command, context-menu, dropdown-menu | 26 | `_registry-menus.ts` | DONE |
+| G | breadcrumb, menubar, navigation-menu, pagination, tabs | 21 | `_registry-navigation.ts` | DONE |
+| H | alert-dialog, dialog, drawer, hover-card, popover, sheet, tooltip | 29 | `_registry-overlays.ts` | DONE |
+| I | accordion, carousel, empty, item, kbd | 33 | `_registry-utility.ts` | DONE |
 
 ```bash
-# Regenerate this section after Phase 3a:
+# Optional per-file rows (autogen):
 pnpm tsx scripts/generate-progress-rows.ts >> docs/plans/component-registry-progress.md
 ```
-
-(Generator script written in Phase 3a alongside templates.)
 
 ## Phase 3c — Showcase rewrite + group-file deletion
 

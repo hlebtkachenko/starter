@@ -1,3 +1,9 @@
+/**
+ * @slug combobox
+ * @variant groups
+ * @upstream https://ui.shadcn.com/docs/components/combobox
+ * @deviations []
+ */
 import { COMBOBOX_TIMEZONES } from "@/components/examples/_fixtures/combobox";
 import {
   Combobox,

@@ -1,3 +1,9 @@
+/**
+ * @slug checkbox
+ * @variant default
+ * @upstream https://ui.shadcn.com/docs/components/checkbox
+ * @deviations []
+ */
 import { Checkbox } from "@/components/ui/checkbox";
 import {
   Field,

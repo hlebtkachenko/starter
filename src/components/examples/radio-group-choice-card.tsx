@@ -1,3 +1,9 @@
+/**
+ * @slug radio-group
+ * @variant choice-card
+ * @upstream https://ui.shadcn.com/docs/components/radio-group
+ * @deviations []
+ */
 import {
   Field,
   FieldContent,

@@ -1,3 +1,9 @@
+/**
+ * @slug spinner
+ * @variant size
+ * @upstream https://ui.shadcn.com/docs/components/spinner
+ * @deviations []
+ */
 import { Spinner } from "@/components/ui/spinner";
 
 export default function SpinnerSize() {

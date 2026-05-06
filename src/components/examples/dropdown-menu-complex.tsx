@@ -1,4 +1,12 @@
+/**
+ * @slug dropdown-menu
+ * @variant complex
+ * @upstream https://ui.shadcn.com/docs/components/dropdown-menu
+ * @deviations ["Import order corrected: react before lucide-react."]
+ */
 "use client";
+
+import * as React from "react";
 
 import {
   BellIcon,
@@ -27,7 +35,6 @@ import {
   SunIcon,
   UserIcon,
 } from "lucide-react";
-import * as React from "react";
 
 import { Button } from "@/components/ui/button";
 import {

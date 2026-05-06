@@ -1,3 +1,9 @@
+/**
+ * @slug hover-card
+ * @variant basic
+ * @upstream https://ui.shadcn.com/docs/components/hover-card
+ * @deviations ["isFlagged: not present in upstream examples block; project-specific basic variant."]
+ */
 import { Button } from "@/components/ui/button";
 import { HoverCard, HoverCardContent, HoverCardTrigger } from "@/components/ui/hover-card";
 

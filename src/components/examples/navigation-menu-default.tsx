@@ -1,5 +1,11 @@
+/**
+ * @slug navigation-menu
+ * @variant default
+ * @upstream https://ui.shadcn.com/docs/components/navigation-menu
+ * @deviations ["Replaced `import * as React from 'react'` namespace with named ComponentPropsWithoutRef import to avoid unnecessary namespace bundle."]
+ */
+import { type ComponentPropsWithoutRef } from "react";
 import Link from "next/link";
-import * as React from "react";
 
 import {
   NavigationMenu,
@@ -57,7 +63,7 @@ function NavigationMenuListItem({
   children,
   href,
   ...props
-}: React.ComponentPropsWithoutRef<"li"> & { href: string }) {
+}: ComponentPropsWithoutRef<"li"> & { href: string }) {
   return (
     <li {...props}>
       <NavigationMenuLink asChild>

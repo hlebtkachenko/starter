@@ -1,3 +1,9 @@
+/**
+ * @slug tooltip
+ * @variant default
+ * @upstream https://ui.shadcn.com/docs/components/tooltip
+ * @deviations ["isFlagged: page-hero variant matches upstream TooltipDemo exactly."]
+ */
 import { Button } from "@/components/ui/button";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 

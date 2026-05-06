@@ -1,3 +1,9 @@
+/**
+ * @slug sheet
+ * @variant side
+ * @upstream https://ui.shadcn.com/docs/components/sheet
+ * @deviations ["SHEET_SIDES constant extracted to _fixtures/sheet.ts instead of inlined, to share the type across variants."]
+ */
 import { Button } from "@/components/ui/button";
 import {
   Sheet,

@@ -1,3 +1,9 @@
+/**
+ * @slug avatar
+ * @variant badge
+ * @upstream https://ui.shadcn.com/docs/components/avatar
+ * @deviations []
+ */
 import { Avatar, AvatarBadge, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 export default function AvatarBadgeExample() {

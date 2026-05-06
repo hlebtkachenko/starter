@@ -1,3 +1,9 @@
+/**
+ * @slug data-table
+ * @variant row-actions
+ * @upstream https://ui.shadcn.com/docs/components/data-table
+ * @deviations []
+ */
 "use client";
 
 import { type ColumnDef, flexRender, getCoreRowModel, useReactTable } from "@tanstack/react-table";

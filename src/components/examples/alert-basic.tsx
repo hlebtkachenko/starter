@@ -1,3 +1,9 @@
+/**
+ * @slug alert
+ * @variant basic
+ * @upstream https://ui.shadcn.com/docs/components/alert
+ * @deviations []
+ */
 import { CheckCircle2Icon } from "lucide-react";
 
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";

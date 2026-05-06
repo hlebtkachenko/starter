@@ -1,3 +1,9 @@
+/**
+ * @slug drawer
+ * @variant sides
+ * @upstream https://ui.shadcn.com/docs/components/drawer
+ * @deviations ["Passes direction={side} directly (all four sides typed in DRAWER_SIDES tuple) instead of upstream conditional that excluded 'bottom'; exactOptionalPropertyTypes makes the conditional unnecessary. Removed upstream style-lyra: utility classes."]
+ */
 import { Button } from "@/components/ui/button";
 import {
   Drawer,

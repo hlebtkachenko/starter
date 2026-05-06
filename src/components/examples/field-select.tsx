@@ -1,3 +1,9 @@
+/**
+ * @slug field
+ * @variant select
+ * @upstream https://ui.shadcn.com/docs/components/field
+ * @deviations []
+ */
 import { Field, FieldDescription, FieldLabel } from "@/components/ui/field";
 import {
   Select,

@@ -1,3 +1,9 @@
+/**
+ * @slug pagination
+ * @variant simple
+ * @upstream https://ui.shadcn.com/docs/components/pagination
+ * @deviations []
+ */
 import {
   Pagination,
   PaginationContent,

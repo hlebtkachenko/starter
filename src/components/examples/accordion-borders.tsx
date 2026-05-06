@@ -1,3 +1,9 @@
+/**
+ * @slug accordion
+ * @variant borders
+ * @upstream https://ui.shadcn.com/docs/components/accordion
+ * @deviations []
+ */
 import {
   Accordion,
   AccordionContent,

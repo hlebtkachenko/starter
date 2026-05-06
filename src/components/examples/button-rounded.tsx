@@ -1,11 +1,19 @@
+/**
+ * @slug button
+ * @variant rounded
+ * @upstream https://ui.shadcn.com/docs/components/button#rounded
+ * @deviations []
+ */
 import { ArrowUpIcon } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 
 export default function ButtonRounded() {
   return (
-    <Button variant="outline" size="icon" className="rounded-full">
-      <ArrowUpIcon />
-    </Button>
+    <div className="flex flex-col gap-8">
+      <Button variant="outline" size="icon" className="rounded-full">
+        <ArrowUpIcon />
+      </Button>
+    </div>
   );
 }

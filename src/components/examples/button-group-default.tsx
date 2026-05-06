@@ -1,5 +1,12 @@
+/**
+ * @slug button-group
+ * @variant default
+ * @upstream https://ui.shadcn.com/docs/components/button-group
+ * @deviations []
+ */
 "use client";
 
+import * as React from "react";
 import {
   ArchiveIcon,
   ArrowLeftIcon,
@@ -11,7 +18,6 @@ import {
   TagIcon,
   Trash2Icon,
 } from "lucide-react";
-import * as React from "react";
 
 import { Button } from "@/components/ui/button";
 import { ButtonGroup } from "@/components/ui/button-group";

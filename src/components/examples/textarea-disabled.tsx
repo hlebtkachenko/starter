@@ -1,3 +1,9 @@
+/**
+ * @slug textarea
+ * @variant disabled
+ * @upstream https://ui.shadcn.com/docs/components/textarea
+ * @deviations []
+ */
 import { Field, FieldLabel } from "@/components/ui/field";
 import { Textarea } from "@/components/ui/textarea";
 

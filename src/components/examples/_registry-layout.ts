@@ -319,7 +319,7 @@ export const items = defineItems([
     type: "registry:example",
     title: "Default",
     description:
-      "Horizontal Separator dividing a heading block from a description paragraph, the most common rule-line layout.",
+      "Horizontal Separator between a heading block and a description paragraph, the page-hero pattern and most common rule-line layout in content sections.",
     slug: "separator",
     variant: "default",
     isDefault: true,
@@ -331,14 +331,15 @@ export const items = defineItems([
         type: "registry:example",
       },
     ],
-    categories: ["layout"],
+    categories: ["layout", "surface"],
+    related: ["separator-vertical", "separator-list", "separator-menu"],
   },
   {
     name: "separator-vertical",
     type: "registry:example",
     title: "Vertical",
     description:
-      "Inline vertical Separators between Blog/Docs/Source labels, the breadcrumb-style horizontal-row divider.",
+      "Inline vertical Separators with orientation=vertical between Blog/Docs/Source labels, the breadcrumb-style horizontal-row divider for nav bars and toolbars.",
     slug: "separator",
     variant: "vertical",
     upstreamUrl: "https://ui.shadcn.com/docs/components/separator",
@@ -349,14 +350,15 @@ export const items = defineItems([
         type: "registry:example",
       },
     ],
-    categories: ["layout"],
+    categories: ["layout", "surface"],
+    related: ["separator-default", "separator-menu"],
   },
   {
     name: "separator-menu",
     type: "registry:example",
     title: "Menu",
     description:
-      "Three-column menu row split by vertical Separators with responsive visibility on the third column.",
+      "Three-column settings/account/help row split by vertical Separators with responsive md: visibility on the third column; shows real-world nav bar application.",
     slug: "separator",
     variant: "menu",
     upstreamUrl: "https://ui.shadcn.com/docs/components/separator",
@@ -367,14 +369,15 @@ export const items = defineItems([
         type: "registry:example",
       },
     ],
-    categories: ["layout"],
+    categories: ["layout", "surface"],
+    related: ["separator-vertical", "separator-default"],
   },
   {
     name: "separator-list",
     type: "registry:example",
     title: "List",
     description:
-      "Description-list rows separated by horizontal Separators between dt/dd pairs, a clean alternative to a bordered table.",
+      "Description-list rows (dt/dd pairs) divided by horizontal Separators, a clean key-value display alternative to a bordered table or striped rows.",
     slug: "separator",
     variant: "list",
     upstreamUrl: "https://ui.shadcn.com/docs/components/separator",
@@ -385,7 +388,8 @@ export const items = defineItems([
         type: "registry:example",
       },
     ],
-    categories: ["layout"],
+    categories: ["layout", "surface"],
+    related: ["separator-default"],
   },
 
   // sidebar
@@ -394,12 +398,16 @@ export const items = defineItems([
     type: "registry:example",
     title: "Default",
     description:
-      'SidebarShowcase with variant="sidebar", side="left", collapsible="icon", the canonical icon-collapse left rail.',
+      "SidebarShowcase fixture with variant=sidebar, side=left, collapsible=icon — the canonical icon-collapse left rail used as the page-hero demo for this primitive.",
     slug: "sidebar",
     variant: "default",
     isDefault: true,
+    isFlagged: true,
     upstreamUrl: "https://ui.shadcn.com/docs/components/sidebar",
     registryDependencies: ["sidebar"],
+    deviations: [
+      "Sidebar has no upstream ## Examples block; all variants are project-authored SidebarShowcase fixtures.",
+    ],
     files: [
       {
         path: "components/examples/sidebar-default.tsx",
@@ -407,6 +415,13 @@ export const items = defineItems([
       },
     ],
     categories: ["layout", "navigation"],
+    related: [
+      "sidebar-offcanvas",
+      "sidebar-none",
+      "sidebar-floating",
+      "sidebar-inset",
+      "sidebar-right",
+    ],
     span: 3,
     height: "tall",
   },
@@ -415,11 +430,15 @@ export const items = defineItems([
     type: "registry:example",
     title: "Offcanvas",
     description:
-      'Sidebar with collapsible="offcanvas" so the trigger slides the rail entirely off screen instead of collapsing to icons.',
+      "Sidebar with collapsible=offcanvas; the trigger slides the entire rail off screen instead of collapsing to icon width. Use when vertical space is scarce on mobile.",
     slug: "sidebar",
     variant: "offcanvas",
+    isFlagged: true,
     upstreamUrl: "https://ui.shadcn.com/docs/components/sidebar",
     registryDependencies: ["sidebar"],
+    deviations: [
+      "Sidebar has no upstream ## Examples block; all variants are project-authored SidebarShowcase fixtures.",
+    ],
     files: [
       {
         path: "components/examples/sidebar-offcanvas.tsx",
@@ -427,6 +446,7 @@ export const items = defineItems([
       },
     ],
     categories: ["layout", "navigation"],
+    related: ["sidebar-default", "sidebar-none"],
     span: 3,
     height: "tall",
   },
@@ -435,11 +455,15 @@ export const items = defineItems([
     type: "registry:example",
     title: "None",
     description:
-      'Sidebar with collapsible="none", a permanent fixed rail; the trigger is rendered for layout parity but has no effect.',
+      "Sidebar with collapsible=none rendering a permanent fixed rail; the SidebarTrigger is present for layout parity but has no collapse effect at runtime.",
     slug: "sidebar",
     variant: "none",
+    isFlagged: true,
     upstreamUrl: "https://ui.shadcn.com/docs/components/sidebar",
     registryDependencies: ["sidebar"],
+    deviations: [
+      "Sidebar has no upstream ## Examples block; all variants are project-authored SidebarShowcase fixtures.",
+    ],
     files: [
       {
         path: "components/examples/sidebar-none.tsx",
@@ -447,6 +471,7 @@ export const items = defineItems([
       },
     ],
     categories: ["layout", "navigation"],
+    related: ["sidebar-default", "sidebar-offcanvas"],
     span: 3,
     height: "tall",
   },
@@ -455,11 +480,15 @@ export const items = defineItems([
     type: "registry:example",
     title: "Floating",
     description:
-      'Sidebar with variant="floating", separating the rail from the page edge with rounded chrome.',
+      "Sidebar with variant=floating, detaching the rail from the page edge with rounded chrome and a visible gap; use when the layout calls for a card-elevation feel.",
     slug: "sidebar",
     variant: "floating",
+    isFlagged: true,
     upstreamUrl: "https://ui.shadcn.com/docs/components/sidebar",
     registryDependencies: ["sidebar"],
+    deviations: [
+      "Sidebar has no upstream ## Examples block; all variants are project-authored SidebarShowcase fixtures.",
+    ],
     files: [
       {
         path: "components/examples/sidebar-floating.tsx",
@@ -467,6 +496,7 @@ export const items = defineItems([
       },
     ],
     categories: ["layout", "navigation"],
+    related: ["sidebar-default", "sidebar-inset"],
     span: 3,
     height: "tall",
   },
@@ -475,11 +505,15 @@ export const items = defineItems([
     type: "registry:example",
     title: "Inset",
     description:
-      'Sidebar with variant="inset", embedding the SidebarInset surface inside a card-like container with elevated chrome.',
+      "Sidebar with variant=inset, embedding the SidebarInset content surface inside a card-like container with elevated chrome and a visible inner border.",
     slug: "sidebar",
     variant: "inset",
+    isFlagged: true,
     upstreamUrl: "https://ui.shadcn.com/docs/components/sidebar",
     registryDependencies: ["sidebar"],
+    deviations: [
+      "Sidebar has no upstream ## Examples block; all variants are project-authored SidebarShowcase fixtures.",
+    ],
     files: [
       {
         path: "components/examples/sidebar-inset.tsx",
@@ -487,6 +521,7 @@ export const items = defineItems([
       },
     ],
     categories: ["layout", "navigation"],
+    related: ["sidebar-default", "sidebar-floating"],
     span: 3,
     height: "tall",
   },
@@ -495,11 +530,15 @@ export const items = defineItems([
     type: "registry:example",
     title: "Right",
     description:
-      'Sidebar mirrored to side="right", showing the same icon-collapse rail anchored to the trailing edge.',
+      "Sidebar with side=right, mirroring the icon-collapse rail to the trailing edge of the viewport; suited to inspector panels and secondary tool rails.",
     slug: "sidebar",
     variant: "right",
+    isFlagged: true,
     upstreamUrl: "https://ui.shadcn.com/docs/components/sidebar",
     registryDependencies: ["sidebar"],
+    deviations: [
+      "Sidebar has no upstream ## Examples block; all variants are project-authored SidebarShowcase fixtures.",
+    ],
     files: [
       {
         path: "components/examples/sidebar-right.tsx",
@@ -507,6 +546,7 @@ export const items = defineItems([
       },
     ],
     categories: ["layout", "navigation"],
+    related: ["sidebar-default"],
     span: 3,
     height: "tall",
   },

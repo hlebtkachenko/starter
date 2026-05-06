@@ -1,3 +1,9 @@
+/**
+ * @slug chart
+ * @variant legend
+ * @upstream https://ui.shadcn.com/docs/components/chart
+ * @deviations []
+ */
 import { Bar, BarChart, CartesianGrid, XAxis } from "recharts";
 
 import {

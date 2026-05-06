@@ -1,3 +1,9 @@
+/**
+ * @slug button-group
+ * @variant popover
+ * @upstream https://ui.shadcn.com/docs/components/button-group#popover
+ * @deviations ["Used id='bg-task' instead of 'task' for DOM uniqueness in the showcase context."]
+ */
 import { BotIcon, ChevronDownIcon } from "lucide-react";
 
 import { Button } from "@/components/ui/button";

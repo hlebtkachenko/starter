@@ -1,3 +1,9 @@
+/**
+ * @slug context-menu
+ * @variant shortcuts
+ * @upstream https://ui.shadcn.com/docs/components/context-menu
+ * @deviations []
+ */
 import {
   ContextMenu,
   ContextMenuContent,

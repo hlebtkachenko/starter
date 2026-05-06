@@ -1,3 +1,9 @@
+/**
+ * @slug popover
+ * @variant default
+ * @upstream https://ui.shadcn.com/docs/components/popover
+ * @deviations ["Input ids namespaced with 'popover-default-' prefix to avoid collisions when multiple examples render on the same page."]
+ */
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";

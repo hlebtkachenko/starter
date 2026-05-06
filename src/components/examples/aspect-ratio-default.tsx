@@ -1,3 +1,9 @@
+/**
+ * @slug aspect-ratio
+ * @variant default
+ * @upstream https://ui.shadcn.com/docs/components/aspect-ratio
+ * @deviations ["next/image replaced with <img> + eslint-disable per project rule (no remote patterns in next.config.ts)."]
+ */
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 
 export default function AspectRatioDefault() {
@@ -8,7 +14,7 @@ export default function AspectRatioDefault() {
         <img
           src="https://avatar.vercel.sh/shadcn1"
           alt="Photo"
-          className="h-full w-full rounded-lg object-cover grayscale dark:brightness-20"
+          className="w-full rounded-lg object-cover grayscale dark:brightness-20"
         />
       </AspectRatio>
     </div>

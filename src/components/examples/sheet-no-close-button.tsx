@@ -1,3 +1,9 @@
+/**
+ * @slug sheet
+ * @variant no-close-button
+ * @upstream https://ui.shadcn.com/docs/components/sheet
+ * @deviations []
+ */
 import { Button } from "@/components/ui/button";
 import {
   Sheet,

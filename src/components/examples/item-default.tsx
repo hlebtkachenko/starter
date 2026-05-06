@@ -1,3 +1,9 @@
+/**
+ * @slug item
+ * @variant default
+ * @upstream https://ui.shadcn.com/docs/components/item
+ * @deviations []
+ */
 import { BadgeCheckIcon, ChevronRightIcon } from "lucide-react";
 
 import { Button } from "@/components/ui/button";

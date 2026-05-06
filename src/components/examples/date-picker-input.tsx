@@ -1,3 +1,9 @@
+/**
+ * @slug date-picker
+ * @variant input
+ * @upstream https://ui.shadcn.com/docs/components/date-picker
+ * @deviations []
+ */
 "use client";
 
 import { CalendarIcon } from "lucide-react";

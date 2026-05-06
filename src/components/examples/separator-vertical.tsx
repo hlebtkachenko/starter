@@ -1,3 +1,9 @@
+/**
+ * @slug separator
+ * @variant vertical
+ * @upstream https://ui.shadcn.com/docs/components/separator
+ * @deviations []
+ */
 import { Separator } from "@/components/ui/separator";
 
 export default function SeparatorVertical() {

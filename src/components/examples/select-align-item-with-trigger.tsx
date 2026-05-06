@@ -1,3 +1,9 @@
+/**
+ * @slug select
+ * @variant align-item-with-trigger
+ * @upstream https://ui.shadcn.com/docs/components/select
+ * @deviations []
+ */
 "use client";
 
 import * as React from "react";

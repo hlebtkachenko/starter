@@ -1,6 +1,12 @@
+/**
+ * @slug menubar
+ * @variant radio
+ * @upstream https://ui.shadcn.com/docs/components/menubar
+ * @deviations []
+ */
 "use client";
 
-import * as React from "react";
+import { useState } from "react";
 
 import {
   Menubar,
@@ -14,8 +20,8 @@ import {
 } from "@/components/ui/menubar";
 
 export default function MenubarRadio() {
-  const [user, setUser] = React.useState("benoit");
-  const [theme, setTheme] = React.useState("system");
+  const [user, setUser] = useState("benoit");
+  const [theme, setTheme] = useState("system");
 
   return (
     <Menubar className="w-72">

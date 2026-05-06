@@ -1,3 +1,9 @@
+/**
+ * @slug breadcrumb
+ * @variant link-component
+ * @upstream https://ui.shadcn.com/docs/components/breadcrumb
+ * @deviations []
+ */
 import Link from "next/link";
 
 import {

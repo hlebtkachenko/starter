@@ -1,3 +1,9 @@
+/**
+ * @slug input-group
+ * @variant spinner
+ * @upstream https://ui.shadcn.com/docs/components/input-group
+ * @deviations []
+ */
 import { LoaderIcon } from "lucide-react";
 
 import {

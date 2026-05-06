@@ -1,3 +1,9 @@
+/**
+ * @slug resizable
+ * @variant handle
+ * @upstream https://ui.shadcn.com/docs/components/resizable
+ * @deviations []
+ */
 import { ResizableHandle, ResizablePanel, ResizablePanelGroup } from "@/components/ui/resizable";
 
 export default function ResizableHandleExample() {

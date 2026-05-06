@@ -1,3 +1,9 @@
+/**
+ * @slug calendar
+ * @variant date-and-time-picker
+ * @upstream https://ui.shadcn.com/docs/components/calendar
+ * @deviations []
+ */
 "use client";
 
 import { Clock2Icon } from "lucide-react";

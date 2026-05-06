@@ -1,3 +1,9 @@
+/**
+ * @slug input
+ * @variant inline
+ * @upstream https://ui.shadcn.com/docs/components/input
+ * @deviations []
+ */
 import { Button } from "@/components/ui/button";
 import { Field } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";

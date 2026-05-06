@@ -1,3 +1,9 @@
+/**
+ * @slug button-group
+ * @variant orientation
+ * @upstream https://ui.shadcn.com/docs/components/button-group#orientation
+ * @deviations []
+ */
 import { MinusIcon, PlusIcon } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
