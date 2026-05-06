@@ -42,6 +42,8 @@ function validate(items: RegistryItem[]): void {
   const allNames = new Set<string>(items.map((i) => i.name));
   const errors: string[] = [];
 
+  const depGraph: Record<string, string[]> = {};
+
   for (const item of items) {
     if (seen.has(item.name)) errors.push(`Duplicate name: ${item.name}`);
     seen.add(item.name);
@@ -49,6 +51,8 @@ function validate(items: RegistryItem[]): void {
     if (!/^[a-z0-9-]+$/.test(item.name)) {
       errors.push(`Invalid name (kebab-case only): ${item.name}`);
     }
+
+    depGraph[item.name] = [...(item.registryDependencies ?? [])];
 
     for (const dep of item.registryDependencies ?? []) {
       if (!allNames.has(dep)) {
@@ -67,6 +71,34 @@ function validate(items: RegistryItem[]): void {
         errors.push(`${item.name}: file ${f.path} not under ${expectedDir}`);
       }
     }
+  }
+
+  // Cycle detection on registryDependencies (DFS with three-color marking).
+  const WHITE = 0,
+    GRAY = 1,
+    BLACK = 2;
+  const color: Record<string, number> = {};
+  for (const name of Object.keys(depGraph)) color[name] = WHITE;
+
+  function dfs(node: string, stack: string[]): void {
+    color[node] = GRAY;
+    stack.push(node);
+    for (const next of depGraph[node] ?? []) {
+      if (color[next] === GRAY) {
+        const cycleStart = stack.indexOf(next);
+        const cycle = [...stack.slice(cycleStart), next].join(" -> ");
+        errors.push(`Cycle in registryDependencies: ${cycle}`);
+        continue;
+      }
+      if (color[next] === WHITE && depGraph[next] !== undefined) {
+        dfs(next, stack);
+      }
+    }
+    stack.pop();
+    color[node] = BLACK;
+  }
+  for (const name of Object.keys(depGraph)) {
+    if (color[name] === WHITE) dfs(name, []);
   }
 
   if (errors.length) {

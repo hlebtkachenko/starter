@@ -16,7 +16,8 @@
       "!**/coverage",
       "!**/db/migrations/meta",
       "!**/next-env.d.ts",
-      "!**/globals.css"
+      "!**/globals.css",
+      "!src/components/__index__.tsx"
     ]
   },
   "formatter": {

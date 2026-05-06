@@ -51,6 +51,11 @@ export type RegistryItem = {
   categories?: string[];
   /** Cross-references to related items the AI might want next to this one. */
   related?: string[];
+  /**
+   * Project release the item first shipped in (e.g. "v1.01.000"). Optional.
+   * Useful for changelog generation and "what's new" surfaces.
+   */
+  since?: string;
 
   // Project-local extensions (ignored by the shadcn CLI):
 
