@@ -21,6 +21,12 @@ concurrency:
   group: ci-${{ github.ref }}
   cancel-in-progress: true
 
+env:
+  # Self-hosted Verdaccio npm proxy on the runner host (loopback). Caches
+  # npmjs tarballs to D: drive. Local dev untouched (no repo .npmrc change).
+  # Ops + redeploy: ~/.claude/skills/setup-verdaccio/.
+  NPM_CONFIG_REGISTRY: http://127.0.0.1:4873/
+
 jobs:
   ci:
     runs-on: [self-hosted, linux, ovh, starter]
