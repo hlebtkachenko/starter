@@ -7,130 +7,130 @@
   25:9  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
 
 /Users/hleb/Desktop/workspace/conductor/workspaces/starter/gwangju/src/components/examples/data-table-basic-table.tsx
-  28:17  warning  Compilation Skipped: Use of incompatible library
+  29:17  warning  Compilation Skipped: Use of incompatible library
 
 This API returns functions which cannot be memoized without leading to stale UI. To prevent this, by default React Compiler will skip memoizing this component/hook. However, you may see issues if values from this API are passed to other components/hooks that are memoized.
 
-/Users/hleb/Desktop/workspace/conductor/workspaces/starter/gwangju/src/components/examples/data-table-basic-table.tsx:28:17
-  26 |
-  27 | export default function DataTableBasicTable() {
-> 28 |   const table = useReactTable({
+/Users/hleb/Desktop/workspace/conductor/workspaces/starter/gwangju/src/components/examples/data-table-basic-table.tsx:29:17
+  27 |
+  28 | export default function DataTableBasicTable() {
+> 29 |   const table = useReactTable({
      |                 ^^^^^^^^^^^^^ TanStack Table's `useReactTable()` API returns functions that cannot be memoized safely
-  29 |     data: PAYMENTS,
-  30 |     columns: DATA_TABLE_BASIC_COLUMNS,
-  31 |     getCoreRowModel: getCoreRowModel(),  react-hooks/incompatible-library
+  30 |     data: PAYMENTS,
+  31 |     columns: DATA_TABLE_BASIC_COLUMNS,
+  32 |     getCoreRowModel: getCoreRowModel(),  react-hooks/incompatible-library
 
 /Users/hleb/Desktop/workspace/conductor/workspaces/starter/gwangju/src/components/examples/data-table-cell-formatting.tsx
-  40:17  warning  Compilation Skipped: Use of incompatible library
+  41:17  warning  Compilation Skipped: Use of incompatible library
 
 This API returns functions which cannot be memoized without leading to stale UI. To prevent this, by default React Compiler will skip memoizing this component/hook. However, you may see issues if values from this API are passed to other components/hooks that are memoized.
 
-/Users/hleb/Desktop/workspace/conductor/workspaces/starter/gwangju/src/components/examples/data-table-cell-formatting.tsx:40:17
-  38 |
-  39 | export default function DataTableCellFormatting() {
-> 40 |   const table = useReactTable({
+/Users/hleb/Desktop/workspace/conductor/workspaces/starter/gwangju/src/components/examples/data-table-cell-formatting.tsx:41:17
+  39 |
+  40 | export default function DataTableCellFormatting() {
+> 41 |   const table = useReactTable({
      |                 ^^^^^^^^^^^^^ TanStack Table's `useReactTable()` API returns functions that cannot be memoized safely
-  41 |     data: PAYMENTS,
-  42 |     columns: DATA_TABLE_FORMATTING_COLUMNS,
-  43 |     getCoreRowModel: getCoreRowModel(),  react-hooks/incompatible-library
+  42 |     data: PAYMENTS,
+  43 |     columns: DATA_TABLE_FORMATTING_COLUMNS,
+  44 |     getCoreRowModel: getCoreRowModel(),  react-hooks/incompatible-library
 
 /Users/hleb/Desktop/workspace/conductor/workspaces/starter/gwangju/src/components/examples/data-table-default.tsx
-  142:17  warning  Compilation Skipped: Use of incompatible library
+  140:17  warning  Compilation Skipped: Use of incompatible library
 
 This API returns functions which cannot be memoized without leading to stale UI. To prevent this, by default React Compiler will skip memoizing this component/hook. However, you may see issues if values from this API are passed to other components/hooks that are memoized.
 
-/Users/hleb/Desktop/workspace/conductor/workspaces/starter/gwangju/src/components/examples/data-table-default.tsx:142:17
-  140 |   const [rowSelection, setRowSelection] = React.useState({});
-  141 |
-> 142 |   const table = useReactTable({
+/Users/hleb/Desktop/workspace/conductor/workspaces/starter/gwangju/src/components/examples/data-table-default.tsx:140:17
+  138 |   const [rowSelection, setRowSelection] = React.useState({});
+  139 |
+> 140 |   const table = useReactTable({
       |                 ^^^^^^^^^^^^^ TanStack Table's `useReactTable()` API returns functions that cannot be memoized safely
-  143 |     data: DATA_TABLE_HERO_PAYMENTS,
-  144 |     columns: DATA_TABLE_HERO_COLUMNS,
-  145 |     onSortingChange: setSorting,  react-hooks/incompatible-library
+  141 |     data: DATA_TABLE_HERO_PAYMENTS,
+  142 |     columns: DATA_TABLE_HERO_COLUMNS,
+  143 |     onSortingChange: setSorting,  react-hooks/incompatible-library
 
 /Users/hleb/Desktop/workspace/conductor/workspaces/starter/gwangju/src/components/examples/data-table-filtering.tsx
-  36:17  warning  Compilation Skipped: Use of incompatible library
-
-This API returns functions which cannot be memoized without leading to stale UI. To prevent this, by default React Compiler will skip memoizing this component/hook. However, you may see issues if values from this API are passed to other components/hooks that are memoized.
-
-/Users/hleb/Desktop/workspace/conductor/workspaces/starter/gwangju/src/components/examples/data-table-filtering.tsx:36:17
-  34 |   );
-  35 |
-> 36 |   const table = useReactTable({
-     |                 ^^^^^^^^^^^^^ TanStack Table's `useReactTable()` API returns functions that cannot be memoized safely
-  37 |     data: PAYMENTS,
-  38 |     columns: DATA_TABLE_BASIC_COLUMNS,
-  39 |     getCoreRowModel: getCoreRowModel(),  react-hooks/incompatible-library
-
-/Users/hleb/Desktop/workspace/conductor/workspaces/starter/gwangju/src/components/examples/data-table-pagination.tsx
-  30:17  warning  Compilation Skipped: Use of incompatible library
-
-This API returns functions which cannot be memoized without leading to stale UI. To prevent this, by default React Compiler will skip memoizing this component/hook. However, you may see issues if values from this API are passed to other components/hooks that are memoized.
-
-/Users/hleb/Desktop/workspace/conductor/workspaces/starter/gwangju/src/components/examples/data-table-pagination.tsx:30:17
-  28 |
-  29 | export default function DataTablePagination() {
-> 30 |   const table = useReactTable({
-     |                 ^^^^^^^^^^^^^ TanStack Table's `useReactTable()` API returns functions that cannot be memoized safely
-  31 |     data: PAYMENTS,
-  32 |     columns: DATA_TABLE_BASIC_COLUMNS,
-  33 |     getCoreRowModel: getCoreRowModel(),  react-hooks/incompatible-library
-
-/Users/hleb/Desktop/workspace/conductor/workspaces/starter/gwangju/src/components/examples/data-table-row-actions.tsx
-  66:17  warning  Compilation Skipped: Use of incompatible library
-
-This API returns functions which cannot be memoized without leading to stale UI. To prevent this, by default React Compiler will skip memoizing this component/hook. However, you may see issues if values from this API are passed to other components/hooks that are memoized.
-
-/Users/hleb/Desktop/workspace/conductor/workspaces/starter/gwangju/src/components/examples/data-table-row-actions.tsx:66:17
-  64 |
-  65 | export default function DataTableRowActions() {
-> 66 |   const table = useReactTable({
-     |                 ^^^^^^^^^^^^^ TanStack Table's `useReactTable()` API returns functions that cannot be memoized safely
-  67 |     data: PAYMENTS,
-  68 |     columns: DATA_TABLE_ACTIONS_COLUMNS,
-  69 |     getCoreRowModel: getCoreRowModel(),  react-hooks/incompatible-library
-
-/Users/hleb/Desktop/workspace/conductor/workspaces/starter/gwangju/src/components/examples/data-table-row-selection.tsx
-  55:17  warning  Compilation Skipped: Use of incompatible library
-
-This API returns functions which cannot be memoized without leading to stale UI. To prevent this, by default React Compiler will skip memoizing this component/hook. However, you may see issues if values from this API are passed to other components/hooks that are memoized.
-
-/Users/hleb/Desktop/workspace/conductor/workspaces/starter/gwangju/src/components/examples/data-table-row-selection.tsx:55:17
-  53 |   const [rowSelection, setRowSelection] = React.useState({});
-  54 |
-> 55 |   const table = useReactTable({
-     |                 ^^^^^^^^^^^^^ TanStack Table's `useReactTable()` API returns functions that cannot be memoized safely
-  56 |     data: PAYMENTS,
-  57 |     columns: DATA_TABLE_SELECTION_COLUMNS,
-  58 |     getCoreRowModel: getCoreRowModel(),  react-hooks/incompatible-library
-
-/Users/hleb/Desktop/workspace/conductor/workspaces/starter/gwangju/src/components/examples/data-table-sorting.tsx
-  48:17  warning  Compilation Skipped: Use of incompatible library
-
-This API returns functions which cannot be memoized without leading to stale UI. To prevent this, by default React Compiler will skip memoizing this component/hook. However, you may see issues if values from this API are passed to other components/hooks that are memoized.
-
-/Users/hleb/Desktop/workspace/conductor/workspaces/starter/gwangju/src/components/examples/data-table-sorting.tsx:48:17
-  46 |   const [sorting, setSorting] = React.useState<SortingState>([]);
-  47 |
-> 48 |   const table = useReactTable({
-     |                 ^^^^^^^^^^^^^ TanStack Table's `useReactTable()` API returns functions that cannot be memoized safely
-  49 |     data: PAYMENTS,
-  50 |     columns: DATA_TABLE_SORTING_COLUMNS,
-  51 |     getCoreRowModel: getCoreRowModel(),  react-hooks/incompatible-library
-
-/Users/hleb/Desktop/workspace/conductor/workspaces/starter/gwangju/src/components/examples/data-table-visibility.tsx
   40:17  warning  Compilation Skipped: Use of incompatible library
 
 This API returns functions which cannot be memoized without leading to stale UI. To prevent this, by default React Compiler will skip memoizing this component/hook. However, you may see issues if values from this API are passed to other components/hooks that are memoized.
 
-/Users/hleb/Desktop/workspace/conductor/workspaces/starter/gwangju/src/components/examples/data-table-visibility.tsx:40:17
-  38 |     React.useState<VisibilityState>({});
+/Users/hleb/Desktop/workspace/conductor/workspaces/starter/gwangju/src/components/examples/data-table-filtering.tsx:40:17
+  38 |   const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>([]);
   39 |
 > 40 |   const table = useReactTable({
      |                 ^^^^^^^^^^^^^ TanStack Table's `useReactTable()` API returns functions that cannot be memoized safely
   41 |     data: PAYMENTS,
   42 |     columns: DATA_TABLE_BASIC_COLUMNS,
   43 |     getCoreRowModel: getCoreRowModel(),  react-hooks/incompatible-library
+
+/Users/hleb/Desktop/workspace/conductor/workspaces/starter/gwangju/src/components/examples/data-table-pagination.tsx
+  36:17  warning  Compilation Skipped: Use of incompatible library
+
+This API returns functions which cannot be memoized without leading to stale UI. To prevent this, by default React Compiler will skip memoizing this component/hook. However, you may see issues if values from this API are passed to other components/hooks that are memoized.
+
+/Users/hleb/Desktop/workspace/conductor/workspaces/starter/gwangju/src/components/examples/data-table-pagination.tsx:36:17
+  34 |
+  35 | export default function DataTablePagination() {
+> 36 |   const table = useReactTable({
+     |                 ^^^^^^^^^^^^^ TanStack Table's `useReactTable()` API returns functions that cannot be memoized safely
+  37 |     data: PAYMENTS,
+  38 |     columns: DATA_TABLE_BASIC_COLUMNS,
+  39 |     getCoreRowModel: getCoreRowModel(),  react-hooks/incompatible-library
+
+/Users/hleb/Desktop/workspace/conductor/workspaces/starter/gwangju/src/components/examples/data-table-row-actions.tsx
+  65:17  warning  Compilation Skipped: Use of incompatible library
+
+This API returns functions which cannot be memoized without leading to stale UI. To prevent this, by default React Compiler will skip memoizing this component/hook. However, you may see issues if values from this API are passed to other components/hooks that are memoized.
+
+/Users/hleb/Desktop/workspace/conductor/workspaces/starter/gwangju/src/components/examples/data-table-row-actions.tsx:65:17
+  63 |
+  64 | export default function DataTableRowActions() {
+> 65 |   const table = useReactTable({
+     |                 ^^^^^^^^^^^^^ TanStack Table's `useReactTable()` API returns functions that cannot be memoized safely
+  66 |     data: PAYMENTS,
+  67 |     columns: DATA_TABLE_ACTIONS_COLUMNS,
+  68 |     getCoreRowModel: getCoreRowModel(),  react-hooks/incompatible-library
+
+/Users/hleb/Desktop/workspace/conductor/workspaces/starter/gwangju/src/components/examples/data-table-row-selection.tsx
+  60:17  warning  Compilation Skipped: Use of incompatible library
+
+This API returns functions which cannot be memoized without leading to stale UI. To prevent this, by default React Compiler will skip memoizing this component/hook. However, you may see issues if values from this API are passed to other components/hooks that are memoized.
+
+/Users/hleb/Desktop/workspace/conductor/workspaces/starter/gwangju/src/components/examples/data-table-row-selection.tsx:60:17
+  58 |   const [rowSelection, setRowSelection] = React.useState({});
+  59 |
+> 60 |   const table = useReactTable({
+     |                 ^^^^^^^^^^^^^ TanStack Table's `useReactTable()` API returns functions that cannot be memoized safely
+  61 |     data: PAYMENTS,
+  62 |     columns: DATA_TABLE_SELECTION_COLUMNS,
+  63 |     getCoreRowModel: getCoreRowModel(),  react-hooks/incompatible-library
+
+/Users/hleb/Desktop/workspace/conductor/workspaces/starter/gwangju/src/components/examples/data-table-sorting.tsx
+  54:17  warning  Compilation Skipped: Use of incompatible library
+
+This API returns functions which cannot be memoized without leading to stale UI. To prevent this, by default React Compiler will skip memoizing this component/hook. However, you may see issues if values from this API are passed to other components/hooks that are memoized.
+
+/Users/hleb/Desktop/workspace/conductor/workspaces/starter/gwangju/src/components/examples/data-table-sorting.tsx:54:17
+  52 |   const [sorting, setSorting] = React.useState<SortingState>([]);
+  53 |
+> 54 |   const table = useReactTable({
+     |                 ^^^^^^^^^^^^^ TanStack Table's `useReactTable()` API returns functions that cannot be memoized safely
+  55 |     data: PAYMENTS,
+  56 |     columns: DATA_TABLE_SORTING_COLUMNS,
+  57 |     getCoreRowModel: getCoreRowModel(),  react-hooks/incompatible-library
+
+/Users/hleb/Desktop/workspace/conductor/workspaces/starter/gwangju/src/components/examples/data-table-visibility.tsx
+  45:17  warning  Compilation Skipped: Use of incompatible library
+
+This API returns functions which cannot be memoized without leading to stale UI. To prevent this, by default React Compiler will skip memoizing this component/hook. However, you may see issues if values from this API are passed to other components/hooks that are memoized.
+
+/Users/hleb/Desktop/workspace/conductor/workspaces/starter/gwangju/src/components/examples/data-table-visibility.tsx:45:17
+  43 |   const [columnVisibility, setColumnVisibility] = React.useState<VisibilityState>({});
+  44 |
+> 45 |   const table = useReactTable({
+     |                 ^^^^^^^^^^^^^ TanStack Table's `useReactTable()` API returns functions that cannot be memoized safely
+  46 |     data: PAYMENTS,
+  47 |     columns: DATA_TABLE_BASIC_COLUMNS,
+  48 |     getCoreRowModel: getCoreRowModel(),  react-hooks/incompatible-library
 
 /Users/hleb/Desktop/workspace/conductor/workspaces/starter/gwangju/src/components/showcase/display-group.tsx
   1569:17  warning  Compilation Skipped: Use of incompatible library
@@ -218,5 +218,15 @@ This API returns functions which cannot be memoized without leading to stale UI.
   2171 |     columns: DATA_TABLE_HERO_COLUMNS,
   2172 |     onSortingChange: setSorting,  react-hooks/incompatible-library
 
-✖ 17 problems (0 errors, 17 warnings)
+/Users/hleb/Desktop/workspace/conductor/workspaces/starter/gwangju/src/components/ui/chart.tsx
+  202:29  warning  Arbitrary radius "rounded-[2px]" detected. Use rounded-[var(--radius)] or a Tailwind radius scale class  local-rules/no-arbitrary-radius
+  293:29  warning  Arbitrary radius "rounded-[2px]" detected. Use rounded-[var(--radius)] or a Tailwind radius scale class  local-rules/no-arbitrary-radius
+
+/Users/hleb/Desktop/workspace/conductor/workspaces/starter/gwangju/src/components/ui/checkbox.tsx
+  14:9  warning  Arbitrary radius "rounded-[4px]" detected. Use rounded-[var(--radius)] or a Tailwind radius scale class  local-rules/no-arbitrary-radius
+
+/Users/hleb/Desktop/workspace/conductor/workspaces/starter/gwangju/src/components/ui/tooltip.tsx
+  47:43  warning  Arbitrary radius "rounded-[2px]" detected. Use rounded-[var(--radius)] or a Tailwind radius scale class  local-rules/no-arbitrary-radius
+
+✖ 21 problems (0 errors, 21 warnings)
 

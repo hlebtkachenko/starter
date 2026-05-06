@@ -47,9 +47,9 @@ pnpm tsx scripts/generate-progress-rows.ts >> docs/plans/component-registry-prog
 
 | File | Status |
 |---|---|
-| `src/app/showcase/page.tsx` rewrite | PENDING |
-| `src/app/showcase/_components/component-preview.tsx` | PENDING |
-| `src/components/showcase/section.tsx` updated wrapper | PENDING |
+| `src/app/showcase/page.tsx` rewrite | DONE |
+| `src/app/showcase/_components/component-preview.tsx` | DONE |
+| `src/components/showcase/section.tsx` updated wrapper | DONE |
 | Delete `buttons-group.tsx` | PENDING |
 | Delete `display-group.tsx` | PENDING |
 | Delete `feedback-group.tsx` | PENDING |
@@ -64,10 +64,10 @@ pnpm tsx scripts/generate-progress-rows.ts >> docs/plans/component-registry-prog
 
 | Rule | Status |
 |---|---|
-| `no-input-otp-default-value` | PENDING |
-| `no-inline-hex` | PENDING |
-| `no-arbitrary-radius` | PENDING |
-| `no-oklch` | PENDING |
+| `no-input-otp-default-value` | DONE |
+| `no-inline-hex` | DONE |
+| `no-arbitrary-radius` | IN_PROGRESS |
+| `no-oklch` | DONE |
 
 ## Phase 3e — Generated artifacts
 
