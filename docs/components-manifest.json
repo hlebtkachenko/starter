@@ -2322,6 +2322,9 @@
       "data-viz"
     ],
     "description": "Demonstrates a ChartConfig entry with an icon and per-theme color (light/dark hex tokens).",
+    "deviations": [
+      "Upstream MD has no ## Examples block; this variant comes from an H2 section under the slug's docs page."
+    ],
     "files": [
       {
         "path": "components/examples/chart-chart-config.tsx",
@@ -2330,7 +2333,7 @@
     ],
     "height": "tall",
     "isDefault": false,
-    "isFlagged": false,
+    "isFlagged": true,
     "name": "chart-chart-config",
     "registryDependencies": [
       "chart"
@@ -2347,6 +2350,9 @@
       "data-viz"
     ],
     "description": "Hero interactive bar chart card with toggle between desktop and mobile totals over 30 days.",
+    "deviations": [
+      "Upstream MD has no ## Examples block; this variant comes from an H2 section under the slug's docs page."
+    ],
     "files": [
       {
         "path": "components/examples/chart-default.tsx",
@@ -2355,7 +2361,7 @@
     ],
     "height": "tall",
     "isDefault": true,
-    "isFlagged": false,
+    "isFlagged": true,
     "name": "chart-default",
     "registryDependencies": [
       "chart",
@@ -2374,6 +2380,9 @@
       "data-viz"
     ],
     "description": "Bar chart with the shared chart legend below the plot.",
+    "deviations": [
+      "Upstream MD has no ## Examples block; this variant comes from an H2 section under the slug's docs page."
+    ],
     "files": [
       {
         "path": "components/examples/chart-legend.tsx",
@@ -2382,7 +2391,7 @@
     ],
     "height": "tall",
     "isDefault": false,
-    "isFlagged": false,
+    "isFlagged": true,
     "name": "chart-legend",
     "registryDependencies": [
       "chart"
@@ -2399,6 +2408,9 @@
       "data-viz"
     ],
     "description": "Bar chart with the dot-indicator variant of the shared chart tooltip.",
+    "deviations": [
+      "Upstream MD has no ## Examples block; this variant comes from an H2 section under the slug's docs page."
+    ],
     "files": [
       {
         "path": "components/examples/chart-tooltip.tsx",
@@ -2407,7 +2419,7 @@
     ],
     "height": "tall",
     "isDefault": false,
-    "isFlagged": false,
+    "isFlagged": true,
     "name": "chart-tooltip",
     "registryDependencies": [
       "chart"
@@ -2546,6 +2558,9 @@
       "data-viz"
     ],
     "description": "Minimal bar chart with grid, axis, tooltip, legend wired to the shared chart config.",
+    "deviations": [
+      "Upstream MD has no ## Examples block; this variant comes from an H2 section under the slug's docs page."
+    ],
     "files": [
       {
         "path": "components/examples/chart-your-first-chart.tsx",
@@ -2554,7 +2569,7 @@
     ],
     "height": "tall",
     "isDefault": false,
-    "isFlagged": false,
+    "isFlagged": true,
     "name": "chart-your-first-chart",
     "registryDependencies": [
       "chart"
@@ -3326,6 +3341,9 @@
       "data"
     ],
     "description": "Minimal TanStack table over the Payments fixture.",
+    "deviations": [
+      "Upstream MD has no ## Examples block; this variant comes from an H2 section under the slug's docs page."
+    ],
     "files": [
       {
         "path": "components/examples/data-table-basic-table.tsx",
@@ -3334,7 +3352,7 @@
     ],
     "height": "tall",
     "isDefault": false,
-    "isFlagged": false,
+    "isFlagged": true,
     "name": "data-table-basic-table",
     "registryDependencies": [
       "table"
@@ -3352,6 +3370,9 @@
       "data"
     ],
     "description": "TanStack table with a right-aligned currency-formatted Amount cell.",
+    "deviations": [
+      "Upstream MD has no ## Examples block; this variant comes from an H2 section under the slug's docs page."
+    ],
     "files": [
       {
         "path": "components/examples/data-table-cell-formatting.tsx",
@@ -3360,7 +3381,7 @@
     ],
     "height": "tall",
     "isDefault": false,
-    "isFlagged": false,
+    "isFlagged": true,
     "name": "data-table-cell-formatting",
     "registryDependencies": [
       "table"
@@ -3408,6 +3429,9 @@
       "data"
     ],
     "description": "TanStack table with a text input filtering the email column.",
+    "deviations": [
+      "Upstream MD has no ## Examples block; this variant comes from an H2 section under the slug's docs page."
+    ],
     "files": [
       {
         "path": "components/examples/data-table-filtering.tsx",
@@ -3416,7 +3440,7 @@
     ],
     "height": "tall",
     "isDefault": false,
-    "isFlagged": false,
+    "isFlagged": true,
     "name": "data-table-filtering",
     "registryDependencies": [
       "table",
@@ -3435,6 +3459,9 @@
       "data"
     ],
     "description": "TanStack table with Previous/Next pagination controls and a fixed page size of 3.",
+    "deviations": [
+      "Upstream MD has no ## Examples block; this variant comes from an H2 section under the slug's docs page."
+    ],
     "files": [
       {
         "path": "components/examples/data-table-pagination.tsx",
@@ -3443,7 +3470,7 @@
     ],
     "height": "tall",
     "isDefault": false,
-    "isFlagged": false,
+    "isFlagged": true,
     "name": "data-table-pagination",
     "registryDependencies": [
       "table",
@@ -3462,6 +3489,9 @@
       "data"
     ],
     "description": "TanStack table with a per-row dropdown menu for copy/view actions.",
+    "deviations": [
+      "Upstream MD has no ## Examples block; this variant comes from an H2 section under the slug's docs page."
+    ],
     "files": [
       {
         "path": "components/examples/data-table-row-actions.tsx",
@@ -3470,7 +3500,7 @@
     ],
     "height": "tall",
     "isDefault": false,
-    "isFlagged": false,
+    "isFlagged": true,
     "name": "data-table-row-actions",
     "registryDependencies": [
       "table",
@@ -3490,6 +3520,9 @@
       "data"
     ],
     "description": "TanStack table with a select-all header checkbox, per-row checkboxes, and a selected-row count footer.",
+    "deviations": [
+      "Upstream MD has no ## Examples block; this variant comes from an H2 section under the slug's docs page."
+    ],
     "files": [
       {
         "path": "components/examples/data-table-row-selection.tsx",
@@ -3498,7 +3531,7 @@
     ],
     "height": "tall",
     "isDefault": false,
-    "isFlagged": false,
+    "isFlagged": true,
     "name": "data-table-row-selection",
     "registryDependencies": [
       "table",
@@ -3517,6 +3550,9 @@
       "data"
     ],
     "description": "TanStack table with a click-to-sort Email column header using ArrowUpDown indicator.",
+    "deviations": [
+      "Upstream MD has no ## Examples block; this variant comes from an H2 section under the slug's docs page."
+    ],
     "files": [
       {
         "path": "components/examples/data-table-sorting.tsx",
@@ -3525,7 +3561,7 @@
     ],
     "height": "tall",
     "isDefault": false,
-    "isFlagged": false,
+    "isFlagged": true,
     "name": "data-table-sorting",
     "registryDependencies": [
       "table",
@@ -3544,6 +3580,9 @@
       "data"
     ],
     "description": "TanStack table with a Columns dropdown menu for toggling column visibility.",
+    "deviations": [
+      "Upstream MD has no ## Examples block; this variant comes from an H2 section under the slug's docs page."
+    ],
     "files": [
       {
         "path": "components/examples/data-table-visibility.tsx",
@@ -3552,7 +3591,7 @@
     ],
     "height": "tall",
     "isDefault": false,
-    "isFlagged": false,
+    "isFlagged": true,
     "name": "data-table-visibility",
     "registryDependencies": [
       "table",
@@ -5921,12 +5960,16 @@
     "variant": "in-field-component"
   },
   {
+    "deviations": [
+      "Upstream MD has no ## Examples block; this variant comes from an H2 section under the slug's docs page."
+    ],
     "files": [
       {
         "path": "components/examples/label-label-in-field.tsx",
         "type": "registry:example"
       }
     ],
+    "isFlagged": true,
     "name": "label-label-in-field",
     "registryDependencies": [
       "label",
@@ -6312,12 +6355,16 @@
       "navigation"
     ],
     "description": "Single navigation menu link composed with next/link via NavigationMenuLink asChild and navigationMenuTriggerStyle — the minimal pattern for router-aware nav items.",
+    "deviations": [
+      "Upstream MD has no ## Examples block; this variant comes from an H2 section under the slug's docs page."
+    ],
     "files": [
       {
         "path": "components/examples/navigation-menu-link-component.tsx",
         "type": "registry:example"
       }
     ],
+    "isFlagged": true,
     "name": "navigation-menu-link-component",
     "registryDependencies": [
       "navigation-menu"
@@ -9169,6 +9216,9 @@
       "display"
     ],
     "description": "Italic blockquote with a left accent border.",
+    "deviations": [
+      "Upstream MD has no ## Examples block; this variant comes from an H2 section under the slug's docs page."
+    ],
     "files": [
       {
         "path": "components/examples/typography-blockquote.tsx",
@@ -9176,7 +9226,7 @@
       }
     ],
     "isDefault": false,
-    "isFlagged": false,
+    "isFlagged": true,
     "name": "typography-blockquote",
     "registryDependencies": [],
     "slug": "typography",
@@ -9212,6 +9262,9 @@
       "display"
     ],
     "description": "Page heading: extrabold, 4xl, tight tracking, balanced wrap.",
+    "deviations": [
+      "Upstream MD has no ## Examples block; this variant comes from an H2 section under the slug's docs page."
+    ],
     "files": [
       {
         "path": "components/examples/typography-h1.tsx",
@@ -9219,7 +9272,7 @@
       }
     ],
     "isDefault": false,
-    "isFlagged": false,
+    "isFlagged": true,
     "name": "typography-h1",
     "registryDependencies": [],
     "slug": "typography",
@@ -9233,6 +9286,9 @@
       "display"
     ],
     "description": "Section heading: 3xl, semibold, with a bottom border.",
+    "deviations": [
+      "Upstream MD has no ## Examples block; this variant comes from an H2 section under the slug's docs page."
+    ],
     "files": [
       {
         "path": "components/examples/typography-h2.tsx",
@@ -9240,7 +9296,7 @@
       }
     ],
     "isDefault": false,
-    "isFlagged": false,
+    "isFlagged": true,
     "name": "typography-h2",
     "registryDependencies": [],
     "slug": "typography",
@@ -9254,6 +9310,9 @@
       "display"
     ],
     "description": "Subsection heading: 2xl, semibold.",
+    "deviations": [
+      "Upstream MD has no ## Examples block; this variant comes from an H2 section under the slug's docs page."
+    ],
     "files": [
       {
         "path": "components/examples/typography-h3.tsx",
@@ -9261,7 +9320,7 @@
       }
     ],
     "isDefault": false,
-    "isFlagged": false,
+    "isFlagged": true,
     "name": "typography-h3",
     "registryDependencies": [],
     "slug": "typography",
@@ -9275,6 +9334,9 @@
       "display"
     ],
     "description": "Block heading: xl, semibold.",
+    "deviations": [
+      "Upstream MD has no ## Examples block; this variant comes from an H2 section under the slug's docs page."
+    ],
     "files": [
       {
         "path": "components/examples/typography-h4.tsx",
@@ -9282,7 +9344,7 @@
       }
     ],
     "isDefault": false,
-    "isFlagged": false,
+    "isFlagged": true,
     "name": "typography-h4",
     "registryDependencies": [],
     "slug": "typography",
@@ -9296,6 +9358,9 @@
       "display"
     ],
     "description": "Inline `<code>` styled with a muted background and mono font.",
+    "deviations": [
+      "Upstream MD has no ## Examples block; this variant comes from an H2 section under the slug's docs page."
+    ],
     "files": [
       {
         "path": "components/examples/typography-inline-code.tsx",
@@ -9303,7 +9368,7 @@
       }
     ],
     "isDefault": false,
-    "isFlagged": false,
+    "isFlagged": true,
     "name": "typography-inline-code",
     "registryDependencies": [],
     "slug": "typography",
@@ -9317,6 +9382,9 @@
       "display"
     ],
     "description": "Large prompt: lg text, semibold, used in dialog questions.",
+    "deviations": [
+      "Upstream MD has no ## Examples block; this variant comes from an H2 section under the slug's docs page."
+    ],
     "files": [
       {
         "path": "components/examples/typography-large.tsx",
@@ -9324,7 +9392,7 @@
       }
     ],
     "isDefault": false,
-    "isFlagged": false,
+    "isFlagged": true,
     "name": "typography-large",
     "registryDependencies": [],
     "slug": "typography",
@@ -9338,6 +9406,9 @@
       "display"
     ],
     "description": "Lead paragraph: xl text in muted-foreground color for intros.",
+    "deviations": [
+      "Upstream MD has no ## Examples block; this variant comes from an H2 section under the slug's docs page."
+    ],
     "files": [
       {
         "path": "components/examples/typography-lead.tsx",
@@ -9345,7 +9416,7 @@
       }
     ],
     "isDefault": false,
-    "isFlagged": false,
+    "isFlagged": true,
     "name": "typography-lead",
     "registryDependencies": [],
     "slug": "typography",
@@ -9359,6 +9430,9 @@
       "display"
     ],
     "description": "Disc-bulleted unordered list with margin-top between items.",
+    "deviations": [
+      "Upstream MD has no ## Examples block; this variant comes from an H2 section under the slug's docs page."
+    ],
     "files": [
       {
         "path": "components/examples/typography-list.tsx",
@@ -9366,7 +9440,7 @@
       }
     ],
     "isDefault": false,
-    "isFlagged": false,
+    "isFlagged": true,
     "name": "typography-list",
     "registryDependencies": [],
     "slug": "typography",
@@ -9380,6 +9454,9 @@
       "display"
     ],
     "description": "Muted helper line: sm text in muted-foreground color.",
+    "deviations": [
+      "Upstream MD has no ## Examples block; this variant comes from an H2 section under the slug's docs page."
+    ],
     "files": [
       {
         "path": "components/examples/typography-muted.tsx",
@@ -9387,7 +9464,7 @@
       }
     ],
     "isDefault": false,
-    "isFlagged": false,
+    "isFlagged": true,
     "name": "typography-muted",
     "registryDependencies": [],
     "slug": "typography",
@@ -9401,6 +9478,9 @@
       "display"
     ],
     "description": "Body paragraph with leading-7 and a top margin when not first.",
+    "deviations": [
+      "Upstream MD has no ## Examples block; this variant comes from an H2 section under the slug's docs page."
+    ],
     "files": [
       {
         "path": "components/examples/typography-p.tsx",
@@ -9408,7 +9488,7 @@
       }
     ],
     "isDefault": false,
-    "isFlagged": false,
+    "isFlagged": true,
     "name": "typography-p",
     "registryDependencies": [],
     "slug": "typography",
@@ -9422,6 +9502,9 @@
       "display"
     ],
     "description": "Small label: sm text, leading-none, medium weight.",
+    "deviations": [
+      "Upstream MD has no ## Examples block; this variant comes from an H2 section under the slug's docs page."
+    ],
     "files": [
       {
         "path": "components/examples/typography-small.tsx",
@@ -9429,7 +9512,7 @@
       }
     ],
     "isDefault": false,
-    "isFlagged": false,
+    "isFlagged": true,
     "name": "typography-small",
     "registryDependencies": [],
     "slug": "typography",
@@ -9443,6 +9526,9 @@
       "display"
     ],
     "description": "Native HTML table styled per the typography scale: bordered cells, zebra rows.",
+    "deviations": [
+      "Upstream MD has no ## Examples block; this variant comes from an H2 section under the slug's docs page."
+    ],
     "files": [
       {
         "path": "components/examples/typography-table.tsx",
@@ -9450,7 +9536,7 @@
       }
     ],
     "isDefault": false,
-    "isFlagged": false,
+    "isFlagged": true,
     "name": "typography-table",
     "registryDependencies": [],
     "slug": "typography",

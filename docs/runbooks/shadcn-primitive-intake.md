@@ -147,7 +147,33 @@ pnpm dev
 
 If a primitive does not respond to the change, it has bypassed the token system. Find the offending class (`rounded-[10px]`, `bg-[#xxx]`) and replace it.
 
-### 8. Update the design system map
+### 8. Append to the primitive registry
+
+Add an entry to [`src/components/ui/_registry.ts`](../../src/components/ui/_registry.ts):
+
+```ts
+{
+  name: "<slug>",
+  type: "registry:ui",
+  title: "<Title Case>",
+  description: "<>= 80 chars, what + when + composes>",
+  files: [{ path: "components/ui/<slug>.tsx", type: "registry:ui" }],
+  upstreamUrl: "https://ui.shadcn.com/docs/components/<slug>",
+  categories: [/* one to three of: actions, forms, feedback, overlay, navigation, layout, display, disclosure, data */],
+  registryDependencies: [/* other primitives this one composes, if any */],
+}
+```
+
+Then run:
+
+```bash
+pnpm registry:build
+```
+
+This emits `src/components/__index__.tsx` (autogen) and validates
+`registryDependencies` against the rest of the graph.
+
+### 9. Update the design system map
 
 Add or update the row in [`docs/DESIGN-SYSTEM.md`](../DESIGN-SYSTEM.md) under "Component map":
 
@@ -157,16 +183,22 @@ Add or update the row in [`docs/DESIGN-SYSTEM.md`](../DESIGN-SYSTEM.md) under "C
 
 Status values: `shipped`, `pending`, `deprecated`.
 
-### 9. Wire into the showcase (optional, downstream)
+### 10. Wire variants into the showcase (downstream)
 
-After the primitive is committed, add a `<Section>` to the relevant group file in `src/components/showcase/` per [`showcase-rebuild.md`](showcase-rebuild.md). Showcase is a preview of what already exists in `src/components/ui/`; the primitive is what consumers import.
+After the primitive + registry entry are committed, port each upstream
+`### <name>` variant into its own file under `src/components/examples/`
+per [`showcase-rebuild.md`](showcase-rebuild.md). Showcase iterates the
+registry — adding example files + their fragment registry entries makes
+them appear automatically.
 
-### 10. Commit
+### 11. Commit
 
 One primitive per commit. Conventional Commits, `ui` scope:
 
 ```bash
-git add src/components/ui/<slug>.tsx components.json package.json pnpm-lock.yaml docs/DESIGN-SYSTEM.md
+git add src/components/ui/<slug>.tsx src/components/ui/_registry.ts \
+  src/components/__index__.tsx components.json package.json pnpm-lock.yaml \
+  docs/DESIGN-SYSTEM.md
 git commit -m "feat(ui): add <slug> primitive"
 ```
 

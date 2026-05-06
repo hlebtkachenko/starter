@@ -271,9 +271,13 @@ export const items = defineItems([
     ],
     slug: "navigation-menu",
     variant: "link-component",
+    isFlagged: true,
     upstreamUrl: "https://ui.shadcn.com/docs/components/navigation-menu",
     categories: ["navigation"],
     related: ["navigation-menu-default"],
+    deviations: [
+      "Upstream MD has no ## Examples block; this variant comes from an H2 section under the slug's docs page.",
+    ],
   },
 
   // pagination

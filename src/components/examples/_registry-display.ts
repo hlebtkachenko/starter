@@ -535,7 +535,7 @@ export const items = defineItems([
     slug: "chart",
     variant: "default",
     isDefault: true,
-    isFlagged: false,
+    isFlagged: true,
     upstreamUrl: "https://ui.shadcn.com/docs/components/chart",
     registryDependencies: ["chart", "card"],
     files: [
@@ -547,6 +547,9 @@ export const items = defineItems([
     categories: ["display", "data-viz"],
     span: 3,
     height: "tall",
+    deviations: [
+      "Upstream MD has no ## Examples block; this variant comes from an H2 section under the slug's docs page.",
+    ],
   },
   {
     name: "chart-your-first-chart",
@@ -557,7 +560,7 @@ export const items = defineItems([
     slug: "chart",
     variant: "your-first-chart",
     isDefault: false,
-    isFlagged: false,
+    isFlagged: true,
     upstreamUrl: "https://ui.shadcn.com/docs/components/chart",
     registryDependencies: ["chart"],
     files: [
@@ -569,6 +572,9 @@ export const items = defineItems([
     categories: ["display", "data-viz"],
     span: 2,
     height: "tall",
+    deviations: [
+      "Upstream MD has no ## Examples block; this variant comes from an H2 section under the slug's docs page.",
+    ],
   },
   {
     name: "chart-chart-config",
@@ -579,7 +585,7 @@ export const items = defineItems([
     slug: "chart",
     variant: "chart-config",
     isDefault: false,
-    isFlagged: false,
+    isFlagged: true,
     upstreamUrl: "https://ui.shadcn.com/docs/components/chart",
     registryDependencies: ["chart"],
     files: [
@@ -590,6 +596,9 @@ export const items = defineItems([
     ],
     categories: ["display", "data-viz"],
     height: "tall",
+    deviations: [
+      "Upstream MD has no ## Examples block; this variant comes from an H2 section under the slug's docs page.",
+    ],
   },
   {
     name: "chart-tooltip",
@@ -599,7 +608,7 @@ export const items = defineItems([
     slug: "chart",
     variant: "tooltip",
     isDefault: false,
-    isFlagged: false,
+    isFlagged: true,
     upstreamUrl: "https://ui.shadcn.com/docs/components/chart",
     registryDependencies: ["chart"],
     files: [
@@ -611,6 +620,9 @@ export const items = defineItems([
     categories: ["display", "data-viz"],
     span: 2,
     height: "tall",
+    deviations: [
+      "Upstream MD has no ## Examples block; this variant comes from an H2 section under the slug's docs page.",
+    ],
   },
   {
     name: "chart-legend",
@@ -620,7 +632,7 @@ export const items = defineItems([
     slug: "chart",
     variant: "legend",
     isDefault: false,
-    isFlagged: false,
+    isFlagged: true,
     upstreamUrl: "https://ui.shadcn.com/docs/components/chart",
     registryDependencies: ["chart"],
     files: [
@@ -631,6 +643,9 @@ export const items = defineItems([
     ],
     categories: ["display", "data-viz"],
     height: "tall",
+    deviations: [
+      "Upstream MD has no ## Examples block; this variant comes from an H2 section under the slug's docs page.",
+    ],
   },
   {
     name: "chart-bar-chart",
@@ -779,7 +794,7 @@ export const items = defineItems([
     slug: "data-table",
     variant: "basic-table",
     isDefault: false,
-    isFlagged: false,
+    isFlagged: true,
     upstreamUrl: "https://ui.shadcn.com/docs/components/data-table",
     registryDependencies: ["table"],
     files: [
@@ -791,6 +806,9 @@ export const items = defineItems([
     categories: ["display", "data"],
     span: 3,
     height: "tall",
+    deviations: [
+      "Upstream MD has no ## Examples block; this variant comes from an H2 section under the slug's docs page.",
+    ],
   },
   {
     name: "data-table-cell-formatting",
@@ -800,7 +818,7 @@ export const items = defineItems([
     slug: "data-table",
     variant: "cell-formatting",
     isDefault: false,
-    isFlagged: false,
+    isFlagged: true,
     upstreamUrl: "https://ui.shadcn.com/docs/components/data-table",
     registryDependencies: ["table"],
     files: [
@@ -812,6 +830,9 @@ export const items = defineItems([
     categories: ["display", "data"],
     span: 3,
     height: "tall",
+    deviations: [
+      "Upstream MD has no ## Examples block; this variant comes from an H2 section under the slug's docs page.",
+    ],
   },
   {
     name: "data-table-row-actions",
@@ -821,7 +842,7 @@ export const items = defineItems([
     slug: "data-table",
     variant: "row-actions",
     isDefault: false,
-    isFlagged: false,
+    isFlagged: true,
     upstreamUrl: "https://ui.shadcn.com/docs/components/data-table",
     registryDependencies: ["table", "button", "dropdown-menu"],
     files: [
@@ -833,6 +854,9 @@ export const items = defineItems([
     categories: ["display", "data"],
     span: 3,
     height: "tall",
+    deviations: [
+      "Upstream MD has no ## Examples block; this variant comes from an H2 section under the slug's docs page.",
+    ],
   },
   {
     name: "data-table-pagination",
@@ -843,7 +867,7 @@ export const items = defineItems([
     slug: "data-table",
     variant: "pagination",
     isDefault: false,
-    isFlagged: false,
+    isFlagged: true,
     upstreamUrl: "https://ui.shadcn.com/docs/components/data-table",
     registryDependencies: ["table", "button"],
     files: [
@@ -855,6 +879,9 @@ export const items = defineItems([
     categories: ["display", "data"],
     span: 3,
     height: "tall",
+    deviations: [
+      "Upstream MD has no ## Examples block; this variant comes from an H2 section under the slug's docs page.",
+    ],
   },
   {
     name: "data-table-sorting",
@@ -865,7 +892,7 @@ export const items = defineItems([
     slug: "data-table",
     variant: "sorting",
     isDefault: false,
-    isFlagged: false,
+    isFlagged: true,
     upstreamUrl: "https://ui.shadcn.com/docs/components/data-table",
     registryDependencies: ["table", "button"],
     files: [
@@ -877,6 +904,9 @@ export const items = defineItems([
     categories: ["display", "data"],
     span: 3,
     height: "tall",
+    deviations: [
+      "Upstream MD has no ## Examples block; this variant comes from an H2 section under the slug's docs page.",
+    ],
   },
   {
     name: "data-table-filtering",
@@ -886,7 +916,7 @@ export const items = defineItems([
     slug: "data-table",
     variant: "filtering",
     isDefault: false,
-    isFlagged: false,
+    isFlagged: true,
     upstreamUrl: "https://ui.shadcn.com/docs/components/data-table",
     registryDependencies: ["table", "input"],
     files: [
@@ -898,6 +928,9 @@ export const items = defineItems([
     categories: ["display", "data"],
     span: 3,
     height: "tall",
+    deviations: [
+      "Upstream MD has no ## Examples block; this variant comes from an H2 section under the slug's docs page.",
+    ],
   },
   {
     name: "data-table-visibility",
@@ -907,7 +940,7 @@ export const items = defineItems([
     slug: "data-table",
     variant: "visibility",
     isDefault: false,
-    isFlagged: false,
+    isFlagged: true,
     upstreamUrl: "https://ui.shadcn.com/docs/components/data-table",
     registryDependencies: ["table", "button", "dropdown-menu"],
     files: [
@@ -919,6 +952,9 @@ export const items = defineItems([
     categories: ["display", "data"],
     span: 3,
     height: "tall",
+    deviations: [
+      "Upstream MD has no ## Examples block; this variant comes from an H2 section under the slug's docs page.",
+    ],
   },
   {
     name: "data-table-row-selection",
@@ -929,7 +965,7 @@ export const items = defineItems([
     slug: "data-table",
     variant: "row-selection",
     isDefault: false,
-    isFlagged: false,
+    isFlagged: true,
     upstreamUrl: "https://ui.shadcn.com/docs/components/data-table",
     registryDependencies: ["table", "checkbox"],
     files: [
@@ -941,6 +977,9 @@ export const items = defineItems([
     categories: ["display", "data"],
     span: 3,
     height: "tall",
+    deviations: [
+      "Upstream MD has no ## Examples block; this variant comes from an H2 section under the slug's docs page.",
+    ],
   },
 
   // skeleton
@@ -1132,7 +1171,7 @@ export const items = defineItems([
     slug: "typography",
     variant: "h1",
     isDefault: false,
-    isFlagged: false,
+    isFlagged: true,
     upstreamUrl: "https://ui.shadcn.com/docs/components/typography",
     registryDependencies: [],
     files: [
@@ -1142,6 +1181,9 @@ export const items = defineItems([
       },
     ],
     categories: ["display"],
+    deviations: [
+      "Upstream MD has no ## Examples block; this variant comes from an H2 section under the slug's docs page.",
+    ],
   },
   {
     name: "typography-h2",
@@ -1151,7 +1193,7 @@ export const items = defineItems([
     slug: "typography",
     variant: "h2",
     isDefault: false,
-    isFlagged: false,
+    isFlagged: true,
     upstreamUrl: "https://ui.shadcn.com/docs/components/typography",
     registryDependencies: [],
     files: [
@@ -1161,6 +1203,9 @@ export const items = defineItems([
       },
     ],
     categories: ["display"],
+    deviations: [
+      "Upstream MD has no ## Examples block; this variant comes from an H2 section under the slug's docs page.",
+    ],
   },
   {
     name: "typography-h3",
@@ -1170,7 +1215,7 @@ export const items = defineItems([
     slug: "typography",
     variant: "h3",
     isDefault: false,
-    isFlagged: false,
+    isFlagged: true,
     upstreamUrl: "https://ui.shadcn.com/docs/components/typography",
     registryDependencies: [],
     files: [
@@ -1180,6 +1225,9 @@ export const items = defineItems([
       },
     ],
     categories: ["display"],
+    deviations: [
+      "Upstream MD has no ## Examples block; this variant comes from an H2 section under the slug's docs page.",
+    ],
   },
   {
     name: "typography-h4",
@@ -1189,7 +1237,7 @@ export const items = defineItems([
     slug: "typography",
     variant: "h4",
     isDefault: false,
-    isFlagged: false,
+    isFlagged: true,
     upstreamUrl: "https://ui.shadcn.com/docs/components/typography",
     registryDependencies: [],
     files: [
@@ -1199,6 +1247,9 @@ export const items = defineItems([
       },
     ],
     categories: ["display"],
+    deviations: [
+      "Upstream MD has no ## Examples block; this variant comes from an H2 section under the slug's docs page.",
+    ],
   },
   {
     name: "typography-p",
@@ -1208,7 +1259,7 @@ export const items = defineItems([
     slug: "typography",
     variant: "p",
     isDefault: false,
-    isFlagged: false,
+    isFlagged: true,
     upstreamUrl: "https://ui.shadcn.com/docs/components/typography",
     registryDependencies: [],
     files: [
@@ -1218,6 +1269,9 @@ export const items = defineItems([
       },
     ],
     categories: ["display"],
+    deviations: [
+      "Upstream MD has no ## Examples block; this variant comes from an H2 section under the slug's docs page.",
+    ],
   },
   {
     name: "typography-blockquote",
@@ -1227,7 +1281,7 @@ export const items = defineItems([
     slug: "typography",
     variant: "blockquote",
     isDefault: false,
-    isFlagged: false,
+    isFlagged: true,
     upstreamUrl: "https://ui.shadcn.com/docs/components/typography",
     registryDependencies: [],
     files: [
@@ -1237,6 +1291,9 @@ export const items = defineItems([
       },
     ],
     categories: ["display"],
+    deviations: [
+      "Upstream MD has no ## Examples block; this variant comes from an H2 section under the slug's docs page.",
+    ],
   },
   {
     name: "typography-table",
@@ -1246,7 +1303,7 @@ export const items = defineItems([
     slug: "typography",
     variant: "table",
     isDefault: false,
-    isFlagged: false,
+    isFlagged: true,
     upstreamUrl: "https://ui.shadcn.com/docs/components/typography",
     registryDependencies: [],
     files: [
@@ -1257,6 +1314,9 @@ export const items = defineItems([
     ],
     categories: ["display"],
     span: 2,
+    deviations: [
+      "Upstream MD has no ## Examples block; this variant comes from an H2 section under the slug's docs page.",
+    ],
   },
   {
     name: "typography-list",
@@ -1266,7 +1326,7 @@ export const items = defineItems([
     slug: "typography",
     variant: "list",
     isDefault: false,
-    isFlagged: false,
+    isFlagged: true,
     upstreamUrl: "https://ui.shadcn.com/docs/components/typography",
     registryDependencies: [],
     files: [
@@ -1276,6 +1336,9 @@ export const items = defineItems([
       },
     ],
     categories: ["display"],
+    deviations: [
+      "Upstream MD has no ## Examples block; this variant comes from an H2 section under the slug's docs page.",
+    ],
   },
   {
     name: "typography-inline-code",
@@ -1285,7 +1348,7 @@ export const items = defineItems([
     slug: "typography",
     variant: "inline-code",
     isDefault: false,
-    isFlagged: false,
+    isFlagged: true,
     upstreamUrl: "https://ui.shadcn.com/docs/components/typography",
     registryDependencies: [],
     files: [
@@ -1295,6 +1358,9 @@ export const items = defineItems([
       },
     ],
     categories: ["display"],
+    deviations: [
+      "Upstream MD has no ## Examples block; this variant comes from an H2 section under the slug's docs page.",
+    ],
   },
   {
     name: "typography-lead",
@@ -1304,7 +1370,7 @@ export const items = defineItems([
     slug: "typography",
     variant: "lead",
     isDefault: false,
-    isFlagged: false,
+    isFlagged: true,
     upstreamUrl: "https://ui.shadcn.com/docs/components/typography",
     registryDependencies: [],
     files: [
@@ -1314,6 +1380,9 @@ export const items = defineItems([
       },
     ],
     categories: ["display"],
+    deviations: [
+      "Upstream MD has no ## Examples block; this variant comes from an H2 section under the slug's docs page.",
+    ],
   },
   {
     name: "typography-large",
@@ -1323,7 +1392,7 @@ export const items = defineItems([
     slug: "typography",
     variant: "large",
     isDefault: false,
-    isFlagged: false,
+    isFlagged: true,
     upstreamUrl: "https://ui.shadcn.com/docs/components/typography",
     registryDependencies: [],
     files: [
@@ -1333,6 +1402,9 @@ export const items = defineItems([
       },
     ],
     categories: ["display"],
+    deviations: [
+      "Upstream MD has no ## Examples block; this variant comes from an H2 section under the slug's docs page.",
+    ],
   },
   {
     name: "typography-small",
@@ -1342,7 +1414,7 @@ export const items = defineItems([
     slug: "typography",
     variant: "small",
     isDefault: false,
-    isFlagged: false,
+    isFlagged: true,
     upstreamUrl: "https://ui.shadcn.com/docs/components/typography",
     registryDependencies: [],
     files: [
@@ -1352,6 +1424,9 @@ export const items = defineItems([
       },
     ],
     categories: ["display"],
+    deviations: [
+      "Upstream MD has no ## Examples block; this variant comes from an H2 section under the slug's docs page.",
+    ],
   },
   {
     name: "typography-muted",
@@ -1361,7 +1436,7 @@ export const items = defineItems([
     slug: "typography",
     variant: "muted",
     isDefault: false,
-    isFlagged: false,
+    isFlagged: true,
     upstreamUrl: "https://ui.shadcn.com/docs/components/typography",
     registryDependencies: [],
     files: [
@@ -1371,6 +1446,9 @@ export const items = defineItems([
       },
     ],
     categories: ["display"],
+    deviations: [
+      "Upstream MD has no ## Examples block; this variant comes from an H2 section under the slug's docs page.",
+    ],
   },
   {
     name: "typography-demo",

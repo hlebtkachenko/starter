@@ -115,7 +115,7 @@ pnpm tsx scripts/generate-progress-rows.ts >> docs/plans/component-registry-prog
 | `pnpm lint` clean (baseline only) | PENDING |
 | `pnpm registry:check` clean | PENDING |
 | `pnpm registry:export` no diff | PENDING |
-| `pnpm registry:drift-check` clean | PENDING |
+| `pnpm registry:drift-check` clean | DONE |
 | `pnpm test` clean | PENDING |
 | Visual sign-off `/showcase` | PENDING |
 | Visual sign-off `/showcase/blocks` | PENDING |

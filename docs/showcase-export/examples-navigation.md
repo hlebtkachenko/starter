@@ -930,6 +930,9 @@ export default function NavigationMenuDefault() {
 **Variant:** `link-component`
 **Upstream:** https://ui.shadcn.com/docs/components/navigation-menu
 **Description:** Single navigation menu link composed with next/link via NavigationMenuLink asChild and navigationMenuTriggerStyle — the minimal pattern for router-aware nav items.
+**Flagged:** not in upstream Examples block
+**Deviations:**
+- Upstream MD has no ## Examples block; this variant comes from an H2 section under the slug's docs page.
 **Depends on:** navigation-menu
 
 ```tsx

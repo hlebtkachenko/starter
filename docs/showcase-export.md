@@ -11,14 +11,14 @@
 |---|---|---|---|
 | UI Primitives | [docs/showcase-export/ui.md](showcase-export/ui.md) | 54 | 11,568 |
 | Examples: buttons | [docs/showcase-export/examples-buttons.md](showcase-export/examples-buttons.md) | 36 | 47,459 |
-| Examples: display-part1 | [docs/showcase-export/examples-display-part1.md](showcase-export/examples-display-part1.md) | 41 | 77,200 |
-| Examples: display-part2 | [docs/showcase-export/examples-display-part2.md](showcase-export/examples-display-part2.md) | 20 | 26,538 |
+| Examples: display-part1 | [docs/showcase-export/examples-display-part1.md](showcase-export/examples-display-part1.md) | 41 | 79,358 |
+| Examples: display-part2 | [docs/showcase-export/examples-display-part2.md](showcase-export/examples-display-part2.md) | 20 | 28,696 |
 | Examples: feedback | [docs/showcase-export/examples-feedback.md](showcase-export/examples-feedback.md) | 24 | 27,984 |
 | Examples: forms-part1 | [docs/showcase-export/examples-forms-part1.md](showcase-export/examples-forms-part1.md) | 45 | 68,364 |
-| Examples: forms-part2 | [docs/showcase-export/examples-forms-part2.md](showcase-export/examples-forms-part2.md) | 46 | 67,504 |
+| Examples: forms-part2 | [docs/showcase-export/examples-forms-part2.md](showcase-export/examples-forms-part2.md) | 46 | 67,670 |
 | Examples: layout | [docs/showcase-export/examples-layout.md](showcase-export/examples-layout.md) | 26 | 36,427 |
 | Examples: menus | [docs/showcase-export/examples-menus.md](showcase-export/examples-menus.md) | 26 | 64,583 |
-| Examples: navigation | [docs/showcase-export/examples-navigation.md](showcase-export/examples-navigation.md) | 21 | 40,366 |
+| Examples: navigation | [docs/showcase-export/examples-navigation.md](showcase-export/examples-navigation.md) | 21 | 40,532 |
 | Examples: overlays | [docs/showcase-export/examples-overlays.md](showcase-export/examples-overlays.md) | 23 | 40,967 |
 | Examples: utility | [docs/showcase-export/examples-utility.md](showcase-export/examples-utility.md) | 33 | 50,746 |
 | Blocks | [docs/showcase-export/blocks.md](showcase-export/blocks.md) | 5 | 15,187 |

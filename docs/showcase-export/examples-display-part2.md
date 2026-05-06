@@ -421,6 +421,9 @@ export default function TableActions() {
 **Variant:** `h1`
 **Upstream:** https://ui.shadcn.com/docs/components/typography
 **Description:** Page heading: extrabold, 4xl, tight tracking, balanced wrap.
+**Flagged:** not in upstream Examples block
+**Deviations:**
+- Upstream MD has no ## Examples block; this variant comes from an H2 section under the slug's docs page.
 
 ```tsx
 /**
@@ -443,6 +446,9 @@ export default function TypographyH1() {
 **Variant:** `h2`
 **Upstream:** https://ui.shadcn.com/docs/components/typography
 **Description:** Section heading: 3xl, semibold, with a bottom border.
+**Flagged:** not in upstream Examples block
+**Deviations:**
+- Upstream MD has no ## Examples block; this variant comes from an H2 section under the slug's docs page.
 
 ```tsx
 /**
@@ -465,6 +471,9 @@ export default function TypographyH2() {
 **Variant:** `h3`
 **Upstream:** https://ui.shadcn.com/docs/components/typography
 **Description:** Subsection heading: 2xl, semibold.
+**Flagged:** not in upstream Examples block
+**Deviations:**
+- Upstream MD has no ## Examples block; this variant comes from an H2 section under the slug's docs page.
 
 ```tsx
 /**
@@ -483,6 +492,9 @@ export default function TypographyH3() {
 **Variant:** `h4`
 **Upstream:** https://ui.shadcn.com/docs/components/typography
 **Description:** Block heading: xl, semibold.
+**Flagged:** not in upstream Examples block
+**Deviations:**
+- Upstream MD has no ## Examples block; this variant comes from an H2 section under the slug's docs page.
 
 ```tsx
 /**
@@ -505,6 +517,9 @@ export default function TypographyH4() {
 **Variant:** `p`
 **Upstream:** https://ui.shadcn.com/docs/components/typography
 **Description:** Body paragraph with leading-7 and a top margin when not first.
+**Flagged:** not in upstream Examples block
+**Deviations:**
+- Upstream MD has no ## Examples block; this variant comes from an H2 section under the slug's docs page.
 
 ```tsx
 /**
@@ -528,6 +543,9 @@ export default function TypographyP() {
 **Variant:** `blockquote`
 **Upstream:** https://ui.shadcn.com/docs/components/typography
 **Description:** Italic blockquote with a left accent border.
+**Flagged:** not in upstream Examples block
+**Deviations:**
+- Upstream MD has no ## Examples block; this variant comes from an H2 section under the slug's docs page.
 
 ```tsx
 /**
@@ -551,6 +569,9 @@ export default function TypographyBlockquote() {
 **Variant:** `table`
 **Upstream:** https://ui.shadcn.com/docs/components/typography
 **Description:** Native HTML table styled per the typography scale: bordered cells, zebra rows.
+**Flagged:** not in upstream Examples block
+**Deviations:**
+- Upstream MD has no ## Examples block; this variant comes from an H2 section under the slug's docs page.
 
 ```tsx
 /**
@@ -610,6 +631,9 @@ export default function TypographyTable() {
 **Variant:** `list`
 **Upstream:** https://ui.shadcn.com/docs/components/typography
 **Description:** Disc-bulleted unordered list with margin-top between items.
+**Flagged:** not in upstream Examples block
+**Deviations:**
+- Upstream MD has no ## Examples block; this variant comes from an H2 section under the slug's docs page.
 
 ```tsx
 /**
@@ -634,6 +658,9 @@ export default function TypographyList() {
 **Variant:** `inline-code`
 **Upstream:** https://ui.shadcn.com/docs/components/typography
 **Description:** Inline `<code>` styled with a muted background and mono font.
+**Flagged:** not in upstream Examples block
+**Deviations:**
+- Upstream MD has no ## Examples block; this variant comes from an H2 section under the slug's docs page.
 
 ```tsx
 /**
@@ -656,6 +683,9 @@ export default function TypographyInlineCode() {
 **Variant:** `lead`
 **Upstream:** https://ui.shadcn.com/docs/components/typography
 **Description:** Lead paragraph: xl text in muted-foreground color for intros.
+**Flagged:** not in upstream Examples block
+**Deviations:**
+- Upstream MD has no ## Examples block; this variant comes from an H2 section under the slug's docs page.
 
 ```tsx
 /**
@@ -678,6 +708,9 @@ export default function TypographyLead() {
 **Variant:** `large`
 **Upstream:** https://ui.shadcn.com/docs/components/typography
 **Description:** Large prompt: lg text, semibold, used in dialog questions.
+**Flagged:** not in upstream Examples block
+**Deviations:**
+- Upstream MD has no ## Examples block; this variant comes from an H2 section under the slug's docs page.
 
 ```tsx
 /**
@@ -696,6 +729,9 @@ export default function TypographyLarge() {
 **Variant:** `small`
 **Upstream:** https://ui.shadcn.com/docs/components/typography
 **Description:** Small label: sm text, leading-none, medium weight.
+**Flagged:** not in upstream Examples block
+**Deviations:**
+- Upstream MD has no ## Examples block; this variant comes from an H2 section under the slug's docs page.
 
 ```tsx
 /**
@@ -714,6 +750,9 @@ export default function TypographySmall() {
 **Variant:** `muted`
 **Upstream:** https://ui.shadcn.com/docs/components/typography
 **Description:** Muted helper line: sm text in muted-foreground color.
+**Flagged:** not in upstream Examples block
+**Deviations:**
+- Upstream MD has no ## Examples block; this variant comes from an H2 section under the slug's docs page.
 
 ```tsx
 /**

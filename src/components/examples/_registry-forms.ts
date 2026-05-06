@@ -967,12 +967,16 @@ export const items = defineItems([
     title: "Label in Field",
     slug: "label",
     variant: "label-in-field",
+    isFlagged: true,
     registryDependencies: ["label", "field", "input"],
     files: [
       {
         path: "components/examples/label-label-in-field.tsx",
         type: "registry:example",
       },
+    ],
+    deviations: [
+      "Upstream MD has no ## Examples block; this variant comes from an H2 section under the slug's docs page.",
     ],
   },
   {

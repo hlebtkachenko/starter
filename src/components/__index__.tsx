@@ -2747,7 +2747,7 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "slug": "chart",
     "variant": "default",
     "isDefault": true,
-    "isFlagged": false,
+    "isFlagged": true,
     "upstreamUrl": "https://ui.shadcn.com/docs/components/chart",
     "registryDependencies": [
       "chart",
@@ -2764,7 +2764,10 @@ export const Index: Record<string, RegistryIndexEntry> = {
       "data-viz"
     ],
     "span": 3,
-    "height": "tall"
+    "height": "tall",
+    "deviations": [
+      "Upstream MD has no ## Examples block; this variant comes from an H2 section under the slug's docs page."
+    ]
   },
     Component: React.lazy(() => import("@/components/examples/chart-default")),
   },
@@ -2777,7 +2780,7 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "slug": "chart",
     "variant": "your-first-chart",
     "isDefault": false,
-    "isFlagged": false,
+    "isFlagged": true,
     "upstreamUrl": "https://ui.shadcn.com/docs/components/chart",
     "registryDependencies": [
       "chart"
@@ -2793,7 +2796,10 @@ export const Index: Record<string, RegistryIndexEntry> = {
       "data-viz"
     ],
     "span": 2,
-    "height": "tall"
+    "height": "tall",
+    "deviations": [
+      "Upstream MD has no ## Examples block; this variant comes from an H2 section under the slug's docs page."
+    ]
   },
     Component: React.lazy(() => import("@/components/examples/chart-your-first-chart")),
   },
@@ -2806,7 +2812,7 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "slug": "chart",
     "variant": "chart-config",
     "isDefault": false,
-    "isFlagged": false,
+    "isFlagged": true,
     "upstreamUrl": "https://ui.shadcn.com/docs/components/chart",
     "registryDependencies": [
       "chart"
@@ -2821,7 +2827,10 @@ export const Index: Record<string, RegistryIndexEntry> = {
       "display",
       "data-viz"
     ],
-    "height": "tall"
+    "height": "tall",
+    "deviations": [
+      "Upstream MD has no ## Examples block; this variant comes from an H2 section under the slug's docs page."
+    ]
   },
     Component: React.lazy(() => import("@/components/examples/chart-chart-config")),
   },
@@ -2834,7 +2843,7 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "slug": "chart",
     "variant": "tooltip",
     "isDefault": false,
-    "isFlagged": false,
+    "isFlagged": true,
     "upstreamUrl": "https://ui.shadcn.com/docs/components/chart",
     "registryDependencies": [
       "chart"
@@ -2850,7 +2859,10 @@ export const Index: Record<string, RegistryIndexEntry> = {
       "data-viz"
     ],
     "span": 2,
-    "height": "tall"
+    "height": "tall",
+    "deviations": [
+      "Upstream MD has no ## Examples block; this variant comes from an H2 section under the slug's docs page."
+    ]
   },
     Component: React.lazy(() => import("@/components/examples/chart-tooltip")),
   },
@@ -2863,7 +2875,7 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "slug": "chart",
     "variant": "legend",
     "isDefault": false,
-    "isFlagged": false,
+    "isFlagged": true,
     "upstreamUrl": "https://ui.shadcn.com/docs/components/chart",
     "registryDependencies": [
       "chart"
@@ -2878,7 +2890,10 @@ export const Index: Record<string, RegistryIndexEntry> = {
       "display",
       "data-viz"
     ],
-    "height": "tall"
+    "height": "tall",
+    "deviations": [
+      "Upstream MD has no ## Examples block; this variant comes from an H2 section under the slug's docs page."
+    ]
   },
     Component: React.lazy(() => import("@/components/examples/chart-legend")),
   },
@@ -3087,7 +3102,7 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "slug": "data-table",
     "variant": "basic-table",
     "isDefault": false,
-    "isFlagged": false,
+    "isFlagged": true,
     "upstreamUrl": "https://ui.shadcn.com/docs/components/data-table",
     "registryDependencies": [
       "table"
@@ -3103,7 +3118,10 @@ export const Index: Record<string, RegistryIndexEntry> = {
       "data"
     ],
     "span": 3,
-    "height": "tall"
+    "height": "tall",
+    "deviations": [
+      "Upstream MD has no ## Examples block; this variant comes from an H2 section under the slug's docs page."
+    ]
   },
     Component: React.lazy(() => import("@/components/examples/data-table-basic-table")),
   },
@@ -3116,7 +3134,7 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "slug": "data-table",
     "variant": "cell-formatting",
     "isDefault": false,
-    "isFlagged": false,
+    "isFlagged": true,
     "upstreamUrl": "https://ui.shadcn.com/docs/components/data-table",
     "registryDependencies": [
       "table"
@@ -3132,7 +3150,10 @@ export const Index: Record<string, RegistryIndexEntry> = {
       "data"
     ],
     "span": 3,
-    "height": "tall"
+    "height": "tall",
+    "deviations": [
+      "Upstream MD has no ## Examples block; this variant comes from an H2 section under the slug's docs page."
+    ]
   },
     Component: React.lazy(() => import("@/components/examples/data-table-cell-formatting")),
   },
@@ -3145,7 +3166,7 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "slug": "data-table",
     "variant": "row-actions",
     "isDefault": false,
-    "isFlagged": false,
+    "isFlagged": true,
     "upstreamUrl": "https://ui.shadcn.com/docs/components/data-table",
     "registryDependencies": [
       "table",
@@ -3163,7 +3184,10 @@ export const Index: Record<string, RegistryIndexEntry> = {
       "data"
     ],
     "span": 3,
-    "height": "tall"
+    "height": "tall",
+    "deviations": [
+      "Upstream MD has no ## Examples block; this variant comes from an H2 section under the slug's docs page."
+    ]
   },
     Component: React.lazy(() => import("@/components/examples/data-table-row-actions")),
   },
@@ -3176,7 +3200,7 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "slug": "data-table",
     "variant": "pagination",
     "isDefault": false,
-    "isFlagged": false,
+    "isFlagged": true,
     "upstreamUrl": "https://ui.shadcn.com/docs/components/data-table",
     "registryDependencies": [
       "table",
@@ -3193,7 +3217,10 @@ export const Index: Record<string, RegistryIndexEntry> = {
       "data"
     ],
     "span": 3,
-    "height": "tall"
+    "height": "tall",
+    "deviations": [
+      "Upstream MD has no ## Examples block; this variant comes from an H2 section under the slug's docs page."
+    ]
   },
     Component: React.lazy(() => import("@/components/examples/data-table-pagination")),
   },
@@ -3206,7 +3233,7 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "slug": "data-table",
     "variant": "sorting",
     "isDefault": false,
-    "isFlagged": false,
+    "isFlagged": true,
     "upstreamUrl": "https://ui.shadcn.com/docs/components/data-table",
     "registryDependencies": [
       "table",
@@ -3223,7 +3250,10 @@ export const Index: Record<string, RegistryIndexEntry> = {
       "data"
     ],
     "span": 3,
-    "height": "tall"
+    "height": "tall",
+    "deviations": [
+      "Upstream MD has no ## Examples block; this variant comes from an H2 section under the slug's docs page."
+    ]
   },
     Component: React.lazy(() => import("@/components/examples/data-table-sorting")),
   },
@@ -3236,7 +3266,7 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "slug": "data-table",
     "variant": "filtering",
     "isDefault": false,
-    "isFlagged": false,
+    "isFlagged": true,
     "upstreamUrl": "https://ui.shadcn.com/docs/components/data-table",
     "registryDependencies": [
       "table",
@@ -3253,7 +3283,10 @@ export const Index: Record<string, RegistryIndexEntry> = {
       "data"
     ],
     "span": 3,
-    "height": "tall"
+    "height": "tall",
+    "deviations": [
+      "Upstream MD has no ## Examples block; this variant comes from an H2 section under the slug's docs page."
+    ]
   },
     Component: React.lazy(() => import("@/components/examples/data-table-filtering")),
   },
@@ -3266,7 +3299,7 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "slug": "data-table",
     "variant": "visibility",
     "isDefault": false,
-    "isFlagged": false,
+    "isFlagged": true,
     "upstreamUrl": "https://ui.shadcn.com/docs/components/data-table",
     "registryDependencies": [
       "table",
@@ -3284,7 +3317,10 @@ export const Index: Record<string, RegistryIndexEntry> = {
       "data"
     ],
     "span": 3,
-    "height": "tall"
+    "height": "tall",
+    "deviations": [
+      "Upstream MD has no ## Examples block; this variant comes from an H2 section under the slug's docs page."
+    ]
   },
     Component: React.lazy(() => import("@/components/examples/data-table-visibility")),
   },
@@ -3297,7 +3333,7 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "slug": "data-table",
     "variant": "row-selection",
     "isDefault": false,
-    "isFlagged": false,
+    "isFlagged": true,
     "upstreamUrl": "https://ui.shadcn.com/docs/components/data-table",
     "registryDependencies": [
       "table",
@@ -3314,7 +3350,10 @@ export const Index: Record<string, RegistryIndexEntry> = {
       "data"
     ],
     "span": 3,
-    "height": "tall"
+    "height": "tall",
+    "deviations": [
+      "Upstream MD has no ## Examples block; this variant comes from an H2 section under the slug's docs page."
+    ]
   },
     Component: React.lazy(() => import("@/components/examples/data-table-row-selection")),
   },
@@ -3570,7 +3609,7 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "slug": "typography",
     "variant": "h1",
     "isDefault": false,
-    "isFlagged": false,
+    "isFlagged": true,
     "upstreamUrl": "https://ui.shadcn.com/docs/components/typography",
     "registryDependencies": [],
     "files": [
@@ -3581,6 +3620,9 @@ export const Index: Record<string, RegistryIndexEntry> = {
     ],
     "categories": [
       "display"
+    ],
+    "deviations": [
+      "Upstream MD has no ## Examples block; this variant comes from an H2 section under the slug's docs page."
     ]
   },
     Component: React.lazy(() => import("@/components/examples/typography-h1")),
@@ -3594,7 +3636,7 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "slug": "typography",
     "variant": "h2",
     "isDefault": false,
-    "isFlagged": false,
+    "isFlagged": true,
     "upstreamUrl": "https://ui.shadcn.com/docs/components/typography",
     "registryDependencies": [],
     "files": [
@@ -3605,6 +3647,9 @@ export const Index: Record<string, RegistryIndexEntry> = {
     ],
     "categories": [
       "display"
+    ],
+    "deviations": [
+      "Upstream MD has no ## Examples block; this variant comes from an H2 section under the slug's docs page."
     ]
   },
     Component: React.lazy(() => import("@/components/examples/typography-h2")),
@@ -3618,7 +3663,7 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "slug": "typography",
     "variant": "h3",
     "isDefault": false,
-    "isFlagged": false,
+    "isFlagged": true,
     "upstreamUrl": "https://ui.shadcn.com/docs/components/typography",
     "registryDependencies": [],
     "files": [
@@ -3629,6 +3674,9 @@ export const Index: Record<string, RegistryIndexEntry> = {
     ],
     "categories": [
       "display"
+    ],
+    "deviations": [
+      "Upstream MD has no ## Examples block; this variant comes from an H2 section under the slug's docs page."
     ]
   },
     Component: React.lazy(() => import("@/components/examples/typography-h3")),
@@ -3642,7 +3690,7 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "slug": "typography",
     "variant": "h4",
     "isDefault": false,
-    "isFlagged": false,
+    "isFlagged": true,
     "upstreamUrl": "https://ui.shadcn.com/docs/components/typography",
     "registryDependencies": [],
     "files": [
@@ -3653,6 +3701,9 @@ export const Index: Record<string, RegistryIndexEntry> = {
     ],
     "categories": [
       "display"
+    ],
+    "deviations": [
+      "Upstream MD has no ## Examples block; this variant comes from an H2 section under the slug's docs page."
     ]
   },
     Component: React.lazy(() => import("@/components/examples/typography-h4")),
@@ -3666,7 +3717,7 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "slug": "typography",
     "variant": "p",
     "isDefault": false,
-    "isFlagged": false,
+    "isFlagged": true,
     "upstreamUrl": "https://ui.shadcn.com/docs/components/typography",
     "registryDependencies": [],
     "files": [
@@ -3677,6 +3728,9 @@ export const Index: Record<string, RegistryIndexEntry> = {
     ],
     "categories": [
       "display"
+    ],
+    "deviations": [
+      "Upstream MD has no ## Examples block; this variant comes from an H2 section under the slug's docs page."
     ]
   },
     Component: React.lazy(() => import("@/components/examples/typography-p")),
@@ -3690,7 +3744,7 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "slug": "typography",
     "variant": "blockquote",
     "isDefault": false,
-    "isFlagged": false,
+    "isFlagged": true,
     "upstreamUrl": "https://ui.shadcn.com/docs/components/typography",
     "registryDependencies": [],
     "files": [
@@ -3701,6 +3755,9 @@ export const Index: Record<string, RegistryIndexEntry> = {
     ],
     "categories": [
       "display"
+    ],
+    "deviations": [
+      "Upstream MD has no ## Examples block; this variant comes from an H2 section under the slug's docs page."
     ]
   },
     Component: React.lazy(() => import("@/components/examples/typography-blockquote")),
@@ -3714,7 +3771,7 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "slug": "typography",
     "variant": "table",
     "isDefault": false,
-    "isFlagged": false,
+    "isFlagged": true,
     "upstreamUrl": "https://ui.shadcn.com/docs/components/typography",
     "registryDependencies": [],
     "files": [
@@ -3726,7 +3783,10 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "categories": [
       "display"
     ],
-    "span": 2
+    "span": 2,
+    "deviations": [
+      "Upstream MD has no ## Examples block; this variant comes from an H2 section under the slug's docs page."
+    ]
   },
     Component: React.lazy(() => import("@/components/examples/typography-table")),
   },
@@ -3739,7 +3799,7 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "slug": "typography",
     "variant": "list",
     "isDefault": false,
-    "isFlagged": false,
+    "isFlagged": true,
     "upstreamUrl": "https://ui.shadcn.com/docs/components/typography",
     "registryDependencies": [],
     "files": [
@@ -3750,6 +3810,9 @@ export const Index: Record<string, RegistryIndexEntry> = {
     ],
     "categories": [
       "display"
+    ],
+    "deviations": [
+      "Upstream MD has no ## Examples block; this variant comes from an H2 section under the slug's docs page."
     ]
   },
     Component: React.lazy(() => import("@/components/examples/typography-list")),
@@ -3763,7 +3826,7 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "slug": "typography",
     "variant": "inline-code",
     "isDefault": false,
-    "isFlagged": false,
+    "isFlagged": true,
     "upstreamUrl": "https://ui.shadcn.com/docs/components/typography",
     "registryDependencies": [],
     "files": [
@@ -3774,6 +3837,9 @@ export const Index: Record<string, RegistryIndexEntry> = {
     ],
     "categories": [
       "display"
+    ],
+    "deviations": [
+      "Upstream MD has no ## Examples block; this variant comes from an H2 section under the slug's docs page."
     ]
   },
     Component: React.lazy(() => import("@/components/examples/typography-inline-code")),
@@ -3787,7 +3853,7 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "slug": "typography",
     "variant": "lead",
     "isDefault": false,
-    "isFlagged": false,
+    "isFlagged": true,
     "upstreamUrl": "https://ui.shadcn.com/docs/components/typography",
     "registryDependencies": [],
     "files": [
@@ -3798,6 +3864,9 @@ export const Index: Record<string, RegistryIndexEntry> = {
     ],
     "categories": [
       "display"
+    ],
+    "deviations": [
+      "Upstream MD has no ## Examples block; this variant comes from an H2 section under the slug's docs page."
     ]
   },
     Component: React.lazy(() => import("@/components/examples/typography-lead")),
@@ -3811,7 +3880,7 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "slug": "typography",
     "variant": "large",
     "isDefault": false,
-    "isFlagged": false,
+    "isFlagged": true,
     "upstreamUrl": "https://ui.shadcn.com/docs/components/typography",
     "registryDependencies": [],
     "files": [
@@ -3822,6 +3891,9 @@ export const Index: Record<string, RegistryIndexEntry> = {
     ],
     "categories": [
       "display"
+    ],
+    "deviations": [
+      "Upstream MD has no ## Examples block; this variant comes from an H2 section under the slug's docs page."
     ]
   },
     Component: React.lazy(() => import("@/components/examples/typography-large")),
@@ -3835,7 +3907,7 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "slug": "typography",
     "variant": "small",
     "isDefault": false,
-    "isFlagged": false,
+    "isFlagged": true,
     "upstreamUrl": "https://ui.shadcn.com/docs/components/typography",
     "registryDependencies": [],
     "files": [
@@ -3846,6 +3918,9 @@ export const Index: Record<string, RegistryIndexEntry> = {
     ],
     "categories": [
       "display"
+    ],
+    "deviations": [
+      "Upstream MD has no ## Examples block; this variant comes from an H2 section under the slug's docs page."
     ]
   },
     Component: React.lazy(() => import("@/components/examples/typography-small")),
@@ -3859,7 +3934,7 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "slug": "typography",
     "variant": "muted",
     "isDefault": false,
-    "isFlagged": false,
+    "isFlagged": true,
     "upstreamUrl": "https://ui.shadcn.com/docs/components/typography",
     "registryDependencies": [],
     "files": [
@@ -3870,6 +3945,9 @@ export const Index: Record<string, RegistryIndexEntry> = {
     ],
     "categories": [
       "display"
+    ],
+    "deviations": [
+      "Upstream MD has no ## Examples block; this variant comes from an H2 section under the slug's docs page."
     ]
   },
     Component: React.lazy(() => import("@/components/examples/typography-muted")),
@@ -5797,6 +5875,7 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "title": "Label in Field",
     "slug": "label",
     "variant": "label-in-field",
+    "isFlagged": true,
     "registryDependencies": [
       "label",
       "field",
@@ -5807,6 +5886,9 @@ export const Index: Record<string, RegistryIndexEntry> = {
         "path": "components/examples/label-label-in-field.tsx",
         "type": "registry:example"
       }
+    ],
+    "deviations": [
+      "Upstream MD has no ## Examples block; this variant comes from an H2 section under the slug's docs page."
     ]
   },
     Component: React.lazy(() => import("@/components/examples/label-label-in-field")),
@@ -8594,12 +8676,16 @@ export const Index: Record<string, RegistryIndexEntry> = {
     ],
     "slug": "navigation-menu",
     "variant": "link-component",
+    "isFlagged": true,
     "upstreamUrl": "https://ui.shadcn.com/docs/components/navigation-menu",
     "categories": [
       "navigation"
     ],
     "related": [
       "navigation-menu-default"
+    ],
+    "deviations": [
+      "Upstream MD has no ## Examples block; this variant comes from an H2 section under the slug's docs page."
     ]
   },
     Component: React.lazy(() => import("@/components/examples/navigation-menu-link-component")),

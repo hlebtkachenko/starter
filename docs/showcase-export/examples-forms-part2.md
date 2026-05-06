@@ -945,6 +945,9 @@ export default function InputOtpForm() {
 
 **Slug:** `label`
 **Variant:** `label-in-field`
+**Flagged:** not in upstream Examples block
+**Deviations:**
+- Upstream MD has no ## Examples block; this variant comes from an H2 section under the slug's docs page.
 **Depends on:** label, field, input
 
 ```tsx

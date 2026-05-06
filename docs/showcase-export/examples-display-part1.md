@@ -1046,6 +1046,9 @@ export default function CalendarHijri() {
 **Variant:** `default`
 **Upstream:** https://ui.shadcn.com/docs/components/chart
 **Description:** Hero interactive bar chart card with toggle between desktop and mobile totals over 30 days.
+**Flagged:** not in upstream Examples block
+**Deviations:**
+- Upstream MD has no ## Examples block; this variant comes from an H2 section under the slug's docs page.
 **Depends on:** chart, card
 
 ```tsx
@@ -1158,6 +1161,9 @@ export default function ChartDefault() {
 **Variant:** `your-first-chart`
 **Upstream:** https://ui.shadcn.com/docs/components/chart
 **Description:** Minimal bar chart with grid, axis, tooltip, legend wired to the shared chart config.
+**Flagged:** not in upstream Examples block
+**Deviations:**
+- Upstream MD has no ## Examples block; this variant comes from an H2 section under the slug's docs page.
 **Depends on:** chart
 
 ```tsx
@@ -1206,6 +1212,9 @@ export default function ChartYourFirstChart() {
 **Variant:** `chart-config`
 **Upstream:** https://ui.shadcn.com/docs/components/chart
 **Description:** Demonstrates a ChartConfig entry with an icon and per-theme color (light/dark hex tokens).
+**Flagged:** not in upstream Examples block
+**Deviations:**
+- Upstream MD has no ## Examples block; this variant comes from an H2 section under the slug's docs page.
 **Depends on:** chart
 
 ```tsx
@@ -1237,6 +1246,9 @@ export default function ChartChartConfig() {
 **Variant:** `tooltip`
 **Upstream:** https://ui.shadcn.com/docs/components/chart
 **Description:** Bar chart with the dot-indicator variant of the shared chart tooltip.
+**Flagged:** not in upstream Examples block
+**Deviations:**
+- Upstream MD has no ## Examples block; this variant comes from an H2 section under the slug's docs page.
 **Depends on:** chart
 
 ```tsx
@@ -1278,6 +1290,9 @@ export default function ChartTooltipExample() {
 **Variant:** `legend`
 **Upstream:** https://ui.shadcn.com/docs/components/chart
 **Description:** Bar chart with the shared chart legend below the plot.
+**Flagged:** not in upstream Examples block
+**Deviations:**
+- Upstream MD has no ## Examples block; this variant comes from an H2 section under the slug's docs page.
 **Depends on:** chart
 
 ```tsx
@@ -1809,6 +1824,9 @@ export default function DataTableDefault() {
 **Variant:** `basic-table`
 **Upstream:** https://ui.shadcn.com/docs/components/data-table
 **Description:** Minimal TanStack table over the Payments fixture.
+**Flagged:** not in upstream Examples block
+**Deviations:**
+- Upstream MD has no ## Examples block; this variant comes from an H2 section under the slug's docs page.
 **Depends on:** table
 
 ```tsx
@@ -1892,6 +1910,9 @@ export default function DataTableBasicTable() {
 **Variant:** `cell-formatting`
 **Upstream:** https://ui.shadcn.com/docs/components/data-table
 **Description:** TanStack table with a right-aligned currency-formatted Amount cell.
+**Flagged:** not in upstream Examples block
+**Deviations:**
+- Upstream MD has no ## Examples block; this variant comes from an H2 section under the slug's docs page.
 **Depends on:** table
 
 ```tsx
@@ -1990,6 +2011,9 @@ export default function DataTableCellFormatting() {
 **Variant:** `row-actions`
 **Upstream:** https://ui.shadcn.com/docs/components/data-table
 **Description:** TanStack table with a per-row dropdown menu for copy/view actions.
+**Flagged:** not in upstream Examples block
+**Deviations:**
+- Upstream MD has no ## Examples block; this variant comes from an H2 section under the slug's docs page.
 **Depends on:** table, button, dropdown-menu
 
 ```tsx
@@ -2109,6 +2133,9 @@ export default function DataTableRowActions() {
 **Variant:** `pagination`
 **Upstream:** https://ui.shadcn.com/docs/components/data-table
 **Description:** TanStack table with Previous/Next pagination controls and a fixed page size of 3.
+**Flagged:** not in upstream Examples block
+**Deviations:**
+- Upstream MD has no ## Examples block; this variant comes from an H2 section under the slug's docs page.
 **Depends on:** table, button
 
 ```tsx
@@ -2213,6 +2240,9 @@ export default function DataTablePagination() {
 **Variant:** `sorting`
 **Upstream:** https://ui.shadcn.com/docs/components/data-table
 **Description:** TanStack table with a click-to-sort Email column header using ArrowUpDown indicator.
+**Flagged:** not in upstream Examples block
+**Deviations:**
+- Upstream MD has no ## Examples block; this variant comes from an H2 section under the slug's docs page.
 **Depends on:** table, button
 
 ```tsx
@@ -2316,6 +2346,9 @@ export default function DataTableSorting() {
 **Variant:** `filtering`
 **Upstream:** https://ui.shadcn.com/docs/components/data-table
 **Description:** TanStack table with a text input filtering the email column.
+**Flagged:** not in upstream Examples block
+**Deviations:**
+- Upstream MD has no ## Examples block; this variant comes from an H2 section under the slug's docs page.
 **Depends on:** table, input
 
 ```tsx
@@ -2415,6 +2448,9 @@ export default function DataTableFiltering() {
 **Variant:** `visibility`
 **Upstream:** https://ui.shadcn.com/docs/components/data-table
 **Description:** TanStack table with a Columns dropdown menu for toggling column visibility.
+**Flagged:** not in upstream Examples block
+**Deviations:**
+- Upstream MD has no ## Examples block; this variant comes from an H2 section under the slug's docs page.
 **Depends on:** table, button, dropdown-menu
 
 ```tsx
@@ -2534,6 +2570,9 @@ export default function DataTableVisibility() {
 **Variant:** `row-selection`
 **Upstream:** https://ui.shadcn.com/docs/components/data-table
 **Description:** TanStack table with a select-all header checkbox, per-row checkboxes, and a selected-row count footer.
+**Flagged:** not in upstream Examples block
+**Deviations:**
+- Upstream MD has no ## Examples block; this variant comes from an H2 section under the slug's docs page.
 **Depends on:** table, checkbox
 
 ```tsx
