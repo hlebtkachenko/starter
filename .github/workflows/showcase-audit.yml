@@ -2,8 +2,7 @@ name: showcase-audit
 
 # Validates the component registry pipeline end-to-end:
 # typecheck, lint, registry build + idempotency, orphan check,
-# content-drift report, generated-artifact freshness, unit tests.
-# Playwright e2e is scaffolded but skipped until Wave 4 visual snapshots are captured.
+# content-drift report, generated-artifact freshness, unit tests, Playwright e2e.
 
 on:
   push:
@@ -80,9 +79,10 @@ jobs:
       - name: Unit tests (Vitest)
         run: pnpm test --run
 
-      # Wave 4 TODO: remove `if: false` once Playwright visual snapshots are captured
-      # and committed. Enabling before snapshots exist causes the job to fail with
-      # "missing snapshot" errors on every run.
+      # Snapshots committed in tests/e2e/*-snapshots/ (chromium-darwin).
+      # CI runs on linux (self-hosted) so linux baselines must be captured on first
+      # CI run: run `pnpm test:e2e --update-snapshots` on the runner, commit the
+      # *-linux snapshots, then this step becomes fully deterministic.
+      # Cross-browser (firefox, webkit) snapshots are deferred to a separate PR.
       - name: E2E tests (Playwright)
-        if: false
         run: pnpm test:e2e

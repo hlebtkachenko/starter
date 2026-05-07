@@ -87,7 +87,6 @@ jobs:
 
   size-cap:
     runs-on: [self-hosted, linux, ovh, starter]
-    if: ${{ !contains(github.event.pull_request.labels.*.name, 'size-cap-override') }}
     steps:
       - uses: actions/checkout@v4
         with:
@@ -95,10 +94,17 @@ jobs:
       - name: size-cap
         env:
           BASE: ${{ github.base_ref }}
+          LABELS: ${{ toJSON(github.event.pull_request.labels.*.name) }}
         run: |
+          # Honor opt-out label for one-shot large PRs (e.g. registry refactor).
+          if echo "$LABELS" | grep -q '"size-cap-override"'; then
+            echo "::notice::size-cap-override label present, skipping"
+            exit 0
+          fi
+
           # Counts insertions only (lines added). Deletions are cheap to review;
           # additions are the real review burden. Excludes generated/binary content
-          # and auto-generated registry artifacts.
+          # and registry artifacts that are autogen or bulk-extracted.
           loc=$(git diff --shortstat "origin/$BASE...HEAD" -- \
             ':!pnpm-lock.yaml' \
             ':!db/migrations/meta/**' \
@@ -106,15 +112,16 @@ jobs:
             ':!**/*.png' \
             ':!**/*.ico' \
             ':!src/components/__index__.tsx' \
-            ':!src/components/**/examples/**' \
-            ':!src/components/**/_fixtures/**' \
-            ':!docs/showcase-export*' \
+            ':!src/components/examples/**' \
+            ':!src/components/examples/_fixtures/**' \
+            ':!docs/showcase-export.md' \
+            ':!docs/showcase-export/**' \
             ':!docs/components-manifest.json' \
             | awk '{print $4}')
           loc=${loc:-0}
-          echo "loc added: $loc"
+          echo "loc added (excluding generated): $loc"
           if [ "$loc" -gt 2000 ]; then
-            echo "::error::PR too large ($loc lines added). Split into smaller PRs, or apply 'size-cap-override' label if intentional."
+            echo "::error::PR too large ($loc lines added). Split into smaller PRs or apply 'size-cap-override' label."
             exit 1
           fi
           if [ "$loc" -gt 800 ]; then
