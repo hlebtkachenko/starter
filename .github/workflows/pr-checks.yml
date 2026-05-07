@@ -87,6 +87,7 @@ jobs:
 
   size-cap:
     runs-on: [self-hosted, linux, ovh, starter]
+    if: ${{ !contains(github.event.pull_request.labels.*.name, 'size-cap-override') }}
     steps:
       - uses: actions/checkout@v4
         with:
@@ -96,18 +97,24 @@ jobs:
           BASE: ${{ github.base_ref }}
         run: |
           # Counts insertions only (lines added). Deletions are cheap to review;
-          # additions are the real review burden. Excludes generated/binary content.
+          # additions are the real review burden. Excludes generated/binary content
+          # and auto-generated registry artifacts.
           loc=$(git diff --shortstat "origin/$BASE...HEAD" -- \
             ':!pnpm-lock.yaml' \
             ':!db/migrations/meta/**' \
             ':!**/*.svg' \
             ':!**/*.png' \
             ':!**/*.ico' \
+            ':!src/components/__index__.tsx' \
+            ':!src/components/**/examples/**' \
+            ':!src/components/**/_fixtures/**' \
+            ':!docs/showcase-export*' \
+            ':!docs/components-manifest.json' \
             | awk '{print $4}')
           loc=${loc:-0}
           echo "loc added: $loc"
           if [ "$loc" -gt 2000 ]; then
-            echo "::error::PR too large ($loc lines added). Split into smaller PRs."
+            echo "::error::PR too large ($loc lines added). Split into smaller PRs, or apply 'size-cap-override' label if intentional."
             exit 1
           fi
           if [ "$loc" -gt 800 ]; then
