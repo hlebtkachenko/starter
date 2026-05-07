@@ -200,13 +200,11 @@ const eslintConfig = defineConfig([
     plugins: { "local-rules": localRulesPlugin },
     files: ["src/components/**/*.{ts,tsx}", "src/app/**/*.{ts,tsx}"],
     rules: {
-      // Promoted to error: zero hits confirmed on first lint run.
+      // All four rules promoted to error after a clean lint pass.
       "local-rules/no-input-otp-default-value": "error",
       "local-rules/no-inline-hex": "error",
       "local-rules/no-oklch": "error",
-      // Stays warn: 4 existing hits in shadcn copy-pasted primitives
-      // (chart.tsx x2, checkbox.tsx, tooltip.tsx). Fix those files to promote.
-      "local-rules/no-arbitrary-radius": "warn",
+      "local-rules/no-arbitrary-radius": "error",
     },
   },
 ]);

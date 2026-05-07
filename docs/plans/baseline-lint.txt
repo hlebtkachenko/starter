@@ -129,15 +129,5 @@ This API returns functions which cannot be memoized without leading to stale UI.
   47 |     columns: DATA_TABLE_BASIC_COLUMNS,
   48 |     getCoreRowModel: getCoreRowModel(),  react-hooks/incompatible-library
 
-/Users/hleb/Desktop/workspace/conductor/workspaces/starter/gwangju/src/components/ui/chart.tsx
-  202:29  warning  Arbitrary radius "rounded-[2px]" detected. Use rounded-[var(--radius)] or a Tailwind radius scale class  local-rules/no-arbitrary-radius
-  293:29  warning  Arbitrary radius "rounded-[2px]" detected. Use rounded-[var(--radius)] or a Tailwind radius scale class  local-rules/no-arbitrary-radius
-
-/Users/hleb/Desktop/workspace/conductor/workspaces/starter/gwangju/src/components/ui/checkbox.tsx
-  14:9  warning  Arbitrary radius "rounded-[4px]" detected. Use rounded-[var(--radius)] or a Tailwind radius scale class  local-rules/no-arbitrary-radius
-
-/Users/hleb/Desktop/workspace/conductor/workspaces/starter/gwangju/src/components/ui/tooltip.tsx
-  47:43  warning  Arbitrary radius "rounded-[2px]" detected. Use rounded-[var(--radius)] or a Tailwind radius scale class  local-rules/no-arbitrary-radius
-
-✖ 13 problems (0 errors, 13 warnings)
+✖ 9 problems (0 errors, 9 warnings)
 
