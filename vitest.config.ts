@@ -12,10 +12,7 @@ export default defineConfig({
       test: {
         name: "ui",
         environment: "jsdom",
-        include: [
-          "src/components/**/*.test.{ts,tsx}",
-          "src/hooks/**/*.test.{ts,tsx}",
-        ],
+        include: ["src/components/**/*.test.{ts,tsx}", "src/hooks/**/*.test.{ts,tsx}"],
         setupFiles: ["./tests/helpers/setup-ui.ts"],
       },
     },
@@ -34,7 +31,7 @@ export default defineConfig({
     },
   ],
   test: {
-    exclude: ["node_modules/**", "tests/e2e/**"],
+    exclude: ["node_modules/**", "tests/e2e/**", "_junk/**"],
     coverage: {
       provider: "v8",
       reporter: ["text", "html", "json-summary"],
