@@ -1100,7 +1100,7 @@ export default function ChartDefault() {
                   {CHART_HERO_CONFIG[chart].label}
                 </span>
                 <span className="text-lg leading-none font-bold sm:text-3xl">
-                  {total[chart].toLocaleString()}
+                  {total[chart].toLocaleString("en-US")}
                 </span>
               </button>
             );
