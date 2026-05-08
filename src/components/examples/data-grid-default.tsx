@@ -66,7 +66,18 @@ const columns: ColumnDef<Row, unknown>[] = [
 ];
 
 export default function DataGridDefault() {
-  const grid = useDataGrid({ data, columns });
+  const [rows, setRows] = React.useState(data);
+
+  const grid = useDataGrid({
+    data: rows,
+    columns,
+    onDataChange: setRows,
+    onRowAdd: () => {
+      const id = rows.length + 1;
+      setRows((prev) => [...prev, { id, name: "", role: "", department: "", status: "Active" }]);
+      return { rowIndex: rows.length, columnId: "name" };
+    },
+  });
 
   return <DataGrid {...grid} height={320} />;
 }

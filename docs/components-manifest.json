@@ -212,6 +212,7 @@
       "action-bar"
     ],
     "slug": "action-bar",
+    "span": 2,
     "title": "Default",
     "type": "registry:example",
     "upstreamUrl": "https://www.diceui.com/docs/components/radix/action-bar",
@@ -1031,6 +1032,7 @@
       "banner"
     ],
     "slug": "banner",
+    "span": 3,
     "title": "Default",
     "type": "registry:example",
     "upstreamUrl": "https://www.diceui.com/docs/components/radix/banner",
@@ -3831,6 +3833,30 @@
     "categories": [
       "forms"
     ],
+    "description": "Circular crop area with 1:1 aspect ratio, ideal for avatar or profile photo selection.",
+    "files": [
+      {
+        "path": "components/examples/cropper-circular.tsx",
+        "type": "registry:example"
+      }
+    ],
+    "height": "tall",
+    "isFlagged": false,
+    "name": "cropper-circular",
+    "registryDependencies": [
+      "cropper"
+    ],
+    "slug": "cropper",
+    "span": 2,
+    "title": "Circular",
+    "type": "registry:example",
+    "upstreamUrl": "https://www.diceui.com/docs/components/radix/cropper",
+    "variant": "circular"
+  },
+  {
+    "categories": [
+      "forms"
+    ],
     "description": "Default example for Cropper component showing core functionality.",
     "files": [
       {
@@ -3838,6 +3864,7 @@
         "type": "registry:example"
       }
     ],
+    "height": "tall",
     "isDefault": true,
     "isFlagged": false,
     "name": "cropper-default",
@@ -3845,10 +3872,37 @@
       "cropper"
     ],
     "slug": "cropper",
+    "span": 2,
     "title": "Default",
     "type": "registry:example",
     "upstreamUrl": "https://www.diceui.com/docs/components/radix/cropper",
     "variant": "default"
+  },
+  {
+    "categories": [
+      "forms"
+    ],
+    "description": "Cropper with zoom slider, rotation slider, and reset button for precise image adjustments.",
+    "files": [
+      {
+        "path": "components/examples/cropper-with-controls.tsx",
+        "type": "registry:example"
+      }
+    ],
+    "height": "tall",
+    "isFlagged": false,
+    "name": "cropper-with-controls",
+    "registryDependencies": [
+      "cropper",
+      "slider",
+      "button"
+    ],
+    "slug": "cropper",
+    "span": 2,
+    "title": "With Controls",
+    "type": "registry:example",
+    "upstreamUrl": "https://www.diceui.com/docs/components/radix/cropper",
+    "variant": "with-controls"
   },
   {
     "categories": [
@@ -3893,6 +3947,7 @@
         "type": "registry:example"
       }
     ],
+    "height": "tall",
     "isDefault": true,
     "isFlagged": false,
     "name": "data-grid-default",
@@ -3900,6 +3955,7 @@
       "data-grid"
     ],
     "slug": "data-grid",
+    "span": 3,
     "title": "Default",
     "type": "registry:example",
     "upstreamUrl": "https://www.diceui.com/docs/components/radix/data-grid",
@@ -5374,6 +5430,7 @@
       "file-upload"
     ],
     "slug": "file-upload",
+    "span": 2,
     "title": "Default",
     "type": "registry:example",
     "upstreamUrl": "https://www.diceui.com/docs/components/radix/file-upload",
@@ -6628,6 +6685,7 @@
       "key-value"
     ],
     "slug": "key-value",
+    "span": 2,
     "title": "Default",
     "type": "registry:example",
     "upstreamUrl": "https://www.diceui.com/docs/components/radix/key-value",
@@ -7641,6 +7699,7 @@
       "prompt-library"
     ],
     "slug": "prompt-library",
+    "span": 2,
     "title": "Default",
     "type": "registry:example",
     "upstreamUrl": "https://www.cult-ui.com/docs/components/prompt-library",
@@ -9931,6 +9990,7 @@
       "tags-input"
     ],
     "slug": "tags-input",
+    "span": 2,
     "title": "Default",
     "type": "registry:example",
     "upstreamUrl": "https://www.diceui.com/docs/components/radix/tags-input",
@@ -9965,6 +10025,7 @@
         "type": "registry:example"
       }
     ],
+    "height": "tall",
     "isDefault": true,
     "isFlagged": false,
     "name": "terminal-animation-default",
@@ -9972,6 +10033,7 @@
       "terminal-animation"
     ],
     "slug": "terminal-animation",
+    "span": 2,
     "title": "Default",
     "type": "registry:example",
     "upstreamUrl": "https://www.cult-ui.com/docs/components/terminal-animation",
@@ -10163,6 +10225,7 @@
         "type": "registry:example"
       }
     ],
+    "height": "tall",
     "isDefault": true,
     "isFlagged": false,
     "name": "timeline-default",
@@ -10642,6 +10705,7 @@
       "tour"
     ],
     "slug": "tour",
+    "span": 2,
     "title": "Default",
     "type": "registry:example",
     "upstreamUrl": "https://www.diceui.com/docs/components/radix/tour",

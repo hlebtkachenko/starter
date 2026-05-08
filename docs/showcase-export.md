@@ -21,7 +21,7 @@
 | Examples: navigation | [docs/showcase-export/examples-navigation.md](showcase-export/examples-navigation.md) | 21 | 40,532 |
 | Examples: overlays | [docs/showcase-export/examples-overlays.md](showcase-export/examples-overlays.md) | 23 | 40,967 |
 | Examples: utility | [docs/showcase-export/examples-utility.md](showcase-export/examples-utility.md) | 33 | 50,746 |
-| Examples: other | [docs/showcase-export/examples-other.md](showcase-export/examples-other.md) | 26 | 36,862 |
+| Examples: other | [docs/showcase-export/examples-other.md](showcase-export/examples-other.md) | 28 | 41,188 |
 | Blocks | [docs/showcase-export/blocks.md](showcase-export/blocks.md) | 5 | 15,187 |
 
 ## UI Primitives TOC
@@ -112,7 +112,7 @@
 ## Quick counts
 
 - UI primitives: **82**
-- Example variants: **399**
+- Example variants: **401**
 - Example files: **12**
 - Blocks: **5**
-- Total registry items: **486**
+- Total registry items: **488**

@@ -4,6 +4,7 @@
  * @upstream https://www.diceui.com/docs/components/radix/qr-code
  * @deviations ["Token classes replace hardcoded palette."]
  */
+"use client";
 
 import { QRCode, QRCodeCanvas, QRCodeSkeleton } from "@/components/ui/qr-code";
 

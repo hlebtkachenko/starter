@@ -29,7 +29,7 @@ const FRAMEWORKS = [
 export default function AutocompleteDefault() {
   return (
     <div className="w-full max-w-sm">
-      <Autocomplete items={FRAMEWORKS}>
+      <Autocomplete>
         <AutocompleteInput placeholder="Search frameworks..." showClear />
         <AutocompletePopup>
           <AutocompleteList>

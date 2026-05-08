@@ -342,9 +342,15 @@ export const items = defineItems([
     variant: "default",
     isDefault: true,
     isFlagged: false,
+    span: 2,
     upstreamUrl: "https://www.diceui.com/docs/components/radix/action-bar",
     registryDependencies: ["action-bar"],
-    files: [{ path: "components/examples/action-bar-default.tsx", type: "registry:example" }],
+    files: [
+      {
+        path: "components/examples/action-bar-default.tsx",
+        type: "registry:example",
+      },
+    ],
     categories: ["actions"],
   },
   {
@@ -356,9 +362,15 @@ export const items = defineItems([
     variant: "default",
     isDefault: true,
     isFlagged: false,
+    span: 3,
     upstreamUrl: "https://www.diceui.com/docs/components/radix/banner",
     registryDependencies: ["banner"],
-    files: [{ path: "components/examples/banner-default.tsx", type: "registry:example" }],
+    files: [
+      {
+        path: "components/examples/banner-default.tsx",
+        type: "registry:example",
+      },
+    ],
     categories: ["feedback"],
   },
   {
@@ -373,7 +385,10 @@ export const items = defineItems([
     upstreamUrl: "https://www.cult-ui.com/docs/components/border-beam-button",
     registryDependencies: ["border-beam-button"],
     files: [
-      { path: "components/examples/border-beam-button-default.tsx", type: "registry:example" },
+      {
+        path: "components/examples/border-beam-button-default.tsx",
+        type: "registry:example",
+      },
     ],
     categories: ["buttons"],
   },
@@ -389,7 +404,10 @@ export const items = defineItems([
     upstreamUrl: "https://www.diceui.com/docs/components/radix/circular-progress",
     registryDependencies: ["circular-progress"],
     files: [
-      { path: "components/examples/circular-progress-default.tsx", type: "registry:example" },
+      {
+        path: "components/examples/circular-progress-default.tsx",
+        type: "registry:example",
+      },
     ],
     categories: ["feedback"],
   },
@@ -404,7 +422,12 @@ export const items = defineItems([
     isFlagged: false,
     upstreamUrl: "https://www.diceui.com/docs/components/radix/color-picker",
     registryDependencies: ["color-picker"],
-    files: [{ path: "components/examples/color-picker-default.tsx", type: "registry:example" }],
+    files: [
+      {
+        path: "components/examples/color-picker-default.tsx",
+        type: "registry:example",
+      },
+    ],
     categories: ["forms"],
   },
   {
@@ -418,7 +441,12 @@ export const items = defineItems([
     isFlagged: false,
     upstreamUrl: "https://www.diceui.com/docs/components/radix/color-swatch",
     registryDependencies: ["color-swatch"],
-    files: [{ path: "components/examples/color-swatch-default.tsx", type: "registry:example" }],
+    files: [
+      {
+        path: "components/examples/color-swatch-default.tsx",
+        type: "registry:example",
+      },
+    ],
     categories: ["display"],
   },
   {
@@ -430,9 +458,58 @@ export const items = defineItems([
     variant: "default",
     isDefault: true,
     isFlagged: false,
+    span: 2,
+    height: "tall",
     upstreamUrl: "https://www.diceui.com/docs/components/radix/cropper",
     registryDependencies: ["cropper"],
-    files: [{ path: "components/examples/cropper-default.tsx", type: "registry:example" }],
+    files: [
+      {
+        path: "components/examples/cropper-default.tsx",
+        type: "registry:example",
+      },
+    ],
+    categories: ["forms"],
+  },
+  {
+    name: "cropper-circular",
+    type: "registry:example",
+    title: "Circular",
+    description:
+      "Circular crop area with 1:1 aspect ratio, ideal for avatar or profile photo selection.",
+    slug: "cropper",
+    variant: "circular",
+    isFlagged: false,
+    span: 2,
+    height: "tall",
+    upstreamUrl: "https://www.diceui.com/docs/components/radix/cropper",
+    registryDependencies: ["cropper"],
+    files: [
+      {
+        path: "components/examples/cropper-circular.tsx",
+        type: "registry:example",
+      },
+    ],
+    categories: ["forms"],
+  },
+  {
+    name: "cropper-with-controls",
+    type: "registry:example",
+    title: "With Controls",
+    description:
+      "Cropper with zoom slider, rotation slider, and reset button for precise image adjustments.",
+    slug: "cropper",
+    variant: "with-controls",
+    isFlagged: false,
+    span: 2,
+    height: "tall",
+    upstreamUrl: "https://www.diceui.com/docs/components/radix/cropper",
+    registryDependencies: ["cropper", "slider", "button"],
+    files: [
+      {
+        path: "components/examples/cropper-with-controls.tsx",
+        type: "registry:example",
+      },
+    ],
     categories: ["forms"],
   },
   {
@@ -444,9 +521,16 @@ export const items = defineItems([
     variant: "default",
     isDefault: true,
     isFlagged: false,
+    span: 3,
+    height: "tall",
     upstreamUrl: "https://www.diceui.com/docs/components/radix/data-grid",
     registryDependencies: ["data-grid"],
-    files: [{ path: "components/examples/data-grid-default.tsx", type: "registry:example" }],
+    files: [
+      {
+        path: "components/examples/data-grid-default.tsx",
+        type: "registry:example",
+      },
+    ],
     categories: ["data"],
   },
   {
@@ -458,9 +542,15 @@ export const items = defineItems([
     variant: "default",
     isDefault: true,
     isFlagged: false,
+    span: 2,
     upstreamUrl: "https://www.diceui.com/docs/components/radix/file-upload",
     registryDependencies: ["file-upload"],
-    files: [{ path: "components/examples/file-upload-default.tsx", type: "registry:example" }],
+    files: [
+      {
+        path: "components/examples/file-upload-default.tsx",
+        type: "registry:example",
+      },
+    ],
     categories: ["forms"],
   },
   {
@@ -474,7 +564,12 @@ export const items = defineItems([
     isFlagged: false,
     upstreamUrl: "https://www.diceui.com/docs/components/radix/gauge",
     registryDependencies: ["gauge"],
-    files: [{ path: "components/examples/gauge-default.tsx", type: "registry:example" }],
+    files: [
+      {
+        path: "components/examples/gauge-default.tsx",
+        type: "registry:example",
+      },
+    ],
     categories: ["display"],
   },
   {
@@ -486,9 +581,15 @@ export const items = defineItems([
     variant: "default",
     isDefault: true,
     isFlagged: false,
+    span: 2,
     upstreamUrl: "https://www.diceui.com/docs/components/radix/key-value",
     registryDependencies: ["key-value"],
-    files: [{ path: "components/examples/key-value-default.tsx", type: "registry:example" }],
+    files: [
+      {
+        path: "components/examples/key-value-default.tsx",
+        type: "registry:example",
+      },
+    ],
     categories: ["display"],
   },
   {
@@ -502,7 +603,12 @@ export const items = defineItems([
     isFlagged: false,
     upstreamUrl: "https://www.diceui.com/docs/components/radix/mention",
     registryDependencies: ["mention"],
-    files: [{ path: "components/examples/mention-default.tsx", type: "registry:example" }],
+    files: [
+      {
+        path: "components/examples/mention-default.tsx",
+        type: "registry:example",
+      },
+    ],
     categories: ["forms"],
   },
   {
@@ -516,7 +622,12 @@ export const items = defineItems([
     isFlagged: false,
     upstreamUrl: "https://www.diceui.com/docs/components/radix/phone-input",
     registryDependencies: ["phone-input"],
-    files: [{ path: "components/examples/phone-input-default.tsx", type: "registry:example" }],
+    files: [
+      {
+        path: "components/examples/phone-input-default.tsx",
+        type: "registry:example",
+      },
+    ],
     categories: ["forms"],
   },
   {
@@ -528,9 +639,15 @@ export const items = defineItems([
     variant: "default",
     isDefault: true,
     isFlagged: false,
+    span: 2,
     upstreamUrl: "https://www.cult-ui.com/docs/components/prompt-library",
     registryDependencies: ["prompt-library"],
-    files: [{ path: "components/examples/prompt-library-default.tsx", type: "registry:example" }],
+    files: [
+      {
+        path: "components/examples/prompt-library-default.tsx",
+        type: "registry:example",
+      },
+    ],
     categories: ["overlay"],
   },
   {
@@ -544,7 +661,12 @@ export const items = defineItems([
     isFlagged: false,
     upstreamUrl: "https://www.diceui.com/docs/components/radix/qr-code",
     registryDependencies: ["qr-code"],
-    files: [{ path: "components/examples/qr-code-default.tsx", type: "registry:example" }],
+    files: [
+      {
+        path: "components/examples/qr-code-default.tsx",
+        type: "registry:example",
+      },
+    ],
     categories: ["display"],
   },
   {
@@ -558,7 +680,12 @@ export const items = defineItems([
     isFlagged: false,
     upstreamUrl: "https://www.diceui.com/docs/components/radix/segmented-input",
     registryDependencies: ["segmented-input"],
-    files: [{ path: "components/examples/segmented-input-default.tsx", type: "registry:example" }],
+    files: [
+      {
+        path: "components/examples/segmented-input-default.tsx",
+        type: "registry:example",
+      },
+    ],
     categories: ["forms"],
   },
   {
@@ -572,7 +699,12 @@ export const items = defineItems([
     isFlagged: false,
     upstreamUrl: "https://www.diceui.com/docs/components/radix/swap",
     registryDependencies: ["swap"],
-    files: [{ path: "components/examples/swap-default.tsx", type: "registry:example" }],
+    files: [
+      {
+        path: "components/examples/swap-default.tsx",
+        type: "registry:example",
+      },
+    ],
     categories: ["actions"],
   },
   {
@@ -584,9 +716,15 @@ export const items = defineItems([
     variant: "default",
     isDefault: true,
     isFlagged: false,
+    span: 2,
     upstreamUrl: "https://www.diceui.com/docs/components/radix/tags-input",
     registryDependencies: ["tags-input"],
-    files: [{ path: "components/examples/tags-input-default.tsx", type: "registry:example" }],
+    files: [
+      {
+        path: "components/examples/tags-input-default.tsx",
+        type: "registry:example",
+      },
+    ],
     categories: ["forms"],
   },
   {
@@ -598,10 +736,15 @@ export const items = defineItems([
     variant: "default",
     isDefault: true,
     isFlagged: false,
+    span: 2,
+    height: "tall",
     upstreamUrl: "https://www.cult-ui.com/docs/components/terminal-animation",
     registryDependencies: ["terminal-animation"],
     files: [
-      { path: "components/examples/terminal-animation-default.tsx", type: "registry:example" },
+      {
+        path: "components/examples/terminal-animation-default.tsx",
+        type: "registry:example",
+      },
     ],
     categories: ["effects"],
   },
@@ -614,9 +757,15 @@ export const items = defineItems([
     variant: "default",
     isDefault: true,
     isFlagged: false,
+    height: "tall",
     upstreamUrl: "https://www.diceui.com/docs/components/radix/timeline",
     registryDependencies: ["timeline"],
-    files: [{ path: "components/examples/timeline-default.tsx", type: "registry:example" }],
+    files: [
+      {
+        path: "components/examples/timeline-default.tsx",
+        type: "registry:example",
+      },
+    ],
     categories: ["display"],
   },
   {
@@ -628,9 +777,15 @@ export const items = defineItems([
     variant: "default",
     isDefault: true,
     isFlagged: false,
+    span: 2,
     upstreamUrl: "https://www.diceui.com/docs/components/radix/tour",
     registryDependencies: ["tour"],
-    files: [{ path: "components/examples/tour-default.tsx", type: "registry:example" }],
+    files: [
+      {
+        path: "components/examples/tour-default.tsx",
+        type: "registry:example",
+      },
+    ],
     categories: ["overlay"],
   },
 ]);
