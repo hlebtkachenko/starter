@@ -1,0 +1,58 @@
+"use client";
+
+import { useState } from "react";
+import { useEffectWithTarget } from "@/hooks/use-effect-with-target";
+import { getTargetElement } from "@/lib/create-effect-with-target";
+import type { BasicTarget } from "@/lib/create-effect-with-target";
+
+type CallbackType = (entry: IntersectionObserverEntry) => void;
+
+export interface UseInViewportOptions {
+  rootMargin?: string;
+  threshold?: number | number[];
+  root?: BasicTarget<Element>;
+  callback?: CallbackType;
+}
+
+export function useInViewport(target: BasicTarget | BasicTarget[], options?: UseInViewportOptions) {
+  const { callback, root: rootTarget, ...option } = options || {};
+
+  const [state, setState] = useState<boolean>();
+  const [ratio, setRatio] = useState<number>();
+
+  useEffectWithTarget(
+    () => {
+      const targets = Array.isArray(target) ? target : [target];
+      const els = targets.map((element) => getTargetElement(element)).filter(Boolean);
+
+      if (!els.length) {
+        return;
+      }
+
+      const rootEl = getTargetElement(rootTarget);
+      const observer = new IntersectionObserver(
+        (entries) => {
+          for (const entry of entries) {
+            setRatio(entry.intersectionRatio);
+            setState(entry.isIntersecting);
+            callback?.(entry);
+          }
+        },
+        {
+          ...option,
+          ...(rootEl !== undefined ? { root: rootEl } : {}),
+        },
+      );
+
+      els.forEach((el) => observer.observe(el!));
+
+      return () => {
+        observer.disconnect();
+      };
+    },
+    [options?.rootMargin, options?.threshold, callback],
+    target,
+  );
+
+  return [state, ratio] as const;
+}
