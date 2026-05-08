@@ -1560,3 +1560,205 @@ export default function ToggleGroupCustom() {
   );
 }
 ```
+## Review actions split button
+
+**Slug:** `button-group`
+**Variant:** `reui-review-actions`
+**Upstream:** https://reui.io/components
+**Description:** Split button group with approve action and dropdown for conditional approval and rejection.
+**Depends on:** button, button-group, dropdown-menu
+
+```tsx
+import { Button } from "@/components/ui/button";
+import { ButtonGroup, ButtonGroupSeparator } from "@/components/ui/button-group";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuGroup,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import {
+  CheckIcon,
+  ChevronDownIcon,
+  CheckCircleIcon,
+  MessageSquareIcon,
+  XIcon,
+} from "lucide-react";
+
+const icons = {
+  check: <CheckIcon aria-hidden="true" />,
+  chevronDown: <ChevronDownIcon aria-hidden="true" />,
+  checkCircle: <CheckCircleIcon aria-hidden="true" />,
+  messageSquare: <MessageSquareIcon aria-hidden="true" />,
+  x: <XIcon aria-hidden="true" />,
+};
+
+export default function ReviewActionsSplitButton() {
+  return (
+    <ButtonGroup className="**:data-[slot=button]:border-x-0">
+      <Button variant="default">
+        {icons.check}
+        Approve
+      </Button>
+      <ButtonGroupSeparator className="bg-primary-foreground/20" />
+      <DropdownMenu>
+        <DropdownMenuTrigger asChild>
+          <Button variant="default" size="icon" aria-label="More approval options">
+            {icons.chevronDown}
+          </Button>
+        </DropdownMenuTrigger>
+        <DropdownMenuContent align="end" className="w-52">
+          <DropdownMenuGroup>
+            <DropdownMenuItem>
+              {icons.checkCircle}
+              Approve with Conditions
+            </DropdownMenuItem>
+            <DropdownMenuItem>
+              {icons.messageSquare}
+              Request Changes
+            </DropdownMenuItem>
+            <DropdownMenuItem variant="destructive">
+              {icons.x}
+              Reject
+            </DropdownMenuItem>
+          </DropdownMenuGroup>
+        </DropdownMenuContent>
+      </DropdownMenu>
+    </ButtonGroup>
+  );
+}
+```
+## Publish controls with split button
+
+**Slug:** `button-group`
+**Variant:** `reui-publish-controls`
+**Upstream:** https://reui.io/components
+**Description:** Toolbar with avatar group, preview button, split publish dropdown, and overflow menu.
+**Depends on:** avatar, button, button-group, dropdown-menu, separator
+
+```tsx
+import { Avatar, AvatarFallback, AvatarGroup, AvatarImage } from "@/components/ui/avatar";
+import { Button } from "@/components/ui/button";
+import { ButtonGroup, ButtonGroupSeparator } from "@/components/ui/button-group";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuGroup,
+  DropdownMenuItem,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import { Separator } from "@/components/ui/separator";
+import {
+  EyeIcon,
+  SendIcon,
+  ChevronDownIcon,
+  CalendarIcon,
+  FileIcon,
+  MoreHorizontalIcon,
+  CopyIcon,
+  HistoryIcon,
+  ArchiveIcon,
+  TrashIcon,
+} from "lucide-react";
+
+const viewers = [
+  {
+    src: "https://images.unsplash.com/photo-1519699047748-de8e457a634e?w=96&h=96&dpr=2&q=80",
+    initials: "SC",
+    name: "Sarah Chen",
+  },
+  {
+    src: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=96&h=96&dpr=2&q=80",
+    initials: "AJ",
+    name: "Alex Johnson",
+  },
+];
+
+export default function PublishControlsSplitButton() {
+  return (
+    <div className="flex shrink-0 items-center gap-2">
+      <AvatarGroup>
+        {viewers.map((viewer) => (
+          <Avatar key={viewer.name} size="sm">
+            <AvatarImage src={viewer.src} alt={viewer.name} />
+            <AvatarFallback>{viewer.initials}</AvatarFallback>
+          </Avatar>
+        ))}
+      </AvatarGroup>
+
+      <Separator orientation="vertical" className="my-auto h-4" />
+
+      <Button variant="outline" size="sm">
+        <EyeIcon aria-hidden="true" />
+        <span className="hidden md:block">Preview</span>
+      </Button>
+
+      <ButtonGroup className="**:data-[slot=button]:border-r-0">
+        <Button size="sm">
+          <SendIcon aria-hidden="true" />
+          Publish
+        </Button>
+
+        <ButtonGroupSeparator className="bg-primary/72" />
+
+        <DropdownMenu>
+          <DropdownMenuTrigger asChild>
+            <Button
+              size="icon-sm"
+              className="border-primary-foreground/20 rounded-l-none border-l"
+              aria-label="More publish options"
+            >
+              <ChevronDownIcon aria-hidden="true" />
+            </Button>
+          </DropdownMenuTrigger>
+
+          <DropdownMenuContent sideOffset={8} align="end" className="w-48">
+            <DropdownMenuGroup>
+              <DropdownMenuItem>
+                <CalendarIcon className="size-4 opacity-60" aria-hidden="true" />
+                Schedule for later
+              </DropdownMenuItem>
+              <DropdownMenuItem>
+                <FileIcon className="size-4 opacity-60" aria-hidden="true" />
+                Save as draft
+              </DropdownMenuItem>
+            </DropdownMenuGroup>
+          </DropdownMenuContent>
+        </DropdownMenu>
+      </ButtonGroup>
+
+      <DropdownMenu>
+        <DropdownMenuTrigger asChild>
+          <Button variant="ghost" size="icon-sm" aria-label="More actions">
+            <MoreHorizontalIcon aria-hidden="true" />
+          </Button>
+        </DropdownMenuTrigger>
+
+        <DropdownMenuContent sideOffset={8} align="end" className="w-40">
+          <DropdownMenuGroup>
+            <DropdownMenuItem>
+              <CopyIcon className="size-4 opacity-60" aria-hidden="true" />
+              Duplicate
+            </DropdownMenuItem>
+            <DropdownMenuItem>
+              <HistoryIcon className="size-4 opacity-60" aria-hidden="true" />
+              View history
+            </DropdownMenuItem>
+            <DropdownMenuItem>
+              <ArchiveIcon className="size-4 opacity-60" aria-hidden="true" />
+              Archive
+            </DropdownMenuItem>
+            <DropdownMenuSeparator />
+            <DropdownMenuItem variant="destructive">
+              <TrashIcon aria-hidden="true" />
+              Delete
+            </DropdownMenuItem>
+          </DropdownMenuGroup>
+        </DropdownMenuContent>
+      </DropdownMenu>
+    </div>
+  );
+}
+```

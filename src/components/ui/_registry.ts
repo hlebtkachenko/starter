@@ -1138,4 +1138,15 @@ export const items = defineItems([
     categories: ["effects"],
     proposedGroup: "effects",
   },
+  {
+    name: "reui-badge",
+    type: "registry:ui",
+    title: "ReUI Badge",
+    description:
+      "Enhanced badge with 20+ semantic variants (success, warning, info, destructive, light, outline), sizes, and radius.",
+    files: [{ path: "components/ui/reui-badge.tsx", type: "registry:ui" }],
+    upstreamUrl: "https://reui.io/components",
+    categories: ["display"],
+    proposedGroup: "display",
+  },
 ]);

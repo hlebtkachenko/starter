@@ -23,7 +23,14 @@ Each entry includes slug, variant, upstream URL, deviations, and JSX source.
 import { Mail, MapPin, Phone, User } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
-import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList } from "@/components/ui/command";
+import {
+  Command,
+  CommandEmpty,
+  CommandGroup,
+  CommandInput,
+  CommandItem,
+  CommandList,
+} from "@/components/ui/command";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 
 export default function CommandPopoverDefault() {
@@ -71,6 +78,208 @@ export default function CommandPopoverDefault() {
         </Command>
       </PopoverContent>
     </Popover>
+  );
+}
+```
+## Action palette with keyboard shortcuts
+
+**Slug:** `command`
+**Variant:** `reui-action-palette`
+**Upstream:** https://reui.io/components
+**Description:** Command dialog with grouped actions (Create, Navigate, System) and keyboard shortcut indicators.
+**Depends on:** button, command
+
+```tsx
+"use client";
+
+import { useState } from "react";
+
+import { Button } from "@/components/ui/button";
+import {
+  Command,
+  CommandDialog,
+  CommandEmpty,
+  CommandGroup,
+  CommandInput,
+  CommandItem,
+  CommandList,
+  CommandSeparator,
+  CommandShortcut,
+} from "@/components/ui/command";
+import {
+  PlusIcon,
+  FileTextIcon,
+  UserPlusIcon,
+  HomeIcon,
+  InboxIcon,
+  MoonIcon,
+  LogOutIcon,
+} from "lucide-react";
+
+export default function CommandActionPalette() {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <>
+      <Button onClick={() => setOpen(true)} variant="outline">
+        Quick Actions
+      </Button>
+      <CommandDialog open={open} onOpenChange={setOpen}>
+        <Command className="**:data-[selected=true]:bg-muted **:data-selected:bg-transparent">
+          <CommandInput placeholder="What do you need?" />
+          <CommandList>
+            <CommandEmpty>No actions found.</CommandEmpty>
+            <CommandGroup heading="Create">
+              <CommandItem>
+                <PlusIcon />
+                <span>New Project</span>
+                <CommandShortcut>&#8984;N</CommandShortcut>
+              </CommandItem>
+              <CommandItem>
+                <FileTextIcon />
+                <span>New Document</span>
+                <CommandShortcut>&#8984;&#8679;N</CommandShortcut>
+              </CommandItem>
+              <CommandItem>
+                <UserPlusIcon />
+                <span>Invite Member</span>
+                <CommandShortcut>&#8984;I</CommandShortcut>
+              </CommandItem>
+            </CommandGroup>
+            <CommandSeparator />
+            <CommandGroup heading="Navigate">
+              <CommandItem>
+                <HomeIcon />
+                <span>Go to Dashboard</span>
+                <CommandShortcut>&#8984;D</CommandShortcut>
+              </CommandItem>
+              <CommandItem>
+                <InboxIcon />
+                <span>Go to Inbox</span>
+                <CommandShortcut>&#8984;&#8679;I</CommandShortcut>
+              </CommandItem>
+            </CommandGroup>
+            <CommandSeparator />
+            <CommandGroup heading="System">
+              <CommandItem>
+                <MoonIcon />
+                <span>Toggle Dark Mode</span>
+                <CommandShortcut>&#8984;&#8679;D</CommandShortcut>
+              </CommandItem>
+              <CommandItem>
+                <LogOutIcon />
+                <span>Sign Out</span>
+                <CommandShortcut>&#8984;Q</CommandShortcut>
+              </CommandItem>
+            </CommandGroup>
+          </CommandList>
+        </Command>
+      </CommandDialog>
+    </>
+  );
+}
+```
+## Command with recent and favorites
+
+**Slug:** `command`
+**Variant:** `reui-recent-favorites`
+**Upstream:** https://reui.io/components
+**Description:** Search dialog with starred favorites, timestamped recent pages, and quick links for navigation.
+**Depends on:** button, command
+
+```tsx
+"use client";
+
+import { useState } from "react";
+
+import { Button } from "@/components/ui/button";
+import {
+  Command,
+  CommandDialog,
+  CommandEmpty,
+  CommandGroup,
+  CommandInput,
+  CommandItem,
+  CommandList,
+  CommandSeparator,
+} from "@/components/ui/command";
+import { StarIcon, ClockIcon, BookOpenIcon, LifeBuoyIcon, MessageSquareIcon } from "lucide-react";
+
+export default function CommandRecentFavorites() {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <>
+      <Button onClick={() => setOpen(true)} variant="outline">
+        Search Everything
+      </Button>
+      <CommandDialog open={open} onOpenChange={setOpen}>
+        <Command className="**:data-[selected=true]:bg-muted **:data-selected:bg-transparent">
+          <CommandInput placeholder="Search or jump to..." />
+          <CommandList>
+            <CommandEmpty>No results found.</CommandEmpty>
+            <CommandGroup heading="Favorites">
+              <CommandItem>
+                <StarIcon className="text-yellow-500" />
+                <span>Design System</span>
+              </CommandItem>
+              <CommandItem>
+                <StarIcon className="text-yellow-500" />
+                <span>API Documentation</span>
+              </CommandItem>
+            </CommandGroup>
+            <CommandSeparator />
+            <CommandGroup heading="Recent">
+              <CommandItem>
+                <ClockIcon className="text-muted-foreground" />
+                <span>Dashboard Analytics</span>
+                <div className="ml-auto" data-slot="command-shortcut">
+                  <span>2m ago</span>
+                </div>
+              </CommandItem>
+              <CommandItem>
+                <ClockIcon className="text-muted-foreground" />
+                <span>User Settings</span>
+                <div className="ml-auto" data-slot="command-shortcut">
+                  <span>15m ago</span>
+                </div>
+              </CommandItem>
+              <CommandItem>
+                <ClockIcon className="text-muted-foreground" />
+                <div className="flex flex-1 items-center justify-between">
+                  <span>Team Members</span>
+                  <div className="ml-auto" data-slot="command-shortcut">
+                    <span>1h ago</span>
+                  </div>
+                </div>
+              </CommandItem>
+              <CommandItem>
+                <ClockIcon className="text-muted-foreground" />
+                <span>Billing &amp; Plans</span>
+                <div className="ml-auto" data-slot="command-shortcut">
+                  <span>2h ago</span>
+                </div>
+              </CommandItem>
+            </CommandGroup>
+            <CommandSeparator />
+            <CommandGroup heading="Quick Links">
+              <CommandItem>
+                <BookOpenIcon />
+                <span>Documentation</span>
+              </CommandItem>
+              <CommandItem>
+                <LifeBuoyIcon />
+                <span>Help &amp; Support</span>
+              </CommandItem>
+              <CommandItem>
+                <MessageSquareIcon />
+                <span>Contact Us</span>
+              </CommandItem>
+            </CommandGroup>
+          </CommandList>
+        </Command>
+      </CommandDialog>
+    </>
   );
 }
 ```

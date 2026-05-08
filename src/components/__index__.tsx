@@ -2233,6 +2233,26 @@ export const Index: Record<string, RegistryIndexEntry> = {
   },
     Component: undefined,
   },
+  "reui-badge": {
+    meta: {
+    "name": "reui-badge",
+    "type": "registry:ui",
+    "title": "ReUI Badge",
+    "description": "Enhanced badge with 20+ semantic variants (success, warning, info, destructive, light, outline), sizes, and radius.",
+    "files": [
+      {
+        "path": "components/ui/reui-badge.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "upstreamUrl": "https://reui.io/components",
+    "categories": [
+      "display"
+    ],
+    "proposedGroup": "display"
+  },
+    Component: undefined,
+  },
   "button-size": {
     meta: {
     "name": "button-size",
@@ -6989,6 +7009,512 @@ export const Index: Record<string, RegistryIndexEntry> = {
     ]
   },
     Component: React.lazy(() => import("@/components/examples/breadcrumb-select")),
+  },
+  "c-button-39": {
+    meta: {
+    "name": "c-button-39",
+    "type": "registry:example",
+    "title": "Button with unread badge",
+    "description": "Outline button with mail icon and destructive badge showing unread count, from ReUI registry.",
+    "slug": "reui-badge",
+    "variant": "button-unread",
+    "isDefault": true,
+    "isFlagged": false,
+    "span": 1,
+    "upstreamUrl": "https://reui.io/components",
+    "registryDependencies": [
+      "button",
+      "reui-badge"
+    ],
+    "files": [
+      {
+        "path": "components/examples/c-button-39.tsx",
+        "type": "registry:example"
+      }
+    ],
+    "categories": [
+      "actions"
+    ]
+  },
+    Component: React.lazy(() => import("@/components/examples/c-button-39")),
+  },
+  "c-button-48": {
+    meta: {
+    "name": "c-button-48",
+    "type": "registry:example",
+    "title": "Icon button with notification badge",
+    "description": "Square icon button with bell icon and compact destructive notification badge, from ReUI registry.",
+    "slug": "reui-badge",
+    "variant": "icon-notification",
+    "isFlagged": false,
+    "span": 1,
+    "upstreamUrl": "https://reui.io/components",
+    "registryDependencies": [
+      "button",
+      "reui-badge"
+    ],
+    "files": [
+      {
+        "path": "components/examples/c-button-48.tsx",
+        "type": "registry:example"
+      }
+    ],
+    "categories": [
+      "actions"
+    ]
+  },
+    Component: React.lazy(() => import("@/components/examples/c-button-48")),
+  },
+  "c-button-group-47": {
+    meta: {
+    "name": "c-button-group-47",
+    "type": "registry:example",
+    "title": "Review actions split button",
+    "description": "Split button group with approve action and dropdown for conditional approval and rejection.",
+    "slug": "button-group",
+    "variant": "reui-review-actions",
+    "isFlagged": false,
+    "span": 1,
+    "upstreamUrl": "https://reui.io/components",
+    "registryDependencies": [
+      "button",
+      "button-group",
+      "dropdown-menu"
+    ],
+    "files": [
+      {
+        "path": "components/examples/c-button-group-47.tsx",
+        "type": "registry:example"
+      }
+    ],
+    "categories": [
+      "actions"
+    ]
+  },
+    Component: React.lazy(() => import("@/components/examples/c-button-group-47")),
+  },
+  "c-button-group-53": {
+    meta: {
+    "name": "c-button-group-53",
+    "type": "registry:example",
+    "title": "Publish controls with split button",
+    "description": "Toolbar with avatar group, preview button, split publish dropdown, and overflow menu.",
+    "slug": "button-group",
+    "variant": "reui-publish-controls",
+    "isFlagged": false,
+    "span": 2,
+    "upstreamUrl": "https://reui.io/components",
+    "registryDependencies": [
+      "avatar",
+      "button",
+      "button-group",
+      "dropdown-menu",
+      "separator"
+    ],
+    "files": [
+      {
+        "path": "components/examples/c-button-group-53.tsx",
+        "type": "registry:example"
+      }
+    ],
+    "categories": [
+      "actions"
+    ]
+  },
+    Component: React.lazy(() => import("@/components/examples/c-button-group-53")),
+  },
+  "c-calendar-4": {
+    meta: {
+    "name": "c-calendar-4",
+    "type": "registry:example",
+    "title": "Multiple day selection",
+    "description": "Calendar demonstrating multi-day selection mode with pre-selected dates, from ReUI registry.",
+    "slug": "calendar",
+    "variant": "reui-multiple",
+    "isFlagged": false,
+    "span": 1,
+    "upstreamUrl": "https://reui.io/components",
+    "registryDependencies": [
+      "calendar",
+      "card"
+    ],
+    "files": [
+      {
+        "path": "components/examples/c-calendar-4.tsx",
+        "type": "registry:example"
+      }
+    ],
+    "categories": [
+      "forms"
+    ]
+  },
+    Component: React.lazy(() => import("@/components/examples/c-calendar-4")),
+  },
+  "c-calendar-10": {
+    meta: {
+    "name": "c-calendar-10",
+    "type": "registry:example",
+    "title": "Calendar with week numbers",
+    "description": "Calendar displaying ISO week numbers alongside each row using custom WeekNumber component.",
+    "slug": "calendar",
+    "variant": "reui-week-numbers",
+    "isFlagged": false,
+    "span": 1,
+    "upstreamUrl": "https://reui.io/components",
+    "registryDependencies": [
+      "calendar",
+      "card"
+    ],
+    "files": [
+      {
+        "path": "components/examples/c-calendar-10.tsx",
+        "type": "registry:example"
+      }
+    ],
+    "categories": [
+      "forms"
+    ]
+  },
+    Component: React.lazy(() => import("@/components/examples/c-calendar-10")),
+  },
+  "c-calendar-17": {
+    meta: {
+    "name": "c-calendar-17",
+    "type": "registry:example",
+    "title": "Calendar with pricing",
+    "description": "Calendar with per-day dynamic pricing using custom DayButton, prices under $100 highlighted green.",
+    "slug": "calendar",
+    "variant": "reui-pricing",
+    "isFlagged": false,
+    "span": 1,
+    "upstreamUrl": "https://reui.io/components",
+    "registryDependencies": [
+      "calendar"
+    ],
+    "files": [
+      {
+        "path": "components/examples/c-calendar-17.tsx",
+        "type": "registry:example"
+      }
+    ],
+    "categories": [
+      "forms"
+    ]
+  },
+    Component: React.lazy(() => import("@/components/examples/c-calendar-17")),
+  },
+  "c-calendar-28": {
+    meta: {
+    "name": "c-calendar-28",
+    "type": "registry:example",
+    "title": "Date picker with presets",
+    "description": "Popover date picker with sidebar preset buttons (Today, Yesterday, Last week, etc.) and calendar.",
+    "slug": "calendar",
+    "variant": "reui-date-picker-presets",
+    "isFlagged": false,
+    "span": 2,
+    "upstreamUrl": "https://reui.io/components",
+    "registryDependencies": [
+      "button",
+      "calendar",
+      "card",
+      "popover"
+    ],
+    "files": [
+      {
+        "path": "components/examples/c-calendar-28.tsx",
+        "type": "registry:example"
+      }
+    ],
+    "categories": [
+      "forms"
+    ]
+  },
+    Component: React.lazy(() => import("@/components/examples/c-calendar-28")),
+  },
+  "c-calendar-29": {
+    meta: {
+    "name": "c-calendar-29",
+    "type": "registry:example",
+    "title": "Range date picker with presets",
+    "description": "Popover date range picker with 8 preset ranges and dual-mode calendar selection.",
+    "slug": "calendar",
+    "variant": "reui-range-presets",
+    "isFlagged": false,
+    "span": 2,
+    "upstreamUrl": "https://reui.io/components",
+    "registryDependencies": [
+      "button",
+      "calendar",
+      "card",
+      "popover"
+    ],
+    "files": [
+      {
+        "path": "components/examples/c-calendar-29.tsx",
+        "type": "registry:example"
+      }
+    ],
+    "categories": [
+      "forms"
+    ]
+  },
+    Component: React.lazy(() => import("@/components/examples/c-calendar-29")),
+  },
+  "c-card-5": {
+    meta: {
+    "name": "c-card-5",
+    "type": "registry:example",
+    "title": "Card with link",
+    "description": "Compact help card with title, descriptive text, and link button with external link icon.",
+    "slug": "card",
+    "variant": "reui-with-link",
+    "isFlagged": false,
+    "span": 1,
+    "upstreamUrl": "https://reui.io/components",
+    "registryDependencies": [
+      "button",
+      "card"
+    ],
+    "files": [
+      {
+        "path": "components/examples/c-card-5.tsx",
+        "type": "registry:example"
+      }
+    ],
+    "categories": [
+      "display"
+    ]
+  },
+    Component: React.lazy(() => import("@/components/examples/c-card-5")),
+  },
+  "c-card-13": {
+    meta: {
+    "name": "c-card-13",
+    "type": "registry:example",
+    "title": "Expandable billing usage card",
+    "description": "Billing card with credit usage progress bar, collapsible line items, and gradient fade toggle.",
+    "slug": "card",
+    "variant": "reui-expandable-billing",
+    "isFlagged": false,
+    "span": 2,
+    "height": "tall",
+    "upstreamUrl": "https://reui.io/components",
+    "registryDependencies": [
+      "button",
+      "card",
+      "progress"
+    ],
+    "files": [
+      {
+        "path": "components/examples/c-card-13.tsx",
+        "type": "registry:example"
+      }
+    ],
+    "categories": [
+      "display"
+    ]
+  },
+    Component: React.lazy(() => import("@/components/examples/c-card-13")),
+  },
+  "c-card-15": {
+    meta: {
+    "name": "c-card-15",
+    "type": "registry:example",
+    "title": "Stat card with trend and overflow menu",
+    "description": "Revenue stat card with trend badge, delta percentage, comparison, and dropdown settings menu.",
+    "slug": "card",
+    "variant": "reui-stat-trend",
+    "isFlagged": false,
+    "span": 1,
+    "upstreamUrl": "https://reui.io/components",
+    "registryDependencies": [
+      "reui-badge",
+      "button",
+      "card",
+      "dropdown-menu",
+      "separator"
+    ],
+    "files": [
+      {
+        "path": "components/examples/c-card-15.tsx",
+        "type": "registry:example"
+      }
+    ],
+    "categories": [
+      "display"
+    ]
+  },
+    Component: React.lazy(() => import("@/components/examples/c-card-15")),
+  },
+  "c-card-18": {
+    meta: {
+    "name": "c-card-18",
+    "type": "registry:example",
+    "title": "Card with header label and link",
+    "description": "Documentation card with icon-labeled header section, descriptive text, and inline link.",
+    "slug": "card",
+    "variant": "reui-header-label",
+    "isFlagged": false,
+    "span": 1,
+    "upstreamUrl": "https://reui.io/components",
+    "registryDependencies": [
+      "card"
+    ],
+    "files": [
+      {
+        "path": "components/examples/c-card-18.tsx",
+        "type": "registry:example"
+      }
+    ],
+    "categories": [
+      "display"
+    ]
+  },
+    Component: React.lazy(() => import("@/components/examples/c-card-18")),
+  },
+  "c-collapsible-4": {
+    meta: {
+    "name": "c-collapsible-4",
+    "type": "registry:example",
+    "title": "Collapsible card with bottom trigger",
+    "description": "Billing summary card with collapsible line items expanded by centered chevron button at bottom.",
+    "slug": "collapsible",
+    "variant": "reui-bottom-trigger",
+    "isFlagged": false,
+    "span": 1,
+    "height": "tall",
+    "upstreamUrl": "https://reui.io/components",
+    "registryDependencies": [
+      "button",
+      "card",
+      "collapsible",
+      "progress"
+    ],
+    "files": [
+      {
+        "path": "components/examples/c-collapsible-4.tsx",
+        "type": "registry:example"
+      }
+    ],
+    "categories": [
+      "display"
+    ]
+  },
+    Component: React.lazy(() => import("@/components/examples/c-collapsible-4")),
+  },
+  "c-collapsible-5": {
+    meta: {
+    "name": "c-collapsible-5",
+    "type": "registry:example",
+    "title": "Collapsible form fields",
+    "description": "Unit pricing form with base price input and collapsible tax/discount fields toggled by settings button.",
+    "slug": "collapsible",
+    "variant": "reui-form-fields",
+    "isFlagged": false,
+    "span": 1,
+    "upstreamUrl": "https://reui.io/components",
+    "registryDependencies": [
+      "button",
+      "card",
+      "collapsible",
+      "field",
+      "input-group"
+    ],
+    "files": [
+      {
+        "path": "components/examples/c-collapsible-5.tsx",
+        "type": "registry:example"
+      }
+    ],
+    "categories": [
+      "forms"
+    ]
+  },
+    Component: React.lazy(() => import("@/components/examples/c-collapsible-5")),
+  },
+  "c-combobox-19": {
+    meta: {
+    "name": "c-combobox-19",
+    "type": "registry:example",
+    "title": "Multi-select combobox with user tags",
+    "description": "Combobox with avatar-decorated chips, searchable dropdown, removable selections, and member info.",
+    "slug": "combobox",
+    "variant": "reui-multi-select-users",
+    "isFlagged": false,
+    "span": 2,
+    "upstreamUrl": "https://reui.io/components",
+    "registryDependencies": [
+      "avatar",
+      "combobox",
+      "field",
+      "item"
+    ],
+    "files": [
+      {
+        "path": "components/examples/c-combobox-19.tsx",
+        "type": "registry:example"
+      }
+    ],
+    "categories": [
+      "forms"
+    ]
+  },
+    Component: React.lazy(() => import("@/components/examples/c-combobox-19")),
+  },
+  "c-command-7": {
+    meta: {
+    "name": "c-command-7",
+    "type": "registry:example",
+    "title": "Action palette with keyboard shortcuts",
+    "description": "Command dialog with grouped actions (Create, Navigate, System) and keyboard shortcut indicators.",
+    "slug": "command",
+    "variant": "reui-action-palette",
+    "isFlagged": false,
+    "span": 2,
+    "upstreamUrl": "https://reui.io/components",
+    "registryDependencies": [
+      "button",
+      "command"
+    ],
+    "files": [
+      {
+        "path": "components/examples/c-command-7.tsx",
+        "type": "registry:example"
+      }
+    ],
+    "categories": [
+      "overlay"
+    ]
+  },
+    Component: React.lazy(() => import("@/components/examples/c-command-7")),
+  },
+  "c-command-8": {
+    meta: {
+    "name": "c-command-8",
+    "type": "registry:example",
+    "title": "Command with recent and favorites",
+    "description": "Search dialog with starred favorites, timestamped recent pages, and quick links for navigation.",
+    "slug": "command",
+    "variant": "reui-recent-favorites",
+    "isFlagged": false,
+    "span": 2,
+    "upstreamUrl": "https://reui.io/components",
+    "registryDependencies": [
+      "button",
+      "command"
+    ],
+    "files": [
+      {
+        "path": "components/examples/c-command-8.tsx",
+        "type": "registry:example"
+      }
+    ],
+    "categories": [
+      "overlay"
+    ]
+  },
+    Component: React.lazy(() => import("@/components/examples/c-command-8")),
   },
   "alert-default": {
     meta: {
@@ -13841,8 +14367,8 @@ export const Index: Record<string, RegistryIndexEntry> = {
 };
 
 export const ItemsByArea = {
-  ui: ["accordion","alert","alert-dialog","aspect-ratio","avatar","badge","breadcrumb","button","button-group","calendar","card","carousel","chart","checkbox","collapsible","combobox","command","context-menu","dialog","drawer","dropdown-menu","empty","field","hover-card","input","input-group","input-otp","item","kbd","label","menubar","native-select","navigation-menu","pagination","popover","progress","radio-group","resizable","scroll-area","select","separator","sheet","sidebar","skeleton","slider","sonner","spinner","switch","table","tabs","textarea","toggle","toggle-group","tooltip","noise-background","stateful-button","multi-step-loader","separator-extended","card-styles","autocomplete","action-bar","banner","border-beam-button","circular-progress","color-picker","color-swatch","cropper","data-grid","data-table","file-upload","gauge","key-value","mention","phone-input","prompt-library","qr-code","segmented-input","swap","tags-input","terminal-animation","timeline","tour","ring-loader","api-response-viewer","env-editor","error-boundary-ui","json-viewer","og-image-explorer","og-category-section","og-image-card","pdf-utils","pdf-viewer","webhook-tester","evil-area-chart","evil-bar-chart","evil-line-chart","evil-pie-chart","evil-radar-chart","evil-composed-chart","animated-shiny-button","browser","border-beam","bottom-navigation","commit-graph","marquee"],
-  examples: ["button-size","button-default","button-outline","button-secondary","button-ghost","button-destructive","button-link","button-icon","button-with-icon","button-rounded","button-spinner","button-button-group","button-as-child","button-group-default","button-group-orientation","button-group-size","button-group-nested","button-group-separator","button-group-split","button-group-input","button-group-input-group","button-group-dropdown-menu","button-group-select","button-group-popover","toggle-default","toggle-outline","toggle-with-text","toggle-size","toggle-disabled","toggle-group-default","toggle-group-outline","toggle-group-size","toggle-group-spacing","toggle-group-vertical","toggle-group-disabled","toggle-group-custom","avatar-default","avatar-basic","avatar-badge","avatar-badge-with-icon","avatar-avatar-group","avatar-avatar-group-count","avatar-avatar-group-with-icon","avatar-sizes","avatar-dropdown","badge-default","badge-variants","badge-with-icon","badge-with-spinner","badge-link","badge-custom-colors","calendar-default","calendar-basic","calendar-range-calendar","calendar-month-and-year-selector","calendar-presets","calendar-date-and-time-picker","calendar-booked-dates","calendar-custom-cell-size","calendar-week-numbers","calendar-with-timezone","calendar-hijri","chart-default","chart-your-first-chart","chart-chart-config","chart-tooltip","chart-legend","chart-bar-chart","chart-with-grid","chart-with-axis","chart-with-tooltip","chart-with-legend","chart-tooltip-demo","data-table-default","data-table-basic-table","data-table-cell-formatting","data-table-row-actions","data-table-pagination","data-table-sorting","data-table-filtering","data-table-visibility","data-table-row-selection","skeleton-default","skeleton-avatar","skeleton-card","skeleton-text","skeleton-form","skeleton-table","table-default","table-footer","table-actions","typography-h1","typography-h2","typography-h3","typography-h4","typography-p","typography-blockquote","typography-table","typography-list","typography-inline-code","typography-lead","typography-large","typography-small","typography-muted","typography-demo","noise-background-default","noise-background-card","stateful-button-default","multi-step-loader-default","separator-extended-default","separator-extended-dashed","separator-extended-dotted","separator-extended-double","card-styles-shadow","card-styles-lines","card-styles-hatched","card-styles-aurora","card-styles-tilted","card-styles-stacked","autocomplete-default","action-bar-default","banner-default","border-beam-button-default","circular-progress-default","color-picker-default","color-swatch-default","cropper-default","cropper-circular","cropper-with-controls","data-grid-default","file-upload-default","gauge-default","key-value-default","mention-default","phone-input-default","prompt-library-default","qr-code-default","segmented-input-default","swap-default","tags-input-default","terminal-animation-default","timeline-default","tour-default","ring-loader-default","api-response-viewer-default","env-editor-default","error-boundary-ui-default","json-viewer-default","og-image-explorer-default","pdf-utils-default","pdf-viewer-default","webhook-tester-default","evil-area-chart-default","evil-bar-chart-default","evil-line-chart-default","evil-pie-chart-default","evil-radar-chart-default","evil-composed-chart-default","animated-shiny-button-default","browser-default","border-beam-default","bottom-navigation-default","commit-graph-default","empty-state-marquee","command-popover-default","data-table-draggable","data-table-expandable","breadcrumb-icons","breadcrumb-bordered","breadcrumb-bullet","breadcrumb-slash","breadcrumb-select","alert-default","alert-basic","alert-destructive","alert-action","alert-custom-colors","progress-default","progress-label","progress-controlled","sonner-default","sonner-types","sonner-description","sonner-position","spinner-default","spinner-size","spinner-button","spinner-badge","spinner-input-group","spinner-empty","checkbox-default","checkbox-basic","checkbox-description","checkbox-disabled","checkbox-group","checkbox-table","checkbox-indeterminate-select-all","combobox-default","combobox-basic","combobox-multiple","combobox-clear-button","combobox-groups","combobox-custom-items","combobox-invalid","combobox-disabled","combobox-auto-highlight","combobox-popup","combobox-input-group","date-picker-default","date-picker-basic","date-picker-range-picker","date-picker-date-of-birth","date-picker-input","date-picker-time-picker","date-picker-natural-language-picker","field-default","field-input","field-textarea","field-select","field-slider","field-fieldset","field-checkbox","field-radio","field-switch","field-choice-card","field-field-group","input-default","input-basic","input-field","input-field-group","input-disabled","input-invalid","input-file","input-inline","input-grid","input-required","input-badge","input-input-group","input-button-group","input-form","input-group-default","input-group-icon","input-group-text","input-group-button","input-group-kbd","input-group-dropdown","input-group-spinner","input-group-textarea","input-group-custom-input","input-group-credit-card","input-group-locked-password","input-otp-default","input-otp-separator","input-otp-disabled","input-otp-controlled","input-otp-invalid","input-otp-four-digits","input-otp-alphanumeric","input-otp-form","label-label-in-field","label-default","label-in-field-component","native-select-groups","native-select-disabled","native-select-invalid","native-select-default","radio-group-description","radio-group-choice-card","radio-group-fieldset","radio-group-disabled","radio-group-invalid","radio-group-default","select-default","select-align-item-with-trigger","select-groups","select-scrollable","select-disabled","select-invalid","slider-default","slider-range","slider-multiple-thumbs","slider-vertical","slider-controlled","slider-disabled","switch-default","switch-description","switch-choice-card","switch-disabled","switch-invalid","switch-size","textarea-default","textarea-field","textarea-disabled","textarea-invalid","textarea-button","aspect-ratio-default","aspect-ratio-square","aspect-ratio-portrait","card-default","card-size","card-image","card-with-form","collapsible-default","collapsible-basic","collapsible-settings-panel","collapsible-file-tree","resizable-default","resizable-vertical","resizable-handle","scroll-area-default","scroll-area-horizontal","separator-default","separator-vertical","separator-menu","separator-list","sidebar-default","sidebar-offcanvas","sidebar-none","sidebar-floating","sidebar-inset","sidebar-right","command-default","command-basic","command-shortcuts","command-groups","command-scrollable","context-menu-default","context-menu-basic","context-menu-submenu","context-menu-shortcuts","context-menu-groups","context-menu-icons","context-menu-checkboxes","context-menu-radio","context-menu-destructive","dropdown-menu-default","dropdown-menu-basic","dropdown-menu-submenu","dropdown-menu-shortcuts","dropdown-menu-icons","dropdown-menu-checkboxes","dropdown-menu-checkboxes-icons","dropdown-menu-radio-group","dropdown-menu-radio-icons","dropdown-menu-destructive","dropdown-menu-avatar","dropdown-menu-complex","breadcrumb-default","breadcrumb-basic","breadcrumb-custom-separator","breadcrumb-dropdown","breadcrumb-collapsed","breadcrumb-link-component","menubar-default","menubar-checkbox","menubar-radio","menubar-submenu","menubar-with-icons","navigation-menu-default","navigation-menu-link-component","pagination-default","pagination-simple","pagination-icons-only","tabs-default","tabs-line","tabs-vertical","tabs-disabled","tabs-icons","alert-dialog-default","alert-dialog-basic","alert-dialog-small","alert-dialog-media","alert-dialog-small-with-media","alert-dialog-destructive","dialog-default","dialog-custom-close-button","dialog-no-close-button","dialog-sticky-footer","dialog-scrollable-content","drawer-default","drawer-scrollable-content","drawer-sides","drawer-responsive-dialog","hover-card-default","hover-card-basic","hover-card-sides","popover-default","popover-basic","popover-align","popover-with-form","sheet-default","sheet-side","sheet-no-close-button","tooltip-default","tooltip-side","tooltip-with-keyboard-shortcut","tooltip-disabled-button","accordion-default","accordion-basic","accordion-multiple","accordion-disabled","accordion-borders","accordion-card","carousel-default","carousel-sizes","carousel-spacing","carousel-orientation","carousel-api-slide-n-of-m","carousel-plugins","empty-default","empty-outline","empty-background","empty-avatar","empty-avatar-group","empty-input-group","item-default","item-variants","item-sizes","item-icon","item-avatar","item-image","item-group","item-header","item-link","item-dropdown","kbd-default","kbd-group","kbd-button","kbd-tooltip","kbd-input-group"],
+  ui: ["accordion","alert","alert-dialog","aspect-ratio","avatar","badge","breadcrumb","button","button-group","calendar","card","carousel","chart","checkbox","collapsible","combobox","command","context-menu","dialog","drawer","dropdown-menu","empty","field","hover-card","input","input-group","input-otp","item","kbd","label","menubar","native-select","navigation-menu","pagination","popover","progress","radio-group","resizable","scroll-area","select","separator","sheet","sidebar","skeleton","slider","sonner","spinner","switch","table","tabs","textarea","toggle","toggle-group","tooltip","noise-background","stateful-button","multi-step-loader","separator-extended","card-styles","autocomplete","action-bar","banner","border-beam-button","circular-progress","color-picker","color-swatch","cropper","data-grid","data-table","file-upload","gauge","key-value","mention","phone-input","prompt-library","qr-code","segmented-input","swap","tags-input","terminal-animation","timeline","tour","ring-loader","api-response-viewer","env-editor","error-boundary-ui","json-viewer","og-image-explorer","og-category-section","og-image-card","pdf-utils","pdf-viewer","webhook-tester","evil-area-chart","evil-bar-chart","evil-line-chart","evil-pie-chart","evil-radar-chart","evil-composed-chart","animated-shiny-button","browser","border-beam","bottom-navigation","commit-graph","marquee","reui-badge"],
+  examples: ["button-size","button-default","button-outline","button-secondary","button-ghost","button-destructive","button-link","button-icon","button-with-icon","button-rounded","button-spinner","button-button-group","button-as-child","button-group-default","button-group-orientation","button-group-size","button-group-nested","button-group-separator","button-group-split","button-group-input","button-group-input-group","button-group-dropdown-menu","button-group-select","button-group-popover","toggle-default","toggle-outline","toggle-with-text","toggle-size","toggle-disabled","toggle-group-default","toggle-group-outline","toggle-group-size","toggle-group-spacing","toggle-group-vertical","toggle-group-disabled","toggle-group-custom","avatar-default","avatar-basic","avatar-badge","avatar-badge-with-icon","avatar-avatar-group","avatar-avatar-group-count","avatar-avatar-group-with-icon","avatar-sizes","avatar-dropdown","badge-default","badge-variants","badge-with-icon","badge-with-spinner","badge-link","badge-custom-colors","calendar-default","calendar-basic","calendar-range-calendar","calendar-month-and-year-selector","calendar-presets","calendar-date-and-time-picker","calendar-booked-dates","calendar-custom-cell-size","calendar-week-numbers","calendar-with-timezone","calendar-hijri","chart-default","chart-your-first-chart","chart-chart-config","chart-tooltip","chart-legend","chart-bar-chart","chart-with-grid","chart-with-axis","chart-with-tooltip","chart-with-legend","chart-tooltip-demo","data-table-default","data-table-basic-table","data-table-cell-formatting","data-table-row-actions","data-table-pagination","data-table-sorting","data-table-filtering","data-table-visibility","data-table-row-selection","skeleton-default","skeleton-avatar","skeleton-card","skeleton-text","skeleton-form","skeleton-table","table-default","table-footer","table-actions","typography-h1","typography-h2","typography-h3","typography-h4","typography-p","typography-blockquote","typography-table","typography-list","typography-inline-code","typography-lead","typography-large","typography-small","typography-muted","typography-demo","noise-background-default","noise-background-card","stateful-button-default","multi-step-loader-default","separator-extended-default","separator-extended-dashed","separator-extended-dotted","separator-extended-double","card-styles-shadow","card-styles-lines","card-styles-hatched","card-styles-aurora","card-styles-tilted","card-styles-stacked","autocomplete-default","action-bar-default","banner-default","border-beam-button-default","circular-progress-default","color-picker-default","color-swatch-default","cropper-default","cropper-circular","cropper-with-controls","data-grid-default","file-upload-default","gauge-default","key-value-default","mention-default","phone-input-default","prompt-library-default","qr-code-default","segmented-input-default","swap-default","tags-input-default","terminal-animation-default","timeline-default","tour-default","ring-loader-default","api-response-viewer-default","env-editor-default","error-boundary-ui-default","json-viewer-default","og-image-explorer-default","pdf-utils-default","pdf-viewer-default","webhook-tester-default","evil-area-chart-default","evil-bar-chart-default","evil-line-chart-default","evil-pie-chart-default","evil-radar-chart-default","evil-composed-chart-default","animated-shiny-button-default","browser-default","border-beam-default","bottom-navigation-default","commit-graph-default","empty-state-marquee","command-popover-default","data-table-draggable","data-table-expandable","breadcrumb-icons","breadcrumb-bordered","breadcrumb-bullet","breadcrumb-slash","breadcrumb-select","c-button-39","c-button-48","c-button-group-47","c-button-group-53","c-calendar-4","c-calendar-10","c-calendar-17","c-calendar-28","c-calendar-29","c-card-5","c-card-13","c-card-15","c-card-18","c-collapsible-4","c-collapsible-5","c-combobox-19","c-command-7","c-command-8","alert-default","alert-basic","alert-destructive","alert-action","alert-custom-colors","progress-default","progress-label","progress-controlled","sonner-default","sonner-types","sonner-description","sonner-position","spinner-default","spinner-size","spinner-button","spinner-badge","spinner-input-group","spinner-empty","checkbox-default","checkbox-basic","checkbox-description","checkbox-disabled","checkbox-group","checkbox-table","checkbox-indeterminate-select-all","combobox-default","combobox-basic","combobox-multiple","combobox-clear-button","combobox-groups","combobox-custom-items","combobox-invalid","combobox-disabled","combobox-auto-highlight","combobox-popup","combobox-input-group","date-picker-default","date-picker-basic","date-picker-range-picker","date-picker-date-of-birth","date-picker-input","date-picker-time-picker","date-picker-natural-language-picker","field-default","field-input","field-textarea","field-select","field-slider","field-fieldset","field-checkbox","field-radio","field-switch","field-choice-card","field-field-group","input-default","input-basic","input-field","input-field-group","input-disabled","input-invalid","input-file","input-inline","input-grid","input-required","input-badge","input-input-group","input-button-group","input-form","input-group-default","input-group-icon","input-group-text","input-group-button","input-group-kbd","input-group-dropdown","input-group-spinner","input-group-textarea","input-group-custom-input","input-group-credit-card","input-group-locked-password","input-otp-default","input-otp-separator","input-otp-disabled","input-otp-controlled","input-otp-invalid","input-otp-four-digits","input-otp-alphanumeric","input-otp-form","label-label-in-field","label-default","label-in-field-component","native-select-groups","native-select-disabled","native-select-invalid","native-select-default","radio-group-description","radio-group-choice-card","radio-group-fieldset","radio-group-disabled","radio-group-invalid","radio-group-default","select-default","select-align-item-with-trigger","select-groups","select-scrollable","select-disabled","select-invalid","slider-default","slider-range","slider-multiple-thumbs","slider-vertical","slider-controlled","slider-disabled","switch-default","switch-description","switch-choice-card","switch-disabled","switch-invalid","switch-size","textarea-default","textarea-field","textarea-disabled","textarea-invalid","textarea-button","aspect-ratio-default","aspect-ratio-square","aspect-ratio-portrait","card-default","card-size","card-image","card-with-form","collapsible-default","collapsible-basic","collapsible-settings-panel","collapsible-file-tree","resizable-default","resizable-vertical","resizable-handle","scroll-area-default","scroll-area-horizontal","separator-default","separator-vertical","separator-menu","separator-list","sidebar-default","sidebar-offcanvas","sidebar-none","sidebar-floating","sidebar-inset","sidebar-right","command-default","command-basic","command-shortcuts","command-groups","command-scrollable","context-menu-default","context-menu-basic","context-menu-submenu","context-menu-shortcuts","context-menu-groups","context-menu-icons","context-menu-checkboxes","context-menu-radio","context-menu-destructive","dropdown-menu-default","dropdown-menu-basic","dropdown-menu-submenu","dropdown-menu-shortcuts","dropdown-menu-icons","dropdown-menu-checkboxes","dropdown-menu-checkboxes-icons","dropdown-menu-radio-group","dropdown-menu-radio-icons","dropdown-menu-destructive","dropdown-menu-avatar","dropdown-menu-complex","breadcrumb-default","breadcrumb-basic","breadcrumb-custom-separator","breadcrumb-dropdown","breadcrumb-collapsed","breadcrumb-link-component","menubar-default","menubar-checkbox","menubar-radio","menubar-submenu","menubar-with-icons","navigation-menu-default","navigation-menu-link-component","pagination-default","pagination-simple","pagination-icons-only","tabs-default","tabs-line","tabs-vertical","tabs-disabled","tabs-icons","alert-dialog-default","alert-dialog-basic","alert-dialog-small","alert-dialog-media","alert-dialog-small-with-media","alert-dialog-destructive","dialog-default","dialog-custom-close-button","dialog-no-close-button","dialog-sticky-footer","dialog-scrollable-content","drawer-default","drawer-scrollable-content","drawer-sides","drawer-responsive-dialog","hover-card-default","hover-card-basic","hover-card-sides","popover-default","popover-basic","popover-align","popover-with-form","sheet-default","sheet-side","sheet-no-close-button","tooltip-default","tooltip-side","tooltip-with-keyboard-shortcut","tooltip-disabled-button","accordion-default","accordion-basic","accordion-multiple","accordion-disabled","accordion-borders","accordion-card","carousel-default","carousel-sizes","carousel-spacing","carousel-orientation","carousel-api-slide-n-of-m","carousel-plugins","empty-default","empty-outline","empty-background","empty-avatar","empty-avatar-group","empty-input-group","item-default","item-variants","item-sizes","item-icon","item-avatar","item-image","item-group","item-header","item-link","item-dropdown","kbd-default","kbd-group","kbd-button","kbd-tooltip","kbd-input-group"],
   blocks: ["login-card","login-card-2","login-card-3","signup-card","forgot-password-card"],
 };
 
@@ -13873,7 +14399,9 @@ export const ExamplesBySlug: Record<string, string[]> = {
     "button-group-input-group",
     "button-group-dropdown-menu",
     "button-group-select",
-    "button-group-popover"
+    "button-group-popover",
+    "c-button-group-47",
+    "c-button-group-53"
   ],
   "toggle": [
     "toggle-default",
@@ -13921,7 +14449,12 @@ export const ExamplesBySlug: Record<string, string[]> = {
     "calendar-custom-cell-size",
     "calendar-week-numbers",
     "calendar-with-timezone",
-    "calendar-hijri"
+    "calendar-hijri",
+    "c-calendar-4",
+    "c-calendar-10",
+    "c-calendar-17",
+    "c-calendar-28",
+    "c-calendar-29"
   ],
   "chart": [
     "chart-default",
@@ -14141,6 +14674,8 @@ export const ExamplesBySlug: Record<string, string[]> = {
   ],
   "command": [
     "command-popover-default",
+    "c-command-7",
+    "c-command-8",
     "command-default",
     "command-basic",
     "command-shortcuts",
@@ -14159,6 +14694,42 @@ export const ExamplesBySlug: Record<string, string[]> = {
     "breadcrumb-dropdown",
     "breadcrumb-collapsed",
     "breadcrumb-link-component"
+  ],
+  "reui-badge": [
+    "c-button-39",
+    "c-button-48"
+  ],
+  "card": [
+    "c-card-5",
+    "c-card-13",
+    "c-card-15",
+    "c-card-18",
+    "card-default",
+    "card-size",
+    "card-image",
+    "card-with-form"
+  ],
+  "collapsible": [
+    "c-collapsible-4",
+    "c-collapsible-5",
+    "collapsible-default",
+    "collapsible-basic",
+    "collapsible-settings-panel",
+    "collapsible-file-tree"
+  ],
+  "combobox": [
+    "c-combobox-19",
+    "combobox-default",
+    "combobox-basic",
+    "combobox-multiple",
+    "combobox-clear-button",
+    "combobox-groups",
+    "combobox-custom-items",
+    "combobox-invalid",
+    "combobox-disabled",
+    "combobox-auto-highlight",
+    "combobox-popup",
+    "combobox-input-group"
   ],
   "alert": [
     "alert-default",
@@ -14194,19 +14765,6 @@ export const ExamplesBySlug: Record<string, string[]> = {
     "checkbox-group",
     "checkbox-table",
     "checkbox-indeterminate-select-all"
-  ],
-  "combobox": [
-    "combobox-default",
-    "combobox-basic",
-    "combobox-multiple",
-    "combobox-clear-button",
-    "combobox-groups",
-    "combobox-custom-items",
-    "combobox-invalid",
-    "combobox-disabled",
-    "combobox-auto-highlight",
-    "combobox-popup",
-    "combobox-input-group"
   ],
   "date-picker": [
     "date-picker-default",
@@ -14323,18 +14881,6 @@ export const ExamplesBySlug: Record<string, string[]> = {
     "aspect-ratio-default",
     "aspect-ratio-square",
     "aspect-ratio-portrait"
-  ],
-  "card": [
-    "card-default",
-    "card-size",
-    "card-image",
-    "card-with-form"
-  ],
-  "collapsible": [
-    "collapsible-default",
-    "collapsible-basic",
-    "collapsible-settings-panel",
-    "collapsible-file-tree"
   ],
   "resizable": [
     "resizable-default",

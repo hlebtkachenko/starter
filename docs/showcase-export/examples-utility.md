@@ -23,7 +23,13 @@ Each entry includes slug, variant, upstream URL, deviations, and JSX source.
 import { FolderCheck, ImportIcon, PlusIcon } from "lucide-react";
 import { Marquee } from "@/components/ui/marquee";
 import { Button } from "@/components/ui/button";
-import { Empty, EmptyContent, EmptyDescription, EmptyHeader, EmptyTitle } from "@/components/ui/empty";
+import {
+  Empty,
+  EmptyContent,
+  EmptyDescription,
+  EmptyHeader,
+  EmptyTitle,
+} from "@/components/ui/empty";
 
 export default function EmptyStateMarquee() {
   return (

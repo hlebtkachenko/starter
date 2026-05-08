@@ -2484,3 +2484,64 @@ export default function CommitGraphDefault() {
   );
 }
 ```
+## Button with unread badge
+
+**Slug:** `reui-badge`
+**Variant:** `button-unread`
+**Upstream:** https://reui.io/components
+**Description:** Outline button with mail icon and destructive badge showing unread count, from ReUI registry.
+**Depends on:** button, reui-badge
+
+```tsx
+import { Badge } from "@/components/ui/reui-badge";
+
+import { Button } from "@/components/ui/button";
+import { MailIcon } from "lucide-react";
+
+export default function ButtonUnreadBadge() {
+  return (
+    <Button variant="outline" className="relative gap-2" aria-label="Inbox (8 unread)">
+      <MailIcon aria-hidden="true" />
+      Inbox
+      <Badge
+        variant="destructive"
+        size="sm"
+        className="absolute -top-1.5 -right-2 rounded-full px-1"
+        aria-hidden="true"
+      >
+        8
+      </Badge>
+    </Button>
+  );
+}
+```
+## Icon button with notification badge
+
+**Slug:** `reui-badge`
+**Variant:** `icon-notification`
+**Upstream:** https://reui.io/components
+**Description:** Square icon button with bell icon and compact destructive notification badge, from ReUI registry.
+**Depends on:** button, reui-badge
+
+```tsx
+import { Badge } from "@/components/ui/reui-badge";
+
+import { Button } from "@/components/ui/button";
+import { BellIcon } from "lucide-react";
+
+export default function IconButtonNotificationBadge() {
+  return (
+    <Button size="icon" variant="outline" className="relative" aria-label="Notifications (8)">
+      <BellIcon aria-hidden="true" />
+      <Badge
+        variant="destructive"
+        size="xs"
+        className="absolute -top-1 -right-1 rounded-full px-1"
+        aria-hidden="true"
+      >
+        8
+      </Badge>
+    </Button>
+  );
+}
+```

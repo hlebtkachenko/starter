@@ -9,19 +9,19 @@
 
 | Area | File | Items | Chars |
 |---|---|---|---|
-| UI Primitives | [docs/showcase-export/ui.md](showcase-export/ui.md) | 105 | 25,885 |
-| Examples: buttons | [docs/showcase-export/examples-buttons.md](showcase-export/examples-buttons.md) | 36 | 47,459 |
+| UI Primitives | [docs/showcase-export/ui.md](showcase-export/ui.md) | 106 | 26,121 |
+| Examples: buttons | [docs/showcase-export/examples-buttons.md](showcase-export/examples-buttons.md) | 38 | 53,743 |
 | Examples: display-part1 | [docs/showcase-export/examples-display-part1.md](showcase-export/examples-display-part1.md) | 41 | 79,363 |
-| Examples: display-part2 | [docs/showcase-export/examples-display-part2.md](showcase-export/examples-display-part2.md) | 21 | 44,349 |
+| Examples: display-part2 | [docs/showcase-export/examples-display-part2.md](showcase-export/examples-display-part2.md) | 25 | 60,431 |
 | Examples: feedback | [docs/showcase-export/examples-feedback.md](showcase-export/examples-feedback.md) | 24 | 27,984 |
-| Examples: forms-part1 | [docs/showcase-export/examples-forms-part1.md](showcase-export/examples-forms-part1.md) | 45 | 68,364 |
+| Examples: forms-part1 | [docs/showcase-export/examples-forms-part1.md](showcase-export/examples-forms-part1.md) | 45 | 73,417 |
 | Examples: forms-part2 | [docs/showcase-export/examples-forms-part2.md](showcase-export/examples-forms-part2.md) | 46 | 67,670 |
-| Examples: layout | [docs/showcase-export/examples-layout.md](showcase-export/examples-layout.md) | 36 | 53,438 |
-| Examples: menus | [docs/showcase-export/examples-menus.md](showcase-export/examples-menus.md) | 27 | 67,100 |
-| Examples: navigation | [docs/showcase-export/examples-navigation.md](showcase-export/examples-navigation.md) | 26 | 47,328 |
+| Examples: layout | [docs/showcase-export/examples-layout.md](showcase-export/examples-layout.md) | 42 | 69,118 |
+| Examples: menus | [docs/showcase-export/examples-menus.md](showcase-export/examples-menus.md) | 29 | 73,621 |
+| Examples: navigation | [docs/showcase-export/examples-navigation.md](showcase-export/examples-navigation.md) | 26 | 47,404 |
 | Examples: overlays | [docs/showcase-export/examples-overlays.md](showcase-export/examples-overlays.md) | 23 | 40,967 |
-| Examples: utility | [docs/showcase-export/examples-utility.md](showcase-export/examples-utility.md) | 34 | 52,888 |
-| Examples: other | [docs/showcase-export/examples-other.md](showcase-export/examples-other.md) | 48 | 71,731 |
+| Examples: utility | [docs/showcase-export/examples-utility.md](showcase-export/examples-utility.md) | 34 | 52,899 |
+| Examples: other | [docs/showcase-export/examples-other.md](showcase-export/examples-other.md) | 50 | 73,405 |
 | Blocks | [docs/showcase-export/blocks.md](showcase-export/blocks.md) | 5 | 15,187 |
 
 ## UI Primitives TOC
@@ -131,11 +131,12 @@
 - [`bottom-navigation`](showcase-export/ui.md#bottom-navigation) — Mobile-first bottom navigation bar with icon and label items, fixed positioning, and safe-area support.
 - [`commit-graph`](showcase-export/ui.md#commit-graph) — Topological git graph with SVG rail lines showing branch forks, merges, and commit ancestry with interactive popovers.
 - [`marquee`](showcase-export/ui.md#marquee) — Horizontal or vertical scrolling marquee animation with pause-on-hover, reverse direction, and configurable speed.
+- [`reui-badge`](showcase-export/ui.md#reui-badge) — Enhanced badge with 20+ semantic variants (success, warning, info, destructive, light, outline), sizes, and radius.
 
 ## Quick counts
 
-- UI primitives: **105**
-- Example variants: **430**
+- UI primitives: **106**
+- Example variants: **448**
 - Example files: **12**
 - Blocks: **5**
-- Total registry items: **540**
+- Total registry items: **559**

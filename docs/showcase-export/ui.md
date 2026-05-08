@@ -661,3 +661,9 @@
 **Description:** Horizontal or vertical scrolling marquee animation with pause-on-hover, reverse direction, and configurable speed.
 **Upstream:** https://magicui.design/docs/components/marquee
 **Categories:** effects
+## ReUI Badge
+
+**Name:** `reui-badge`
+**Description:** Enhanced badge with 20+ semantic variants (success, warning, info, destructive, light, outline), sizes, and radius.
+**Upstream:** https://reui.io/components
+**Categories:** display

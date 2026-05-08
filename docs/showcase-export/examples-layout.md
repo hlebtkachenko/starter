@@ -475,6 +475,437 @@ export default function CardStylesStacked() {
   );
 }
 ```
+## Card with link
+
+**Slug:** `card`
+**Variant:** `reui-with-link`
+**Upstream:** https://reui.io/components
+**Description:** Compact help card with title, descriptive text, and link button with external link icon.
+**Depends on:** button, card
+
+```tsx
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import { ExternalLinkIcon } from "lucide-react";
+
+export default function CardWithLink() {
+  return (
+    <Card className="w-full max-w-xs gap-2 pt-5">
+      <CardHeader>
+        <CardTitle>Need a help in Claim?</CardTitle>
+      </CardHeader>
+      <CardContent className="mb-2">
+        <p>Go to this step by step guideline process on how to certify for your weekly benefits:</p>
+      </CardContent>
+      <CardFooter className="py-2">
+        <Button variant="link" className="px-0">
+          See our guideline
+          <ExternalLinkIcon aria-hidden="true" />
+        </Button>
+      </CardFooter>
+    </Card>
+  );
+}
+```
+## Expandable billing usage card
+
+**Slug:** `card`
+**Variant:** `reui-expandable-billing`
+**Upstream:** https://reui.io/components
+**Description:** Billing card with credit usage progress bar, collapsible line items, and gradient fade toggle.
+**Depends on:** button, card, progress
+
+```tsx
+"use client";
+
+import { useState } from "react";
+
+import { cn } from "@/lib/utils";
+import { Button } from "@/components/ui/button";
+import { Card, CardAction, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Progress } from "@/components/ui/progress";
+import { ChevronDownIcon } from "lucide-react";
+
+export default function CardExpandableBilling() {
+  const [isOpen, setIsOpen] = useState(false);
+
+  return (
+    <Card className="relative w-full max-w-md gap-6 overflow-visible pb-1">
+      <CardHeader className="flex items-center justify-between">
+        <CardTitle>3 days remaining in cycle</CardTitle>
+        <CardAction>
+          <Button variant="outline" size="sm">
+            Billing
+          </Button>
+        </CardAction>
+      </CardHeader>
+      <CardContent
+        className={cn(
+          "relative space-y-5 overflow-hidden transition-all duration-500 ease-in-out",
+          isOpen ? "max-h-[500px]" : "max-h-48",
+        )}
+      >
+        <div className="bg-muted/60 space-y-3 rounded-lg p-4">
+          <div className="text-muted-foreground flex justify-between text-xs font-medium">
+            <span>Included Credit</span>
+            <span>On-Demand Charges</span>
+          </div>
+          <div className="flex justify-between text-lg font-bold">
+            <span>$18.08 / $20</span>
+            <span>$0</span>
+          </div>
+          <Progress value={90} className="h-2" />
+        </div>
+
+        <div className="flex flex-col gap-4">
+          <div className="flex justify-between text-sm">
+            <span className="text-foreground font-medium">Requests</span>
+            <span className="text-muted-foreground">$210.84</span>
+          </div>
+          <div className="flex justify-between text-sm">
+            <span className="text-foreground font-medium">Active CPU</span>
+            <span className="text-muted-foreground">$21.95</span>
+          </div>
+          <div className="flex justify-between text-sm">
+            <span className="text-foreground font-medium">Events</span>
+            <span className="text-muted-foreground">$21.20</span>
+          </div>
+          <div className="flex justify-between text-sm">
+            <span className="text-foreground font-medium">Storage Usage</span>
+            <span className="text-muted-foreground">$20.45</span>
+          </div>
+          <div className="flex justify-between text-sm">
+            <span className="text-foreground font-medium">Bandwidth</span>
+            <span className="text-muted-foreground">$0.00</span>
+          </div>
+        </div>
+
+        <div
+          className={cn(
+            "from-background pointer-events-none absolute inset-x-0 bottom-0 h-20 rounded-b-lg bg-linear-to-t to-transparent transition-opacity duration-300",
+            isOpen ? "opacity-0" : "opacity-100",
+          )}
+        />
+      </CardContent>
+
+      <div className="absolute -bottom-4 left-1/2 -translate-x-1/2">
+        <Button
+          variant="outline"
+          size="icon-sm"
+          className="bg-background hover:bg-background rounded-full shadow-sm"
+          onClick={() => setIsOpen(!isOpen)}
+        >
+          <ChevronDownIcon
+            aria-hidden="true"
+            className={cn("transition-transform duration-300", isOpen && "rotate-180")}
+          />
+          <span className="sr-only">Toggle card</span>
+        </Button>
+      </div>
+    </Card>
+  );
+}
+```
+## Stat card with trend and overflow menu
+
+**Slug:** `card`
+**Variant:** `reui-stat-trend`
+**Upstream:** https://reui.io/components
+**Description:** Revenue stat card with trend badge, delta percentage, comparison, and dropdown settings menu.
+**Depends on:** reui-badge, button, card, dropdown-menu, separator
+
+```tsx
+import { Badge } from "@/components/ui/reui-badge";
+
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuGroup,
+  DropdownMenuItem,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import { Separator } from "@/components/ui/separator";
+import {
+  ArrowUpIcon,
+  ArrowDownIcon,
+  MoreHorizontalIcon,
+  SettingsIcon,
+  TriangleAlertIcon,
+  PinIcon,
+  Share2Icon,
+  TrashIcon,
+} from "lucide-react";
+
+export default function CardStatWithTrend() {
+  const title = "Revenue";
+  const value = "$12.4k";
+  const delta = 12.5;
+  const positive = true;
+  const lastMonth = "$11.0k";
+
+  return (
+    <Card className="w-full max-w-xs">
+      <CardContent className="flex flex-col gap-5">
+        <div className="flex items-center justify-between gap-3">
+          <h3 className="text-muted-foreground text-sm font-medium">{title}</h3>
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button variant="ghost" size="icon" className="-me-1.5" aria-label="More options">
+                <MoreHorizontalIcon aria-hidden="true" />
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="end" className="w-48">
+              <DropdownMenuGroup>
+                <DropdownMenuItem>
+                  <SettingsIcon aria-hidden="true" />
+                  Settings
+                </DropdownMenuItem>
+                <DropdownMenuItem>
+                  <TriangleAlertIcon aria-hidden="true" />
+                  Add Alert
+                </DropdownMenuItem>
+                <DropdownMenuItem>
+                  <PinIcon aria-hidden="true" />
+                  Pin to Dashboard
+                </DropdownMenuItem>
+                <DropdownMenuItem>
+                  <Share2Icon aria-hidden="true" />
+                  Share
+                </DropdownMenuItem>
+                <DropdownMenuSeparator />
+                <DropdownMenuItem variant="destructive">
+                  <TrashIcon aria-hidden="true" />
+                  Remove
+                </DropdownMenuItem>
+              </DropdownMenuGroup>
+            </DropdownMenuContent>
+          </DropdownMenu>
+        </div>
+        <div className="space-y-2.5">
+          <div className="flex items-center gap-2.5">
+            <span className="text-foreground text-2xl font-medium tracking-tight tabular-nums">
+              {value}
+            </span>
+            <Badge variant={positive ? "success-light" : "destructive-light"}>
+              {positive ? <ArrowUpIcon aria-hidden="true" /> : <ArrowDownIcon aria-hidden="true" />}
+              {delta}%
+            </Badge>
+          </div>
+          <Separator />
+          <div className="text-muted-foreground text-xs">
+            Vs last month:{" "}
+            <span className="text-foreground font-medium tabular-nums">{lastMonth}</span>
+          </div>
+        </div>
+      </CardContent>
+    </Card>
+  );
+}
+```
+## Card with header label and link
+
+**Slug:** `card`
+**Variant:** `reui-header-label`
+**Upstream:** https://reui.io/components
+**Description:** Documentation card with icon-labeled header section, descriptive text, and inline link.
+**Depends on:** card
+
+```tsx
+import { Card, CardContent } from "@/components/ui/card";
+import { BookOpenIcon, LinkIcon } from "lucide-react";
+
+const item = {
+  label: "Documentation",
+  description: "Find guides, API references, and examples to integrate with our platform.",
+  link: "View docs",
+  icon: <BookOpenIcon aria-hidden="true" />,
+};
+
+export default function CardHeaderLabelLink() {
+  return (
+    <Card className="w-full max-w-xs p-0">
+      <CardContent className="p-0">
+        <div className="border-b px-4 py-3">
+          <div className="text-muted-foreground flex items-center gap-2 [&_svg]:size-4">
+            {item.icon}
+            <span className="text-foreground text-sm font-medium">{item.label}</span>
+          </div>
+        </div>
+        <div className="space-y-3 p-4">
+          <p className="text-muted-foreground text-sm leading-relaxed">{item.description}</p>
+          <a
+            href="#"
+            className="text-primary inline-flex items-center gap-1 text-xs font-medium hover:underline"
+          >
+            <LinkIcon aria-hidden="true" className="size-2.5 shrink-0" />
+            {item.link}
+          </a>
+        </div>
+      </CardContent>
+    </Card>
+  );
+}
+```
+## Collapsible card with bottom trigger
+
+**Slug:** `collapsible`
+**Variant:** `reui-bottom-trigger`
+**Upstream:** https://reui.io/components
+**Description:** Billing summary card with collapsible line items expanded by centered chevron button at bottom.
+**Depends on:** button, card, collapsible, progress
+
+```tsx
+import { Button } from "@/components/ui/button";
+import { Card, CardAction, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
+import { Progress } from "@/components/ui/progress";
+import { ChevronDownIcon } from "lucide-react";
+
+export default function CollapsibleCardBottomTrigger() {
+  return (
+    <div className="h-72 w-full max-w-xs">
+      <Collapsible className="relative">
+        <Card>
+          <CardHeader className="flex items-center justify-between">
+            <CardTitle className="text-sm">3 days remaining in cycle</CardTitle>
+            <CardAction>
+              <Button variant="outline" size="sm">
+                Billing
+              </Button>
+            </CardAction>
+          </CardHeader>
+          <CardContent className="space-y-4">
+            <div className="bg-muted/60 border-border space-y-2 rounded-lg border p-3">
+              <div className="flex justify-between text-sm font-medium">
+                <span>$18.08 / $20</span>
+                <span>$200</span>
+              </div>
+              <Progress value={90} className="bg-primary/20 h-1.5" />
+            </div>
+
+            <CollapsibleContent className="data-[state=closed]:animate-collapsible-up data-[state=open]:animate-collapsible-down">
+              <div className="flex flex-col gap-2.5 pt-2">
+                {[
+                  { label: "Requests", value: "$210.84" },
+                  { label: "Active CPU", value: "$21.95" },
+                  { label: "Events", value: "$21.20" },
+                  { label: "Storage Usage", value: "$20.45" },
+                ].map((item) => (
+                  <div key={item.label} className="flex justify-between text-xs">
+                    <span className="text-muted-foreground font-medium">{item.label}</span>
+                    <span className="font-medium">{item.value}</span>
+                  </div>
+                ))}
+              </div>
+            </CollapsibleContent>
+          </CardContent>
+        </Card>
+
+        <div className="absolute -bottom-3.5 left-1/2 -translate-x-1/2">
+          <CollapsibleTrigger asChild>
+            <Button
+              variant="outline"
+              size="icon-sm"
+              className="bg-background! rounded-full shadow-sm"
+            >
+              <ChevronDownIcon
+                aria-hidden="true"
+                className="size-3.5 transition-transform in-data-panel-open:rotate-180"
+              />
+              <span className="sr-only">Toggle details</span>
+            </Button>
+          </CollapsibleTrigger>
+        </div>
+      </Collapsible>
+    </div>
+  );
+}
+```
+## Collapsible form fields
+
+**Slug:** `collapsible`
+**Variant:** `reui-form-fields`
+**Upstream:** https://reui.io/components
+**Description:** Unit pricing form with base price input and collapsible tax/discount fields toggled by settings button.
+**Depends on:** button, card, collapsible, field, input-group
+
+```tsx
+"use client";
+
+import { useState } from "react";
+
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
+import { Field, FieldGroup, FieldLabel } from "@/components/ui/field";
+import {
+  InputGroup,
+  InputGroupAddon,
+  InputGroupInput,
+  InputGroupText,
+} from "@/components/ui/input-group";
+import { Settings2Icon } from "lucide-react";
+
+export default function CollapsibleFormFields() {
+  const [isOpen, setIsOpen] = useState(false);
+
+  return (
+    <div className="h-54 w-full max-w-xs">
+      <Card size="sm">
+        <CardHeader>
+          <CardTitle>Unit Pricing</CardTitle>
+        </CardHeader>
+        <CardContent>
+          <Collapsible open={isOpen} onOpenChange={setIsOpen} className="flex flex-col gap-3">
+            <div className="flex items-end gap-2">
+              <Field className="flex-1">
+                <FieldLabel className="sr-only">Base Price</FieldLabel>
+                <InputGroup>
+                  <InputGroupInput type="number" placeholder="0.00" defaultValue="19.00" />
+                  <InputGroupAddon align="inline-end">
+                    <InputGroupText>$</InputGroupText>
+                  </InputGroupAddon>
+                </InputGroup>
+              </Field>
+              <CollapsibleTrigger asChild>
+                <Button variant="outline" size="icon" className="shrink-0">
+                  <Settings2Icon aria-hidden="true" className="size-3.5" />
+                </Button>
+              </CollapsibleTrigger>
+            </div>
+
+            <CollapsibleContent className="data-[state=closed]:animate-collapsible-up data-[state=open]:animate-collapsible-down">
+              <FieldGroup className="gap-2">
+                <Field>
+                  <FieldLabel>Tax Rate (%)</FieldLabel>
+                  <InputGroup>
+                    <InputGroupInput type="number" placeholder="0" defaultValue="15" />
+                    <InputGroupAddon align="inline-end">
+                      <InputGroupText>%</InputGroupText>
+                    </InputGroupAddon>
+                  </InputGroup>
+                </Field>
+                <Field>
+                  <FieldLabel>Discount (%)</FieldLabel>
+                  <InputGroup>
+                    <InputGroupInput type="number" placeholder="0" defaultValue="0" />
+                    <InputGroupAddon align="inline-end">
+                      <InputGroupText>%</InputGroupText>
+                    </InputGroupAddon>
+                  </InputGroup>
+                </Field>
+              </FieldGroup>
+            </CollapsibleContent>
+          </Collapsible>
+        </CardContent>
+      </Card>
+    </div>
+  );
+}
+```
 ## Default
 
 **Slug:** `aspect-ratio`

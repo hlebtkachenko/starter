@@ -2191,6 +2191,458 @@
   },
   {
     "categories": [
+      "actions"
+    ],
+    "description": "Outline button with mail icon and destructive badge showing unread count, from ReUI registry.",
+    "files": [
+      {
+        "path": "components/examples/c-button-39.tsx",
+        "type": "registry:example"
+      }
+    ],
+    "isDefault": true,
+    "isFlagged": false,
+    "name": "c-button-39",
+    "registryDependencies": [
+      "button",
+      "reui-badge"
+    ],
+    "slug": "reui-badge",
+    "span": 1,
+    "title": "Button with unread badge",
+    "type": "registry:example",
+    "upstreamUrl": "https://reui.io/components",
+    "variant": "button-unread"
+  },
+  {
+    "categories": [
+      "actions"
+    ],
+    "description": "Square icon button with bell icon and compact destructive notification badge, from ReUI registry.",
+    "files": [
+      {
+        "path": "components/examples/c-button-48.tsx",
+        "type": "registry:example"
+      }
+    ],
+    "isFlagged": false,
+    "name": "c-button-48",
+    "registryDependencies": [
+      "button",
+      "reui-badge"
+    ],
+    "slug": "reui-badge",
+    "span": 1,
+    "title": "Icon button with notification badge",
+    "type": "registry:example",
+    "upstreamUrl": "https://reui.io/components",
+    "variant": "icon-notification"
+  },
+  {
+    "categories": [
+      "actions"
+    ],
+    "description": "Split button group with approve action and dropdown for conditional approval and rejection.",
+    "files": [
+      {
+        "path": "components/examples/c-button-group-47.tsx",
+        "type": "registry:example"
+      }
+    ],
+    "isFlagged": false,
+    "name": "c-button-group-47",
+    "registryDependencies": [
+      "button",
+      "button-group",
+      "dropdown-menu"
+    ],
+    "slug": "button-group",
+    "span": 1,
+    "title": "Review actions split button",
+    "type": "registry:example",
+    "upstreamUrl": "https://reui.io/components",
+    "variant": "reui-review-actions"
+  },
+  {
+    "categories": [
+      "actions"
+    ],
+    "description": "Toolbar with avatar group, preview button, split publish dropdown, and overflow menu.",
+    "files": [
+      {
+        "path": "components/examples/c-button-group-53.tsx",
+        "type": "registry:example"
+      }
+    ],
+    "isFlagged": false,
+    "name": "c-button-group-53",
+    "registryDependencies": [
+      "avatar",
+      "button",
+      "button-group",
+      "dropdown-menu",
+      "separator"
+    ],
+    "slug": "button-group",
+    "span": 2,
+    "title": "Publish controls with split button",
+    "type": "registry:example",
+    "upstreamUrl": "https://reui.io/components",
+    "variant": "reui-publish-controls"
+  },
+  {
+    "categories": [
+      "forms"
+    ],
+    "description": "Calendar displaying ISO week numbers alongside each row using custom WeekNumber component.",
+    "files": [
+      {
+        "path": "components/examples/c-calendar-10.tsx",
+        "type": "registry:example"
+      }
+    ],
+    "isFlagged": false,
+    "name": "c-calendar-10",
+    "registryDependencies": [
+      "calendar",
+      "card"
+    ],
+    "slug": "calendar",
+    "span": 1,
+    "title": "Calendar with week numbers",
+    "type": "registry:example",
+    "upstreamUrl": "https://reui.io/components",
+    "variant": "reui-week-numbers"
+  },
+  {
+    "categories": [
+      "forms"
+    ],
+    "description": "Calendar with per-day dynamic pricing using custom DayButton, prices under $100 highlighted green.",
+    "files": [
+      {
+        "path": "components/examples/c-calendar-17.tsx",
+        "type": "registry:example"
+      }
+    ],
+    "isFlagged": false,
+    "name": "c-calendar-17",
+    "registryDependencies": [
+      "calendar"
+    ],
+    "slug": "calendar",
+    "span": 1,
+    "title": "Calendar with pricing",
+    "type": "registry:example",
+    "upstreamUrl": "https://reui.io/components",
+    "variant": "reui-pricing"
+  },
+  {
+    "categories": [
+      "forms"
+    ],
+    "description": "Popover date picker with sidebar preset buttons (Today, Yesterday, Last week, etc.) and calendar.",
+    "files": [
+      {
+        "path": "components/examples/c-calendar-28.tsx",
+        "type": "registry:example"
+      }
+    ],
+    "isFlagged": false,
+    "name": "c-calendar-28",
+    "registryDependencies": [
+      "button",
+      "calendar",
+      "card",
+      "popover"
+    ],
+    "slug": "calendar",
+    "span": 2,
+    "title": "Date picker with presets",
+    "type": "registry:example",
+    "upstreamUrl": "https://reui.io/components",
+    "variant": "reui-date-picker-presets"
+  },
+  {
+    "categories": [
+      "forms"
+    ],
+    "description": "Popover date range picker with 8 preset ranges and dual-mode calendar selection.",
+    "files": [
+      {
+        "path": "components/examples/c-calendar-29.tsx",
+        "type": "registry:example"
+      }
+    ],
+    "isFlagged": false,
+    "name": "c-calendar-29",
+    "registryDependencies": [
+      "button",
+      "calendar",
+      "card",
+      "popover"
+    ],
+    "slug": "calendar",
+    "span": 2,
+    "title": "Range date picker with presets",
+    "type": "registry:example",
+    "upstreamUrl": "https://reui.io/components",
+    "variant": "reui-range-presets"
+  },
+  {
+    "categories": [
+      "forms"
+    ],
+    "description": "Calendar demonstrating multi-day selection mode with pre-selected dates, from ReUI registry.",
+    "files": [
+      {
+        "path": "components/examples/c-calendar-4.tsx",
+        "type": "registry:example"
+      }
+    ],
+    "isFlagged": false,
+    "name": "c-calendar-4",
+    "registryDependencies": [
+      "calendar",
+      "card"
+    ],
+    "slug": "calendar",
+    "span": 1,
+    "title": "Multiple day selection",
+    "type": "registry:example",
+    "upstreamUrl": "https://reui.io/components",
+    "variant": "reui-multiple"
+  },
+  {
+    "categories": [
+      "display"
+    ],
+    "description": "Billing card with credit usage progress bar, collapsible line items, and gradient fade toggle.",
+    "files": [
+      {
+        "path": "components/examples/c-card-13.tsx",
+        "type": "registry:example"
+      }
+    ],
+    "height": "tall",
+    "isFlagged": false,
+    "name": "c-card-13",
+    "registryDependencies": [
+      "button",
+      "card",
+      "progress"
+    ],
+    "slug": "card",
+    "span": 2,
+    "title": "Expandable billing usage card",
+    "type": "registry:example",
+    "upstreamUrl": "https://reui.io/components",
+    "variant": "reui-expandable-billing"
+  },
+  {
+    "categories": [
+      "display"
+    ],
+    "description": "Revenue stat card with trend badge, delta percentage, comparison, and dropdown settings menu.",
+    "files": [
+      {
+        "path": "components/examples/c-card-15.tsx",
+        "type": "registry:example"
+      }
+    ],
+    "isFlagged": false,
+    "name": "c-card-15",
+    "registryDependencies": [
+      "reui-badge",
+      "button",
+      "card",
+      "dropdown-menu",
+      "separator"
+    ],
+    "slug": "card",
+    "span": 1,
+    "title": "Stat card with trend and overflow menu",
+    "type": "registry:example",
+    "upstreamUrl": "https://reui.io/components",
+    "variant": "reui-stat-trend"
+  },
+  {
+    "categories": [
+      "display"
+    ],
+    "description": "Documentation card with icon-labeled header section, descriptive text, and inline link.",
+    "files": [
+      {
+        "path": "components/examples/c-card-18.tsx",
+        "type": "registry:example"
+      }
+    ],
+    "isFlagged": false,
+    "name": "c-card-18",
+    "registryDependencies": [
+      "card"
+    ],
+    "slug": "card",
+    "span": 1,
+    "title": "Card with header label and link",
+    "type": "registry:example",
+    "upstreamUrl": "https://reui.io/components",
+    "variant": "reui-header-label"
+  },
+  {
+    "categories": [
+      "display"
+    ],
+    "description": "Compact help card with title, descriptive text, and link button with external link icon.",
+    "files": [
+      {
+        "path": "components/examples/c-card-5.tsx",
+        "type": "registry:example"
+      }
+    ],
+    "isFlagged": false,
+    "name": "c-card-5",
+    "registryDependencies": [
+      "button",
+      "card"
+    ],
+    "slug": "card",
+    "span": 1,
+    "title": "Card with link",
+    "type": "registry:example",
+    "upstreamUrl": "https://reui.io/components",
+    "variant": "reui-with-link"
+  },
+  {
+    "categories": [
+      "display"
+    ],
+    "description": "Billing summary card with collapsible line items expanded by centered chevron button at bottom.",
+    "files": [
+      {
+        "path": "components/examples/c-collapsible-4.tsx",
+        "type": "registry:example"
+      }
+    ],
+    "height": "tall",
+    "isFlagged": false,
+    "name": "c-collapsible-4",
+    "registryDependencies": [
+      "button",
+      "card",
+      "collapsible",
+      "progress"
+    ],
+    "slug": "collapsible",
+    "span": 1,
+    "title": "Collapsible card with bottom trigger",
+    "type": "registry:example",
+    "upstreamUrl": "https://reui.io/components",
+    "variant": "reui-bottom-trigger"
+  },
+  {
+    "categories": [
+      "forms"
+    ],
+    "description": "Unit pricing form with base price input and collapsible tax/discount fields toggled by settings button.",
+    "files": [
+      {
+        "path": "components/examples/c-collapsible-5.tsx",
+        "type": "registry:example"
+      }
+    ],
+    "isFlagged": false,
+    "name": "c-collapsible-5",
+    "registryDependencies": [
+      "button",
+      "card",
+      "collapsible",
+      "field",
+      "input-group"
+    ],
+    "slug": "collapsible",
+    "span": 1,
+    "title": "Collapsible form fields",
+    "type": "registry:example",
+    "upstreamUrl": "https://reui.io/components",
+    "variant": "reui-form-fields"
+  },
+  {
+    "categories": [
+      "forms"
+    ],
+    "description": "Combobox with avatar-decorated chips, searchable dropdown, removable selections, and member info.",
+    "files": [
+      {
+        "path": "components/examples/c-combobox-19.tsx",
+        "type": "registry:example"
+      }
+    ],
+    "isFlagged": false,
+    "name": "c-combobox-19",
+    "registryDependencies": [
+      "avatar",
+      "combobox",
+      "field",
+      "item"
+    ],
+    "slug": "combobox",
+    "span": 2,
+    "title": "Multi-select combobox with user tags",
+    "type": "registry:example",
+    "upstreamUrl": "https://reui.io/components",
+    "variant": "reui-multi-select-users"
+  },
+  {
+    "categories": [
+      "overlay"
+    ],
+    "description": "Command dialog with grouped actions (Create, Navigate, System) and keyboard shortcut indicators.",
+    "files": [
+      {
+        "path": "components/examples/c-command-7.tsx",
+        "type": "registry:example"
+      }
+    ],
+    "isFlagged": false,
+    "name": "c-command-7",
+    "registryDependencies": [
+      "button",
+      "command"
+    ],
+    "slug": "command",
+    "span": 2,
+    "title": "Action palette with keyboard shortcuts",
+    "type": "registry:example",
+    "upstreamUrl": "https://reui.io/components",
+    "variant": "reui-action-palette"
+  },
+  {
+    "categories": [
+      "overlay"
+    ],
+    "description": "Search dialog with starred favorites, timestamped recent pages, and quick links for navigation.",
+    "files": [
+      {
+        "path": "components/examples/c-command-8.tsx",
+        "type": "registry:example"
+      }
+    ],
+    "isFlagged": false,
+    "name": "c-command-8",
+    "registryDependencies": [
+      "button",
+      "command"
+    ],
+    "slug": "command",
+    "span": 2,
+    "title": "Command with recent and favorites",
+    "type": "registry:example",
+    "upstreamUrl": "https://reui.io/components",
+    "variant": "reui-recent-favorites"
+  },
+  {
+    "categories": [
       "forms",
       "display"
     ],
@@ -9014,6 +9466,23 @@
     "type": "registry:example",
     "upstreamUrl": "https://ui.shadcn.com/docs/components/resizable",
     "variant": "vertical"
+  },
+  {
+    "categories": [
+      "display"
+    ],
+    "description": "Enhanced badge with 20+ semantic variants (success, warning, info, destructive, light, outline), sizes, and radius.",
+    "files": [
+      {
+        "path": "components/ui/reui-badge.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "name": "reui-badge",
+    "proposedGroup": "display",
+    "title": "ReUI Badge",
+    "type": "registry:ui",
+    "upstreamUrl": "https://reui.io/components"
   },
   {
     "categories": [
