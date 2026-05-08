@@ -970,7 +970,7 @@ export const items = defineItems([
     title: "PDF Utils",
     description:
       "Client-side PDF utility library: extract metadata, screenshot pages, search text, generate thumbnails, and split page ranges.",
-    files: [{ path: "components/ui/pdf-utils.ts", type: "registry:ui" }],
+    files: [{ path: "components/ui/pdf-utils.tsx", type: "registry:ui" }],
     upstreamUrl: "https://www.tryelements.dev/docs/pdf/pdf-utils",
     categories: ["data"],
     proposedGroup: "pdf",

@@ -506,6 +506,32 @@
   },
   {
     "categories": [
+      "data",
+      "display"
+    ],
+    "description": "Mock 200 OK response with JSON body, request headers, and DNS/connect/TTFB/download timing waterfall breakdown.",
+    "files": [
+      {
+        "path": "components/examples/api-response-viewer-default.tsx",
+        "type": "registry:example"
+      }
+    ],
+    "height": "tall",
+    "isDefault": true,
+    "isFlagged": false,
+    "name": "api-response-viewer-default",
+    "registryDependencies": [
+      "api-response-viewer"
+    ],
+    "slug": "api-response-viewer",
+    "span": 2,
+    "title": "Default",
+    "type": "registry:example",
+    "upstreamUrl": "https://www.tryelements.dev/docs/devtools/api-response-viewer",
+    "variant": "default"
+  },
+  {
+    "categories": [
       "layout"
     ],
     "description": "Constrains content to a specified ratio.",
@@ -5222,6 +5248,32 @@
   },
   {
     "categories": [
+      "forms",
+      "data"
+    ],
+    "description": "Controlled environment variable editor with four pre-populated vars, masked values, and .env import/export support.",
+    "files": [
+      {
+        "path": "components/examples/env-editor-default.tsx",
+        "type": "registry:example"
+      }
+    ],
+    "height": "tall",
+    "isDefault": true,
+    "isFlagged": false,
+    "name": "env-editor-default",
+    "registryDependencies": [
+      "env-editor"
+    ],
+    "slug": "env-editor",
+    "span": 2,
+    "title": "Default",
+    "type": "registry:example",
+    "upstreamUrl": "https://www.tryelements.dev/docs/devtools/env-editor",
+    "variant": "default"
+  },
+  {
+    "categories": [
       "feedback"
     ],
     "description": "Error fallback display with stack trace parsing, copy-to-clipboard, retry button, and dev/prod verbosity modes.",
@@ -5236,6 +5288,30 @@
     "title": "Error Boundary UI",
     "type": "registry:ui",
     "upstreamUrl": "https://www.tryelements.dev/docs/devtools/error-boundary-ui"
+  },
+  {
+    "categories": [
+      "feedback"
+    ],
+    "description": "Dev-mode error fallback with mock TypeError, parsed stack trace, component stack, copy button, and retry action.",
+    "files": [
+      {
+        "path": "components/examples/error-boundary-ui-default.tsx",
+        "type": "registry:example"
+      }
+    ],
+    "isDefault": true,
+    "isFlagged": false,
+    "name": "error-boundary-ui-default",
+    "registryDependencies": [
+      "error-boundary-ui"
+    ],
+    "slug": "error-boundary-ui",
+    "span": 2,
+    "title": "Default",
+    "type": "registry:example",
+    "upstreamUrl": "https://www.tryelements.dev/docs/devtools/error-boundary-ui",
+    "variant": "default"
   },
   {
     "categories": [
@@ -6573,6 +6649,32 @@
   },
   {
     "categories": [
+      "data",
+      "display"
+    ],
+    "description": "Collapsible JSON tree with nested object, array, null, boolean, and number types, search enabled, copy-path on hover.",
+    "files": [
+      {
+        "path": "components/examples/json-viewer-default.tsx",
+        "type": "registry:example"
+      }
+    ],
+    "height": "tall",
+    "isDefault": true,
+    "isFlagged": false,
+    "name": "json-viewer-default",
+    "registryDependencies": [
+      "json-viewer"
+    ],
+    "slug": "json-viewer",
+    "span": 2,
+    "title": "Default",
+    "type": "registry:example",
+    "upstreamUrl": "https://www.tryelements.dev/docs/devtools/json-viewer",
+    "variant": "default"
+  },
+  {
+    "categories": [
       "display"
     ],
     "description": "Display textual keyboard input. Group multiple keys with KbdGroup.",
@@ -7456,6 +7558,31 @@
   },
   {
     "categories": [
+      "display"
+    ],
+    "description": "OG image audit grid with six sample routes across two categories, including one intentionally broken URL for error state.",
+    "files": [
+      {
+        "path": "components/examples/og-image-explorer-default.tsx",
+        "type": "registry:example"
+      }
+    ],
+    "height": "tall",
+    "isDefault": true,
+    "isFlagged": false,
+    "name": "og-image-explorer-default",
+    "registryDependencies": [
+      "og-image-explorer"
+    ],
+    "slug": "og-image-explorer",
+    "span": 3,
+    "title": "Default",
+    "type": "registry:example",
+    "upstreamUrl": "https://www.tryelements.dev/docs/devtools/og-image-explorer",
+    "variant": "default"
+  },
+  {
+    "categories": [
       "navigation"
     ],
     "description": "Page navigation with previous, next, and numbered links.",
@@ -7564,7 +7691,7 @@
     "description": "Client-side PDF utility library: extract metadata, screenshot pages, search text, generate thumbnails, and split page ranges.",
     "files": [
       {
-        "path": "components/ui/pdf-utils.ts",
+        "path": "components/ui/pdf-utils.tsx",
         "type": "registry:ui"
       }
     ],
@@ -7573,6 +7700,31 @@
     "title": "PDF Utils",
     "type": "registry:ui",
     "upstreamUrl": "https://www.tryelements.dev/docs/pdf/pdf-utils"
+  },
+  {
+    "categories": [
+      "data"
+    ],
+    "description": "Interactive PDF utility demo with file upload, metadata extraction, and page thumbnail grid generation using client-side PDF processing.",
+    "files": [
+      {
+        "path": "components/examples/pdf-utils-default.tsx",
+        "type": "registry:example"
+      }
+    ],
+    "height": "tall",
+    "isDefault": true,
+    "isFlagged": false,
+    "name": "pdf-utils-default",
+    "registryDependencies": [
+      "pdf-utils"
+    ],
+    "slug": "pdf-utils",
+    "span": 2,
+    "title": "Default",
+    "type": "registry:example",
+    "upstreamUrl": "https://www.tryelements.dev/docs/pdf/pdf-utils",
+    "variant": "default"
   },
   {
     "categories": [
@@ -7593,6 +7745,31 @@
     "title": "PDF Viewer",
     "type": "registry:ui",
     "upstreamUrl": "https://www.tryelements.dev/docs/pdf/pdf-viewer"
+  },
+  {
+    "categories": [
+      "display"
+    ],
+    "description": "PDF viewer in single-page mode loading a remote sample document with zoom controls and page navigation toolbar.",
+    "files": [
+      {
+        "path": "components/examples/pdf-viewer-default.tsx",
+        "type": "registry:example"
+      }
+    ],
+    "height": "tall",
+    "isDefault": true,
+    "isFlagged": false,
+    "name": "pdf-viewer-default",
+    "registryDependencies": [
+      "pdf-viewer"
+    ],
+    "slug": "pdf-viewer",
+    "span": 3,
+    "title": "Default",
+    "type": "registry:example",
+    "upstreamUrl": "https://www.tryelements.dev/docs/pdf/pdf-viewer",
+    "variant": "default"
   },
   {
     "categories": [
@@ -11270,5 +11447,31 @@
     "title": "Webhook Tester",
     "type": "registry:ui",
     "upstreamUrl": "https://www.tryelements.dev/docs/devtools/webhook-tester"
+  },
+  {
+    "categories": [
+      "forms",
+      "data"
+    ],
+    "description": "HTTP request builder pre-filled with JSONPlaceholder POST endpoint, editable headers and body, with live response display.",
+    "files": [
+      {
+        "path": "components/examples/webhook-tester-default.tsx",
+        "type": "registry:example"
+      }
+    ],
+    "height": "tall",
+    "isDefault": true,
+    "isFlagged": false,
+    "name": "webhook-tester-default",
+    "registryDependencies": [
+      "webhook-tester"
+    ],
+    "slug": "webhook-tester",
+    "span": 3,
+    "title": "Default",
+    "type": "registry:example",
+    "upstreamUrl": "https://www.tryelements.dev/docs/devtools/webhook-tester",
+    "variant": "default"
   }
 ]

@@ -1488,3 +1488,411 @@ export default function RingLoaderDefault() {
   );
 }
 ```
+## Default
+
+**Slug:** `api-response-viewer`
+**Variant:** `default`
+**Upstream:** https://www.tryelements.dev/docs/devtools/api-response-viewer
+**Description:** Mock 200 OK response with JSON body, request headers, and DNS/connect/TTFB/download timing waterfall breakdown.
+**Depends on:** api-response-viewer
+
+```tsx
+/**
+ * @slug api-response-viewer
+ * @variant default
+ * @upstream https://www.tryelements.dev/docs/devtools/api-response-viewer
+ * @deviations ["Moved from elements/ to ui/ directory."]
+ */
+"use client";
+
+import { ApiResponseViewer } from "@/components/ui/api-response-viewer";
+
+const MOCK_RESPONSE = {
+  status: 200,
+  statusText: "OK",
+  headers: {
+    "content-type": "application/json",
+    "x-request-id": "req_abc123",
+    "cache-control": "no-cache",
+  },
+  body: {
+    success: true,
+    data: {
+      id: 1,
+      name: "Provo Starter",
+      version: "1.0.0",
+      features: ["auth", "billing", "orgs"],
+    },
+  },
+  timing: {
+    dns: 12,
+    connect: 23,
+    ttfb: 45,
+    download: 8,
+    total: 88,
+  },
+};
+
+export default function ApiResponseViewerDefault() {
+  return (
+    <div className="w-full">
+      <ApiResponseViewer response={MOCK_RESPONSE} />
+    </div>
+  );
+}
+```
+## Default
+
+**Slug:** `env-editor`
+**Variant:** `default`
+**Upstream:** https://www.tryelements.dev/docs/devtools/env-editor
+**Description:** Controlled environment variable editor with four pre-populated vars, masked values, and .env import/export support.
+**Depends on:** env-editor
+
+```tsx
+/**
+ * @slug env-editor
+ * @variant default
+ * @upstream https://www.tryelements.dev/docs/devtools/env-editor
+ * @deviations ["Moved from elements/ to ui/ directory."]
+ */
+"use client";
+
+import { useState } from "react";
+import { EnvEditor, type EnvVariable } from "@/components/ui/env-editor";
+
+const INITIAL_VARS: EnvVariable[] = [
+  { key: "DATABASE_URL", value: "postgresql://localhost:5432/provo" },
+  { key: "API_KEY", value: "sk_live_abc123def456" },
+  { key: "DEBUG", value: "false" },
+  { key: "NODE_ENV", value: "development" },
+];
+
+export default function EnvEditorDefault() {
+  const [variables, setVariables] = useState<EnvVariable[]>(INITIAL_VARS);
+
+  return (
+    <div className="w-full">
+      <EnvEditor value={variables} onChange={setVariables} masked />
+    </div>
+  );
+}
+```
+## Default
+
+**Slug:** `error-boundary-ui`
+**Variant:** `default`
+**Upstream:** https://www.tryelements.dev/docs/devtools/error-boundary-ui
+**Description:** Dev-mode error fallback with mock TypeError, parsed stack trace, component stack, copy button, and retry action.
+**Depends on:** error-boundary-ui
+
+```tsx
+/**
+ * @slug error-boundary-ui
+ * @variant default
+ * @upstream https://www.tryelements.dev/docs/devtools/error-boundary-ui
+ * @deviations ["Moved from elements/ to ui/ directory.", "Uses mock error for showcase."]
+ */
+"use client";
+
+import { ErrorBoundaryUi } from "@/components/ui/error-boundary-ui";
+
+const mockError = new Error("Cannot read properties of undefined (reading 'map')");
+mockError.stack = `TypeError: Cannot read properties of undefined (reading 'map')
+    at UserList (src/features/users/ui/user-list.tsx:24:18)
+    at renderWithHooks (node_modules/react-dom/cjs/react-dom.development.js:14985:18)
+    at mountIndeterminateComponent (node_modules/react-dom/cjs/react-dom.development.js:17811:13)
+    at beginWork (node_modules/react-dom/cjs/react-dom.development.js:19049:16)`;
+
+export default function ErrorBoundaryUiDefault() {
+  return (
+    <div className="w-full">
+      <ErrorBoundaryUi
+        error={mockError}
+        resetError={() => {}}
+        isDev
+        componentStack={`    at UserList
+    at ErrorBoundary
+    at AppLayout
+    at App`}
+      />
+    </div>
+  );
+}
+```
+## Default
+
+**Slug:** `json-viewer`
+**Variant:** `default`
+**Upstream:** https://www.tryelements.dev/docs/devtools/json-viewer
+**Description:** Collapsible JSON tree with nested object, array, null, boolean, and number types, search enabled, copy-path on hover.
+**Depends on:** json-viewer
+
+```tsx
+/**
+ * @slug json-viewer
+ * @variant default
+ * @upstream https://www.tryelements.dev/docs/devtools/json-viewer
+ * @deviations ["Moved from elements/ to ui/ directory."]
+ */
+"use client";
+
+import { JsonViewer } from "@/components/ui/json-viewer";
+
+const SAMPLE_DATA = {
+  name: "Jane Cooper",
+  age: 32,
+  email: "jane@example.com",
+  active: true,
+  address: {
+    street: "123 Main St",
+    city: "Prague",
+    country: "CZ",
+  },
+  hobbies: ["photography", "hiking", "cooking"],
+  metadata: null,
+};
+
+export default function JsonViewerDefault() {
+  return (
+    <div className="w-full">
+      <JsonViewer data={SAMPLE_DATA} searchable copyPath />
+    </div>
+  );
+}
+```
+## Default
+
+**Slug:** `og-image-explorer`
+**Variant:** `default`
+**Upstream:** https://www.tryelements.dev/docs/devtools/og-image-explorer
+**Description:** OG image audit grid with six sample routes across two categories, including one intentionally broken URL for error state.
+**Depends on:** og-image-explorer
+
+```tsx
+/**
+ * @slug og-image-explorer
+ * @variant default
+ * @upstream https://www.tryelements.dev/docs/devtools/og-image-explorer
+ * @deviations ["Moved from elements/ to ui/ directory.", "Uses placeholder OG image URLs for showcase."]
+ */
+"use client";
+
+import { OgImageExplorer } from "@/components/ui/og-image-explorer";
+
+const SAMPLE_ROUTES = [
+  {
+    path: "/",
+    title: "Home",
+    ogImageUrl: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=1200&q=80",
+    category: "Pages",
+  },
+  {
+    path: "/about",
+    title: "About Us",
+    ogImageUrl: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&q=80",
+    category: "Pages",
+  },
+  {
+    path: "/blog",
+    title: "Blog",
+    ogImageUrl: "https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=1200&q=80",
+    category: "Pages",
+  },
+  {
+    path: "/docs/getting-started",
+    title: "Getting Started",
+    ogImageUrl: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=1200&q=80",
+    category: "Docs",
+  },
+  {
+    path: "/docs/api",
+    title: "API Reference",
+    ogImageUrl: "https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?w=1200&q=80",
+    category: "Docs",
+  },
+  {
+    path: "/pricing",
+    title: "Pricing",
+    ogImageUrl: "https://invalid-url.example.com/broken.png",
+    category: "Pages",
+  },
+];
+
+export default function OgImageExplorerDefault() {
+  return (
+    <div className="w-full">
+      <OgImageExplorer routes={SAMPLE_ROUTES} />
+    </div>
+  );
+}
+```
+## Default
+
+**Slug:** `pdf-utils`
+**Variant:** `default`
+**Upstream:** https://www.tryelements.dev/docs/pdf/pdf-utils
+**Description:** Interactive PDF utility demo with file upload, metadata extraction, and page thumbnail grid generation using client-side PDF processing.
+**Depends on:** pdf-utils
+
+```tsx
+/**
+ * @slug pdf-utils
+ * @variant default
+ * @upstream https://www.tryelements.dev/docs/pdf/pdf-utils
+ * @deviations ["Moved from elements/ to ui/ directory.", "Shows utility API via interactive file upload demo.", "Dynamic import with ssr:false to avoid pdfjs DOMMatrix crash during prerender."]
+ */
+"use client";
+
+import { useState } from "react";
+
+type PdfInfo = {
+  numPages: number;
+  title: string | null;
+  author: string | null;
+};
+
+export default function PdfUtilsDefault() {
+  const [info, setInfo] = useState<PdfInfo | null>(null);
+  const [thumbnails, setThumbnails] = useState<string[]>([]);
+  const [loading, setLoading] = useState(false);
+
+  async function handleFile(e: React.ChangeEvent<HTMLInputElement>) {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    setLoading(true);
+    try {
+      const { getPdfInfo, getAllPageThumbnails } = await import("@/components/ui/pdf-utils");
+      const pdfInfo = await getPdfInfo(file);
+      setInfo({
+        numPages: pdfInfo.numPages,
+        title: pdfInfo.title ?? null,
+        author: pdfInfo.author ?? null,
+      });
+      const thumbs = await getAllPageThumbnails(file, 0.3);
+      setThumbnails(thumbs);
+    } catch {
+      setInfo(null);
+      setThumbnails([]);
+    } finally {
+      setLoading(false);
+    }
+  }
+
+  return (
+    <div className="flex w-full flex-col gap-4">
+      <label className="text-sm font-medium">
+        Upload PDF
+        <input
+          type="file"
+          accept=".pdf"
+          onChange={handleFile}
+          className="mt-1 block w-full text-sm file:mr-4 file:rounded-md file:border-0 file:bg-primary file:px-4 file:py-2 file:text-sm file:font-medium file:text-primary-foreground"
+        />
+      </label>
+      {loading && <p className="text-sm text-muted-foreground">Processing...</p>}
+      {info && (
+        <div className="rounded-md border border-border p-3 text-sm">
+          <p>
+            <span className="font-medium">Pages:</span> {info.numPages}
+          </p>
+          {info.title && (
+            <p>
+              <span className="font-medium">Title:</span> {info.title}
+            </p>
+          )}
+          {info.author && (
+            <p>
+              <span className="font-medium">Author:</span> {info.author}
+            </p>
+          )}
+        </div>
+      )}
+      {thumbnails.length > 0 && (
+        <div className="grid grid-cols-4 gap-2">
+          {thumbnails.map((thumb, i) => (
+            /* eslint-disable-next-line @next/next/no-img-element */
+            <img
+              key={i}
+              src={thumb}
+              alt={`Page ${i + 1}`}
+              className="rounded border border-border"
+            />
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
+```
+## Default
+
+**Slug:** `pdf-viewer`
+**Variant:** `default`
+**Upstream:** https://www.tryelements.dev/docs/pdf/pdf-viewer
+**Description:** PDF viewer in single-page mode loading a remote sample document with zoom controls and page navigation toolbar.
+**Depends on:** pdf-viewer
+
+```tsx
+/**
+ * @slug pdf-viewer
+ * @variant default
+ * @upstream https://www.tryelements.dev/docs/pdf/pdf-viewer
+ * @deviations ["Moved from elements/ to ui/ directory.", "Dynamic import with ssr:false to avoid pdfjs DOMMatrix crash during prerender."]
+ */
+"use client";
+
+import dynamic from "next/dynamic";
+
+const PdfViewer = dynamic(() => import("@/components/ui/pdf-viewer").then((m) => m.PdfViewer), {
+  ssr: false,
+  loading: () => (
+    <div className="flex h-96 items-center justify-center text-sm text-muted-foreground">
+      Loading PDF viewer...
+    </div>
+  ),
+});
+
+export default function PdfViewerDefault() {
+  return (
+    <div className="w-full">
+      <PdfViewer
+        file="https://raw.githubusercontent.com/nicktomlin/sample-pdfs/refs/heads/master/simple.pdf"
+        mode="single"
+        initialZoom={1}
+      />
+    </div>
+  );
+}
+```
+## Default
+
+**Slug:** `webhook-tester`
+**Variant:** `default`
+**Upstream:** https://www.tryelements.dev/docs/devtools/webhook-tester
+**Description:** HTTP request builder pre-filled with JSONPlaceholder POST endpoint, editable headers and body, with live response display.
+**Depends on:** webhook-tester
+
+```tsx
+/**
+ * @slug webhook-tester
+ * @variant default
+ * @upstream https://www.tryelements.dev/docs/devtools/webhook-tester
+ * @deviations ["Moved from elements/ to ui/ directory."]
+ */
+"use client";
+
+import { WebhookTester } from "@/components/ui/webhook-tester";
+
+export default function WebhookTesterDefault() {
+  return (
+    <div className="w-full">
+      <WebhookTester
+        defaultUrl="https://jsonplaceholder.typicode.com/posts"
+        defaultMethod="POST"
+        defaultBody={JSON.stringify({ title: "Hello", body: "World", userId: 1 }, null, 2)}
+      />
+    </div>
+  );
+}
+```
