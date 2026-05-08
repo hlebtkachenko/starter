@@ -9,7 +9,7 @@
 
 | Area | File | Items | Chars |
 |---|---|---|---|
-| UI Primitives | [docs/showcase-export/ui.md](showcase-export/ui.md) | 82 | 19,473 |
+| UI Primitives | [docs/showcase-export/ui.md](showcase-export/ui.md) | 83 | 19,713 |
 | Examples: buttons | [docs/showcase-export/examples-buttons.md](showcase-export/examples-buttons.md) | 36 | 47,459 |
 | Examples: display-part1 | [docs/showcase-export/examples-display-part1.md](showcase-export/examples-display-part1.md) | 41 | 79,363 |
 | Examples: display-part2 | [docs/showcase-export/examples-display-part2.md](showcase-export/examples-display-part2.md) | 20 | 28,696 |
@@ -21,7 +21,7 @@
 | Examples: navigation | [docs/showcase-export/examples-navigation.md](showcase-export/examples-navigation.md) | 21 | 40,532 |
 | Examples: overlays | [docs/showcase-export/examples-overlays.md](showcase-export/examples-overlays.md) | 23 | 40,967 |
 | Examples: utility | [docs/showcase-export/examples-utility.md](showcase-export/examples-utility.md) | 33 | 50,746 |
-| Examples: other | [docs/showcase-export/examples-other.md](showcase-export/examples-other.md) | 28 | 41,188 |
+| Examples: other | [docs/showcase-export/examples-other.md](showcase-export/examples-other.md) | 29 | 42,001 |
 | Blocks | [docs/showcase-export/blocks.md](showcase-export/blocks.md) | 5 | 15,187 |
 
 ## UI Primitives TOC
@@ -108,11 +108,12 @@
 - [`terminal-animation`](showcase-export/ui.md#terminal-animation) — Animated terminal/CLI output with typing effect, tab navigation, command bar, blinking cursor, and line-by-line reveal.
 - [`timeline`](showcase-export/ui.md#timeline) — Vertical or horizontal timeline with active step tracking, connector lines, and customizable content per step.
 - [`tour`](showcase-export/ui.md#tour) — Multi-step guided tour overlay with spotlight highlighting, step navigation, keyboard support, and scroll-to-target.
+- [`ring-loader`](showcase-export/ui.md#ring-loader) — Lightweight SVG spinning ring indicator with configurable size and speed via --duration CSS variable, uses currentColor.
 
 ## Quick counts
 
-- UI primitives: **82**
-- Example variants: **401**
+- UI primitives: **83**
+- Example variants: **402**
 - Example files: **12**
 - Blocks: **5**
-- Total registry items: **488**
+- Total registry items: **490**

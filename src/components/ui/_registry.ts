@@ -874,4 +874,15 @@ export const items = defineItems([
     categories: ["overlay", "navigation"],
     proposedGroup: "overlay",
   },
+  {
+    name: "ring-loader",
+    type: "registry:ui",
+    title: "Ring Loader",
+    description:
+      "Lightweight SVG spinning ring indicator with configurable size and speed via --duration CSS variable, uses currentColor.",
+    files: [{ path: "components/ui/ring-loader.tsx", type: "registry:ui" }],
+    upstreamUrl: "https://loading-ui.com",
+    categories: ["feedback"],
+    proposedGroup: "feedback",
+  },
 ]);

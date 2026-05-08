@@ -7949,6 +7949,47 @@
   },
   {
     "categories": [
+      "feedback"
+    ],
+    "description": "Lightweight SVG spinning ring indicator with configurable size and speed via --duration CSS variable, uses currentColor.",
+    "files": [
+      {
+        "path": "components/ui/ring-loader.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "name": "ring-loader",
+    "proposedGroup": "feedback",
+    "title": "Ring Loader",
+    "type": "registry:ui",
+    "upstreamUrl": "https://loading-ui.com"
+  },
+  {
+    "categories": [
+      "feedback"
+    ],
+    "description": "Three ring-loader sizes side by side demonstrating size scaling and color override via text-primary token class.",
+    "files": [
+      {
+        "path": "components/examples/ring-loader-default.tsx",
+        "type": "registry:example"
+      }
+    ],
+    "isDefault": true,
+    "isFlagged": false,
+    "name": "ring-loader-default",
+    "registryDependencies": [
+      "ring-loader"
+    ],
+    "slug": "ring-loader",
+    "span": 1,
+    "title": "Default",
+    "type": "registry:example",
+    "upstreamUrl": "https://loading-ui.com",
+    "variant": "default"
+  },
+  {
+    "categories": [
       "layout"
     ],
     "description": "Augmented native scroll with custom cross-browser styling.",

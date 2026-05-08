@@ -788,4 +788,25 @@ export const items = defineItems([
     ],
     categories: ["overlay"],
   },
+  {
+    name: "ring-loader-default",
+    type: "registry:example",
+    title: "Default",
+    description:
+      "Three ring-loader sizes side by side demonstrating size scaling and color override via text-primary token class.",
+    slug: "ring-loader",
+    variant: "default",
+    isDefault: true,
+    isFlagged: false,
+    span: 1,
+    upstreamUrl: "https://loading-ui.com",
+    registryDependencies: ["ring-loader"],
+    files: [
+      {
+        path: "components/examples/ring-loader-default.tsx",
+        type: "registry:example",
+      },
+    ],
+    categories: ["feedback"],
+  },
 ]);

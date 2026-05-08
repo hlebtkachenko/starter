@@ -514,3 +514,9 @@
 **Description:** Multi-step guided tour overlay with spotlight highlighting, step navigation, keyboard support, and scroll-to-target.
 **Upstream:** https://www.diceui.com/docs/components/radix/tour
 **Categories:** overlay, navigation
+## Ring Loader
+
+**Name:** `ring-loader`
+**Description:** Lightweight SVG spinning ring indicator with configurable size and speed via --duration CSS variable, uses currentColor.
+**Upstream:** https://loading-ui.com
+**Categories:** feedback
