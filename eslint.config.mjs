@@ -343,7 +343,7 @@ const eslintConfig = defineConfig([
       "local-rules/no-inline-hex": "error",
       "local-rules/no-oklch": "error",
       "local-rules/no-arbitrary-radius": "error",
-      "local-rules/no-raw-interactive-html": "warn",
+      "local-rules/no-raw-interactive-html": "error",
       "local-rules/no-bare-rounded": "error",
     },
   },
