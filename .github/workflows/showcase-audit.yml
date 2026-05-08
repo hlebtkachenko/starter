@@ -77,11 +77,9 @@ jobs:
       - name: Unit tests (Vitest)
         run: pnpm test --run
 
-      # Snapshots committed in tests/e2e/*-snapshots/ (chromium-darwin).
-      # CI runs on linux (self-hosted) so linux baselines must be captured on first
-      # CI run: run `pnpm test:e2e --update-snapshots` on the runner, commit the
-      # *-linux snapshots, then this step becomes fully deterministic.
-      # Cross-browser (firefox, webkit) snapshots are deferred to a separate PR.
-      - name: E2E tests (Playwright)
-        if: false
-        run: pnpm test:e2e
+      # Functional e2e (registry deep-links + cascade test). No screenshots.
+      # Visual snapshot specs (showcase.visual, blocks.visual) need per-OS
+      # baselines and are excluded via --grep. Capture linux baselines with:
+      #   pnpm test:e2e --update-snapshots
+      - name: E2E tests (Playwright, functional only)
+        run: pnpm test:e2e --grep @functional

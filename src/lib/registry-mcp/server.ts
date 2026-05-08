@@ -10,15 +10,17 @@
  * Run via:
  *   pnpm mcp:registry-server
  *
- * TODO: Install @modelcontextprotocol/sdk to enable the full MCP server.
- *       Run: pnpm add @modelcontextprotocol/sdk
- *       Then replace the stub below with the real server implementation
- *       shown in the commented-out section at the bottom of this file.
+ * Register in ~/.claude.json:
+ *   "starter-registry": {
+ *     "command": "pnpm",
+ *     "args": ["mcp:registry-server"],
+ *     "cwd": "<path-to-gwangju>"
+ *   }
  */
 
-// ---------------------------------------------------------------------------
-// Core registry adapters — these typecheck and run regardless of SDK presence.
-// ---------------------------------------------------------------------------
+import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
+import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
+import { z } from "zod";
 
 import {
   searchRegistry,
@@ -30,7 +32,6 @@ import {
 } from "@/lib/registry";
 import type { RegistryItem } from "@/lib/registry-schema";
 
-/** Shape returned by the searchRegistry tool. */
 export type SearchResult = {
   name: string;
   type: RegistryItem["type"];
@@ -40,10 +41,8 @@ export type SearchResult = {
   variant?: string | undefined;
 };
 
-/** Shape returned by the getRegistryComponent tool. */
 export type RegistryComponentResult = RegistryItem | null;
 
-/** Shape returned by the listExamples tool. */
 export type ExampleResult = {
   name: string;
   title?: string | undefined;
@@ -52,16 +51,11 @@ export type ExampleResult = {
   description?: string | undefined;
 };
 
-/** Shape returned by the listBlocks tool. */
 export type BlockResult = {
   name: string;
   title?: string | undefined;
   description?: string | undefined;
 };
-
-// ---------------------------------------------------------------------------
-// Tool handler implementations — imported by the MCP server wiring below.
-// ---------------------------------------------------------------------------
 
 export function handleSearchRegistry(query: string): SearchResult[] {
   return searchRegistry(query).map(({ name, title, type, description, slug, variant }) => ({
@@ -110,74 +104,71 @@ export function handleListBlocks(): BlockResult[] {
   return results;
 }
 
-// ---------------------------------------------------------------------------
-// Entry point — prints install instructions until the SDK is added.
-// ---------------------------------------------------------------------------
+const server = new McpServer({
+  name: "starter-registry",
+  version: "1.0.0",
+});
 
-const IS_MAIN =
-  // tsx / ts-node set import.meta.url; compare against argv[1]
-  typeof process !== "undefined" &&
-  process.argv[1] != null &&
-  process.argv[1].endsWith("server.ts");
+server.tool(
+  "searchRegistry",
+  "Search the component registry by keyword. Returns matching items with name, title, type, description, slug, and variant.",
+  {
+    query: z
+      .string()
+      .describe("Search term. Matched against name, title, description, categories, related."),
+  },
+  async ({ query }) => ({
+    content: [
+      {
+        type: "text",
+        text: JSON.stringify(handleSearchRegistry(query), null, 2),
+      },
+    ],
+  }),
+);
 
-if (IS_MAIN) {
-  // TODO: Replace this block with the MCP server wiring once
-  //       @modelcontextprotocol/sdk is installed (see bottom of file).
-  process.stdout.write(
-    "Install @modelcontextprotocol/sdk to enable the registry MCP server.\n" +
-      "Run: pnpm add @modelcontextprotocol/sdk\n",
-  );
-  process.exit(0);
+server.tool(
+  "getRegistryComponent",
+  "Fetch full RegistryItem metadata for a component by its unique kebab-case name (e.g. 'button', 'button-outline').",
+  {
+    name: z.string().describe("Unique registry name, e.g. 'button' or 'login-card'."),
+  },
+  async ({ name }) => ({
+    content: [
+      {
+        type: "text",
+        text: JSON.stringify(handleGetRegistryComponent(name), null, 2),
+      },
+    ],
+  }),
+);
+
+server.tool(
+  "listExamples",
+  "List example registry items. Pass a slug to scope to one primitive (e.g. 'button'); omit to list all examples.",
+  {
+    slug: z.string().optional().describe("Primitive slug, e.g. 'button'. Omit for all examples."),
+  },
+  async ({ slug }) => ({
+    content: [{ type: "text", text: JSON.stringify(handleListExamples(slug), null, 2) }],
+  }),
+);
+
+server.tool(
+  "listBlocks",
+  "List all block registry items (page-level compositions like login-card, signup-card).",
+  {},
+  async () => ({
+    content: [{ type: "text", text: JSON.stringify(handleListBlocks(), null, 2) }],
+  }),
+);
+
+async function main() {
+  const transport = new StdioServerTransport();
+  await server.connect(transport);
 }
 
-// ---------------------------------------------------------------------------
-// TODO: MCP server wiring (uncomment after installing the SDK)
-// ---------------------------------------------------------------------------
-//
-// import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
-// import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
-// import { z } from "zod";
-//
-// const server = new McpServer({
-//   name: "starter-registry",
-//   version: "1.0.0",
-// });
-//
-// server.tool(
-//   "searchRegistry",
-//   "Search the component registry by keyword. Returns matching items with name, title, type, description, slug, and variant.",
-//   { query: z.string().describe("Search term. Matched against name, title, description, categories, related.") },
-//   async ({ query }) => ({
-//     content: [{ type: "text", text: JSON.stringify(handleSearchRegistry(query), null, 2) }],
-//   }),
-// );
-//
-// server.tool(
-//   "getRegistryComponent",
-//   "Fetch full RegistryItem metadata for a component by its unique kebab-case name (e.g. 'button', 'button-outline').",
-//   { name: z.string().describe("Unique registry name, e.g. 'button' or 'login-card'.") },
-//   async ({ name }) => ({
-//     content: [{ type: "text", text: JSON.stringify(handleGetRegistryComponent(name), null, 2) }],
-//   }),
-// );
-//
-// server.tool(
-//   "listExamples",
-//   "List example registry items. Pass a slug to scope to one primitive (e.g. 'button'); omit to list all examples.",
-//   { slug: z.string().optional().describe("Primitive slug, e.g. 'button'. Omit for all examples.") },
-//   async ({ slug }) => ({
-//     content: [{ type: "text", text: JSON.stringify(handleListExamples(slug), null, 2) }],
-//   }),
-// );
-//
-// server.tool(
-//   "listBlocks",
-//   "List all block registry items (page-level compositions like login-card, signup-card).",
-//   {},
-//   async () => ({
-//     content: [{ type: "text", text: JSON.stringify(handleListBlocks(), null, 2) }],
-//   }),
-// );
-//
-// const transport = new StdioServerTransport();
-// await server.connect(transport);
+main().catch((err) => {
+  console.error(err);
+  process.exit(1);
+});
