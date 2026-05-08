@@ -780,6 +780,7 @@ export function TerminalAnimationTabTrigger({
   }
 
   return (
+    // eslint-disable-next-line local-rules/no-raw-interactive-html
     <button
       data-slot="terminal-animation-tab-trigger"
       type="button"

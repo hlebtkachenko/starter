@@ -644,7 +644,7 @@ function PhoneInputCountrySelect(props: PhoneInputCountrySelectProps) {
         )}
       >
         {!countryContext ? (
-          <div className="h-4 w-6 rounded bg-muted/50" />
+          <div className="h-4 w-6 rounded-md bg-muted/50" />
         ) : (
           showFlag &&
           countryContext.flag && (

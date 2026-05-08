@@ -209,6 +209,7 @@ export function EnvEditor({
       <div className="divide-y divide-border">
         {variables.map((variable, index) => (
           <div key={index} className="flex items-center gap-2 px-3 py-2" role="row">
+            {/* eslint-disable-next-line local-rules/no-raw-interactive-html */}
             <input
               type="text"
               value={variable.key}
@@ -222,6 +223,7 @@ export function EnvEditor({
               =
             </span>
             <div className="flex-[2] flex items-center gap-1">
+              {/* eslint-disable-next-line local-rules/no-raw-interactive-html */}
               <input
                 type={maskedIndices.has(index) ? "password" : "text"}
                 value={variable.value}

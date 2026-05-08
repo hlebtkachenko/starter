@@ -1,3 +1,4 @@
+/* eslint-disable local-rules/no-raw-interactive-html */
 "use client";
 
 import type React from "react";

@@ -146,7 +146,143 @@ const noOklch = {
 };
 
 // ---------------------------------------------------------------------------
-// Plugin wrapper — bundles all four local rules under a single plugin prefix.
+// Local rule: no-raw-interactive-html
+// Blocks raw <button>, <input>, <select>, <textarea> JSX in src/components/ui/
+// where shadcn primitives (Button, Input, NativeSelect, Textarea) should be
+// used instead. Exceptions: type="hidden", type="file", or aria-hidden inputs.
+// ---------------------------------------------------------------------------
+const RAW_ELEMENTS = new Map([
+  ["button", "Use <Button> from @/components/ui/button"],
+  ["input", "Use <Input> from @/components/ui/input"],
+  ["select", "Use <NativeSelect> from @/components/ui/native-select"],
+  ["textarea", "Use <Textarea> from @/components/ui/textarea"],
+]);
+
+// Files that ARE the shadcn primitive wrappers — they must use raw HTML internally.
+const PRIMITIVE_FILES = new Set([
+  "input.tsx",
+  "textarea.tsx",
+  "native-select.tsx",
+  "select.tsx",
+  "button.tsx",
+  "sidebar.tsx",
+  "checkbox.tsx",
+  "radio-group.tsx",
+  "slider.tsx",
+  "switch.tsx",
+  "toggle.tsx",
+]);
+
+const noRawInteractiveHtml = {
+  meta: {
+    type: "suggestion",
+    docs: {
+      description:
+        "Disallow raw <button>/<input>/<select>/<textarea> in ui/ components — use shadcn primitives.",
+    },
+    messages: {
+      noRaw:
+        "Raw <{{element}}> bypasses design tokens. {{fix}}. Disable with eslint-disable if intentional (hidden inputs, inline grid editing).",
+    },
+    schema: [],
+  },
+  create(context) {
+    const filename = context.filename || context.getFilename();
+    if (!filename.includes("/components/ui/")) return {};
+    const basename = filename.split("/").pop() || "";
+    if (PRIMITIVE_FILES.has(basename)) return {};
+
+    return {
+      JSXOpeningElement(node) {
+        const name = node.name?.name;
+        if (!name || !RAW_ELEMENTS.has(name)) return;
+
+        // Allow type="hidden" and type="file" inputs
+        if (name === "input") {
+          const typeAttr = node.attributes.find(
+            (a) => a.type === "JSXAttribute" && a.name?.name === "type",
+          );
+          if (typeAttr?.value?.type === "Literal") {
+            const val = typeAttr.value.value;
+            if (val === "hidden" || val === "file") return;
+          }
+        }
+
+        // Allow hidden elements (className contains "hidden")
+        const classAttr = node.attributes.find(
+          (a) => a.type === "JSXAttribute" && a.name?.name === "className",
+        );
+        if (classAttr?.value?.type === "Literal" && classAttr.value.value?.includes("hidden")) {
+          return;
+        }
+
+        context.report({
+          node,
+          messageId: "noRaw",
+          data: { element: name, fix: RAW_ELEMENTS.get(name) },
+        });
+      },
+    };
+  },
+};
+
+// ---------------------------------------------------------------------------
+// Local rule: no-bare-rounded
+// Blocks bare "rounded" Tailwind class (= fixed 0.25rem, NOT token-bound).
+// Requires a size modifier: rounded-sm, rounded-md, rounded-lg, etc.
+// "rounded-full" and "rounded-none" are also allowed.
+// ---------------------------------------------------------------------------
+const BARE_ROUNDED_RE = /(?<!\w)rounded(?!-)\b/;
+
+const noBareRounded = {
+  meta: {
+    type: "suggestion",
+    docs: {
+      description:
+        'Disallow bare "rounded" class — use rounded-md or other scale class for token-bound radius.',
+    },
+    messages: {
+      noBare:
+        'Bare "rounded" = fixed 0.25rem, not token-bound. Use "rounded-md" (= var(--radius-md)) or another scale class.',
+    },
+    schema: [],
+  },
+  create(context) {
+    function isClassNameContext(node) {
+      const parent = node.parent;
+      if (!parent) return false;
+      // JSX attribute: className="..."
+      if (parent.type === "JSXAttribute" && parent.name?.name === "className") return true;
+      // cn() or cva() call argument
+      if (parent.type === "CallExpression") {
+        const callee = parent.callee;
+        if (callee?.name === "cn" || callee?.name === "cva" || callee?.name === "clsx") return true;
+      }
+      // Template literal inside cn/cva/className
+      if (parent.type === "TemplateLiteral") return isClassNameContext(parent);
+      // Array element or object value inside cn/cva
+      if (parent.type === "ArrayExpression" || parent.type === "ConditionalExpression")
+        return isClassNameContext(parent);
+      return false;
+    }
+    function check(node, raw) {
+      if (BARE_ROUNDED_RE.test(raw) && isClassNameContext(node)) {
+        context.report({ node, messageId: "noBare" });
+      }
+    }
+    return {
+      Literal(node) {
+        if (typeof node.value === "string") check(node, node.value);
+      },
+      TemplateElement(node) {
+        check(node, node.value.raw);
+      },
+    };
+  },
+};
+
+// ---------------------------------------------------------------------------
+// Plugin wrapper — bundles all local rules under a single plugin prefix.
 // ---------------------------------------------------------------------------
 const localRulesPlugin = {
   meta: { name: "local-rules" },
@@ -155,6 +291,8 @@ const localRulesPlugin = {
     "no-inline-hex": noInlineHex,
     "no-arbitrary-radius": noArbitraryRadius,
     "no-oklch": noOklch,
+    "no-raw-interactive-html": noRawInteractiveHtml,
+    "no-bare-rounded": noBareRounded,
   },
 };
 
@@ -205,6 +343,8 @@ const eslintConfig = defineConfig([
       "local-rules/no-inline-hex": "error",
       "local-rules/no-oklch": "error",
       "local-rules/no-arbitrary-radius": "error",
+      "local-rules/no-raw-interactive-html": "warn",
+      "local-rules/no-bare-rounded": "error",
     },
   },
 ]);

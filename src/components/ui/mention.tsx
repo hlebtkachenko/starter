@@ -8,7 +8,7 @@ function Mention({ className, ...props }: React.ComponentProps<typeof MentionPri
     <MentionPrimitive.Root
       data-slot="mention"
       className={cn(
-        "**:data-tag:rounded **:data-tag:bg-accent **:data-tag:py-px **:data-tag:text-accent-foreground",
+        "**:data-tag:rounded-md **:data-tag:bg-accent **:data-tag:py-px **:data-tag:text-accent-foreground",
         className,
       )}
       {...props}

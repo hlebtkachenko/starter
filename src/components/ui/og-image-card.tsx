@@ -5,6 +5,7 @@ import { useState } from "react";
 
 import { ExternalLink, ImageOff } from "lucide-react";
 
+import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
 type ImageStatus = "loading" | "loaded" | "error";
@@ -45,12 +46,12 @@ export function OgImageCard({
 
   return (
     <div data-slot="og-image-card" className={cn("group flex flex-col gap-2", className)}>
-      <button
-        type="button"
+      <Button
+        variant="ghost"
         onClick={handleClick}
         className={cn(
-          "relative aspect-[1.91/1] w-full overflow-hidden rounded-lg border-2 transition-all duration-200",
-          "hover:scale-[1.02] hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
+          "relative aspect-[1.91/1] h-auto w-full overflow-hidden rounded-lg border-2 p-0 transition-all duration-200",
+          "hover:scale-[1.02] hover:shadow-lg",
           "bg-muted",
           statusBorderColor[status],
         )}
@@ -78,7 +79,7 @@ export function OgImageCard({
         <div className="absolute bottom-2 right-2 rounded-md bg-background/80 p-1.5 opacity-0 backdrop-blur-sm transition-opacity group-hover:opacity-100">
           <ExternalLink className="h-3.5 w-3.5 text-foreground" />
         </div>
-      </button>
+      </Button>
 
       <div className="flex flex-col gap-0.5 px-1">
         {showTitle && title && (

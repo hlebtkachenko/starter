@@ -1,10 +1,10 @@
- 
 "use client";
 
 import { useState } from "react";
 
 import { ChevronDown, ChevronUp } from "lucide-react";
 
+import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
 import { OgImageCard } from "./og-image-card";
@@ -55,13 +55,11 @@ export function OgCategorySection({
         </div>
 
         {hasMore && (
-          <button
-            type="button"
+          <Button
+            variant="ghost"
+            size="sm"
             onClick={() => setExpanded(!expanded)}
-            className={cn(
-              "flex items-center gap-1 text-sm text-muted-foreground transition-colors",
-              "hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-md px-2 py-1",
-            )}
+            className="flex items-center gap-1 text-sm text-muted-foreground transition-colors hover:text-foreground"
           >
             {expanded ? (
               <>
@@ -74,7 +72,7 @@ export function OgCategorySection({
                 <ChevronDown className="h-4 w-4" />
               </>
             )}
-          </button>
+          </Button>
         )}
       </div>
 
