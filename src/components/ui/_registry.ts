@@ -891,6 +891,7 @@ export const items = defineItems([
     title: "API Response Viewer",
     description:
       "Tabbed HTTP response inspector with status badge, collapsible JSON body, headers table, and timing waterfall breakdown.",
+    registryDependencies: ["button", "tabs"],
     files: [{ path: "components/ui/api-response-viewer.tsx", type: "registry:ui" }],
     upstreamUrl: "https://www.tryelements.dev/docs/devtools/api-response-viewer",
     categories: ["data", "display"],
@@ -902,6 +903,7 @@ export const items = defineItems([
     title: "Env Editor",
     description:
       "Key-value grid editor for environment variables with masked values, add/remove rows, and .env file import/export.",
+    registryDependencies: ["button"],
     files: [{ path: "components/ui/env-editor.tsx", type: "registry:ui" }],
     upstreamUrl: "https://www.tryelements.dev/docs/devtools/env-editor",
     categories: ["forms", "data"],
@@ -913,6 +915,7 @@ export const items = defineItems([
     title: "Error Boundary UI",
     description:
       "Error fallback display with stack trace parsing, copy-to-clipboard, retry button, and dev/prod verbosity modes.",
+    registryDependencies: ["button"],
     files: [{ path: "components/ui/error-boundary-ui.tsx", type: "registry:ui" }],
     upstreamUrl: "https://www.tryelements.dev/docs/devtools/error-boundary-ui",
     categories: ["feedback"],
@@ -924,6 +927,7 @@ export const items = defineItems([
     title: "JSON Viewer",
     description:
       "Collapsible JSON tree with syntax-highlighted types, configurable depth, search filter, and copy-path-on-hover.",
+    registryDependencies: ["button", "input"],
     files: [{ path: "components/ui/json-viewer.tsx", type: "registry:ui" }],
     upstreamUrl: "https://www.tryelements.dev/docs/devtools/json-viewer",
     categories: ["data", "display"],
@@ -981,7 +985,7 @@ export const items = defineItems([
     title: "PDF Viewer",
     description:
       "Full-featured PDF viewer with single-page, continuous-scroll, and book layout modes, zoom controls, and page navigation.",
-    registryDependencies: ["pdf-utils"],
+    registryDependencies: ["pdf-utils", "button", "input"],
     files: [{ path: "components/ui/pdf-viewer.tsx", type: "registry:ui" }],
     upstreamUrl: "https://www.tryelements.dev/docs/pdf/pdf-viewer",
     categories: ["display"],
@@ -993,6 +997,7 @@ export const items = defineItems([
     title: "Webhook Tester",
     description:
       "HTTP request builder with method selector, URL input, headers editor, JSON body, and color-coded response display.",
+    registryDependencies: ["button", "input", "native-select", "textarea"],
     files: [{ path: "components/ui/webhook-tester.tsx", type: "registry:ui" }],
     upstreamUrl: "https://www.tryelements.dev/docs/devtools/webhook-tester",
     categories: ["forms", "data"],

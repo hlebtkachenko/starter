@@ -542,6 +542,10 @@
     ],
     "name": "api-response-viewer",
     "proposedGroup": "devtools",
+    "registryDependencies": [
+      "button",
+      "tabs"
+    ],
     "title": "API Response Viewer",
     "type": "registry:ui",
     "upstreamUrl": "https://www.tryelements.dev/docs/devtools/api-response-viewer"
@@ -5333,6 +5337,9 @@
     ],
     "name": "env-editor",
     "proposedGroup": "devtools",
+    "registryDependencies": [
+      "button"
+    ],
     "title": "Env Editor",
     "type": "registry:ui",
     "upstreamUrl": "https://www.tryelements.dev/docs/devtools/env-editor"
@@ -5376,6 +5383,9 @@
     ],
     "name": "error-boundary-ui",
     "proposedGroup": "devtools",
+    "registryDependencies": [
+      "button"
+    ],
     "title": "Error Boundary UI",
     "type": "registry:ui",
     "upstreamUrl": "https://www.tryelements.dev/docs/devtools/error-boundary-ui"
@@ -6986,6 +6996,10 @@
     ],
     "name": "json-viewer",
     "proposedGroup": "devtools",
+    "registryDependencies": [
+      "button",
+      "input"
+    ],
     "title": "JSON Viewer",
     "type": "registry:ui",
     "upstreamUrl": "https://www.tryelements.dev/docs/devtools/json-viewer"
@@ -8083,7 +8097,9 @@
     "name": "pdf-viewer",
     "proposedGroup": "pdf",
     "registryDependencies": [
-      "pdf-utils"
+      "pdf-utils",
+      "button",
+      "input"
     ],
     "title": "PDF Viewer",
     "type": "registry:ui",
@@ -11787,6 +11803,12 @@
     ],
     "name": "webhook-tester",
     "proposedGroup": "devtools",
+    "registryDependencies": [
+      "button",
+      "input",
+      "native-select",
+      "textarea"
+    ],
     "title": "Webhook Tester",
     "type": "registry:ui",
     "upstreamUrl": "https://www.tryelements.dev/docs/devtools/webhook-tester"

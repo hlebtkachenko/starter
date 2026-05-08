@@ -4,6 +4,8 @@ import * as React from "react";
 
 import { Document, Page, pdfjs } from "react-pdf";
 
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
 
 import "react-pdf/dist/Page/AnnotationLayer.css";
@@ -89,105 +91,93 @@ export function PdfViewer({ file, mode = "single", initialZoom = 1.0, className 
       <div className="flex items-center justify-between gap-4 p-3 border-b border-border bg-muted/50">
         {/* Mode Switcher */}
         <div className="flex items-center gap-1 border border-border rounded-md p-1 bg-background">
-          <button
+          <Button
             type="button"
+            variant={viewMode === "single" ? "default" : "ghost"}
+            size="sm"
             onClick={() => setViewMode("single")}
-            className={cn(
-              "px-3 py-1.5 text-xs font-medium rounded transition-colors",
-              viewMode === "single"
-                ? "bg-primary text-primary-foreground"
-                : "text-muted-foreground hover:text-foreground hover:bg-muted",
-            )}
           >
             Single
-          </button>
-          <button
+          </Button>
+          <Button
             type="button"
+            variant={viewMode === "scroll" ? "default" : "ghost"}
+            size="sm"
             onClick={() => setViewMode("scroll")}
-            className={cn(
-              "px-3 py-1.5 text-xs font-medium rounded transition-colors",
-              viewMode === "scroll"
-                ? "bg-primary text-primary-foreground"
-                : "text-muted-foreground hover:text-foreground hover:bg-muted",
-            )}
           >
             Scroll
-          </button>
-          <button
+          </Button>
+          <Button
             type="button"
+            variant={viewMode === "book" ? "default" : "ghost"}
+            size="sm"
             onClick={() => setViewMode("book")}
-            className={cn(
-              "px-3 py-1.5 text-xs font-medium rounded transition-colors",
-              viewMode === "book"
-                ? "bg-primary text-primary-foreground"
-                : "text-muted-foreground hover:text-foreground hover:bg-muted",
-            )}
           >
             Book
-          </button>
+          </Button>
         </div>
 
         {/* Page Navigation */}
         {viewMode !== "scroll" && (
           <div className="flex items-center gap-2">
-            <button
+            <Button
               type="button"
+              variant="outline"
+              size="sm"
               onClick={goToPreviousPage}
               disabled={currentPage <= 1}
-              className="px-2 py-1 text-sm border border-border rounded bg-background hover:bg-muted disabled:opacity-50 disabled:cursor-not-allowed"
             >
               ←
-            </button>
+            </Button>
             <div className="flex items-center gap-1 text-sm">
-              <input
+              <Input
                 type="number"
                 min={1}
                 max={numPages}
                 value={currentPage}
                 onChange={handlePageInput}
-                className="w-12 px-2 py-1 text-center border border-border rounded bg-background"
+                className="w-12 text-center"
               />
               <span className="text-muted-foreground">/ {numPages}</span>
             </div>
-            <button
+            <Button
               type="button"
+              variant="outline"
+              size="sm"
               onClick={goToNextPage}
               disabled={currentPage >= numPages}
-              className="px-2 py-1 text-sm border border-border rounded bg-background hover:bg-muted disabled:opacity-50 disabled:cursor-not-allowed"
             >
               →
-            </button>
+            </Button>
           </div>
         )}
 
         {/* Zoom Controls */}
         <div className="flex items-center gap-2">
-          <button
+          <Button
             type="button"
+            variant="outline"
+            size="sm"
             onClick={handleZoomOut}
             disabled={zoom <= 0.5}
-            className="px-2 py-1 text-sm border border-border rounded bg-background hover:bg-muted disabled:opacity-50 disabled:cursor-not-allowed"
           >
             −
-          </button>
+          </Button>
           <span className="text-sm text-muted-foreground min-w-[3rem] text-center">
             {Math.round(zoom * 100)}%
           </span>
-          <button
+          <Button
             type="button"
+            variant="outline"
+            size="sm"
             onClick={handleZoomIn}
             disabled={zoom >= 2.0}
-            className="px-2 py-1 text-sm border border-border rounded bg-background hover:bg-muted disabled:opacity-50 disabled:cursor-not-allowed"
           >
             +
-          </button>
-          <button
-            type="button"
-            onClick={handleFitWidth}
-            className="px-2 py-1 text-xs border border-border rounded bg-background hover:bg-muted"
-          >
+          </Button>
+          <Button type="button" variant="outline" size="sm" onClick={handleFitWidth}>
             Fit
-          </button>
+          </Button>
         </div>
       </div>
 
@@ -226,7 +216,7 @@ export function PdfViewer({ file, mode = "single", initialZoom = 1.0, className 
                     width={pageWidth}
                     className="shadow-lg"
                     loading={
-                      <div className="h-[800px] w-full bg-background animate-pulse rounded" />
+                      <div className="h-[800px] w-full bg-background animate-pulse rounded-md" />
                     }
                   />
                 </div>
@@ -240,7 +230,9 @@ export function PdfViewer({ file, mode = "single", initialZoom = 1.0, className 
                 pageNumber={currentPage}
                 width={pageWidth}
                 className="shadow-lg"
-                loading={<div className="h-[800px] w-full bg-background animate-pulse rounded" />}
+                loading={
+                  <div className="h-[800px] w-full bg-background animate-pulse rounded-md" />
+                }
               />
             </div>
           )}
@@ -252,7 +244,9 @@ export function PdfViewer({ file, mode = "single", initialZoom = 1.0, className 
                   pageNumber={currentPage}
                   width={pageWidth}
                   className="shadow-lg"
-                  loading={<div className="h-[800px] w-full bg-background animate-pulse rounded" />}
+                  loading={
+                    <div className="h-[800px] w-full bg-background animate-pulse rounded-md" />
+                  }
                 />
               </div>
               {!showCoverAlone && bookSecondPage && bookSecondPage <= numPages && (
@@ -262,7 +256,7 @@ export function PdfViewer({ file, mode = "single", initialZoom = 1.0, className 
                     width={pageWidth}
                     className="shadow-lg"
                     loading={
-                      <div className="h-[800px] w-full bg-background animate-pulse rounded" />
+                      <div className="h-[800px] w-full bg-background animate-pulse rounded-md" />
                     }
                   />
                 </div>

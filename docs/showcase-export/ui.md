@@ -525,24 +525,28 @@
 **Name:** `api-response-viewer`
 **Description:** Tabbed HTTP response inspector with status badge, collapsible JSON body, headers table, and timing waterfall breakdown.
 **Upstream:** https://www.tryelements.dev/docs/devtools/api-response-viewer
+**Depends on:** button, tabs
 **Categories:** data, display
 ## Env Editor
 
 **Name:** `env-editor`
 **Description:** Key-value grid editor for environment variables with masked values, add/remove rows, and .env file import/export.
 **Upstream:** https://www.tryelements.dev/docs/devtools/env-editor
+**Depends on:** button
 **Categories:** forms, data
 ## Error Boundary UI
 
 **Name:** `error-boundary-ui`
 **Description:** Error fallback display with stack trace parsing, copy-to-clipboard, retry button, and dev/prod verbosity modes.
 **Upstream:** https://www.tryelements.dev/docs/devtools/error-boundary-ui
+**Depends on:** button
 **Categories:** feedback
 ## JSON Viewer
 
 **Name:** `json-viewer`
 **Description:** Collapsible JSON tree with syntax-highlighted types, configurable depth, search filter, and copy-path-on-hover.
 **Upstream:** https://www.tryelements.dev/docs/devtools/json-viewer
+**Depends on:** button, input
 **Categories:** data, display
 ## OG Image Explorer
 
@@ -575,13 +579,14 @@
 **Name:** `pdf-viewer`
 **Description:** Full-featured PDF viewer with single-page, continuous-scroll, and book layout modes, zoom controls, and page navigation.
 **Upstream:** https://www.tryelements.dev/docs/pdf/pdf-viewer
-**Depends on:** pdf-utils
+**Depends on:** pdf-utils, button, input
 **Categories:** display
 ## Webhook Tester
 
 **Name:** `webhook-tester`
 **Description:** HTTP request builder with method selector, URL input, headers editor, JSON body, and color-coded response display.
 **Upstream:** https://www.tryelements.dev/docs/devtools/webhook-tester
+**Depends on:** button, input, native-select, textarea
 **Categories:** forms, data
 ## Evil Area Chart
 

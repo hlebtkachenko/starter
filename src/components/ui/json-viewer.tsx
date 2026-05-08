@@ -3,6 +3,8 @@
 
 import * as React from "react";
 
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
 
 type JsonValue = string | number | boolean | null | JsonValue[] | { [key: string]: JsonValue };
@@ -146,14 +148,15 @@ function JsonNode({
         )}
         {renderValue()}
         {copyPath && (
-          <button
-            type="button"
+          <Button
+            variant="ghost"
+            size="icon-xs"
             onClick={handleCopyPath}
             aria-label={`Copy path ${path}`}
             className="ml-1 opacity-0 group-hover:opacity-100 text-xs text-muted-foreground hover:text-foreground transition-opacity"
           >
             {copied ? "✓" : "⎘"}
-          </button>
+          </Button>
         )}
       </div>
     );
@@ -183,15 +186,16 @@ function JsonNode({
   return (
     <div className="py-0.5" role="treeitem" aria-expanded={!isCollapsed}>
       <div className="group flex items-center gap-1">
-        <button
-          type="button"
+        <Button
+          variant="ghost"
+          size="icon-xs"
           onClick={handleToggle}
           onKeyDown={handleKeyDown}
           aria-label={isCollapsed ? "Expand" : "Collapse"}
-          className="w-4 h-4 flex items-center justify-center text-muted-foreground hover:text-foreground"
+          className="w-4 h-4 text-muted-foreground hover:text-foreground"
         >
           {isCollapsed ? "▶" : "▼"}
-        </button>
+        </Button>
         {keyName !== undefined && (
           <>
             <span className="text-foreground">{keyName}</span>
@@ -208,14 +212,15 @@ function JsonNode({
           )}
         </span>
         {copyPath && (
-          <button
-            type="button"
+          <Button
+            variant="ghost"
+            size="icon-xs"
             onClick={handleCopyPath}
             aria-label={`Copy path ${path}`}
             className="ml-1 opacity-0 group-hover:opacity-100 text-xs text-muted-foreground hover:text-foreground transition-opacity"
           >
             {copied ? "✓" : "⎘"}
-          </button>
+          </Button>
         )}
       </div>
       {!isCollapsed && (
@@ -259,12 +264,11 @@ export function JsonViewer({
     >
       {searchable && (
         <div className="mb-2">
-          <input
+          <Input
             type="text"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             placeholder="Search..."
-            className="w-full px-2 py-1 text-sm border border-border rounded bg-background"
           />
         </div>
       )}

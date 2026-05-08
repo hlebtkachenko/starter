@@ -5,6 +5,7 @@ import * as React from "react";
 
 import { Download, Eye, EyeOff, Plus, Trash2, Upload } from "lucide-react";
 
+import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
 interface EnvVariable {
@@ -178,22 +179,22 @@ export function EnvEditor({
         <span className="text-sm font-medium">.env Editor</span>
         {!readOnly && (
           <div className="flex gap-1">
-            <button
-              type="button"
+            <Button
+              variant="ghost"
+              size="icon-xs"
               onClick={() => fileInputRef.current?.click()}
-              className="p-1.5 text-muted-foreground hover:text-foreground transition-colors"
               aria-label="Import .env file"
             >
               <Upload className="w-4 h-4" />
-            </button>
-            <button
-              type="button"
+            </Button>
+            <Button
+              variant="ghost"
+              size="icon-xs"
               onClick={handleExport}
-              className="p-1.5 text-muted-foreground hover:text-foreground transition-colors"
               aria-label="Export .env file"
             >
               <Download className="w-4 h-4" />
-            </button>
+            </Button>
             <input
               ref={fileInputRef}
               type="file"
@@ -230,28 +231,30 @@ export function EnvEditor({
                 aria-label={`Value for ${variable.key || "variable"}`}
                 className="flex-1 min-w-0 bg-transparent font-mono text-sm text-foreground placeholder:text-muted-foreground focus:outline-none"
               />
-              <button
-                type="button"
+              <Button
+                variant="ghost"
+                size="icon-xs"
                 onClick={() => toggleMask(index)}
-                className="p-1 text-muted-foreground hover:text-foreground transition-colors shrink-0"
                 aria-label={maskedIndices.has(index) ? "Show value" : "Hide value"}
                 aria-pressed={maskedIndices.has(index)}
+                className="shrink-0"
               >
                 {maskedIndices.has(index) ? (
                   <Eye className="w-3.5 h-3.5" />
                 ) : (
                   <EyeOff className="w-3.5 h-3.5" />
                 )}
-              </button>
+              </Button>
               {!readOnly && (
-                <button
-                  type="button"
+                <Button
+                  variant="ghost"
+                  size="icon-xs"
                   onClick={() => handleRemove(index)}
-                  className="p-1 text-muted-foreground hover:text-red-500 transition-colors shrink-0"
                   aria-label={`Remove ${variable.key || "variable"}`}
+                  className="shrink-0 hover:text-red-500"
                 >
                   <Trash2 className="w-3.5 h-3.5" />
-                </button>
+                </Button>
               )}
             </div>
           </div>
@@ -266,15 +269,16 @@ export function EnvEditor({
 
       {!readOnly && (
         <div className="px-3 py-2 border-t border-border">
-          <button
-            type="button"
+          <Button
+            variant="ghost"
+            size="sm"
             onClick={handleAdd}
             aria-label="Add new environment variable"
-            className="flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors"
+            className="text-muted-foreground hover:text-foreground"
           >
             <Plus className="w-4 h-4" />
             Add variable
-          </button>
+          </Button>
         </div>
       )}
     </div>

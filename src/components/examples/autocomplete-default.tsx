@@ -29,17 +29,17 @@ const FRAMEWORKS = [
 export default function AutocompleteDefault() {
   return (
     <div className="w-full max-w-sm">
-      <Autocomplete>
+      <Autocomplete items={FRAMEWORKS} mode="list">
         <AutocompleteInput placeholder="Search frameworks..." showClear />
         <AutocompletePopup>
           <AutocompleteList>
-            <AutocompleteEmpty>No frameworks found.</AutocompleteEmpty>
-            {FRAMEWORKS.map((fw) => (
+            {(fw: string) => (
               <AutocompleteItem key={fw} value={fw}>
                 {fw}
               </AutocompleteItem>
-            ))}
+            )}
           </AutocompleteList>
+          <AutocompleteEmpty>No frameworks found.</AutocompleteEmpty>
         </AutocompletePopup>
       </Autocomplete>
     </div>

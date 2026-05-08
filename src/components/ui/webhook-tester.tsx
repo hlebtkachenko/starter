@@ -4,6 +4,10 @@ import * as React from "react";
 
 import { Loader2, Plus, Send, Trash2 } from "lucide-react";
 
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { NativeSelect, NativeSelectOption } from "@/components/ui/native-select";
+import { Textarea } from "@/components/ui/textarea";
 import { cn } from "@/lib/utils";
 
 type HttpMethod = "GET" | "POST" | "PUT" | "PATCH" | "DELETE";
@@ -152,81 +156,80 @@ export function WebhookTester({
     >
       <div className="p-4 space-y-4">
         <div className="flex gap-2">
-          <select
+          <NativeSelect
             value={method}
             onChange={(e) => setMethod(e.target.value as HttpMethod)}
             aria-label="HTTP method"
-            className={cn(
-              "px-3 py-2 rounded font-mono text-sm font-medium border-none",
-              METHOD_COLORS[method],
-            )}
+            className={cn("font-mono font-medium", METHOD_COLORS[method])}
           >
             {(["GET", "POST", "PUT", "PATCH", "DELETE"] as HttpMethod[]).map((m) => (
-              <option key={m} value={m}>
+              <NativeSelectOption key={m} value={m}>
                 {m}
-              </option>
+              </NativeSelectOption>
             ))}
-          </select>
-          <input
+          </NativeSelect>
+          <Input
             type="url"
             value={url}
             onChange={(e) => setUrl(e.target.value)}
             placeholder="https://api.example.com/webhook"
             aria-label="Webhook URL"
-            className="flex-1 px-3 py-2 border border-border rounded bg-background font-mono text-sm"
+            className="flex-1 font-mono"
           />
-          <button
+          <Button
             type="button"
             onClick={handleSend}
             disabled={loading || !url}
             aria-label={loading ? "Sending request" : "Send request"}
-            className="flex items-center gap-2 px-4 py-2 bg-primary text-primary-foreground rounded font-medium text-sm hover:bg-primary/90 disabled:opacity-50"
           >
             {loading ? <Loader2 className="w-4 h-4 animate-spin" /> : <Send className="w-4 h-4" />}
             Send
-          </button>
+          </Button>
         </div>
 
         <div className="space-y-2">
           <div className="flex items-center justify-between">
             <label className="text-sm font-medium">Headers</label>
-            <button
+            <Button
               type="button"
+              variant="ghost"
+              size="xs"
               onClick={handleAddHeader}
               aria-label="Add header"
-              className="flex items-center gap-1 text-xs text-muted-foreground hover:text-foreground"
             >
               <Plus className="w-3 h-3" />
               Add
-            </button>
+            </Button>
           </div>
           <div className="space-y-1">
             {headers.map((header, index) => (
               <div key={index} className="flex gap-2">
-                <input
+                <Input
                   type="text"
                   value={header.key}
                   onChange={(e) => handleHeaderChange(index, "key", e.target.value)}
                   placeholder="Header name"
                   aria-label="Header name"
-                  className="flex-1 px-2 py-1 border border-border rounded bg-background font-mono text-sm"
+                  className="flex-1 font-mono"
                 />
-                <input
+                <Input
                   type="text"
                   value={header.value}
                   onChange={(e) => handleHeaderChange(index, "value", e.target.value)}
                   placeholder="Header value"
                   aria-label={`Value for ${header.key || "header"}`}
-                  className="flex-[2] px-2 py-1 border border-border rounded bg-background font-mono text-sm"
+                  className="flex-[2] font-mono"
                 />
-                <button
+                <Button
                   type="button"
+                  variant="ghost"
+                  size="icon-sm"
                   onClick={() => handleRemoveHeader(index)}
                   aria-label={`Remove ${header.key || "header"}`}
-                  className="p-1 text-muted-foreground hover:text-red-500"
+                  className="text-muted-foreground hover:text-red-500"
                 >
                   <Trash2 className="w-4 h-4" />
-                </button>
+                </Button>
               </div>
             ))}
           </div>
@@ -235,12 +238,12 @@ export function WebhookTester({
         {method !== "GET" && (
           <div className="space-y-2">
             <label className="text-sm font-medium">Body</label>
-            <textarea
+            <Textarea
               value={body}
               onChange={(e) => setBody(e.target.value)}
               placeholder='{"key": "value"}'
               aria-label="Request body"
-              className="w-full h-32 px-3 py-2 border border-border rounded bg-background font-mono text-sm resize-none"
+              className="h-32 font-mono resize-none"
             />
           </div>
         )}

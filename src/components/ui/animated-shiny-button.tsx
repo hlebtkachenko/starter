@@ -13,7 +13,6 @@ export function AnimatedShinyButton({ children, className = "", url }: AnimatedS
   return (
     <>
       <style jsx>{`
-
         @property --gradient-angle {
           syntax: "<angle>";
           initial-value: 0deg;
@@ -61,7 +60,7 @@ export function AnimatedShinyButton({ children, className = "", url }: AnimatedS
           line-height: 1.2;
           font-weight: 500;
           border: 1px solid transparent;
-          border-radius: 0.5rem;
+          border-radius: var(--radius-md);
           color: var(--shiny-cta-fg);
           background:
             linear-gradient(var(--shiny-cta-bg), var(--shiny-cta-bg))
@@ -129,7 +128,7 @@ export function AnimatedShinyButton({ children, className = "", url }: AnimatedS
             transparent 10% 90%,
             black
           );
-          border-radius: 0.5rem;
+          border-radius: var(--radius-md);
           opacity: 0.4;
           z-index: -1;
         }

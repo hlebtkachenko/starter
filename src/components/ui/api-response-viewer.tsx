@@ -3,6 +3,8 @@
 
 import * as React from "react";
 
+import { Button } from "@/components/ui/button";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { cn } from "@/lib/utils";
 
 type HttpStatus = "info" | "success" | "redirect" | "client-error" | "server-error";
@@ -49,7 +51,7 @@ function StatusBadge({ status, statusText }: { status: number; statusText?: stri
     <span
       role="status"
       aria-label={`HTTP status ${status}${statusText ? ` ${statusText}` : ""}`}
-      className={cn("px-2 py-0.5 rounded text-sm font-mono", colors[type])}
+      className={cn("px-2 py-0.5 rounded-md text-sm font-mono", colors[type])}
     >
       {status} {statusText}
     </span>
@@ -77,8 +79,9 @@ function JsonDisplay({ data }: { data: unknown }) {
       const isCollapsed = collapsed.has(path);
       return (
         <span>
-          <button
-            type="button"
+          <Button
+            variant="ghost"
+            size="icon-xs"
             onClick={() => {
               const next = new Set(collapsed);
               if (isCollapsed) next.delete(path);
@@ -88,7 +91,7 @@ function JsonDisplay({ data }: { data: unknown }) {
             className="text-muted-foreground hover:text-foreground"
           >
             {isCollapsed ? "▶" : "▼"}
-          </button>
+          </Button>
           <span className="text-muted-foreground">[</span>
           {isCollapsed ? (
             <span className="text-muted-foreground italic text-xs mx-1">{value.length} items</span>
@@ -111,8 +114,9 @@ function JsonDisplay({ data }: { data: unknown }) {
       const isCollapsed = collapsed.has(path);
       return (
         <span>
-          <button
-            type="button"
+          <Button
+            variant="ghost"
+            size="icon-xs"
             onClick={() => {
               const next = new Set(collapsed);
               if (isCollapsed) next.delete(path);
@@ -122,7 +126,7 @@ function JsonDisplay({ data }: { data: unknown }) {
             className="text-muted-foreground hover:text-foreground"
           >
             {isCollapsed ? "▶" : "▼"}
-          </button>
+          </Button>
           <span className="text-muted-foreground">{"{"}</span>
           {isCollapsed ? (
             <span className="text-muted-foreground italic text-xs mx-1">{entries.length} keys</span>
@@ -191,7 +195,7 @@ function TimingBar({ timing }: { timing: NonNullable<ApiResponse["timing"]> }) {
 
   return (
     <div className="space-y-4">
-      <div className="h-6 flex rounded overflow-hidden">
+      <div className="h-6 flex rounded-md overflow-hidden">
         {segments.map((seg) => (
           <div
             key={seg.key}
@@ -205,13 +209,13 @@ function TimingBar({ timing }: { timing: NonNullable<ApiResponse["timing"]> }) {
       <div className="flex flex-wrap gap-4 text-sm">
         {segments.map((seg) => (
           <div key={seg.key} className="flex items-center gap-2">
-            <div className={cn("w-3 h-3 rounded", seg.color)} />
+            <div className={cn("w-3 h-3 rounded-md", seg.color)} />
             <span className="text-muted-foreground">{seg.label}:</span>
             <span className="font-mono">{seg.value}ms</span>
           </div>
         ))}
         <div className="flex items-center gap-2">
-          <div className="w-3 h-3 rounded bg-muted-foreground" />
+          <div className="w-3 h-3 rounded-md bg-muted-foreground" />
           <span className="text-muted-foreground">Total:</span>
           <span className="font-mono font-semibold">{timing.total}ms</span>
         </div>
@@ -225,8 +229,6 @@ export function ApiResponseViewer({
   defaultTab = "body",
   className,
 }: ApiResponseViewerProps) {
-  const [activeTab, setActiveTab] = React.useState<"body" | "headers" | "timing">(defaultTab);
-
   const tabs = [
     {
       id: "body" as const,
@@ -252,39 +254,32 @@ export function ApiResponseViewer({
         )}
       </div>
 
-      <div className="flex border-b border-border" role="tablist" aria-label="Response tabs">
-        {tabs.map((tab) => (
-          <button
-            key={tab.id}
-            type="button"
-            role="tab"
-            aria-selected={activeTab === tab.id}
-            aria-controls={`tabpanel-${tab.id}`}
-            onClick={() => setActiveTab(tab.id)}
-            className={cn(
-              "px-4 py-2 text-sm font-medium transition-colors",
-              activeTab === tab.id
-                ? "text-foreground border-b-2 border-primary"
-                : "text-muted-foreground hover:text-foreground",
-            )}
-          >
-            {tab.label}
-          </button>
-        ))}
-      </div>
+      <Tabs defaultValue={defaultTab} className="gap-0">
+        <TabsList
+          variant="line"
+          className="w-full justify-start border-b border-border rounded-none px-0"
+        >
+          {tabs.map((tab) => (
+            <TabsTrigger key={tab.id} value={tab.id} className="px-4 py-2">
+              {tab.label}
+            </TabsTrigger>
+          ))}
+        </TabsList>
 
-      <div
-        className="p-4"
-        role="tabpanel"
-        id={`tabpanel-${activeTab}`}
-        aria-label={`${activeTab} content`}
-      >
-        {activeTab === "body" && response.body !== undefined && (
-          <JsonDisplay data={response.body} />
+        <TabsContent value="body" className="p-4">
+          {response.body !== undefined && <JsonDisplay data={response.body} />}
+        </TabsContent>
+        {response.headers && (
+          <TabsContent value="headers" className="p-4">
+            <HeadersTable headers={response.headers} />
+          </TabsContent>
         )}
-        {activeTab === "headers" && response.headers && <HeadersTable headers={response.headers} />}
-        {activeTab === "timing" && response.timing && <TimingBar timing={response.timing} />}
-      </div>
+        {response.timing && (
+          <TabsContent value="timing" className="p-4">
+            <TimingBar timing={response.timing} />
+          </TabsContent>
+        )}
+      </Tabs>
     </div>
   );
 }

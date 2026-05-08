@@ -218,17 +218,17 @@ const FRAMEWORKS = [
 export default function AutocompleteDefault() {
   return (
     <div className="w-full max-w-sm">
-      <Autocomplete>
+      <Autocomplete items={FRAMEWORKS} mode="list">
         <AutocompleteInput placeholder="Search frameworks..." showClear />
         <AutocompletePopup>
           <AutocompleteList>
-            <AutocompleteEmpty>No frameworks found.</AutocompleteEmpty>
-            {FRAMEWORKS.map((fw) => (
+            {(fw: string) => (
               <AutocompleteItem key={fw} value={fw}>
                 {fw}
               </AutocompleteItem>
-            ))}
+            )}
           </AutocompleteList>
+          <AutocompleteEmpty>No frameworks found.</AutocompleteEmpty>
         </AutocompletePopup>
       </Autocomplete>
     </div>
@@ -1740,11 +1740,11 @@ export default function OgImageExplorerDefault() {
  * @slug pdf-utils
  * @variant default
  * @upstream https://www.tryelements.dev/docs/pdf/pdf-utils
- * @deviations ["Moved from elements/ to ui/ directory.", "Shows utility API via interactive file upload demo.", "Dynamic import with ssr:false to avoid pdfjs DOMMatrix crash during prerender."]
+ * @deviations ["Moved from elements/ to ui/ directory.", "Shows utility API via interactive file upload demo.", "Dynamic import with ssr:false to avoid pdfjs DOMMatrix crash during prerender.", "Added text search to demonstrate searchText utility."]
  */
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 
 type PdfInfo = {
   numPages: number;
@@ -1756,11 +1756,18 @@ export default function PdfUtilsDefault() {
   const [info, setInfo] = useState<PdfInfo | null>(null);
   const [thumbnails, setThumbnails] = useState<string[]>([]);
   const [loading, setLoading] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
+  const [searchResults, setSearchResults] = useState<number[] | null>(null);
+  const [searching, setSearching] = useState(false);
+  const fileRef = useRef<File | null>(null);
 
   async function handleFile(e: React.ChangeEvent<HTMLInputElement>) {
     const file = e.target.files?.[0];
     if (!file) return;
+    fileRef.current = file;
     setLoading(true);
+    setSearchResults(null);
+    setSearchQuery("");
     try {
       const { getPdfInfo, getAllPageThumbnails } = await import("@/components/ui/pdf-utils");
       const pdfInfo = await getPdfInfo(file);
@@ -1776,6 +1783,21 @@ export default function PdfUtilsDefault() {
       setThumbnails([]);
     } finally {
       setLoading(false);
+    }
+  }
+
+  async function handleSearch() {
+    const file = fileRef.current;
+    if (!file || !searchQuery.trim()) return;
+    setSearching(true);
+    try {
+      const { searchText } = await import("@/components/ui/pdf-utils");
+      const pages = await searchText(file, searchQuery.trim());
+      setSearchResults(pages);
+    } catch {
+      setSearchResults([]);
+    } finally {
+      setSearching(false);
     }
   }
 
@@ -1808,6 +1830,41 @@ export default function PdfUtilsDefault() {
           )}
         </div>
       )}
+      {info && (
+        <div className="flex flex-col gap-2">
+          <label className="text-sm font-medium" htmlFor="pdf-search">
+            Search text in PDF
+          </label>
+          <div className="flex gap-2">
+            <input
+              id="pdf-search"
+              type="text"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              onKeyDown={(e) => {
+                if (e.key === "Enter") handleSearch();
+              }}
+              placeholder="Enter text to search..."
+              className="flex-1 rounded-md border border-input bg-transparent px-3 py-2 text-sm placeholder:text-muted-foreground focus-visible:border-ring focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-ring/50"
+            />
+            <button
+              type="button"
+              onClick={handleSearch}
+              disabled={searching || !searchQuery.trim()}
+              className="rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground hover:bg-primary/90 disabled:opacity-50"
+            >
+              {searching ? "Searching..." : "Search"}
+            </button>
+          </div>
+          {searchResults !== null && (
+            <p className="text-sm text-muted-foreground">
+              {searchResults.length === 0
+                ? "No matches found."
+                : `Found on page${searchResults.length > 1 ? "s" : ""}: ${searchResults.join(", ")}`}
+            </p>
+          )}
+        </div>
+      )}
       {thumbnails.length > 0 && (
         <div className="grid grid-cols-4 gap-2">
           {thumbnails.map((thumb, i) => (
@@ -1816,7 +1873,11 @@ export default function PdfUtilsDefault() {
               key={i}
               src={thumb}
               alt={`Page ${i + 1}`}
-              className="rounded border border-border"
+              className={`rounded border ${
+                searchResults?.includes(i + 1)
+                  ? "border-2 border-primary ring-2 ring-primary/30"
+                  : "border-border"
+              }`}
             />
           ))}
         </div>
@@ -1838,11 +1899,12 @@ export default function PdfUtilsDefault() {
  * @slug pdf-viewer
  * @variant default
  * @upstream https://www.tryelements.dev/docs/pdf/pdf-viewer
- * @deviations ["Moved from elements/ to ui/ directory.", "Dynamic import with ssr:false to avoid pdfjs DOMMatrix crash during prerender."]
+ * @deviations ["Moved from elements/ to ui/ directory.", "Dynamic import with ssr:false to avoid pdfjs DOMMatrix crash during prerender.", "Added file upload input as primary source since remote URLs are unreliable."]
  */
 "use client";
 
 import dynamic from "next/dynamic";
+import { useState } from "react";
 
 const PdfViewer = dynamic(() => import("@/components/ui/pdf-viewer").then((m) => m.PdfViewer), {
   ssr: false,
@@ -1853,14 +1915,31 @@ const PdfViewer = dynamic(() => import("@/components/ui/pdf-viewer").then((m) =>
   ),
 });
 
+const FALLBACK_URL =
+  "https://raw.githubusercontent.com/nicktomlin/sample-pdfs/refs/heads/master/simple.pdf";
+
 export default function PdfViewerDefault() {
+  const [file, setFile] = useState<File | null>(null);
+
+  function handleFileChange(e: React.ChangeEvent<HTMLInputElement>) {
+    const selected = e.target.files?.[0];
+    if (selected) {
+      setFile(selected);
+    }
+  }
+
   return (
-    <div className="w-full">
-      <PdfViewer
-        file="https://raw.githubusercontent.com/nicktomlin/sample-pdfs/refs/heads/master/simple.pdf"
-        mode="single"
-        initialZoom={1}
-      />
+    <div className="flex w-full flex-col gap-4">
+      <label className="text-sm font-medium">
+        Upload a PDF to preview
+        <input
+          type="file"
+          accept=".pdf"
+          onChange={handleFileChange}
+          className="mt-1 block w-full text-sm file:mr-4 file:rounded-md file:border-0 file:bg-primary file:px-4 file:py-2 file:text-sm file:font-medium file:text-primary-foreground"
+        />
+      </label>
+      <PdfViewer file={file ?? FALLBACK_URL} mode="single" initialZoom={1} />
     </div>
   );
 }

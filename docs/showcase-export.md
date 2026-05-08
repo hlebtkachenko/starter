@@ -9,7 +9,7 @@
 
 | Area | File | Items | Chars |
 |---|---|---|---|
-| UI Primitives | [docs/showcase-export/ui.md](showcase-export/ui.md) | 101 | 24,664 |
+| UI Primitives | [docs/showcase-export/ui.md](showcase-export/ui.md) | 101 | 24,839 |
 | Examples: buttons | [docs/showcase-export/examples-buttons.md](showcase-export/examples-buttons.md) | 36 | 47,459 |
 | Examples: display-part1 | [docs/showcase-export/examples-display-part1.md](showcase-export/examples-display-part1.md) | 41 | 79,363 |
 | Examples: display-part2 | [docs/showcase-export/examples-display-part2.md](showcase-export/examples-display-part2.md) | 20 | 28,696 |
@@ -21,7 +21,7 @@
 | Examples: navigation | [docs/showcase-export/examples-navigation.md](showcase-export/examples-navigation.md) | 21 | 40,532 |
 | Examples: overlays | [docs/showcase-export/examples-overlays.md](showcase-export/examples-overlays.md) | 23 | 40,967 |
 | Examples: utility | [docs/showcase-export/examples-utility.md](showcase-export/examples-utility.md) | 33 | 50,746 |
-| Examples: other | [docs/showcase-export/examples-other.md](showcase-export/examples-other.md) | 45 | 62,825 |
+| Examples: other | [docs/showcase-export/examples-other.md](showcase-export/examples-other.md) | 45 | 66,075 |
 | Blocks | [docs/showcase-export/blocks.md](showcase-export/blocks.md) | 5 | 15,187 |
 
 ## UI Primitives TOC

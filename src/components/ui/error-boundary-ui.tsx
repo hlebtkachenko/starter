@@ -4,6 +4,7 @@ import * as React from "react";
 
 import { AlertTriangle, ChevronDown, ChevronUp, Copy, RefreshCw } from "lucide-react";
 
+import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
 interface ErrorBoundaryUiProps {
@@ -110,40 +111,36 @@ export function ErrorBoundaryUi({
 
       <div className="flex items-center gap-2 px-4 pb-4">
         {resetError && (
-          <button
-            type="button"
-            onClick={resetError}
-            aria-label="Try again"
-            className="flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium bg-red-100 dark:bg-red-900/50 text-red-700 dark:text-red-300 rounded hover:bg-red-200 dark:hover:bg-red-900 transition-colors"
-          >
+          <Button variant="destructive" size="sm" onClick={resetError} aria-label="Try again">
             <RefreshCw className="w-3.5 h-3.5" />
             Try again
-          </button>
+          </Button>
         )}
-        <button
-          type="button"
+        <Button
+          variant="outline"
+          size="sm"
           onClick={handleCopy}
           aria-label={copied ? "Copied to clipboard" : "Copy error details"}
-          className="flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium bg-red-100 dark:bg-red-900/50 text-red-700 dark:text-red-300 rounded hover:bg-red-200 dark:hover:bg-red-900 transition-colors"
         >
           <Copy className="w-3.5 h-3.5" />
           {copied ? "Copied!" : "Copy error"}
-        </button>
+        </Button>
       </div>
 
       {isDev && error.stack && (
         <div className="border-t border-red-200 dark:border-red-900">
-          <button
-            type="button"
+          <Button
+            variant="ghost"
+            size="sm"
             onClick={handleToggleStack}
             aria-expanded={showStack}
             aria-controls="stack-trace-content"
             aria-label="Toggle stack trace"
-            className="w-full flex items-center justify-between px-4 py-2 text-sm text-red-600 dark:text-red-400 hover:bg-red-100 dark:hover:bg-red-900/30 transition-colors"
+            className="w-full justify-between rounded-none px-4 py-2 text-red-600 dark:text-red-400"
           >
             <span className="font-medium">Stack Trace</span>
             {showStack ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
-          </button>
+          </Button>
           {showStack && (
             <div
               id="stack-trace-content"
@@ -168,13 +165,14 @@ export function ErrorBoundaryUi({
 
       {isDev && componentStack && (
         <div className="border-t border-red-200 dark:border-red-900">
-          <button
-            type="button"
+          <Button
+            variant="ghost"
+            size="sm"
             onClick={handleToggleComponentStack}
             aria-expanded={showComponentStack}
             aria-controls="component-stack-content"
             aria-label="Toggle component stack"
-            className="w-full flex items-center justify-between px-4 py-2 text-sm text-red-600 dark:text-red-400 hover:bg-red-100 dark:hover:bg-red-900/30 transition-colors"
+            className="w-full justify-between rounded-none px-4 py-2 text-red-600 dark:text-red-400"
           >
             <span className="font-medium">Component Stack</span>
             {showComponentStack ? (
@@ -182,7 +180,7 @@ export function ErrorBoundaryUi({
             ) : (
               <ChevronDown className="w-4 h-4" />
             )}
-          </button>
+          </Button>
           {showComponentStack && (
             <div
               id="component-stack-content"
