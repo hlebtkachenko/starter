@@ -9,18 +9,19 @@
 
 | Area | File | Items | Chars |
 |---|---|---|---|
-| UI Primitives | [docs/showcase-export/ui.md](showcase-export/ui.md) | 54 | 11,568 |
+| UI Primitives | [docs/showcase-export/ui.md](showcase-export/ui.md) | 60 | 13,330 |
 | Examples: buttons | [docs/showcase-export/examples-buttons.md](showcase-export/examples-buttons.md) | 36 | 47,459 |
-| Examples: display-part1 | [docs/showcase-export/examples-display-part1.md](showcase-export/examples-display-part1.md) | 41 | 79,365 |
+| Examples: display-part1 | [docs/showcase-export/examples-display-part1.md](showcase-export/examples-display-part1.md) | 41 | 79,363 |
 | Examples: display-part2 | [docs/showcase-export/examples-display-part2.md](showcase-export/examples-display-part2.md) | 20 | 28,696 |
 | Examples: feedback | [docs/showcase-export/examples-feedback.md](showcase-export/examples-feedback.md) | 24 | 27,984 |
 | Examples: forms-part1 | [docs/showcase-export/examples-forms-part1.md](showcase-export/examples-forms-part1.md) | 45 | 68,364 |
 | Examples: forms-part2 | [docs/showcase-export/examples-forms-part2.md](showcase-export/examples-forms-part2.md) | 46 | 67,670 |
-| Examples: layout | [docs/showcase-export/examples-layout.md](showcase-export/examples-layout.md) | 26 | 36,427 |
+| Examples: layout | [docs/showcase-export/examples-layout.md](showcase-export/examples-layout.md) | 36 | 53,438 |
 | Examples: menus | [docs/showcase-export/examples-menus.md](showcase-export/examples-menus.md) | 26 | 64,583 |
 | Examples: navigation | [docs/showcase-export/examples-navigation.md](showcase-export/examples-navigation.md) | 21 | 40,532 |
 | Examples: overlays | [docs/showcase-export/examples-overlays.md](showcase-export/examples-overlays.md) | 23 | 40,967 |
 | Examples: utility | [docs/showcase-export/examples-utility.md](showcase-export/examples-utility.md) | 33 | 50,746 |
+| Examples: other | [docs/showcase-export/examples-other.md](showcase-export/examples-other.md) | 5 | 7,378 |
 | Blocks | [docs/showcase-export/blocks.md](showcase-export/blocks.md) | 5 | 15,187 |
 
 ## UI Primitives TOC
@@ -79,11 +80,17 @@
 - [`toggle`](showcase-export/ui.md#toggle) — Two-state button (on/off). Variants and sizes.
 - [`toggle-group`](showcase-export/ui.md#toggle-group) — Set of two-state buttons. Single/multiple selection, vertical, spacing prop.
 - [`tooltip`](showcase-export/ui.md#tooltip) — Floating popup on focus or hover with descriptive text.
+- [`noise-background`](showcase-export/ui.md#noise-background) — Animated gradient background with noise texture overlay, spring physics, adjustable speed, and optional backdrop blur.
+- [`stateful-button`](showcase-export/ui.md#stateful-button) — Action button with built-in loading spinner and success check animation sequence driven by motion/react.
+- [`multi-step-loader`](showcase-export/ui.md#multi-step-loader) — Full-screen loading overlay that cycles through a list of steps with animated check marks and progress indicators.
+- [`separator-extended`](showcase-export/ui.md#separator-extended) — Separator with variant styles: solid (default), dashed, dotted, and double. Supports horizontal and vertical orientation.
+- [`card-styles`](showcase-export/ui.md#card-styles) — Creative card style variants: retro shadow, line borders, hatched pattern, aurora glow, tilted layer, and stacked depth.
+- [`autocomplete`](showcase-export/ui.md#autocomplete) — Input that suggests options as you type. Inline autofill, auto-highlight, async search, groups, clear button, and trigger toggle.
 
 ## Quick counts
 
-- UI primitives: **54**
-- Example variants: **363**
-- Example files: **11**
+- UI primitives: **60**
+- Example variants: **378**
+- Example files: **12**
 - Blocks: **5**
-- Total registry items: **422**
+- Total registry items: **443**

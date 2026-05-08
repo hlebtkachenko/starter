@@ -31,7 +31,7 @@ export default function CalendarCustomCellSize() {
           captionLayout="dropdown"
           className="[--cell-size:--spacing(10)] md:[--cell-size:--spacing(12)]"
           formatters={{
-            formatMonthDropdown: (date) => date.toLocaleString("default", { month: "long" }),
+            formatMonthDropdown: (date) => date.toLocaleString("en-US", { month: "long" }),
           }}
           components={{
             DayButton: ({ children, modifiers, day, ...props }) => {

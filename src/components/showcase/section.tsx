@@ -62,12 +62,14 @@ export function Demo({
   span,
   height,
   flagged,
+  isNew,
   children,
 }: {
   name: string;
   span?: 1 | 2 | 3;
   height?: "auto" | "tall";
   flagged?: boolean;
+  isNew?: boolean;
   children: ReactNode;
 }) {
   return (
@@ -85,6 +87,11 @@ export function Demo({
         {flagged && (
           <span className="rounded-full bg-destructive px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-destructive-foreground">
             Not in spec
+          </span>
+        )}
+        {isNew && (
+          <span className="rounded-full bg-primary/10 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-primary">
+            New
           </span>
         )}
       </div>

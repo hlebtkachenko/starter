@@ -6,6 +6,477 @@ Each entry includes slug, variant, upstream URL, deviations, and JSX source.
 
 ## Default
 
+**Slug:** `separator-extended`
+**Variant:** `default`
+**Upstream:** https://basecn.dev/docs/components/separator-extended
+**Description:** Solid separator in a composition layout with skeleton blocks, horizontal OR dividers, and vertical side separators.
+**Deviations:**
+- Renamed Separator to SeparatorExtended to avoid conflict with existing primitive.
+**Depends on:** separator-extended
+
+```tsx
+/**
+ * @slug separator-extended
+ * @variant default
+ * @upstream https://basecn.dev/docs/components/separator-extended
+ * @deviations ["Renamed Separator to SeparatorExtended to avoid conflict with existing primitive."]
+ */
+import { SeparatorExtended } from "@/components/ui/separator-extended";
+
+export default function SeparatorExtendedDefault() {
+  return <SeparatorComposition variant="default" />;
+}
+
+function SeparatorComposition({
+  variant,
+}: {
+  variant: "default" | "dashed" | "dotted" | "double";
+}) {
+  return (
+    <div className="flex w-full items-stretch gap-0">
+      <div className="flex shrink-0 items-stretch py-4">
+        <SeparatorExtended variant={variant} orientation="vertical" />
+      </div>
+      <div className="flex flex-1 flex-col items-center gap-4 px-6 py-4">
+        <div className="h-16 w-full rounded-lg bg-muted" />
+        <div className="flex w-full items-center gap-3">
+          <SeparatorExtended variant={variant} className="flex-1" />
+          <span className="shrink-0 text-sm text-muted-foreground">OR</span>
+          <SeparatorExtended variant={variant} className="flex-1" />
+        </div>
+        <div className="flex w-full items-center gap-3">
+          <span className="shrink-0 text-sm text-muted-foreground">OR</span>
+          <div className="flex-1">
+            <div className="h-16 w-full rounded-lg bg-muted" />
+          </div>
+          <span className="shrink-0 text-sm text-muted-foreground">OR</span>
+        </div>
+        <div className="flex w-full items-center gap-3">
+          <SeparatorExtended variant={variant} className="flex-1" />
+          <span className="shrink-0 text-sm text-muted-foreground">OR</span>
+          <SeparatorExtended variant={variant} className="flex-1" />
+        </div>
+        <div className="h-16 w-full rounded-lg bg-muted" />
+      </div>
+      <div className="flex shrink-0 items-stretch py-4">
+        <SeparatorExtended variant={variant} orientation="vertical" />
+      </div>
+    </div>
+  );
+}
+```
+## Dashed
+
+**Slug:** `separator-extended`
+**Variant:** `dashed`
+**Upstream:** https://basecn.dev/docs/components/separator-extended
+**Description:** Dashed separator variant in the same composition layout showing horizontal and vertical usage.
+**Deviations:**
+- Renamed Separator to SeparatorExtended to avoid conflict with existing primitive.
+**Depends on:** separator-extended
+
+```tsx
+/**
+ * @slug separator-extended
+ * @variant dashed
+ * @upstream https://basecn.dev/docs/components/separator-extended
+ * @deviations ["Renamed Separator to SeparatorExtended to avoid conflict with existing primitive."]
+ */
+import { SeparatorExtended } from "@/components/ui/separator-extended";
+
+export default function SeparatorExtendedDashed() {
+  return (
+    <div className="flex w-full items-stretch gap-0">
+      <div className="flex shrink-0 items-stretch py-4">
+        <SeparatorExtended variant="dashed" orientation="vertical" />
+      </div>
+      <div className="flex flex-1 flex-col items-center gap-4 px-6 py-4">
+        <div className="h-16 w-full rounded-lg bg-muted" />
+        <div className="flex w-full items-center gap-3">
+          <SeparatorExtended variant="dashed" className="flex-1" />
+          <span className="shrink-0 text-sm text-muted-foreground">OR</span>
+          <SeparatorExtended variant="dashed" className="flex-1" />
+        </div>
+        <div className="flex w-full items-center gap-3">
+          <span className="shrink-0 text-sm text-muted-foreground">OR</span>
+          <div className="flex-1">
+            <div className="h-16 w-full rounded-lg bg-muted" />
+          </div>
+          <span className="shrink-0 text-sm text-muted-foreground">OR</span>
+        </div>
+        <div className="flex w-full items-center gap-3">
+          <SeparatorExtended variant="dashed" className="flex-1" />
+          <span className="shrink-0 text-sm text-muted-foreground">OR</span>
+          <SeparatorExtended variant="dashed" className="flex-1" />
+        </div>
+        <div className="h-16 w-full rounded-lg bg-muted" />
+      </div>
+      <div className="flex shrink-0 items-stretch py-4">
+        <SeparatorExtended variant="dashed" orientation="vertical" />
+      </div>
+    </div>
+  );
+}
+```
+## Dotted
+
+**Slug:** `separator-extended`
+**Variant:** `dotted`
+**Upstream:** https://basecn.dev/docs/components/separator-extended
+**Description:** Dotted separator variant in the same composition layout showing horizontal and vertical usage.
+**Deviations:**
+- Renamed Separator to SeparatorExtended to avoid conflict with existing primitive.
+**Depends on:** separator-extended
+
+```tsx
+/**
+ * @slug separator-extended
+ * @variant dotted
+ * @upstream https://basecn.dev/docs/components/separator-extended
+ * @deviations ["Renamed Separator to SeparatorExtended to avoid conflict with existing primitive."]
+ */
+import { SeparatorExtended } from "@/components/ui/separator-extended";
+
+export default function SeparatorExtendedDotted() {
+  return (
+    <div className="flex w-full items-stretch gap-0">
+      <div className="flex shrink-0 items-stretch py-4">
+        <SeparatorExtended variant="dotted" orientation="vertical" />
+      </div>
+      <div className="flex flex-1 flex-col items-center gap-4 px-6 py-4">
+        <div className="h-16 w-full rounded-lg bg-muted" />
+        <div className="flex w-full items-center gap-3">
+          <SeparatorExtended variant="dotted" className="flex-1" />
+          <span className="shrink-0 text-sm text-muted-foreground">OR</span>
+          <SeparatorExtended variant="dotted" className="flex-1" />
+        </div>
+        <div className="flex w-full items-center gap-3">
+          <span className="shrink-0 text-sm text-muted-foreground">OR</span>
+          <div className="flex-1">
+            <div className="h-16 w-full rounded-lg bg-muted" />
+          </div>
+          <span className="shrink-0 text-sm text-muted-foreground">OR</span>
+        </div>
+        <div className="flex w-full items-center gap-3">
+          <SeparatorExtended variant="dotted" className="flex-1" />
+          <span className="shrink-0 text-sm text-muted-foreground">OR</span>
+          <SeparatorExtended variant="dotted" className="flex-1" />
+        </div>
+        <div className="h-16 w-full rounded-lg bg-muted" />
+      </div>
+      <div className="flex shrink-0 items-stretch py-4">
+        <SeparatorExtended variant="dotted" orientation="vertical" />
+      </div>
+    </div>
+  );
+}
+```
+## Double
+
+**Slug:** `separator-extended`
+**Variant:** `double`
+**Upstream:** https://basecn.dev/docs/components/separator-extended
+**Description:** Double-line separator variant in the same composition layout showing horizontal and vertical usage.
+**Deviations:**
+- Renamed Separator to SeparatorExtended to avoid conflict with existing primitive.
+**Depends on:** separator-extended
+
+```tsx
+/**
+ * @slug separator-extended
+ * @variant double
+ * @upstream https://basecn.dev/docs/components/separator-extended
+ * @deviations ["Renamed Separator to SeparatorExtended to avoid conflict with existing primitive."]
+ */
+import { SeparatorExtended } from "@/components/ui/separator-extended";
+
+export default function SeparatorExtendedDouble() {
+  return (
+    <div className="flex w-full items-stretch gap-0">
+      <div className="flex shrink-0 items-stretch py-4">
+        <SeparatorExtended variant="double" orientation="vertical" />
+      </div>
+      <div className="flex flex-1 flex-col items-center gap-4 px-6 py-4">
+        <div className="h-16 w-full rounded-lg bg-muted" />
+        <div className="flex w-full items-center gap-3">
+          <SeparatorExtended variant="double" className="flex-1" />
+          <span className="shrink-0 text-sm text-muted-foreground">OR</span>
+          <SeparatorExtended variant="double" className="flex-1" />
+        </div>
+        <div className="flex w-full items-center gap-3">
+          <span className="shrink-0 text-sm text-muted-foreground">OR</span>
+          <div className="flex-1">
+            <div className="h-16 w-full rounded-lg bg-muted" />
+          </div>
+          <span className="shrink-0 text-sm text-muted-foreground">OR</span>
+        </div>
+        <div className="flex w-full items-center gap-3">
+          <SeparatorExtended variant="double" className="flex-1" />
+          <span className="shrink-0 text-sm text-muted-foreground">OR</span>
+          <SeparatorExtended variant="double" className="flex-1" />
+        </div>
+        <div className="h-16 w-full rounded-lg bg-muted" />
+      </div>
+      <div className="flex shrink-0 items-stretch py-4">
+        <SeparatorExtended variant="double" orientation="vertical" />
+      </div>
+    </div>
+  );
+}
+```
+## Shadow
+
+**Slug:** `card-styles`
+**Variant:** `shadow`
+**Upstream:** https://cardcn.dev/cards/basic-cards/
+**Description:** Card with retro offset shadow using --border token for a bold, playful look.
+**Deviations:**
+- Adapted from cardcn card-1.
+**Depends on:** card
+
+```tsx
+/**
+ * @slug card-styles
+ * @variant shadow
+ * @upstream https://cardcn.dev/cards/basic-cards/
+ * @deviations ["Adapted from cardcn card-1. Uses token shadow via --border var."]
+ */
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+
+export default function CardStylesShadow() {
+  return (
+    <Card className="shadow-[5px_5px_0px_0px_var(--border)]">
+      <CardHeader>
+        <CardTitle>
+          <div className="h-8 w-full max-w-40 rounded-md bg-accent" />
+        </CardTitle>
+      </CardHeader>
+      <CardContent>
+        <div className="h-20 w-full rounded-md bg-accent" />
+      </CardContent>
+    </Card>
+  );
+}
+```
+## Lines
+
+**Slug:** `card-styles`
+**Variant:** `lines`
+**Upstream:** https://cardcn.dev/cards/basic-cards/
+**Description:** Card framed by gradient border lines creating a technical blueprint aesthetic.
+**Deviations:**
+- Adapted from cardcn card-2. Gradient uses token border color.
+**Depends on:** card
+
+```tsx
+/**
+ * @slug card-styles
+ * @variant lines
+ * @upstream https://cardcn.dev/cards/basic-cards/
+ * @deviations ["Adapted from cardcn card-2. Gradient lines use token-safe palette."]
+ */
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { cn } from "@/lib/utils";
+
+function Line({ className = "" }) {
+  return (
+    <div
+      className={cn(
+        "absolute z-0 h-px w-full from-1% via-border from-transparent to-border",
+        className,
+      )}
+    />
+  );
+}
+
+export default function CardStylesLines() {
+  return (
+    <div className="relative">
+      <Line className="left-0 top-2 bg-linear-to-l sm:top-4 md:top-6" />
+      <Line className="bottom-2 left-0 bg-linear-to-r sm:bottom-4 md:bottom-6" />
+      <div className="absolute inset-y-0 left-2 z-0 w-px bg-linear-to-t from-transparent via-border to-border sm:left-4 md:left-6" />
+      <div className="absolute inset-y-0 right-2 z-0 w-px bg-linear-to-t from-transparent via-border to-border sm:right-4 md:right-6" />
+      <Card className="w-full border-none p-10 shadow-none">
+        <CardHeader>
+          <CardTitle>
+            <div className="h-8 w-full max-w-40 rounded-md bg-secondary" />
+          </CardTitle>
+        </CardHeader>
+        <CardContent>
+          <div className="h-20 w-full rounded-md bg-secondary" />
+        </CardContent>
+      </Card>
+    </div>
+  );
+}
+```
+## Hatched
+
+**Slug:** `card-styles`
+**Variant:** `hatched`
+**Upstream:** https://cardcn.dev/cards/basic-cards/
+**Description:** Card with diagonal hatching pattern behind transparent content area.
+**Deviations:**
+- Adapted from cardcn card-10. Hatching uses --border token.
+**Depends on:** card
+
+```tsx
+/**
+ * @slug card-styles
+ * @variant hatched
+ * @upstream https://cardcn.dev/cards/basic-cards/
+ * @deviations ["Adapted from cardcn card-10. Hatching pattern uses --border token."]
+ */
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+
+export default function CardStylesHatched() {
+  return (
+    <div className="relative overflow-hidden rounded-xl">
+      <div
+        className="absolute inset-1 z-0 rounded-lg opacity-50"
+        style={{
+          backgroundImage:
+            "repeating-linear-gradient(45deg, transparent, transparent 2px, var(--border) 2px, var(--border) 4px)",
+        }}
+      />
+      <Card className="isolate z-10 border-2 border-border bg-transparent">
+        <CardHeader>
+          <CardTitle>
+            <div className="h-8 w-full max-w-40 rounded-md bg-secondary" />
+          </CardTitle>
+        </CardHeader>
+        <CardContent>
+          <div className="h-20 w-full rounded-md bg-secondary" />
+        </CardContent>
+      </Card>
+    </div>
+  );
+}
+```
+## Aurora
+
+**Slug:** `card-styles`
+**Variant:** `aurora`
+**Upstream:** https://cardcn.dev/cards/basic-cards/
+**Description:** Card with subtle radial gradient aurora glow effect behind transparent content.
+**Deviations:**
+- Adapted from cardcn card-14.
+**Depends on:** card
+
+```tsx
+/**
+ * @slug card-styles
+ * @variant aurora
+ * @upstream https://cardcn.dev/cards/basic-cards/
+ * @deviations ["Adapted from cardcn card-14. Radial gradient glow background."]
+ */
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+
+export default function CardStylesAurora() {
+  return (
+    <div className="relative overflow-hidden rounded-xl bg-background">
+      <div
+        className="absolute inset-0 rounded-lg"
+        style={{
+          backgroundImage: `
+            radial-gradient(ellipse at 20% 30%, rgba(56, 189, 248, 0.2) 0%, transparent 60%),
+            radial-gradient(ellipse at 80% 70%, rgba(139, 92, 246, 0.1) 0%, transparent 70%),
+            radial-gradient(ellipse at 60% 20%, rgba(236, 72, 153, 0.1) 0%, transparent 50%),
+            radial-gradient(ellipse at 40% 80%, rgba(59, 189, 248, 0.1) 0%, transparent 65%)
+          `,
+        }}
+      />
+      <Card className="isolate z-10 border-border bg-transparent">
+        <CardHeader>
+          <CardTitle>
+            <div className="h-8 w-full max-w-40 rounded-md bg-background" />
+          </CardTitle>
+        </CardHeader>
+        <CardContent>
+          <div className="h-20 w-full rounded-md bg-background" />
+        </CardContent>
+      </Card>
+    </div>
+  );
+}
+```
+## Tilted
+
+**Slug:** `card-styles`
+**Variant:** `tilted`
+**Upstream:** https://cardcn.dev/cards/basic-cards/
+**Description:** Card with a rotated background layer creating a tilted shadow depth effect.
+**Deviations:**
+- Adapted from cardcn card-15.
+**Depends on:** card
+
+```tsx
+/**
+ * @slug card-styles
+ * @variant tilted
+ * @upstream https://cardcn.dev/cards/basic-cards/
+ * @deviations ["Adapted from cardcn card-15. Tilted background layer behind card."]
+ */
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+
+export default function CardStylesTilted() {
+  return (
+    <div className="relative">
+      <div className="absolute inset-0 isolate z-0 scale-x-95 -rotate-[5deg] rounded-xl border border-border/50 bg-muted/30 py-10" />
+      <Card className="isolate z-10">
+        <CardHeader>
+          <CardTitle>
+            <div className="h-8 w-full max-w-40 rounded-md bg-secondary" />
+          </CardTitle>
+        </CardHeader>
+        <CardContent>
+          <div className="h-20 w-full rounded-md bg-secondary" />
+        </CardContent>
+      </Card>
+    </div>
+  );
+}
+```
+## Stacked
+
+**Slug:** `card-styles`
+**Variant:** `stacked`
+**Upstream:** https://cardcn.dev/cards/basic-cards/
+**Description:** Card with two scaled-down layers behind it creating a stacked paper depth effect.
+**Deviations:**
+- Adapted from cardcn card-18.
+**Depends on:** card
+
+```tsx
+/**
+ * @slug card-styles
+ * @variant stacked
+ * @upstream https://cardcn.dev/cards/basic-cards/
+ * @deviations ["Adapted from cardcn card-18. Stacked cards behind main card."]
+ */
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+
+export default function CardStylesStacked() {
+  return (
+    <div className="relative h-full pt-6">
+      <div className="absolute top-0 h-full w-full scale-95 rounded-xl border border-border bg-card" />
+      <div className="absolute top-3 h-full w-full scale-[0.97] rounded-xl border border-border bg-card shadow-[0_-2px_6px_-2px_var(--border)]" />
+      <Card className="isolate z-10 shadow-[0_-3px_6px_-2px_var(--border)]">
+        <CardHeader>
+          <CardTitle>
+            <div className="h-8 w-full max-w-40 rounded-md bg-secondary" />
+          </CardTitle>
+        </CardHeader>
+        <CardContent>
+          <div className="h-20 w-full rounded-md bg-secondary" />
+        </CardContent>
+      </Card>
+    </div>
+  );
+}
+```
+## Default
+
 **Slug:** `aspect-ratio`
 **Variant:** `default`
 **Upstream:** https://ui.shadcn.com/docs/components/aspect-ratio

@@ -1088,6 +1088,142 @@ export const Index: Record<string, RegistryIndexEntry> = {
   },
     Component: undefined,
   },
+  "noise-background": {
+    meta: {
+    "name": "noise-background",
+    "type": "registry:ui",
+    "title": "Noise Background",
+    "description": "Animated gradient background with noise texture overlay, spring physics, adjustable speed, and optional backdrop blur.",
+    "files": [
+      {
+        "path": "components/ui/noise-background.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "upstreamUrl": "https://ui.aceternity.com/components/noise-background",
+    "categories": [
+      "display",
+      "effects"
+    ],
+    "proposedGroup": "effects"
+  },
+    Component: undefined,
+  },
+  "stateful-button": {
+    meta: {
+    "name": "stateful-button",
+    "type": "registry:ui",
+    "title": "Stateful Button",
+    "description": "Action button with built-in loading spinner and success check animation sequence driven by motion/react.",
+    "registryDependencies": [
+      "button"
+    ],
+    "files": [
+      {
+        "path": "components/ui/stateful-button.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "upstreamUrl": "https://ui.aceternity.com/components/stateful-button",
+    "categories": [
+      "actions",
+      "effects"
+    ],
+    "proposedGroup": "buttons"
+  },
+    Component: undefined,
+  },
+  "multi-step-loader": {
+    meta: {
+    "name": "multi-step-loader",
+    "type": "registry:ui",
+    "title": "Multi Step Loader",
+    "description": "Full-screen loading overlay that cycles through a list of steps with animated check marks and progress indicators.",
+    "files": [
+      {
+        "path": "components/ui/multi-step-loader.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "upstreamUrl": "https://ui.aceternity.com/components/multi-step-loader",
+    "categories": [
+      "feedback",
+      "effects"
+    ],
+    "proposedGroup": "feedback"
+  },
+    Component: undefined,
+  },
+  "separator-extended": {
+    meta: {
+    "name": "separator-extended",
+    "type": "registry:ui",
+    "title": "Separator Extended",
+    "description": "Separator with variant styles: solid (default), dashed, dotted, and double. Supports horizontal and vertical orientation.",
+    "registryDependencies": [
+      "separator"
+    ],
+    "files": [
+      {
+        "path": "components/ui/separator-extended.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "upstreamUrl": "https://basecn.dev/docs/components/separator-extended",
+    "categories": [
+      "layout"
+    ],
+    "proposedGroup": "layout"
+  },
+    Component: undefined,
+  },
+  "card-styles": {
+    meta: {
+    "name": "card-styles",
+    "type": "registry:ui",
+    "title": "Card Styles",
+    "description": "Creative card style variants: retro shadow, line borders, hatched pattern, aurora glow, tilted layer, and stacked depth.",
+    "registryDependencies": [
+      "card"
+    ],
+    "files": [
+      {
+        "path": "components/ui/card-styles.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "upstreamUrl": "https://cardcn.dev/cards/basic-cards/",
+    "categories": [
+      "display",
+      "layout"
+    ],
+    "proposedGroup": "display"
+  },
+    Component: undefined,
+  },
+  "autocomplete": {
+    meta: {
+    "name": "autocomplete",
+    "type": "registry:ui",
+    "title": "Autocomplete",
+    "description": "Input that suggests options as you type. Inline autofill, auto-highlight, async search, groups, clear button, and trigger toggle.",
+    "registryDependencies": [
+      "scroll-area"
+    ],
+    "files": [
+      {
+        "path": "components/ui/autocomplete.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "upstreamUrl": "https://coss.com/ui/docs/components/autocomplete",
+    "categories": [
+      "forms"
+    ],
+    "proposedGroup": "forms"
+  },
+    Component: undefined,
+  },
   "button-size": {
     meta: {
     "name": "button-size",
@@ -3976,6 +4112,448 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "span": 3
   },
     Component: React.lazy(() => import("@/components/examples/typography-demo")),
+  },
+  "noise-background-default": {
+    meta: {
+    "name": "noise-background-default",
+    "type": "registry:example",
+    "title": "Default",
+    "description": "Animated gradient background with noise overlay wrapping a pill button, demonstrating spring-physics movement.",
+    "slug": "noise-background",
+    "variant": "default",
+    "isDefault": true,
+    "isFlagged": false,
+    "upstreamUrl": "https://ui.aceternity.com/components/noise-background",
+    "registryDependencies": [
+      "noise-background"
+    ],
+    "files": [
+      {
+        "path": "components/examples/noise-background-default.tsx",
+        "type": "registry:example"
+      }
+    ],
+    "categories": [
+      "display",
+      "effects"
+    ],
+    "deviations": [
+      "Noise texture served from /noise.webp instead of external CDN.",
+      "Token classes replace hardcoded neutral palette."
+    ]
+  },
+    Component: React.lazy(() => import("@/components/examples/noise-background-default")),
+  },
+  "noise-background-card": {
+    meta: {
+    "name": "noise-background-card",
+    "type": "registry:example",
+    "title": "Card",
+    "description": "Noise background wrapping a card component with image placeholder and text content, showing container composition.",
+    "slug": "noise-background",
+    "variant": "card",
+    "isDefault": false,
+    "isFlagged": false,
+    "upstreamUrl": "https://ui.aceternity.com/components/noise-background",
+    "registryDependencies": [
+      "noise-background",
+      "card"
+    ],
+    "files": [
+      {
+        "path": "components/examples/noise-background-card.tsx",
+        "type": "registry:example"
+      }
+    ],
+    "categories": [
+      "display",
+      "effects"
+    ],
+    "deviations": [
+      "Token classes replace hardcoded neutral palette.",
+      "Self-hosted noise texture.",
+      "External image replaced with placeholder."
+    ]
+  },
+    Component: React.lazy(() => import("@/components/examples/noise-background-card")),
+  },
+  "stateful-button-default": {
+    meta: {
+    "name": "stateful-button-default",
+    "type": "registry:example",
+    "title": "Default",
+    "description": "Button that cycles through idle, loading spinner, and success check states on click with motion/react animations.",
+    "slug": "stateful-button",
+    "variant": "default",
+    "isDefault": true,
+    "isFlagged": false,
+    "upstreamUrl": "https://ui.aceternity.com/components/stateful-button",
+    "registryDependencies": [
+      "stateful-button"
+    ],
+    "files": [
+      {
+        "path": "components/examples/stateful-button-default.tsx",
+        "type": "registry:example"
+      }
+    ],
+    "categories": [
+      "actions",
+      "effects"
+    ],
+    "deviations": [
+      "Renamed export from Button to StatefulButton to avoid conflict.",
+      "Token classes replace hardcoded green palette."
+    ]
+  },
+    Component: React.lazy(() => import("@/components/examples/stateful-button-default")),
+  },
+  "multi-step-loader-default": {
+    meta: {
+    "name": "multi-step-loader-default",
+    "type": "registry:example",
+    "title": "Default",
+    "description": "Full-screen loader overlay cycling through named steps with animated check marks, triggered by a button click.",
+    "slug": "multi-step-loader",
+    "variant": "default",
+    "isDefault": true,
+    "isFlagged": false,
+    "upstreamUrl": "https://ui.aceternity.com/components/multi-step-loader",
+    "registryDependencies": [
+      "multi-step-loader",
+      "button"
+    ],
+    "files": [
+      {
+        "path": "components/examples/multi-step-loader-default.tsx",
+        "type": "registry:example"
+      }
+    ],
+    "categories": [
+      "feedback",
+      "effects"
+    ],
+    "deviations": [
+      "Token classes replace hardcoded black/white/lime palette."
+    ]
+  },
+    Component: React.lazy(() => import("@/components/examples/multi-step-loader-default")),
+  },
+  "separator-extended-default": {
+    meta: {
+    "name": "separator-extended-default",
+    "type": "registry:example",
+    "title": "Default",
+    "description": "Solid separator in a composition layout with skeleton blocks, horizontal OR dividers, and vertical side separators.",
+    "slug": "separator-extended",
+    "variant": "default",
+    "isDefault": true,
+    "isFlagged": false,
+    "span": 2,
+    "upstreamUrl": "https://basecn.dev/docs/components/separator-extended",
+    "registryDependencies": [
+      "separator-extended"
+    ],
+    "files": [
+      {
+        "path": "components/examples/separator-extended-default.tsx",
+        "type": "registry:example"
+      }
+    ],
+    "categories": [
+      "layout"
+    ],
+    "deviations": [
+      "Renamed Separator to SeparatorExtended to avoid conflict with existing primitive."
+    ]
+  },
+    Component: React.lazy(() => import("@/components/examples/separator-extended-default")),
+  },
+  "separator-extended-dashed": {
+    meta: {
+    "name": "separator-extended-dashed",
+    "type": "registry:example",
+    "title": "Dashed",
+    "description": "Dashed separator variant in the same composition layout showing horizontal and vertical usage.",
+    "slug": "separator-extended",
+    "variant": "dashed",
+    "isFlagged": false,
+    "span": 2,
+    "upstreamUrl": "https://basecn.dev/docs/components/separator-extended",
+    "registryDependencies": [
+      "separator-extended"
+    ],
+    "files": [
+      {
+        "path": "components/examples/separator-extended-dashed.tsx",
+        "type": "registry:example"
+      }
+    ],
+    "categories": [
+      "layout"
+    ],
+    "deviations": [
+      "Renamed Separator to SeparatorExtended to avoid conflict with existing primitive."
+    ]
+  },
+    Component: React.lazy(() => import("@/components/examples/separator-extended-dashed")),
+  },
+  "separator-extended-dotted": {
+    meta: {
+    "name": "separator-extended-dotted",
+    "type": "registry:example",
+    "title": "Dotted",
+    "description": "Dotted separator variant in the same composition layout showing horizontal and vertical usage.",
+    "slug": "separator-extended",
+    "variant": "dotted",
+    "isFlagged": false,
+    "span": 2,
+    "upstreamUrl": "https://basecn.dev/docs/components/separator-extended",
+    "registryDependencies": [
+      "separator-extended"
+    ],
+    "files": [
+      {
+        "path": "components/examples/separator-extended-dotted.tsx",
+        "type": "registry:example"
+      }
+    ],
+    "categories": [
+      "layout"
+    ],
+    "deviations": [
+      "Renamed Separator to SeparatorExtended to avoid conflict with existing primitive."
+    ]
+  },
+    Component: React.lazy(() => import("@/components/examples/separator-extended-dotted")),
+  },
+  "separator-extended-double": {
+    meta: {
+    "name": "separator-extended-double",
+    "type": "registry:example",
+    "title": "Double",
+    "description": "Double-line separator variant in the same composition layout showing horizontal and vertical usage.",
+    "slug": "separator-extended",
+    "variant": "double",
+    "isFlagged": false,
+    "span": 2,
+    "upstreamUrl": "https://basecn.dev/docs/components/separator-extended",
+    "registryDependencies": [
+      "separator-extended"
+    ],
+    "files": [
+      {
+        "path": "components/examples/separator-extended-double.tsx",
+        "type": "registry:example"
+      }
+    ],
+    "categories": [
+      "layout"
+    ],
+    "deviations": [
+      "Renamed Separator to SeparatorExtended to avoid conflict with existing primitive."
+    ]
+  },
+    Component: React.lazy(() => import("@/components/examples/separator-extended-double")),
+  },
+  "card-styles-shadow": {
+    meta: {
+    "name": "card-styles-shadow",
+    "type": "registry:example",
+    "title": "Shadow",
+    "description": "Card with retro offset shadow using --border token for a bold, playful look.",
+    "slug": "card-styles",
+    "variant": "shadow",
+    "isDefault": true,
+    "isFlagged": false,
+    "upstreamUrl": "https://cardcn.dev/cards/basic-cards/",
+    "registryDependencies": [
+      "card"
+    ],
+    "files": [
+      {
+        "path": "components/examples/card-styles-shadow.tsx",
+        "type": "registry:example"
+      }
+    ],
+    "categories": [
+      "display"
+    ],
+    "deviations": [
+      "Adapted from cardcn card-1."
+    ]
+  },
+    Component: React.lazy(() => import("@/components/examples/card-styles-shadow")),
+  },
+  "card-styles-lines": {
+    meta: {
+    "name": "card-styles-lines",
+    "type": "registry:example",
+    "title": "Lines",
+    "description": "Card framed by gradient border lines creating a technical blueprint aesthetic.",
+    "slug": "card-styles",
+    "variant": "lines",
+    "isFlagged": false,
+    "upstreamUrl": "https://cardcn.dev/cards/basic-cards/",
+    "registryDependencies": [
+      "card"
+    ],
+    "files": [
+      {
+        "path": "components/examples/card-styles-lines.tsx",
+        "type": "registry:example"
+      }
+    ],
+    "categories": [
+      "display"
+    ],
+    "deviations": [
+      "Adapted from cardcn card-2. Gradient uses token border color."
+    ]
+  },
+    Component: React.lazy(() => import("@/components/examples/card-styles-lines")),
+  },
+  "card-styles-hatched": {
+    meta: {
+    "name": "card-styles-hatched",
+    "type": "registry:example",
+    "title": "Hatched",
+    "description": "Card with diagonal hatching pattern behind transparent content area.",
+    "slug": "card-styles",
+    "variant": "hatched",
+    "isFlagged": false,
+    "upstreamUrl": "https://cardcn.dev/cards/basic-cards/",
+    "registryDependencies": [
+      "card"
+    ],
+    "files": [
+      {
+        "path": "components/examples/card-styles-hatched.tsx",
+        "type": "registry:example"
+      }
+    ],
+    "categories": [
+      "display"
+    ],
+    "deviations": [
+      "Adapted from cardcn card-10. Hatching uses --border token."
+    ]
+  },
+    Component: React.lazy(() => import("@/components/examples/card-styles-hatched")),
+  },
+  "card-styles-aurora": {
+    meta: {
+    "name": "card-styles-aurora",
+    "type": "registry:example",
+    "title": "Aurora",
+    "description": "Card with subtle radial gradient aurora glow effect behind transparent content.",
+    "slug": "card-styles",
+    "variant": "aurora",
+    "isFlagged": false,
+    "upstreamUrl": "https://cardcn.dev/cards/basic-cards/",
+    "registryDependencies": [
+      "card"
+    ],
+    "files": [
+      {
+        "path": "components/examples/card-styles-aurora.tsx",
+        "type": "registry:example"
+      }
+    ],
+    "categories": [
+      "display"
+    ],
+    "deviations": [
+      "Adapted from cardcn card-14."
+    ]
+  },
+    Component: React.lazy(() => import("@/components/examples/card-styles-aurora")),
+  },
+  "card-styles-tilted": {
+    meta: {
+    "name": "card-styles-tilted",
+    "type": "registry:example",
+    "title": "Tilted",
+    "description": "Card with a rotated background layer creating a tilted shadow depth effect.",
+    "slug": "card-styles",
+    "variant": "tilted",
+    "isFlagged": false,
+    "upstreamUrl": "https://cardcn.dev/cards/basic-cards/",
+    "registryDependencies": [
+      "card"
+    ],
+    "files": [
+      {
+        "path": "components/examples/card-styles-tilted.tsx",
+        "type": "registry:example"
+      }
+    ],
+    "categories": [
+      "display"
+    ],
+    "deviations": [
+      "Adapted from cardcn card-15."
+    ]
+  },
+    Component: React.lazy(() => import("@/components/examples/card-styles-tilted")),
+  },
+  "card-styles-stacked": {
+    meta: {
+    "name": "card-styles-stacked",
+    "type": "registry:example",
+    "title": "Stacked",
+    "description": "Card with two scaled-down layers behind it creating a stacked paper depth effect.",
+    "slug": "card-styles",
+    "variant": "stacked",
+    "isFlagged": false,
+    "upstreamUrl": "https://cardcn.dev/cards/basic-cards/",
+    "registryDependencies": [
+      "card"
+    ],
+    "files": [
+      {
+        "path": "components/examples/card-styles-stacked.tsx",
+        "type": "registry:example"
+      }
+    ],
+    "categories": [
+      "display"
+    ],
+    "deviations": [
+      "Adapted from cardcn card-18."
+    ]
+  },
+    Component: React.lazy(() => import("@/components/examples/card-styles-stacked")),
+  },
+  "autocomplete-default": {
+    meta: {
+    "name": "autocomplete-default",
+    "type": "registry:example",
+    "title": "Default",
+    "description": "Autocomplete input filtering a list of frameworks with clear button and empty state message.",
+    "slug": "autocomplete",
+    "variant": "default",
+    "isDefault": true,
+    "isFlagged": false,
+    "upstreamUrl": "https://coss.com/ui/docs/components/autocomplete",
+    "registryDependencies": [
+      "autocomplete"
+    ],
+    "files": [
+      {
+        "path": "components/examples/autocomplete-default.tsx",
+        "type": "registry:example"
+      }
+    ],
+    "categories": [
+      "forms"
+    ],
+    "deviations": [
+      "Uses native input styling instead of coss Input primitive.",
+      "ScrollArea without coss-specific props."
+    ]
+  },
+    Component: React.lazy(() => import("@/components/examples/autocomplete-default")),
   },
   "alert-default": {
     meta: {
@@ -10828,8 +11406,8 @@ export const Index: Record<string, RegistryIndexEntry> = {
 };
 
 export const ItemsByArea = {
-  ui: ["accordion","alert","alert-dialog","aspect-ratio","avatar","badge","breadcrumb","button","button-group","calendar","card","carousel","chart","checkbox","collapsible","combobox","command","context-menu","dialog","drawer","dropdown-menu","empty","field","hover-card","input","input-group","input-otp","item","kbd","label","menubar","native-select","navigation-menu","pagination","popover","progress","radio-group","resizable","scroll-area","select","separator","sheet","sidebar","skeleton","slider","sonner","spinner","switch","table","tabs","textarea","toggle","toggle-group","tooltip"],
-  examples: ["button-size","button-default","button-outline","button-secondary","button-ghost","button-destructive","button-link","button-icon","button-with-icon","button-rounded","button-spinner","button-button-group","button-as-child","button-group-default","button-group-orientation","button-group-size","button-group-nested","button-group-separator","button-group-split","button-group-input","button-group-input-group","button-group-dropdown-menu","button-group-select","button-group-popover","toggle-default","toggle-outline","toggle-with-text","toggle-size","toggle-disabled","toggle-group-default","toggle-group-outline","toggle-group-size","toggle-group-spacing","toggle-group-vertical","toggle-group-disabled","toggle-group-custom","avatar-default","avatar-basic","avatar-badge","avatar-badge-with-icon","avatar-avatar-group","avatar-avatar-group-count","avatar-avatar-group-with-icon","avatar-sizes","avatar-dropdown","badge-default","badge-variants","badge-with-icon","badge-with-spinner","badge-link","badge-custom-colors","calendar-default","calendar-basic","calendar-range-calendar","calendar-month-and-year-selector","calendar-presets","calendar-date-and-time-picker","calendar-booked-dates","calendar-custom-cell-size","calendar-week-numbers","calendar-with-timezone","calendar-hijri","chart-default","chart-your-first-chart","chart-chart-config","chart-tooltip","chart-legend","chart-bar-chart","chart-with-grid","chart-with-axis","chart-with-tooltip","chart-with-legend","chart-tooltip-demo","data-table-default","data-table-basic-table","data-table-cell-formatting","data-table-row-actions","data-table-pagination","data-table-sorting","data-table-filtering","data-table-visibility","data-table-row-selection","skeleton-default","skeleton-avatar","skeleton-card","skeleton-text","skeleton-form","skeleton-table","table-default","table-footer","table-actions","typography-h1","typography-h2","typography-h3","typography-h4","typography-p","typography-blockquote","typography-table","typography-list","typography-inline-code","typography-lead","typography-large","typography-small","typography-muted","typography-demo","alert-default","alert-basic","alert-destructive","alert-action","alert-custom-colors","progress-default","progress-label","progress-controlled","sonner-default","sonner-types","sonner-description","sonner-position","spinner-default","spinner-size","spinner-button","spinner-badge","spinner-input-group","spinner-empty","checkbox-default","checkbox-basic","checkbox-description","checkbox-disabled","checkbox-group","checkbox-table","checkbox-indeterminate-select-all","combobox-default","combobox-basic","combobox-multiple","combobox-clear-button","combobox-groups","combobox-custom-items","combobox-invalid","combobox-disabled","combobox-auto-highlight","combobox-popup","combobox-input-group","date-picker-default","date-picker-basic","date-picker-range-picker","date-picker-date-of-birth","date-picker-input","date-picker-time-picker","date-picker-natural-language-picker","field-default","field-input","field-textarea","field-select","field-slider","field-fieldset","field-checkbox","field-radio","field-switch","field-choice-card","field-field-group","input-default","input-basic","input-field","input-field-group","input-disabled","input-invalid","input-file","input-inline","input-grid","input-required","input-badge","input-input-group","input-button-group","input-form","input-group-default","input-group-icon","input-group-text","input-group-button","input-group-kbd","input-group-dropdown","input-group-spinner","input-group-textarea","input-group-custom-input","input-group-credit-card","input-group-locked-password","input-otp-default","input-otp-separator","input-otp-disabled","input-otp-controlled","input-otp-invalid","input-otp-four-digits","input-otp-alphanumeric","input-otp-form","label-label-in-field","label-default","label-in-field-component","native-select-groups","native-select-disabled","native-select-invalid","native-select-default","radio-group-description","radio-group-choice-card","radio-group-fieldset","radio-group-disabled","radio-group-invalid","radio-group-default","select-default","select-align-item-with-trigger","select-groups","select-scrollable","select-disabled","select-invalid","slider-default","slider-range","slider-multiple-thumbs","slider-vertical","slider-controlled","slider-disabled","switch-default","switch-description","switch-choice-card","switch-disabled","switch-invalid","switch-size","textarea-default","textarea-field","textarea-disabled","textarea-invalid","textarea-button","aspect-ratio-default","aspect-ratio-square","aspect-ratio-portrait","card-default","card-size","card-image","card-with-form","collapsible-default","collapsible-basic","collapsible-settings-panel","collapsible-file-tree","resizable-default","resizable-vertical","resizable-handle","scroll-area-default","scroll-area-horizontal","separator-default","separator-vertical","separator-menu","separator-list","sidebar-default","sidebar-offcanvas","sidebar-none","sidebar-floating","sidebar-inset","sidebar-right","command-default","command-basic","command-shortcuts","command-groups","command-scrollable","context-menu-default","context-menu-basic","context-menu-submenu","context-menu-shortcuts","context-menu-groups","context-menu-icons","context-menu-checkboxes","context-menu-radio","context-menu-destructive","dropdown-menu-default","dropdown-menu-basic","dropdown-menu-submenu","dropdown-menu-shortcuts","dropdown-menu-icons","dropdown-menu-checkboxes","dropdown-menu-checkboxes-icons","dropdown-menu-radio-group","dropdown-menu-radio-icons","dropdown-menu-destructive","dropdown-menu-avatar","dropdown-menu-complex","breadcrumb-default","breadcrumb-basic","breadcrumb-custom-separator","breadcrumb-dropdown","breadcrumb-collapsed","breadcrumb-link-component","menubar-default","menubar-checkbox","menubar-radio","menubar-submenu","menubar-with-icons","navigation-menu-default","navigation-menu-link-component","pagination-default","pagination-simple","pagination-icons-only","tabs-default","tabs-line","tabs-vertical","tabs-disabled","tabs-icons","alert-dialog-default","alert-dialog-basic","alert-dialog-small","alert-dialog-media","alert-dialog-small-with-media","alert-dialog-destructive","dialog-default","dialog-custom-close-button","dialog-no-close-button","dialog-sticky-footer","dialog-scrollable-content","drawer-default","drawer-scrollable-content","drawer-sides","drawer-responsive-dialog","hover-card-default","hover-card-basic","hover-card-sides","popover-default","popover-basic","popover-align","popover-with-form","sheet-default","sheet-side","sheet-no-close-button","tooltip-default","tooltip-side","tooltip-with-keyboard-shortcut","tooltip-disabled-button","accordion-default","accordion-basic","accordion-multiple","accordion-disabled","accordion-borders","accordion-card","carousel-default","carousel-sizes","carousel-spacing","carousel-orientation","carousel-api-slide-n-of-m","carousel-plugins","empty-default","empty-outline","empty-background","empty-avatar","empty-avatar-group","empty-input-group","item-default","item-variants","item-sizes","item-icon","item-avatar","item-image","item-group","item-header","item-link","item-dropdown","kbd-default","kbd-group","kbd-button","kbd-tooltip","kbd-input-group"],
+  ui: ["accordion","alert","alert-dialog","aspect-ratio","avatar","badge","breadcrumb","button","button-group","calendar","card","carousel","chart","checkbox","collapsible","combobox","command","context-menu","dialog","drawer","dropdown-menu","empty","field","hover-card","input","input-group","input-otp","item","kbd","label","menubar","native-select","navigation-menu","pagination","popover","progress","radio-group","resizable","scroll-area","select","separator","sheet","sidebar","skeleton","slider","sonner","spinner","switch","table","tabs","textarea","toggle","toggle-group","tooltip","noise-background","stateful-button","multi-step-loader","separator-extended","card-styles","autocomplete"],
+  examples: ["button-size","button-default","button-outline","button-secondary","button-ghost","button-destructive","button-link","button-icon","button-with-icon","button-rounded","button-spinner","button-button-group","button-as-child","button-group-default","button-group-orientation","button-group-size","button-group-nested","button-group-separator","button-group-split","button-group-input","button-group-input-group","button-group-dropdown-menu","button-group-select","button-group-popover","toggle-default","toggle-outline","toggle-with-text","toggle-size","toggle-disabled","toggle-group-default","toggle-group-outline","toggle-group-size","toggle-group-spacing","toggle-group-vertical","toggle-group-disabled","toggle-group-custom","avatar-default","avatar-basic","avatar-badge","avatar-badge-with-icon","avatar-avatar-group","avatar-avatar-group-count","avatar-avatar-group-with-icon","avatar-sizes","avatar-dropdown","badge-default","badge-variants","badge-with-icon","badge-with-spinner","badge-link","badge-custom-colors","calendar-default","calendar-basic","calendar-range-calendar","calendar-month-and-year-selector","calendar-presets","calendar-date-and-time-picker","calendar-booked-dates","calendar-custom-cell-size","calendar-week-numbers","calendar-with-timezone","calendar-hijri","chart-default","chart-your-first-chart","chart-chart-config","chart-tooltip","chart-legend","chart-bar-chart","chart-with-grid","chart-with-axis","chart-with-tooltip","chart-with-legend","chart-tooltip-demo","data-table-default","data-table-basic-table","data-table-cell-formatting","data-table-row-actions","data-table-pagination","data-table-sorting","data-table-filtering","data-table-visibility","data-table-row-selection","skeleton-default","skeleton-avatar","skeleton-card","skeleton-text","skeleton-form","skeleton-table","table-default","table-footer","table-actions","typography-h1","typography-h2","typography-h3","typography-h4","typography-p","typography-blockquote","typography-table","typography-list","typography-inline-code","typography-lead","typography-large","typography-small","typography-muted","typography-demo","noise-background-default","noise-background-card","stateful-button-default","multi-step-loader-default","separator-extended-default","separator-extended-dashed","separator-extended-dotted","separator-extended-double","card-styles-shadow","card-styles-lines","card-styles-hatched","card-styles-aurora","card-styles-tilted","card-styles-stacked","autocomplete-default","alert-default","alert-basic","alert-destructive","alert-action","alert-custom-colors","progress-default","progress-label","progress-controlled","sonner-default","sonner-types","sonner-description","sonner-position","spinner-default","spinner-size","spinner-button","spinner-badge","spinner-input-group","spinner-empty","checkbox-default","checkbox-basic","checkbox-description","checkbox-disabled","checkbox-group","checkbox-table","checkbox-indeterminate-select-all","combobox-default","combobox-basic","combobox-multiple","combobox-clear-button","combobox-groups","combobox-custom-items","combobox-invalid","combobox-disabled","combobox-auto-highlight","combobox-popup","combobox-input-group","date-picker-default","date-picker-basic","date-picker-range-picker","date-picker-date-of-birth","date-picker-input","date-picker-time-picker","date-picker-natural-language-picker","field-default","field-input","field-textarea","field-select","field-slider","field-fieldset","field-checkbox","field-radio","field-switch","field-choice-card","field-field-group","input-default","input-basic","input-field","input-field-group","input-disabled","input-invalid","input-file","input-inline","input-grid","input-required","input-badge","input-input-group","input-button-group","input-form","input-group-default","input-group-icon","input-group-text","input-group-button","input-group-kbd","input-group-dropdown","input-group-spinner","input-group-textarea","input-group-custom-input","input-group-credit-card","input-group-locked-password","input-otp-default","input-otp-separator","input-otp-disabled","input-otp-controlled","input-otp-invalid","input-otp-four-digits","input-otp-alphanumeric","input-otp-form","label-label-in-field","label-default","label-in-field-component","native-select-groups","native-select-disabled","native-select-invalid","native-select-default","radio-group-description","radio-group-choice-card","radio-group-fieldset","radio-group-disabled","radio-group-invalid","radio-group-default","select-default","select-align-item-with-trigger","select-groups","select-scrollable","select-disabled","select-invalid","slider-default","slider-range","slider-multiple-thumbs","slider-vertical","slider-controlled","slider-disabled","switch-default","switch-description","switch-choice-card","switch-disabled","switch-invalid","switch-size","textarea-default","textarea-field","textarea-disabled","textarea-invalid","textarea-button","aspect-ratio-default","aspect-ratio-square","aspect-ratio-portrait","card-default","card-size","card-image","card-with-form","collapsible-default","collapsible-basic","collapsible-settings-panel","collapsible-file-tree","resizable-default","resizable-vertical","resizable-handle","scroll-area-default","scroll-area-horizontal","separator-default","separator-vertical","separator-menu","separator-list","sidebar-default","sidebar-offcanvas","sidebar-none","sidebar-floating","sidebar-inset","sidebar-right","command-default","command-basic","command-shortcuts","command-groups","command-scrollable","context-menu-default","context-menu-basic","context-menu-submenu","context-menu-shortcuts","context-menu-groups","context-menu-icons","context-menu-checkboxes","context-menu-radio","context-menu-destructive","dropdown-menu-default","dropdown-menu-basic","dropdown-menu-submenu","dropdown-menu-shortcuts","dropdown-menu-icons","dropdown-menu-checkboxes","dropdown-menu-checkboxes-icons","dropdown-menu-radio-group","dropdown-menu-radio-icons","dropdown-menu-destructive","dropdown-menu-avatar","dropdown-menu-complex","breadcrumb-default","breadcrumb-basic","breadcrumb-custom-separator","breadcrumb-dropdown","breadcrumb-collapsed","breadcrumb-link-component","menubar-default","menubar-checkbox","menubar-radio","menubar-submenu","menubar-with-icons","navigation-menu-default","navigation-menu-link-component","pagination-default","pagination-simple","pagination-icons-only","tabs-default","tabs-line","tabs-vertical","tabs-disabled","tabs-icons","alert-dialog-default","alert-dialog-basic","alert-dialog-small","alert-dialog-media","alert-dialog-small-with-media","alert-dialog-destructive","dialog-default","dialog-custom-close-button","dialog-no-close-button","dialog-sticky-footer","dialog-scrollable-content","drawer-default","drawer-scrollable-content","drawer-sides","drawer-responsive-dialog","hover-card-default","hover-card-basic","hover-card-sides","popover-default","popover-basic","popover-align","popover-with-form","sheet-default","sheet-side","sheet-no-close-button","tooltip-default","tooltip-side","tooltip-with-keyboard-shortcut","tooltip-disabled-button","accordion-default","accordion-basic","accordion-multiple","accordion-disabled","accordion-borders","accordion-card","carousel-default","carousel-sizes","carousel-spacing","carousel-orientation","carousel-api-slide-n-of-m","carousel-plugins","empty-default","empty-outline","empty-background","empty-avatar","empty-avatar-group","empty-input-group","item-default","item-variants","item-sizes","item-icon","item-avatar","item-image","item-group","item-header","item-link","item-dropdown","kbd-default","kbd-group","kbd-button","kbd-tooltip","kbd-input-group"],
   blocks: ["login-card","login-card-2","login-card-3","signup-card","forgot-password-card"],
 };
 
@@ -10962,6 +11540,33 @@ export const ExamplesBySlug: Record<string, string[]> = {
     "typography-small",
     "typography-muted",
     "typography-demo"
+  ],
+  "noise-background": [
+    "noise-background-default",
+    "noise-background-card"
+  ],
+  "stateful-button": [
+    "stateful-button-default"
+  ],
+  "multi-step-loader": [
+    "multi-step-loader-default"
+  ],
+  "separator-extended": [
+    "separator-extended-default",
+    "separator-extended-dashed",
+    "separator-extended-dotted",
+    "separator-extended-double"
+  ],
+  "card-styles": [
+    "card-styles-shadow",
+    "card-styles-lines",
+    "card-styles-hatched",
+    "card-styles-aurora",
+    "card-styles-tilted",
+    "card-styles-stacked"
+  ],
+  "autocomplete": [
+    "autocomplete-default"
   ],
   "alert": [
     "alert-default",

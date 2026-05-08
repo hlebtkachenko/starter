@@ -65,6 +65,19 @@ Primitives live in `src/components/ui/`. Composed components (org switcher, bill
 |---|---|---|
 | (none yet) | – | Add per `_TEMPLATE.tsx` when first feature needs one |
 
+## New components (external registries)
+
+Components imported from third-party shadcn-compatible registries. Each is adapted to project tokens and style, rendered under "New Components" on `/showcase`.
+
+| Component | Proposed group | Source |
+|---|---|---|
+| Noise Background | effects | [noise-background](https://ui.aceternity.com/components/noise-background) |
+| Stateful Button | buttons | [stateful-button](https://ui.aceternity.com/components/stateful-button) |
+| Multi Step Loader | feedback | [multi-step-loader](https://ui.aceternity.com/components/multi-step-loader) |
+| Separator Extended | layout | [separator-extended](https://basecn.dev/docs/components/separator-extended) |
+| Card Styles | display | [card-styles](https://cardcn.dev/cards/basic-cards/) |
+| Autocomplete | forms | [autocomplete](https://coss.com/ui/docs/components/autocomplete) |
+
 ## Motion
 
 | Use | Duration | Easing |

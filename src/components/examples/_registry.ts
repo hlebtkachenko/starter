@@ -20,11 +20,13 @@ import { items as layout } from "./_registry-layout";
 import { items as menus } from "./_registry-menus";
 import { items as navigation } from "./_registry-navigation";
 import { items as overlays } from "./_registry-overlays";
+import { items as effects } from "./_registry-effects";
 import { items as utility } from "./_registry-utility";
 
 export const items = [
   ...buttons,
   ...display,
+  ...effects,
   ...feedback,
   ...forms,
   ...layout,

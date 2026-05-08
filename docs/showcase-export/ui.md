@@ -336,3 +336,43 @@
 **Description:** Floating popup on focus or hover with descriptive text.
 **Upstream:** https://ui.shadcn.com/docs/components/tooltip
 **Categories:** overlay
+## Noise Background
+
+**Name:** `noise-background`
+**Description:** Animated gradient background with noise texture overlay, spring physics, adjustable speed, and optional backdrop blur.
+**Upstream:** https://ui.aceternity.com/components/noise-background
+**Categories:** display, effects
+## Stateful Button
+
+**Name:** `stateful-button`
+**Description:** Action button with built-in loading spinner and success check animation sequence driven by motion/react.
+**Upstream:** https://ui.aceternity.com/components/stateful-button
+**Depends on:** button
+**Categories:** actions, effects
+## Multi Step Loader
+
+**Name:** `multi-step-loader`
+**Description:** Full-screen loading overlay that cycles through a list of steps with animated check marks and progress indicators.
+**Upstream:** https://ui.aceternity.com/components/multi-step-loader
+**Categories:** feedback, effects
+## Separator Extended
+
+**Name:** `separator-extended`
+**Description:** Separator with variant styles: solid (default), dashed, dotted, and double. Supports horizontal and vertical orientation.
+**Upstream:** https://basecn.dev/docs/components/separator-extended
+**Depends on:** separator
+**Categories:** layout
+## Card Styles
+
+**Name:** `card-styles`
+**Description:** Creative card style variants: retro shadow, line borders, hatched pattern, aurora glow, tilted layer, and stacked depth.
+**Upstream:** https://cardcn.dev/cards/basic-cards/
+**Depends on:** card
+**Categories:** display, layout
+## Autocomplete
+
+**Name:** `autocomplete`
+**Description:** Input that suggests options as you type. Inline autofill, auto-highlight, async search, groups, clear button, and trigger toggle.
+**Upstream:** https://coss.com/ui/docs/components/autocomplete
+**Depends on:** scroll-area
+**Categories:** forms

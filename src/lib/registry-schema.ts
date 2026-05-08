@@ -78,6 +78,12 @@ export type RegistryItem = {
    * sentence: what we changed and why. Surfaces in `docs/showcase.md`.
    */
   deviations?: string[];
+  /**
+   * For non-shadcn components: which established group this item would belong
+   * to once promoted (e.g. "buttons", "effects", "feedback"). Items with this
+   * field render under "New Components" on /showcase instead of inline.
+   */
+  proposedGroup?: string;
 };
 
 export type Registry = {

@@ -523,6 +523,53 @@
   },
   {
     "categories": [
+      "forms"
+    ],
+    "description": "Input that suggests options as you type. Inline autofill, auto-highlight, async search, groups, clear button, and trigger toggle.",
+    "files": [
+      {
+        "path": "components/ui/autocomplete.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "name": "autocomplete",
+    "proposedGroup": "forms",
+    "registryDependencies": [
+      "scroll-area"
+    ],
+    "title": "Autocomplete",
+    "type": "registry:ui",
+    "upstreamUrl": "https://coss.com/ui/docs/components/autocomplete"
+  },
+  {
+    "categories": [
+      "forms"
+    ],
+    "description": "Autocomplete input filtering a list of frameworks with clear button and empty state message.",
+    "deviations": [
+      "Uses native input styling instead of coss Input primitive.",
+      "ScrollArea without coss-specific props."
+    ],
+    "files": [
+      {
+        "path": "components/examples/autocomplete-default.tsx",
+        "type": "registry:example"
+      }
+    ],
+    "isDefault": true,
+    "isFlagged": false,
+    "name": "autocomplete-default",
+    "registryDependencies": [
+      "autocomplete"
+    ],
+    "slug": "autocomplete",
+    "title": "Default",
+    "type": "registry:example",
+    "upstreamUrl": "https://coss.com/ui/docs/components/autocomplete",
+    "variant": "default"
+  },
+  {
+    "categories": [
       "display"
     ],
     "description": "Image element with a fallback, plus group, badge, and count subcomponents.",
@@ -2063,6 +2110,178 @@
     "type": "registry:example",
     "upstreamUrl": "https://ui.shadcn.com/docs/components/card",
     "variant": "size"
+  },
+  {
+    "categories": [
+      "display",
+      "layout"
+    ],
+    "description": "Creative card style variants: retro shadow, line borders, hatched pattern, aurora glow, tilted layer, and stacked depth.",
+    "files": [
+      {
+        "path": "components/ui/card-styles.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "name": "card-styles",
+    "proposedGroup": "display",
+    "registryDependencies": [
+      "card"
+    ],
+    "title": "Card Styles",
+    "type": "registry:ui",
+    "upstreamUrl": "https://cardcn.dev/cards/basic-cards/"
+  },
+  {
+    "categories": [
+      "display"
+    ],
+    "description": "Card with subtle radial gradient aurora glow effect behind transparent content.",
+    "deviations": [
+      "Adapted from cardcn card-14."
+    ],
+    "files": [
+      {
+        "path": "components/examples/card-styles-aurora.tsx",
+        "type": "registry:example"
+      }
+    ],
+    "isFlagged": false,
+    "name": "card-styles-aurora",
+    "registryDependencies": [
+      "card"
+    ],
+    "slug": "card-styles",
+    "title": "Aurora",
+    "type": "registry:example",
+    "upstreamUrl": "https://cardcn.dev/cards/basic-cards/",
+    "variant": "aurora"
+  },
+  {
+    "categories": [
+      "display"
+    ],
+    "description": "Card with diagonal hatching pattern behind transparent content area.",
+    "deviations": [
+      "Adapted from cardcn card-10. Hatching uses --border token."
+    ],
+    "files": [
+      {
+        "path": "components/examples/card-styles-hatched.tsx",
+        "type": "registry:example"
+      }
+    ],
+    "isFlagged": false,
+    "name": "card-styles-hatched",
+    "registryDependencies": [
+      "card"
+    ],
+    "slug": "card-styles",
+    "title": "Hatched",
+    "type": "registry:example",
+    "upstreamUrl": "https://cardcn.dev/cards/basic-cards/",
+    "variant": "hatched"
+  },
+  {
+    "categories": [
+      "display"
+    ],
+    "description": "Card framed by gradient border lines creating a technical blueprint aesthetic.",
+    "deviations": [
+      "Adapted from cardcn card-2. Gradient uses token border color."
+    ],
+    "files": [
+      {
+        "path": "components/examples/card-styles-lines.tsx",
+        "type": "registry:example"
+      }
+    ],
+    "isFlagged": false,
+    "name": "card-styles-lines",
+    "registryDependencies": [
+      "card"
+    ],
+    "slug": "card-styles",
+    "title": "Lines",
+    "type": "registry:example",
+    "upstreamUrl": "https://cardcn.dev/cards/basic-cards/",
+    "variant": "lines"
+  },
+  {
+    "categories": [
+      "display"
+    ],
+    "description": "Card with retro offset shadow using --border token for a bold, playful look.",
+    "deviations": [
+      "Adapted from cardcn card-1."
+    ],
+    "files": [
+      {
+        "path": "components/examples/card-styles-shadow.tsx",
+        "type": "registry:example"
+      }
+    ],
+    "isDefault": true,
+    "isFlagged": false,
+    "name": "card-styles-shadow",
+    "registryDependencies": [
+      "card"
+    ],
+    "slug": "card-styles",
+    "title": "Shadow",
+    "type": "registry:example",
+    "upstreamUrl": "https://cardcn.dev/cards/basic-cards/",
+    "variant": "shadow"
+  },
+  {
+    "categories": [
+      "display"
+    ],
+    "description": "Card with two scaled-down layers behind it creating a stacked paper depth effect.",
+    "deviations": [
+      "Adapted from cardcn card-18."
+    ],
+    "files": [
+      {
+        "path": "components/examples/card-styles-stacked.tsx",
+        "type": "registry:example"
+      }
+    ],
+    "isFlagged": false,
+    "name": "card-styles-stacked",
+    "registryDependencies": [
+      "card"
+    ],
+    "slug": "card-styles",
+    "title": "Stacked",
+    "type": "registry:example",
+    "upstreamUrl": "https://cardcn.dev/cards/basic-cards/",
+    "variant": "stacked"
+  },
+  {
+    "categories": [
+      "display"
+    ],
+    "description": "Card with a rotated background layer creating a tilted shadow depth effect.",
+    "deviations": [
+      "Adapted from cardcn card-15."
+    ],
+    "files": [
+      {
+        "path": "components/examples/card-styles-tilted.tsx",
+        "type": "registry:example"
+      }
+    ],
+    "isFlagged": false,
+    "name": "card-styles-tilted",
+    "registryDependencies": [
+      "card"
+    ],
+    "slug": "card-styles",
+    "title": "Tilted",
+    "type": "registry:example",
+    "upstreamUrl": "https://cardcn.dev/cards/basic-cards/",
+    "variant": "tilted"
   },
   {
     "categories": [
@@ -6224,6 +6443,52 @@
   },
   {
     "categories": [
+      "feedback",
+      "effects"
+    ],
+    "description": "Full-screen loading overlay that cycles through a list of steps with animated check marks and progress indicators.",
+    "files": [
+      {
+        "path": "components/ui/multi-step-loader.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "name": "multi-step-loader",
+    "proposedGroup": "feedback",
+    "title": "Multi Step Loader",
+    "type": "registry:ui",
+    "upstreamUrl": "https://ui.aceternity.com/components/multi-step-loader"
+  },
+  {
+    "categories": [
+      "feedback",
+      "effects"
+    ],
+    "description": "Full-screen loader overlay cycling through named steps with animated check marks, triggered by a button click.",
+    "deviations": [
+      "Token classes replace hardcoded black/white/lime palette."
+    ],
+    "files": [
+      {
+        "path": "components/examples/multi-step-loader-default.tsx",
+        "type": "registry:example"
+      }
+    ],
+    "isDefault": true,
+    "isFlagged": false,
+    "name": "multi-step-loader-default",
+    "registryDependencies": [
+      "multi-step-loader",
+      "button"
+    ],
+    "slug": "multi-step-loader",
+    "title": "Default",
+    "type": "registry:example",
+    "upstreamUrl": "https://ui.aceternity.com/components/multi-step-loader",
+    "variant": "default"
+  },
+  {
+    "categories": [
       "forms"
     ],
     "description": "Styled native HTML <select> element with consistent design system integration.",
@@ -6377,6 +6642,82 @@
     "type": "registry:example",
     "upstreamUrl": "https://ui.shadcn.com/docs/components/navigation-menu",
     "variant": "link-component"
+  },
+  {
+    "categories": [
+      "display",
+      "effects"
+    ],
+    "description": "Animated gradient background with noise texture overlay, spring physics, adjustable speed, and optional backdrop blur.",
+    "files": [
+      {
+        "path": "components/ui/noise-background.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "name": "noise-background",
+    "proposedGroup": "effects",
+    "title": "Noise Background",
+    "type": "registry:ui",
+    "upstreamUrl": "https://ui.aceternity.com/components/noise-background"
+  },
+  {
+    "categories": [
+      "display",
+      "effects"
+    ],
+    "description": "Noise background wrapping a card component with image placeholder and text content, showing container composition.",
+    "deviations": [
+      "Token classes replace hardcoded neutral palette.",
+      "Self-hosted noise texture.",
+      "External image replaced with placeholder."
+    ],
+    "files": [
+      {
+        "path": "components/examples/noise-background-card.tsx",
+        "type": "registry:example"
+      }
+    ],
+    "isDefault": false,
+    "isFlagged": false,
+    "name": "noise-background-card",
+    "registryDependencies": [
+      "noise-background",
+      "card"
+    ],
+    "slug": "noise-background",
+    "title": "Card",
+    "type": "registry:example",
+    "upstreamUrl": "https://ui.aceternity.com/components/noise-background",
+    "variant": "card"
+  },
+  {
+    "categories": [
+      "display",
+      "effects"
+    ],
+    "description": "Animated gradient background with noise overlay wrapping a pill button, demonstrating spring-physics movement.",
+    "deviations": [
+      "Noise texture served from /noise.webp instead of external CDN.",
+      "Token classes replace hardcoded neutral palette."
+    ],
+    "files": [
+      {
+        "path": "components/examples/noise-background-default.tsx",
+        "type": "registry:example"
+      }
+    ],
+    "isDefault": true,
+    "isFlagged": false,
+    "name": "noise-background-default",
+    "registryDependencies": [
+      "noise-background"
+    ],
+    "slug": "noise-background",
+    "title": "Default",
+    "type": "registry:example",
+    "upstreamUrl": "https://ui.aceternity.com/components/noise-background",
+    "variant": "default"
   },
   {
     "categories": [
@@ -7155,6 +7496,131 @@
     "type": "registry:example",
     "upstreamUrl": "https://ui.shadcn.com/docs/components/separator",
     "variant": "default"
+  },
+  {
+    "categories": [
+      "layout"
+    ],
+    "description": "Separator with variant styles: solid (default), dashed, dotted, and double. Supports horizontal and vertical orientation.",
+    "files": [
+      {
+        "path": "components/ui/separator-extended.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "name": "separator-extended",
+    "proposedGroup": "layout",
+    "registryDependencies": [
+      "separator"
+    ],
+    "title": "Separator Extended",
+    "type": "registry:ui",
+    "upstreamUrl": "https://basecn.dev/docs/components/separator-extended"
+  },
+  {
+    "categories": [
+      "layout"
+    ],
+    "description": "Dashed separator variant in the same composition layout showing horizontal and vertical usage.",
+    "deviations": [
+      "Renamed Separator to SeparatorExtended to avoid conflict with existing primitive."
+    ],
+    "files": [
+      {
+        "path": "components/examples/separator-extended-dashed.tsx",
+        "type": "registry:example"
+      }
+    ],
+    "isFlagged": false,
+    "name": "separator-extended-dashed",
+    "registryDependencies": [
+      "separator-extended"
+    ],
+    "slug": "separator-extended",
+    "span": 2,
+    "title": "Dashed",
+    "type": "registry:example",
+    "upstreamUrl": "https://basecn.dev/docs/components/separator-extended",
+    "variant": "dashed"
+  },
+  {
+    "categories": [
+      "layout"
+    ],
+    "description": "Solid separator in a composition layout with skeleton blocks, horizontal OR dividers, and vertical side separators.",
+    "deviations": [
+      "Renamed Separator to SeparatorExtended to avoid conflict with existing primitive."
+    ],
+    "files": [
+      {
+        "path": "components/examples/separator-extended-default.tsx",
+        "type": "registry:example"
+      }
+    ],
+    "isDefault": true,
+    "isFlagged": false,
+    "name": "separator-extended-default",
+    "registryDependencies": [
+      "separator-extended"
+    ],
+    "slug": "separator-extended",
+    "span": 2,
+    "title": "Default",
+    "type": "registry:example",
+    "upstreamUrl": "https://basecn.dev/docs/components/separator-extended",
+    "variant": "default"
+  },
+  {
+    "categories": [
+      "layout"
+    ],
+    "description": "Dotted separator variant in the same composition layout showing horizontal and vertical usage.",
+    "deviations": [
+      "Renamed Separator to SeparatorExtended to avoid conflict with existing primitive."
+    ],
+    "files": [
+      {
+        "path": "components/examples/separator-extended-dotted.tsx",
+        "type": "registry:example"
+      }
+    ],
+    "isFlagged": false,
+    "name": "separator-extended-dotted",
+    "registryDependencies": [
+      "separator-extended"
+    ],
+    "slug": "separator-extended",
+    "span": 2,
+    "title": "Dotted",
+    "type": "registry:example",
+    "upstreamUrl": "https://basecn.dev/docs/components/separator-extended",
+    "variant": "dotted"
+  },
+  {
+    "categories": [
+      "layout"
+    ],
+    "description": "Double-line separator variant in the same composition layout showing horizontal and vertical usage.",
+    "deviations": [
+      "Renamed Separator to SeparatorExtended to avoid conflict with existing primitive."
+    ],
+    "files": [
+      {
+        "path": "components/examples/separator-extended-double.tsx",
+        "type": "registry:example"
+      }
+    ],
+    "isFlagged": false,
+    "name": "separator-extended-double",
+    "registryDependencies": [
+      "separator-extended"
+    ],
+    "slug": "separator-extended",
+    "span": 2,
+    "title": "Double",
+    "type": "registry:example",
+    "upstreamUrl": "https://basecn.dev/docs/components/separator-extended",
+    "variant": "double"
   },
   {
     "categories": [
@@ -8194,6 +8660,55 @@
     "type": "registry:example",
     "upstreamUrl": "https://ui.shadcn.com/docs/components/spinner",
     "variant": "size"
+  },
+  {
+    "categories": [
+      "actions",
+      "effects"
+    ],
+    "description": "Action button with built-in loading spinner and success check animation sequence driven by motion/react.",
+    "files": [
+      {
+        "path": "components/ui/stateful-button.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "name": "stateful-button",
+    "proposedGroup": "buttons",
+    "registryDependencies": [
+      "button"
+    ],
+    "title": "Stateful Button",
+    "type": "registry:ui",
+    "upstreamUrl": "https://ui.aceternity.com/components/stateful-button"
+  },
+  {
+    "categories": [
+      "actions",
+      "effects"
+    ],
+    "description": "Button that cycles through idle, loading spinner, and success check states on click with motion/react animations.",
+    "deviations": [
+      "Renamed export from Button to StatefulButton to avoid conflict.",
+      "Token classes replace hardcoded green palette."
+    ],
+    "files": [
+      {
+        "path": "components/examples/stateful-button-default.tsx",
+        "type": "registry:example"
+      }
+    ],
+    "isDefault": true,
+    "isFlagged": false,
+    "name": "stateful-button-default",
+    "registryDependencies": [
+      "stateful-button"
+    ],
+    "slug": "stateful-button",
+    "title": "Default",
+    "type": "registry:example",
+    "upstreamUrl": "https://ui.aceternity.com/components/stateful-button",
+    "variant": "default"
   },
   {
     "categories": [
