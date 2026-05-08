@@ -893,3 +893,385 @@ export default function TypographyDemo() {
   );
 }
 ```
+## Draggable Columns
+
+**Slug:** `data-table`
+**Variant:** `draggable`
+**Upstream:** https://shadcnstudio.com/docs/components/data-table
+**Description:** Data table with drag-and-drop column reordering using DnD Kit, sorting toggles, and currency formatting.
+**Depends on:** table, button
+
+```tsx
+/**
+ * @slug data-table
+ * @variant draggable
+ * @upstream https://shadcnstudio.com/docs/components/data-table
+ * @deviations ["Uses @dnd-kit for drag-and-drop column reordering."]
+ */
+"use client";
+
+import type { CSSProperties } from "react";
+import { useState, useId } from "react";
+
+import { ChevronDownIcon, ChevronUpIcon, GripVerticalIcon } from "lucide-react";
+
+import { closestCenter, DndContext, KeyboardSensor, MouseSensor, TouchSensor, useSensor, useSensors, type DragEndEvent } from "@dnd-kit/core";
+import { restrictToHorizontalAxis } from "@dnd-kit/modifiers";
+import { arrayMove, horizontalListSortingStrategy, SortableContext, useSortable } from "@dnd-kit/sortable";
+import { CSS } from "@dnd-kit/utilities";
+import type { Cell, ColumnDef, Header, SortingState } from "@tanstack/react-table";
+import { flexRender, getCoreRowModel, getSortedRowModel, useReactTable } from "@tanstack/react-table";
+
+import { Button } from "@/components/ui/button";
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
+
+type Employee = {
+  employeeId: number;
+  firstName: string;
+  lastName: string;
+  jobTitle: string;
+  department: string;
+  salary: number;
+};
+
+const data: Employee[] = [
+  { employeeId: 1, firstName: "John", lastName: "Doe", jobTitle: "Software Engineer", department: "Engineering", salary: 80000 },
+  { employeeId: 2, firstName: "Jane", lastName: "Smith", jobTitle: "Product Manager", department: "Product", salary: 95000 },
+  { employeeId: 3, firstName: "Alice", lastName: "Johnson", jobTitle: "UX Designer", department: "Design", salary: 70000 },
+  { employeeId: 4, firstName: "Bob", lastName: "Brown", jobTitle: "Data Analyst", department: "Analytics", salary: 75000 },
+];
+
+const columns: ColumnDef<Employee>[] = [
+  { id: "firstName", header: "First Name", accessorKey: "firstName", cell: ({ row }) => <div className="font-medium">{row.getValue("firstName")}</div>, sortUndefined: "last", sortDescFirst: false },
+  { id: "lastName", header: "Last Name", accessorKey: "lastName", cell: ({ row }) => <div>{row.getValue("lastName")}</div> },
+  { id: "jobTitle", header: "Job Title", accessorKey: "jobTitle", cell: ({ row }) => <div>{row.getValue("jobTitle")}</div> },
+  { id: "department", header: "Department", accessorKey: "department", cell: ({ row }) => <div>{row.getValue("department")}</div> },
+  {
+    id: "salary",
+    header: "Salary",
+    accessorKey: "salary",
+    cell: ({ row }) => {
+      const salary = parseFloat(row.getValue("salary"));
+      return <div>{new Intl.NumberFormat("en-US", { style: "currency", currency: "USD" }).format(salary)}</div>;
+    },
+  },
+];
+
+function DraggableTableHeader({ header }: { header: Header<Employee, unknown> }) {
+  const { attributes, isDragging, listeners, setNodeRef, transform, transition } = useSortable({ id: header.column.id });
+
+  const style: CSSProperties = {
+    opacity: isDragging ? 0.8 : 1,
+    position: "relative",
+    transform: CSS.Translate.toString(transform),
+    transition,
+    whiteSpace: "nowrap",
+    width: header.column.getSize(),
+    zIndex: isDragging ? 1 : 0,
+  };
+
+  return (
+    <TableHead ref={setNodeRef} className="before:bg-border relative h-10 border-t before:absolute before:inset-y-0 before:left-0 before:w-px first:before:bg-transparent" style={style}>
+      <div className="flex items-center justify-start gap-0.5">
+        <Button size="icon" variant="ghost" className="-ml-2 size-7" {...attributes} {...listeners} aria-label="Drag to reorder">
+          <GripVerticalIcon className="opacity-60" aria-hidden="true" />
+        </Button>
+        <span className="grow truncate">{header.isPlaceholder ? null : flexRender(header.column.columnDef.header, header.getContext())}</span>
+        <Button
+          size="icon"
+          variant="ghost"
+          className="group -mr-1 size-7"
+          onClick={header.column.getToggleSortingHandler()}
+          onKeyDown={(e) => {
+            if (header.column.getCanSort() && (e.key === "Enter" || e.key === " ")) {
+              e.preventDefault();
+              header.column.getToggleSortingHandler()?.(e);
+            }
+          }}
+          aria-label="Toggle sorting"
+        >
+          {{ asc: <ChevronUpIcon className="shrink-0 opacity-60" size={16} aria-hidden="true" />, desc: <ChevronDownIcon className="shrink-0 opacity-60" size={16} aria-hidden="true" /> }[
+            header.column.getIsSorted() as string
+          ] ?? <ChevronUpIcon className="shrink-0 opacity-0 group-hover:opacity-60" size={16} aria-hidden="true" />}
+        </Button>
+      </div>
+    </TableHead>
+  );
+}
+
+function DragAlongCell({ cell }: { cell: Cell<Employee, unknown> }) {
+  const { isDragging, setNodeRef, transform, transition } = useSortable({ id: cell.column.id });
+
+  const style: CSSProperties = {
+    opacity: isDragging ? 0.8 : 1,
+    position: "relative",
+    transform: CSS.Translate.toString(transform),
+    transition,
+    width: cell.column.getSize(),
+    zIndex: isDragging ? 1 : 0,
+  };
+
+  return (
+    <TableCell ref={setNodeRef} className="truncate" style={style}>
+      {flexRender(cell.column.columnDef.cell, cell.getContext())}
+    </TableCell>
+  );
+}
+
+export default function DataTableDraggable() {
+  const [sorting, setSorting] = useState<SortingState>([]);
+  const [columnOrder, setColumnOrder] = useState<string[]>(columns.map((column) => column.id as string));
+
+  const table = useReactTable({
+    data,
+    columns,
+    columnResizeMode: "onChange",
+    getCoreRowModel: getCoreRowModel(),
+    getSortedRowModel: getSortedRowModel(),
+    onSortingChange: setSorting,
+    state: { sorting, columnOrder },
+    onColumnOrderChange: setColumnOrder,
+    enableSortingRemoval: false,
+  });
+
+  function handleDragEnd(event: DragEndEvent) {
+    const { active, over } = event;
+    if (active && over && active.id !== over.id) {
+      setColumnOrder((columnOrder) => {
+        const oldIndex = columnOrder.indexOf(active.id as string);
+        const newIndex = columnOrder.indexOf(over.id as string);
+        return arrayMove(columnOrder, oldIndex, newIndex);
+      });
+    }
+  }
+
+  const sensors = useSensors(useSensor(MouseSensor, {}), useSensor(TouchSensor, {}), useSensor(KeyboardSensor, {}));
+
+  return (
+    <div className="w-full">
+      <div className="rounded-md border">
+        <DndContext id={useId()} collisionDetection={closestCenter} modifiers={[restrictToHorizontalAxis]} onDragEnd={handleDragEnd} sensors={sensors}>
+          <Table>
+            <TableHeader>
+              {table.getHeaderGroups().map((headerGroup) => (
+                <TableRow key={headerGroup.id} className="bg-muted/50 [&>th]:border-t-0">
+                  <SortableContext items={columnOrder} strategy={horizontalListSortingStrategy}>
+                    {headerGroup.headers.map((header) => (
+                      <DraggableTableHeader key={header.id} header={header} />
+                    ))}
+                  </SortableContext>
+                </TableRow>
+              ))}
+            </TableHeader>
+            <TableBody>
+              {table.getRowModel().rows?.length ? (
+                table.getRowModel().rows.map((row) => (
+                  <TableRow key={row.id} data-state={row.getIsSelected() && "selected"}>
+                    {row.getVisibleCells().map((cell) => (
+                      <SortableContext key={cell.id} items={columnOrder} strategy={horizontalListSortingStrategy}>
+                        <DragAlongCell key={cell.id} cell={cell} />
+                      </SortableContext>
+                    ))}
+                  </TableRow>
+                ))
+              ) : (
+                <TableRow>
+                  <TableCell colSpan={columns.length} className="h-24 text-center">
+                    No results.
+                  </TableCell>
+                </TableRow>
+              )}
+            </TableBody>
+          </Table>
+        </DndContext>
+      </div>
+    </div>
+  );
+}
+```
+## Expandable Rows
+
+**Slug:** `data-table`
+**Variant:** `expandable`
+**Upstream:** https://shadcnstudio.com/docs/components/data-table
+**Description:** Data table with expandable sub-rows showing nested team member details, row selection, and budget formatting.
+**Depends on:** table, button, checkbox
+
+```tsx
+/**
+ * @slug data-table
+ * @variant expandable
+ * @upstream https://shadcnstudio.com/docs/components/data-table
+ * @deviations ["Sub-rows rendered as nested table."]
+ */
+"use client";
+
+import { Fragment } from "react";
+
+import { ChevronDownIcon, ChevronUpIcon } from "lucide-react";
+
+import type { ColumnDef } from "@tanstack/react-table";
+import { flexRender, getCoreRowModel, getExpandedRowModel, useReactTable } from "@tanstack/react-table";
+
+import { Button } from "@/components/ui/button";
+import { Checkbox } from "@/components/ui/checkbox";
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
+
+type Member = { name: string; role: string; email: string; hireDate: string };
+
+type Team = {
+  teamName: string;
+  department: string;
+  location: string;
+  nextMilestone: string;
+  budget: number;
+  members: Member[];
+};
+
+const data: Team[] = [
+  {
+    teamName: "Digital Marketing",
+    department: "Marketing",
+    location: "London",
+    nextMilestone: "Launch New Campaign",
+    budget: 30000,
+    members: [
+      { name: "Alice Johnson", role: "Lead Strategist", email: "alice.johnson@example.com", hireDate: "2020-01-15" },
+      { name: "Bob Smith", role: "Content Creator", email: "bob.smith@example.com", hireDate: "2021-03-22" },
+    ],
+  },
+  {
+    teamName: "Product Development",
+    department: "Engineering",
+    location: "San Francisco",
+    nextMilestone: "Release Version 2.0",
+    budget: 50000,
+    members: [
+      { name: "David Wilson", role: "Product Manager", email: "david.wilson@example.com", hireDate: "2019-05-10" },
+      { name: "Emma Johnson", role: "UX Designer", email: "emma.johnson@example.com", hireDate: "2020-08-15" },
+    ],
+  },
+  {
+    teamName: "Sales Team",
+    department: "Sales",
+    location: "New York",
+    nextMilestone: "Close Q3 Deals",
+    budget: 40000,
+    members: [
+      { name: "Grace Lee", role: "Sales Executive", email: "grace.lee@example.com", hireDate: "2021-05-12" },
+      { name: "Henry Davis", role: "Account Manager", email: "henry.davis@example.com", hireDate: "2020-11-01" },
+    ],
+  },
+];
+
+const columns: ColumnDef<Team>[] = [
+  {
+    id: "expander",
+    header: () => null,
+    cell: ({ row }) =>
+      row.getCanExpand() ? (
+        <Button
+          className="size-7 text-muted-foreground"
+          onClick={row.getToggleExpandedHandler()}
+          aria-expanded={row.getIsExpanded()}
+          aria-label={row.getIsExpanded() ? `Collapse ${row.original.teamName}` : `Expand ${row.original.teamName}`}
+          size="icon"
+          variant="ghost"
+        >
+          {row.getIsExpanded() ? <ChevronUpIcon className="opacity-60" aria-hidden="true" /> : <ChevronDownIcon className="opacity-60" aria-hidden="true" />}
+        </Button>
+      ) : undefined,
+  },
+  {
+    id: "select",
+    header: ({ table }) => <Checkbox checked={table.getIsAllPageRowsSelected() || (table.getIsSomePageRowsSelected() && "indeterminate")} onCheckedChange={(value) => table.toggleAllPageRowsSelected(!!value)} aria-label="Select all" />,
+    cell: ({ row }) => <Checkbox checked={row.getIsSelected()} onCheckedChange={(value) => row.toggleSelected(!!value)} aria-label="Select row" />,
+  },
+  { header: "Team Name", accessorKey: "teamName", cell: ({ row }) => <div className="font-medium">{row.getValue("teamName")}</div> },
+  { header: "Department", accessorKey: "department", cell: ({ row }) => row.getValue("department") },
+  { header: "Location", accessorKey: "location", cell: ({ row }) => row.getValue("location") },
+  { header: "Next Milestone", accessorKey: "nextMilestone", cell: ({ row }) => row.getValue("nextMilestone") },
+  {
+    header: () => <div>Budget</div>,
+    accessorKey: "budget",
+    cell: ({ row }) => <div>{new Intl.NumberFormat("en-US", { style: "currency", currency: "USD" }).format(parseFloat(row.getValue("budget")))}</div>,
+  },
+];
+
+export default function DataTableExpandable() {
+  const table = useReactTable({
+    data,
+    columns,
+    getRowCanExpand: (row) => Boolean(row.original.members),
+    getCoreRowModel: getCoreRowModel(),
+    getExpandedRowModel: getExpandedRowModel(),
+  });
+
+  return (
+    <div className="w-full">
+      <div className="rounded-md border">
+        <Table>
+          <TableHeader>
+            {table.getHeaderGroups().map((headerGroup) => (
+              <TableRow key={headerGroup.id} className="hover:bg-transparent">
+                {headerGroup.headers.map((header) => (
+                  <TableHead key={header.id}>{header.isPlaceholder ? null : flexRender(header.column.columnDef.header, header.getContext())}</TableHead>
+                ))}
+              </TableRow>
+            ))}
+          </TableHeader>
+          <TableBody>
+            {table.getRowModel().rows?.length ? (
+              table.getRowModel().rows.map((row) => (
+                <Fragment key={row.id}>
+                  <TableRow data-state={row.getIsSelected() && "selected"}>
+                    {row.getVisibleCells().map((cell) => (
+                      <TableCell key={cell.id} className="[&:has([aria-expanded])]:w-px [&:has([aria-expanded])]:py-0">
+                        {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                      </TableCell>
+                    ))}
+                  </TableRow>
+                  {row.getIsExpanded() && (
+                    <TableRow className="hover:bg-transparent">
+                      <TableCell colSpan={row.getVisibleCells().length} className="p-0">
+                        <Table>
+                          <TableHeader className="border-b">
+                            <TableRow className="hover:bg-muted/30!">
+                              <TableHead className="w-23.5" />
+                              <TableHead>Member Name</TableHead>
+                              <TableHead>Role</TableHead>
+                              <TableHead>Email</TableHead>
+                              <TableHead>Hire Date</TableHead>
+                            </TableRow>
+                          </TableHeader>
+                          <TableBody>
+                            {row.original.members.map((member) => (
+                              <TableRow key={member.email}>
+                                <TableCell />
+                                <TableCell>{member.name}</TableCell>
+                                <TableCell>{member.role}</TableCell>
+                                <TableCell>{member.email}</TableCell>
+                                <TableCell>{member.hireDate}</TableCell>
+                              </TableRow>
+                            ))}
+                          </TableBody>
+                        </Table>
+                      </TableCell>
+                    </TableRow>
+                  )}
+                </Fragment>
+              ))
+            ) : (
+              <TableRow>
+                <TableCell colSpan={columns.length} className="h-24 text-center">
+                  No results.
+                </TableCell>
+              </TableRow>
+            )}
+          </TableBody>
+        </Table>
+      </div>
+    </div>
+  );
+}
+```

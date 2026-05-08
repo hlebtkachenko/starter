@@ -4,6 +4,224 @@
 
 Each entry includes slug, variant, upstream URL, deviations, and JSX source.
 
+## Icons
+
+**Slug:** `breadcrumb`
+**Variant:** `icons`
+**Upstream:** https://www.shadcnblocks.com/components/breadcrumb
+**Description:** Breadcrumb with folder and file icons on every item, distinguishing parent directories from the current page.
+**Depends on:** breadcrumb
+
+```tsx
+/**
+ * @slug breadcrumb
+ * @variant icons
+ * @upstream https://www.shadcnblocks.com/components/breadcrumb
+ * @deviations ["Folder/FileText icons on all items."]
+ */
+
+import { FileText, Folder } from "lucide-react";
+
+import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
+
+export default function BreadcrumbIcons() {
+  return (
+    <Breadcrumb>
+      <BreadcrumbList>
+        <BreadcrumbItem>
+          <BreadcrumbLink className="flex items-center gap-1.5" href="/">
+            <Folder className="size-4" />
+            Home
+          </BreadcrumbLink>
+        </BreadcrumbItem>
+        <BreadcrumbSeparator />
+        <BreadcrumbItem>
+          <BreadcrumbLink className="flex items-center gap-1.5" href="/components">
+            <Folder className="size-4" />
+            Components
+          </BreadcrumbLink>
+        </BreadcrumbItem>
+        <BreadcrumbSeparator />
+        <BreadcrumbItem>
+          <BreadcrumbPage className="flex items-center gap-1.5">
+            <FileText className="size-4" />
+            Breadcrumb
+          </BreadcrumbPage>
+        </BreadcrumbItem>
+      </BreadcrumbList>
+    </Breadcrumb>
+  );
+}
+```
+## Bordered
+
+**Slug:** `breadcrumb`
+**Variant:** `bordered`
+**Upstream:** https://www.shadcnblocks.com/components/breadcrumb
+**Description:** Breadcrumb wrapped in a rounded bordered container with padding, creating a pill-style navigation element.
+**Depends on:** breadcrumb
+
+```tsx
+/**
+ * @slug breadcrumb
+ * @variant bordered
+ * @upstream https://www.shadcnblocks.com/components/breadcrumb
+ * @deviations ["Pill/bordered container layout."]
+ */
+
+import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
+
+export default function BreadcrumbBordered() {
+  return (
+    <Breadcrumb className="w-fit rounded-lg border px-3 py-2">
+      <BreadcrumbList>
+        <BreadcrumbItem>
+          <BreadcrumbLink href="/">Home</BreadcrumbLink>
+        </BreadcrumbItem>
+        <BreadcrumbSeparator />
+        <BreadcrumbItem>
+          <BreadcrumbLink href="/components">Components</BreadcrumbLink>
+        </BreadcrumbItem>
+        <BreadcrumbSeparator />
+        <BreadcrumbItem>
+          <BreadcrumbPage>Breadcrumb</BreadcrumbPage>
+        </BreadcrumbItem>
+      </BreadcrumbList>
+    </Breadcrumb>
+  );
+}
+```
+## Bullet
+
+**Slug:** `breadcrumb`
+**Variant:** `bullet`
+**Upstream:** https://www.shadcnblocks.com/components/breadcrumb
+**Description:** Breadcrumb with bullet dot separators instead of the default chevron, providing a compact visual alternative.
+**Depends on:** breadcrumb
+
+```tsx
+/**
+ * @slug breadcrumb
+ * @variant bullet
+ * @upstream https://www.shadcnblocks.com/components/breadcrumb
+ * @deviations ["Bullet separator instead of chevron."]
+ */
+
+import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
+
+export default function BreadcrumbBullet() {
+  return (
+    <Breadcrumb>
+      <BreadcrumbList>
+        <BreadcrumbItem>
+          <BreadcrumbLink href="/">Home</BreadcrumbLink>
+        </BreadcrumbItem>
+        <BreadcrumbSeparator>•</BreadcrumbSeparator>
+        <BreadcrumbItem>
+          <BreadcrumbLink href="/components">Components</BreadcrumbLink>
+        </BreadcrumbItem>
+        <BreadcrumbSeparator>•</BreadcrumbSeparator>
+        <BreadcrumbItem>
+          <BreadcrumbPage>Breadcrumb</BreadcrumbPage>
+        </BreadcrumbItem>
+      </BreadcrumbList>
+    </Breadcrumb>
+  );
+}
+```
+## Slash
+
+**Slug:** `breadcrumb`
+**Variant:** `slash`
+**Upstream:** https://www.shadcnblocks.com/components/breadcrumb
+**Description:** Breadcrumb with slash icon separators using the Lucide Slash icon for a traditional path-style appearance.
+**Depends on:** breadcrumb
+
+```tsx
+/**
+ * @slug breadcrumb
+ * @variant slash
+ * @upstream https://www.shadcnblocks.com/components/breadcrumb
+ * @deviations ["Slash icon separator."]
+ */
+
+import { Slash } from "lucide-react";
+
+import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
+
+export default function BreadcrumbSlash() {
+  return (
+    <Breadcrumb>
+      <BreadcrumbList>
+        <BreadcrumbItem>
+          <BreadcrumbLink href="/">Home</BreadcrumbLink>
+        </BreadcrumbItem>
+        <BreadcrumbSeparator>
+          <Slash />
+        </BreadcrumbSeparator>
+        <BreadcrumbItem>
+          <BreadcrumbLink href="/components">Components</BreadcrumbLink>
+        </BreadcrumbItem>
+        <BreadcrumbSeparator>
+          <Slash />
+        </BreadcrumbSeparator>
+        <BreadcrumbItem>
+          <BreadcrumbPage>Breadcrumb</BreadcrumbPage>
+        </BreadcrumbItem>
+      </BreadcrumbList>
+    </Breadcrumb>
+  );
+}
+```
+## Select
+
+**Slug:** `breadcrumb`
+**Variant:** `select`
+**Upstream:** https://www.shadcnblocks.com/components/breadcrumb
+**Description:** Breadcrumb with a Select dropdown for path segment navigation, allowing users to switch between sections inline.
+**Depends on:** breadcrumb, select
+
+```tsx
+/**
+ * @slug breadcrumb
+ * @variant select
+ * @upstream https://www.shadcnblocks.com/components/breadcrumb
+ * @deviations ["Select dropdown for path segment navigation."]
+ */
+"use client";
+
+import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+
+export default function BreadcrumbSelect() {
+  return (
+    <Breadcrumb>
+      <BreadcrumbList>
+        <BreadcrumbItem>
+          <BreadcrumbLink href="/">Home</BreadcrumbLink>
+        </BreadcrumbItem>
+        <BreadcrumbSeparator />
+        <BreadcrumbItem>
+          <Select defaultValue="components">
+            <SelectTrigger className="h-auto w-auto px-2 py-1">
+              <SelectValue />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="documentation">Documentation</SelectItem>
+              <SelectItem value="components">Components</SelectItem>
+              <SelectItem value="themes">Themes</SelectItem>
+            </SelectContent>
+          </Select>
+        </BreadcrumbItem>
+        <BreadcrumbSeparator />
+        <BreadcrumbItem>
+          <BreadcrumbPage>Breadcrumb</BreadcrumbPage>
+        </BreadcrumbItem>
+      </BreadcrumbList>
+    </Breadcrumb>
+  );
+}
+```
 ## Default
 
 **Slug:** `breadcrumb`

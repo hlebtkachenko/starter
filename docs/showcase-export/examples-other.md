@@ -2308,3 +2308,179 @@ export default function BrowserDefault() {
   );
 }
 ```
+## Default
+
+**Slug:** `border-beam`
+**Variant:** `default`
+**Upstream:** https://magicui.design/docs/components/border-beam
+**Description:** Animated border beam effect wrapping a card with gradient text, demonstrating continuous perimeter glow animation.
+**Depends on:** border-beam
+
+```tsx
+/**
+ * @slug border-beam
+ * @variant default
+ * @upstream https://magicui.design/docs/components/border-beam
+ * @deviations ["Uses project motion dep."]
+ */
+"use client";
+
+import { BorderBeam } from "@/components/ui/border-beam";
+
+export default function BorderBeamDefault() {
+  return (
+    <div className="relative flex h-48 w-full items-center justify-center overflow-hidden rounded-lg border bg-background">
+      <span className="pointer-events-none text-2xl font-semibold whitespace-pre-wrap bg-gradient-to-b from-foreground to-muted-foreground/60 bg-clip-text text-center text-transparent">
+        Border Beam
+      </span>
+      <BorderBeam size={150} duration={8} />
+    </div>
+  );
+}
+```
+## Default
+
+**Slug:** `bottom-navigation`
+**Variant:** `default`
+**Upstream:** https://shark.vini.one/docs/components/bottom-navigation
+**Description:** Mobile bottom navigation bar with five icon+label items, safe-area support, and active state highlighting.
+**Depends on:** bottom-navigation
+
+```tsx
+/**
+ * @slug bottom-navigation
+ * @variant default
+ * @upstream https://shark.vini.one/docs/components/bottom-navigation
+ * @deviations ["Fixed position removed for showcase preview."]
+ */
+"use client";
+
+import { Home, MessageCircle, Search, Settings, User } from "lucide-react";
+
+import {
+  BottomNavigation,
+  BottomNavigationItem,
+  BottomNavigationItemIcon,
+  BottomNavigationItemLabel,
+  BottomNavigationList,
+} from "@/components/ui/bottom-navigation";
+
+export default function BottomNavigationDefault() {
+  return (
+    <div className="relative mx-auto w-full max-w-sm overflow-hidden rounded-lg border bg-background">
+      <div className="flex h-64 items-center justify-center text-sm text-muted-foreground">
+        Mobile app content area
+      </div>
+      <BottomNavigation defaultValue="home">
+        <BottomNavigationList className="static border-t" aria-label="App navigation">
+          <BottomNavigationItem value="home" aria-label="Home">
+            <BottomNavigationItemIcon>
+              <Home />
+            </BottomNavigationItemIcon>
+            <BottomNavigationItemLabel>Home</BottomNavigationItemLabel>
+          </BottomNavigationItem>
+          <BottomNavigationItem value="search" aria-label="Search">
+            <BottomNavigationItemIcon>
+              <Search />
+            </BottomNavigationItemIcon>
+            <BottomNavigationItemLabel>Search</BottomNavigationItemLabel>
+          </BottomNavigationItem>
+          <BottomNavigationItem value="messages" aria-label="Messages">
+            <BottomNavigationItemIcon>
+              <MessageCircle />
+            </BottomNavigationItemIcon>
+            <BottomNavigationItemLabel>Messages</BottomNavigationItemLabel>
+          </BottomNavigationItem>
+          <BottomNavigationItem value="profile" aria-label="Profile">
+            <BottomNavigationItemIcon>
+              <User />
+            </BottomNavigationItemIcon>
+            <BottomNavigationItemLabel>Profile</BottomNavigationItemLabel>
+          </BottomNavigationItem>
+          <BottomNavigationItem value="settings" aria-label="Settings">
+            <BottomNavigationItemIcon>
+              <Settings />
+            </BottomNavigationItemIcon>
+            <BottomNavigationItemLabel>Settings</BottomNavigationItemLabel>
+          </BottomNavigationItem>
+        </BottomNavigationList>
+      </BottomNavigation>
+    </div>
+  );
+}
+```
+## Default
+
+**Slug:** `commit-graph`
+**Variant:** `default`
+**Upstream:** https://ui.justinlevine.me/docs/components/commit-graph
+**Description:** Topological git commit graph with branching, merging, tags, refs, and interactive commit detail popovers.
+**Depends on:** commit-graph
+
+```tsx
+/**
+ * @slug commit-graph
+ * @variant default
+ * @upstream https://ui.justinlevine.me/docs/components/commit-graph
+ * @deviations ["ESLint disable for raw button (popover trigger)."]
+ */
+"use client";
+
+import { CommitGraph, type Commit } from "@/components/ui/commit-graph";
+
+const COMMITS: Commit[] = [
+  {
+    hash: "a1b2c3d4e5f6",
+    message: "feat: add user dashboard",
+    author: { name: "Alice Chen" },
+    date: new Date(Date.now() - 3_600_000),
+    parents: ["b2c3d4e5f6a7"],
+    refs: ["main"],
+  },
+  {
+    hash: "b2c3d4e5f6a7",
+    message: "Merge branch 'feat/auth' into main",
+    author: { name: "Bob Smith" },
+    date: new Date(Date.now() - 7_200_000),
+    parents: ["c3d4e5f6a7b8", "f6a7b8c9d0e1"],
+  },
+  {
+    hash: "f6a7b8c9d0e1",
+    message: "feat: implement OAuth2 flow",
+    author: { name: "Charlie Park" },
+    date: new Date(Date.now() - 10_800_000),
+    parents: ["d4e5f6a7b8c9"],
+    refs: ["feat/auth"],
+  },
+  {
+    hash: "c3d4e5f6a7b8",
+    message: "fix: resolve memory leak in websocket handler",
+    author: { name: "Alice Chen" },
+    date: new Date(Date.now() - 14_400_000),
+    parents: ["d4e5f6a7b8c9"],
+  },
+  {
+    hash: "d4e5f6a7b8c9",
+    message: "chore: update dependencies",
+    author: { name: "Bob Smith" },
+    date: new Date(Date.now() - 86_400_000),
+    parents: ["e5f6a7b8c9d0"],
+    tag: "v1.2.0",
+  },
+  {
+    hash: "e5f6a7b8c9d0",
+    message: "docs: add API reference",
+    author: { name: "Diana Lee" },
+    date: new Date(Date.now() - 172_800_000),
+    parents: [],
+  },
+];
+
+export default function CommitGraphDefault() {
+  return (
+    <div className="w-full">
+      <CommitGraph commits={COMMITS} />
+    </div>
+  );
+}
+```

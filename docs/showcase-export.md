@@ -9,19 +9,19 @@
 
 | Area | File | Items | Chars |
 |---|---|---|---|
-| UI Primitives | [docs/showcase-export/ui.md](showcase-export/ui.md) | 101 | 24,839 |
+| UI Primitives | [docs/showcase-export/ui.md](showcase-export/ui.md) | 105 | 25,885 |
 | Examples: buttons | [docs/showcase-export/examples-buttons.md](showcase-export/examples-buttons.md) | 36 | 47,459 |
 | Examples: display-part1 | [docs/showcase-export/examples-display-part1.md](showcase-export/examples-display-part1.md) | 41 | 79,363 |
-| Examples: display-part2 | [docs/showcase-export/examples-display-part2.md](showcase-export/examples-display-part2.md) | 20 | 28,699 |
+| Examples: display-part2 | [docs/showcase-export/examples-display-part2.md](showcase-export/examples-display-part2.md) | 21 | 44,349 |
 | Examples: feedback | [docs/showcase-export/examples-feedback.md](showcase-export/examples-feedback.md) | 24 | 27,984 |
 | Examples: forms-part1 | [docs/showcase-export/examples-forms-part1.md](showcase-export/examples-forms-part1.md) | 45 | 68,364 |
 | Examples: forms-part2 | [docs/showcase-export/examples-forms-part2.md](showcase-export/examples-forms-part2.md) | 46 | 67,670 |
 | Examples: layout | [docs/showcase-export/examples-layout.md](showcase-export/examples-layout.md) | 36 | 53,438 |
-| Examples: menus | [docs/showcase-export/examples-menus.md](showcase-export/examples-menus.md) | 26 | 64,583 |
-| Examples: navigation | [docs/showcase-export/examples-navigation.md](showcase-export/examples-navigation.md) | 21 | 40,532 |
+| Examples: menus | [docs/showcase-export/examples-menus.md](showcase-export/examples-menus.md) | 27 | 67,100 |
+| Examples: navigation | [docs/showcase-export/examples-navigation.md](showcase-export/examples-navigation.md) | 26 | 47,328 |
 | Examples: overlays | [docs/showcase-export/examples-overlays.md](showcase-export/examples-overlays.md) | 23 | 40,967 |
-| Examples: utility | [docs/showcase-export/examples-utility.md](showcase-export/examples-utility.md) | 33 | 50,746 |
-| Examples: other | [docs/showcase-export/examples-other.md](showcase-export/examples-other.md) | 45 | 66,075 |
+| Examples: utility | [docs/showcase-export/examples-utility.md](showcase-export/examples-utility.md) | 34 | 52,888 |
+| Examples: other | [docs/showcase-export/examples-other.md](showcase-export/examples-other.md) | 48 | 71,731 |
 | Blocks | [docs/showcase-export/blocks.md](showcase-export/blocks.md) | 5 | 15,187 |
 
 ## UI Primitives TOC
@@ -127,11 +127,15 @@
 - [`evil-composed-chart`](showcase-export/ui.md#evil-composed-chart) — Feature-rich composed chart overlaying bars and lines on shared axis with glow effects and skeleton.
 - [`animated-shiny-button`](showcase-export/ui.md#animated-shiny-button) — Button with animated conic-gradient border, dot pattern, shimmer effect, and breathe animation.
 - [`browser`](showcase-export/ui.md#browser) — Interactive browser simulator with tab management, address bar, navigation, bookmarks, history, and downloads.
+- [`border-beam`](showcase-export/ui.md#border-beam) — Animated border effect where a glowing beam travels around an element perimeter in a continuous loop.
+- [`bottom-navigation`](showcase-export/ui.md#bottom-navigation) — Mobile-first bottom navigation bar with icon and label items, fixed positioning, and safe-area support.
+- [`commit-graph`](showcase-export/ui.md#commit-graph) — Topological git graph with SVG rail lines showing branch forks, merges, and commit ancestry with interactive popovers.
+- [`marquee`](showcase-export/ui.md#marquee) — Horizontal or vertical scrolling marquee animation with pause-on-hover, reverse direction, and configurable speed.
 
 ## Quick counts
 
-- UI primitives: **101**
-- Example variants: **418**
+- UI primitives: **105**
+- Example variants: **430**
 - Example files: **12**
 - Blocks: **5**
-- Total registry items: **524**
+- Total registry items: **540**

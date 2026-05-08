@@ -1130,6 +1130,23 @@
   },
   {
     "categories": [
+      "effects"
+    ],
+    "description": "Animated border effect where a glowing beam travels around an element perimeter in a continuous loop.",
+    "files": [
+      {
+        "path": "components/ui/border-beam.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "name": "border-beam",
+    "proposedGroup": "effects",
+    "title": "Border Beam",
+    "type": "registry:ui",
+    "upstreamUrl": "https://magicui.design/docs/components/border-beam"
+  },
+  {
+    "categories": [
       "actions",
       "effects"
     ],
@@ -1174,6 +1191,72 @@
   },
   {
     "categories": [
+      "effects"
+    ],
+    "description": "Animated border beam effect wrapping a card with gradient text, demonstrating continuous perimeter glow animation.",
+    "files": [
+      {
+        "path": "components/examples/border-beam-default.tsx",
+        "type": "registry:example"
+      }
+    ],
+    "isDefault": true,
+    "isFlagged": false,
+    "name": "border-beam-default",
+    "registryDependencies": [
+      "border-beam"
+    ],
+    "slug": "border-beam",
+    "span": 2,
+    "title": "Default",
+    "type": "registry:example",
+    "upstreamUrl": "https://magicui.design/docs/components/border-beam",
+    "variant": "default"
+  },
+  {
+    "categories": [
+      "navigation"
+    ],
+    "description": "Mobile-first bottom navigation bar with icon and label items, fixed positioning, and safe-area support.",
+    "files": [
+      {
+        "path": "components/ui/bottom-navigation.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "name": "bottom-navigation",
+    "proposedGroup": "navigation",
+    "title": "Bottom Navigation",
+    "type": "registry:ui",
+    "upstreamUrl": "https://shark.vini.one/docs/components/bottom-navigation"
+  },
+  {
+    "categories": [
+      "navigation"
+    ],
+    "description": "Mobile bottom navigation bar with five icon+label items, safe-area support, and active state highlighting.",
+    "files": [
+      {
+        "path": "components/examples/bottom-navigation-default.tsx",
+        "type": "registry:example"
+      }
+    ],
+    "height": "tall",
+    "isDefault": true,
+    "isFlagged": false,
+    "name": "bottom-navigation-default",
+    "registryDependencies": [
+      "bottom-navigation"
+    ],
+    "slug": "bottom-navigation",
+    "span": 2,
+    "title": "Default",
+    "type": "registry:example",
+    "upstreamUrl": "https://shark.vini.one/docs/components/bottom-navigation",
+    "variant": "default"
+  },
+  {
+    "categories": [
       "navigation"
     ],
     "description": "Hierarchical navigation showing the path to the current resource.",
@@ -1212,6 +1295,52 @@
     "type": "registry:example",
     "upstreamUrl": "https://ui.shadcn.com/docs/components/breadcrumb",
     "variant": "basic"
+  },
+  {
+    "categories": [
+      "navigation"
+    ],
+    "description": "Breadcrumb wrapped in a rounded bordered container with padding, creating a pill-style navigation element.",
+    "files": [
+      {
+        "path": "components/examples/breadcrumb-bordered.tsx",
+        "type": "registry:example"
+      }
+    ],
+    "isDefault": false,
+    "isFlagged": false,
+    "name": "breadcrumb-bordered",
+    "registryDependencies": [
+      "breadcrumb"
+    ],
+    "slug": "breadcrumb",
+    "title": "Bordered",
+    "type": "registry:example",
+    "upstreamUrl": "https://www.shadcnblocks.com/components/breadcrumb",
+    "variant": "bordered"
+  },
+  {
+    "categories": [
+      "navigation"
+    ],
+    "description": "Breadcrumb with bullet dot separators instead of the default chevron, providing a compact visual alternative.",
+    "files": [
+      {
+        "path": "components/examples/breadcrumb-bullet.tsx",
+        "type": "registry:example"
+      }
+    ],
+    "isDefault": false,
+    "isFlagged": false,
+    "name": "breadcrumb-bullet",
+    "registryDependencies": [
+      "breadcrumb"
+    ],
+    "slug": "breadcrumb",
+    "title": "Bullet",
+    "type": "registry:example",
+    "upstreamUrl": "https://www.shadcnblocks.com/components/breadcrumb",
+    "variant": "bullet"
   },
   {
     "categories": [
@@ -1324,6 +1453,29 @@
     "categories": [
       "navigation"
     ],
+    "description": "Breadcrumb with folder and file icons on every item, distinguishing parent directories from the current page.",
+    "files": [
+      {
+        "path": "components/examples/breadcrumb-icons.tsx",
+        "type": "registry:example"
+      }
+    ],
+    "isDefault": false,
+    "isFlagged": false,
+    "name": "breadcrumb-icons",
+    "registryDependencies": [
+      "breadcrumb"
+    ],
+    "slug": "breadcrumb",
+    "title": "Icons",
+    "type": "registry:example",
+    "upstreamUrl": "https://www.shadcnblocks.com/components/breadcrumb",
+    "variant": "icons"
+  },
+  {
+    "categories": [
+      "navigation"
+    ],
     "description": "Breadcrumb wired to next/link via BreadcrumbLink asChild for client-side navigation, enabling prefetch and app-router transitions inside the trail.",
     "files": [
       {
@@ -1343,6 +1495,53 @@
     "type": "registry:example",
     "upstreamUrl": "https://ui.shadcn.com/docs/components/breadcrumb",
     "variant": "link-component"
+  },
+  {
+    "categories": [
+      "navigation"
+    ],
+    "description": "Breadcrumb with a Select dropdown for path segment navigation, allowing users to switch between sections inline.",
+    "files": [
+      {
+        "path": "components/examples/breadcrumb-select.tsx",
+        "type": "registry:example"
+      }
+    ],
+    "isDefault": false,
+    "isFlagged": false,
+    "name": "breadcrumb-select",
+    "registryDependencies": [
+      "breadcrumb",
+      "select"
+    ],
+    "slug": "breadcrumb",
+    "title": "Select",
+    "type": "registry:example",
+    "upstreamUrl": "https://www.shadcnblocks.com/components/breadcrumb",
+    "variant": "select"
+  },
+  {
+    "categories": [
+      "navigation"
+    ],
+    "description": "Breadcrumb with slash icon separators using the Lucide Slash icon for a traditional path-style appearance.",
+    "files": [
+      {
+        "path": "components/examples/breadcrumb-slash.tsx",
+        "type": "registry:example"
+      }
+    ],
+    "isDefault": false,
+    "isFlagged": false,
+    "name": "breadcrumb-slash",
+    "registryDependencies": [
+      "breadcrumb"
+    ],
+    "slug": "breadcrumb",
+    "title": "Slash",
+    "type": "registry:example",
+    "upstreamUrl": "https://www.shadcnblocks.com/components/breadcrumb",
+    "variant": "slash"
   },
   {
     "categories": [
@@ -3731,6 +3930,32 @@
     "variant": "groups"
   },
   {
+    "categories": [
+      "overlay"
+    ],
+    "description": "Command palette embedded in a popover with searchable contact list, icons, and description subtext per item.",
+    "files": [
+      {
+        "path": "components/examples/command-popover-default.tsx",
+        "type": "registry:example"
+      }
+    ],
+    "isDefault": false,
+    "isFlagged": false,
+    "name": "command-popover-default",
+    "registryDependencies": [
+      "command",
+      "popover",
+      "button"
+    ],
+    "slug": "command",
+    "span": 2,
+    "title": "Popover",
+    "type": "registry:example",
+    "upstreamUrl": "https://www.shadcnblocks.com/component/command/command-popover-5",
+    "variant": "popover"
+  },
+  {
     "description": "Long command list that scrolls inside the dialog, with navigation, actions, view, account, tools groups.",
     "files": [
       {
@@ -3769,6 +3994,50 @@
     "type": "registry:example",
     "upstreamUrl": "https://ui.shadcn.com/docs/components/command",
     "variant": "shortcuts"
+  },
+  {
+    "categories": [
+      "display",
+      "data"
+    ],
+    "description": "Topological git graph with SVG rail lines showing branch forks, merges, and commit ancestry with interactive popovers.",
+    "files": [
+      {
+        "path": "components/ui/commit-graph.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "name": "commit-graph",
+    "proposedGroup": "display",
+    "title": "Commit Graph",
+    "type": "registry:ui",
+    "upstreamUrl": "https://ui.justinlevine.me/docs/components/commit-graph"
+  },
+  {
+    "categories": [
+      "display",
+      "data"
+    ],
+    "description": "Topological git commit graph with branching, merging, tags, refs, and interactive commit detail popovers.",
+    "files": [
+      {
+        "path": "components/examples/commit-graph-default.tsx",
+        "type": "registry:example"
+      }
+    ],
+    "height": "tall",
+    "isDefault": true,
+    "isFlagged": false,
+    "name": "commit-graph-default",
+    "registryDependencies": [
+      "commit-graph"
+    ],
+    "slug": "commit-graph",
+    "span": 3,
+    "title": "Default",
+    "type": "registry:example",
+    "upstreamUrl": "https://ui.justinlevine.me/docs/components/commit-graph",
+    "variant": "default"
   },
   {
     "categories": [
@@ -4222,6 +4491,59 @@
     "type": "registry:example",
     "upstreamUrl": "https://ui.shadcn.com/docs/components/data-table",
     "variant": "default"
+  },
+  {
+    "categories": [
+      "data"
+    ],
+    "description": "Data table with drag-and-drop column reordering using DnD Kit, sorting toggles, and currency formatting.",
+    "files": [
+      {
+        "path": "components/examples/data-table-draggable.tsx",
+        "type": "registry:example"
+      }
+    ],
+    "height": "tall",
+    "isDefault": false,
+    "isFlagged": false,
+    "name": "data-table-draggable",
+    "registryDependencies": [
+      "table",
+      "button"
+    ],
+    "slug": "data-table",
+    "span": 3,
+    "title": "Draggable Columns",
+    "type": "registry:example",
+    "upstreamUrl": "https://shadcnstudio.com/docs/components/data-table",
+    "variant": "draggable"
+  },
+  {
+    "categories": [
+      "data"
+    ],
+    "description": "Data table with expandable sub-rows showing nested team member details, row selection, and budget formatting.",
+    "files": [
+      {
+        "path": "components/examples/data-table-expandable.tsx",
+        "type": "registry:example"
+      }
+    ],
+    "height": "tall",
+    "isDefault": false,
+    "isFlagged": false,
+    "name": "data-table-expandable",
+    "registryDependencies": [
+      "table",
+      "button",
+      "checkbox"
+    ],
+    "slug": "data-table",
+    "span": 3,
+    "title": "Expandable Rows",
+    "type": "registry:example",
+    "upstreamUrl": "https://shadcnstudio.com/docs/components/data-table",
+    "variant": "expandable"
   },
   {
     "categories": [
@@ -5322,6 +5644,33 @@
     "type": "registry:example",
     "upstreamUrl": "https://ui.shadcn.com/docs/components/empty",
     "variant": "outline"
+  },
+  {
+    "categories": [
+      "feedback"
+    ],
+    "description": "Empty state with animated vertical marquee backdrop showing placeholder project items and two action buttons.",
+    "files": [
+      {
+        "path": "components/examples/empty-state-marquee.tsx",
+        "type": "registry:example"
+      }
+    ],
+    "height": "tall",
+    "isDefault": false,
+    "isFlagged": false,
+    "name": "empty-state-marquee",
+    "registryDependencies": [
+      "empty",
+      "marquee",
+      "button"
+    ],
+    "slug": "empty",
+    "span": 2,
+    "title": "Marquee",
+    "type": "registry:example",
+    "upstreamUrl": "https://shadcnui-blocks.com/block/empty-state-04",
+    "variant": "marquee"
   },
   {
     "categories": [
@@ -7383,6 +7732,23 @@
     ],
     "title": "Login Card (Maintenance + i18n)",
     "type": "registry:block"
+  },
+  {
+    "categories": [
+      "effects"
+    ],
+    "description": "Horizontal or vertical scrolling marquee animation with pause-on-hover, reverse direction, and configurable speed.",
+    "files": [
+      {
+        "path": "components/ui/marquee.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "name": "marquee",
+    "proposedGroup": "effects",
+    "title": "Marquee",
+    "type": "registry:ui",
+    "upstreamUrl": "https://magicui.design/docs/components/marquee"
   },
   {
     "categories": [

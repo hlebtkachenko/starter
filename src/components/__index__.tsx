@@ -2152,6 +2152,87 @@ export const Index: Record<string, RegistryIndexEntry> = {
   },
     Component: undefined,
   },
+  "border-beam": {
+    meta: {
+    "name": "border-beam",
+    "type": "registry:ui",
+    "title": "Border Beam",
+    "description": "Animated border effect where a glowing beam travels around an element perimeter in a continuous loop.",
+    "files": [
+      {
+        "path": "components/ui/border-beam.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "upstreamUrl": "https://magicui.design/docs/components/border-beam",
+    "categories": [
+      "effects"
+    ],
+    "proposedGroup": "effects"
+  },
+    Component: undefined,
+  },
+  "bottom-navigation": {
+    meta: {
+    "name": "bottom-navigation",
+    "type": "registry:ui",
+    "title": "Bottom Navigation",
+    "description": "Mobile-first bottom navigation bar with icon and label items, fixed positioning, and safe-area support.",
+    "files": [
+      {
+        "path": "components/ui/bottom-navigation.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "upstreamUrl": "https://shark.vini.one/docs/components/bottom-navigation",
+    "categories": [
+      "navigation"
+    ],
+    "proposedGroup": "navigation"
+  },
+    Component: undefined,
+  },
+  "commit-graph": {
+    meta: {
+    "name": "commit-graph",
+    "type": "registry:ui",
+    "title": "Commit Graph",
+    "description": "Topological git graph with SVG rail lines showing branch forks, merges, and commit ancestry with interactive popovers.",
+    "files": [
+      {
+        "path": "components/ui/commit-graph.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "upstreamUrl": "https://ui.justinlevine.me/docs/components/commit-graph",
+    "categories": [
+      "display",
+      "data"
+    ],
+    "proposedGroup": "display"
+  },
+    Component: undefined,
+  },
+  "marquee": {
+    meta: {
+    "name": "marquee",
+    "type": "registry:ui",
+    "title": "Marquee",
+    "description": "Horizontal or vertical scrolling marquee animation with pause-on-hover, reverse direction, and configurable speed.",
+    "files": [
+      {
+        "path": "components/ui/marquee.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "upstreamUrl": "https://magicui.design/docs/components/marquee",
+    "categories": [
+      "effects"
+    ],
+    "proposedGroup": "effects"
+  },
+    Component: undefined,
+  },
   "button-size": {
     meta: {
     "name": "button-size",
@@ -6575,6 +6656,339 @@ export const Index: Record<string, RegistryIndexEntry> = {
     ]
   },
     Component: React.lazy(() => import("@/components/examples/browser-default")),
+  },
+  "border-beam-default": {
+    meta: {
+    "name": "border-beam-default",
+    "type": "registry:example",
+    "title": "Default",
+    "description": "Animated border beam effect wrapping a card with gradient text, demonstrating continuous perimeter glow animation.",
+    "slug": "border-beam",
+    "variant": "default",
+    "isDefault": true,
+    "isFlagged": false,
+    "span": 2,
+    "upstreamUrl": "https://magicui.design/docs/components/border-beam",
+    "registryDependencies": [
+      "border-beam"
+    ],
+    "files": [
+      {
+        "path": "components/examples/border-beam-default.tsx",
+        "type": "registry:example"
+      }
+    ],
+    "categories": [
+      "effects"
+    ]
+  },
+    Component: React.lazy(() => import("@/components/examples/border-beam-default")),
+  },
+  "bottom-navigation-default": {
+    meta: {
+    "name": "bottom-navigation-default",
+    "type": "registry:example",
+    "title": "Default",
+    "description": "Mobile bottom navigation bar with five icon+label items, safe-area support, and active state highlighting.",
+    "slug": "bottom-navigation",
+    "variant": "default",
+    "isDefault": true,
+    "isFlagged": false,
+    "span": 2,
+    "height": "tall",
+    "upstreamUrl": "https://shark.vini.one/docs/components/bottom-navigation",
+    "registryDependencies": [
+      "bottom-navigation"
+    ],
+    "files": [
+      {
+        "path": "components/examples/bottom-navigation-default.tsx",
+        "type": "registry:example"
+      }
+    ],
+    "categories": [
+      "navigation"
+    ]
+  },
+    Component: React.lazy(() => import("@/components/examples/bottom-navigation-default")),
+  },
+  "commit-graph-default": {
+    meta: {
+    "name": "commit-graph-default",
+    "type": "registry:example",
+    "title": "Default",
+    "description": "Topological git commit graph with branching, merging, tags, refs, and interactive commit detail popovers.",
+    "slug": "commit-graph",
+    "variant": "default",
+    "isDefault": true,
+    "isFlagged": false,
+    "span": 3,
+    "height": "tall",
+    "upstreamUrl": "https://ui.justinlevine.me/docs/components/commit-graph",
+    "registryDependencies": [
+      "commit-graph"
+    ],
+    "files": [
+      {
+        "path": "components/examples/commit-graph-default.tsx",
+        "type": "registry:example"
+      }
+    ],
+    "categories": [
+      "display",
+      "data"
+    ]
+  },
+    Component: React.lazy(() => import("@/components/examples/commit-graph-default")),
+  },
+  "empty-state-marquee": {
+    meta: {
+    "name": "empty-state-marquee",
+    "type": "registry:example",
+    "title": "Marquee",
+    "description": "Empty state with animated vertical marquee backdrop showing placeholder project items and two action buttons.",
+    "slug": "empty",
+    "variant": "marquee",
+    "isDefault": false,
+    "isFlagged": false,
+    "span": 2,
+    "height": "tall",
+    "upstreamUrl": "https://shadcnui-blocks.com/block/empty-state-04",
+    "registryDependencies": [
+      "empty",
+      "marquee",
+      "button"
+    ],
+    "files": [
+      {
+        "path": "components/examples/empty-state-marquee.tsx",
+        "type": "registry:example"
+      }
+    ],
+    "categories": [
+      "feedback"
+    ]
+  },
+    Component: React.lazy(() => import("@/components/examples/empty-state-marquee")),
+  },
+  "command-popover-default": {
+    meta: {
+    "name": "command-popover-default",
+    "type": "registry:example",
+    "title": "Popover",
+    "description": "Command palette embedded in a popover with searchable contact list, icons, and description subtext per item.",
+    "slug": "command",
+    "variant": "popover",
+    "isDefault": false,
+    "isFlagged": false,
+    "span": 2,
+    "upstreamUrl": "https://www.shadcnblocks.com/component/command/command-popover-5",
+    "registryDependencies": [
+      "command",
+      "popover",
+      "button"
+    ],
+    "files": [
+      {
+        "path": "components/examples/command-popover-default.tsx",
+        "type": "registry:example"
+      }
+    ],
+    "categories": [
+      "overlay"
+    ]
+  },
+    Component: React.lazy(() => import("@/components/examples/command-popover-default")),
+  },
+  "data-table-draggable": {
+    meta: {
+    "name": "data-table-draggable",
+    "type": "registry:example",
+    "title": "Draggable Columns",
+    "description": "Data table with drag-and-drop column reordering using DnD Kit, sorting toggles, and currency formatting.",
+    "slug": "data-table",
+    "variant": "draggable",
+    "isDefault": false,
+    "isFlagged": false,
+    "span": 3,
+    "height": "tall",
+    "upstreamUrl": "https://shadcnstudio.com/docs/components/data-table",
+    "registryDependencies": [
+      "table",
+      "button"
+    ],
+    "files": [
+      {
+        "path": "components/examples/data-table-draggable.tsx",
+        "type": "registry:example"
+      }
+    ],
+    "categories": [
+      "data"
+    ]
+  },
+    Component: React.lazy(() => import("@/components/examples/data-table-draggable")),
+  },
+  "data-table-expandable": {
+    meta: {
+    "name": "data-table-expandable",
+    "type": "registry:example",
+    "title": "Expandable Rows",
+    "description": "Data table with expandable sub-rows showing nested team member details, row selection, and budget formatting.",
+    "slug": "data-table",
+    "variant": "expandable",
+    "isDefault": false,
+    "isFlagged": false,
+    "span": 3,
+    "height": "tall",
+    "upstreamUrl": "https://shadcnstudio.com/docs/components/data-table",
+    "registryDependencies": [
+      "table",
+      "button",
+      "checkbox"
+    ],
+    "files": [
+      {
+        "path": "components/examples/data-table-expandable.tsx",
+        "type": "registry:example"
+      }
+    ],
+    "categories": [
+      "data"
+    ]
+  },
+    Component: React.lazy(() => import("@/components/examples/data-table-expandable")),
+  },
+  "breadcrumb-icons": {
+    meta: {
+    "name": "breadcrumb-icons",
+    "type": "registry:example",
+    "title": "Icons",
+    "description": "Breadcrumb with folder and file icons on every item, distinguishing parent directories from the current page.",
+    "slug": "breadcrumb",
+    "variant": "icons",
+    "isDefault": false,
+    "isFlagged": false,
+    "upstreamUrl": "https://www.shadcnblocks.com/components/breadcrumb",
+    "registryDependencies": [
+      "breadcrumb"
+    ],
+    "files": [
+      {
+        "path": "components/examples/breadcrumb-icons.tsx",
+        "type": "registry:example"
+      }
+    ],
+    "categories": [
+      "navigation"
+    ]
+  },
+    Component: React.lazy(() => import("@/components/examples/breadcrumb-icons")),
+  },
+  "breadcrumb-bordered": {
+    meta: {
+    "name": "breadcrumb-bordered",
+    "type": "registry:example",
+    "title": "Bordered",
+    "description": "Breadcrumb wrapped in a rounded bordered container with padding, creating a pill-style navigation element.",
+    "slug": "breadcrumb",
+    "variant": "bordered",
+    "isDefault": false,
+    "isFlagged": false,
+    "upstreamUrl": "https://www.shadcnblocks.com/components/breadcrumb",
+    "registryDependencies": [
+      "breadcrumb"
+    ],
+    "files": [
+      {
+        "path": "components/examples/breadcrumb-bordered.tsx",
+        "type": "registry:example"
+      }
+    ],
+    "categories": [
+      "navigation"
+    ]
+  },
+    Component: React.lazy(() => import("@/components/examples/breadcrumb-bordered")),
+  },
+  "breadcrumb-bullet": {
+    meta: {
+    "name": "breadcrumb-bullet",
+    "type": "registry:example",
+    "title": "Bullet",
+    "description": "Breadcrumb with bullet dot separators instead of the default chevron, providing a compact visual alternative.",
+    "slug": "breadcrumb",
+    "variant": "bullet",
+    "isDefault": false,
+    "isFlagged": false,
+    "upstreamUrl": "https://www.shadcnblocks.com/components/breadcrumb",
+    "registryDependencies": [
+      "breadcrumb"
+    ],
+    "files": [
+      {
+        "path": "components/examples/breadcrumb-bullet.tsx",
+        "type": "registry:example"
+      }
+    ],
+    "categories": [
+      "navigation"
+    ]
+  },
+    Component: React.lazy(() => import("@/components/examples/breadcrumb-bullet")),
+  },
+  "breadcrumb-slash": {
+    meta: {
+    "name": "breadcrumb-slash",
+    "type": "registry:example",
+    "title": "Slash",
+    "description": "Breadcrumb with slash icon separators using the Lucide Slash icon for a traditional path-style appearance.",
+    "slug": "breadcrumb",
+    "variant": "slash",
+    "isDefault": false,
+    "isFlagged": false,
+    "upstreamUrl": "https://www.shadcnblocks.com/components/breadcrumb",
+    "registryDependencies": [
+      "breadcrumb"
+    ],
+    "files": [
+      {
+        "path": "components/examples/breadcrumb-slash.tsx",
+        "type": "registry:example"
+      }
+    ],
+    "categories": [
+      "navigation"
+    ]
+  },
+    Component: React.lazy(() => import("@/components/examples/breadcrumb-slash")),
+  },
+  "breadcrumb-select": {
+    meta: {
+    "name": "breadcrumb-select",
+    "type": "registry:example",
+    "title": "Select",
+    "description": "Breadcrumb with a Select dropdown for path segment navigation, allowing users to switch between sections inline.",
+    "slug": "breadcrumb",
+    "variant": "select",
+    "isDefault": false,
+    "isFlagged": false,
+    "upstreamUrl": "https://www.shadcnblocks.com/components/breadcrumb",
+    "registryDependencies": [
+      "breadcrumb",
+      "select"
+    ],
+    "files": [
+      {
+        "path": "components/examples/breadcrumb-select.tsx",
+        "type": "registry:example"
+      }
+    ],
+    "categories": [
+      "navigation"
+    ]
+  },
+    Component: React.lazy(() => import("@/components/examples/breadcrumb-select")),
   },
   "alert-default": {
     meta: {
@@ -13427,8 +13841,8 @@ export const Index: Record<string, RegistryIndexEntry> = {
 };
 
 export const ItemsByArea = {
-  ui: ["accordion","alert","alert-dialog","aspect-ratio","avatar","badge","breadcrumb","button","button-group","calendar","card","carousel","chart","checkbox","collapsible","combobox","command","context-menu","dialog","drawer","dropdown-menu","empty","field","hover-card","input","input-group","input-otp","item","kbd","label","menubar","native-select","navigation-menu","pagination","popover","progress","radio-group","resizable","scroll-area","select","separator","sheet","sidebar","skeleton","slider","sonner","spinner","switch","table","tabs","textarea","toggle","toggle-group","tooltip","noise-background","stateful-button","multi-step-loader","separator-extended","card-styles","autocomplete","action-bar","banner","border-beam-button","circular-progress","color-picker","color-swatch","cropper","data-grid","data-table","file-upload","gauge","key-value","mention","phone-input","prompt-library","qr-code","segmented-input","swap","tags-input","terminal-animation","timeline","tour","ring-loader","api-response-viewer","env-editor","error-boundary-ui","json-viewer","og-image-explorer","og-category-section","og-image-card","pdf-utils","pdf-viewer","webhook-tester","evil-area-chart","evil-bar-chart","evil-line-chart","evil-pie-chart","evil-radar-chart","evil-composed-chart","animated-shiny-button","browser"],
-  examples: ["button-size","button-default","button-outline","button-secondary","button-ghost","button-destructive","button-link","button-icon","button-with-icon","button-rounded","button-spinner","button-button-group","button-as-child","button-group-default","button-group-orientation","button-group-size","button-group-nested","button-group-separator","button-group-split","button-group-input","button-group-input-group","button-group-dropdown-menu","button-group-select","button-group-popover","toggle-default","toggle-outline","toggle-with-text","toggle-size","toggle-disabled","toggle-group-default","toggle-group-outline","toggle-group-size","toggle-group-spacing","toggle-group-vertical","toggle-group-disabled","toggle-group-custom","avatar-default","avatar-basic","avatar-badge","avatar-badge-with-icon","avatar-avatar-group","avatar-avatar-group-count","avatar-avatar-group-with-icon","avatar-sizes","avatar-dropdown","badge-default","badge-variants","badge-with-icon","badge-with-spinner","badge-link","badge-custom-colors","calendar-default","calendar-basic","calendar-range-calendar","calendar-month-and-year-selector","calendar-presets","calendar-date-and-time-picker","calendar-booked-dates","calendar-custom-cell-size","calendar-week-numbers","calendar-with-timezone","calendar-hijri","chart-default","chart-your-first-chart","chart-chart-config","chart-tooltip","chart-legend","chart-bar-chart","chart-with-grid","chart-with-axis","chart-with-tooltip","chart-with-legend","chart-tooltip-demo","data-table-default","data-table-basic-table","data-table-cell-formatting","data-table-row-actions","data-table-pagination","data-table-sorting","data-table-filtering","data-table-visibility","data-table-row-selection","skeleton-default","skeleton-avatar","skeleton-card","skeleton-text","skeleton-form","skeleton-table","table-default","table-footer","table-actions","typography-h1","typography-h2","typography-h3","typography-h4","typography-p","typography-blockquote","typography-table","typography-list","typography-inline-code","typography-lead","typography-large","typography-small","typography-muted","typography-demo","noise-background-default","noise-background-card","stateful-button-default","multi-step-loader-default","separator-extended-default","separator-extended-dashed","separator-extended-dotted","separator-extended-double","card-styles-shadow","card-styles-lines","card-styles-hatched","card-styles-aurora","card-styles-tilted","card-styles-stacked","autocomplete-default","action-bar-default","banner-default","border-beam-button-default","circular-progress-default","color-picker-default","color-swatch-default","cropper-default","cropper-circular","cropper-with-controls","data-grid-default","file-upload-default","gauge-default","key-value-default","mention-default","phone-input-default","prompt-library-default","qr-code-default","segmented-input-default","swap-default","tags-input-default","terminal-animation-default","timeline-default","tour-default","ring-loader-default","api-response-viewer-default","env-editor-default","error-boundary-ui-default","json-viewer-default","og-image-explorer-default","pdf-utils-default","pdf-viewer-default","webhook-tester-default","evil-area-chart-default","evil-bar-chart-default","evil-line-chart-default","evil-pie-chart-default","evil-radar-chart-default","evil-composed-chart-default","animated-shiny-button-default","browser-default","alert-default","alert-basic","alert-destructive","alert-action","alert-custom-colors","progress-default","progress-label","progress-controlled","sonner-default","sonner-types","sonner-description","sonner-position","spinner-default","spinner-size","spinner-button","spinner-badge","spinner-input-group","spinner-empty","checkbox-default","checkbox-basic","checkbox-description","checkbox-disabled","checkbox-group","checkbox-table","checkbox-indeterminate-select-all","combobox-default","combobox-basic","combobox-multiple","combobox-clear-button","combobox-groups","combobox-custom-items","combobox-invalid","combobox-disabled","combobox-auto-highlight","combobox-popup","combobox-input-group","date-picker-default","date-picker-basic","date-picker-range-picker","date-picker-date-of-birth","date-picker-input","date-picker-time-picker","date-picker-natural-language-picker","field-default","field-input","field-textarea","field-select","field-slider","field-fieldset","field-checkbox","field-radio","field-switch","field-choice-card","field-field-group","input-default","input-basic","input-field","input-field-group","input-disabled","input-invalid","input-file","input-inline","input-grid","input-required","input-badge","input-input-group","input-button-group","input-form","input-group-default","input-group-icon","input-group-text","input-group-button","input-group-kbd","input-group-dropdown","input-group-spinner","input-group-textarea","input-group-custom-input","input-group-credit-card","input-group-locked-password","input-otp-default","input-otp-separator","input-otp-disabled","input-otp-controlled","input-otp-invalid","input-otp-four-digits","input-otp-alphanumeric","input-otp-form","label-label-in-field","label-default","label-in-field-component","native-select-groups","native-select-disabled","native-select-invalid","native-select-default","radio-group-description","radio-group-choice-card","radio-group-fieldset","radio-group-disabled","radio-group-invalid","radio-group-default","select-default","select-align-item-with-trigger","select-groups","select-scrollable","select-disabled","select-invalid","slider-default","slider-range","slider-multiple-thumbs","slider-vertical","slider-controlled","slider-disabled","switch-default","switch-description","switch-choice-card","switch-disabled","switch-invalid","switch-size","textarea-default","textarea-field","textarea-disabled","textarea-invalid","textarea-button","aspect-ratio-default","aspect-ratio-square","aspect-ratio-portrait","card-default","card-size","card-image","card-with-form","collapsible-default","collapsible-basic","collapsible-settings-panel","collapsible-file-tree","resizable-default","resizable-vertical","resizable-handle","scroll-area-default","scroll-area-horizontal","separator-default","separator-vertical","separator-menu","separator-list","sidebar-default","sidebar-offcanvas","sidebar-none","sidebar-floating","sidebar-inset","sidebar-right","command-default","command-basic","command-shortcuts","command-groups","command-scrollable","context-menu-default","context-menu-basic","context-menu-submenu","context-menu-shortcuts","context-menu-groups","context-menu-icons","context-menu-checkboxes","context-menu-radio","context-menu-destructive","dropdown-menu-default","dropdown-menu-basic","dropdown-menu-submenu","dropdown-menu-shortcuts","dropdown-menu-icons","dropdown-menu-checkboxes","dropdown-menu-checkboxes-icons","dropdown-menu-radio-group","dropdown-menu-radio-icons","dropdown-menu-destructive","dropdown-menu-avatar","dropdown-menu-complex","breadcrumb-default","breadcrumb-basic","breadcrumb-custom-separator","breadcrumb-dropdown","breadcrumb-collapsed","breadcrumb-link-component","menubar-default","menubar-checkbox","menubar-radio","menubar-submenu","menubar-with-icons","navigation-menu-default","navigation-menu-link-component","pagination-default","pagination-simple","pagination-icons-only","tabs-default","tabs-line","tabs-vertical","tabs-disabled","tabs-icons","alert-dialog-default","alert-dialog-basic","alert-dialog-small","alert-dialog-media","alert-dialog-small-with-media","alert-dialog-destructive","dialog-default","dialog-custom-close-button","dialog-no-close-button","dialog-sticky-footer","dialog-scrollable-content","drawer-default","drawer-scrollable-content","drawer-sides","drawer-responsive-dialog","hover-card-default","hover-card-basic","hover-card-sides","popover-default","popover-basic","popover-align","popover-with-form","sheet-default","sheet-side","sheet-no-close-button","tooltip-default","tooltip-side","tooltip-with-keyboard-shortcut","tooltip-disabled-button","accordion-default","accordion-basic","accordion-multiple","accordion-disabled","accordion-borders","accordion-card","carousel-default","carousel-sizes","carousel-spacing","carousel-orientation","carousel-api-slide-n-of-m","carousel-plugins","empty-default","empty-outline","empty-background","empty-avatar","empty-avatar-group","empty-input-group","item-default","item-variants","item-sizes","item-icon","item-avatar","item-image","item-group","item-header","item-link","item-dropdown","kbd-default","kbd-group","kbd-button","kbd-tooltip","kbd-input-group"],
+  ui: ["accordion","alert","alert-dialog","aspect-ratio","avatar","badge","breadcrumb","button","button-group","calendar","card","carousel","chart","checkbox","collapsible","combobox","command","context-menu","dialog","drawer","dropdown-menu","empty","field","hover-card","input","input-group","input-otp","item","kbd","label","menubar","native-select","navigation-menu","pagination","popover","progress","radio-group","resizable","scroll-area","select","separator","sheet","sidebar","skeleton","slider","sonner","spinner","switch","table","tabs","textarea","toggle","toggle-group","tooltip","noise-background","stateful-button","multi-step-loader","separator-extended","card-styles","autocomplete","action-bar","banner","border-beam-button","circular-progress","color-picker","color-swatch","cropper","data-grid","data-table","file-upload","gauge","key-value","mention","phone-input","prompt-library","qr-code","segmented-input","swap","tags-input","terminal-animation","timeline","tour","ring-loader","api-response-viewer","env-editor","error-boundary-ui","json-viewer","og-image-explorer","og-category-section","og-image-card","pdf-utils","pdf-viewer","webhook-tester","evil-area-chart","evil-bar-chart","evil-line-chart","evil-pie-chart","evil-radar-chart","evil-composed-chart","animated-shiny-button","browser","border-beam","bottom-navigation","commit-graph","marquee"],
+  examples: ["button-size","button-default","button-outline","button-secondary","button-ghost","button-destructive","button-link","button-icon","button-with-icon","button-rounded","button-spinner","button-button-group","button-as-child","button-group-default","button-group-orientation","button-group-size","button-group-nested","button-group-separator","button-group-split","button-group-input","button-group-input-group","button-group-dropdown-menu","button-group-select","button-group-popover","toggle-default","toggle-outline","toggle-with-text","toggle-size","toggle-disabled","toggle-group-default","toggle-group-outline","toggle-group-size","toggle-group-spacing","toggle-group-vertical","toggle-group-disabled","toggle-group-custom","avatar-default","avatar-basic","avatar-badge","avatar-badge-with-icon","avatar-avatar-group","avatar-avatar-group-count","avatar-avatar-group-with-icon","avatar-sizes","avatar-dropdown","badge-default","badge-variants","badge-with-icon","badge-with-spinner","badge-link","badge-custom-colors","calendar-default","calendar-basic","calendar-range-calendar","calendar-month-and-year-selector","calendar-presets","calendar-date-and-time-picker","calendar-booked-dates","calendar-custom-cell-size","calendar-week-numbers","calendar-with-timezone","calendar-hijri","chart-default","chart-your-first-chart","chart-chart-config","chart-tooltip","chart-legend","chart-bar-chart","chart-with-grid","chart-with-axis","chart-with-tooltip","chart-with-legend","chart-tooltip-demo","data-table-default","data-table-basic-table","data-table-cell-formatting","data-table-row-actions","data-table-pagination","data-table-sorting","data-table-filtering","data-table-visibility","data-table-row-selection","skeleton-default","skeleton-avatar","skeleton-card","skeleton-text","skeleton-form","skeleton-table","table-default","table-footer","table-actions","typography-h1","typography-h2","typography-h3","typography-h4","typography-p","typography-blockquote","typography-table","typography-list","typography-inline-code","typography-lead","typography-large","typography-small","typography-muted","typography-demo","noise-background-default","noise-background-card","stateful-button-default","multi-step-loader-default","separator-extended-default","separator-extended-dashed","separator-extended-dotted","separator-extended-double","card-styles-shadow","card-styles-lines","card-styles-hatched","card-styles-aurora","card-styles-tilted","card-styles-stacked","autocomplete-default","action-bar-default","banner-default","border-beam-button-default","circular-progress-default","color-picker-default","color-swatch-default","cropper-default","cropper-circular","cropper-with-controls","data-grid-default","file-upload-default","gauge-default","key-value-default","mention-default","phone-input-default","prompt-library-default","qr-code-default","segmented-input-default","swap-default","tags-input-default","terminal-animation-default","timeline-default","tour-default","ring-loader-default","api-response-viewer-default","env-editor-default","error-boundary-ui-default","json-viewer-default","og-image-explorer-default","pdf-utils-default","pdf-viewer-default","webhook-tester-default","evil-area-chart-default","evil-bar-chart-default","evil-line-chart-default","evil-pie-chart-default","evil-radar-chart-default","evil-composed-chart-default","animated-shiny-button-default","browser-default","border-beam-default","bottom-navigation-default","commit-graph-default","empty-state-marquee","command-popover-default","data-table-draggable","data-table-expandable","breadcrumb-icons","breadcrumb-bordered","breadcrumb-bullet","breadcrumb-slash","breadcrumb-select","alert-default","alert-basic","alert-destructive","alert-action","alert-custom-colors","progress-default","progress-label","progress-controlled","sonner-default","sonner-types","sonner-description","sonner-position","spinner-default","spinner-size","spinner-button","spinner-badge","spinner-input-group","spinner-empty","checkbox-default","checkbox-basic","checkbox-description","checkbox-disabled","checkbox-group","checkbox-table","checkbox-indeterminate-select-all","combobox-default","combobox-basic","combobox-multiple","combobox-clear-button","combobox-groups","combobox-custom-items","combobox-invalid","combobox-disabled","combobox-auto-highlight","combobox-popup","combobox-input-group","date-picker-default","date-picker-basic","date-picker-range-picker","date-picker-date-of-birth","date-picker-input","date-picker-time-picker","date-picker-natural-language-picker","field-default","field-input","field-textarea","field-select","field-slider","field-fieldset","field-checkbox","field-radio","field-switch","field-choice-card","field-field-group","input-default","input-basic","input-field","input-field-group","input-disabled","input-invalid","input-file","input-inline","input-grid","input-required","input-badge","input-input-group","input-button-group","input-form","input-group-default","input-group-icon","input-group-text","input-group-button","input-group-kbd","input-group-dropdown","input-group-spinner","input-group-textarea","input-group-custom-input","input-group-credit-card","input-group-locked-password","input-otp-default","input-otp-separator","input-otp-disabled","input-otp-controlled","input-otp-invalid","input-otp-four-digits","input-otp-alphanumeric","input-otp-form","label-label-in-field","label-default","label-in-field-component","native-select-groups","native-select-disabled","native-select-invalid","native-select-default","radio-group-description","radio-group-choice-card","radio-group-fieldset","radio-group-disabled","radio-group-invalid","radio-group-default","select-default","select-align-item-with-trigger","select-groups","select-scrollable","select-disabled","select-invalid","slider-default","slider-range","slider-multiple-thumbs","slider-vertical","slider-controlled","slider-disabled","switch-default","switch-description","switch-choice-card","switch-disabled","switch-invalid","switch-size","textarea-default","textarea-field","textarea-disabled","textarea-invalid","textarea-button","aspect-ratio-default","aspect-ratio-square","aspect-ratio-portrait","card-default","card-size","card-image","card-with-form","collapsible-default","collapsible-basic","collapsible-settings-panel","collapsible-file-tree","resizable-default","resizable-vertical","resizable-handle","scroll-area-default","scroll-area-horizontal","separator-default","separator-vertical","separator-menu","separator-list","sidebar-default","sidebar-offcanvas","sidebar-none","sidebar-floating","sidebar-inset","sidebar-right","command-default","command-basic","command-shortcuts","command-groups","command-scrollable","context-menu-default","context-menu-basic","context-menu-submenu","context-menu-shortcuts","context-menu-groups","context-menu-icons","context-menu-checkboxes","context-menu-radio","context-menu-destructive","dropdown-menu-default","dropdown-menu-basic","dropdown-menu-submenu","dropdown-menu-shortcuts","dropdown-menu-icons","dropdown-menu-checkboxes","dropdown-menu-checkboxes-icons","dropdown-menu-radio-group","dropdown-menu-radio-icons","dropdown-menu-destructive","dropdown-menu-avatar","dropdown-menu-complex","breadcrumb-default","breadcrumb-basic","breadcrumb-custom-separator","breadcrumb-dropdown","breadcrumb-collapsed","breadcrumb-link-component","menubar-default","menubar-checkbox","menubar-radio","menubar-submenu","menubar-with-icons","navigation-menu-default","navigation-menu-link-component","pagination-default","pagination-simple","pagination-icons-only","tabs-default","tabs-line","tabs-vertical","tabs-disabled","tabs-icons","alert-dialog-default","alert-dialog-basic","alert-dialog-small","alert-dialog-media","alert-dialog-small-with-media","alert-dialog-destructive","dialog-default","dialog-custom-close-button","dialog-no-close-button","dialog-sticky-footer","dialog-scrollable-content","drawer-default","drawer-scrollable-content","drawer-sides","drawer-responsive-dialog","hover-card-default","hover-card-basic","hover-card-sides","popover-default","popover-basic","popover-align","popover-with-form","sheet-default","sheet-side","sheet-no-close-button","tooltip-default","tooltip-side","tooltip-with-keyboard-shortcut","tooltip-disabled-button","accordion-default","accordion-basic","accordion-multiple","accordion-disabled","accordion-borders","accordion-card","carousel-default","carousel-sizes","carousel-spacing","carousel-orientation","carousel-api-slide-n-of-m","carousel-plugins","empty-default","empty-outline","empty-background","empty-avatar","empty-avatar-group","empty-input-group","item-default","item-variants","item-sizes","item-icon","item-avatar","item-image","item-group","item-header","item-link","item-dropdown","kbd-default","kbd-group","kbd-button","kbd-tooltip","kbd-input-group"],
   blocks: ["login-card","login-card-2","login-card-3","signup-card","forgot-password-card"],
 };
 
@@ -13531,7 +13945,9 @@ export const ExamplesBySlug: Record<string, string[]> = {
     "data-table-sorting",
     "data-table-filtering",
     "data-table-visibility",
-    "data-table-row-selection"
+    "data-table-row-selection",
+    "data-table-draggable",
+    "data-table-expandable"
   ],
   "skeleton": [
     "skeleton-default",
@@ -13704,6 +14120,45 @@ export const ExamplesBySlug: Record<string, string[]> = {
   ],
   "browser": [
     "browser-default"
+  ],
+  "border-beam": [
+    "border-beam-default"
+  ],
+  "bottom-navigation": [
+    "bottom-navigation-default"
+  ],
+  "commit-graph": [
+    "commit-graph-default"
+  ],
+  "empty": [
+    "empty-state-marquee",
+    "empty-default",
+    "empty-outline",
+    "empty-background",
+    "empty-avatar",
+    "empty-avatar-group",
+    "empty-input-group"
+  ],
+  "command": [
+    "command-popover-default",
+    "command-default",
+    "command-basic",
+    "command-shortcuts",
+    "command-groups",
+    "command-scrollable"
+  ],
+  "breadcrumb": [
+    "breadcrumb-icons",
+    "breadcrumb-bordered",
+    "breadcrumb-bullet",
+    "breadcrumb-slash",
+    "breadcrumb-select",
+    "breadcrumb-default",
+    "breadcrumb-basic",
+    "breadcrumb-custom-separator",
+    "breadcrumb-dropdown",
+    "breadcrumb-collapsed",
+    "breadcrumb-link-component"
   ],
   "alert": [
     "alert-default",
@@ -13904,13 +14359,6 @@ export const ExamplesBySlug: Record<string, string[]> = {
     "sidebar-inset",
     "sidebar-right"
   ],
-  "command": [
-    "command-default",
-    "command-basic",
-    "command-shortcuts",
-    "command-groups",
-    "command-scrollable"
-  ],
   "context-menu": [
     "context-menu-default",
     "context-menu-basic",
@@ -13935,14 +14383,6 @@ export const ExamplesBySlug: Record<string, string[]> = {
     "dropdown-menu-destructive",
     "dropdown-menu-avatar",
     "dropdown-menu-complex"
-  ],
-  "breadcrumb": [
-    "breadcrumb-default",
-    "breadcrumb-basic",
-    "breadcrumb-custom-separator",
-    "breadcrumb-dropdown",
-    "breadcrumb-collapsed",
-    "breadcrumb-link-component"
   ],
   "menubar": [
     "menubar-default",
@@ -14025,14 +14465,6 @@ export const ExamplesBySlug: Record<string, string[]> = {
     "carousel-orientation",
     "carousel-api-slide-n-of-m",
     "carousel-plugins"
-  ],
-  "empty": [
-    "empty-default",
-    "empty-outline",
-    "empty-background",
-    "empty-avatar",
-    "empty-avatar-group",
-    "empty-input-group"
   ],
   "item": [
     "item-default",
