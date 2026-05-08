@@ -235,3 +235,1076 @@ export default function AutocompleteDefault() {
   );
 }
 ```
+## Default
+
+**Slug:** `action-bar`
+**Variant:** `default`
+**Upstream:** https://www.diceui.com/docs/components/radix/action-bar
+**Description:** Default example for Action Bar component showing core functionality.
+**Depends on:** action-bar
+
+```tsx
+/**
+ * @slug action-bar
+ * @variant default
+ * @upstream https://www.diceui.com/docs/components/radix/action-bar
+ * @deviations []
+ */
+"use client";
+
+import * as React from "react";
+import { CopyIcon, PencilIcon, TrashIcon, XIcon } from "lucide-react";
+
+import {
+  ActionBar,
+  ActionBarClose,
+  ActionBarGroup,
+  ActionBarItem,
+  ActionBarSelection,
+  ActionBarSeparator,
+} from "@/components/ui/action-bar";
+import { Checkbox } from "@/components/ui/checkbox";
+
+const TASKS = [
+  { id: "1", title: "Update user dashboard layout", status: "In Progress" },
+  { id: "2", title: "Fix authentication timeout bug", status: "Todo" },
+  { id: "3", title: "Add export to CSV feature", status: "Done" },
+  { id: "4", title: "Review pull request #482", status: "In Progress" },
+  { id: "5", title: "Write API documentation", status: "Todo" },
+];
+
+export default function ActionBarDefault() {
+  const [selected, setSelected] = React.useState<Set<string>>(new Set());
+
+  const toggle = (id: string) => {
+    setSelected((prev) => {
+      const next = new Set(prev);
+      if (next.has(id)) next.delete(id);
+      else next.add(id);
+      return next;
+    });
+  };
+
+  return (
+    <div className="w-full space-y-2">
+      <div className="rounded-lg border border-border">
+        <div className="border-b border-border px-4 py-2">
+          <p className="text-sm font-medium text-muted-foreground">Tasks</p>
+        </div>
+        {TASKS.map((task) => (
+          <label
+            key={task.id}
+            className="flex cursor-pointer items-center gap-3 border-b border-border px-4 py-3 last:border-b-0 hover:bg-muted/50"
+          >
+            <Checkbox checked={selected.has(task.id)} onCheckedChange={() => toggle(task.id)} />
+            <span className="flex-1 text-sm">{task.title}</span>
+            <span className="text-xs text-muted-foreground">{task.status}</span>
+          </label>
+        ))}
+      </div>
+      <p className="text-center text-xs text-muted-foreground">Select rows to see the action bar</p>
+      <ActionBar open={selected.size > 0} onOpenChange={() => setSelected(new Set())}>
+        <ActionBarGroup>
+          <ActionBarSelection>
+            {selected.size} selected
+            <ActionBarSeparator />
+          </ActionBarSelection>
+          <ActionBarItem onSelect={() => setSelected(new Set())}>
+            <CopyIcon />
+            Copy
+          </ActionBarItem>
+          <ActionBarItem onSelect={() => setSelected(new Set())}>
+            <PencilIcon />
+            Edit
+          </ActionBarItem>
+          <ActionBarSeparator />
+          <ActionBarItem variant="destructive" onSelect={() => setSelected(new Set())}>
+            <TrashIcon />
+            Delete
+          </ActionBarItem>
+          <ActionBarSeparator />
+          <ActionBarClose>
+            <XIcon />
+          </ActionBarClose>
+        </ActionBarGroup>
+      </ActionBar>
+    </div>
+  );
+}
+```
+## Default
+
+**Slug:** `banner`
+**Variant:** `default`
+**Upstream:** https://www.diceui.com/docs/components/radix/banner
+**Description:** Default example for Banner component showing core functionality.
+**Depends on:** banner
+
+```tsx
+/**
+ * @slug banner
+ * @variant default
+ * @upstream https://www.diceui.com/docs/components/radix/banner
+ * @deviations ["Token classes replace hardcoded palette."]
+ */
+"use client";
+
+import { InfoIcon } from "lucide-react";
+import * as React from "react";
+
+import {
+  Banner,
+  BannerActions,
+  BannerClose,
+  BannerContent,
+  BannerDescription,
+  BannerIcon,
+  BannerTitle,
+} from "@/components/ui/banner";
+import { Button } from "@/components/ui/button";
+
+export default function BannerDefault() {
+  const [open, setOpen] = React.useState(true);
+
+  return (
+    <div className="w-full space-y-4">
+      {!open && (
+        <Button variant="outline" onClick={() => setOpen(true)}>
+          Show banner
+        </Button>
+      )}
+      <Banner variant="info" open={open} onOpenChange={setOpen}>
+        <BannerIcon>
+          <InfoIcon />
+        </BannerIcon>
+        <BannerContent>
+          <BannerTitle>New version available</BannerTitle>
+          <BannerDescription>
+            Version 2.0 includes performance improvements and new features.
+          </BannerDescription>
+        </BannerContent>
+        <BannerActions>
+          <Button variant="outline" size="sm">
+            Learn more
+          </Button>
+        </BannerActions>
+        <BannerClose />
+      </Banner>
+    </div>
+  );
+}
+```
+## Default
+
+**Slug:** `border-beam-button`
+**Variant:** `default`
+**Upstream:** https://www.cult-ui.com/docs/components/border-beam-button
+**Description:** Default example for Border Beam Button component showing core functionality.
+**Depends on:** border-beam-button
+
+```tsx
+/**
+ * @slug border-beam-button
+ * @variant default
+ * @upstream https://border-beam.dev
+ * @deviations ["Token classes replace hardcoded palette."]
+ */
+
+import { BorderBeamButton } from "@/components/ui/border-beam-button";
+
+export default function BorderBeamButtonDefault() {
+  return (
+    <div className="flex items-center justify-center">
+      <BorderBeamButton beamSize="sm">Get started</BorderBeamButton>
+    </div>
+  );
+}
+```
+## Default
+
+**Slug:** `circular-progress`
+**Variant:** `default`
+**Upstream:** https://www.diceui.com/docs/components/radix/circular-progress
+**Description:** Default example for Circular Progress component showing core functionality.
+**Depends on:** circular-progress
+
+```tsx
+/**
+ * @slug circular-progress
+ * @variant default
+ * @upstream https://www.diceui.com/docs/components/radix/circular-progress
+ * @deviations ["Token classes replace hardcoded palette."]
+ */
+
+import {
+  CircularProgress,
+  CircularProgressIndicator,
+  CircularProgressRange,
+  CircularProgressTrack,
+  CircularProgressValueText,
+} from "@/components/ui/circular-progress";
+
+export default function CircularProgressDefault() {
+  return (
+    <div className="flex items-center justify-center">
+      <CircularProgress value={75} size={80} thickness={6}>
+        <CircularProgressIndicator>
+          <CircularProgressTrack />
+          <CircularProgressRange />
+        </CircularProgressIndicator>
+        <CircularProgressValueText className="text-sm font-semibold" />
+      </CircularProgress>
+    </div>
+  );
+}
+```
+## Default
+
+**Slug:** `color-picker`
+**Variant:** `default`
+**Upstream:** https://www.diceui.com/docs/components/radix/color-picker
+**Description:** Default example for Color Picker component showing core functionality.
+**Depends on:** color-picker
+
+```tsx
+/**
+ * @slug color-picker
+ * @variant default
+ * @upstream custom
+ * @deviations ["Token classes replace hardcoded palette."]
+ */
+"use client";
+
+import * as React from "react";
+
+import { ColorPicker } from "@/components/ui/color-picker";
+
+export default function ColorPickerDefault() {
+  const [color, setColor] = React.useState("#007AFF");
+
+  return (
+    <div className="flex items-center gap-4">
+      <ColorPicker color={color} onChange={setColor} />
+    </div>
+  );
+}
+```
+## Default
+
+**Slug:** `color-swatch`
+**Variant:** `default`
+**Upstream:** https://www.diceui.com/docs/components/radix/color-swatch
+**Description:** Default example for Color Swatch component showing core functionality.
+**Depends on:** color-swatch
+
+```tsx
+/**
+ * @slug color-swatch
+ * @variant default
+ * @upstream https://www.diceui.com/docs/components/radix/color-swatch
+ * @deviations ["Token classes replace hardcoded palette."]
+ */
+
+import { ColorSwatch } from "@/components/ui/color-swatch";
+
+export default function ColorSwatchDefault() {
+  return (
+    <div className="flex items-center gap-3">
+      <ColorSwatch color="#FF3B30" size="lg" />
+      <ColorSwatch color="#4CD964" size="lg" />
+      <ColorSwatch color="#007AFF" size="lg" />
+      <ColorSwatch color="#FF9500" size="lg" />
+      <ColorSwatch color="rgba(88,86,214,0.5)" size="lg" />
+    </div>
+  );
+}
+```
+## Default
+
+**Slug:** `cropper`
+**Variant:** `default`
+**Upstream:** https://www.diceui.com/docs/components/radix/cropper
+**Description:** Default example for Cropper component showing core functionality.
+**Depends on:** cropper
+
+```tsx
+/**
+ * @slug cropper
+ * @variant default
+ * @upstream https://www.diceui.com/docs/components/radix/cropper
+ * @deviations ["Token classes replace hardcoded palette."]
+ */
+"use client";
+
+import * as React from "react";
+
+import { Cropper, CropperArea, CropperImage } from "@/components/ui/cropper";
+
+export default function CropperDefault() {
+  const [crop, setCrop] = React.useState({ x: 0, y: 0 });
+  const [zoom, setZoom] = React.useState(1);
+
+  return (
+    <div className="relative h-64 w-full overflow-hidden rounded-lg border bg-muted">
+      <Cropper
+        crop={crop}
+        zoom={zoom}
+        aspectRatio={16 / 9}
+        onCropChange={setCrop}
+        onZoomChange={setZoom}
+        withGrid
+      >
+        <CropperImage
+          src="https://images.unsplash.com/photo-1502082553048-f009c37129b9?w=800&q=80"
+          alt="Nature landscape"
+        />
+        <CropperArea />
+      </Cropper>
+    </div>
+  );
+}
+```
+## Default
+
+**Slug:** `data-grid`
+**Variant:** `default`
+**Upstream:** https://www.diceui.com/docs/components/radix/data-grid
+**Description:** Default example for Data Grid component showing core functionality.
+**Depends on:** data-grid
+
+```tsx
+/**
+ * @slug data-grid
+ * @variant default
+ * @upstream https://www.diceui.com/docs/components/react-table/data-grid
+ * @deviations ["Token classes replace hardcoded palette."]
+ */
+"use client";
+
+import type { ColumnDef } from "@tanstack/react-table";
+import * as React from "react";
+
+import { DataGrid } from "@/components/data-grid/data-grid";
+import { useDataGrid } from "@/hooks/use-data-grid";
+
+interface Row {
+  id: number;
+  name: string;
+  role: string;
+  department: string;
+  status: string;
+}
+
+const data: Row[] = [
+  {
+    id: 1,
+    name: "Alice Johnson",
+    role: "Engineer",
+    department: "Platform",
+    status: "Active",
+  },
+  {
+    id: 2,
+    name: "Bob Smith",
+    role: "Designer",
+    department: "Product",
+    status: "Active",
+  },
+  {
+    id: 3,
+    name: "Carol Lee",
+    role: "Manager",
+    department: "Engineering",
+    status: "On leave",
+  },
+  {
+    id: 4,
+    name: "Dan Park",
+    role: "Analyst",
+    department: "Finance",
+    status: "Active",
+  },
+  {
+    id: 5,
+    name: "Eva Chen",
+    role: "Engineer",
+    department: "Platform",
+    status: "Active",
+  },
+];
+
+const columns: ColumnDef<Row, unknown>[] = [
+  { accessorKey: "name", header: "Name", size: 180 },
+  { accessorKey: "role", header: "Role", size: 140 },
+  { accessorKey: "department", header: "Department", size: 140 },
+  { accessorKey: "status", header: "Status", size: 120 },
+];
+
+export default function DataGridDefault() {
+  const grid = useDataGrid({ data, columns });
+
+  return <DataGrid {...grid} height={320} />;
+}
+```
+## Default
+
+**Slug:** `file-upload`
+**Variant:** `default`
+**Upstream:** https://www.diceui.com/docs/components/radix/file-upload
+**Description:** Default example for File Upload component showing core functionality.
+**Depends on:** file-upload
+
+```tsx
+/**
+ * @slug file-upload
+ * @variant default
+ * @upstream https://www.diceui.com/docs/components/radix/file-upload
+ * @deviations ["Token classes replace hardcoded palette."]
+ */
+
+import { UploadIcon } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import {
+  FileUpload,
+  FileUploadDropzone,
+  FileUploadList,
+  FileUploadTrigger,
+} from "@/components/ui/file-upload";
+
+export default function FileUploadDefault() {
+  return (
+    <FileUpload maxFiles={5} maxSize={5 * 1024 * 1024} multiple>
+      <FileUploadDropzone>
+        <div className="flex flex-col items-center gap-1">
+          <UploadIcon className="size-6 text-muted-foreground" />
+          <p className="text-sm font-medium">Drag and drop files here</p>
+          <p className="text-xs text-muted-foreground">
+            or click to browse (max 5 files, 5 MB each)
+          </p>
+        </div>
+        <FileUploadTrigger asChild>
+          <Button variant="outline" size="sm" className="mt-2">
+            Choose files
+          </Button>
+        </FileUploadTrigger>
+      </FileUploadDropzone>
+      <FileUploadList />
+    </FileUpload>
+  );
+}
+```
+## Default
+
+**Slug:** `gauge`
+**Variant:** `default`
+**Upstream:** https://www.diceui.com/docs/components/radix/gauge
+**Description:** Default example for Gauge component showing core functionality.
+**Depends on:** gauge
+
+```tsx
+/**
+ * @slug gauge
+ * @variant default
+ * @upstream https://www.diceui.com/docs/components/radix/gauge
+ * @deviations ["Token classes replace hardcoded palette."]
+ */
+
+import {
+  Gauge,
+  GaugeIndicator,
+  GaugeLabel,
+  GaugeRange,
+  GaugeTrack,
+  GaugeValueText,
+} from "@/components/ui/gauge";
+
+export default function GaugeDefault() {
+  return (
+    <div className="flex items-center justify-center">
+      <Gauge value={60} size={160} thickness={10} startAngle={-120} endAngle={120}>
+        <GaugeIndicator>
+          <GaugeTrack />
+          <GaugeRange />
+        </GaugeIndicator>
+        <GaugeValueText />
+        <GaugeLabel>Performance</GaugeLabel>
+      </Gauge>
+    </div>
+  );
+}
+```
+## Default
+
+**Slug:** `key-value`
+**Variant:** `default`
+**Upstream:** https://www.diceui.com/docs/components/radix/key-value
+**Description:** Default example for Key Value component showing core functionality.
+**Depends on:** key-value
+
+```tsx
+/**
+ * @slug key-value
+ * @variant default
+ * @upstream https://www.diceui.com/docs/components/radix/key-value
+ * @deviations ["Token classes replace hardcoded palette."]
+ */
+
+import {
+  KeyValue,
+  KeyValueAdd,
+  KeyValueItem,
+  KeyValueKeyInput,
+  KeyValueList,
+  KeyValueRemove,
+  KeyValueValueInput,
+} from "@/components/ui/key-value";
+
+export default function KeyValueDefault() {
+  return (
+    <KeyValue
+      defaultValue={[
+        { id: "1", key: "API_URL", value: "https://api.example.com" },
+        { id: "2", key: "APP_ENV", value: "production" },
+        { id: "3", key: "LOG_LEVEL", value: "info" },
+      ]}
+      className="w-full max-w-lg"
+    >
+      <KeyValueList>
+        <KeyValueItem>
+          <KeyValueKeyInput />
+          <KeyValueValueInput />
+          <KeyValueRemove />
+        </KeyValueItem>
+      </KeyValueList>
+      <KeyValueAdd />
+    </KeyValue>
+  );
+}
+```
+## Default
+
+**Slug:** `mention`
+**Variant:** `default`
+**Upstream:** https://www.diceui.com/docs/components/radix/mention
+**Description:** Default example for Mention component showing core functionality.
+**Depends on:** mention
+
+```tsx
+/**
+ * @slug mention
+ * @variant default
+ * @upstream https://www.diceui.com/docs/components/radix/mention
+ * @deviations ["Token classes replace hardcoded palette."]
+ */
+
+import { Mention, MentionContent, MentionInput, MentionItem } from "@/components/ui/mention";
+
+const USERS = [
+  { id: "alice", label: "Alice Johnson" },
+  { id: "bob", label: "Bob Smith" },
+  { id: "carol", label: "Carol Lee" },
+  { id: "dan", label: "Dan Park" },
+];
+
+export default function MentionDefault() {
+  return (
+    <div className="w-full max-w-md">
+      <Mention>
+        <MentionInput placeholder="Type @ to mention someone..." />
+        <MentionContent>
+          {USERS.map((user) => (
+            <MentionItem key={user.id} value={user.label}>
+              {user.label}
+            </MentionItem>
+          ))}
+        </MentionContent>
+      </Mention>
+    </div>
+  );
+}
+```
+## Default
+
+**Slug:** `phone-input`
+**Variant:** `default`
+**Upstream:** https://www.diceui.com/docs/components/radix/phone-input
+**Description:** Default example for Phone Input component showing core functionality.
+**Depends on:** phone-input
+
+```tsx
+/**
+ * @slug phone-input
+ * @variant default
+ * @upstream https://www.diceui.com/docs/components/radix/phone-input
+ * @deviations ["Token classes replace hardcoded palette."]
+ */
+"use client";
+
+import * as React from "react";
+
+import { PhoneInput, PhoneInputCountrySelect, PhoneInputField } from "@/components/ui/phone-input";
+
+export default function PhoneInputDefault() {
+  const [value, setValue] = React.useState("+420");
+
+  return (
+    <div className="w-full max-w-sm">
+      <PhoneInput value={value} onValueChange={setValue} defaultCountry="CZ">
+        <PhoneInputCountrySelect />
+        <PhoneInputField />
+      </PhoneInput>
+    </div>
+  );
+}
+```
+## Default
+
+**Slug:** `prompt-library`
+**Variant:** `default`
+**Upstream:** https://www.cult-ui.com/docs/components/prompt-library
+**Description:** Default example for Prompt Library component showing core functionality.
+**Depends on:** prompt-library
+
+```tsx
+/**
+ * @slug prompt-library
+ * @variant default
+ * @upstream custom
+ * @deviations ["Token classes replace hardcoded palette."]
+ */
+
+import {
+  type Prompt,
+  PromptLibrary,
+  PromptLibraryContent,
+  PromptLibraryCreateDialog,
+  PromptLibraryCreateTrigger,
+  PromptLibraryEmpty,
+  PromptLibraryFooter,
+  PromptLibraryGroup,
+  PromptLibraryItem,
+  PromptLibraryList,
+  PromptLibrarySearch,
+  PromptLibraryTrigger,
+} from "@/components/ui/prompt-library";
+
+const PROMPTS: Prompt[] = [
+  {
+    id: "1",
+    title: "Code Review",
+    description: "Review code for best practices and bugs",
+    prompt: "Review the following code for best practices, potential bugs, and performance issues.",
+    category: "Development",
+  },
+  {
+    id: "2",
+    title: "Summarize",
+    description: "Create a concise summary of text",
+    prompt: "Summarize the following text in 2-3 sentences, keeping the key points.",
+    category: "Writing",
+  },
+  {
+    id: "3",
+    title: "Explain",
+    description: "Explain a concept simply",
+    prompt: "Explain the following concept in simple terms that a beginner could understand.",
+    category: "Learning",
+  },
+];
+
+export default function PromptLibraryDefault() {
+  return (
+    <div className="flex items-center justify-center">
+      <PromptLibrary prompts={PROMPTS}>
+        <PromptLibraryTrigger />
+        <PromptLibraryContent>
+          <PromptLibrarySearch />
+          <PromptLibraryList>
+            <PromptLibraryEmpty />
+            <PromptLibraryGroup heading="Templates">
+              {PROMPTS.map((prompt) => (
+                <PromptLibraryItem key={prompt.id} prompt={prompt} />
+              ))}
+            </PromptLibraryGroup>
+          </PromptLibraryList>
+          <PromptLibraryFooter>
+            <PromptLibraryCreateTrigger />
+          </PromptLibraryFooter>
+        </PromptLibraryContent>
+        <PromptLibraryCreateDialog />
+      </PromptLibrary>
+    </div>
+  );
+}
+```
+## Default
+
+**Slug:** `qr-code`
+**Variant:** `default`
+**Upstream:** https://www.diceui.com/docs/components/radix/qr-code
+**Description:** Default example for Qr Code component showing core functionality.
+**Depends on:** qr-code
+
+```tsx
+/**
+ * @slug qr-code
+ * @variant default
+ * @upstream https://www.diceui.com/docs/components/radix/qr-code
+ * @deviations ["Token classes replace hardcoded palette."]
+ */
+
+import { QRCode, QRCodeCanvas, QRCodeSkeleton } from "@/components/ui/qr-code";
+
+export default function QRCodeDefault() {
+  return (
+    <div className="flex items-center justify-center">
+      <QRCode value="https://example.com" size={200} level="M">
+        <QRCodeSkeleton className="rounded-md" />
+        <QRCodeCanvas />
+      </QRCode>
+    </div>
+  );
+}
+```
+## Default
+
+**Slug:** `segmented-input`
+**Variant:** `default`
+**Upstream:** https://www.diceui.com/docs/components/radix/segmented-input
+**Description:** Default example for Segmented Input component showing core functionality.
+**Depends on:** segmented-input
+
+```tsx
+/**
+ * @slug segmented-input
+ * @variant default
+ * @upstream https://www.diceui.com/docs/components/radix/segmented-input
+ * @deviations ["Token classes replace hardcoded palette."]
+ */
+
+import { Label } from "@/components/ui/label";
+import { SegmentedInput, SegmentedInputItem } from "@/components/ui/segmented-input";
+
+export default function SegmentedInputDefault() {
+  return (
+    <div className="flex flex-col gap-2">
+      <Label>Date of birth</Label>
+      <SegmentedInput>
+        <SegmentedInputItem placeholder="MM" maxLength={2} className="w-16 text-center" />
+        <SegmentedInputItem placeholder="DD" maxLength={2} className="w-16 text-center" />
+        <SegmentedInputItem placeholder="YYYY" maxLength={4} className="w-20 text-center" />
+      </SegmentedInput>
+    </div>
+  );
+}
+```
+## Default
+
+**Slug:** `swap`
+**Variant:** `default`
+**Upstream:** https://www.diceui.com/docs/components/radix/swap
+**Description:** Default example for Swap component showing core functionality.
+**Depends on:** swap
+
+```tsx
+/**
+ * @slug swap
+ * @variant default
+ * @upstream https://www.diceui.com/docs/components/radix/swap
+ * @deviations ["Token classes replace hardcoded palette."]
+ */
+
+import { MoonIcon, SunIcon } from "lucide-react";
+
+import { Swap, SwapOff, SwapOn } from "@/components/ui/swap";
+
+export default function SwapDefault() {
+  return (
+    <div className="flex items-center justify-center">
+      <Swap animation="rotate" className="size-10 rounded-md border p-2">
+        <SwapOff>
+          <SunIcon className="size-5 text-foreground" />
+        </SwapOff>
+        <SwapOn>
+          <MoonIcon className="size-5 text-foreground" />
+        </SwapOn>
+      </Swap>
+    </div>
+  );
+}
+```
+## Default
+
+**Slug:** `tags-input`
+**Variant:** `default`
+**Upstream:** https://www.diceui.com/docs/components/radix/tags-input
+**Description:** Default example for Tags Input component showing core functionality.
+**Depends on:** tags-input
+
+```tsx
+/**
+ * @slug tags-input
+ * @variant default
+ * @upstream https://www.diceui.com/docs/components/radix/tags-input
+ * @deviations ["Token classes replace hardcoded palette."]
+ */
+"use client";
+
+import * as React from "react";
+
+import {
+  TagsInput,
+  TagsInputInput,
+  TagsInputItem,
+  TagsInputLabel,
+  TagsInputList,
+} from "@/components/ui/tags-input";
+
+export default function TagsInputDefault() {
+  const [tags, setTags] = React.useState(["React", "TypeScript", "Tailwind"]);
+
+  return (
+    <TagsInput value={tags} onValueChange={setTags}>
+      <TagsInputLabel>Technologies</TagsInputLabel>
+      <TagsInputList>
+        {tags.map((tag) => (
+          <TagsInputItem key={tag} value={tag}>
+            {tag}
+          </TagsInputItem>
+        ))}
+        <TagsInputInput placeholder="Add tag..." />
+      </TagsInputList>
+    </TagsInput>
+  );
+}
+```
+## Default
+
+**Slug:** `terminal-animation`
+**Variant:** `default`
+**Upstream:** https://www.cult-ui.com/docs/components/terminal-animation
+**Description:** Default example for Terminal Animation component showing core functionality.
+**Depends on:** terminal-animation
+
+```tsx
+/**
+ * @slug terminal-animation
+ * @variant default
+ * @upstream custom
+ * @deviations ["Token classes replace hardcoded palette."]
+ */
+
+import {
+  defaultTerminalTabs,
+  TerminalAnimationBlinkingCursor,
+  TerminalAnimationCommandBar,
+  TerminalAnimationContainer,
+  TerminalAnimationContent,
+  TerminalAnimationOutput,
+  TerminalAnimationRoot,
+  TerminalAnimationTabList,
+  TerminalAnimationTabTrigger,
+  TerminalAnimationTrailingPrompt,
+  TerminalAnimationWindow,
+} from "@/components/ui/terminal-animation";
+
+export default function TerminalAnimationDefault() {
+  return (
+    <TerminalAnimationRoot tabs={defaultTerminalTabs} className="relative w-full overflow-hidden">
+      <TerminalAnimationContainer>
+        <TerminalAnimationTabList className="flex gap-1 px-2">
+          {defaultTerminalTabs.map((tab, i) => (
+            <TerminalAnimationTabTrigger
+              key={tab.label}
+              index={i}
+              className="rounded-t-md px-3 py-1.5 text-xs font-medium text-muted-foreground transition-colors data-[state=active]:bg-card data-[state=active]:text-foreground"
+            >
+              {tab.label}
+            </TerminalAnimationTabTrigger>
+          ))}
+        </TerminalAnimationTabList>
+        <TerminalAnimationWindow minHeight="20rem" animateOnVisible={false}>
+          <TerminalAnimationContent>
+            <div className="font-mono text-sm leading-relaxed">
+              <div className="flex items-center gap-2">
+                <span className="text-primary">$</span>
+                <TerminalAnimationCommandBar className="text-foreground" />
+              </div>
+              <TerminalAnimationOutput
+                renderLine={(line, index, visible) =>
+                  visible ? (
+                    <div key={index} className={line.color}>
+                      {line.text || " "}
+                    </div>
+                  ) : null
+                }
+              />
+              <TerminalAnimationTrailingPrompt className="flex items-center gap-2">
+                <span className="text-primary">$</span>
+                <TerminalAnimationBlinkingCursor />
+              </TerminalAnimationTrailingPrompt>
+            </div>
+          </TerminalAnimationContent>
+        </TerminalAnimationWindow>
+      </TerminalAnimationContainer>
+    </TerminalAnimationRoot>
+  );
+}
+```
+## Default
+
+**Slug:** `timeline`
+**Variant:** `default`
+**Upstream:** https://www.diceui.com/docs/components/radix/timeline
+**Description:** Default example for Timeline component showing core functionality.
+**Depends on:** timeline
+
+```tsx
+/**
+ * @slug timeline
+ * @variant default
+ * @upstream https://www.diceui.com/docs/components/radix/timeline
+ * @deviations ["Token classes replace hardcoded palette."]
+ */
+
+import {
+  Timeline,
+  TimelineConnector,
+  TimelineContent,
+  TimelineDescription,
+  TimelineDot,
+  TimelineHeader,
+  TimelineItem,
+  TimelineTitle,
+} from "@/components/ui/timeline";
+
+export default function TimelineDefault() {
+  return (
+    <Timeline activeIndex={1}>
+      <TimelineItem>
+        <TimelineDot />
+        <TimelineConnector />
+        <TimelineContent>
+          <TimelineHeader>
+            <TimelineTitle>Project kickoff</TimelineTitle>
+            <TimelineDescription>
+              Initial requirements gathered and team assembled.
+            </TimelineDescription>
+          </TimelineHeader>
+        </TimelineContent>
+      </TimelineItem>
+      <TimelineItem>
+        <TimelineDot />
+        <TimelineConnector />
+        <TimelineContent>
+          <TimelineHeader>
+            <TimelineTitle>Development in progress</TimelineTitle>
+            <TimelineDescription>Core features are being built and tested.</TimelineDescription>
+          </TimelineHeader>
+        </TimelineContent>
+      </TimelineItem>
+      <TimelineItem>
+        <TimelineDot />
+        <TimelineContent>
+          <TimelineHeader>
+            <TimelineTitle>Launch</TimelineTitle>
+            <TimelineDescription>Deploy to production and announce to users.</TimelineDescription>
+          </TimelineHeader>
+        </TimelineContent>
+      </TimelineItem>
+    </Timeline>
+  );
+}
+```
+## Default
+
+**Slug:** `tour`
+**Variant:** `default`
+**Upstream:** https://www.diceui.com/docs/components/radix/tour
+**Description:** Default example for Tour component showing core functionality.
+**Depends on:** tour
+
+```tsx
+/**
+ * @slug tour
+ * @variant default
+ * @upstream https://www.diceui.com/docs/components/radix/tour
+ * @deviations ["Token classes replace hardcoded palette."]
+ */
+"use client";
+
+import * as React from "react";
+
+import { Button } from "@/components/ui/button";
+import {
+  Tour,
+  TourClose,
+  TourDescription,
+  TourFooter,
+  TourHeader,
+  TourNext,
+  TourPortal,
+  TourPrev,
+  TourSpotlight,
+  TourStep,
+  TourStepCounter,
+  TourTitle,
+} from "@/components/ui/tour";
+
+export default function TourDefault() {
+  const [open, setOpen] = React.useState(false);
+
+  return (
+    <Tour open={open} onOpenChange={setOpen}>
+      <div className="flex flex-col items-start gap-4">
+        <Button id="tour-trigger" variant="outline" onClick={() => setOpen(true)}>
+          Start tour
+        </Button>
+        <div className="flex gap-4">
+          <div id="tour-step-1" className="rounded-lg border bg-card p-4 text-sm">
+            Step 1: Welcome card
+          </div>
+          <div id="tour-step-2" className="rounded-lg border bg-card p-4 text-sm">
+            Step 2: Feature card
+          </div>
+        </div>
+      </div>
+      <TourPortal>
+        <TourSpotlight />
+        <TourStep target="#tour-step-1" side="bottom">
+          <TourClose />
+          <TourHeader>
+            <TourTitle>Welcome</TourTitle>
+            <TourDescription>
+              This is the first step of the tour. It highlights a UI element.
+            </TourDescription>
+          </TourHeader>
+          <TourFooter>
+            <TourStepCounter />
+            <div className="flex gap-2">
+              <TourPrev />
+              <TourNext />
+            </div>
+          </TourFooter>
+        </TourStep>
+        <TourStep target="#tour-step-2" side="bottom">
+          <TourClose />
+          <TourHeader>
+            <TourTitle>Features</TourTitle>
+            <TourDescription>
+              This is the second step. Click finish to complete the tour.
+            </TourDescription>
+          </TourHeader>
+          <TourFooter>
+            <TourStepCounter />
+            <div className="flex gap-2">
+              <TourPrev />
+              <TourNext />
+            </div>
+          </TourFooter>
+        </TourStep>
+      </TourPortal>
+    </Tour>
+  );
+}
+```

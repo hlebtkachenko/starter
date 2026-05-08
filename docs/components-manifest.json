@@ -175,6 +175,50 @@
   },
   {
     "categories": [
+      "actions",
+      "overlay"
+    ],
+    "description": "Floating toolbar that appears on selection with keyboard navigation, item actions, close button, and separator. Portal-mounted with configurable position.",
+    "files": [
+      {
+        "path": "components/ui/action-bar.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "name": "action-bar",
+    "proposedGroup": "actions",
+    "registryDependencies": [
+      "button"
+    ],
+    "title": "Action Bar",
+    "type": "registry:ui",
+    "upstreamUrl": "https://www.diceui.com/docs/components/radix/action-bar"
+  },
+  {
+    "categories": [
+      "actions"
+    ],
+    "description": "Default example for Action Bar component showing core functionality.",
+    "files": [
+      {
+        "path": "components/examples/action-bar-default.tsx",
+        "type": "registry:example"
+      }
+    ],
+    "isDefault": true,
+    "isFlagged": false,
+    "name": "action-bar-default",
+    "registryDependencies": [
+      "action-bar"
+    ],
+    "slug": "action-bar",
+    "title": "Default",
+    "type": "registry:example",
+    "upstreamUrl": "https://www.diceui.com/docs/components/radix/action-bar",
+    "variant": "default"
+  },
+  {
+    "categories": [
       "feedback"
     ],
     "description": "Callout for user attention with optional icon, title, description, and action.",
@@ -951,6 +995,90 @@
     "type": "registry:example",
     "upstreamUrl": "https://ui.shadcn.com/docs/components/badge",
     "variant": "with-spinner"
+  },
+  {
+    "categories": [
+      "feedback"
+    ],
+    "description": "Dismissible notification banner with variant styles, icon, action button, and close. Supports top/bottom layout.",
+    "files": [
+      {
+        "path": "components/ui/banner.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "name": "banner",
+    "proposedGroup": "feedback",
+    "title": "Banner",
+    "type": "registry:ui",
+    "upstreamUrl": "https://www.diceui.com/docs/components/radix/banner"
+  },
+  {
+    "categories": [
+      "feedback"
+    ],
+    "description": "Default example for Banner component showing core functionality.",
+    "files": [
+      {
+        "path": "components/examples/banner-default.tsx",
+        "type": "registry:example"
+      }
+    ],
+    "isDefault": true,
+    "isFlagged": false,
+    "name": "banner-default",
+    "registryDependencies": [
+      "banner"
+    ],
+    "slug": "banner",
+    "title": "Default",
+    "type": "registry:example",
+    "upstreamUrl": "https://www.diceui.com/docs/components/radix/banner",
+    "variant": "default"
+  },
+  {
+    "categories": [
+      "actions",
+      "effects"
+    ],
+    "description": "Button wrapped with animated beam border effect. Standard and icon-only variants.",
+    "files": [
+      {
+        "path": "components/ui/border-beam-button.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "name": "border-beam-button",
+    "proposedGroup": "buttons",
+    "registryDependencies": [
+      "button"
+    ],
+    "title": "Border Beam Button",
+    "type": "registry:ui",
+    "upstreamUrl": "https://www.cult-ui.com/docs/components/border-beam-button"
+  },
+  {
+    "categories": [
+      "buttons"
+    ],
+    "description": "Default example for Border Beam Button component showing core functionality.",
+    "files": [
+      {
+        "path": "components/examples/border-beam-button-default.tsx",
+        "type": "registry:example"
+      }
+    ],
+    "isDefault": true,
+    "isFlagged": false,
+    "name": "border-beam-button-default",
+    "registryDependencies": [
+      "border-beam-button"
+    ],
+    "slug": "border-beam-button",
+    "title": "Default",
+    "type": "registry:example",
+    "upstreamUrl": "https://www.cult-ui.com/docs/components/border-beam-button",
+    "variant": "default"
   },
   {
     "categories": [
@@ -2940,6 +3068,47 @@
   },
   {
     "categories": [
+      "feedback",
+      "display"
+    ],
+    "description": "SVG-based circular progress indicator with configurable size, thickness, and value display.",
+    "files": [
+      {
+        "path": "components/ui/circular-progress.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "name": "circular-progress",
+    "proposedGroup": "feedback",
+    "title": "Circular Progress",
+    "type": "registry:ui",
+    "upstreamUrl": "https://www.diceui.com/docs/components/radix/circular-progress"
+  },
+  {
+    "categories": [
+      "feedback"
+    ],
+    "description": "Default example for Circular Progress component showing core functionality.",
+    "files": [
+      {
+        "path": "components/examples/circular-progress-default.tsx",
+        "type": "registry:example"
+      }
+    ],
+    "isDefault": true,
+    "isFlagged": false,
+    "name": "circular-progress-default",
+    "registryDependencies": [
+      "circular-progress"
+    ],
+    "slug": "circular-progress",
+    "title": "Default",
+    "type": "registry:example",
+    "upstreamUrl": "https://www.diceui.com/docs/components/radix/circular-progress",
+    "variant": "default"
+  },
+  {
+    "categories": [
       "disclosure"
     ],
     "description": "Interactive component that expands and collapses a panel.",
@@ -3050,6 +3219,92 @@
     "type": "registry:example",
     "upstreamUrl": "https://ui.shadcn.com/docs/components/collapsible",
     "variant": "settings-panel"
+  },
+  {
+    "categories": [
+      "forms"
+    ],
+    "description": "HSL color area picker with hue slider, hex/HSL input, and preset swatches in a popover.",
+    "files": [
+      {
+        "path": "components/ui/color-picker.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "name": "color-picker",
+    "proposedGroup": "forms",
+    "registryDependencies": [
+      "button",
+      "input",
+      "label",
+      "popover"
+    ],
+    "title": "Color Picker",
+    "type": "registry:ui",
+    "upstreamUrl": "https://www.diceui.com/docs/components/radix/color-picker"
+  },
+  {
+    "categories": [
+      "forms"
+    ],
+    "description": "Default example for Color Picker component showing core functionality.",
+    "files": [
+      {
+        "path": "components/examples/color-picker-default.tsx",
+        "type": "registry:example"
+      }
+    ],
+    "isDefault": true,
+    "isFlagged": false,
+    "name": "color-picker-default",
+    "registryDependencies": [
+      "color-picker"
+    ],
+    "slug": "color-picker",
+    "title": "Default",
+    "type": "registry:example",
+    "upstreamUrl": "https://www.diceui.com/docs/components/radix/color-picker",
+    "variant": "default"
+  },
+  {
+    "categories": [
+      "display"
+    ],
+    "description": "Color preview swatch with configurable size, radius, and optional checkered background for transparency.",
+    "files": [
+      {
+        "path": "components/ui/color-swatch.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "name": "color-swatch",
+    "proposedGroup": "display",
+    "title": "Color Swatch",
+    "type": "registry:ui",
+    "upstreamUrl": "https://www.diceui.com/docs/components/radix/color-swatch"
+  },
+  {
+    "categories": [
+      "display"
+    ],
+    "description": "Default example for Color Swatch component showing core functionality.",
+    "files": [
+      {
+        "path": "components/examples/color-swatch-default.tsx",
+        "type": "registry:example"
+      }
+    ],
+    "isDefault": true,
+    "isFlagged": false,
+    "name": "color-swatch-default",
+    "registryDependencies": [
+      "color-swatch"
+    ],
+    "slug": "color-swatch",
+    "title": "Default",
+    "type": "registry:example",
+    "upstreamUrl": "https://www.diceui.com/docs/components/radix/color-swatch",
+    "variant": "default"
   },
   {
     "categories": [
@@ -3553,6 +3808,137 @@
     "type": "registry:example",
     "upstreamUrl": "https://ui.shadcn.com/docs/components/context-menu",
     "variant": "submenu"
+  },
+  {
+    "categories": [
+      "forms",
+      "display"
+    ],
+    "description": "Image cropper with zoom, rotation, aspect ratio lock, and crop area selection. Touch and keyboard support.",
+    "files": [
+      {
+        "path": "components/ui/cropper.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "name": "cropper",
+    "proposedGroup": "forms",
+    "title": "Cropper",
+    "type": "registry:ui",
+    "upstreamUrl": "https://www.diceui.com/docs/components/radix/cropper"
+  },
+  {
+    "categories": [
+      "forms"
+    ],
+    "description": "Default example for Cropper component showing core functionality.",
+    "files": [
+      {
+        "path": "components/examples/cropper-default.tsx",
+        "type": "registry:example"
+      }
+    ],
+    "isDefault": true,
+    "isFlagged": false,
+    "name": "cropper-default",
+    "registryDependencies": [
+      "cropper"
+    ],
+    "slug": "cropper",
+    "title": "Default",
+    "type": "registry:example",
+    "upstreamUrl": "https://www.diceui.com/docs/components/radix/cropper",
+    "variant": "default"
+  },
+  {
+    "categories": [
+      "data",
+      "forms"
+    ],
+    "description": "High-performance editable spreadsheet with virtualization, 9 cell types, clipboard, undo/redo, search, sorting, and column management.",
+    "files": [
+      {
+        "path": "components/ui/data-grid.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "name": "data-grid",
+    "proposedGroup": "data",
+    "registryDependencies": [
+      "button",
+      "checkbox",
+      "command",
+      "context-menu",
+      "dialog",
+      "dropdown-menu",
+      "input",
+      "popover",
+      "select",
+      "separator",
+      "table",
+      "tooltip"
+    ],
+    "title": "Data Grid",
+    "type": "registry:ui",
+    "upstreamUrl": "https://www.diceui.com/docs/components/radix/data-grid"
+  },
+  {
+    "categories": [
+      "data"
+    ],
+    "description": "Default example for Data Grid component showing core functionality.",
+    "files": [
+      {
+        "path": "components/examples/data-grid-default.tsx",
+        "type": "registry:example"
+      }
+    ],
+    "isDefault": true,
+    "isFlagged": false,
+    "name": "data-grid-default",
+    "registryDependencies": [
+      "data-grid"
+    ],
+    "slug": "data-grid",
+    "title": "Default",
+    "type": "registry:example",
+    "upstreamUrl": "https://www.diceui.com/docs/components/radix/data-grid",
+    "variant": "default"
+  },
+  {
+    "categories": [
+      "data",
+      "display"
+    ],
+    "description": "Feature-rich data table with advanced filtering, URL state sync, multi-column sorting, pagination, column visibility, row selection, and action bar.",
+    "files": [
+      {
+        "path": "components/ui/data-table.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "name": "data-table",
+    "proposedGroup": "data",
+    "registryDependencies": [
+      "button",
+      "badge",
+      "calendar",
+      "checkbox",
+      "command",
+      "dialog",
+      "dropdown-menu",
+      "input",
+      "popover",
+      "select",
+      "separator",
+      "skeleton",
+      "slider",
+      "table",
+      "tooltip"
+    ],
+    "title": "Data Table",
+    "type": "registry:ui",
+    "upstreamUrl": "https://www.diceui.com/docs/components/radix/data-table"
   },
   {
     "categories": [
@@ -4955,6 +5341,46 @@
   },
   {
     "categories": [
+      "forms"
+    ],
+    "description": "Drag-and-drop file upload with progress tracking, file type validation, size limits, and preview thumbnails.",
+    "files": [
+      {
+        "path": "components/ui/file-upload.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "name": "file-upload",
+    "proposedGroup": "forms",
+    "title": "File Upload",
+    "type": "registry:ui",
+    "upstreamUrl": "https://www.diceui.com/docs/components/radix/file-upload"
+  },
+  {
+    "categories": [
+      "forms"
+    ],
+    "description": "Default example for File Upload component showing core functionality.",
+    "files": [
+      {
+        "path": "components/examples/file-upload-default.tsx",
+        "type": "registry:example"
+      }
+    ],
+    "isDefault": true,
+    "isFlagged": false,
+    "name": "file-upload-default",
+    "registryDependencies": [
+      "file-upload"
+    ],
+    "slug": "file-upload",
+    "title": "Default",
+    "type": "registry:example",
+    "upstreamUrl": "https://www.diceui.com/docs/components/radix/file-upload",
+    "variant": "default"
+  },
+  {
+    "categories": [
       "auth"
     ],
     "description": "Centered forgot-password form with a single email field that triggers a reset-link email. Scaffold following the login-card pattern; wire submit handler to Better Auth forgot-password endpoint when implementing. Composes Field, Input, Button.",
@@ -4976,6 +5402,47 @@
     ],
     "title": "Forgot Password Card",
     "type": "registry:block"
+  },
+  {
+    "categories": [
+      "display",
+      "feedback"
+    ],
+    "description": "SVG gauge/meter component with configurable min/max, segments, labels, and needle indicator.",
+    "files": [
+      {
+        "path": "components/ui/gauge.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "name": "gauge",
+    "proposedGroup": "display",
+    "title": "Gauge",
+    "type": "registry:ui",
+    "upstreamUrl": "https://www.diceui.com/docs/components/radix/gauge"
+  },
+  {
+    "categories": [
+      "display"
+    ],
+    "description": "Default example for Gauge component showing core functionality.",
+    "files": [
+      {
+        "path": "components/examples/gauge-default.tsx",
+        "type": "registry:example"
+      }
+    ],
+    "isDefault": true,
+    "isFlagged": false,
+    "name": "gauge-default",
+    "registryDependencies": [
+      "gauge"
+    ],
+    "slug": "gauge",
+    "title": "Default",
+    "type": "registry:example",
+    "upstreamUrl": "https://www.diceui.com/docs/components/radix/gauge",
+    "variant": "default"
   },
   {
     "categories": [
@@ -6127,6 +6594,47 @@
   },
   {
     "categories": [
+      "display",
+      "forms"
+    ],
+    "description": "Editable key-value pair input with add/remove/reorder, validation, and clipboard support.",
+    "files": [
+      {
+        "path": "components/ui/key-value.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "name": "key-value",
+    "proposedGroup": "display",
+    "title": "Key Value",
+    "type": "registry:ui",
+    "upstreamUrl": "https://www.diceui.com/docs/components/radix/key-value"
+  },
+  {
+    "categories": [
+      "display"
+    ],
+    "description": "Default example for Key Value component showing core functionality.",
+    "files": [
+      {
+        "path": "components/examples/key-value-default.tsx",
+        "type": "registry:example"
+      }
+    ],
+    "isDefault": true,
+    "isFlagged": false,
+    "name": "key-value-default",
+    "registryDependencies": [
+      "key-value"
+    ],
+    "slug": "key-value",
+    "title": "Default",
+    "type": "registry:example",
+    "upstreamUrl": "https://www.diceui.com/docs/components/radix/key-value",
+    "variant": "default"
+  },
+  {
+    "categories": [
       "forms"
     ],
     "description": "Accessible label associated with form controls.",
@@ -6287,6 +6795,46 @@
     ],
     "title": "Login Card (Maintenance + i18n)",
     "type": "registry:block"
+  },
+  {
+    "categories": [
+      "forms"
+    ],
+    "description": "Text input with @mention autocomplete suggestions triggered by a configurable character.",
+    "files": [
+      {
+        "path": "components/ui/mention.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "name": "mention",
+    "proposedGroup": "forms",
+    "title": "Mention",
+    "type": "registry:ui",
+    "upstreamUrl": "https://www.diceui.com/docs/components/radix/mention"
+  },
+  {
+    "categories": [
+      "forms"
+    ],
+    "description": "Default example for Mention component showing core functionality.",
+    "files": [
+      {
+        "path": "components/examples/mention-default.tsx",
+        "type": "registry:example"
+      }
+    ],
+    "isDefault": true,
+    "isFlagged": false,
+    "name": "mention-default",
+    "registryDependencies": [
+      "mention"
+    ],
+    "slug": "mention",
+    "title": "Default",
+    "type": "registry:example",
+    "upstreamUrl": "https://www.diceui.com/docs/components/radix/mention",
+    "variant": "default"
   },
   {
     "categories": [
@@ -6824,6 +7372,46 @@
   },
   {
     "categories": [
+      "forms"
+    ],
+    "description": "International phone number input with country code selector, flag display, and format validation.",
+    "files": [
+      {
+        "path": "components/ui/phone-input.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "name": "phone-input",
+    "proposedGroup": "forms",
+    "title": "Phone Input",
+    "type": "registry:ui",
+    "upstreamUrl": "https://www.diceui.com/docs/components/radix/phone-input"
+  },
+  {
+    "categories": [
+      "forms"
+    ],
+    "description": "Default example for Phone Input component showing core functionality.",
+    "files": [
+      {
+        "path": "components/examples/phone-input-default.tsx",
+        "type": "registry:example"
+      }
+    ],
+    "isDefault": true,
+    "isFlagged": false,
+    "name": "phone-input-default",
+    "registryDependencies": [
+      "phone-input"
+    ],
+    "slug": "phone-input",
+    "title": "Default",
+    "type": "registry:example",
+    "upstreamUrl": "https://www.diceui.com/docs/components/radix/phone-input",
+    "variant": "default"
+  },
+  {
+    "categories": [
       "overlay"
     ],
     "description": "Rich content in a portal triggered by a button.",
@@ -7007,6 +7595,96 @@
     "type": "registry:example",
     "upstreamUrl": "https://ui.shadcn.com/docs/components/progress",
     "variant": "label"
+  },
+  {
+    "categories": [
+      "overlay",
+      "forms"
+    ],
+    "description": "AI prompt template library in a popover with search, categories, hover preview, and custom prompt creation.",
+    "files": [
+      {
+        "path": "components/ui/prompt-library.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "name": "prompt-library",
+    "proposedGroup": "overlay",
+    "registryDependencies": [
+      "button",
+      "command",
+      "dialog",
+      "hover-card",
+      "input",
+      "popover",
+      "textarea"
+    ],
+    "title": "Prompt Library",
+    "type": "registry:ui",
+    "upstreamUrl": "https://www.cult-ui.com/docs/components/prompt-library"
+  },
+  {
+    "categories": [
+      "overlay"
+    ],
+    "description": "Default example for Prompt Library component showing core functionality.",
+    "files": [
+      {
+        "path": "components/examples/prompt-library-default.tsx",
+        "type": "registry:example"
+      }
+    ],
+    "isDefault": true,
+    "isFlagged": false,
+    "name": "prompt-library-default",
+    "registryDependencies": [
+      "prompt-library"
+    ],
+    "slug": "prompt-library",
+    "title": "Default",
+    "type": "registry:example",
+    "upstreamUrl": "https://www.cult-ui.com/docs/components/prompt-library",
+    "variant": "default"
+  },
+  {
+    "categories": [
+      "display"
+    ],
+    "description": "QR code generator with customizable size, error correction, colors, and optional logo overlay.",
+    "files": [
+      {
+        "path": "components/ui/qr-code.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "name": "qr-code",
+    "proposedGroup": "display",
+    "title": "QR Code",
+    "type": "registry:ui",
+    "upstreamUrl": "https://www.diceui.com/docs/components/radix/qr-code"
+  },
+  {
+    "categories": [
+      "display"
+    ],
+    "description": "Default example for Qr Code component showing core functionality.",
+    "files": [
+      {
+        "path": "components/examples/qr-code-default.tsx",
+        "type": "registry:example"
+      }
+    ],
+    "isDefault": true,
+    "isFlagged": false,
+    "name": "qr-code-default",
+    "registryDependencies": [
+      "qr-code"
+    ],
+    "slug": "qr-code",
+    "title": "Default",
+    "type": "registry:example",
+    "upstreamUrl": "https://www.diceui.com/docs/components/radix/qr-code",
+    "variant": "default"
   },
   {
     "categories": [
@@ -7270,6 +7948,46 @@
     "type": "registry:example",
     "upstreamUrl": "https://ui.shadcn.com/docs/components/scroll-area",
     "variant": "horizontal"
+  },
+  {
+    "categories": [
+      "forms"
+    ],
+    "description": "Multi-segment input (date, time, code) with individual segment focus, keyboard navigation, and validation.",
+    "files": [
+      {
+        "path": "components/ui/segmented-input.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "name": "segmented-input",
+    "proposedGroup": "forms",
+    "title": "Segmented Input",
+    "type": "registry:ui",
+    "upstreamUrl": "https://www.diceui.com/docs/components/radix/segmented-input"
+  },
+  {
+    "categories": [
+      "forms"
+    ],
+    "description": "Default example for Segmented Input component showing core functionality.",
+    "files": [
+      {
+        "path": "components/examples/segmented-input-default.tsx",
+        "type": "registry:example"
+      }
+    ],
+    "isDefault": true,
+    "isFlagged": false,
+    "name": "segmented-input-default",
+    "registryDependencies": [
+      "segmented-input"
+    ],
+    "slug": "segmented-input",
+    "title": "Default",
+    "type": "registry:example",
+    "upstreamUrl": "https://www.diceui.com/docs/components/radix/segmented-input",
+    "variant": "default"
   },
   {
     "categories": [
@@ -8712,6 +9430,47 @@
   },
   {
     "categories": [
+      "actions",
+      "effects"
+    ],
+    "description": "Animated toggle between two content states with configurable transition effects.",
+    "files": [
+      {
+        "path": "components/ui/swap.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "name": "swap",
+    "proposedGroup": "actions",
+    "title": "Swap",
+    "type": "registry:ui",
+    "upstreamUrl": "https://www.diceui.com/docs/components/radix/swap"
+  },
+  {
+    "categories": [
+      "actions"
+    ],
+    "description": "Default example for Swap component showing core functionality.",
+    "files": [
+      {
+        "path": "components/examples/swap-default.tsx",
+        "type": "registry:example"
+      }
+    ],
+    "isDefault": true,
+    "isFlagged": false,
+    "name": "swap-default",
+    "registryDependencies": [
+      "swap"
+    ],
+    "slug": "swap",
+    "title": "Default",
+    "type": "registry:example",
+    "upstreamUrl": "https://www.diceui.com/docs/components/radix/swap",
+    "variant": "default"
+  },
+  {
+    "categories": [
       "forms"
     ],
     "description": "Toggle control: checked / unchecked. Sized variants supported.",
@@ -9141,6 +9900,87 @@
     "categories": [
       "forms"
     ],
+    "description": "Input field for adding and removing tags/chips with keyboard support and validation.",
+    "files": [
+      {
+        "path": "components/ui/tags-input.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "name": "tags-input",
+    "proposedGroup": "forms",
+    "title": "Tags Input",
+    "type": "registry:ui",
+    "upstreamUrl": "https://www.diceui.com/docs/components/radix/tags-input"
+  },
+  {
+    "categories": [
+      "forms"
+    ],
+    "description": "Default example for Tags Input component showing core functionality.",
+    "files": [
+      {
+        "path": "components/examples/tags-input-default.tsx",
+        "type": "registry:example"
+      }
+    ],
+    "isDefault": true,
+    "isFlagged": false,
+    "name": "tags-input-default",
+    "registryDependencies": [
+      "tags-input"
+    ],
+    "slug": "tags-input",
+    "title": "Default",
+    "type": "registry:example",
+    "upstreamUrl": "https://www.diceui.com/docs/components/radix/tags-input",
+    "variant": "default"
+  },
+  {
+    "categories": [
+      "display",
+      "effects"
+    ],
+    "description": "Animated terminal/CLI output with typing effect, tab navigation, command bar, blinking cursor, and line-by-line reveal.",
+    "files": [
+      {
+        "path": "components/ui/terminal-animation.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "name": "terminal-animation",
+    "proposedGroup": "effects",
+    "title": "Terminal Animation",
+    "type": "registry:ui",
+    "upstreamUrl": "https://www.cult-ui.com/docs/components/terminal-animation"
+  },
+  {
+    "categories": [
+      "effects"
+    ],
+    "description": "Default example for Terminal Animation component showing core functionality.",
+    "files": [
+      {
+        "path": "components/examples/terminal-animation-default.tsx",
+        "type": "registry:example"
+      }
+    ],
+    "isDefault": true,
+    "isFlagged": false,
+    "name": "terminal-animation-default",
+    "registryDependencies": [
+      "terminal-animation"
+    ],
+    "slug": "terminal-animation",
+    "title": "Default",
+    "type": "registry:example",
+    "upstreamUrl": "https://www.cult-ui.com/docs/components/terminal-animation",
+    "variant": "default"
+  },
+  {
+    "categories": [
+      "forms"
+    ],
     "description": "Multi-line text input.",
     "files": [
       {
@@ -9294,6 +10134,46 @@
     "type": "registry:example",
     "upstreamUrl": "https://ui.shadcn.com/docs/components/textarea",
     "variant": "invalid"
+  },
+  {
+    "categories": [
+      "display"
+    ],
+    "description": "Vertical or horizontal timeline with active step tracking, connector lines, and customizable content per step.",
+    "files": [
+      {
+        "path": "components/ui/timeline.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "name": "timeline",
+    "proposedGroup": "display",
+    "title": "Timeline",
+    "type": "registry:ui",
+    "upstreamUrl": "https://www.diceui.com/docs/components/radix/timeline"
+  },
+  {
+    "categories": [
+      "display"
+    ],
+    "description": "Default example for Timeline component showing core functionality.",
+    "files": [
+      {
+        "path": "components/examples/timeline-default.tsx",
+        "type": "registry:example"
+      }
+    ],
+    "isDefault": true,
+    "isFlagged": false,
+    "name": "timeline-default",
+    "registryDependencies": [
+      "timeline"
+    ],
+    "slug": "timeline",
+    "title": "Default",
+    "type": "registry:example",
+    "upstreamUrl": "https://www.diceui.com/docs/components/radix/timeline",
+    "variant": "default"
   },
   {
     "categories": [
@@ -9725,6 +10605,47 @@
     "type": "registry:example",
     "upstreamUrl": "https://ui.shadcn.com/docs/components/tooltip",
     "variant": "with-keyboard-shortcut"
+  },
+  {
+    "categories": [
+      "overlay",
+      "navigation"
+    ],
+    "description": "Multi-step guided tour overlay with spotlight highlighting, step navigation, keyboard support, and scroll-to-target.",
+    "files": [
+      {
+        "path": "components/ui/tour.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "name": "tour",
+    "proposedGroup": "overlay",
+    "title": "Tour",
+    "type": "registry:ui",
+    "upstreamUrl": "https://www.diceui.com/docs/components/radix/tour"
+  },
+  {
+    "categories": [
+      "overlay"
+    ],
+    "description": "Default example for Tour component showing core functionality.",
+    "files": [
+      {
+        "path": "components/examples/tour-default.tsx",
+        "type": "registry:example"
+      }
+    ],
+    "isDefault": true,
+    "isFlagged": false,
+    "name": "tour-default",
+    "registryDependencies": [
+      "tour"
+    ],
+    "slug": "tour",
+    "title": "Default",
+    "type": "registry:example",
+    "upstreamUrl": "https://www.diceui.com/docs/components/radix/tour",
+    "variant": "default"
   },
   {
     "categories": [

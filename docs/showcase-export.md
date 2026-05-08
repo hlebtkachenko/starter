@@ -9,7 +9,7 @@
 
 | Area | File | Items | Chars |
 |---|---|---|---|
-| UI Primitives | [docs/showcase-export/ui.md](showcase-export/ui.md) | 60 | 13,330 |
+| UI Primitives | [docs/showcase-export/ui.md](showcase-export/ui.md) | 82 | 19,473 |
 | Examples: buttons | [docs/showcase-export/examples-buttons.md](showcase-export/examples-buttons.md) | 36 | 47,459 |
 | Examples: display-part1 | [docs/showcase-export/examples-display-part1.md](showcase-export/examples-display-part1.md) | 41 | 79,363 |
 | Examples: display-part2 | [docs/showcase-export/examples-display-part2.md](showcase-export/examples-display-part2.md) | 20 | 28,696 |
@@ -21,7 +21,7 @@
 | Examples: navigation | [docs/showcase-export/examples-navigation.md](showcase-export/examples-navigation.md) | 21 | 40,532 |
 | Examples: overlays | [docs/showcase-export/examples-overlays.md](showcase-export/examples-overlays.md) | 23 | 40,967 |
 | Examples: utility | [docs/showcase-export/examples-utility.md](showcase-export/examples-utility.md) | 33 | 50,746 |
-| Examples: other | [docs/showcase-export/examples-other.md](showcase-export/examples-other.md) | 5 | 7,378 |
+| Examples: other | [docs/showcase-export/examples-other.md](showcase-export/examples-other.md) | 26 | 36,862 |
 | Blocks | [docs/showcase-export/blocks.md](showcase-export/blocks.md) | 5 | 15,187 |
 
 ## UI Primitives TOC
@@ -86,11 +86,33 @@
 - [`separator-extended`](showcase-export/ui.md#separator-extended) — Separator with variant styles: solid (default), dashed, dotted, and double. Supports horizontal and vertical orientation.
 - [`card-styles`](showcase-export/ui.md#card-styles) — Creative card style variants: retro shadow, line borders, hatched pattern, aurora glow, tilted layer, and stacked depth.
 - [`autocomplete`](showcase-export/ui.md#autocomplete) — Input that suggests options as you type. Inline autofill, auto-highlight, async search, groups, clear button, and trigger toggle.
+- [`action-bar`](showcase-export/ui.md#action-bar) — Floating toolbar that appears on selection with keyboard navigation, item actions, close button, and separator. Portal-mounted with configurable position.
+- [`banner`](showcase-export/ui.md#banner) — Dismissible notification banner with variant styles, icon, action button, and close. Supports top/bottom layout.
+- [`border-beam-button`](showcase-export/ui.md#border-beam-button) — Button wrapped with animated beam border effect. Standard and icon-only variants.
+- [`circular-progress`](showcase-export/ui.md#circular-progress) — SVG-based circular progress indicator with configurable size, thickness, and value display.
+- [`color-picker`](showcase-export/ui.md#color-picker) — HSL color area picker with hue slider, hex/HSL input, and preset swatches in a popover.
+- [`color-swatch`](showcase-export/ui.md#color-swatch) — Color preview swatch with configurable size, radius, and optional checkered background for transparency.
+- [`cropper`](showcase-export/ui.md#cropper) — Image cropper with zoom, rotation, aspect ratio lock, and crop area selection. Touch and keyboard support.
+- [`data-grid`](showcase-export/ui.md#data-grid) — High-performance editable spreadsheet with virtualization, 9 cell types, clipboard, undo/redo, search, sorting, and column management.
+- [`data-table`](showcase-export/ui.md#data-table) — Feature-rich data table with advanced filtering, URL state sync, multi-column sorting, pagination, column visibility, row selection, and action bar.
+- [`file-upload`](showcase-export/ui.md#file-upload) — Drag-and-drop file upload with progress tracking, file type validation, size limits, and preview thumbnails.
+- [`gauge`](showcase-export/ui.md#gauge) — SVG gauge/meter component with configurable min/max, segments, labels, and needle indicator.
+- [`key-value`](showcase-export/ui.md#key-value) — Editable key-value pair input with add/remove/reorder, validation, and clipboard support.
+- [`mention`](showcase-export/ui.md#mention) — Text input with @mention autocomplete suggestions triggered by a configurable character.
+- [`phone-input`](showcase-export/ui.md#phone-input) — International phone number input with country code selector, flag display, and format validation.
+- [`prompt-library`](showcase-export/ui.md#prompt-library) — AI prompt template library in a popover with search, categories, hover preview, and custom prompt creation.
+- [`qr-code`](showcase-export/ui.md#qr-code) — QR code generator with customizable size, error correction, colors, and optional logo overlay.
+- [`segmented-input`](showcase-export/ui.md#segmented-input) — Multi-segment input (date, time, code) with individual segment focus, keyboard navigation, and validation.
+- [`swap`](showcase-export/ui.md#swap) — Animated toggle between two content states with configurable transition effects.
+- [`tags-input`](showcase-export/ui.md#tags-input) — Input field for adding and removing tags/chips with keyboard support and validation.
+- [`terminal-animation`](showcase-export/ui.md#terminal-animation) — Animated terminal/CLI output with typing effect, tab navigation, command bar, blinking cursor, and line-by-line reveal.
+- [`timeline`](showcase-export/ui.md#timeline) — Vertical or horizontal timeline with active step tracking, connector lines, and customizable content per step.
+- [`tour`](showcase-export/ui.md#tour) — Multi-step guided tour overlay with spotlight highlighting, step navigation, keyboard support, and scroll-to-target.
 
 ## Quick counts
 
-- UI primitives: **60**
-- Example variants: **378**
+- UI primitives: **82**
+- Example variants: **399**
 - Example files: **12**
 - Blocks: **5**
-- Total registry items: **443**
+- Total registry items: **486**

@@ -77,6 +77,28 @@ Components imported from third-party shadcn-compatible registries. Each is adapt
 | Separator Extended | layout | [separator-extended](https://basecn.dev/docs/components/separator-extended) |
 | Card Styles | display | [card-styles](https://cardcn.dev/cards/basic-cards/) |
 | Autocomplete | forms | [autocomplete](https://coss.com/ui/docs/components/autocomplete) |
+| Action Bar | actions | [action-bar](https://www.diceui.com/docs/components/radix/action-bar) |
+| Banner | feedback | [banner](https://www.diceui.com/docs/components/radix/banner) |
+| Border Beam Button | buttons | [border-beam-button](https://www.cult-ui.com/docs/components/border-beam-button) |
+| Circular Progress | feedback | [circular-progress](https://www.diceui.com/docs/components/radix/circular-progress) |
+| Color Picker | forms | [color-picker](https://www.diceui.com/docs/components/radix/color-picker) |
+| Color Swatch | display | [color-swatch](https://www.diceui.com/docs/components/radix/color-swatch) |
+| Cropper | forms | [cropper](https://www.diceui.com/docs/components/radix/cropper) |
+| Data Grid | data | [data-grid](https://www.diceui.com/docs/components/radix/data-grid) |
+| Data Table | data | [data-table](https://www.diceui.com/docs/components/radix/data-table) |
+| File Upload | forms | [file-upload](https://www.diceui.com/docs/components/radix/file-upload) |
+| Gauge | display | [gauge](https://www.diceui.com/docs/components/radix/gauge) |
+| Key Value | display | [key-value](https://www.diceui.com/docs/components/radix/key-value) |
+| Mention | forms | [mention](https://www.diceui.com/docs/components/radix/mention) |
+| Phone Input | forms | [phone-input](https://www.diceui.com/docs/components/radix/phone-input) |
+| Prompt Library | overlay | [prompt-library](https://www.cult-ui.com/docs/components/prompt-library) |
+| QR Code | display | [qr-code](https://www.diceui.com/docs/components/radix/qr-code) |
+| Segmented Input | forms | [segmented-input](https://www.diceui.com/docs/components/radix/segmented-input) |
+| Swap | actions | [swap](https://www.diceui.com/docs/components/radix/swap) |
+| Tags Input | forms | [tags-input](https://www.diceui.com/docs/components/radix/tags-input) |
+| Terminal Animation | effects | [terminal-animation](https://www.cult-ui.com/docs/components/terminal-animation) |
+| Timeline | display | [timeline](https://www.diceui.com/docs/components/radix/timeline) |
+| Tour | overlay | [tour](https://www.diceui.com/docs/components/radix/tour) |
 
 ## Motion
 

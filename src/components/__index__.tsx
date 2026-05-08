@@ -1224,6 +1224,510 @@ export const Index: Record<string, RegistryIndexEntry> = {
   },
     Component: undefined,
   },
+  "action-bar": {
+    meta: {
+    "name": "action-bar",
+    "type": "registry:ui",
+    "title": "Action Bar",
+    "description": "Floating toolbar that appears on selection with keyboard navigation, item actions, close button, and separator. Portal-mounted with configurable position.",
+    "registryDependencies": [
+      "button"
+    ],
+    "files": [
+      {
+        "path": "components/ui/action-bar.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "upstreamUrl": "https://www.diceui.com/docs/components/radix/action-bar",
+    "categories": [
+      "actions",
+      "overlay"
+    ],
+    "proposedGroup": "actions"
+  },
+    Component: undefined,
+  },
+  "banner": {
+    meta: {
+    "name": "banner",
+    "type": "registry:ui",
+    "title": "Banner",
+    "description": "Dismissible notification banner with variant styles, icon, action button, and close. Supports top/bottom layout.",
+    "files": [
+      {
+        "path": "components/ui/banner.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "upstreamUrl": "https://www.diceui.com/docs/components/radix/banner",
+    "categories": [
+      "feedback"
+    ],
+    "proposedGroup": "feedback"
+  },
+    Component: undefined,
+  },
+  "border-beam-button": {
+    meta: {
+    "name": "border-beam-button",
+    "type": "registry:ui",
+    "title": "Border Beam Button",
+    "description": "Button wrapped with animated beam border effect. Standard and icon-only variants.",
+    "registryDependencies": [
+      "button"
+    ],
+    "files": [
+      {
+        "path": "components/ui/border-beam-button.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "upstreamUrl": "https://www.cult-ui.com/docs/components/border-beam-button",
+    "categories": [
+      "actions",
+      "effects"
+    ],
+    "proposedGroup": "buttons"
+  },
+    Component: undefined,
+  },
+  "circular-progress": {
+    meta: {
+    "name": "circular-progress",
+    "type": "registry:ui",
+    "title": "Circular Progress",
+    "description": "SVG-based circular progress indicator with configurable size, thickness, and value display.",
+    "files": [
+      {
+        "path": "components/ui/circular-progress.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "upstreamUrl": "https://www.diceui.com/docs/components/radix/circular-progress",
+    "categories": [
+      "feedback",
+      "display"
+    ],
+    "proposedGroup": "feedback"
+  },
+    Component: undefined,
+  },
+  "color-picker": {
+    meta: {
+    "name": "color-picker",
+    "type": "registry:ui",
+    "title": "Color Picker",
+    "description": "HSL color area picker with hue slider, hex/HSL input, and preset swatches in a popover.",
+    "registryDependencies": [
+      "button",
+      "input",
+      "label",
+      "popover"
+    ],
+    "files": [
+      {
+        "path": "components/ui/color-picker.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "upstreamUrl": "https://www.diceui.com/docs/components/radix/color-picker",
+    "categories": [
+      "forms"
+    ],
+    "proposedGroup": "forms"
+  },
+    Component: undefined,
+  },
+  "color-swatch": {
+    meta: {
+    "name": "color-swatch",
+    "type": "registry:ui",
+    "title": "Color Swatch",
+    "description": "Color preview swatch with configurable size, radius, and optional checkered background for transparency.",
+    "files": [
+      {
+        "path": "components/ui/color-swatch.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "upstreamUrl": "https://www.diceui.com/docs/components/radix/color-swatch",
+    "categories": [
+      "display"
+    ],
+    "proposedGroup": "display"
+  },
+    Component: undefined,
+  },
+  "cropper": {
+    meta: {
+    "name": "cropper",
+    "type": "registry:ui",
+    "title": "Cropper",
+    "description": "Image cropper with zoom, rotation, aspect ratio lock, and crop area selection. Touch and keyboard support.",
+    "files": [
+      {
+        "path": "components/ui/cropper.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "upstreamUrl": "https://www.diceui.com/docs/components/radix/cropper",
+    "categories": [
+      "forms",
+      "display"
+    ],
+    "proposedGroup": "forms"
+  },
+    Component: undefined,
+  },
+  "data-grid": {
+    meta: {
+    "name": "data-grid",
+    "type": "registry:ui",
+    "title": "Data Grid",
+    "description": "High-performance editable spreadsheet with virtualization, 9 cell types, clipboard, undo/redo, search, sorting, and column management.",
+    "registryDependencies": [
+      "button",
+      "checkbox",
+      "command",
+      "context-menu",
+      "dialog",
+      "dropdown-menu",
+      "input",
+      "popover",
+      "select",
+      "separator",
+      "table",
+      "tooltip"
+    ],
+    "files": [
+      {
+        "path": "components/ui/data-grid.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "upstreamUrl": "https://www.diceui.com/docs/components/radix/data-grid",
+    "categories": [
+      "data",
+      "forms"
+    ],
+    "proposedGroup": "data"
+  },
+    Component: undefined,
+  },
+  "data-table": {
+    meta: {
+    "name": "data-table",
+    "type": "registry:ui",
+    "title": "Data Table",
+    "description": "Feature-rich data table with advanced filtering, URL state sync, multi-column sorting, pagination, column visibility, row selection, and action bar.",
+    "registryDependencies": [
+      "button",
+      "badge",
+      "calendar",
+      "checkbox",
+      "command",
+      "dialog",
+      "dropdown-menu",
+      "input",
+      "popover",
+      "select",
+      "separator",
+      "skeleton",
+      "slider",
+      "table",
+      "tooltip"
+    ],
+    "files": [
+      {
+        "path": "components/ui/data-table.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "upstreamUrl": "https://www.diceui.com/docs/components/radix/data-table",
+    "categories": [
+      "data",
+      "display"
+    ],
+    "proposedGroup": "data"
+  },
+    Component: undefined,
+  },
+  "file-upload": {
+    meta: {
+    "name": "file-upload",
+    "type": "registry:ui",
+    "title": "File Upload",
+    "description": "Drag-and-drop file upload with progress tracking, file type validation, size limits, and preview thumbnails.",
+    "files": [
+      {
+        "path": "components/ui/file-upload.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "upstreamUrl": "https://www.diceui.com/docs/components/radix/file-upload",
+    "categories": [
+      "forms"
+    ],
+    "proposedGroup": "forms"
+  },
+    Component: undefined,
+  },
+  "gauge": {
+    meta: {
+    "name": "gauge",
+    "type": "registry:ui",
+    "title": "Gauge",
+    "description": "SVG gauge/meter component with configurable min/max, segments, labels, and needle indicator.",
+    "files": [
+      {
+        "path": "components/ui/gauge.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "upstreamUrl": "https://www.diceui.com/docs/components/radix/gauge",
+    "categories": [
+      "display",
+      "feedback"
+    ],
+    "proposedGroup": "display"
+  },
+    Component: undefined,
+  },
+  "key-value": {
+    meta: {
+    "name": "key-value",
+    "type": "registry:ui",
+    "title": "Key Value",
+    "description": "Editable key-value pair input with add/remove/reorder, validation, and clipboard support.",
+    "files": [
+      {
+        "path": "components/ui/key-value.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "upstreamUrl": "https://www.diceui.com/docs/components/radix/key-value",
+    "categories": [
+      "display",
+      "forms"
+    ],
+    "proposedGroup": "display"
+  },
+    Component: undefined,
+  },
+  "mention": {
+    meta: {
+    "name": "mention",
+    "type": "registry:ui",
+    "title": "Mention",
+    "description": "Text input with @mention autocomplete suggestions triggered by a configurable character.",
+    "files": [
+      {
+        "path": "components/ui/mention.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "upstreamUrl": "https://www.diceui.com/docs/components/radix/mention",
+    "categories": [
+      "forms"
+    ],
+    "proposedGroup": "forms"
+  },
+    Component: undefined,
+  },
+  "phone-input": {
+    meta: {
+    "name": "phone-input",
+    "type": "registry:ui",
+    "title": "Phone Input",
+    "description": "International phone number input with country code selector, flag display, and format validation.",
+    "files": [
+      {
+        "path": "components/ui/phone-input.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "upstreamUrl": "https://www.diceui.com/docs/components/radix/phone-input",
+    "categories": [
+      "forms"
+    ],
+    "proposedGroup": "forms"
+  },
+    Component: undefined,
+  },
+  "prompt-library": {
+    meta: {
+    "name": "prompt-library",
+    "type": "registry:ui",
+    "title": "Prompt Library",
+    "description": "AI prompt template library in a popover with search, categories, hover preview, and custom prompt creation.",
+    "registryDependencies": [
+      "button",
+      "command",
+      "dialog",
+      "hover-card",
+      "input",
+      "popover",
+      "textarea"
+    ],
+    "files": [
+      {
+        "path": "components/ui/prompt-library.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "upstreamUrl": "https://www.cult-ui.com/docs/components/prompt-library",
+    "categories": [
+      "overlay",
+      "forms"
+    ],
+    "proposedGroup": "overlay"
+  },
+    Component: undefined,
+  },
+  "qr-code": {
+    meta: {
+    "name": "qr-code",
+    "type": "registry:ui",
+    "title": "QR Code",
+    "description": "QR code generator with customizable size, error correction, colors, and optional logo overlay.",
+    "files": [
+      {
+        "path": "components/ui/qr-code.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "upstreamUrl": "https://www.diceui.com/docs/components/radix/qr-code",
+    "categories": [
+      "display"
+    ],
+    "proposedGroup": "display"
+  },
+    Component: undefined,
+  },
+  "segmented-input": {
+    meta: {
+    "name": "segmented-input",
+    "type": "registry:ui",
+    "title": "Segmented Input",
+    "description": "Multi-segment input (date, time, code) with individual segment focus, keyboard navigation, and validation.",
+    "files": [
+      {
+        "path": "components/ui/segmented-input.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "upstreamUrl": "https://www.diceui.com/docs/components/radix/segmented-input",
+    "categories": [
+      "forms"
+    ],
+    "proposedGroup": "forms"
+  },
+    Component: undefined,
+  },
+  "swap": {
+    meta: {
+    "name": "swap",
+    "type": "registry:ui",
+    "title": "Swap",
+    "description": "Animated toggle between two content states with configurable transition effects.",
+    "files": [
+      {
+        "path": "components/ui/swap.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "upstreamUrl": "https://www.diceui.com/docs/components/radix/swap",
+    "categories": [
+      "actions",
+      "effects"
+    ],
+    "proposedGroup": "actions"
+  },
+    Component: undefined,
+  },
+  "tags-input": {
+    meta: {
+    "name": "tags-input",
+    "type": "registry:ui",
+    "title": "Tags Input",
+    "description": "Input field for adding and removing tags/chips with keyboard support and validation.",
+    "files": [
+      {
+        "path": "components/ui/tags-input.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "upstreamUrl": "https://www.diceui.com/docs/components/radix/tags-input",
+    "categories": [
+      "forms"
+    ],
+    "proposedGroup": "forms"
+  },
+    Component: undefined,
+  },
+  "terminal-animation": {
+    meta: {
+    "name": "terminal-animation",
+    "type": "registry:ui",
+    "title": "Terminal Animation",
+    "description": "Animated terminal/CLI output with typing effect, tab navigation, command bar, blinking cursor, and line-by-line reveal.",
+    "files": [
+      {
+        "path": "components/ui/terminal-animation.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "upstreamUrl": "https://www.cult-ui.com/docs/components/terminal-animation",
+    "categories": [
+      "display",
+      "effects"
+    ],
+    "proposedGroup": "effects"
+  },
+    Component: undefined,
+  },
+  "timeline": {
+    meta: {
+    "name": "timeline",
+    "type": "registry:ui",
+    "title": "Timeline",
+    "description": "Vertical or horizontal timeline with active step tracking, connector lines, and customizable content per step.",
+    "files": [
+      {
+        "path": "components/ui/timeline.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "upstreamUrl": "https://www.diceui.com/docs/components/radix/timeline",
+    "categories": [
+      "display"
+    ],
+    "proposedGroup": "display"
+  },
+    Component: undefined,
+  },
+  "tour": {
+    meta: {
+    "name": "tour",
+    "type": "registry:ui",
+    "title": "Tour",
+    "description": "Multi-step guided tour overlay with spotlight highlighting, step navigation, keyboard support, and scroll-to-target.",
+    "files": [
+      {
+        "path": "components/ui/tour.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "upstreamUrl": "https://www.diceui.com/docs/components/radix/tour",
+    "categories": [
+      "overlay",
+      "navigation"
+    ],
+    "proposedGroup": "overlay"
+  },
+    Component: undefined,
+  },
   "button-size": {
     meta: {
     "name": "button-size",
@@ -4554,6 +5058,552 @@ export const Index: Record<string, RegistryIndexEntry> = {
     ]
   },
     Component: React.lazy(() => import("@/components/examples/autocomplete-default")),
+  },
+  "action-bar-default": {
+    meta: {
+    "name": "action-bar-default",
+    "type": "registry:example",
+    "title": "Default",
+    "description": "Default example for Action Bar component showing core functionality.",
+    "slug": "action-bar",
+    "variant": "default",
+    "isDefault": true,
+    "isFlagged": false,
+    "upstreamUrl": "https://www.diceui.com/docs/components/radix/action-bar",
+    "registryDependencies": [
+      "action-bar"
+    ],
+    "files": [
+      {
+        "path": "components/examples/action-bar-default.tsx",
+        "type": "registry:example"
+      }
+    ],
+    "categories": [
+      "actions"
+    ]
+  },
+    Component: React.lazy(() => import("@/components/examples/action-bar-default")),
+  },
+  "banner-default": {
+    meta: {
+    "name": "banner-default",
+    "type": "registry:example",
+    "title": "Default",
+    "description": "Default example for Banner component showing core functionality.",
+    "slug": "banner",
+    "variant": "default",
+    "isDefault": true,
+    "isFlagged": false,
+    "upstreamUrl": "https://www.diceui.com/docs/components/radix/banner",
+    "registryDependencies": [
+      "banner"
+    ],
+    "files": [
+      {
+        "path": "components/examples/banner-default.tsx",
+        "type": "registry:example"
+      }
+    ],
+    "categories": [
+      "feedback"
+    ]
+  },
+    Component: React.lazy(() => import("@/components/examples/banner-default")),
+  },
+  "border-beam-button-default": {
+    meta: {
+    "name": "border-beam-button-default",
+    "type": "registry:example",
+    "title": "Default",
+    "description": "Default example for Border Beam Button component showing core functionality.",
+    "slug": "border-beam-button",
+    "variant": "default",
+    "isDefault": true,
+    "isFlagged": false,
+    "upstreamUrl": "https://www.cult-ui.com/docs/components/border-beam-button",
+    "registryDependencies": [
+      "border-beam-button"
+    ],
+    "files": [
+      {
+        "path": "components/examples/border-beam-button-default.tsx",
+        "type": "registry:example"
+      }
+    ],
+    "categories": [
+      "buttons"
+    ]
+  },
+    Component: React.lazy(() => import("@/components/examples/border-beam-button-default")),
+  },
+  "circular-progress-default": {
+    meta: {
+    "name": "circular-progress-default",
+    "type": "registry:example",
+    "title": "Default",
+    "description": "Default example for Circular Progress component showing core functionality.",
+    "slug": "circular-progress",
+    "variant": "default",
+    "isDefault": true,
+    "isFlagged": false,
+    "upstreamUrl": "https://www.diceui.com/docs/components/radix/circular-progress",
+    "registryDependencies": [
+      "circular-progress"
+    ],
+    "files": [
+      {
+        "path": "components/examples/circular-progress-default.tsx",
+        "type": "registry:example"
+      }
+    ],
+    "categories": [
+      "feedback"
+    ]
+  },
+    Component: React.lazy(() => import("@/components/examples/circular-progress-default")),
+  },
+  "color-picker-default": {
+    meta: {
+    "name": "color-picker-default",
+    "type": "registry:example",
+    "title": "Default",
+    "description": "Default example for Color Picker component showing core functionality.",
+    "slug": "color-picker",
+    "variant": "default",
+    "isDefault": true,
+    "isFlagged": false,
+    "upstreamUrl": "https://www.diceui.com/docs/components/radix/color-picker",
+    "registryDependencies": [
+      "color-picker"
+    ],
+    "files": [
+      {
+        "path": "components/examples/color-picker-default.tsx",
+        "type": "registry:example"
+      }
+    ],
+    "categories": [
+      "forms"
+    ]
+  },
+    Component: React.lazy(() => import("@/components/examples/color-picker-default")),
+  },
+  "color-swatch-default": {
+    meta: {
+    "name": "color-swatch-default",
+    "type": "registry:example",
+    "title": "Default",
+    "description": "Default example for Color Swatch component showing core functionality.",
+    "slug": "color-swatch",
+    "variant": "default",
+    "isDefault": true,
+    "isFlagged": false,
+    "upstreamUrl": "https://www.diceui.com/docs/components/radix/color-swatch",
+    "registryDependencies": [
+      "color-swatch"
+    ],
+    "files": [
+      {
+        "path": "components/examples/color-swatch-default.tsx",
+        "type": "registry:example"
+      }
+    ],
+    "categories": [
+      "display"
+    ]
+  },
+    Component: React.lazy(() => import("@/components/examples/color-swatch-default")),
+  },
+  "cropper-default": {
+    meta: {
+    "name": "cropper-default",
+    "type": "registry:example",
+    "title": "Default",
+    "description": "Default example for Cropper component showing core functionality.",
+    "slug": "cropper",
+    "variant": "default",
+    "isDefault": true,
+    "isFlagged": false,
+    "upstreamUrl": "https://www.diceui.com/docs/components/radix/cropper",
+    "registryDependencies": [
+      "cropper"
+    ],
+    "files": [
+      {
+        "path": "components/examples/cropper-default.tsx",
+        "type": "registry:example"
+      }
+    ],
+    "categories": [
+      "forms"
+    ]
+  },
+    Component: React.lazy(() => import("@/components/examples/cropper-default")),
+  },
+  "data-grid-default": {
+    meta: {
+    "name": "data-grid-default",
+    "type": "registry:example",
+    "title": "Default",
+    "description": "Default example for Data Grid component showing core functionality.",
+    "slug": "data-grid",
+    "variant": "default",
+    "isDefault": true,
+    "isFlagged": false,
+    "upstreamUrl": "https://www.diceui.com/docs/components/radix/data-grid",
+    "registryDependencies": [
+      "data-grid"
+    ],
+    "files": [
+      {
+        "path": "components/examples/data-grid-default.tsx",
+        "type": "registry:example"
+      }
+    ],
+    "categories": [
+      "data"
+    ]
+  },
+    Component: React.lazy(() => import("@/components/examples/data-grid-default")),
+  },
+  "file-upload-default": {
+    meta: {
+    "name": "file-upload-default",
+    "type": "registry:example",
+    "title": "Default",
+    "description": "Default example for File Upload component showing core functionality.",
+    "slug": "file-upload",
+    "variant": "default",
+    "isDefault": true,
+    "isFlagged": false,
+    "upstreamUrl": "https://www.diceui.com/docs/components/radix/file-upload",
+    "registryDependencies": [
+      "file-upload"
+    ],
+    "files": [
+      {
+        "path": "components/examples/file-upload-default.tsx",
+        "type": "registry:example"
+      }
+    ],
+    "categories": [
+      "forms"
+    ]
+  },
+    Component: React.lazy(() => import("@/components/examples/file-upload-default")),
+  },
+  "gauge-default": {
+    meta: {
+    "name": "gauge-default",
+    "type": "registry:example",
+    "title": "Default",
+    "description": "Default example for Gauge component showing core functionality.",
+    "slug": "gauge",
+    "variant": "default",
+    "isDefault": true,
+    "isFlagged": false,
+    "upstreamUrl": "https://www.diceui.com/docs/components/radix/gauge",
+    "registryDependencies": [
+      "gauge"
+    ],
+    "files": [
+      {
+        "path": "components/examples/gauge-default.tsx",
+        "type": "registry:example"
+      }
+    ],
+    "categories": [
+      "display"
+    ]
+  },
+    Component: React.lazy(() => import("@/components/examples/gauge-default")),
+  },
+  "key-value-default": {
+    meta: {
+    "name": "key-value-default",
+    "type": "registry:example",
+    "title": "Default",
+    "description": "Default example for Key Value component showing core functionality.",
+    "slug": "key-value",
+    "variant": "default",
+    "isDefault": true,
+    "isFlagged": false,
+    "upstreamUrl": "https://www.diceui.com/docs/components/radix/key-value",
+    "registryDependencies": [
+      "key-value"
+    ],
+    "files": [
+      {
+        "path": "components/examples/key-value-default.tsx",
+        "type": "registry:example"
+      }
+    ],
+    "categories": [
+      "display"
+    ]
+  },
+    Component: React.lazy(() => import("@/components/examples/key-value-default")),
+  },
+  "mention-default": {
+    meta: {
+    "name": "mention-default",
+    "type": "registry:example",
+    "title": "Default",
+    "description": "Default example for Mention component showing core functionality.",
+    "slug": "mention",
+    "variant": "default",
+    "isDefault": true,
+    "isFlagged": false,
+    "upstreamUrl": "https://www.diceui.com/docs/components/radix/mention",
+    "registryDependencies": [
+      "mention"
+    ],
+    "files": [
+      {
+        "path": "components/examples/mention-default.tsx",
+        "type": "registry:example"
+      }
+    ],
+    "categories": [
+      "forms"
+    ]
+  },
+    Component: React.lazy(() => import("@/components/examples/mention-default")),
+  },
+  "phone-input-default": {
+    meta: {
+    "name": "phone-input-default",
+    "type": "registry:example",
+    "title": "Default",
+    "description": "Default example for Phone Input component showing core functionality.",
+    "slug": "phone-input",
+    "variant": "default",
+    "isDefault": true,
+    "isFlagged": false,
+    "upstreamUrl": "https://www.diceui.com/docs/components/radix/phone-input",
+    "registryDependencies": [
+      "phone-input"
+    ],
+    "files": [
+      {
+        "path": "components/examples/phone-input-default.tsx",
+        "type": "registry:example"
+      }
+    ],
+    "categories": [
+      "forms"
+    ]
+  },
+    Component: React.lazy(() => import("@/components/examples/phone-input-default")),
+  },
+  "prompt-library-default": {
+    meta: {
+    "name": "prompt-library-default",
+    "type": "registry:example",
+    "title": "Default",
+    "description": "Default example for Prompt Library component showing core functionality.",
+    "slug": "prompt-library",
+    "variant": "default",
+    "isDefault": true,
+    "isFlagged": false,
+    "upstreamUrl": "https://www.cult-ui.com/docs/components/prompt-library",
+    "registryDependencies": [
+      "prompt-library"
+    ],
+    "files": [
+      {
+        "path": "components/examples/prompt-library-default.tsx",
+        "type": "registry:example"
+      }
+    ],
+    "categories": [
+      "overlay"
+    ]
+  },
+    Component: React.lazy(() => import("@/components/examples/prompt-library-default")),
+  },
+  "qr-code-default": {
+    meta: {
+    "name": "qr-code-default",
+    "type": "registry:example",
+    "title": "Default",
+    "description": "Default example for Qr Code component showing core functionality.",
+    "slug": "qr-code",
+    "variant": "default",
+    "isDefault": true,
+    "isFlagged": false,
+    "upstreamUrl": "https://www.diceui.com/docs/components/radix/qr-code",
+    "registryDependencies": [
+      "qr-code"
+    ],
+    "files": [
+      {
+        "path": "components/examples/qr-code-default.tsx",
+        "type": "registry:example"
+      }
+    ],
+    "categories": [
+      "display"
+    ]
+  },
+    Component: React.lazy(() => import("@/components/examples/qr-code-default")),
+  },
+  "segmented-input-default": {
+    meta: {
+    "name": "segmented-input-default",
+    "type": "registry:example",
+    "title": "Default",
+    "description": "Default example for Segmented Input component showing core functionality.",
+    "slug": "segmented-input",
+    "variant": "default",
+    "isDefault": true,
+    "isFlagged": false,
+    "upstreamUrl": "https://www.diceui.com/docs/components/radix/segmented-input",
+    "registryDependencies": [
+      "segmented-input"
+    ],
+    "files": [
+      {
+        "path": "components/examples/segmented-input-default.tsx",
+        "type": "registry:example"
+      }
+    ],
+    "categories": [
+      "forms"
+    ]
+  },
+    Component: React.lazy(() => import("@/components/examples/segmented-input-default")),
+  },
+  "swap-default": {
+    meta: {
+    "name": "swap-default",
+    "type": "registry:example",
+    "title": "Default",
+    "description": "Default example for Swap component showing core functionality.",
+    "slug": "swap",
+    "variant": "default",
+    "isDefault": true,
+    "isFlagged": false,
+    "upstreamUrl": "https://www.diceui.com/docs/components/radix/swap",
+    "registryDependencies": [
+      "swap"
+    ],
+    "files": [
+      {
+        "path": "components/examples/swap-default.tsx",
+        "type": "registry:example"
+      }
+    ],
+    "categories": [
+      "actions"
+    ]
+  },
+    Component: React.lazy(() => import("@/components/examples/swap-default")),
+  },
+  "tags-input-default": {
+    meta: {
+    "name": "tags-input-default",
+    "type": "registry:example",
+    "title": "Default",
+    "description": "Default example for Tags Input component showing core functionality.",
+    "slug": "tags-input",
+    "variant": "default",
+    "isDefault": true,
+    "isFlagged": false,
+    "upstreamUrl": "https://www.diceui.com/docs/components/radix/tags-input",
+    "registryDependencies": [
+      "tags-input"
+    ],
+    "files": [
+      {
+        "path": "components/examples/tags-input-default.tsx",
+        "type": "registry:example"
+      }
+    ],
+    "categories": [
+      "forms"
+    ]
+  },
+    Component: React.lazy(() => import("@/components/examples/tags-input-default")),
+  },
+  "terminal-animation-default": {
+    meta: {
+    "name": "terminal-animation-default",
+    "type": "registry:example",
+    "title": "Default",
+    "description": "Default example for Terminal Animation component showing core functionality.",
+    "slug": "terminal-animation",
+    "variant": "default",
+    "isDefault": true,
+    "isFlagged": false,
+    "upstreamUrl": "https://www.cult-ui.com/docs/components/terminal-animation",
+    "registryDependencies": [
+      "terminal-animation"
+    ],
+    "files": [
+      {
+        "path": "components/examples/terminal-animation-default.tsx",
+        "type": "registry:example"
+      }
+    ],
+    "categories": [
+      "effects"
+    ]
+  },
+    Component: React.lazy(() => import("@/components/examples/terminal-animation-default")),
+  },
+  "timeline-default": {
+    meta: {
+    "name": "timeline-default",
+    "type": "registry:example",
+    "title": "Default",
+    "description": "Default example for Timeline component showing core functionality.",
+    "slug": "timeline",
+    "variant": "default",
+    "isDefault": true,
+    "isFlagged": false,
+    "upstreamUrl": "https://www.diceui.com/docs/components/radix/timeline",
+    "registryDependencies": [
+      "timeline"
+    ],
+    "files": [
+      {
+        "path": "components/examples/timeline-default.tsx",
+        "type": "registry:example"
+      }
+    ],
+    "categories": [
+      "display"
+    ]
+  },
+    Component: React.lazy(() => import("@/components/examples/timeline-default")),
+  },
+  "tour-default": {
+    meta: {
+    "name": "tour-default",
+    "type": "registry:example",
+    "title": "Default",
+    "description": "Default example for Tour component showing core functionality.",
+    "slug": "tour",
+    "variant": "default",
+    "isDefault": true,
+    "isFlagged": false,
+    "upstreamUrl": "https://www.diceui.com/docs/components/radix/tour",
+    "registryDependencies": [
+      "tour"
+    ],
+    "files": [
+      {
+        "path": "components/examples/tour-default.tsx",
+        "type": "registry:example"
+      }
+    ],
+    "categories": [
+      "overlay"
+    ]
+  },
+    Component: React.lazy(() => import("@/components/examples/tour-default")),
   },
   "alert-default": {
     meta: {
@@ -11406,8 +12456,8 @@ export const Index: Record<string, RegistryIndexEntry> = {
 };
 
 export const ItemsByArea = {
-  ui: ["accordion","alert","alert-dialog","aspect-ratio","avatar","badge","breadcrumb","button","button-group","calendar","card","carousel","chart","checkbox","collapsible","combobox","command","context-menu","dialog","drawer","dropdown-menu","empty","field","hover-card","input","input-group","input-otp","item","kbd","label","menubar","native-select","navigation-menu","pagination","popover","progress","radio-group","resizable","scroll-area","select","separator","sheet","sidebar","skeleton","slider","sonner","spinner","switch","table","tabs","textarea","toggle","toggle-group","tooltip","noise-background","stateful-button","multi-step-loader","separator-extended","card-styles","autocomplete"],
-  examples: ["button-size","button-default","button-outline","button-secondary","button-ghost","button-destructive","button-link","button-icon","button-with-icon","button-rounded","button-spinner","button-button-group","button-as-child","button-group-default","button-group-orientation","button-group-size","button-group-nested","button-group-separator","button-group-split","button-group-input","button-group-input-group","button-group-dropdown-menu","button-group-select","button-group-popover","toggle-default","toggle-outline","toggle-with-text","toggle-size","toggle-disabled","toggle-group-default","toggle-group-outline","toggle-group-size","toggle-group-spacing","toggle-group-vertical","toggle-group-disabled","toggle-group-custom","avatar-default","avatar-basic","avatar-badge","avatar-badge-with-icon","avatar-avatar-group","avatar-avatar-group-count","avatar-avatar-group-with-icon","avatar-sizes","avatar-dropdown","badge-default","badge-variants","badge-with-icon","badge-with-spinner","badge-link","badge-custom-colors","calendar-default","calendar-basic","calendar-range-calendar","calendar-month-and-year-selector","calendar-presets","calendar-date-and-time-picker","calendar-booked-dates","calendar-custom-cell-size","calendar-week-numbers","calendar-with-timezone","calendar-hijri","chart-default","chart-your-first-chart","chart-chart-config","chart-tooltip","chart-legend","chart-bar-chart","chart-with-grid","chart-with-axis","chart-with-tooltip","chart-with-legend","chart-tooltip-demo","data-table-default","data-table-basic-table","data-table-cell-formatting","data-table-row-actions","data-table-pagination","data-table-sorting","data-table-filtering","data-table-visibility","data-table-row-selection","skeleton-default","skeleton-avatar","skeleton-card","skeleton-text","skeleton-form","skeleton-table","table-default","table-footer","table-actions","typography-h1","typography-h2","typography-h3","typography-h4","typography-p","typography-blockquote","typography-table","typography-list","typography-inline-code","typography-lead","typography-large","typography-small","typography-muted","typography-demo","noise-background-default","noise-background-card","stateful-button-default","multi-step-loader-default","separator-extended-default","separator-extended-dashed","separator-extended-dotted","separator-extended-double","card-styles-shadow","card-styles-lines","card-styles-hatched","card-styles-aurora","card-styles-tilted","card-styles-stacked","autocomplete-default","alert-default","alert-basic","alert-destructive","alert-action","alert-custom-colors","progress-default","progress-label","progress-controlled","sonner-default","sonner-types","sonner-description","sonner-position","spinner-default","spinner-size","spinner-button","spinner-badge","spinner-input-group","spinner-empty","checkbox-default","checkbox-basic","checkbox-description","checkbox-disabled","checkbox-group","checkbox-table","checkbox-indeterminate-select-all","combobox-default","combobox-basic","combobox-multiple","combobox-clear-button","combobox-groups","combobox-custom-items","combobox-invalid","combobox-disabled","combobox-auto-highlight","combobox-popup","combobox-input-group","date-picker-default","date-picker-basic","date-picker-range-picker","date-picker-date-of-birth","date-picker-input","date-picker-time-picker","date-picker-natural-language-picker","field-default","field-input","field-textarea","field-select","field-slider","field-fieldset","field-checkbox","field-radio","field-switch","field-choice-card","field-field-group","input-default","input-basic","input-field","input-field-group","input-disabled","input-invalid","input-file","input-inline","input-grid","input-required","input-badge","input-input-group","input-button-group","input-form","input-group-default","input-group-icon","input-group-text","input-group-button","input-group-kbd","input-group-dropdown","input-group-spinner","input-group-textarea","input-group-custom-input","input-group-credit-card","input-group-locked-password","input-otp-default","input-otp-separator","input-otp-disabled","input-otp-controlled","input-otp-invalid","input-otp-four-digits","input-otp-alphanumeric","input-otp-form","label-label-in-field","label-default","label-in-field-component","native-select-groups","native-select-disabled","native-select-invalid","native-select-default","radio-group-description","radio-group-choice-card","radio-group-fieldset","radio-group-disabled","radio-group-invalid","radio-group-default","select-default","select-align-item-with-trigger","select-groups","select-scrollable","select-disabled","select-invalid","slider-default","slider-range","slider-multiple-thumbs","slider-vertical","slider-controlled","slider-disabled","switch-default","switch-description","switch-choice-card","switch-disabled","switch-invalid","switch-size","textarea-default","textarea-field","textarea-disabled","textarea-invalid","textarea-button","aspect-ratio-default","aspect-ratio-square","aspect-ratio-portrait","card-default","card-size","card-image","card-with-form","collapsible-default","collapsible-basic","collapsible-settings-panel","collapsible-file-tree","resizable-default","resizable-vertical","resizable-handle","scroll-area-default","scroll-area-horizontal","separator-default","separator-vertical","separator-menu","separator-list","sidebar-default","sidebar-offcanvas","sidebar-none","sidebar-floating","sidebar-inset","sidebar-right","command-default","command-basic","command-shortcuts","command-groups","command-scrollable","context-menu-default","context-menu-basic","context-menu-submenu","context-menu-shortcuts","context-menu-groups","context-menu-icons","context-menu-checkboxes","context-menu-radio","context-menu-destructive","dropdown-menu-default","dropdown-menu-basic","dropdown-menu-submenu","dropdown-menu-shortcuts","dropdown-menu-icons","dropdown-menu-checkboxes","dropdown-menu-checkboxes-icons","dropdown-menu-radio-group","dropdown-menu-radio-icons","dropdown-menu-destructive","dropdown-menu-avatar","dropdown-menu-complex","breadcrumb-default","breadcrumb-basic","breadcrumb-custom-separator","breadcrumb-dropdown","breadcrumb-collapsed","breadcrumb-link-component","menubar-default","menubar-checkbox","menubar-radio","menubar-submenu","menubar-with-icons","navigation-menu-default","navigation-menu-link-component","pagination-default","pagination-simple","pagination-icons-only","tabs-default","tabs-line","tabs-vertical","tabs-disabled","tabs-icons","alert-dialog-default","alert-dialog-basic","alert-dialog-small","alert-dialog-media","alert-dialog-small-with-media","alert-dialog-destructive","dialog-default","dialog-custom-close-button","dialog-no-close-button","dialog-sticky-footer","dialog-scrollable-content","drawer-default","drawer-scrollable-content","drawer-sides","drawer-responsive-dialog","hover-card-default","hover-card-basic","hover-card-sides","popover-default","popover-basic","popover-align","popover-with-form","sheet-default","sheet-side","sheet-no-close-button","tooltip-default","tooltip-side","tooltip-with-keyboard-shortcut","tooltip-disabled-button","accordion-default","accordion-basic","accordion-multiple","accordion-disabled","accordion-borders","accordion-card","carousel-default","carousel-sizes","carousel-spacing","carousel-orientation","carousel-api-slide-n-of-m","carousel-plugins","empty-default","empty-outline","empty-background","empty-avatar","empty-avatar-group","empty-input-group","item-default","item-variants","item-sizes","item-icon","item-avatar","item-image","item-group","item-header","item-link","item-dropdown","kbd-default","kbd-group","kbd-button","kbd-tooltip","kbd-input-group"],
+  ui: ["accordion","alert","alert-dialog","aspect-ratio","avatar","badge","breadcrumb","button","button-group","calendar","card","carousel","chart","checkbox","collapsible","combobox","command","context-menu","dialog","drawer","dropdown-menu","empty","field","hover-card","input","input-group","input-otp","item","kbd","label","menubar","native-select","navigation-menu","pagination","popover","progress","radio-group","resizable","scroll-area","select","separator","sheet","sidebar","skeleton","slider","sonner","spinner","switch","table","tabs","textarea","toggle","toggle-group","tooltip","noise-background","stateful-button","multi-step-loader","separator-extended","card-styles","autocomplete","action-bar","banner","border-beam-button","circular-progress","color-picker","color-swatch","cropper","data-grid","data-table","file-upload","gauge","key-value","mention","phone-input","prompt-library","qr-code","segmented-input","swap","tags-input","terminal-animation","timeline","tour"],
+  examples: ["button-size","button-default","button-outline","button-secondary","button-ghost","button-destructive","button-link","button-icon","button-with-icon","button-rounded","button-spinner","button-button-group","button-as-child","button-group-default","button-group-orientation","button-group-size","button-group-nested","button-group-separator","button-group-split","button-group-input","button-group-input-group","button-group-dropdown-menu","button-group-select","button-group-popover","toggle-default","toggle-outline","toggle-with-text","toggle-size","toggle-disabled","toggle-group-default","toggle-group-outline","toggle-group-size","toggle-group-spacing","toggle-group-vertical","toggle-group-disabled","toggle-group-custom","avatar-default","avatar-basic","avatar-badge","avatar-badge-with-icon","avatar-avatar-group","avatar-avatar-group-count","avatar-avatar-group-with-icon","avatar-sizes","avatar-dropdown","badge-default","badge-variants","badge-with-icon","badge-with-spinner","badge-link","badge-custom-colors","calendar-default","calendar-basic","calendar-range-calendar","calendar-month-and-year-selector","calendar-presets","calendar-date-and-time-picker","calendar-booked-dates","calendar-custom-cell-size","calendar-week-numbers","calendar-with-timezone","calendar-hijri","chart-default","chart-your-first-chart","chart-chart-config","chart-tooltip","chart-legend","chart-bar-chart","chart-with-grid","chart-with-axis","chart-with-tooltip","chart-with-legend","chart-tooltip-demo","data-table-default","data-table-basic-table","data-table-cell-formatting","data-table-row-actions","data-table-pagination","data-table-sorting","data-table-filtering","data-table-visibility","data-table-row-selection","skeleton-default","skeleton-avatar","skeleton-card","skeleton-text","skeleton-form","skeleton-table","table-default","table-footer","table-actions","typography-h1","typography-h2","typography-h3","typography-h4","typography-p","typography-blockquote","typography-table","typography-list","typography-inline-code","typography-lead","typography-large","typography-small","typography-muted","typography-demo","noise-background-default","noise-background-card","stateful-button-default","multi-step-loader-default","separator-extended-default","separator-extended-dashed","separator-extended-dotted","separator-extended-double","card-styles-shadow","card-styles-lines","card-styles-hatched","card-styles-aurora","card-styles-tilted","card-styles-stacked","autocomplete-default","action-bar-default","banner-default","border-beam-button-default","circular-progress-default","color-picker-default","color-swatch-default","cropper-default","data-grid-default","file-upload-default","gauge-default","key-value-default","mention-default","phone-input-default","prompt-library-default","qr-code-default","segmented-input-default","swap-default","tags-input-default","terminal-animation-default","timeline-default","tour-default","alert-default","alert-basic","alert-destructive","alert-action","alert-custom-colors","progress-default","progress-label","progress-controlled","sonner-default","sonner-types","sonner-description","sonner-position","spinner-default","spinner-size","spinner-button","spinner-badge","spinner-input-group","spinner-empty","checkbox-default","checkbox-basic","checkbox-description","checkbox-disabled","checkbox-group","checkbox-table","checkbox-indeterminate-select-all","combobox-default","combobox-basic","combobox-multiple","combobox-clear-button","combobox-groups","combobox-custom-items","combobox-invalid","combobox-disabled","combobox-auto-highlight","combobox-popup","combobox-input-group","date-picker-default","date-picker-basic","date-picker-range-picker","date-picker-date-of-birth","date-picker-input","date-picker-time-picker","date-picker-natural-language-picker","field-default","field-input","field-textarea","field-select","field-slider","field-fieldset","field-checkbox","field-radio","field-switch","field-choice-card","field-field-group","input-default","input-basic","input-field","input-field-group","input-disabled","input-invalid","input-file","input-inline","input-grid","input-required","input-badge","input-input-group","input-button-group","input-form","input-group-default","input-group-icon","input-group-text","input-group-button","input-group-kbd","input-group-dropdown","input-group-spinner","input-group-textarea","input-group-custom-input","input-group-credit-card","input-group-locked-password","input-otp-default","input-otp-separator","input-otp-disabled","input-otp-controlled","input-otp-invalid","input-otp-four-digits","input-otp-alphanumeric","input-otp-form","label-label-in-field","label-default","label-in-field-component","native-select-groups","native-select-disabled","native-select-invalid","native-select-default","radio-group-description","radio-group-choice-card","radio-group-fieldset","radio-group-disabled","radio-group-invalid","radio-group-default","select-default","select-align-item-with-trigger","select-groups","select-scrollable","select-disabled","select-invalid","slider-default","slider-range","slider-multiple-thumbs","slider-vertical","slider-controlled","slider-disabled","switch-default","switch-description","switch-choice-card","switch-disabled","switch-invalid","switch-size","textarea-default","textarea-field","textarea-disabled","textarea-invalid","textarea-button","aspect-ratio-default","aspect-ratio-square","aspect-ratio-portrait","card-default","card-size","card-image","card-with-form","collapsible-default","collapsible-basic","collapsible-settings-panel","collapsible-file-tree","resizable-default","resizable-vertical","resizable-handle","scroll-area-default","scroll-area-horizontal","separator-default","separator-vertical","separator-menu","separator-list","sidebar-default","sidebar-offcanvas","sidebar-none","sidebar-floating","sidebar-inset","sidebar-right","command-default","command-basic","command-shortcuts","command-groups","command-scrollable","context-menu-default","context-menu-basic","context-menu-submenu","context-menu-shortcuts","context-menu-groups","context-menu-icons","context-menu-checkboxes","context-menu-radio","context-menu-destructive","dropdown-menu-default","dropdown-menu-basic","dropdown-menu-submenu","dropdown-menu-shortcuts","dropdown-menu-icons","dropdown-menu-checkboxes","dropdown-menu-checkboxes-icons","dropdown-menu-radio-group","dropdown-menu-radio-icons","dropdown-menu-destructive","dropdown-menu-avatar","dropdown-menu-complex","breadcrumb-default","breadcrumb-basic","breadcrumb-custom-separator","breadcrumb-dropdown","breadcrumb-collapsed","breadcrumb-link-component","menubar-default","menubar-checkbox","menubar-radio","menubar-submenu","menubar-with-icons","navigation-menu-default","navigation-menu-link-component","pagination-default","pagination-simple","pagination-icons-only","tabs-default","tabs-line","tabs-vertical","tabs-disabled","tabs-icons","alert-dialog-default","alert-dialog-basic","alert-dialog-small","alert-dialog-media","alert-dialog-small-with-media","alert-dialog-destructive","dialog-default","dialog-custom-close-button","dialog-no-close-button","dialog-sticky-footer","dialog-scrollable-content","drawer-default","drawer-scrollable-content","drawer-sides","drawer-responsive-dialog","hover-card-default","hover-card-basic","hover-card-sides","popover-default","popover-basic","popover-align","popover-with-form","sheet-default","sheet-side","sheet-no-close-button","tooltip-default","tooltip-side","tooltip-with-keyboard-shortcut","tooltip-disabled-button","accordion-default","accordion-basic","accordion-multiple","accordion-disabled","accordion-borders","accordion-card","carousel-default","carousel-sizes","carousel-spacing","carousel-orientation","carousel-api-slide-n-of-m","carousel-plugins","empty-default","empty-outline","empty-background","empty-avatar","empty-avatar-group","empty-input-group","item-default","item-variants","item-sizes","item-icon","item-avatar","item-image","item-group","item-header","item-link","item-dropdown","kbd-default","kbd-group","kbd-button","kbd-tooltip","kbd-input-group"],
   blocks: ["login-card","login-card-2","login-card-3","signup-card","forgot-password-card"],
 };
 
@@ -11567,6 +12617,69 @@ export const ExamplesBySlug: Record<string, string[]> = {
   ],
   "autocomplete": [
     "autocomplete-default"
+  ],
+  "action-bar": [
+    "action-bar-default"
+  ],
+  "banner": [
+    "banner-default"
+  ],
+  "border-beam-button": [
+    "border-beam-button-default"
+  ],
+  "circular-progress": [
+    "circular-progress-default"
+  ],
+  "color-picker": [
+    "color-picker-default"
+  ],
+  "color-swatch": [
+    "color-swatch-default"
+  ],
+  "cropper": [
+    "cropper-default"
+  ],
+  "data-grid": [
+    "data-grid-default"
+  ],
+  "file-upload": [
+    "file-upload-default"
+  ],
+  "gauge": [
+    "gauge-default"
+  ],
+  "key-value": [
+    "key-value-default"
+  ],
+  "mention": [
+    "mention-default"
+  ],
+  "phone-input": [
+    "phone-input-default"
+  ],
+  "prompt-library": [
+    "prompt-library-default"
+  ],
+  "qr-code": [
+    "qr-code-default"
+  ],
+  "segmented-input": [
+    "segmented-input-default"
+  ],
+  "swap": [
+    "swap-default"
+  ],
+  "tags-input": [
+    "tags-input-default"
+  ],
+  "terminal-animation": [
+    "terminal-animation-default"
+  ],
+  "timeline": [
+    "timeline-default"
+  ],
+  "tour": [
+    "tour-default"
   ],
   "alert": [
     "alert-default",

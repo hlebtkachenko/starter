@@ -376,3 +376,141 @@
 **Upstream:** https://coss.com/ui/docs/components/autocomplete
 **Depends on:** scroll-area
 **Categories:** forms
+## Action Bar
+
+**Name:** `action-bar`
+**Description:** Floating toolbar that appears on selection with keyboard navigation, item actions, close button, and separator. Portal-mounted with configurable position.
+**Upstream:** https://www.diceui.com/docs/components/radix/action-bar
+**Depends on:** button
+**Categories:** actions, overlay
+## Banner
+
+**Name:** `banner`
+**Description:** Dismissible notification banner with variant styles, icon, action button, and close. Supports top/bottom layout.
+**Upstream:** https://www.diceui.com/docs/components/radix/banner
+**Categories:** feedback
+## Border Beam Button
+
+**Name:** `border-beam-button`
+**Description:** Button wrapped with animated beam border effect. Standard and icon-only variants.
+**Upstream:** https://www.cult-ui.com/docs/components/border-beam-button
+**Depends on:** button
+**Categories:** actions, effects
+## Circular Progress
+
+**Name:** `circular-progress`
+**Description:** SVG-based circular progress indicator with configurable size, thickness, and value display.
+**Upstream:** https://www.diceui.com/docs/components/radix/circular-progress
+**Categories:** feedback, display
+## Color Picker
+
+**Name:** `color-picker`
+**Description:** HSL color area picker with hue slider, hex/HSL input, and preset swatches in a popover.
+**Upstream:** https://www.diceui.com/docs/components/radix/color-picker
+**Depends on:** button, input, label, popover
+**Categories:** forms
+## Color Swatch
+
+**Name:** `color-swatch`
+**Description:** Color preview swatch with configurable size, radius, and optional checkered background for transparency.
+**Upstream:** https://www.diceui.com/docs/components/radix/color-swatch
+**Categories:** display
+## Cropper
+
+**Name:** `cropper`
+**Description:** Image cropper with zoom, rotation, aspect ratio lock, and crop area selection. Touch and keyboard support.
+**Upstream:** https://www.diceui.com/docs/components/radix/cropper
+**Categories:** forms, display
+## Data Grid
+
+**Name:** `data-grid`
+**Description:** High-performance editable spreadsheet with virtualization, 9 cell types, clipboard, undo/redo, search, sorting, and column management.
+**Upstream:** https://www.diceui.com/docs/components/radix/data-grid
+**Depends on:** button, checkbox, command, context-menu, dialog, dropdown-menu, input, popover, select, separator, table, tooltip
+**Categories:** data, forms
+## Data Table
+
+**Name:** `data-table`
+**Description:** Feature-rich data table with advanced filtering, URL state sync, multi-column sorting, pagination, column visibility, row selection, and action bar.
+**Upstream:** https://www.diceui.com/docs/components/radix/data-table
+**Depends on:** button, badge, calendar, checkbox, command, dialog, dropdown-menu, input, popover, select, separator, skeleton, slider, table, tooltip
+**Categories:** data, display
+## File Upload
+
+**Name:** `file-upload`
+**Description:** Drag-and-drop file upload with progress tracking, file type validation, size limits, and preview thumbnails.
+**Upstream:** https://www.diceui.com/docs/components/radix/file-upload
+**Categories:** forms
+## Gauge
+
+**Name:** `gauge`
+**Description:** SVG gauge/meter component with configurable min/max, segments, labels, and needle indicator.
+**Upstream:** https://www.diceui.com/docs/components/radix/gauge
+**Categories:** display, feedback
+## Key Value
+
+**Name:** `key-value`
+**Description:** Editable key-value pair input with add/remove/reorder, validation, and clipboard support.
+**Upstream:** https://www.diceui.com/docs/components/radix/key-value
+**Categories:** display, forms
+## Mention
+
+**Name:** `mention`
+**Description:** Text input with @mention autocomplete suggestions triggered by a configurable character.
+**Upstream:** https://www.diceui.com/docs/components/radix/mention
+**Categories:** forms
+## Phone Input
+
+**Name:** `phone-input`
+**Description:** International phone number input with country code selector, flag display, and format validation.
+**Upstream:** https://www.diceui.com/docs/components/radix/phone-input
+**Categories:** forms
+## Prompt Library
+
+**Name:** `prompt-library`
+**Description:** AI prompt template library in a popover with search, categories, hover preview, and custom prompt creation.
+**Upstream:** https://www.cult-ui.com/docs/components/prompt-library
+**Depends on:** button, command, dialog, hover-card, input, popover, textarea
+**Categories:** overlay, forms
+## QR Code
+
+**Name:** `qr-code`
+**Description:** QR code generator with customizable size, error correction, colors, and optional logo overlay.
+**Upstream:** https://www.diceui.com/docs/components/radix/qr-code
+**Categories:** display
+## Segmented Input
+
+**Name:** `segmented-input`
+**Description:** Multi-segment input (date, time, code) with individual segment focus, keyboard navigation, and validation.
+**Upstream:** https://www.diceui.com/docs/components/radix/segmented-input
+**Categories:** forms
+## Swap
+
+**Name:** `swap`
+**Description:** Animated toggle between two content states with configurable transition effects.
+**Upstream:** https://www.diceui.com/docs/components/radix/swap
+**Categories:** actions, effects
+## Tags Input
+
+**Name:** `tags-input`
+**Description:** Input field for adding and removing tags/chips with keyboard support and validation.
+**Upstream:** https://www.diceui.com/docs/components/radix/tags-input
+**Categories:** forms
+## Terminal Animation
+
+**Name:** `terminal-animation`
+**Description:** Animated terminal/CLI output with typing effect, tab navigation, command bar, blinking cursor, and line-by-line reveal.
+**Upstream:** https://www.cult-ui.com/docs/components/terminal-animation
+**Categories:** display, effects
+## Timeline
+
+**Name:** `timeline`
+**Description:** Vertical or horizontal timeline with active step tracking, connector lines, and customizable content per step.
+**Upstream:** https://www.diceui.com/docs/components/radix/timeline
+**Categories:** display
+## Tour
+
+**Name:** `tour`
+**Description:** Multi-step guided tour overlay with spotlight highlighting, step navigation, keyboard support, and scroll-to-target.
+**Upstream:** https://www.diceui.com/docs/components/radix/tour
+**Categories:** overlay, navigation
