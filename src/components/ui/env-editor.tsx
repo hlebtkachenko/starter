@@ -50,8 +50,18 @@ function parseEnvString(content: string): EnvVariable[] {
 function toEnvString(variables: EnvVariable[]): string {
   return variables
     .map(({ key, value }) => {
-      const needsQuotes = value.includes(" ") || value.includes("=") || value.includes("#");
-      return `${key}=${needsQuotes ? `"${value}"` : value}`;
+      const needsQuotes =
+        value.includes(" ") ||
+        value.includes("=") ||
+        value.includes("#") ||
+        value.includes('"') ||
+        value.includes("\\") ||
+        value.includes("\n");
+      if (needsQuotes) {
+        const escaped = value.replace(/\\/g, "\\\\").replace(/"/g, '\\"').replace(/\n/g, "\\n");
+        return `${key}="${escaped}"`;
+      }
+      return `${key}=${value}`;
     })
     .join("\n");
 }
