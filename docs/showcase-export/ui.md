@@ -583,3 +583,52 @@
 **Description:** HTTP request builder with method selector, URL input, headers editor, JSON body, and color-coded response display.
 **Upstream:** https://www.tryelements.dev/docs/devtools/webhook-tester
 **Categories:** forms, data
+## Evil Area Chart
+
+**Name:** `evil-area-chart`
+**Description:** Feature-rich area chart with gradient fill, animated skeleton, brush zoom, and glow support.
+**Upstream:** https://evilcharts.com/docs/components/area-chart
+**Categories:** charts
+## Evil Bar Chart
+
+**Name:** `evil-bar-chart`
+**Description:** Feature-rich bar chart with stacked, grouped, percent variants, animated skeleton, and glow effects.
+**Upstream:** https://evilcharts.com/docs/components/bar-chart
+**Categories:** charts
+## Evil Line Chart
+
+**Name:** `evil-line-chart`
+**Description:** Feature-rich line chart with monotone, step, linear curves, animated skeleton, and glow effects.
+**Upstream:** https://evilcharts.com/docs/components/line-chart
+**Categories:** charts
+## Evil Pie Chart
+
+**Name:** `evil-pie-chart`
+**Description:** Feature-rich pie and donut chart with configurable radius, padding angle, and animated skeleton.
+**Upstream:** https://evilcharts.com/docs/components/pie-chart
+**Categories:** charts
+## Evil Radar Chart
+
+**Name:** `evil-radar-chart`
+**Description:** Feature-rich radar chart with filled, lines variants, polygon grid, radial gradients, and glow effects.
+**Upstream:** https://evilcharts.com/docs/components/radar-chart
+**Categories:** charts
+## Evil Composed Chart
+
+**Name:** `evil-composed-chart`
+**Description:** Feature-rich composed chart overlaying bars and lines on shared axis with glow effects and skeleton.
+**Upstream:** https://evilcharts.com/docs/components/composed-chart
+**Categories:** charts
+## Animated Shiny Button
+
+**Name:** `animated-shiny-button`
+**Description:** Button with animated conic-gradient border, dot pattern, shimmer effect, and breathe animation.
+**Upstream:** https://www.eldoraui.site/docs/components/animated-shiny-button
+**Categories:** actions, effects
+## Browser
+
+**Name:** `browser`
+**Description:** Interactive browser simulator with tab management, address bar, navigation, bookmarks, history, and downloads.
+**Upstream:** https://www.eldoraui.site/docs/components/browser
+**Depends on:** button, badge, card, separator, input
+**Categories:** display

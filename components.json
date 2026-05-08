@@ -26,6 +26,8 @@
     "@basecn": "https://basecn.dev/r/{name}.json",
     "@coss": "https://coss.com/ui/r/{name}.json",
     "@diceui": "https://diceui.com/r/{name}.json",
-    "@elements": "https://www.tryelements.dev/r/{name}.json"
+    "@elements": "https://www.tryelements.dev/r/{name}.json",
+    "@eldoraui": "https://eldoraui.site/r/{name}.json",
+    "@evilcharts": "https://evilcharts.com/r/{name}.json"
   }
 }

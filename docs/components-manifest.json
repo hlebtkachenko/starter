@@ -488,6 +488,48 @@
   },
   {
     "categories": [
+      "actions",
+      "effects"
+    ],
+    "description": "Button with animated conic-gradient border, dot pattern, shimmer effect, and breathe animation.",
+    "files": [
+      {
+        "path": "components/ui/animated-shiny-button.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "name": "animated-shiny-button",
+    "proposedGroup": "buttons",
+    "title": "Animated Shiny Button",
+    "type": "registry:ui",
+    "upstreamUrl": "https://www.eldoraui.site/docs/components/animated-shiny-button"
+  },
+  {
+    "categories": [
+      "actions",
+      "effects"
+    ],
+    "description": "Shiny CTA button with rotating conic-gradient border and shimmer on hover.",
+    "files": [
+      {
+        "path": "components/examples/animated-shiny-button-default.tsx",
+        "type": "registry:example"
+      }
+    ],
+    "isDefault": true,
+    "isFlagged": false,
+    "name": "animated-shiny-button-default",
+    "registryDependencies": [
+      "animated-shiny-button"
+    ],
+    "slug": "animated-shiny-button",
+    "title": "Default",
+    "type": "registry:example",
+    "upstreamUrl": "https://www.eldoraui.site/docs/components/animated-shiny-button",
+    "variant": "default"
+  },
+  {
+    "categories": [
       "data",
       "display"
     ],
@@ -1297,6 +1339,55 @@
     "type": "registry:example",
     "upstreamUrl": "https://ui.shadcn.com/docs/components/breadcrumb",
     "variant": "link-component"
+  },
+  {
+    "categories": [
+      "display"
+    ],
+    "description": "Interactive browser simulator with tab management, address bar, navigation, bookmarks, history, and downloads.",
+    "files": [
+      {
+        "path": "components/ui/browser.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "name": "browser",
+    "proposedGroup": "display",
+    "registryDependencies": [
+      "button",
+      "badge",
+      "card",
+      "separator",
+      "input"
+    ],
+    "title": "Browser",
+    "type": "registry:ui",
+    "upstreamUrl": "https://www.eldoraui.site/docs/components/browser"
+  },
+  {
+    "categories": [
+      "display"
+    ],
+    "description": "Interactive browser simulator with tabs, address bar, macOS chrome, and simulated loading.",
+    "files": [
+      {
+        "path": "components/examples/browser-default.tsx",
+        "type": "registry:example"
+      }
+    ],
+    "height": "tall",
+    "isDefault": true,
+    "isFlagged": false,
+    "name": "browser-default",
+    "registryDependencies": [
+      "browser"
+    ],
+    "slug": "browser",
+    "span": 3,
+    "title": "Default",
+    "type": "registry:example",
+    "upstreamUrl": "https://www.eldoraui.site/docs/components/browser",
+    "variant": "default"
   },
   {
     "categories": [
@@ -5311,6 +5402,258 @@
     "title": "Default",
     "type": "registry:example",
     "upstreamUrl": "https://www.tryelements.dev/docs/devtools/error-boundary-ui",
+    "variant": "default"
+  },
+  {
+    "categories": [
+      "charts"
+    ],
+    "description": "Feature-rich area chart with gradient fill, animated skeleton, brush zoom, and glow support.",
+    "files": [
+      {
+        "path": "components/ui/evil-area-chart.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "name": "evil-area-chart",
+    "proposedGroup": "charts",
+    "title": "Evil Area Chart",
+    "type": "registry:ui",
+    "upstreamUrl": "https://evilcharts.com/docs/components/area-chart"
+  },
+  {
+    "categories": [
+      "charts"
+    ],
+    "description": "Area chart tracking monthly revenue and expenses with gradient fill.",
+    "files": [
+      {
+        "path": "components/examples/evil-area-chart-default.tsx",
+        "type": "registry:example"
+      }
+    ],
+    "height": "tall",
+    "isDefault": true,
+    "isFlagged": false,
+    "name": "evil-area-chart-default",
+    "registryDependencies": [
+      "evil-area-chart"
+    ],
+    "slug": "evil-area-chart",
+    "span": 2,
+    "title": "Default",
+    "type": "registry:example",
+    "upstreamUrl": "https://evilcharts.com/docs/components/area-chart",
+    "variant": "default"
+  },
+  {
+    "categories": [
+      "charts"
+    ],
+    "description": "Feature-rich bar chart with stacked, grouped, percent variants, animated skeleton, and glow effects.",
+    "files": [
+      {
+        "path": "components/ui/evil-bar-chart.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "name": "evil-bar-chart",
+    "proposedGroup": "charts",
+    "title": "Evil Bar Chart",
+    "type": "registry:ui",
+    "upstreamUrl": "https://evilcharts.com/docs/components/bar-chart"
+  },
+  {
+    "categories": [
+      "charts"
+    ],
+    "description": "Bar chart showing quarterly sales vs returns with grouped bars.",
+    "files": [
+      {
+        "path": "components/examples/evil-bar-chart-default.tsx",
+        "type": "registry:example"
+      }
+    ],
+    "height": "tall",
+    "isDefault": true,
+    "isFlagged": false,
+    "name": "evil-bar-chart-default",
+    "registryDependencies": [
+      "evil-bar-chart"
+    ],
+    "slug": "evil-bar-chart",
+    "span": 2,
+    "title": "Default",
+    "type": "registry:example",
+    "upstreamUrl": "https://evilcharts.com/docs/components/bar-chart",
+    "variant": "default"
+  },
+  {
+    "categories": [
+      "charts"
+    ],
+    "description": "Feature-rich composed chart overlaying bars and lines on shared axis with glow effects and skeleton.",
+    "files": [
+      {
+        "path": "components/ui/evil-composed-chart.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "name": "evil-composed-chart",
+    "proposedGroup": "charts",
+    "title": "Evil Composed Chart",
+    "type": "registry:ui",
+    "upstreamUrl": "https://evilcharts.com/docs/components/composed-chart"
+  },
+  {
+    "categories": [
+      "charts"
+    ],
+    "description": "Composed chart overlaying monthly order bars with avg value trend line.",
+    "files": [
+      {
+        "path": "components/examples/evil-composed-chart-default.tsx",
+        "type": "registry:example"
+      }
+    ],
+    "height": "tall",
+    "isDefault": true,
+    "isFlagged": false,
+    "name": "evil-composed-chart-default",
+    "registryDependencies": [
+      "evil-composed-chart"
+    ],
+    "slug": "evil-composed-chart",
+    "span": 2,
+    "title": "Default",
+    "type": "registry:example",
+    "upstreamUrl": "https://evilcharts.com/docs/components/composed-chart",
+    "variant": "default"
+  },
+  {
+    "categories": [
+      "charts"
+    ],
+    "description": "Feature-rich line chart with monotone, step, linear curves, animated skeleton, and glow effects.",
+    "files": [
+      {
+        "path": "components/ui/evil-line-chart.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "name": "evil-line-chart",
+    "proposedGroup": "charts",
+    "title": "Evil Line Chart",
+    "type": "registry:ui",
+    "upstreamUrl": "https://evilcharts.com/docs/components/line-chart"
+  },
+  {
+    "categories": [
+      "charts"
+    ],
+    "description": "Line chart tracking weekly users and signups with monotone curves.",
+    "files": [
+      {
+        "path": "components/examples/evil-line-chart-default.tsx",
+        "type": "registry:example"
+      }
+    ],
+    "height": "tall",
+    "isDefault": true,
+    "isFlagged": false,
+    "name": "evil-line-chart-default",
+    "registryDependencies": [
+      "evil-line-chart"
+    ],
+    "slug": "evil-line-chart",
+    "span": 2,
+    "title": "Default",
+    "type": "registry:example",
+    "upstreamUrl": "https://evilcharts.com/docs/components/line-chart",
+    "variant": "default"
+  },
+  {
+    "categories": [
+      "charts"
+    ],
+    "description": "Feature-rich pie and donut chart with configurable radius, padding angle, and animated skeleton.",
+    "files": [
+      {
+        "path": "components/ui/evil-pie-chart.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "name": "evil-pie-chart",
+    "proposedGroup": "charts",
+    "title": "Evil Pie Chart",
+    "type": "registry:ui",
+    "upstreamUrl": "https://evilcharts.com/docs/components/pie-chart"
+  },
+  {
+    "categories": [
+      "charts"
+    ],
+    "description": "Donut pie chart showing traffic channel distribution.",
+    "files": [
+      {
+        "path": "components/examples/evil-pie-chart-default.tsx",
+        "type": "registry:example"
+      }
+    ],
+    "height": "tall",
+    "isDefault": true,
+    "isFlagged": false,
+    "name": "evil-pie-chart-default",
+    "registryDependencies": [
+      "evil-pie-chart"
+    ],
+    "slug": "evil-pie-chart",
+    "span": 2,
+    "title": "Default",
+    "type": "registry:example",
+    "upstreamUrl": "https://evilcharts.com/docs/components/pie-chart",
+    "variant": "default"
+  },
+  {
+    "categories": [
+      "charts"
+    ],
+    "description": "Feature-rich radar chart with filled, lines variants, polygon grid, radial gradients, and glow effects.",
+    "files": [
+      {
+        "path": "components/ui/evil-radar-chart.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "name": "evil-radar-chart",
+    "proposedGroup": "charts",
+    "title": "Evil Radar Chart",
+    "type": "registry:ui",
+    "upstreamUrl": "https://evilcharts.com/docs/components/radar-chart"
+  },
+  {
+    "categories": [
+      "charts"
+    ],
+    "description": "Radar chart comparing frontend vs backend across six dimensions.",
+    "files": [
+      {
+        "path": "components/examples/evil-radar-chart-default.tsx",
+        "type": "registry:example"
+      }
+    ],
+    "height": "tall",
+    "isDefault": true,
+    "isFlagged": false,
+    "name": "evil-radar-chart-default",
+    "registryDependencies": [
+      "evil-radar-chart"
+    ],
+    "slug": "evil-radar-chart",
+    "span": 2,
+    "title": "Default",
+    "type": "registry:example",
+    "upstreamUrl": "https://evilcharts.com/docs/components/radar-chart",
     "variant": "default"
   },
   {

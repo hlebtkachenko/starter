@@ -1896,3 +1896,336 @@ export default function WebhookTesterDefault() {
   );
 }
 ```
+## Default
+
+**Slug:** `evil-area-chart`
+**Variant:** `default`
+**Upstream:** https://evilcharts.com/docs/components/area-chart
+**Description:** Area chart tracking monthly revenue and expenses with gradient fill.
+**Depends on:** evil-area-chart
+
+```tsx
+/**
+ * @slug evil-area-chart
+ * @variant default
+ * @upstream https://evilcharts.com/docs/components/area-chart
+ * @deviations ["Stub re-export from evilcharts/charts directory."]
+ */
+"use client";
+
+import { EvilAreaChart } from "@/components/ui/evil-area-chart";
+
+const data = [
+  { month: "Jan", revenue: 4200, expenses: 2800 },
+  { month: "Feb", revenue: 4800, expenses: 3100 },
+  { month: "Mar", revenue: 5100, expenses: 2900 },
+  { month: "Apr", revenue: 4600, expenses: 3200 },
+  { month: "May", revenue: 5800, expenses: 3400 },
+  { month: "Jun", revenue: 6200, expenses: 3100 },
+];
+
+const chartConfig = {
+  revenue: { label: "Revenue", colors: { light: ["#6366f1"], dark: ["#818cf8"] } },
+  expenses: { label: "Expenses", colors: { light: ["#f43f5e"], dark: ["#fb7185"] } },
+};
+
+export default function EvilAreaChartDefault() {
+  return (
+    <EvilAreaChart
+      data={data}
+      chartConfig={chartConfig}
+      xDataKey="month"
+      areaVariant="gradient"
+      className="h-64 w-full"
+    />
+  );
+}
+```
+## Default
+
+**Slug:** `evil-bar-chart`
+**Variant:** `default`
+**Upstream:** https://evilcharts.com/docs/components/bar-chart
+**Description:** Bar chart showing quarterly sales vs returns with grouped bars.
+**Depends on:** evil-bar-chart
+
+```tsx
+/**
+ * @slug evil-bar-chart
+ * @variant default
+ * @upstream https://evilcharts.com/docs/components/bar-chart
+ * @deviations ["Stub re-export from evilcharts/charts directory."]
+ */
+"use client";
+
+import { EvilBarChart } from "@/components/ui/evil-bar-chart";
+
+const data = [
+  { quarter: "Q1", sales: 82000, returns: 6200 },
+  { quarter: "Q2", sales: 96000, returns: 7400 },
+  { quarter: "Q3", sales: 110000, returns: 8100 },
+  { quarter: "Q4", sales: 134000, returns: 9500 },
+];
+
+const chartConfig = {
+  sales: { label: "Sales", colors: { light: ["#6366f1"], dark: ["#818cf8"] } },
+  returns: { label: "Returns", colors: { light: ["#f43f5e"], dark: ["#fb7185"] } },
+};
+
+export default function EvilBarChartDefault() {
+  return (
+    <EvilBarChart
+      data={data}
+      chartConfig={chartConfig}
+      xDataKey="quarter"
+      className="h-64 w-full"
+    />
+  );
+}
+```
+## Default
+
+**Slug:** `evil-line-chart`
+**Variant:** `default`
+**Upstream:** https://evilcharts.com/docs/components/line-chart
+**Description:** Line chart tracking weekly users and signups with monotone curves.
+**Depends on:** evil-line-chart
+
+```tsx
+/**
+ * @slug evil-line-chart
+ * @variant default
+ * @upstream https://evilcharts.com/docs/components/line-chart
+ * @deviations ["Stub re-export from evilcharts/charts directory."]
+ */
+"use client";
+
+import { EvilLineChart } from "@/components/ui/evil-line-chart";
+
+const data = [
+  { week: "W1", users: 2400, signups: 400 },
+  { week: "W2", users: 1398, signups: 300 },
+  { week: "W3", users: 4800, signups: 520 },
+  { week: "W4", users: 3908, signups: 480 },
+  { week: "W5", users: 4800, signups: 380 },
+  { week: "W6", users: 3800, signups: 430 },
+];
+
+const chartConfig = {
+  users: { label: "Active Users", colors: { light: ["#6366f1"], dark: ["#818cf8"] } },
+  signups: { label: "New Signups", colors: { light: ["#10b981"], dark: ["#34d399"] } },
+};
+
+export default function EvilLineChartDefault() {
+  return (
+    <EvilLineChart
+      data={data}
+      chartConfig={chartConfig}
+      xDataKey="week"
+      curveType="monotone"
+      className="h-64 w-full"
+    />
+  );
+}
+```
+## Default
+
+**Slug:** `evil-pie-chart`
+**Variant:** `default`
+**Upstream:** https://evilcharts.com/docs/components/pie-chart
+**Description:** Donut pie chart showing traffic channel distribution.
+**Depends on:** evil-pie-chart
+
+```tsx
+/**
+ * @slug evil-pie-chart
+ * @variant default
+ * @upstream https://evilcharts.com/docs/components/pie-chart
+ * @deviations ["Stub re-export from evilcharts/charts directory."]
+ */
+"use client";
+
+import { EvilPieChart } from "@/components/ui/evil-pie-chart";
+
+const data = [
+  { channel: "Organic", visitors: 4800 },
+  { channel: "Paid Search", visitors: 2600 },
+  { channel: "Social", visitors: 1900 },
+  { channel: "Referral", visitors: 1200 },
+  { channel: "Direct", visitors: 900 },
+];
+
+const chartConfig = {
+  Organic: { label: "Organic", colors: { light: ["#6366f1"], dark: ["#818cf8"] } },
+  "Paid Search": { label: "Paid Search", colors: { light: ["#8b5cf6"], dark: ["#a78bfa"] } },
+  Social: { label: "Social", colors: { light: ["#10b981"], dark: ["#34d399"] } },
+  Referral: { label: "Referral", colors: { light: ["#f59e0b"], dark: ["#fbbf24"] } },
+  Direct: { label: "Direct", colors: { light: ["#f43f5e"], dark: ["#fb7185"] } },
+};
+
+export default function EvilPieChartDefault() {
+  return (
+    <EvilPieChart
+      data={data}
+      dataKey="visitors"
+      nameKey="channel"
+      chartConfig={chartConfig}
+      innerRadius="40%"
+      outerRadius="75%"
+      paddingAngle={3}
+      cornerRadius={4}
+      className="h-72 w-full"
+    />
+  );
+}
+```
+## Default
+
+**Slug:** `evil-radar-chart`
+**Variant:** `default`
+**Upstream:** https://evilcharts.com/docs/components/radar-chart
+**Description:** Radar chart comparing frontend vs backend across six dimensions.
+**Depends on:** evil-radar-chart
+
+```tsx
+/**
+ * @slug evil-radar-chart
+ * @variant default
+ * @upstream https://evilcharts.com/docs/components/radar-chart
+ * @deviations ["Stub re-export from evilcharts/charts directory."]
+ */
+"use client";
+
+import { EvilRadarChart } from "@/components/ui/evil-radar-chart";
+
+const data = [
+  { metric: "Speed", frontend: 86, backend: 92 },
+  { metric: "Reliability", frontend: 78, backend: 95 },
+  { metric: "Scalability", frontend: 72, backend: 88 },
+  { metric: "Security", frontend: 65, backend: 91 },
+  { metric: "Usability", frontend: 94, backend: 70 },
+  { metric: "Cost", frontend: 80, backend: 75 },
+];
+
+const chartConfig = {
+  frontend: { label: "Frontend", colors: { light: ["#6366f1"], dark: ["#818cf8"] } },
+  backend: { label: "Backend", colors: { light: ["#f43f5e"], dark: ["#fb7185"] } },
+};
+
+export default function EvilRadarChartDefault() {
+  return (
+    <EvilRadarChart
+      data={data}
+      chartConfig={chartConfig}
+      dataKey="metric"
+      className="h-72 w-full"
+    />
+  );
+}
+```
+## Default
+
+**Slug:** `evil-composed-chart`
+**Variant:** `default`
+**Upstream:** https://evilcharts.com/docs/components/composed-chart
+**Description:** Composed chart overlaying monthly order bars with avg value trend line.
+**Depends on:** evil-composed-chart
+
+```tsx
+/**
+ * @slug evil-composed-chart
+ * @variant default
+ * @upstream https://evilcharts.com/docs/components/composed-chart
+ * @deviations ["Stub re-export from evilcharts/charts directory."]
+ */
+"use client";
+
+import { EvilComposedChart } from "@/components/ui/evil-composed-chart";
+
+const data = [
+  { month: "Jan", orders: 420, avgValue: 85 },
+  { month: "Feb", orders: 380, avgValue: 92 },
+  { month: "Mar", orders: 510, avgValue: 78 },
+  { month: "Apr", orders: 460, avgValue: 88 },
+  { month: "May", orders: 580, avgValue: 95 },
+  { month: "Jun", orders: 620, avgValue: 91 },
+];
+
+const barConfig = {
+  orders: { label: "Orders", colors: { light: ["#6366f1"], dark: ["#818cf8"] } },
+};
+
+const lineConfig = {
+  avgValue: { label: "Avg Value", colors: { light: ["#10b981"], dark: ["#34d399"] } },
+};
+
+export default function EvilComposedChartDefault() {
+  return (
+    <EvilComposedChart
+      data={data}
+      barConfig={barConfig}
+      lineConfig={lineConfig}
+      xDataKey="month"
+      className="h-64 w-full"
+    />
+  );
+}
+```
+## Default
+
+**Slug:** `animated-shiny-button`
+**Variant:** `default`
+**Upstream:** https://www.eldoraui.site/docs/components/animated-shiny-button
+**Description:** Shiny CTA button with rotating conic-gradient border and shimmer on hover.
+**Depends on:** animated-shiny-button
+
+```tsx
+/**
+ * @slug animated-shiny-button
+ * @variant default
+ * @upstream https://www.eldoraui.site/docs/components/animated-shiny-button
+ * @deviations ["Removed Google Fonts import.", "Self-contained CSS custom properties."]
+ */
+
+import { AnimatedShinyButton } from "@/components/ui/animated-shiny-button";
+
+export default function AnimatedShinyButtonDefault() {
+  return (
+    <div className="flex items-center justify-center">
+      <AnimatedShinyButton>Get started</AnimatedShinyButton>
+    </div>
+  );
+}
+```
+## Default
+
+**Slug:** `browser`
+**Variant:** `default`
+**Upstream:** https://www.eldoraui.site/docs/components/browser
+**Description:** Interactive browser simulator with tabs, address bar, macOS chrome, and simulated loading.
+**Depends on:** browser
+
+```tsx
+/**
+ * @slug browser
+ * @variant default
+ * @upstream https://www.eldoraui.site/docs/components/browser
+ * @deviations ["Token classes replace hardcoded palette where possible."]
+ */
+"use client";
+
+import { Browser } from "@/components/ui/browser";
+
+export default function BrowserDefault() {
+  return (
+    <div className="w-full">
+      <Browser
+        initialUrl="https://example.com"
+        showWindowControls
+        simulateLoading
+        enableTabManagement
+      />
+    </div>
+  );
+}
+```

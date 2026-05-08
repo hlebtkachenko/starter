@@ -998,4 +998,94 @@ export const items = defineItems([
     categories: ["forms", "data"],
     proposedGroup: "devtools",
   },
+
+  {
+    name: "evil-area-chart",
+    type: "registry:ui",
+    title: "Evil Area Chart",
+    description:
+      "Feature-rich area chart with gradient fill, animated skeleton, brush zoom, and glow support.",
+    files: [{ path: "components/ui/evil-area-chart.tsx", type: "registry:ui" }],
+    upstreamUrl: "https://evilcharts.com/docs/components/area-chart",
+    categories: ["charts"],
+    proposedGroup: "charts",
+  },
+  {
+    name: "evil-bar-chart",
+    type: "registry:ui",
+    title: "Evil Bar Chart",
+    description:
+      "Feature-rich bar chart with stacked, grouped, percent variants, animated skeleton, and glow effects.",
+    files: [{ path: "components/ui/evil-bar-chart.tsx", type: "registry:ui" }],
+    upstreamUrl: "https://evilcharts.com/docs/components/bar-chart",
+    categories: ["charts"],
+    proposedGroup: "charts",
+  },
+  {
+    name: "evil-line-chart",
+    type: "registry:ui",
+    title: "Evil Line Chart",
+    description:
+      "Feature-rich line chart with monotone, step, linear curves, animated skeleton, and glow effects.",
+    files: [{ path: "components/ui/evil-line-chart.tsx", type: "registry:ui" }],
+    upstreamUrl: "https://evilcharts.com/docs/components/line-chart",
+    categories: ["charts"],
+    proposedGroup: "charts",
+  },
+  {
+    name: "evil-pie-chart",
+    type: "registry:ui",
+    title: "Evil Pie Chart",
+    description:
+      "Feature-rich pie and donut chart with configurable radius, padding angle, and animated skeleton.",
+    files: [{ path: "components/ui/evil-pie-chart.tsx", type: "registry:ui" }],
+    upstreamUrl: "https://evilcharts.com/docs/components/pie-chart",
+    categories: ["charts"],
+    proposedGroup: "charts",
+  },
+  {
+    name: "evil-radar-chart",
+    type: "registry:ui",
+    title: "Evil Radar Chart",
+    description:
+      "Feature-rich radar chart with filled, lines variants, polygon grid, radial gradients, and glow effects.",
+    files: [{ path: "components/ui/evil-radar-chart.tsx", type: "registry:ui" }],
+    upstreamUrl: "https://evilcharts.com/docs/components/radar-chart",
+    categories: ["charts"],
+    proposedGroup: "charts",
+  },
+  {
+    name: "evil-composed-chart",
+    type: "registry:ui",
+    title: "Evil Composed Chart",
+    description:
+      "Feature-rich composed chart overlaying bars and lines on shared axis with glow effects and skeleton.",
+    files: [{ path: "components/ui/evil-composed-chart.tsx", type: "registry:ui" }],
+    upstreamUrl: "https://evilcharts.com/docs/components/composed-chart",
+    categories: ["charts"],
+    proposedGroup: "charts",
+  },
+  {
+    name: "animated-shiny-button",
+    type: "registry:ui",
+    title: "Animated Shiny Button",
+    description:
+      "Button with animated conic-gradient border, dot pattern, shimmer effect, and breathe animation.",
+    files: [{ path: "components/ui/animated-shiny-button.tsx", type: "registry:ui" }],
+    upstreamUrl: "https://www.eldoraui.site/docs/components/animated-shiny-button",
+    categories: ["actions", "effects"],
+    proposedGroup: "buttons",
+  },
+  {
+    name: "browser",
+    type: "registry:ui",
+    title: "Browser",
+    description:
+      "Interactive browser simulator with tab management, address bar, navigation, bookmarks, history, and downloads.",
+    files: [{ path: "components/ui/browser.tsx", type: "registry:ui" }],
+    upstreamUrl: "https://www.eldoraui.site/docs/components/browser",
+    registryDependencies: ["button", "badge", "card", "separator", "input"],
+    categories: ["display"],
+    proposedGroup: "display",
+  },
 ]);

@@ -9,7 +9,7 @@
 
 | Area | File | Items | Chars |
 |---|---|---|---|
-| UI Primitives | [docs/showcase-export/ui.md](showcase-export/ui.md) | 93 | 22,564 |
+| UI Primitives | [docs/showcase-export/ui.md](showcase-export/ui.md) | 101 | 24,664 |
 | Examples: buttons | [docs/showcase-export/examples-buttons.md](showcase-export/examples-buttons.md) | 36 | 47,459 |
 | Examples: display-part1 | [docs/showcase-export/examples-display-part1.md](showcase-export/examples-display-part1.md) | 41 | 79,363 |
 | Examples: display-part2 | [docs/showcase-export/examples-display-part2.md](showcase-export/examples-display-part2.md) | 20 | 28,696 |
@@ -21,7 +21,7 @@
 | Examples: navigation | [docs/showcase-export/examples-navigation.md](showcase-export/examples-navigation.md) | 21 | 40,532 |
 | Examples: overlays | [docs/showcase-export/examples-overlays.md](showcase-export/examples-overlays.md) | 23 | 40,967 |
 | Examples: utility | [docs/showcase-export/examples-utility.md](showcase-export/examples-utility.md) | 33 | 50,746 |
-| Examples: other | [docs/showcase-export/examples-other.md](showcase-export/examples-other.md) | 37 | 53,600 |
+| Examples: other | [docs/showcase-export/examples-other.md](showcase-export/examples-other.md) | 45 | 62,825 |
 | Blocks | [docs/showcase-export/blocks.md](showcase-export/blocks.md) | 5 | 15,187 |
 
 ## UI Primitives TOC
@@ -119,11 +119,19 @@
 - [`pdf-utils`](showcase-export/ui.md#pdf-utils) — Client-side PDF utility library: extract metadata, screenshot pages, search text, generate thumbnails, and split page ranges.
 - [`pdf-viewer`](showcase-export/ui.md#pdf-viewer) — Full-featured PDF viewer with single-page, continuous-scroll, and book layout modes, zoom controls, and page navigation.
 - [`webhook-tester`](showcase-export/ui.md#webhook-tester) — HTTP request builder with method selector, URL input, headers editor, JSON body, and color-coded response display.
+- [`evil-area-chart`](showcase-export/ui.md#evil-area-chart) — Feature-rich area chart with gradient fill, animated skeleton, brush zoom, and glow support.
+- [`evil-bar-chart`](showcase-export/ui.md#evil-bar-chart) — Feature-rich bar chart with stacked, grouped, percent variants, animated skeleton, and glow effects.
+- [`evil-line-chart`](showcase-export/ui.md#evil-line-chart) — Feature-rich line chart with monotone, step, linear curves, animated skeleton, and glow effects.
+- [`evil-pie-chart`](showcase-export/ui.md#evil-pie-chart) — Feature-rich pie and donut chart with configurable radius, padding angle, and animated skeleton.
+- [`evil-radar-chart`](showcase-export/ui.md#evil-radar-chart) — Feature-rich radar chart with filled, lines variants, polygon grid, radial gradients, and glow effects.
+- [`evil-composed-chart`](showcase-export/ui.md#evil-composed-chart) — Feature-rich composed chart overlaying bars and lines on shared axis with glow effects and skeleton.
+- [`animated-shiny-button`](showcase-export/ui.md#animated-shiny-button) — Button with animated conic-gradient border, dot pattern, shimmer effect, and breathe animation.
+- [`browser`](showcase-export/ui.md#browser) — Interactive browser simulator with tab management, address bar, navigation, bookmarks, history, and downloads.
 
 ## Quick counts
 
-- UI primitives: **93**
-- Example variants: **410**
+- UI primitives: **101**
+- Example variants: **418**
 - Example files: **12**
 - Blocks: **5**
-- Total registry items: **508**
+- Total registry items: **524**
