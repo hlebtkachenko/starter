@@ -52,7 +52,7 @@ jobs:
       - name: tests (gated on vitest install)
         run: |
           if [ -x node_modules/.bin/vitest ]; then
-            pnpm test --run --coverage
+            pnpm test --run
           else
             echo "vitest not installed yet; skipping. Add vitest with the first feature PR."
           fi
