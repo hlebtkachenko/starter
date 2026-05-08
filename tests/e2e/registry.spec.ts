@@ -68,7 +68,7 @@ const SHOWCASE_SLUGS = [
   "tooltip",
 ];
 
-test.describe("registry deep-links", () => {
+test.describe("registry deep-links @functional", () => {
   for (const slug of SHOWCASE_SLUGS) {
     test(`/showcase#${slug} renders section and preview`, async ({ page }) => {
       const consoleErrors: string[] = [];

@@ -23,7 +23,7 @@ import { expect, test } from "@playwright/test";
  * arbitrary-value form rounded-[var(--radius)] so it is a direct reference.
  */
 
-test.describe("CSS token cascade", () => {
+test.describe("CSS token cascade @functional", () => {
   test("--radius changes propagate to Demo card computed border-radius", async ({ page }) => {
     await page.goto("/showcase#button");
 
