@@ -488,6 +488,24 @@
   },
   {
     "categories": [
+      "data",
+      "display"
+    ],
+    "description": "Tabbed HTTP response inspector with status badge, collapsible JSON body, headers table, and timing waterfall breakdown.",
+    "files": [
+      {
+        "path": "components/ui/api-response-viewer.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "name": "api-response-viewer",
+    "proposedGroup": "devtools",
+    "title": "API Response Viewer",
+    "type": "registry:ui",
+    "upstreamUrl": "https://www.tryelements.dev/docs/devtools/api-response-viewer"
+  },
+  {
+    "categories": [
       "layout"
     ],
     "description": "Constrains content to a specified ratio.",
@@ -5186,6 +5204,41 @@
   },
   {
     "categories": [
+      "forms",
+      "data"
+    ],
+    "description": "Key-value grid editor for environment variables with masked values, add/remove rows, and .env file import/export.",
+    "files": [
+      {
+        "path": "components/ui/env-editor.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "name": "env-editor",
+    "proposedGroup": "devtools",
+    "title": "Env Editor",
+    "type": "registry:ui",
+    "upstreamUrl": "https://www.tryelements.dev/docs/devtools/env-editor"
+  },
+  {
+    "categories": [
+      "feedback"
+    ],
+    "description": "Error fallback display with stack trace parsing, copy-to-clipboard, retry button, and dev/prod verbosity modes.",
+    "files": [
+      {
+        "path": "components/ui/error-boundary-ui.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "name": "error-boundary-ui",
+    "proposedGroup": "devtools",
+    "title": "Error Boundary UI",
+    "type": "registry:ui",
+    "upstreamUrl": "https://www.tryelements.dev/docs/devtools/error-boundary-ui"
+  },
+  {
+    "categories": [
       "forms"
     ],
     "description": "Composable form field wrapper: label, control, description, error.",
@@ -6502,6 +6555,24 @@
   },
   {
     "categories": [
+      "data",
+      "display"
+    ],
+    "description": "Collapsible JSON tree with syntax-highlighted types, configurable depth, search filter, and copy-path-on-hover.",
+    "files": [
+      {
+        "path": "components/ui/json-viewer.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "name": "json-viewer",
+    "proposedGroup": "devtools",
+    "title": "JSON Viewer",
+    "type": "registry:ui",
+    "upstreamUrl": "https://www.tryelements.dev/docs/devtools/json-viewer"
+  },
+  {
+    "categories": [
       "display"
     ],
     "description": "Display textual keyboard input. Group multiple keys with KbdGroup.",
@@ -7327,6 +7398,64 @@
   },
   {
     "categories": [
+      "display"
+    ],
+    "description": "Internal sub-component of OG Image Explorer: collapsible category group with expand/collapse and item count.",
+    "files": [
+      {
+        "path": "components/ui/og-category-section.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "name": "og-category-section",
+    "proposedGroup": "devtools",
+    "registryDependencies": [
+      "og-image-card"
+    ],
+    "title": "OG Category Section",
+    "type": "registry:ui",
+    "upstreamUrl": "https://www.tryelements.dev/docs/devtools/og-image-explorer"
+  },
+  {
+    "categories": [
+      "display"
+    ],
+    "description": "Internal sub-component of OG Image Explorer: single OG image preview card with load/error status border indicator.",
+    "files": [
+      {
+        "path": "components/ui/og-image-card.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "name": "og-image-card",
+    "proposedGroup": "devtools",
+    "title": "OG Image Card",
+    "type": "registry:ui",
+    "upstreamUrl": "https://www.tryelements.dev/docs/devtools/og-image-explorer"
+  },
+  {
+    "categories": [
+      "display"
+    ],
+    "description": "Visual gallery grid for auditing Open Graph images across app routes, with status borders and category grouping.",
+    "files": [
+      {
+        "path": "components/ui/og-image-explorer.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "name": "og-image-explorer",
+    "proposedGroup": "devtools",
+    "registryDependencies": [
+      "og-category-section",
+      "og-image-card"
+    ],
+    "title": "OG Image Explorer",
+    "type": "registry:ui",
+    "upstreamUrl": "https://www.tryelements.dev/docs/devtools/og-image-explorer"
+  },
+  {
+    "categories": [
       "navigation"
     ],
     "description": "Page navigation with previous, next, and numbered links.",
@@ -7427,6 +7556,43 @@
     "type": "registry:example",
     "upstreamUrl": "https://ui.shadcn.com/docs/components/pagination",
     "variant": "simple"
+  },
+  {
+    "categories": [
+      "data"
+    ],
+    "description": "Client-side PDF utility library: extract metadata, screenshot pages, search text, generate thumbnails, and split page ranges.",
+    "files": [
+      {
+        "path": "components/ui/pdf-utils.ts",
+        "type": "registry:ui"
+      }
+    ],
+    "name": "pdf-utils",
+    "proposedGroup": "pdf",
+    "title": "PDF Utils",
+    "type": "registry:ui",
+    "upstreamUrl": "https://www.tryelements.dev/docs/pdf/pdf-utils"
+  },
+  {
+    "categories": [
+      "display"
+    ],
+    "description": "Full-featured PDF viewer with single-page, continuous-scroll, and book layout modes, zoom controls, and page navigation.",
+    "files": [
+      {
+        "path": "components/ui/pdf-viewer.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "name": "pdf-viewer",
+    "proposedGroup": "pdf",
+    "registryDependencies": [
+      "pdf-utils"
+    ],
+    "title": "PDF Viewer",
+    "type": "registry:ui",
+    "upstreamUrl": "https://www.tryelements.dev/docs/pdf/pdf-viewer"
   },
   {
     "categories": [
@@ -11086,5 +11252,23 @@
     "type": "registry:example",
     "upstreamUrl": "https://ui.shadcn.com/docs/components/typography",
     "variant": "table"
+  },
+  {
+    "categories": [
+      "forms",
+      "data"
+    ],
+    "description": "HTTP request builder with method selector, URL input, headers editor, JSON body, and color-coded response display.",
+    "files": [
+      {
+        "path": "components/ui/webhook-tester.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "name": "webhook-tester",
+    "proposedGroup": "devtools",
+    "title": "Webhook Tester",
+    "type": "registry:ui",
+    "upstreamUrl": "https://www.tryelements.dev/docs/devtools/webhook-tester"
   }
 ]

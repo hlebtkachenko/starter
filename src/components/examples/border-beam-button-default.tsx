@@ -10,7 +10,9 @@ import { BorderBeamButton } from "@/components/ui/border-beam-button";
 export default function BorderBeamButtonDefault() {
   return (
     <div className="flex items-center justify-center">
-      <BorderBeamButton beamSize="sm">Get started</BorderBeamButton>
+      <BorderBeamButton beamSize="sm" theme="light">
+        Get started
+      </BorderBeamButton>
     </div>
   );
 }

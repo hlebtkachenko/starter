@@ -9,7 +9,7 @@
 
 | Area | File | Items | Chars |
 |---|---|---|---|
-| UI Primitives | [docs/showcase-export/ui.md](showcase-export/ui.md) | 83 | 19,713 |
+| UI Primitives | [docs/showcase-export/ui.md](showcase-export/ui.md) | 93 | 22,564 |
 | Examples: buttons | [docs/showcase-export/examples-buttons.md](showcase-export/examples-buttons.md) | 36 | 47,459 |
 | Examples: display-part1 | [docs/showcase-export/examples-display-part1.md](showcase-export/examples-display-part1.md) | 41 | 79,363 |
 | Examples: display-part2 | [docs/showcase-export/examples-display-part2.md](showcase-export/examples-display-part2.md) | 20 | 28,696 |
@@ -21,7 +21,7 @@
 | Examples: navigation | [docs/showcase-export/examples-navigation.md](showcase-export/examples-navigation.md) | 21 | 40,532 |
 | Examples: overlays | [docs/showcase-export/examples-overlays.md](showcase-export/examples-overlays.md) | 23 | 40,967 |
 | Examples: utility | [docs/showcase-export/examples-utility.md](showcase-export/examples-utility.md) | 33 | 50,746 |
-| Examples: other | [docs/showcase-export/examples-other.md](showcase-export/examples-other.md) | 29 | 42,001 |
+| Examples: other | [docs/showcase-export/examples-other.md](showcase-export/examples-other.md) | 29 | 42,031 |
 | Blocks | [docs/showcase-export/blocks.md](showcase-export/blocks.md) | 5 | 15,187 |
 
 ## UI Primitives TOC
@@ -109,11 +109,21 @@
 - [`timeline`](showcase-export/ui.md#timeline) — Vertical or horizontal timeline with active step tracking, connector lines, and customizable content per step.
 - [`tour`](showcase-export/ui.md#tour) — Multi-step guided tour overlay with spotlight highlighting, step navigation, keyboard support, and scroll-to-target.
 - [`ring-loader`](showcase-export/ui.md#ring-loader) — Lightweight SVG spinning ring indicator with configurable size and speed via --duration CSS variable, uses currentColor.
+- [`api-response-viewer`](showcase-export/ui.md#api-response-viewer) — Tabbed HTTP response inspector with status badge, collapsible JSON body, headers table, and timing waterfall breakdown.
+- [`env-editor`](showcase-export/ui.md#env-editor) — Key-value grid editor for environment variables with masked values, add/remove rows, and .env file import/export.
+- [`error-boundary-ui`](showcase-export/ui.md#error-boundary-ui) — Error fallback display with stack trace parsing, copy-to-clipboard, retry button, and dev/prod verbosity modes.
+- [`json-viewer`](showcase-export/ui.md#json-viewer) — Collapsible JSON tree with syntax-highlighted types, configurable depth, search filter, and copy-path-on-hover.
+- [`og-image-explorer`](showcase-export/ui.md#og-image-explorer) — Visual gallery grid for auditing Open Graph images across app routes, with status borders and category grouping.
+- [`og-category-section`](showcase-export/ui.md#og-category-section) — Internal sub-component of OG Image Explorer: collapsible category group with expand/collapse and item count.
+- [`og-image-card`](showcase-export/ui.md#og-image-card) — Internal sub-component of OG Image Explorer: single OG image preview card with load/error status border indicator.
+- [`pdf-utils`](showcase-export/ui.md#pdf-utils) — Client-side PDF utility library: extract metadata, screenshot pages, search text, generate thumbnails, and split page ranges.
+- [`pdf-viewer`](showcase-export/ui.md#pdf-viewer) — Full-featured PDF viewer with single-page, continuous-scroll, and book layout modes, zoom controls, and page navigation.
+- [`webhook-tester`](showcase-export/ui.md#webhook-tester) — HTTP request builder with method selector, URL input, headers editor, JSON body, and color-coded response display.
 
 ## Quick counts
 
-- UI primitives: **83**
+- UI primitives: **93**
 - Example variants: **402**
 - Example files: **12**
 - Blocks: **5**
-- Total registry items: **490**
+- Total registry items: **500**

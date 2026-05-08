@@ -1748,6 +1748,220 @@ export const Index: Record<string, RegistryIndexEntry> = {
   },
     Component: undefined,
   },
+  "api-response-viewer": {
+    meta: {
+    "name": "api-response-viewer",
+    "type": "registry:ui",
+    "title": "API Response Viewer",
+    "description": "Tabbed HTTP response inspector with status badge, collapsible JSON body, headers table, and timing waterfall breakdown.",
+    "files": [
+      {
+        "path": "components/ui/api-response-viewer.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "upstreamUrl": "https://www.tryelements.dev/docs/devtools/api-response-viewer",
+    "categories": [
+      "data",
+      "display"
+    ],
+    "proposedGroup": "devtools"
+  },
+    Component: undefined,
+  },
+  "env-editor": {
+    meta: {
+    "name": "env-editor",
+    "type": "registry:ui",
+    "title": "Env Editor",
+    "description": "Key-value grid editor for environment variables with masked values, add/remove rows, and .env file import/export.",
+    "files": [
+      {
+        "path": "components/ui/env-editor.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "upstreamUrl": "https://www.tryelements.dev/docs/devtools/env-editor",
+    "categories": [
+      "forms",
+      "data"
+    ],
+    "proposedGroup": "devtools"
+  },
+    Component: undefined,
+  },
+  "error-boundary-ui": {
+    meta: {
+    "name": "error-boundary-ui",
+    "type": "registry:ui",
+    "title": "Error Boundary UI",
+    "description": "Error fallback display with stack trace parsing, copy-to-clipboard, retry button, and dev/prod verbosity modes.",
+    "files": [
+      {
+        "path": "components/ui/error-boundary-ui.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "upstreamUrl": "https://www.tryelements.dev/docs/devtools/error-boundary-ui",
+    "categories": [
+      "feedback"
+    ],
+    "proposedGroup": "devtools"
+  },
+    Component: undefined,
+  },
+  "json-viewer": {
+    meta: {
+    "name": "json-viewer",
+    "type": "registry:ui",
+    "title": "JSON Viewer",
+    "description": "Collapsible JSON tree with syntax-highlighted types, configurable depth, search filter, and copy-path-on-hover.",
+    "files": [
+      {
+        "path": "components/ui/json-viewer.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "upstreamUrl": "https://www.tryelements.dev/docs/devtools/json-viewer",
+    "categories": [
+      "data",
+      "display"
+    ],
+    "proposedGroup": "devtools"
+  },
+    Component: undefined,
+  },
+  "og-image-explorer": {
+    meta: {
+    "name": "og-image-explorer",
+    "type": "registry:ui",
+    "title": "OG Image Explorer",
+    "description": "Visual gallery grid for auditing Open Graph images across app routes, with status borders and category grouping.",
+    "registryDependencies": [
+      "og-category-section",
+      "og-image-card"
+    ],
+    "files": [
+      {
+        "path": "components/ui/og-image-explorer.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "upstreamUrl": "https://www.tryelements.dev/docs/devtools/og-image-explorer",
+    "categories": [
+      "display"
+    ],
+    "proposedGroup": "devtools"
+  },
+    Component: undefined,
+  },
+  "og-category-section": {
+    meta: {
+    "name": "og-category-section",
+    "type": "registry:ui",
+    "title": "OG Category Section",
+    "description": "Internal sub-component of OG Image Explorer: collapsible category group with expand/collapse and item count.",
+    "registryDependencies": [
+      "og-image-card"
+    ],
+    "files": [
+      {
+        "path": "components/ui/og-category-section.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "upstreamUrl": "https://www.tryelements.dev/docs/devtools/og-image-explorer",
+    "categories": [
+      "display"
+    ],
+    "proposedGroup": "devtools"
+  },
+    Component: undefined,
+  },
+  "og-image-card": {
+    meta: {
+    "name": "og-image-card",
+    "type": "registry:ui",
+    "title": "OG Image Card",
+    "description": "Internal sub-component of OG Image Explorer: single OG image preview card with load/error status border indicator.",
+    "files": [
+      {
+        "path": "components/ui/og-image-card.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "upstreamUrl": "https://www.tryelements.dev/docs/devtools/og-image-explorer",
+    "categories": [
+      "display"
+    ],
+    "proposedGroup": "devtools"
+  },
+    Component: undefined,
+  },
+  "pdf-utils": {
+    meta: {
+    "name": "pdf-utils",
+    "type": "registry:ui",
+    "title": "PDF Utils",
+    "description": "Client-side PDF utility library: extract metadata, screenshot pages, search text, generate thumbnails, and split page ranges.",
+    "files": [
+      {
+        "path": "components/ui/pdf-utils.ts",
+        "type": "registry:ui"
+      }
+    ],
+    "upstreamUrl": "https://www.tryelements.dev/docs/pdf/pdf-utils",
+    "categories": [
+      "data"
+    ],
+    "proposedGroup": "pdf"
+  },
+    Component: undefined,
+  },
+  "pdf-viewer": {
+    meta: {
+    "name": "pdf-viewer",
+    "type": "registry:ui",
+    "title": "PDF Viewer",
+    "description": "Full-featured PDF viewer with single-page, continuous-scroll, and book layout modes, zoom controls, and page navigation.",
+    "registryDependencies": [
+      "pdf-utils"
+    ],
+    "files": [
+      {
+        "path": "components/ui/pdf-viewer.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "upstreamUrl": "https://www.tryelements.dev/docs/pdf/pdf-viewer",
+    "categories": [
+      "display"
+    ],
+    "proposedGroup": "pdf"
+  },
+    Component: undefined,
+  },
+  "webhook-tester": {
+    meta: {
+    "name": "webhook-tester",
+    "type": "registry:ui",
+    "title": "Webhook Tester",
+    "description": "HTTP request builder with method selector, URL input, headers editor, JSON body, and color-coded response display.",
+    "files": [
+      {
+        "path": "components/ui/webhook-tester.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "upstreamUrl": "https://www.tryelements.dev/docs/devtools/webhook-tester",
+    "categories": [
+      "forms",
+      "data"
+    ],
+    "proposedGroup": "devtools"
+  },
+    Component: undefined,
+  },
   "button-size": {
     meta: {
     "name": "button-size",
@@ -12573,7 +12787,7 @@ export const Index: Record<string, RegistryIndexEntry> = {
 };
 
 export const ItemsByArea = {
-  ui: ["accordion","alert","alert-dialog","aspect-ratio","avatar","badge","breadcrumb","button","button-group","calendar","card","carousel","chart","checkbox","collapsible","combobox","command","context-menu","dialog","drawer","dropdown-menu","empty","field","hover-card","input","input-group","input-otp","item","kbd","label","menubar","native-select","navigation-menu","pagination","popover","progress","radio-group","resizable","scroll-area","select","separator","sheet","sidebar","skeleton","slider","sonner","spinner","switch","table","tabs","textarea","toggle","toggle-group","tooltip","noise-background","stateful-button","multi-step-loader","separator-extended","card-styles","autocomplete","action-bar","banner","border-beam-button","circular-progress","color-picker","color-swatch","cropper","data-grid","data-table","file-upload","gauge","key-value","mention","phone-input","prompt-library","qr-code","segmented-input","swap","tags-input","terminal-animation","timeline","tour","ring-loader"],
+  ui: ["accordion","alert","alert-dialog","aspect-ratio","avatar","badge","breadcrumb","button","button-group","calendar","card","carousel","chart","checkbox","collapsible","combobox","command","context-menu","dialog","drawer","dropdown-menu","empty","field","hover-card","input","input-group","input-otp","item","kbd","label","menubar","native-select","navigation-menu","pagination","popover","progress","radio-group","resizable","scroll-area","select","separator","sheet","sidebar","skeleton","slider","sonner","spinner","switch","table","tabs","textarea","toggle","toggle-group","tooltip","noise-background","stateful-button","multi-step-loader","separator-extended","card-styles","autocomplete","action-bar","banner","border-beam-button","circular-progress","color-picker","color-swatch","cropper","data-grid","data-table","file-upload","gauge","key-value","mention","phone-input","prompt-library","qr-code","segmented-input","swap","tags-input","terminal-animation","timeline","tour","ring-loader","api-response-viewer","env-editor","error-boundary-ui","json-viewer","og-image-explorer","og-category-section","og-image-card","pdf-utils","pdf-viewer","webhook-tester"],
   examples: ["button-size","button-default","button-outline","button-secondary","button-ghost","button-destructive","button-link","button-icon","button-with-icon","button-rounded","button-spinner","button-button-group","button-as-child","button-group-default","button-group-orientation","button-group-size","button-group-nested","button-group-separator","button-group-split","button-group-input","button-group-input-group","button-group-dropdown-menu","button-group-select","button-group-popover","toggle-default","toggle-outline","toggle-with-text","toggle-size","toggle-disabled","toggle-group-default","toggle-group-outline","toggle-group-size","toggle-group-spacing","toggle-group-vertical","toggle-group-disabled","toggle-group-custom","avatar-default","avatar-basic","avatar-badge","avatar-badge-with-icon","avatar-avatar-group","avatar-avatar-group-count","avatar-avatar-group-with-icon","avatar-sizes","avatar-dropdown","badge-default","badge-variants","badge-with-icon","badge-with-spinner","badge-link","badge-custom-colors","calendar-default","calendar-basic","calendar-range-calendar","calendar-month-and-year-selector","calendar-presets","calendar-date-and-time-picker","calendar-booked-dates","calendar-custom-cell-size","calendar-week-numbers","calendar-with-timezone","calendar-hijri","chart-default","chart-your-first-chart","chart-chart-config","chart-tooltip","chart-legend","chart-bar-chart","chart-with-grid","chart-with-axis","chart-with-tooltip","chart-with-legend","chart-tooltip-demo","data-table-default","data-table-basic-table","data-table-cell-formatting","data-table-row-actions","data-table-pagination","data-table-sorting","data-table-filtering","data-table-visibility","data-table-row-selection","skeleton-default","skeleton-avatar","skeleton-card","skeleton-text","skeleton-form","skeleton-table","table-default","table-footer","table-actions","typography-h1","typography-h2","typography-h3","typography-h4","typography-p","typography-blockquote","typography-table","typography-list","typography-inline-code","typography-lead","typography-large","typography-small","typography-muted","typography-demo","noise-background-default","noise-background-card","stateful-button-default","multi-step-loader-default","separator-extended-default","separator-extended-dashed","separator-extended-dotted","separator-extended-double","card-styles-shadow","card-styles-lines","card-styles-hatched","card-styles-aurora","card-styles-tilted","card-styles-stacked","autocomplete-default","action-bar-default","banner-default","border-beam-button-default","circular-progress-default","color-picker-default","color-swatch-default","cropper-default","cropper-circular","cropper-with-controls","data-grid-default","file-upload-default","gauge-default","key-value-default","mention-default","phone-input-default","prompt-library-default","qr-code-default","segmented-input-default","swap-default","tags-input-default","terminal-animation-default","timeline-default","tour-default","ring-loader-default","alert-default","alert-basic","alert-destructive","alert-action","alert-custom-colors","progress-default","progress-label","progress-controlled","sonner-default","sonner-types","sonner-description","sonner-position","spinner-default","spinner-size","spinner-button","spinner-badge","spinner-input-group","spinner-empty","checkbox-default","checkbox-basic","checkbox-description","checkbox-disabled","checkbox-group","checkbox-table","checkbox-indeterminate-select-all","combobox-default","combobox-basic","combobox-multiple","combobox-clear-button","combobox-groups","combobox-custom-items","combobox-invalid","combobox-disabled","combobox-auto-highlight","combobox-popup","combobox-input-group","date-picker-default","date-picker-basic","date-picker-range-picker","date-picker-date-of-birth","date-picker-input","date-picker-time-picker","date-picker-natural-language-picker","field-default","field-input","field-textarea","field-select","field-slider","field-fieldset","field-checkbox","field-radio","field-switch","field-choice-card","field-field-group","input-default","input-basic","input-field","input-field-group","input-disabled","input-invalid","input-file","input-inline","input-grid","input-required","input-badge","input-input-group","input-button-group","input-form","input-group-default","input-group-icon","input-group-text","input-group-button","input-group-kbd","input-group-dropdown","input-group-spinner","input-group-textarea","input-group-custom-input","input-group-credit-card","input-group-locked-password","input-otp-default","input-otp-separator","input-otp-disabled","input-otp-controlled","input-otp-invalid","input-otp-four-digits","input-otp-alphanumeric","input-otp-form","label-label-in-field","label-default","label-in-field-component","native-select-groups","native-select-disabled","native-select-invalid","native-select-default","radio-group-description","radio-group-choice-card","radio-group-fieldset","radio-group-disabled","radio-group-invalid","radio-group-default","select-default","select-align-item-with-trigger","select-groups","select-scrollable","select-disabled","select-invalid","slider-default","slider-range","slider-multiple-thumbs","slider-vertical","slider-controlled","slider-disabled","switch-default","switch-description","switch-choice-card","switch-disabled","switch-invalid","switch-size","textarea-default","textarea-field","textarea-disabled","textarea-invalid","textarea-button","aspect-ratio-default","aspect-ratio-square","aspect-ratio-portrait","card-default","card-size","card-image","card-with-form","collapsible-default","collapsible-basic","collapsible-settings-panel","collapsible-file-tree","resizable-default","resizable-vertical","resizable-handle","scroll-area-default","scroll-area-horizontal","separator-default","separator-vertical","separator-menu","separator-list","sidebar-default","sidebar-offcanvas","sidebar-none","sidebar-floating","sidebar-inset","sidebar-right","command-default","command-basic","command-shortcuts","command-groups","command-scrollable","context-menu-default","context-menu-basic","context-menu-submenu","context-menu-shortcuts","context-menu-groups","context-menu-icons","context-menu-checkboxes","context-menu-radio","context-menu-destructive","dropdown-menu-default","dropdown-menu-basic","dropdown-menu-submenu","dropdown-menu-shortcuts","dropdown-menu-icons","dropdown-menu-checkboxes","dropdown-menu-checkboxes-icons","dropdown-menu-radio-group","dropdown-menu-radio-icons","dropdown-menu-destructive","dropdown-menu-avatar","dropdown-menu-complex","breadcrumb-default","breadcrumb-basic","breadcrumb-custom-separator","breadcrumb-dropdown","breadcrumb-collapsed","breadcrumb-link-component","menubar-default","menubar-checkbox","menubar-radio","menubar-submenu","menubar-with-icons","navigation-menu-default","navigation-menu-link-component","pagination-default","pagination-simple","pagination-icons-only","tabs-default","tabs-line","tabs-vertical","tabs-disabled","tabs-icons","alert-dialog-default","alert-dialog-basic","alert-dialog-small","alert-dialog-media","alert-dialog-small-with-media","alert-dialog-destructive","dialog-default","dialog-custom-close-button","dialog-no-close-button","dialog-sticky-footer","dialog-scrollable-content","drawer-default","drawer-scrollable-content","drawer-sides","drawer-responsive-dialog","hover-card-default","hover-card-basic","hover-card-sides","popover-default","popover-basic","popover-align","popover-with-form","sheet-default","sheet-side","sheet-no-close-button","tooltip-default","tooltip-side","tooltip-with-keyboard-shortcut","tooltip-disabled-button","accordion-default","accordion-basic","accordion-multiple","accordion-disabled","accordion-borders","accordion-card","carousel-default","carousel-sizes","carousel-spacing","carousel-orientation","carousel-api-slide-n-of-m","carousel-plugins","empty-default","empty-outline","empty-background","empty-avatar","empty-avatar-group","empty-input-group","item-default","item-variants","item-sizes","item-icon","item-avatar","item-image","item-group","item-header","item-link","item-dropdown","kbd-default","kbd-group","kbd-button","kbd-tooltip","kbd-input-group"],
   blocks: ["login-card","login-card-2","login-card-3","signup-card","forgot-password-card"],
 };

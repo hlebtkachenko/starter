@@ -520,3 +520,66 @@
 **Description:** Lightweight SVG spinning ring indicator with configurable size and speed via --duration CSS variable, uses currentColor.
 **Upstream:** https://loading-ui.com
 **Categories:** feedback
+## API Response Viewer
+
+**Name:** `api-response-viewer`
+**Description:** Tabbed HTTP response inspector with status badge, collapsible JSON body, headers table, and timing waterfall breakdown.
+**Upstream:** https://www.tryelements.dev/docs/devtools/api-response-viewer
+**Categories:** data, display
+## Env Editor
+
+**Name:** `env-editor`
+**Description:** Key-value grid editor for environment variables with masked values, add/remove rows, and .env file import/export.
+**Upstream:** https://www.tryelements.dev/docs/devtools/env-editor
+**Categories:** forms, data
+## Error Boundary UI
+
+**Name:** `error-boundary-ui`
+**Description:** Error fallback display with stack trace parsing, copy-to-clipboard, retry button, and dev/prod verbosity modes.
+**Upstream:** https://www.tryelements.dev/docs/devtools/error-boundary-ui
+**Categories:** feedback
+## JSON Viewer
+
+**Name:** `json-viewer`
+**Description:** Collapsible JSON tree with syntax-highlighted types, configurable depth, search filter, and copy-path-on-hover.
+**Upstream:** https://www.tryelements.dev/docs/devtools/json-viewer
+**Categories:** data, display
+## OG Image Explorer
+
+**Name:** `og-image-explorer`
+**Description:** Visual gallery grid for auditing Open Graph images across app routes, with status borders and category grouping.
+**Upstream:** https://www.tryelements.dev/docs/devtools/og-image-explorer
+**Depends on:** og-category-section, og-image-card
+**Categories:** display
+## OG Category Section
+
+**Name:** `og-category-section`
+**Description:** Internal sub-component of OG Image Explorer: collapsible category group with expand/collapse and item count.
+**Upstream:** https://www.tryelements.dev/docs/devtools/og-image-explorer
+**Depends on:** og-image-card
+**Categories:** display
+## OG Image Card
+
+**Name:** `og-image-card`
+**Description:** Internal sub-component of OG Image Explorer: single OG image preview card with load/error status border indicator.
+**Upstream:** https://www.tryelements.dev/docs/devtools/og-image-explorer
+**Categories:** display
+## PDF Utils
+
+**Name:** `pdf-utils`
+**Description:** Client-side PDF utility library: extract metadata, screenshot pages, search text, generate thumbnails, and split page ranges.
+**Upstream:** https://www.tryelements.dev/docs/pdf/pdf-utils
+**Categories:** data
+## PDF Viewer
+
+**Name:** `pdf-viewer`
+**Description:** Full-featured PDF viewer with single-page, continuous-scroll, and book layout modes, zoom controls, and page navigation.
+**Upstream:** https://www.tryelements.dev/docs/pdf/pdf-viewer
+**Depends on:** pdf-utils
+**Categories:** display
+## Webhook Tester
+
+**Name:** `webhook-tester`
+**Description:** HTTP request builder with method selector, URL input, headers editor, JSON body, and color-coded response display.
+**Upstream:** https://www.tryelements.dev/docs/devtools/webhook-tester
+**Categories:** forms, data
