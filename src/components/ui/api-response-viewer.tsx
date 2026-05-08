@@ -1,4 +1,4 @@
-/* eslint-disable */
+/* eslint-disable react/no-unescaped-entities */
 "use client";
 
 import * as React from "react";
@@ -70,7 +70,8 @@ function JsonDisplay({ data }: { data: unknown }) {
       return <span className="text-blue-500">{value}</span>;
     }
     if (typeof value === "string") {
-      return <span className="text-green-600 dark:text-green-400">"{value}"</span>;
+      const display = value.length > 500 ? value.slice(0, 500) + "..." : value;
+      return <span className="text-green-600 dark:text-green-400">"{display}"</span>;
     }
     if (Array.isArray(value)) {
       const isCollapsed = collapsed.has(path);

@@ -1,4 +1,4 @@
-/* eslint-disable */
+/* eslint-disable react/no-unescaped-entities, jsx-a11y/role-has-required-aria-props, react-hooks/set-state-in-effect */
 "use client";
 
 import * as React from "react";
@@ -128,7 +128,9 @@ function JsonNode({
       return <span className="text-blue-500">{value as number}</span>;
     }
     if (type === "string") {
-      return <span className="text-green-600 dark:text-green-400">"{value as string}"</span>;
+      const str = value as string;
+      const display = str.length > 500 ? str.slice(0, 500) + "..." : str;
+      return <span className="text-green-600 dark:text-green-400">"{display}"</span>;
     }
     return null;
   };
