@@ -1,0 +1,18 @@
+/**
+ * @slug input
+ * @variant default
+ * @upstream https://ui.shadcn.com/docs/components/input
+ * @deviations []
+ */
+import { Field, FieldDescription, FieldLabel } from "@/components/ui/field";
+import { Input } from "@/components/ui/input";
+
+export default function InputDefault() {
+  return (
+    <Field>
+      <FieldLabel htmlFor="input-demo-api-key">API Key</FieldLabel>
+      <Input id="input-demo-api-key" type="password" placeholder="sk-..." />
+      <FieldDescription>Your API key is encrypted and stored securely.</FieldDescription>
+    </Field>
+  );
+}

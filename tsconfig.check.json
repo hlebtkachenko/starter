@@ -43,6 +43,8 @@
     "vitest.config.ts",
     "playwright.config.ts",
     "sst.config.ts",
-    "**/_TEMPLATE*"
+    "**/_TEMPLATE*",
+    "src/**/*.test.ts",
+    "src/**/*.test.tsx"
   ]
 }

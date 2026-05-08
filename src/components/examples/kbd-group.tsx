@@ -1,0 +1,22 @@
+/**
+ * @slug kbd
+ * @variant group
+ * @upstream https://ui.shadcn.com/docs/components/kbd
+ * @deviations []
+ */
+import { Kbd, KbdGroup } from "@/components/ui/kbd";
+
+export default function KbdGroupDemo() {
+  return (
+    <div className="flex flex-col items-center gap-4">
+      <p className="text-sm text-muted-foreground">
+        Use{" "}
+        <KbdGroup>
+          <Kbd>Ctrl + B</Kbd>
+          <Kbd>Ctrl + K</Kbd>
+        </KbdGroup>{" "}
+        to open the command palette
+      </p>
+    </div>
+  );
+}

@@ -1,0 +1,67 @@
+/**
+ * @slug breadcrumb
+ * @variant default
+ * @upstream https://ui.shadcn.com/docs/components/breadcrumb
+ * @deviations ["Uses DropdownMenu with an ellipsis trigger instead of the upstream 3-item linear breadcrumb, to demonstrate the dropdown pattern as the canonical default."]
+ */
+import Link from "next/link";
+
+import {
+  Breadcrumb,
+  BreadcrumbEllipsis,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb";
+import { Button } from "@/components/ui/button";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuGroup,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+
+export default function BreadcrumbDefault() {
+  return (
+    <Breadcrumb>
+      <BreadcrumbList>
+        <BreadcrumbItem>
+          <BreadcrumbLink asChild>
+            <Link href="#">Home</Link>
+          </BreadcrumbLink>
+        </BreadcrumbItem>
+        <BreadcrumbSeparator />
+        <BreadcrumbItem>
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button size="icon-sm" variant="ghost">
+                <BreadcrumbEllipsis />
+                <span className="sr-only">Toggle menu</span>
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="start">
+              <DropdownMenuGroup>
+                <DropdownMenuItem>Documentation</DropdownMenuItem>
+                <DropdownMenuItem>Themes</DropdownMenuItem>
+                <DropdownMenuItem>GitHub</DropdownMenuItem>
+              </DropdownMenuGroup>
+            </DropdownMenuContent>
+          </DropdownMenu>
+        </BreadcrumbItem>
+        <BreadcrumbSeparator />
+        <BreadcrumbItem>
+          <BreadcrumbLink asChild>
+            <Link href="#">Components</Link>
+          </BreadcrumbLink>
+        </BreadcrumbItem>
+        <BreadcrumbSeparator />
+        <BreadcrumbItem>
+          <BreadcrumbPage>Breadcrumb</BreadcrumbPage>
+        </BreadcrumbItem>
+      </BreadcrumbList>
+    </Breadcrumb>
+  );
+}

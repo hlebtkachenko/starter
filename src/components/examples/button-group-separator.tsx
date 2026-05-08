@@ -1,0 +1,22 @@
+/**
+ * @slug button-group
+ * @variant separator
+ * @upstream https://ui.shadcn.com/docs/components/button-group#separator
+ * @deviations []
+ */
+import { Button } from "@/components/ui/button";
+import { ButtonGroup, ButtonGroupSeparator } from "@/components/ui/button-group";
+
+export default function ButtonGroupSeparatorExample() {
+  return (
+    <ButtonGroup>
+      <Button variant="secondary" size="sm">
+        Copy
+      </Button>
+      <ButtonGroupSeparator />
+      <Button variant="secondary" size="sm">
+        Paste
+      </Button>
+    </ButtonGroup>
+  );
+}

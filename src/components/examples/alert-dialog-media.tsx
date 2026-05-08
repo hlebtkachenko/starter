@@ -1,0 +1,46 @@
+/**
+ * @slug alert-dialog
+ * @variant media
+ * @upstream https://ui.shadcn.com/docs/components/alert-dialog
+ * @deviations []
+ */
+import { CircleFadingPlusIcon } from "lucide-react";
+
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogMedia,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from "@/components/ui/alert-dialog";
+import { Button } from "@/components/ui/button";
+
+export default function AlertDialogMediaExample() {
+  return (
+    <AlertDialog>
+      <AlertDialogTrigger asChild>
+        <Button variant="outline">Share Project</Button>
+      </AlertDialogTrigger>
+      <AlertDialogContent>
+        <AlertDialogHeader>
+          <AlertDialogMedia>
+            <CircleFadingPlusIcon />
+          </AlertDialogMedia>
+          <AlertDialogTitle>Share this project?</AlertDialogTitle>
+          <AlertDialogDescription>
+            Anyone with the link will be able to view and edit this project.
+          </AlertDialogDescription>
+        </AlertDialogHeader>
+        <AlertDialogFooter>
+          <AlertDialogCancel>Cancel</AlertDialogCancel>
+          <AlertDialogAction>Share</AlertDialogAction>
+        </AlertDialogFooter>
+      </AlertDialogContent>
+    </AlertDialog>
+  );
+}

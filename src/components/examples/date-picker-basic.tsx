@@ -1,0 +1,40 @@
+/**
+ * @slug date-picker
+ * @variant basic
+ * @upstream https://ui.shadcn.com/docs/components/date-picker
+ * @deviations []
+ */
+"use client";
+
+import { format } from "date-fns";
+import * as React from "react";
+
+import { Button } from "@/components/ui/button";
+import { Calendar } from "@/components/ui/calendar";
+import { Field, FieldLabel } from "@/components/ui/field";
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
+
+export default function DatePickerBasic() {
+  const [date, setDate] = React.useState<Date>();
+
+  return (
+    <Field className="mx-auto w-44">
+      <FieldLabel htmlFor="date-picker-simple">Date</FieldLabel>
+      <Popover>
+        <PopoverTrigger asChild>
+          <Button variant="outline" id="date-picker-simple" className="justify-start font-normal">
+            {date ? format(date, "PPP") : <span>Pick a date</span>}
+          </Button>
+        </PopoverTrigger>
+        <PopoverContent className="w-auto p-0" align="start">
+          <Calendar
+            mode="single"
+            selected={date}
+            onSelect={setDate}
+            defaultMonth={date ?? new Date()}
+          />
+        </PopoverContent>
+      </Popover>
+    </Field>
+  );
+}

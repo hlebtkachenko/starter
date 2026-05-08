@@ -1,0 +1,18 @@
+/**
+ * @slug native-select
+ * @variant disabled
+ * @upstream https://ui.shadcn.com/docs/components/native-select
+ * @deviations []
+ */
+import { NativeSelect, NativeSelectOption } from "@/components/ui/native-select";
+
+export default function NativeSelectDisabled() {
+  return (
+    <NativeSelect disabled>
+      <NativeSelectOption value="">Disabled</NativeSelectOption>
+      <NativeSelectOption value="apple">Apple</NativeSelectOption>
+      <NativeSelectOption value="banana">Banana</NativeSelectOption>
+      <NativeSelectOption value="blueberry">Blueberry</NativeSelectOption>
+    </NativeSelect>
+  );
+}

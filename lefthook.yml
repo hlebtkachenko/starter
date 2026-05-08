@@ -25,6 +25,12 @@ pre-commit:
       run: command -v gitleaks >/dev/null 2>&1 && gitleaks protect --staged --source . --no-banner || true
       skip:
         - rebase
+    registry-export-drift:
+      # Regenerates showcase-export and manifest, then fails if the generated
+      # files differ from what is already committed. Ensures generated docs
+      # never drift from the registry source.
+      run: pnpm registry:export && git diff --exit-code -- docs/showcase-export.md docs/showcase-export/ docs/components-manifest.json
+      stage_fixed: false
 
 commit-msg:
   commands:

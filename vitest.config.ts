@@ -31,11 +31,11 @@ export default defineConfig({
     },
   ],
   test: {
+    exclude: ["node_modules/**", "tests/e2e/**", "_junk/**"],
     coverage: {
       provider: "v8",
       reporter: ["text", "html", "json-summary"],
       thresholds: {
-        // Per-path thresholds; default applies elsewhere.
         "src/lib/**": {
           lines: 80,
           functions: 80,

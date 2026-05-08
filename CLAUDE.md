@@ -41,6 +41,11 @@ Next 16.2.4 · React 19.2.4 · TS 5 (target 6) · Tailwind v4 · pnpm 10 · Post
 | Feature spec | [docs/specs/](docs/specs/) |
 | System architecture | [docs/SYSTEM.md](docs/SYSTEM.md) |
 | Design tokens | [docs/DESIGN-SYSTEM.md](docs/DESIGN-SYSTEM.md) |
+| shadcn showcase + component map | [docs/showcase.md](docs/showcase.md) |
+| Add/update a shadcn primitive | [docs/runbooks/shadcn-primitive-intake.md](docs/runbooks/shadcn-primitive-intake.md) |
+| Port a shadcn component into /showcase | [docs/runbooks/showcase-rebuild.md](docs/runbooks/showcase-rebuild.md) |
+| Component registry (machine-readable) | [src/components/__index__.tsx](src/components/__index__.tsx) (autogen) + [src/components/{ui,examples,blocks}/_registry.ts](src/components/) |
+| Registry runtime + search | [src/lib/registry.ts](src/lib/registry.ts) — `getRegistryComponent`, `searchRegistry`, `getExamplesForSlug` |
 | Glossary | [docs/DOMAIN.md](docs/DOMAIN.md) |
 | Ops procedure | [docs/runbooks/](docs/runbooks/) |
 | API contract | [docs/api/openapi.yaml](docs/api/openapi.yaml) |

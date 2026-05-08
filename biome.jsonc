@@ -16,7 +16,11 @@
       "!**/coverage",
       "!**/db/migrations/meta",
       "!**/next-env.d.ts",
-      "!**/globals.css"
+      "!**/globals.css",
+      "!src/components/__index__.tsx",
+      "!docs/components-manifest.json",
+      "!docs/showcase-export.md",
+      "!docs/showcase-export/**"
     ]
   },
   "formatter": {

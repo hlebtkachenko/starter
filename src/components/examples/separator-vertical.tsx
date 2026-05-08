@@ -1,0 +1,19 @@
+/**
+ * @slug separator
+ * @variant vertical
+ * @upstream https://ui.shadcn.com/docs/components/separator
+ * @deviations []
+ */
+import { Separator } from "@/components/ui/separator";
+
+export default function SeparatorVertical() {
+  return (
+    <div className="flex h-5 items-center gap-4 text-sm">
+      <div>Blog</div>
+      <Separator orientation="vertical" />
+      <div>Docs</div>
+      <Separator orientation="vertical" />
+      <div>Source</div>
+    </div>
+  );
+}
