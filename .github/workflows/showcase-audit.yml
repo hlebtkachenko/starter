@@ -19,7 +19,7 @@ concurrency:
 
 jobs:
   audit:
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, linux, ovh, starter]
     timeout-minutes: 20
 
     steps:
