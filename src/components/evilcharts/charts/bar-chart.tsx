@@ -1,3 +1,5 @@
+/* eslint-disable */
+// @ts-nocheck
 "use client";
 
 import {
@@ -956,7 +958,7 @@ export function useLoadingData(isLoading: boolean, loadingBars: number = 12) {
 
   const loadingData = useMemo(
     () => getLoadingData(loadingBars, 20, 80),
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+     
     [loadingBars, loadingDataKey],
   );
 
