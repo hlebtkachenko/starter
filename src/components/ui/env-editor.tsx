@@ -74,25 +74,17 @@ export function EnvEditor({
   className,
 }: EnvEditorProps) {
   const [variables, setVariables] = React.useState<EnvVariable[]>(value);
-  const [maskedKeys, setMaskedKeys] = React.useState<Set<string>>(
-    () => new Set(value.map((v) => v.key)),
+  const [maskedIndices, setMaskedIndices] = React.useState<Set<number>>(
+    () => new Set(value.map((_, i) => i)),
   );
   const fileInputRef = React.useRef<HTMLInputElement>(null);
 
   React.useEffect(() => {
     setVariables(value);
     if (defaultMasked) {
-      setMaskedKeys(new Set(value.map((v) => v.key)));
+      setMaskedIndices(new Set(value.map((_, i) => i)));
     }
   }, [value, defaultMasked]);
-
-  const updateVariables = React.useCallback(
-    (newVars: EnvVariable[]) => {
-      setVariables(newVars);
-      onChange?.(newVars);
-    },
-    [onChange],
-  );
 
   const handleAdd = React.useCallback(() => {
     const newVar = { key: "", value: "" };
@@ -130,13 +122,13 @@ export function EnvEditor({
     [onChange],
   );
 
-  const toggleMask = React.useCallback((key: string) => {
-    setMaskedKeys((prev) => {
+  const toggleMask = React.useCallback((index: number) => {
+    setMaskedIndices((prev) => {
       const next = new Set(prev);
-      if (next.has(key)) {
-        next.delete(key);
+      if (next.has(index)) {
+        next.delete(index);
       } else {
-        next.add(key);
+        next.add(index);
       }
       return next;
     });
@@ -165,7 +157,7 @@ export function EnvEditor({
         setVariables(parsed);
         onChange?.(parsed);
         if (defaultMasked) {
-          setMaskedKeys(new Set(parsed.map((v) => v.key)));
+          setMaskedIndices(new Set(parsed.map((_, i) => i)));
         }
       };
       reader.readAsText(file);
@@ -230,7 +222,7 @@ export function EnvEditor({
             </span>
             <div className="flex-[2] flex items-center gap-1">
               <input
-                type={maskedKeys.has(variable.key) ? "password" : "text"}
+                type={maskedIndices.has(index) ? "password" : "text"}
                 value={variable.value}
                 onChange={(e) => handleChange(index, "value", e.target.value)}
                 placeholder="value"
@@ -240,12 +232,12 @@ export function EnvEditor({
               />
               <button
                 type="button"
-                onClick={() => toggleMask(variable.key)}
+                onClick={() => toggleMask(index)}
                 className="p-1 text-muted-foreground hover:text-foreground transition-colors shrink-0"
-                aria-label={maskedKeys.has(variable.key) ? "Show value" : "Hide value"}
-                aria-pressed={maskedKeys.has(variable.key)}
+                aria-label={maskedIndices.has(index) ? "Show value" : "Hide value"}
+                aria-pressed={maskedIndices.has(index)}
               >
-                {maskedKeys.has(variable.key) ? (
+                {maskedIndices.has(index) ? (
                   <Eye className="w-3.5 h-3.5" />
                 ) : (
                   <EyeOff className="w-3.5 h-3.5" />

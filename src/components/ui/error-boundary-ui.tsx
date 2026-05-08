@@ -1,4 +1,3 @@
- 
 "use client";
 
 import * as React from "react";
@@ -69,9 +68,11 @@ export function ErrorBoundaryUi({
       componentStack ? `\nComponent Stack:\n${componentStack}` : "",
     ].join("\n");
 
-    await navigator.clipboard.writeText(errorText);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 1500);
+    try {
+      await navigator.clipboard.writeText(errorText);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 1500);
+    } catch {}
   }, [error.message, error.stack, componentStack]);
 
   const handleToggleStack = React.useCallback(() => {

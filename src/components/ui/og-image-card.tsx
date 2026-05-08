@@ -29,7 +29,12 @@ export function OgImageCard({
   const [status, setStatus] = useState<ImageStatus>("loading");
 
   const handleClick = () => {
-    window.open(ogImageUrl, "_blank", "noopener,noreferrer");
+    try {
+      const parsed = new URL(ogImageUrl);
+      if (parsed.protocol === "https:" || parsed.protocol === "http:") {
+        window.open(ogImageUrl, "_blank", "noopener,noreferrer");
+      }
+    } catch {}
   };
 
   const statusBorderColor = {

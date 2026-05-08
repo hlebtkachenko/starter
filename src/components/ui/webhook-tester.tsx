@@ -1,4 +1,3 @@
- 
 "use client";
 
 import * as React from "react";
@@ -97,6 +96,10 @@ export function WebhookTester({
         });
         setResponse(res);
       } else {
+        const parsed = new URL(url);
+        if (parsed.protocol !== "https:" && parsed.protocol !== "http:") {
+          throw new Error(`Unsupported URL scheme: ${parsed.protocol}`);
+        }
         const start = performance.now();
         const res = await fetch(url, {
           method,

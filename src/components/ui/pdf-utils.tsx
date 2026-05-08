@@ -35,6 +35,10 @@ export interface PdfDocumentInfo {
  * @returns File object containing the PDF data
  */
 export async function fetchPdfAsFile(url: string, filename?: string): Promise<File> {
+  const parsed = new URL(url);
+  if (parsed.protocol !== "https:" && parsed.protocol !== "http:") {
+    throw new Error(`Unsupported URL scheme: ${parsed.protocol}`);
+  }
   const response = await fetch(url);
 
   if (!response.ok) {
@@ -139,6 +143,9 @@ export async function extractPage(file: File, pageNumber: number): Promise<Blob>
 
   const newPdf = await PDFDocument.create();
   const [copiedPage] = await newPdf.copyPages(pdfDoc, [pageNumber - 1]);
+  if (!copiedPage) {
+    throw new Error(`Failed to copy page ${pageNumber}`);
+  }
   newPdf.addPage(copiedPage);
 
   const pdfBytes = await newPdf.save();

@@ -39,21 +39,17 @@ export function PdfViewer({ file, mode = "single", initialZoom = 1.0, className 
     setCurrentPage(1);
   }
 
-  // Calculate page width based on container and zoom
   React.useEffect(() => {
-    if (!containerRef.current) return;
+    const el = containerRef.current;
+    if (!el) return;
 
-    const updateWidth = () => {
-      if (containerRef.current) {
-        const containerWidth = containerRef.current.clientWidth;
-        const baseWidth = viewMode === "book" ? containerWidth / 2 - 40 : containerWidth - 40;
-        setPageWidth(baseWidth * zoom);
-      }
-    };
-
-    updateWidth();
-    window.addEventListener("resize", updateWidth);
-    return () => window.removeEventListener("resize", updateWidth);
+    const observer = new ResizeObserver(() => {
+      const containerWidth = el.clientWidth;
+      const baseWidth = viewMode === "book" ? containerWidth / 2 - 40 : containerWidth - 40;
+      setPageWidth(baseWidth * zoom);
+    });
+    observer.observe(el);
+    return () => observer.disconnect();
   }, [viewMode, zoom]);
 
   const goToPreviousPage = () => {

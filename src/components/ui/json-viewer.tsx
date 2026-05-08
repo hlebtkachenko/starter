@@ -108,9 +108,11 @@ function JsonNode({
   );
 
   const handleCopyPath = React.useCallback(async () => {
-    await navigator.clipboard.writeText(path);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 1500);
+    try {
+      await navigator.clipboard.writeText(path);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 1500);
+    } catch {}
   }, [path]);
 
   if (!isVisible && searchQuery) return null;
