@@ -9,10 +9,10 @@
 
 | Area | File | Items | Chars |
 |---|---|---|---|
-| UI Primitives | [docs/showcase-export/ui.md](showcase-export/ui.md) | 112 | 27,779 |
+| UI Primitives | [docs/showcase-export/ui.md](showcase-export/ui.md) | 113 | 28,073 |
 | Examples: buttons | [docs/showcase-export/examples-buttons.md](showcase-export/examples-buttons.md) | 38 | 53,743 |
 | Examples: display-part1 | [docs/showcase-export/examples-display-part1.md](showcase-export/examples-display-part1.md) | 41 | 79,363 |
-| Examples: display-part2 | [docs/showcase-export/examples-display-part2.md](showcase-export/examples-display-part2.md) | 25 | 60,447 |
+| Examples: display-part2 | [docs/showcase-export/examples-display-part2.md](showcase-export/examples-display-part2.md) | 25 | 65,275 |
 | Examples: feedback | [docs/showcase-export/examples-feedback.md](showcase-export/examples-feedback.md) | 24 | 27,984 |
 | Examples: forms-part1 | [docs/showcase-export/examples-forms-part1.md](showcase-export/examples-forms-part1.md) | 45 | 73,424 |
 | Examples: forms-part2 | [docs/showcase-export/examples-forms-part2.md](showcase-export/examples-forms-part2.md) | 46 | 67,670 |
@@ -138,11 +138,12 @@
 - [`liquid-metal-button`](showcase-export/ui.md#liquid-metal-button) — WebGL shader-powered button with 3D metallic liquid animation, ripple effects, and text or icon view modes.
 - [`snail-timer`](showcase-export/ui.md#snail-timer) — Animated countdown timer with a snail character traversing the screen, dust trail, and configurable duration.
 - [`creatable-combobox`](showcase-export/ui.md#creatable-combobox) — Combobox extension with autocomplete and dynamic item creation, built on Base UI and project Combobox primitive.
+- [`data-table-filter`](showcase-export/ui.md#data-table-filter) — Linear-style data table filter bar with subject + operator + value pill chips. Library-agnostic, supports client and server filtering strategies.
 
 ## Quick counts
 
-- UI primitives: **112**
-- Example variants: **454**
+- UI primitives: **113**
+- Example variants: **455**
 - Example files: **12**
 - Blocks: **5**
-- Total registry items: **571**
+- Total registry items: **573**
