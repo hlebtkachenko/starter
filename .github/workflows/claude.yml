@@ -23,7 +23,7 @@ jobs:
       (contains(github.event.comment.body, '@claude')
        || contains(github.event.review.body, '@claude')
        || contains(github.event.issue.body, '@claude'))
-    runs-on: [self-hosted, linux]
+    runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:
       - name: Skip if no API key

@@ -17,7 +17,7 @@ concurrency:
 
 jobs:
   deploy:
-    runs-on: [self-hosted, linux]
+    runs-on: ubuntu-latest
     environment: production   # configure required reviewers in repo settings
     timeout-minutes: 45
     steps:
