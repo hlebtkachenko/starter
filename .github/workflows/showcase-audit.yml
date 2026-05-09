@@ -39,13 +39,15 @@ jobs:
           cache: "pnpm"
 
       - name: Install dependencies
+        timeout-minutes: 5
         run: pnpm install --frozen-lockfile
 
       - name: Typecheck
+        timeout-minutes: 3
         run: pnpm typecheck
 
       - name: Lint
-        # Baseline allows 21 warnings; do NOT pass --max-warnings here.
+        timeout-minutes: 3
         run: pnpm lint
 
       - name: Build registry
@@ -75,6 +77,7 @@ jobs:
           git diff --exit-code -- docs/showcase-export.md docs/showcase-export/ docs/components-manifest.json
 
       - name: Unit tests (Vitest)
+        timeout-minutes: 5
         run: pnpm test --run
 
       # Functional e2e (registry deep-links + cascade test). No screenshots.
@@ -82,4 +85,5 @@ jobs:
       # baselines and are excluded via --grep. Capture linux baselines with:
       #   pnpm test:e2e --update-snapshots
       - name: E2E tests (Playwright, functional only)
+        timeout-minutes: 10
         run: pnpm test:e2e --grep @functional
