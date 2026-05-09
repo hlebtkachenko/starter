@@ -200,7 +200,7 @@ function FilterGroupRow({
 }: {
   data: Invoice[];
   filters: FiltersState;
-  onChange: (next: FiltersState) => void;
+  onChange: React.Dispatch<React.SetStateAction<FiltersState>>;
   onRemove: () => void;
   removable: boolean;
 }) {
@@ -271,8 +271,14 @@ export default function DataTableFilterOrGroups() {
     return data.filter((row) => active.some((g) => matchInvoice(row, g.filters)));
   }, [data, groups]);
 
-  function updateGroup(id: string, next: FiltersState) {
-    setGroups((prev) => prev.map((g) => (g.id === id ? { ...g, filters: next } : g)));
+  function updateGroup(id: string, update: React.SetStateAction<FiltersState>) {
+    setGroups((prev) =>
+      prev.map((g) => {
+        if (g.id !== id) return g;
+        const next = typeof update === "function" ? update(g.filters) : update;
+        return { ...g, filters: Array.isArray(next) ? next : [] };
+      }),
+    );
   }
   function removeGroup(id: string) {
     setGroups((prev) => prev.filter((g) => g.id !== id));
