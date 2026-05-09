@@ -18,8 +18,7 @@ const PdfViewer = dynamic(() => import("@/components/ui/pdf-viewer").then((m) =>
   ),
 });
 
-const FALLBACK_URL =
-  "https://raw.githubusercontent.com/nicktomlin/sample-pdfs/refs/heads/master/simple.pdf";
+const FALLBACK_URL = "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf";
 
 export default function PdfViewerDefault() {
   const [file, setFile] = useState<File | null>(null);

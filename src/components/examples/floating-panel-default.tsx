@@ -7,6 +7,7 @@
 "use client";
 
 import { useState } from "react";
+import { Minus, Maximize2, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   FloatingPanel,
@@ -16,11 +17,9 @@ import {
   FloatingPanelControl,
   FloatingPanelFooter,
   FloatingPanelHeader,
-  FloatingPanelMaximize,
-  FloatingPanelMinimize,
-  FloatingPanelRestore,
   FloatingPanelTitle,
   FloatingPanelTrigger,
+  FloatingPanelStageTrigger,
 } from "@/components/ui/floating-panel";
 
 export default function FloatingPanelDefault() {
@@ -37,12 +36,19 @@ export default function FloatingPanelDefault() {
         <FloatingPanelHeader>
           <FloatingPanelTitle>Quick Notes</FloatingPanelTitle>
           <FloatingPanelControl>
-            <FloatingPanelMinimize />
-            <FloatingPanelMaximize />
-            <FloatingPanelRestore />
+            <FloatingPanelStageTrigger stage="minimized" asChild>
+              <Button size="icon-xs" variant="ghost" aria-label="Minimize">
+                <Minus className="size-3" />
+              </Button>
+            </FloatingPanelStageTrigger>
+            <FloatingPanelStageTrigger stage="maximized" asChild>
+              <Button size="icon-xs" variant="ghost" aria-label="Maximize">
+                <Maximize2 className="size-3" />
+              </Button>
+            </FloatingPanelStageTrigger>
             <FloatingPanelCloseTrigger asChild>
               <Button size="icon-xs" variant="ghost" aria-label="Close">
-                &times;
+                <X className="size-3" />
               </Button>
             </FloatingPanelCloseTrigger>
           </FloatingPanelControl>

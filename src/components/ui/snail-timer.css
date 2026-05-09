@@ -8,7 +8,7 @@
 
 @keyframes snail-move {
   from {
-    transform: translateX(100vw);
+    transform: translateX(calc(100cqw - 138px));
   }
   to {
     transform: translateX(0);

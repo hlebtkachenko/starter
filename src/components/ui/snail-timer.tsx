@@ -5,41 +5,37 @@ import { useEffect, useState } from "react";
 import "./snail-timer.css";
 
 type Props = {
-  started?: boolean;
   initialSeconds?: number;
-  shouldCallTimeout?: boolean;
   onTimeout?: () => void;
 };
 
-export const SnailTimer = ({
-  started = true,
-  initialSeconds = 45,
-  onTimeout = () => {},
-}: Props) => {
+export const SnailTimer = ({ initialSeconds = 45, onTimeout }: Props) => {
   const [seconds, setSeconds] = useState(initialSeconds);
-
+  const [finished, setFinished] = useState(false);
   useEffect(() => {
-    let interval: NodeJS.Timeout;
+    if (finished) return;
 
-    if (started) {
-      interval = setInterval(() => {
-        if (seconds !== 1) {
-          setSeconds((seconds) => seconds - 1);
-        } else {
-          onTimeout();
+    const interval = setInterval(() => {
+      setSeconds((prev) => {
+        if (prev <= 1) {
           clearInterval(interval);
+          setFinished(true);
+          onTimeout?.();
+          return 0;
         }
-      }, 1000);
-    }
+        return prev - 1;
+      });
+    }, 1000);
 
     return () => clearInterval(interval);
-  }, [started, seconds]);
+    // onTimeout identity is stable (example passes inline arrow closed over setState)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [finished]);
 
   return (
     <div
-      className={`snail-timer pointer-events-none absolute right-0 bottom-5 left-0 overflow-hidden ${
-        started ? "" : "is-paused"
-      }`}
+      className={`snail-timer pointer-events-none absolute right-0 bottom-5 left-0 overflow-hidden ${finished ? "is-paused" : ""}`}
+      style={{ containerType: "inline-size" }}
     >
       <div
         className="snail-timer__track"
@@ -55,7 +51,11 @@ export const SnailTimer = ({
           </div>
           <div className="snail-timer__dust" aria-hidden="true" />
         </div>
-        <div className="text-muted-foreground mt-1 ml-2 text-xs">{seconds} seconds remaining</div>
+        {!finished && (
+          <div className="text-muted-foreground mt-1 ml-2 text-xs">
+            {seconds} {seconds === 1 ? "second" : "seconds"} remaining
+          </div>
+        )}
       </div>
     </div>
   );

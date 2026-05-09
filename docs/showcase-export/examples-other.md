@@ -218,7 +218,7 @@ const FRAMEWORKS = [
 export default function AutocompleteDefault() {
   return (
     <div className="w-full max-w-sm">
-      <Autocomplete items={FRAMEWORKS} mode="list">
+      <Autocomplete items={FRAMEWORKS} mode="list" openOnInputClick>
         <AutocompleteInput placeholder="Search frameworks..." showClear />
         <AutocompletePopup>
           <AutocompleteList>
@@ -1915,8 +1915,7 @@ const PdfViewer = dynamic(() => import("@/components/ui/pdf-viewer").then((m) =>
   ),
 });
 
-const FALLBACK_URL =
-  "https://raw.githubusercontent.com/nicktomlin/sample-pdfs/refs/heads/master/simple.pdf";
+const FALLBACK_URL = "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf";
 
 export default function PdfViewerDefault() {
   const [file, setFile] = useState<File | null>(null);
@@ -2563,6 +2562,7 @@ export default function IconButtonNotificationBadge() {
 "use client";
 
 import { useState } from "react";
+import { Minus, Maximize2, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   FloatingPanel,
@@ -2572,11 +2572,9 @@ import {
   FloatingPanelControl,
   FloatingPanelFooter,
   FloatingPanelHeader,
-  FloatingPanelMaximize,
-  FloatingPanelMinimize,
-  FloatingPanelRestore,
   FloatingPanelTitle,
   FloatingPanelTrigger,
+  FloatingPanelStageTrigger,
 } from "@/components/ui/floating-panel";
 
 export default function FloatingPanelDefault() {
@@ -2593,12 +2591,19 @@ export default function FloatingPanelDefault() {
         <FloatingPanelHeader>
           <FloatingPanelTitle>Quick Notes</FloatingPanelTitle>
           <FloatingPanelControl>
-            <FloatingPanelMinimize />
-            <FloatingPanelMaximize />
-            <FloatingPanelRestore />
+            <FloatingPanelStageTrigger stage="minimized" asChild>
+              <Button size="icon-xs" variant="ghost" aria-label="Minimize">
+                <Minus className="size-3" />
+              </Button>
+            </FloatingPanelStageTrigger>
+            <FloatingPanelStageTrigger stage="maximized" asChild>
+              <Button size="icon-xs" variant="ghost" aria-label="Maximize">
+                <Maximize2 className="size-3" />
+              </Button>
+            </FloatingPanelStageTrigger>
             <FloatingPanelCloseTrigger asChild>
               <Button size="icon-xs" variant="ghost" aria-label="Close">
-                &times;
+                <X className="size-3" />
               </Button>
             </FloatingPanelCloseTrigger>
           </FloatingPanelControl>
@@ -2682,12 +2687,7 @@ export default function DownloadTriggerDefault() {
 
   return (
     <div className="flex flex-col items-start gap-3">
-      <DownloadTrigger
-        data={sampleJson}
-        fileName="sample.json"
-        mimeType="application/json"
-        asChild
-      >
+      <DownloadTrigger data={sampleJson} fileName="sample.json" mimeType="application/json" asChild>
         <Button variant="outline">
           <Download className="mr-2 size-4" />
           Download JSON
@@ -2762,20 +2762,24 @@ import { Button } from "@/components/ui/button";
 import { SnailTimer } from "@/components/ui/snail-timer";
 
 export default function SnailTimerDefault() {
-  const [started, setStarted] = useState(false);
+  const [runId, setRunId] = useState(0);
+  const [running, setRunning] = useState(false);
+
+  function handleStart() {
+    setRunId((id) => id + 1);
+    setRunning(true);
+  }
 
   return (
     <div className="relative h-40 w-full overflow-hidden">
-      <div className="absolute inset-x-0 top-2 flex justify-center">
-        <Button
-          variant="outline"
-          size="sm"
-          onClick={() => setStarted((p) => !p)}
-        >
-          {started ? "Pause" : "Start Countdown"}
+      <div className="absolute inset-x-0 top-2 z-10 flex justify-center">
+        <Button variant="outline" size="sm" onClick={handleStart} disabled={running}>
+          {running ? "Running..." : "Start Countdown"}
         </Button>
       </div>
-      <SnailTimer started={started} initialSeconds={15} />
+      {running && (
+        <SnailTimer key={runId} initialSeconds={10} onTimeout={() => setRunning(false)} />
+      )}
     </div>
   );
 }
@@ -2857,9 +2861,7 @@ export default function CreatableComboboxDefault() {
         </ComboboxContent>
       </CreatableCombobox>
       {selected && (
-        <p className="text-xs text-muted-foreground">
-          Selected: {(selected as Fruit).label}
-        </p>
+        <p className="text-xs text-muted-foreground">Selected: {(selected as Fruit).label}</p>
       )}
     </div>
   );

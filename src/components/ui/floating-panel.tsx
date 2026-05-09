@@ -58,7 +58,7 @@ export const FloatingPanelContent = (props: FloatingPanelContentProps) => {
             "h-(--height) min-h-0 w-(--width)",
             "bg-popover",
             "text-popover-foreground",
-            "rounded-2xl border shadow-lg/5",
+            "overflow-hidden rounded-2xl border shadow-lg/5",
             "transition-[scale,opacity,translate] duration-200 ease-in-out will-change-transform",
             "data-[state=open]:fade-in-0 data-[state=open]:zoom-in-[98%] data-[state=open]:animate-in",
             className,
@@ -204,7 +204,7 @@ export const FloatingPanelBody = (props: React.ComponentProps<typeof ArkFloating
   const { className, children, ...rest } = props;
 
   return (
-    <ScrollArea>
+    <ScrollArea className="min-h-0 flex-1">
       <ArkFloatingPanel.Body
         className={cn(
           "flex flex-col gap-4",

@@ -375,12 +375,7 @@ export function Browser({
             <Wifi className="h-4 w-4" />
             <Volume2 className="h-4 w-4" />
             <Battery className="h-4 w-4" />
-            <span>
-              {new Date().toLocaleTimeString([], {
-                hour: "2-digit",
-                minute: "2-digit",
-              })}
-            </span>
+            <span>{"12:00"}</span>
           </div>
 
           <div className="flex items-center gap-1">
@@ -599,7 +594,7 @@ export function Browser({
                     <div className="truncate text-sm font-medium">{item.title}</div>
                     <div className="text-muted-foreground truncate text-xs">{item.url}</div>
                     <div className="text-muted-foreground text-xs">
-                      {item.timestamp.toLocaleTimeString()}
+                      {item.timestamp.toLocaleTimeString("en-US")}
                     </div>
                   </div>
                 </div>
