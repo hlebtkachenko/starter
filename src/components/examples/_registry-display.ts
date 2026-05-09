@@ -1455,7 +1455,7 @@ export const items = defineItems([
     type: "registry:example",
     title: "Tablecn style",
     description:
-      "Composite data-table with search, bazza chip filters, multi-sort popover, view options, CSV export, row selection, sticky bulk-action toolbar, column resize, and URL state via nuqs (q, p, sort, dir).",
+      "Composite data-table with search, bazza chip filters, multi-sort popover, view options, CSV export, row selection, ActionBar bulk actions, column resize, and URL state via nuqs (q, p, sort, dir).",
     slug: "data-table",
     variant: "tablecn-style",
     isFlagged: false,
@@ -1465,6 +1465,7 @@ export const items = defineItems([
     registryDependencies: [
       "data-table",
       "data-table-filter",
+      "action-bar",
       "button",
       "input",
       "checkbox",
@@ -1474,6 +1475,39 @@ export const items = defineItems([
     files: [
       {
         path: "components/examples/data-table-tablecn-style.tsx",
+        type: "registry:example",
+      },
+    ],
+    categories: ["data"],
+  },
+  {
+    name: "data-table-tablecn-filters",
+    type: "registry:example",
+    title: "Tablecn filters",
+    description:
+      "Tablecn-native filter design: per-column popover chips ([icon] Title [Value badge]) for text, multiSelect, select, dateRange, and range columns. Includes Reset, multi-sort popover, view options, and ActionBar bulk actions.",
+    slug: "data-table",
+    variant: "tablecn-filters",
+    isFlagged: false,
+    span: 3,
+    height: "tall",
+    upstreamUrl: "https://github.com/sadmann7/tablecn",
+    registryDependencies: [
+      "data-table",
+      "action-bar",
+      "button",
+      "input",
+      "checkbox",
+      "table",
+      "badge",
+      "popover",
+      "command",
+      "calendar",
+      "slider",
+    ],
+    files: [
+      {
+        path: "components/examples/data-table-tablecn-filters.tsx",
         type: "registry:example",
       },
     ],
