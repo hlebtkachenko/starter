@@ -23,7 +23,7 @@ export default function DatePickerDateOfBirth() {
       <Popover open={open} onOpenChange={setOpen}>
         <PopoverTrigger asChild>
           <Button variant="outline" id="date" className="justify-start font-normal">
-            {date ? date.toLocaleDateString() : "Select date"}
+            {date ? date.toLocaleDateString("en-US") : "Select date"}
           </Button>
         </PopoverTrigger>
         <PopoverContent className="w-auto overflow-hidden p-0" align="start">
