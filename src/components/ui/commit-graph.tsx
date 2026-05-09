@@ -80,7 +80,12 @@ function computeLayout(commits: Commit[]): GraphRow[] {
 
     for (let r = 0; r < rails.length; r++) {
       if (r !== commitRail && rails[r] !== null) {
-        edges.push({ fromRail: r, toRail: r, color: color(r), type: "straight" });
+        edges.push({
+          fromRail: r,
+          toRail: r,
+          color: color(r),
+          type: "straight",
+        });
       }
     }
 
@@ -342,7 +347,10 @@ function CommitDetail({
                 {commit.tag && (
                   <span
                     className="inline-flex items-center rounded-md px-1.5 py-0.5 text-[10px] font-medium"
-                    style={{ backgroundColor: `${railColor}20`, color: railColor }}
+                    style={{
+                      backgroundColor: `${railColor}20`,
+                      color: railColor,
+                    }}
                   >
                     {commit.tag}
                   </span>
@@ -363,9 +371,8 @@ function CommitDetail({
   );
 }
 
-function formatDate(date: string | Date): string {
+function formatDate(date: string | Date, now: Date = new Date()): string {
   const d = typeof date === "string" ? new Date(date) : date;
-  const now = new Date();
   const diffMs = now.getTime() - d.getTime();
   const diffMins = Math.floor(diffMs / 60_000);
   const diffHours = Math.floor(diffMs / 3_600_000);
@@ -381,6 +388,27 @@ function formatDate(date: string | Date): string {
     day: "numeric",
     ...(d.getFullYear() !== now.getFullYear() ? { year: "numeric" } : {}),
   });
+}
+
+function RelativeTime({ date, className }: { date: string | Date; className?: string }) {
+  // SSR + first client render show the absolute date so hydration matches.
+  // After mount, switch to the relative label and refresh every minute.
+  const [label, setLabel] = React.useState<string | null>(null);
+  React.useEffect(() => {
+    const update = () => setLabel(formatDate(date));
+    update();
+    const id = setInterval(update, 60_000);
+    return () => clearInterval(id);
+  }, [date]);
+  const initial = React.useMemo(
+    () => (typeof date === "string" ? new Date(date) : date).toISOString().slice(0, 10),
+    [date],
+  );
+  return (
+    <span className={className} suppressHydrationWarning>
+      {label ?? initial}
+    </span>
+  );
 }
 
 function formatFullDate(date: string | Date): string {
@@ -485,7 +513,10 @@ function CommitGraph({
                 {row.commit.tag && (
                   <span
                     className="inline-flex items-center rounded-md px-1.5 py-0.5 text-[10px] font-semibold leading-none"
-                    style={{ backgroundColor: `${color(row.rail)}20`, color: color(row.rail) }}
+                    style={{
+                      backgroundColor: `${color(row.rail)}20`,
+                      color: color(row.rail),
+                    }}
                   >
                     {row.commit.tag}
                   </span>
@@ -519,9 +550,10 @@ function CommitGraph({
                   )}
                   <span className="hidden sm:inline">{row.commit.author.name}</span>
                 </span>
-                <span className="text-[11px] text-muted-foreground/50">
-                  {formatDate(row.commit.date)}
-                </span>
+                <RelativeTime
+                  date={row.commit.date}
+                  className="text-[11px] text-muted-foreground/50"
+                />
               </div>
             </button>
           </CommitDetail>
