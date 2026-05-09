@@ -628,7 +628,7 @@ export function useLoadingData(isLoading: boolean, loadingPoints: number = 14) {
   const loadingData = useMemo(
     () => getLoadingData(loadingPoints),
     // loadingDataKey toggle triggers re-computation when shimmer exits
-     
+
     [loadingPoints, loadingDataKey],
   );
 

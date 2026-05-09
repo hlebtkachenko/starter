@@ -1093,4 +1093,60 @@ export const items = defineItems([
     categories: ["display"],
     proposedGroup: "display",
   },
+
+  {
+    name: "border-beam",
+    type: "registry:ui",
+    title: "Border Beam",
+    description:
+      "Animated border effect where a glowing beam travels around an element perimeter in a continuous loop.",
+    files: [{ path: "components/ui/border-beam.tsx", type: "registry:ui" }],
+    upstreamUrl: "https://magicui.design/docs/components/border-beam",
+    categories: ["effects"],
+    proposedGroup: "effects",
+  },
+  {
+    name: "bottom-navigation",
+    type: "registry:ui",
+    title: "Bottom Navigation",
+    description:
+      "Mobile-first bottom navigation bar with icon and label items, fixed positioning, and safe-area support.",
+    files: [{ path: "components/ui/bottom-navigation.tsx", type: "registry:ui" }],
+    upstreamUrl: "https://shark.vini.one/docs/components/bottom-navigation",
+    categories: ["navigation"],
+    proposedGroup: "navigation",
+  },
+  {
+    name: "commit-graph",
+    type: "registry:ui",
+    title: "Commit Graph",
+    description:
+      "Topological git graph with SVG rail lines showing branch forks, merges, and commit ancestry with interactive popovers.",
+    files: [{ path: "components/ui/commit-graph.tsx", type: "registry:ui" }],
+    upstreamUrl: "https://ui.justinlevine.me/docs/components/commit-graph",
+    categories: ["display", "data"],
+    proposedGroup: "display",
+  },
+  {
+    name: "marquee",
+    type: "registry:ui",
+    title: "Marquee",
+    description:
+      "Horizontal or vertical scrolling marquee animation with pause-on-hover, reverse direction, and configurable speed.",
+    files: [{ path: "components/ui/marquee.tsx", type: "registry:ui" }],
+    upstreamUrl: "https://magicui.design/docs/components/marquee",
+    categories: ["effects"],
+    proposedGroup: "effects",
+  },
+  {
+    name: "reui-badge",
+    type: "registry:ui",
+    title: "ReUI Badge",
+    description:
+      "Enhanced badge with 20+ semantic variants (success, warning, info, destructive, light, outline), sizes, and radius.",
+    files: [{ path: "components/ui/reui-badge.tsx", type: "registry:ui" }],
+    upstreamUrl: "https://reui.io/components",
+    categories: ["display"],
+    proposedGroup: "display",
+  },
 ]);

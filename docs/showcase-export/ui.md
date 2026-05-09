@@ -637,3 +637,33 @@
 **Upstream:** https://www.eldoraui.site/docs/components/browser
 **Depends on:** button, badge, card, separator, input
 **Categories:** display
+## Border Beam
+
+**Name:** `border-beam`
+**Description:** Animated border effect where a glowing beam travels around an element perimeter in a continuous loop.
+**Upstream:** https://magicui.design/docs/components/border-beam
+**Categories:** effects
+## Bottom Navigation
+
+**Name:** `bottom-navigation`
+**Description:** Mobile-first bottom navigation bar with icon and label items, fixed positioning, and safe-area support.
+**Upstream:** https://shark.vini.one/docs/components/bottom-navigation
+**Categories:** navigation
+## Commit Graph
+
+**Name:** `commit-graph`
+**Description:** Topological git graph with SVG rail lines showing branch forks, merges, and commit ancestry with interactive popovers.
+**Upstream:** https://ui.justinlevine.me/docs/components/commit-graph
+**Categories:** display, data
+## Marquee
+
+**Name:** `marquee`
+**Description:** Horizontal or vertical scrolling marquee animation with pause-on-hover, reverse direction, and configurable speed.
+**Upstream:** https://magicui.design/docs/components/marquee
+**Categories:** effects
+## ReUI Badge
+
+**Name:** `reui-badge`
+**Description:** Enhanced badge with 20+ semantic variants (success, warning, info, destructive, light, outline), sizes, and radius.
+**Upstream:** https://reui.io/components
+**Categories:** display

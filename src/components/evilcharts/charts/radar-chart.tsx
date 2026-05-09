@@ -335,7 +335,6 @@ function useLoadingData(isLoading: boolean, dataKey: string) {
     return () => clearInterval(interval);
   }, [isLoading]);
 
-   
   const loadingData = useMemo(() => generateLoadingData(dataKey), [dataKey, refreshKey]);
 
   return loadingData;

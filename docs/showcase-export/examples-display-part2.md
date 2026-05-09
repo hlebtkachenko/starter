@@ -893,3 +893,1061 @@ export default function TypographyDemo() {
   );
 }
 ```
+## Draggable Columns
+
+**Slug:** `data-table`
+**Variant:** `draggable`
+**Upstream:** https://shadcnstudio.com/docs/components/data-table
+**Description:** Data table with drag-and-drop column reordering using DnD Kit, sorting toggles, and currency formatting.
+**Depends on:** table, button
+
+```tsx
+/**
+ * @slug data-table
+ * @variant draggable
+ * @upstream https://shadcnstudio.com/docs/components/data-table
+ * @deviations ["Uses @dnd-kit for drag-and-drop column reordering."]
+ */
+"use client";
+
+import type { CSSProperties } from "react";
+import { useState, useId } from "react";
+
+import { ChevronDownIcon, ChevronUpIcon, GripVerticalIcon } from "lucide-react";
+
+import {
+  closestCenter,
+  DndContext,
+  KeyboardSensor,
+  MouseSensor,
+  TouchSensor,
+  useSensor,
+  useSensors,
+  type DragEndEvent,
+} from "@dnd-kit/core";
+import { restrictToHorizontalAxis } from "@dnd-kit/modifiers";
+import {
+  arrayMove,
+  horizontalListSortingStrategy,
+  SortableContext,
+  useSortable,
+} from "@dnd-kit/sortable";
+import { CSS } from "@dnd-kit/utilities";
+import type { Cell, ColumnDef, Header, SortingState } from "@tanstack/react-table";
+import {
+  flexRender,
+  getCoreRowModel,
+  getSortedRowModel,
+  useReactTable,
+} from "@tanstack/react-table";
+
+import { Button } from "@/components/ui/button";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table";
+
+type Employee = {
+  employeeId: number;
+  firstName: string;
+  lastName: string;
+  jobTitle: string;
+  department: string;
+  salary: number;
+};
+
+const data: Employee[] = [
+  {
+    employeeId: 1,
+    firstName: "John",
+    lastName: "Doe",
+    jobTitle: "Software Engineer",
+    department: "Engineering",
+    salary: 80000,
+  },
+  {
+    employeeId: 2,
+    firstName: "Jane",
+    lastName: "Smith",
+    jobTitle: "Product Manager",
+    department: "Product",
+    salary: 95000,
+  },
+  {
+    employeeId: 3,
+    firstName: "Alice",
+    lastName: "Johnson",
+    jobTitle: "UX Designer",
+    department: "Design",
+    salary: 70000,
+  },
+  {
+    employeeId: 4,
+    firstName: "Bob",
+    lastName: "Brown",
+    jobTitle: "Data Analyst",
+    department: "Analytics",
+    salary: 75000,
+  },
+];
+
+const columns: ColumnDef<Employee>[] = [
+  {
+    id: "firstName",
+    header: "First Name",
+    accessorKey: "firstName",
+    cell: ({ row }) => <div className="font-medium">{row.getValue("firstName")}</div>,
+    sortUndefined: "last",
+    sortDescFirst: false,
+  },
+  {
+    id: "lastName",
+    header: "Last Name",
+    accessorKey: "lastName",
+    cell: ({ row }) => <div>{row.getValue("lastName")}</div>,
+  },
+  {
+    id: "jobTitle",
+    header: "Job Title",
+    accessorKey: "jobTitle",
+    cell: ({ row }) => <div>{row.getValue("jobTitle")}</div>,
+  },
+  {
+    id: "department",
+    header: "Department",
+    accessorKey: "department",
+    cell: ({ row }) => <div>{row.getValue("department")}</div>,
+  },
+  {
+    id: "salary",
+    header: "Salary",
+    accessorKey: "salary",
+    cell: ({ row }) => {
+      const salary = parseFloat(row.getValue("salary"));
+      return (
+        <div>
+          {new Intl.NumberFormat("en-US", { style: "currency", currency: "USD" }).format(salary)}
+        </div>
+      );
+    },
+  },
+];
+
+function DraggableTableHeader({ header }: { header: Header<Employee, unknown> }) {
+  const { attributes, isDragging, listeners, setNodeRef, transform, transition } = useSortable({
+    id: header.column.id,
+  });
+
+  const style: CSSProperties = {
+    opacity: isDragging ? 0.8 : 1,
+    position: "relative",
+    transform: CSS.Translate.toString(transform),
+    transition,
+    whiteSpace: "nowrap",
+    width: header.column.getSize(),
+    zIndex: isDragging ? 1 : 0,
+  };
+
+  return (
+    <TableHead
+      ref={setNodeRef}
+      className="before:bg-border relative h-10 border-t before:absolute before:inset-y-0 before:left-0 before:w-px first:before:bg-transparent"
+      style={style}
+    >
+      <div className="flex items-center justify-start gap-0.5">
+        <Button
+          size="icon"
+          variant="ghost"
+          className="-ml-2 size-7"
+          {...attributes}
+          {...listeners}
+          aria-label="Drag to reorder"
+        >
+          <GripVerticalIcon className="opacity-60" aria-hidden="true" />
+        </Button>
+        <span className="grow truncate">
+          {header.isPlaceholder
+            ? null
+            : flexRender(header.column.columnDef.header, header.getContext())}
+        </span>
+        <Button
+          size="icon"
+          variant="ghost"
+          className="group -mr-1 size-7"
+          onClick={header.column.getToggleSortingHandler()}
+          onKeyDown={(e) => {
+            if (header.column.getCanSort() && (e.key === "Enter" || e.key === " ")) {
+              e.preventDefault();
+              header.column.getToggleSortingHandler()?.(e);
+            }
+          }}
+          aria-label="Toggle sorting"
+        >
+          {{
+            asc: <ChevronUpIcon className="shrink-0 opacity-60" size={16} aria-hidden="true" />,
+            desc: <ChevronDownIcon className="shrink-0 opacity-60" size={16} aria-hidden="true" />,
+          }[header.column.getIsSorted() as string] ?? (
+            <ChevronUpIcon
+              className="shrink-0 opacity-0 group-hover:opacity-60"
+              size={16}
+              aria-hidden="true"
+            />
+          )}
+        </Button>
+      </div>
+    </TableHead>
+  );
+}
+
+function DragAlongCell({ cell }: { cell: Cell<Employee, unknown> }) {
+  const { isDragging, setNodeRef, transform, transition } = useSortable({ id: cell.column.id });
+
+  const style: CSSProperties = {
+    opacity: isDragging ? 0.8 : 1,
+    position: "relative",
+    transform: CSS.Translate.toString(transform),
+    transition,
+    width: cell.column.getSize(),
+    zIndex: isDragging ? 1 : 0,
+  };
+
+  return (
+    <TableCell ref={setNodeRef} className="truncate" style={style}>
+      {flexRender(cell.column.columnDef.cell, cell.getContext())}
+    </TableCell>
+  );
+}
+
+export default function DataTableDraggable() {
+  const [sorting, setSorting] = useState<SortingState>([]);
+  const [columnOrder, setColumnOrder] = useState<string[]>(
+    columns.map((column) => column.id as string),
+  );
+
+  const table = useReactTable({
+    data,
+    columns,
+    columnResizeMode: "onChange",
+    getCoreRowModel: getCoreRowModel(),
+    getSortedRowModel: getSortedRowModel(),
+    onSortingChange: setSorting,
+    state: { sorting, columnOrder },
+    onColumnOrderChange: setColumnOrder,
+    enableSortingRemoval: false,
+  });
+
+  function handleDragEnd(event: DragEndEvent) {
+    const { active, over } = event;
+    if (active && over && active.id !== over.id) {
+      setColumnOrder((columnOrder) => {
+        const oldIndex = columnOrder.indexOf(active.id as string);
+        const newIndex = columnOrder.indexOf(over.id as string);
+        return arrayMove(columnOrder, oldIndex, newIndex);
+      });
+    }
+  }
+
+  const sensors = useSensors(
+    useSensor(MouseSensor, {}),
+    useSensor(TouchSensor, {}),
+    useSensor(KeyboardSensor, {}),
+  );
+
+  return (
+    <div className="w-full">
+      <div className="rounded-md border">
+        <DndContext
+          id={useId()}
+          collisionDetection={closestCenter}
+          modifiers={[restrictToHorizontalAxis]}
+          onDragEnd={handleDragEnd}
+          sensors={sensors}
+        >
+          <Table>
+            <TableHeader>
+              {table.getHeaderGroups().map((headerGroup) => (
+                <TableRow key={headerGroup.id} className="bg-muted/50 [&>th]:border-t-0">
+                  <SortableContext items={columnOrder} strategy={horizontalListSortingStrategy}>
+                    {headerGroup.headers.map((header) => (
+                      <DraggableTableHeader key={header.id} header={header} />
+                    ))}
+                  </SortableContext>
+                </TableRow>
+              ))}
+            </TableHeader>
+            <TableBody>
+              {table.getRowModel().rows?.length ? (
+                table.getRowModel().rows.map((row) => (
+                  <TableRow key={row.id} data-state={row.getIsSelected() && "selected"}>
+                    {row.getVisibleCells().map((cell) => (
+                      <SortableContext
+                        key={cell.id}
+                        items={columnOrder}
+                        strategy={horizontalListSortingStrategy}
+                      >
+                        <DragAlongCell key={cell.id} cell={cell} />
+                      </SortableContext>
+                    ))}
+                  </TableRow>
+                ))
+              ) : (
+                <TableRow>
+                  <TableCell colSpan={columns.length} className="h-24 text-center">
+                    No results.
+                  </TableCell>
+                </TableRow>
+              )}
+            </TableBody>
+          </Table>
+        </DndContext>
+      </div>
+    </div>
+  );
+}
+```
+## Expandable Rows
+
+**Slug:** `data-table`
+**Variant:** `expandable`
+**Upstream:** https://shadcnstudio.com/docs/components/data-table
+**Description:** Data table with expandable sub-rows showing nested team member details, row selection, and budget formatting.
+**Depends on:** table, button, checkbox
+
+```tsx
+/**
+ * @slug data-table
+ * @variant expandable
+ * @upstream https://shadcnstudio.com/docs/components/data-table
+ * @deviations ["Sub-rows rendered as nested table."]
+ */
+"use client";
+
+import { Fragment } from "react";
+
+import { ChevronDownIcon, ChevronUpIcon } from "lucide-react";
+
+import type { ColumnDef } from "@tanstack/react-table";
+import {
+  flexRender,
+  getCoreRowModel,
+  getExpandedRowModel,
+  useReactTable,
+} from "@tanstack/react-table";
+
+import { Button } from "@/components/ui/button";
+import { Checkbox } from "@/components/ui/checkbox";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table";
+
+type Member = { name: string; role: string; email: string; hireDate: string };
+
+type Team = {
+  teamName: string;
+  department: string;
+  location: string;
+  nextMilestone: string;
+  budget: number;
+  members: Member[];
+};
+
+const data: Team[] = [
+  {
+    teamName: "Digital Marketing",
+    department: "Marketing",
+    location: "London",
+    nextMilestone: "Launch New Campaign",
+    budget: 30000,
+    members: [
+      {
+        name: "Alice Johnson",
+        role: "Lead Strategist",
+        email: "alice.johnson@example.com",
+        hireDate: "2020-01-15",
+      },
+      {
+        name: "Bob Smith",
+        role: "Content Creator",
+        email: "bob.smith@example.com",
+        hireDate: "2021-03-22",
+      },
+    ],
+  },
+  {
+    teamName: "Product Development",
+    department: "Engineering",
+    location: "San Francisco",
+    nextMilestone: "Release Version 2.0",
+    budget: 50000,
+    members: [
+      {
+        name: "David Wilson",
+        role: "Product Manager",
+        email: "david.wilson@example.com",
+        hireDate: "2019-05-10",
+      },
+      {
+        name: "Emma Johnson",
+        role: "UX Designer",
+        email: "emma.johnson@example.com",
+        hireDate: "2020-08-15",
+      },
+    ],
+  },
+  {
+    teamName: "Sales Team",
+    department: "Sales",
+    location: "New York",
+    nextMilestone: "Close Q3 Deals",
+    budget: 40000,
+    members: [
+      {
+        name: "Grace Lee",
+        role: "Sales Executive",
+        email: "grace.lee@example.com",
+        hireDate: "2021-05-12",
+      },
+      {
+        name: "Henry Davis",
+        role: "Account Manager",
+        email: "henry.davis@example.com",
+        hireDate: "2020-11-01",
+      },
+    ],
+  },
+];
+
+const columns: ColumnDef<Team>[] = [
+  {
+    id: "expander",
+    header: () => null,
+    cell: ({ row }) =>
+      row.getCanExpand() ? (
+        <Button
+          className="size-7 text-muted-foreground"
+          onClick={row.getToggleExpandedHandler()}
+          aria-expanded={row.getIsExpanded()}
+          aria-label={
+            row.getIsExpanded()
+              ? `Collapse ${row.original.teamName}`
+              : `Expand ${row.original.teamName}`
+          }
+          size="icon"
+          variant="ghost"
+        >
+          {row.getIsExpanded() ? (
+            <ChevronUpIcon className="opacity-60" aria-hidden="true" />
+          ) : (
+            <ChevronDownIcon className="opacity-60" aria-hidden="true" />
+          )}
+        </Button>
+      ) : undefined,
+  },
+  {
+    id: "select",
+    header: ({ table }) => (
+      <Checkbox
+        checked={
+          table.getIsAllPageRowsSelected() || (table.getIsSomePageRowsSelected() && "indeterminate")
+        }
+        onCheckedChange={(value) => table.toggleAllPageRowsSelected(!!value)}
+        aria-label="Select all"
+      />
+    ),
+    cell: ({ row }) => (
+      <Checkbox
+        checked={row.getIsSelected()}
+        onCheckedChange={(value) => row.toggleSelected(!!value)}
+        aria-label="Select row"
+      />
+    ),
+  },
+  {
+    header: "Team Name",
+    accessorKey: "teamName",
+    cell: ({ row }) => <div className="font-medium">{row.getValue("teamName")}</div>,
+  },
+  {
+    header: "Department",
+    accessorKey: "department",
+    cell: ({ row }) => row.getValue("department"),
+  },
+  { header: "Location", accessorKey: "location", cell: ({ row }) => row.getValue("location") },
+  {
+    header: "Next Milestone",
+    accessorKey: "nextMilestone",
+    cell: ({ row }) => row.getValue("nextMilestone"),
+  },
+  {
+    header: () => <div>Budget</div>,
+    accessorKey: "budget",
+    cell: ({ row }) => (
+      <div>
+        {new Intl.NumberFormat("en-US", { style: "currency", currency: "USD" }).format(
+          parseFloat(row.getValue("budget")),
+        )}
+      </div>
+    ),
+  },
+];
+
+export default function DataTableExpandable() {
+  const table = useReactTable({
+    data,
+    columns,
+    getRowCanExpand: (row) => Boolean(row.original.members),
+    getCoreRowModel: getCoreRowModel(),
+    getExpandedRowModel: getExpandedRowModel(),
+  });
+
+  return (
+    <div className="w-full">
+      <div className="rounded-md border">
+        <Table>
+          <TableHeader>
+            {table.getHeaderGroups().map((headerGroup) => (
+              <TableRow key={headerGroup.id} className="hover:bg-transparent">
+                {headerGroup.headers.map((header) => (
+                  <TableHead key={header.id}>
+                    {header.isPlaceholder
+                      ? null
+                      : flexRender(header.column.columnDef.header, header.getContext())}
+                  </TableHead>
+                ))}
+              </TableRow>
+            ))}
+          </TableHeader>
+          <TableBody>
+            {table.getRowModel().rows?.length ? (
+              table.getRowModel().rows.map((row) => (
+                <Fragment key={row.id}>
+                  <TableRow data-state={row.getIsSelected() && "selected"}>
+                    {row.getVisibleCells().map((cell) => (
+                      <TableCell
+                        key={cell.id}
+                        className="[&:has([aria-expanded])]:w-px [&:has([aria-expanded])]:py-0"
+                      >
+                        {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                      </TableCell>
+                    ))}
+                  </TableRow>
+                  {row.getIsExpanded() && (
+                    <TableRow className="hover:bg-transparent">
+                      <TableCell colSpan={row.getVisibleCells().length} className="p-0">
+                        <Table>
+                          <TableHeader className="border-b">
+                            <TableRow className="hover:bg-muted/30!">
+                              <TableHead className="w-23.5" />
+                              <TableHead>Member Name</TableHead>
+                              <TableHead>Role</TableHead>
+                              <TableHead>Email</TableHead>
+                              <TableHead>Hire Date</TableHead>
+                            </TableRow>
+                          </TableHeader>
+                          <TableBody>
+                            {row.original.members.map((member) => (
+                              <TableRow key={member.email}>
+                                <TableCell />
+                                <TableCell>{member.name}</TableCell>
+                                <TableCell>{member.role}</TableCell>
+                                <TableCell>{member.email}</TableCell>
+                                <TableCell>{member.hireDate}</TableCell>
+                              </TableRow>
+                            ))}
+                          </TableBody>
+                        </Table>
+                      </TableCell>
+                    </TableRow>
+                  )}
+                </Fragment>
+              ))
+            ) : (
+              <TableRow>
+                <TableCell colSpan={columns.length} className="h-24 text-center">
+                  No results.
+                </TableCell>
+              </TableRow>
+            )}
+          </TableBody>
+        </Table>
+      </div>
+    </div>
+  );
+}
+```
+## Multiple day selection
+
+**Slug:** `calendar`
+**Variant:** `reui-multiple`
+**Upstream:** https://reui.io/components
+**Description:** Calendar demonstrating multi-day selection mode with pre-selected dates, from ReUI registry.
+**Depends on:** calendar, card
+
+```tsx
+"use client";
+
+import { useState } from "react";
+import { addDays, subDays } from "date-fns";
+
+import { Calendar } from "@/components/ui/calendar";
+import { Card, CardContent } from "@/components/ui/card";
+
+export default function CalendarMultipleDaySelection() {
+  const today = new Date();
+  const [date, setDate] = useState<Date[] | undefined>([
+    subDays(today, 17),
+    addDays(today, 2),
+    addDays(today, 6),
+    addDays(today, 8),
+  ]);
+
+  return (
+    <Card className="p-0">
+      <CardContent className="p-0">
+        <Calendar mode="multiple" onSelect={setDate} selected={date} />
+      </CardContent>
+    </Card>
+  );
+}
+```
+## Calendar with week numbers
+
+**Slug:** `calendar`
+**Variant:** `reui-week-numbers`
+**Upstream:** https://reui.io/components
+**Description:** Calendar displaying ISO week numbers alongside each row using custom WeekNumber component.
+**Depends on:** calendar, card
+
+```tsx
+"use client";
+
+import { useState } from "react";
+import type { WeekNumberProps } from "react-day-picker";
+
+import { Calendar } from "@/components/ui/calendar";
+import { Card, CardContent } from "@/components/ui/card";
+
+export default function CalendarWeekNumbers() {
+  const [date, setDate] = useState<Date | undefined>(new Date());
+
+  return (
+    <Card className="p-0">
+      <CardContent className="p-0">
+        <Calendar
+          components={{
+            WeekNumber: ({ week, ...props }: WeekNumberProps) => {
+              return (
+                <th {...props}>
+                  <span className="text-muted-foreground inline-flex size-8 items-center justify-center text-sm font-normal">
+                    {week.weekNumber}
+                  </span>
+                </th>
+              );
+            },
+          }}
+          fixedWeeks
+          mode="single"
+          onSelect={setDate}
+          selected={date}
+          showWeekNumber
+        />
+      </CardContent>
+    </Card>
+  );
+}
+```
+## Calendar with pricing
+
+**Slug:** `calendar`
+**Variant:** `reui-pricing`
+**Upstream:** https://reui.io/components
+**Description:** Calendar with per-day dynamic pricing using custom DayButton, prices under $100 highlighted green.
+**Depends on:** calendar
+
+```tsx
+"use client";
+
+import { useState } from "react";
+
+import { Calendar, CalendarDayButton } from "@/components/ui/calendar";
+
+function getPriceForDate(date: Date) {
+  const seed = date.getFullYear() * 10000 + (date.getMonth() + 1) * 100 + date.getDate();
+
+  const val = (seed * 9301 + 49297) % 233280;
+
+  return Math.floor(50 + (val / 233280) * 200);
+}
+
+export default function CalendarWithPricing() {
+  const [date, setDate] = useState<Date | undefined>(new Date());
+
+  return (
+    <Calendar
+      mode="single"
+      selected={date}
+      onSelect={setDate}
+      showOutsideDays={false}
+      className="rounded-lg border [--cell-size:--spacing(12)]"
+      components={{
+        DayButton: ({ children, modifiers, day, ...props }) => {
+          const price = getPriceForDate(day.date);
+          const isGreen = price < 100;
+
+          return (
+            <CalendarDayButton day={day} modifiers={modifiers} {...props}>
+              {children}
+              {!modifiers.outside && (
+                <span className={isGreen ? "text-green-600 dark:text-green-400" : ""}>
+                  ${price}
+                </span>
+              )}
+            </CalendarDayButton>
+          );
+        },
+      }}
+    />
+  );
+}
+```
+## Date picker with presets
+
+**Slug:** `calendar`
+**Variant:** `reui-date-picker-presets`
+**Upstream:** https://reui.io/components
+**Description:** Popover date picker with sidebar preset buttons (Today, Yesterday, Last week, etc.) and calendar.
+**Depends on:** button, calendar, card, popover
+
+```tsx
+"use client";
+
+import { useId, useState } from "react";
+import { format, subDays, subMonths, subYears } from "date-fns";
+import { CalendarIcon } from "lucide-react";
+
+import { cn } from "@/lib/utils";
+import { Button } from "@/components/ui/button";
+import { Calendar } from "@/components/ui/calendar";
+import { Card, CardContent } from "@/components/ui/card";
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
+
+export default function CalendarDatePickerPresets() {
+  const id = useId();
+  const today = new Date();
+  const yesterday = subDays(today, 1);
+  const lastWeek = subDays(today, 7);
+  const lastMonth = subMonths(today, 1);
+  const lastYear = subYears(today, 1);
+  const [month, setMonth] = useState(today);
+  const [date, setDate] = useState<Date>(today);
+
+  return (
+    <Popover>
+      <PopoverTrigger>
+        <Button className="group/pick-date w-60 justify-between" id={id} variant={"outline"}>
+          <span className={cn("truncate", date && "text-muted-foreground")}>
+            {date ? format(date, "LLL dd, y") : "Pick a date"}
+          </span>
+          <CalendarIcon
+            aria-hidden="true"
+            className="text-muted-foreground/80 group-hover:text-foreground shrink-0 transition-colors size-4"
+          />
+        </Button>
+      </PopoverTrigger>
+      <PopoverContent align="start" className="w-auto p-0">
+        <Card className="p-0">
+          <CardContent className="p-0">
+            <div className="flex max-sm:flex-col">
+              <div className="relative py-4 max-sm:order-1 max-sm:border-t sm:w-32">
+                <div className="h-full sm:border-e">
+                  <div className="flex flex-col px-2">
+                    <Button
+                      className="w-full justify-start"
+                      onClick={() => {
+                        setDate(today);
+                        setMonth(today);
+                      }}
+                      size="sm"
+                      variant="ghost"
+                    >
+                      Today
+                    </Button>
+                    <Button
+                      className="w-full justify-start"
+                      onClick={() => {
+                        setDate(yesterday);
+                        setMonth(yesterday);
+                      }}
+                      size="sm"
+                      variant="ghost"
+                    >
+                      Yesterday
+                    </Button>
+                    <Button
+                      className="w-full justify-start"
+                      onClick={() => {
+                        setDate(lastWeek);
+                        setMonth(lastWeek);
+                      }}
+                      size="sm"
+                      variant="ghost"
+                    >
+                      Last week
+                    </Button>
+                    <Button
+                      className="w-full justify-start"
+                      onClick={() => {
+                        setDate(lastMonth);
+                        setMonth(lastMonth);
+                      }}
+                      size="sm"
+                      variant="ghost"
+                    >
+                      Last month
+                    </Button>
+                    <Button
+                      className="w-full justify-start"
+                      onClick={() => {
+                        setDate(lastYear);
+                        setMonth(lastYear);
+                      }}
+                      size="sm"
+                      variant="ghost"
+                    >
+                      Last year
+                    </Button>
+                  </div>
+                </div>
+              </div>
+              <Calendar
+                disabled={[{ after: today }]}
+                mode="single"
+                month={month}
+                onMonthChange={setMonth}
+                onSelect={(newDate) => {
+                  if (newDate) {
+                    setDate(newDate);
+                  }
+                }}
+                selected={date}
+              />
+            </div>
+          </CardContent>
+        </Card>
+      </PopoverContent>
+    </Popover>
+  );
+}
+```
+## Range date picker with presets
+
+**Slug:** `calendar`
+**Variant:** `reui-range-presets`
+**Upstream:** https://reui.io/components
+**Description:** Popover date range picker with 8 preset ranges and dual-mode calendar selection.
+**Depends on:** button, calendar, card, popover
+
+```tsx
+"use client";
+
+import { useId, useState } from "react";
+import {
+  endOfMonth,
+  endOfYear,
+  format,
+  startOfMonth,
+  startOfYear,
+  subDays,
+  subMonths,
+  subYears,
+} from "date-fns";
+import type { DateRange } from "react-day-picker";
+import { CalendarIcon } from "lucide-react";
+
+import { cn } from "@/lib/utils";
+import { Button } from "@/components/ui/button";
+import { Calendar } from "@/components/ui/calendar";
+import { Card, CardContent } from "@/components/ui/card";
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
+
+export default function CalendarRangePresets() {
+  const id = useId();
+  const today = new Date();
+  const yesterday = {
+    from: subDays(today, 1),
+    to: subDays(today, 1),
+  };
+  const last7Days = {
+    from: subDays(today, 6),
+    to: today,
+  };
+  const last30Days = {
+    from: subDays(today, 29),
+    to: today,
+  };
+  const monthToDate = {
+    from: startOfMonth(today),
+    to: today,
+  };
+  const lastMonth = {
+    from: startOfMonth(subMonths(today, 1)),
+    to: endOfMonth(subMonths(today, 1)),
+  };
+  const yearToDate = {
+    from: startOfYear(today),
+    to: today,
+  };
+  const lastYear = {
+    from: startOfYear(subYears(today, 1)),
+    to: endOfYear(subYears(today, 1)),
+  };
+  const [month, setMonth] = useState(today);
+  const [date, setDate] = useState<DateRange | undefined>(last7Days);
+
+  return (
+    <Popover>
+      <PopoverTrigger>
+        <Button className="group/pick-date w-60 justify-between" id={id} variant={"outline"}>
+          <span className={cn("truncate", date && "text-muted-foreground")}>
+            {date?.from
+              ? date.to
+                ? `${format(date.from, "LLL dd, y")} - ${format(date.to, "LLL dd, y")}`
+                : format(date.from, "LLL dd, y")
+              : "Pick a date range"}
+          </span>
+          <CalendarIcon
+            aria-hidden="true"
+            className="text-muted-foreground/80 group-hover:text-foreground shrink-0 transition-colors size-4"
+          />
+        </Button>
+      </PopoverTrigger>
+      <PopoverContent align="start" className="w-auto p-0">
+        <Card className="p-0">
+          <CardContent className="p-0">
+            <div className="flex max-sm:flex-col">
+              <div className="relative py-4 max-sm:order-1 max-sm:border-t sm:w-32">
+                <div className="h-full sm:border-e">
+                  <div className="flex flex-col px-2">
+                    <Button
+                      className="w-full justify-start"
+                      onClick={() => {
+                        setDate({
+                          from: today,
+                          to: today,
+                        });
+                        setMonth(today);
+                      }}
+                      size="sm"
+                      variant="ghost"
+                    >
+                      Today
+                    </Button>
+                    <Button
+                      className="w-full justify-start"
+                      onClick={() => {
+                        setDate(yesterday);
+                        setMonth(yesterday.to);
+                      }}
+                      size="sm"
+                      variant="ghost"
+                    >
+                      Yesterday
+                    </Button>
+                    <Button
+                      className="w-full justify-start"
+                      onClick={() => {
+                        setDate(last7Days);
+                        setMonth(last7Days.to);
+                      }}
+                      size="sm"
+                      variant="ghost"
+                    >
+                      Last 7 days
+                    </Button>
+                    <Button
+                      className="w-full justify-start"
+                      onClick={() => {
+                        setDate(last30Days);
+                        setMonth(last30Days.to);
+                      }}
+                      size="sm"
+                      variant="ghost"
+                    >
+                      Last 30 days
+                    </Button>
+                    <Button
+                      className="w-full justify-start"
+                      onClick={() => {
+                        setDate(monthToDate);
+                        setMonth(monthToDate.to);
+                      }}
+                      size="sm"
+                      variant="ghost"
+                    >
+                      Month to date
+                    </Button>
+                    <Button
+                      className="w-full justify-start"
+                      onClick={() => {
+                        setDate(lastMonth);
+                        setMonth(lastMonth.to);
+                      }}
+                      size="sm"
+                      variant="ghost"
+                    >
+                      Last month
+                    </Button>
+                    <Button
+                      className="w-full justify-start"
+                      onClick={() => {
+                        setDate(yearToDate);
+                        setMonth(yearToDate.to);
+                      }}
+                      size="sm"
+                      variant="ghost"
+                    >
+                      Year to date
+                    </Button>
+                    <Button
+                      className="w-full justify-start"
+                      onClick={() => {
+                        setDate(lastYear);
+                        setMonth(lastYear.to);
+                      }}
+                      size="sm"
+                      variant="ghost"
+                    >
+                      Last year
+                    </Button>
+                  </div>
+                </div>
+              </div>
+              <Calendar
+                disabled={[{ after: today }]}
+                mode="range"
+                month={month}
+                onMonthChange={setMonth}
+                onSelect={(newDate) => {
+                  if (newDate) {
+                    setDate(newDate);
+                  }
+                }}
+                selected={date}
+              />
+            </div>
+          </CardContent>
+        </Card>
+      </PopoverContent>
+    </Popover>
+  );
+}
+```
