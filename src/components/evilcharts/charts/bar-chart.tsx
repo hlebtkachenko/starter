@@ -958,7 +958,7 @@ export function useLoadingData(isLoading: boolean, loadingBars: number = 12) {
 
   const loadingData = useMemo(
     () => getLoadingData(loadingBars, 20, 80),
-     
+
     [loadingBars, loadingDataKey],
   );
 

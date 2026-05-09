@@ -47,16 +47,14 @@ export function createEffectWithTarget(useEffectType: typeof useEffect | typeof 
   const useEffectWithTarget = (
     effect: EffectCallback,
     deps: DependencyList,
-     
+
     target: BasicTarget<any> | BasicTarget<any>[],
   ) => {
     const hasInitRef = useRef(false);
 
-     
     const lastElementRef = useRef<any[]>([]);
     const lastDepsRef = useRef<DependencyList>([]);
 
-     
     const unLoadRef = useRef<any>(undefined);
 
     useEffectType(() => {
