@@ -44,6 +44,9 @@ Next 16.2.4 · React 19.2.4 · TS 5 (target 6) · Tailwind v4 · pnpm 10 · Post
 | shadcn showcase + component map | [docs/showcase.md](docs/showcase.md) |
 | Add/update a shadcn primitive | [docs/runbooks/shadcn-primitive-intake.md](docs/runbooks/shadcn-primitive-intake.md) |
 | Port a shadcn component into /showcase | [docs/runbooks/showcase-rebuild.md](docs/runbooks/showcase-rebuild.md) |
+| Add external registry components | [docs/runbooks/new-components.md](docs/runbooks/new-components.md) |
+| Component import rules + pipeline | [docs/runbooks/component-import.md](docs/runbooks/component-import.md) |
+| Session handoff | [.claude/HANDOFF.md](.claude/HANDOFF.md) |
 | Component registry (machine-readable) | [src/components/__index__.tsx](src/components/__index__.tsx) (autogen) + [src/components/{ui,examples,blocks}/_registry.ts](src/components/) |
 | Registry runtime + search | [src/lib/registry.ts](src/lib/registry.ts) — `getRegistryComponent`, `searchRegistry`, `getExamplesForSlug` |
 | Glossary | [docs/DOMAIN.md](docs/DOMAIN.md) |

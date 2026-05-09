@@ -23,3 +23,4 @@ One imperative sentence. Then **Why** (one concrete consequence) and **Where it 
 | [db.md](db.md) | snake_case, RLS day 1, append-only migrations, no raw SQL outside `db/` |
 | [security.md](security.md) | Never log secrets, validate at boundary, HMAC verify webhooks |
 | [tests.md](tests.md) | No mocked DB in integration, no flaky retries |
+| [components.md](components.md) | Read guides before component work, no raw HTML, no design system bypass |
