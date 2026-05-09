@@ -6,6 +6,14 @@ Versioning: [SemVer 2.0](https://semver.org/spec/v2.0.0.html).
 
 <!-- release-please-managed: do not hand-edit below this line once release.yml is wired -->
 
+## [0.0.3](https://github.com/hlebtkachenko/starter/compare/v0.0.2...v0.0.3) (2026-05-09)
+
+
+### Fixed
+
+* **ci:** fix showcase-audit spawning and runner ghost-lock ([8835040](https://github.com/hlebtkachenko/starter/commit/883504077bd36ec1a4a9ad8bf96bd37289f37d85))
+* **ci:** fix showcase-audit spawning and runner ghost-lock ([ae95d81](https://github.com/hlebtkachenko/starter/commit/ae95d81e2005db149b61e1d8f8194d287e60eb1a))
+
 ## [0.0.2](https://github.com/hlebtkachenko/starter/compare/v0.0.1...v0.0.2) (2026-05-09)
 
 
