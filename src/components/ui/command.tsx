@@ -14,6 +14,38 @@ import {
 import { InputGroup, InputGroupAddon } from "@/components/ui/input-group";
 import { SearchIcon, CheckIcon } from "lucide-react";
 
+// cmdk auto-selects the first item on mount and calls scrollIntoView on it.
+// With block:'nearest' the browser walks every scroll ancestor including the
+// document, so Command instances mounted offscreen yank the page up to them.
+// Scope cmdk's scroll to the inner cmdk-list only.
+if (typeof window !== "undefined") {
+  const w = window as unknown as { __cmdkScrollPatched?: boolean };
+  if (!w.__cmdkScrollPatched) {
+    w.__cmdkScrollPatched = true;
+    const orig = Element.prototype.scrollIntoView;
+    Element.prototype.scrollIntoView = function (options?: ScrollIntoViewOptions | boolean) {
+      const el = this as Element;
+      if (
+        typeof el.hasAttribute === "function" &&
+        (el.hasAttribute("cmdk-item") || el.hasAttribute("cmdk-group-heading"))
+      ) {
+        const list = el.closest("[cmdk-list]") as HTMLElement | null;
+        if (list) {
+          const itemRect = el.getBoundingClientRect();
+          const listRect = list.getBoundingClientRect();
+          if (itemRect.top < listRect.top) {
+            list.scrollTop -= listRect.top - itemRect.top;
+          } else if (itemRect.bottom > listRect.bottom) {
+            list.scrollTop += itemRect.bottom - listRect.bottom;
+          }
+          return;
+        }
+      }
+      return orig.call(this, options as ScrollIntoViewOptions);
+    };
+  }
+}
+
 function Command({ className, ...props }: React.ComponentProps<typeof CommandPrimitive>) {
   return (
     <CommandPrimitive
