@@ -1149,4 +1149,76 @@ export const items = defineItems([
     categories: ["display"],
     proposedGroup: "display",
   },
+  {
+    name: "floating-panel",
+    type: "registry:ui",
+    title: "Floating Panel",
+    description:
+      "Non-modal floating window with drag, resize, minimize, maximize, and restore controls built on Ark UI.",
+    registryDependencies: ["button", "scroll-area"],
+    files: [{ path: "components/ui/floating-panel.tsx", type: "registry:ui" }],
+    upstreamUrl: "https://shark.vini.one/docs/components/floating-panel",
+    categories: ["overlay"],
+    proposedGroup: "overlay",
+  },
+  {
+    name: "signature-pad",
+    type: "registry:ui",
+    title: "Signature Pad",
+    description:
+      "Canvas-based hand-drawn signature capture with clear button, guide line, and image export via Ark UI.",
+    registryDependencies: ["button"],
+    files: [{ path: "components/ui/signature-pad.tsx", type: "registry:ui" }],
+    upstreamUrl: "https://shark.vini.one/docs/components/signature-pad",
+    categories: ["forms"],
+    proposedGroup: "forms",
+  },
+  {
+    name: "download-trigger",
+    type: "registry:ui",
+    title: "Download Trigger",
+    description:
+      "Programmatic file download utility supporting string, Blob, File, and async data sources via Ark UI.",
+    files: [{ path: "components/ui/download-trigger.tsx", type: "registry:ui" }],
+    upstreamUrl: "https://shark.vini.one/docs/utilities/download-trigger",
+    categories: ["actions"],
+    proposedGroup: "actions",
+  },
+  {
+    name: "liquid-metal-button",
+    type: "registry:ui",
+    title: "Liquid Metal Button",
+    description:
+      "WebGL shader-powered button with 3D metallic liquid animation, ripple effects, and text or icon view modes.",
+    files: [{ path: "components/ui/liquid-metal-button.tsx", type: "registry:ui" }],
+    upstreamUrl: "https://www.jolyui.dev/docs/components/buttons/liquid-metal-button",
+    categories: ["buttons"],
+    proposedGroup: "buttons",
+  },
+  {
+    name: "snail-timer",
+    type: "registry:ui",
+    title: "Snail Timer",
+    description:
+      "Animated countdown timer with a snail character traversing the screen, dust trail, and configurable duration.",
+    files: [
+      { path: "components/ui/snail-timer.tsx", type: "registry:ui" },
+      { path: "components/ui/snail-timer.css", type: "registry:ui" },
+    ],
+    upstreamUrl: "https://www.uicapsule.com",
+    categories: ["feedback"],
+    proposedGroup: "feedback",
+  },
+  {
+    name: "creatable-combobox",
+    type: "registry:ui",
+    title: "Creatable Combobox",
+    description:
+      "Combobox extension with autocomplete and dynamic item creation, built on Base UI and project Combobox primitive.",
+    registryDependencies: ["combobox"],
+    files: [{ path: "components/ui/creatable-combobox.tsx", type: "registry:ui" }],
+    upstreamUrl: "https://flowkit-ui.vzkiss.com/docs/components/creatable-combobox",
+    categories: ["forms"],
+    proposedGroup: "forms",
+  },
 ]);

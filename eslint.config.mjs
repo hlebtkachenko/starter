@@ -282,6 +282,118 @@ const noBareRounded = {
 };
 
 // ---------------------------------------------------------------------------
+// Local rule: no-trigger-button-no-aschild
+// Blocks <XTrigger>...<Button>...</Button>...</XTrigger> without asChild.
+// Trigger components (PopoverTrigger, DropdownMenuTrigger, etc.) render their
+// own <button>. Wrapping <Button> inside without asChild creates button-in-
+// button which is invalid HTML and causes hydration errors.
+// ---------------------------------------------------------------------------
+const noTriggerButtonNoAsChild = {
+  meta: {
+    type: "problem",
+    docs: {
+      description:
+        "Disallow <XTrigger> wrapping <Button> without asChild — creates button-in-button hydration error.",
+    },
+    messages: {
+      missingAsChild:
+        "<{{trigger}}> wraps <Button> without asChild. Both render <button>, causing button-in-button hydration error. Add `asChild` to the trigger so <Button> replaces it.",
+    },
+    schema: [],
+  },
+  create(context) {
+    return {
+      JSXElement(node) {
+        const opening = node.openingElement;
+        const name = opening.name;
+        if (name?.type !== "JSXIdentifier") return;
+        if (!/Trigger$/.test(name.name)) return;
+        const hasAsChild = opening.attributes.some(
+          (a) => a.type === "JSXAttribute" && a.name?.name === "asChild",
+        );
+        if (hasAsChild) return;
+        const childButton = node.children.find((child) => {
+          if (child.type !== "JSXElement") return false;
+          const cn = child.openingElement?.name;
+          return cn?.type === "JSXIdentifier" && cn.name === "Button";
+        });
+        if (childButton) {
+          context.report({
+            node: opening,
+            messageId: "missingAsChild",
+            data: { trigger: name.name },
+          });
+        }
+      },
+    };
+  },
+};
+
+// ---------------------------------------------------------------------------
+// Local rule: no-unpinned-locale
+// Blocks toLocaleString / toLocaleDateString / toLocaleTimeString without an
+// explicit locale string ("en-US"). SSR uses server locale, client uses user
+// locale — mismatch causes hydration errors.
+// Also blocks `new Date().toLocale*` in render (variable input).
+// ---------------------------------------------------------------------------
+const noUnpinnedLocale = {
+  meta: {
+    type: "problem",
+    docs: {
+      description:
+        "Require explicit locale on toLocale* calls and forbid new Date() inside toLocale* — prevents SSR/client hydration mismatches.",
+    },
+    messages: {
+      unpinned:
+        'toLocale{{kind}} called without explicit locale. Pass "en-US" as first arg to prevent SSR/client hydration mismatch.',
+      newDate:
+        "new Date().toLocale{{kind}} runs at render with current time, causing SSR/client mismatch. Compute on client via useEffect, or render a stable fallback.",
+    },
+    schema: [],
+  },
+  create(context) {
+    return {
+      CallExpression(node) {
+        const callee = node.callee;
+        if (callee?.type !== "MemberExpression") return;
+        const prop = callee.property;
+        if (prop?.type !== "Identifier") return;
+        const kind = /^toLocale(String|DateString|TimeString)$/.exec(prop.name)?.[1];
+        if (!kind) return;
+        // Detect `new Date()` with NO arguments (current time at render).
+        // `new Date(value)` is fine — value is data, not "now".
+        if (
+          callee.object?.type === "NewExpression" &&
+          callee.object.callee?.type === "Identifier" &&
+          callee.object.callee.name === "Date" &&
+          (!callee.object.arguments || callee.object.arguments.length === 0)
+        ) {
+          context.report({ node, messageId: "newDate", data: { kind } });
+          return;
+        }
+        // First argument must be a string literal or template starting with locale tag.
+        const first = node.arguments[0];
+        if (!first) {
+          context.report({ node, messageId: "unpinned", data: { kind } });
+          return;
+        }
+        if (first.type === "Literal" && typeof first.value === "string" && first.value.length > 0)
+          return;
+        if (first.type === "TemplateLiteral") return;
+        // Variable, undefined, locale?.code (member chain) — allow only if explicit string fallback used.
+        // Conservative: report when first arg is the literal `undefined` keyword or `void 0`.
+        if (
+          (first.type === "Identifier" && first.name === "undefined") ||
+          (first.type === "UnaryExpression" && first.operator === "void")
+        ) {
+          context.report({ node, messageId: "unpinned", data: { kind } });
+        }
+      },
+    };
+  },
+};
+
+// ---------------------------------------------------------------------------
 // Plugin wrapper — bundles all local rules under a single plugin prefix.
 // ---------------------------------------------------------------------------
 const localRulesPlugin = {
@@ -293,6 +405,8 @@ const localRulesPlugin = {
     "no-oklch": noOklch,
     "no-raw-interactive-html": noRawInteractiveHtml,
     "no-bare-rounded": noBareRounded,
+    "no-trigger-button-no-aschild": noTriggerButtonNoAsChild,
+    "no-unpinned-locale": noUnpinnedLocale,
   },
 };
 
@@ -345,6 +459,8 @@ const eslintConfig = defineConfig([
       "local-rules/no-arbitrary-radius": "error",
       "local-rules/no-raw-interactive-html": "error",
       "local-rules/no-bare-rounded": "error",
+      "local-rules/no-trigger-button-no-aschild": "error",
+      "local-rules/no-unpinned-locale": "error",
     },
   },
 ]);

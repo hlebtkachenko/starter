@@ -22,7 +22,7 @@ export default function CalendarDatePickerPresets() {
 
   return (
     <Popover>
-      <PopoverTrigger>
+      <PopoverTrigger asChild>
         <Button className="group/pick-date w-60 justify-between" id={id} variant={"outline"}>
           <span className={cn("truncate", date && "text-muted-foreground")}>
             {date ? format(date, "LLL dd, y") : "Pick a date"}

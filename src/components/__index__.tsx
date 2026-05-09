@@ -2253,6 +2253,140 @@ export const Index: Record<string, RegistryIndexEntry> = {
   },
     Component: undefined,
   },
+  "floating-panel": {
+    meta: {
+    "name": "floating-panel",
+    "type": "registry:ui",
+    "title": "Floating Panel",
+    "description": "Non-modal floating window with drag, resize, minimize, maximize, and restore controls built on Ark UI.",
+    "registryDependencies": [
+      "button",
+      "scroll-area"
+    ],
+    "files": [
+      {
+        "path": "components/ui/floating-panel.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "upstreamUrl": "https://shark.vini.one/docs/components/floating-panel",
+    "categories": [
+      "overlay"
+    ],
+    "proposedGroup": "overlay"
+  },
+    Component: undefined,
+  },
+  "signature-pad": {
+    meta: {
+    "name": "signature-pad",
+    "type": "registry:ui",
+    "title": "Signature Pad",
+    "description": "Canvas-based hand-drawn signature capture with clear button, guide line, and image export via Ark UI.",
+    "registryDependencies": [
+      "button"
+    ],
+    "files": [
+      {
+        "path": "components/ui/signature-pad.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "upstreamUrl": "https://shark.vini.one/docs/components/signature-pad",
+    "categories": [
+      "forms"
+    ],
+    "proposedGroup": "forms"
+  },
+    Component: undefined,
+  },
+  "download-trigger": {
+    meta: {
+    "name": "download-trigger",
+    "type": "registry:ui",
+    "title": "Download Trigger",
+    "description": "Programmatic file download utility supporting string, Blob, File, and async data sources via Ark UI.",
+    "files": [
+      {
+        "path": "components/ui/download-trigger.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "upstreamUrl": "https://shark.vini.one/docs/utilities/download-trigger",
+    "categories": [
+      "actions"
+    ],
+    "proposedGroup": "actions"
+  },
+    Component: undefined,
+  },
+  "liquid-metal-button": {
+    meta: {
+    "name": "liquid-metal-button",
+    "type": "registry:ui",
+    "title": "Liquid Metal Button",
+    "description": "WebGL shader-powered button with 3D metallic liquid animation, ripple effects, and text or icon view modes.",
+    "files": [
+      {
+        "path": "components/ui/liquid-metal-button.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "upstreamUrl": "https://www.jolyui.dev/docs/components/buttons/liquid-metal-button",
+    "categories": [
+      "buttons"
+    ],
+    "proposedGroup": "buttons"
+  },
+    Component: undefined,
+  },
+  "snail-timer": {
+    meta: {
+    "name": "snail-timer",
+    "type": "registry:ui",
+    "title": "Snail Timer",
+    "description": "Animated countdown timer with a snail character traversing the screen, dust trail, and configurable duration.",
+    "files": [
+      {
+        "path": "components/ui/snail-timer.tsx",
+        "type": "registry:ui"
+      },
+      {
+        "path": "components/ui/snail-timer.css",
+        "type": "registry:ui"
+      }
+    ],
+    "upstreamUrl": "https://www.uicapsule.com",
+    "categories": [
+      "feedback"
+    ],
+    "proposedGroup": "feedback"
+  },
+    Component: undefined,
+  },
+  "creatable-combobox": {
+    meta: {
+    "name": "creatable-combobox",
+    "type": "registry:ui",
+    "title": "Creatable Combobox",
+    "description": "Combobox extension with autocomplete and dynamic item creation, built on Base UI and project Combobox primitive.",
+    "registryDependencies": [
+      "combobox"
+    ],
+    "files": [
+      {
+        "path": "components/ui/creatable-combobox.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "upstreamUrl": "https://flowkit-ui.vzkiss.com/docs/components/creatable-combobox",
+    "categories": [
+      "forms"
+    ],
+    "proposedGroup": "forms"
+  },
+    Component: undefined,
+  },
   "button-size": {
     meta: {
     "name": "button-size",
@@ -7515,6 +7649,175 @@ export const Index: Record<string, RegistryIndexEntry> = {
     ]
   },
     Component: React.lazy(() => import("@/components/examples/c-command-8")),
+  },
+  "floating-panel-default": {
+    meta: {
+    "name": "floating-panel-default",
+    "type": "registry:example",
+    "title": "Default",
+    "description": "Floating panel with draggable header, scrollable body, minimize/maximize controls, and footer actions.",
+    "slug": "floating-panel",
+    "variant": "default",
+    "isDefault": true,
+    "isFlagged": false,
+    "span": 2,
+    "height": "tall",
+    "upstreamUrl": "https://shark.vini.one/docs/components/floating-panel",
+    "registryDependencies": [
+      "floating-panel",
+      "button"
+    ],
+    "files": [
+      {
+        "path": "components/examples/floating-panel-default.tsx",
+        "type": "registry:example"
+      }
+    ],
+    "categories": [
+      "overlay"
+    ]
+  },
+    Component: React.lazy(() => import("@/components/examples/floating-panel-default")),
+  },
+  "signature-pad-default": {
+    meta: {
+    "name": "signature-pad-default",
+    "type": "registry:example",
+    "title": "Default",
+    "description": "Canvas signature pad with guide line, clear button, and descriptive label for hand-drawn input capture.",
+    "slug": "signature-pad",
+    "variant": "default",
+    "isDefault": true,
+    "isFlagged": false,
+    "span": 2,
+    "height": "tall",
+    "upstreamUrl": "https://shark.vini.one/docs/components/signature-pad",
+    "registryDependencies": [
+      "signature-pad"
+    ],
+    "files": [
+      {
+        "path": "components/examples/signature-pad-default.tsx",
+        "type": "registry:example"
+      }
+    ],
+    "categories": [
+      "forms"
+    ]
+  },
+    Component: React.lazy(() => import("@/components/examples/signature-pad-default")),
+  },
+  "download-trigger-default": {
+    meta: {
+    "name": "download-trigger-default",
+    "type": "registry:example",
+    "title": "Default",
+    "description": "Download trigger with JSON file export and async text generation demonstrating sync and async data sources.",
+    "slug": "download-trigger",
+    "variant": "default",
+    "isDefault": true,
+    "isFlagged": false,
+    "span": 1,
+    "upstreamUrl": "https://shark.vini.one/docs/utilities/download-trigger",
+    "registryDependencies": [
+      "download-trigger",
+      "button"
+    ],
+    "files": [
+      {
+        "path": "components/examples/download-trigger-default.tsx",
+        "type": "registry:example"
+      }
+    ],
+    "categories": [
+      "actions"
+    ]
+  },
+    Component: React.lazy(() => import("@/components/examples/download-trigger-default")),
+  },
+  "liquid-metal-button-default": {
+    meta: {
+    "name": "liquid-metal-button-default",
+    "type": "registry:example",
+    "title": "Default",
+    "description": "WebGL liquid metal button in text and icon view modes with 3D shader animation and ripple click effects.",
+    "slug": "liquid-metal-button",
+    "variant": "default",
+    "isDefault": true,
+    "isFlagged": false,
+    "span": 2,
+    "upstreamUrl": "https://www.jolyui.dev/docs/components/buttons/liquid-metal-button",
+    "registryDependencies": [
+      "liquid-metal-button"
+    ],
+    "files": [
+      {
+        "path": "components/examples/liquid-metal-button-default.tsx",
+        "type": "registry:example"
+      }
+    ],
+    "categories": [
+      "buttons"
+    ]
+  },
+    Component: React.lazy(() => import("@/components/examples/liquid-metal-button-default")),
+  },
+  "snail-timer-default": {
+    meta: {
+    "name": "snail-timer-default",
+    "type": "registry:example",
+    "title": "Default",
+    "description": "Animated snail countdown timer with start/pause controls, dust trail animation, and configurable duration.",
+    "slug": "snail-timer",
+    "variant": "default",
+    "isDefault": true,
+    "isFlagged": false,
+    "span": 3,
+    "height": "tall",
+    "upstreamUrl": "https://www.uicapsule.com",
+    "registryDependencies": [
+      "snail-timer",
+      "button"
+    ],
+    "files": [
+      {
+        "path": "components/examples/snail-timer-default.tsx",
+        "type": "registry:example"
+      }
+    ],
+    "categories": [
+      "feedback"
+    ]
+  },
+    Component: React.lazy(() => import("@/components/examples/snail-timer-default")),
+  },
+  "creatable-combobox-default": {
+    meta: {
+    "name": "creatable-combobox-default",
+    "type": "registry:example",
+    "title": "Default",
+    "description": "Combobox with autocomplete filtering and dynamic item creation for picking or adding new fruit entries.",
+    "slug": "creatable-combobox",
+    "variant": "default",
+    "isDefault": true,
+    "isFlagged": false,
+    "span": 2,
+    "upstreamUrl": "https://flowkit-ui.vzkiss.com/docs/components/creatable-combobox",
+    "registryDependencies": [
+      "creatable-combobox",
+      "combobox"
+    ],
+    "files": [
+      {
+        "path": "components/examples/creatable-combobox-default.tsx",
+        "type": "registry:example"
+      }
+    ],
+    "categories": [
+      "forms"
+    ]
+  },
+    Component: React.lazy(() => import("@/components/examples/creatable-combobox-default")),
   },
   "alert-default": {
     meta: {
@@ -14367,8 +14670,8 @@ export const Index: Record<string, RegistryIndexEntry> = {
 };
 
 export const ItemsByArea = {
-  ui: ["accordion","alert","alert-dialog","aspect-ratio","avatar","badge","breadcrumb","button","button-group","calendar","card","carousel","chart","checkbox","collapsible","combobox","command","context-menu","dialog","drawer","dropdown-menu","empty","field","hover-card","input","input-group","input-otp","item","kbd","label","menubar","native-select","navigation-menu","pagination","popover","progress","radio-group","resizable","scroll-area","select","separator","sheet","sidebar","skeleton","slider","sonner","spinner","switch","table","tabs","textarea","toggle","toggle-group","tooltip","noise-background","stateful-button","multi-step-loader","separator-extended","card-styles","autocomplete","action-bar","banner","border-beam-button","circular-progress","color-picker","color-swatch","cropper","data-grid","data-table","file-upload","gauge","key-value","mention","phone-input","prompt-library","qr-code","segmented-input","swap","tags-input","terminal-animation","timeline","tour","ring-loader","api-response-viewer","env-editor","error-boundary-ui","json-viewer","og-image-explorer","og-category-section","og-image-card","pdf-utils","pdf-viewer","webhook-tester","evil-area-chart","evil-bar-chart","evil-line-chart","evil-pie-chart","evil-radar-chart","evil-composed-chart","animated-shiny-button","browser","border-beam","bottom-navigation","commit-graph","marquee","reui-badge"],
-  examples: ["button-size","button-default","button-outline","button-secondary","button-ghost","button-destructive","button-link","button-icon","button-with-icon","button-rounded","button-spinner","button-button-group","button-as-child","button-group-default","button-group-orientation","button-group-size","button-group-nested","button-group-separator","button-group-split","button-group-input","button-group-input-group","button-group-dropdown-menu","button-group-select","button-group-popover","toggle-default","toggle-outline","toggle-with-text","toggle-size","toggle-disabled","toggle-group-default","toggle-group-outline","toggle-group-size","toggle-group-spacing","toggle-group-vertical","toggle-group-disabled","toggle-group-custom","avatar-default","avatar-basic","avatar-badge","avatar-badge-with-icon","avatar-avatar-group","avatar-avatar-group-count","avatar-avatar-group-with-icon","avatar-sizes","avatar-dropdown","badge-default","badge-variants","badge-with-icon","badge-with-spinner","badge-link","badge-custom-colors","calendar-default","calendar-basic","calendar-range-calendar","calendar-month-and-year-selector","calendar-presets","calendar-date-and-time-picker","calendar-booked-dates","calendar-custom-cell-size","calendar-week-numbers","calendar-with-timezone","calendar-hijri","chart-default","chart-your-first-chart","chart-chart-config","chart-tooltip","chart-legend","chart-bar-chart","chart-with-grid","chart-with-axis","chart-with-tooltip","chart-with-legend","chart-tooltip-demo","data-table-default","data-table-basic-table","data-table-cell-formatting","data-table-row-actions","data-table-pagination","data-table-sorting","data-table-filtering","data-table-visibility","data-table-row-selection","skeleton-default","skeleton-avatar","skeleton-card","skeleton-text","skeleton-form","skeleton-table","table-default","table-footer","table-actions","typography-h1","typography-h2","typography-h3","typography-h4","typography-p","typography-blockquote","typography-table","typography-list","typography-inline-code","typography-lead","typography-large","typography-small","typography-muted","typography-demo","noise-background-default","noise-background-card","stateful-button-default","multi-step-loader-default","separator-extended-default","separator-extended-dashed","separator-extended-dotted","separator-extended-double","card-styles-shadow","card-styles-lines","card-styles-hatched","card-styles-aurora","card-styles-tilted","card-styles-stacked","autocomplete-default","action-bar-default","banner-default","border-beam-button-default","circular-progress-default","color-picker-default","color-swatch-default","cropper-default","cropper-circular","cropper-with-controls","data-grid-default","file-upload-default","gauge-default","key-value-default","mention-default","phone-input-default","prompt-library-default","qr-code-default","segmented-input-default","swap-default","tags-input-default","terminal-animation-default","timeline-default","tour-default","ring-loader-default","api-response-viewer-default","env-editor-default","error-boundary-ui-default","json-viewer-default","og-image-explorer-default","pdf-utils-default","pdf-viewer-default","webhook-tester-default","evil-area-chart-default","evil-bar-chart-default","evil-line-chart-default","evil-pie-chart-default","evil-radar-chart-default","evil-composed-chart-default","animated-shiny-button-default","browser-default","border-beam-default","bottom-navigation-default","commit-graph-default","empty-state-marquee","command-popover-default","data-table-draggable","data-table-expandable","breadcrumb-icons","breadcrumb-bordered","breadcrumb-bullet","breadcrumb-slash","breadcrumb-select","c-button-39","c-button-48","c-button-group-47","c-button-group-53","c-calendar-4","c-calendar-10","c-calendar-17","c-calendar-28","c-calendar-29","c-card-5","c-card-13","c-card-15","c-card-18","c-collapsible-4","c-collapsible-5","c-combobox-19","c-command-7","c-command-8","alert-default","alert-basic","alert-destructive","alert-action","alert-custom-colors","progress-default","progress-label","progress-controlled","sonner-default","sonner-types","sonner-description","sonner-position","spinner-default","spinner-size","spinner-button","spinner-badge","spinner-input-group","spinner-empty","checkbox-default","checkbox-basic","checkbox-description","checkbox-disabled","checkbox-group","checkbox-table","checkbox-indeterminate-select-all","combobox-default","combobox-basic","combobox-multiple","combobox-clear-button","combobox-groups","combobox-custom-items","combobox-invalid","combobox-disabled","combobox-auto-highlight","combobox-popup","combobox-input-group","date-picker-default","date-picker-basic","date-picker-range-picker","date-picker-date-of-birth","date-picker-input","date-picker-time-picker","date-picker-natural-language-picker","field-default","field-input","field-textarea","field-select","field-slider","field-fieldset","field-checkbox","field-radio","field-switch","field-choice-card","field-field-group","input-default","input-basic","input-field","input-field-group","input-disabled","input-invalid","input-file","input-inline","input-grid","input-required","input-badge","input-input-group","input-button-group","input-form","input-group-default","input-group-icon","input-group-text","input-group-button","input-group-kbd","input-group-dropdown","input-group-spinner","input-group-textarea","input-group-custom-input","input-group-credit-card","input-group-locked-password","input-otp-default","input-otp-separator","input-otp-disabled","input-otp-controlled","input-otp-invalid","input-otp-four-digits","input-otp-alphanumeric","input-otp-form","label-label-in-field","label-default","label-in-field-component","native-select-groups","native-select-disabled","native-select-invalid","native-select-default","radio-group-description","radio-group-choice-card","radio-group-fieldset","radio-group-disabled","radio-group-invalid","radio-group-default","select-default","select-align-item-with-trigger","select-groups","select-scrollable","select-disabled","select-invalid","slider-default","slider-range","slider-multiple-thumbs","slider-vertical","slider-controlled","slider-disabled","switch-default","switch-description","switch-choice-card","switch-disabled","switch-invalid","switch-size","textarea-default","textarea-field","textarea-disabled","textarea-invalid","textarea-button","aspect-ratio-default","aspect-ratio-square","aspect-ratio-portrait","card-default","card-size","card-image","card-with-form","collapsible-default","collapsible-basic","collapsible-settings-panel","collapsible-file-tree","resizable-default","resizable-vertical","resizable-handle","scroll-area-default","scroll-area-horizontal","separator-default","separator-vertical","separator-menu","separator-list","sidebar-default","sidebar-offcanvas","sidebar-none","sidebar-floating","sidebar-inset","sidebar-right","command-default","command-basic","command-shortcuts","command-groups","command-scrollable","context-menu-default","context-menu-basic","context-menu-submenu","context-menu-shortcuts","context-menu-groups","context-menu-icons","context-menu-checkboxes","context-menu-radio","context-menu-destructive","dropdown-menu-default","dropdown-menu-basic","dropdown-menu-submenu","dropdown-menu-shortcuts","dropdown-menu-icons","dropdown-menu-checkboxes","dropdown-menu-checkboxes-icons","dropdown-menu-radio-group","dropdown-menu-radio-icons","dropdown-menu-destructive","dropdown-menu-avatar","dropdown-menu-complex","breadcrumb-default","breadcrumb-basic","breadcrumb-custom-separator","breadcrumb-dropdown","breadcrumb-collapsed","breadcrumb-link-component","menubar-default","menubar-checkbox","menubar-radio","menubar-submenu","menubar-with-icons","navigation-menu-default","navigation-menu-link-component","pagination-default","pagination-simple","pagination-icons-only","tabs-default","tabs-line","tabs-vertical","tabs-disabled","tabs-icons","alert-dialog-default","alert-dialog-basic","alert-dialog-small","alert-dialog-media","alert-dialog-small-with-media","alert-dialog-destructive","dialog-default","dialog-custom-close-button","dialog-no-close-button","dialog-sticky-footer","dialog-scrollable-content","drawer-default","drawer-scrollable-content","drawer-sides","drawer-responsive-dialog","hover-card-default","hover-card-basic","hover-card-sides","popover-default","popover-basic","popover-align","popover-with-form","sheet-default","sheet-side","sheet-no-close-button","tooltip-default","tooltip-side","tooltip-with-keyboard-shortcut","tooltip-disabled-button","accordion-default","accordion-basic","accordion-multiple","accordion-disabled","accordion-borders","accordion-card","carousel-default","carousel-sizes","carousel-spacing","carousel-orientation","carousel-api-slide-n-of-m","carousel-plugins","empty-default","empty-outline","empty-background","empty-avatar","empty-avatar-group","empty-input-group","item-default","item-variants","item-sizes","item-icon","item-avatar","item-image","item-group","item-header","item-link","item-dropdown","kbd-default","kbd-group","kbd-button","kbd-tooltip","kbd-input-group"],
+  ui: ["accordion","alert","alert-dialog","aspect-ratio","avatar","badge","breadcrumb","button","button-group","calendar","card","carousel","chart","checkbox","collapsible","combobox","command","context-menu","dialog","drawer","dropdown-menu","empty","field","hover-card","input","input-group","input-otp","item","kbd","label","menubar","native-select","navigation-menu","pagination","popover","progress","radio-group","resizable","scroll-area","select","separator","sheet","sidebar","skeleton","slider","sonner","spinner","switch","table","tabs","textarea","toggle","toggle-group","tooltip","noise-background","stateful-button","multi-step-loader","separator-extended","card-styles","autocomplete","action-bar","banner","border-beam-button","circular-progress","color-picker","color-swatch","cropper","data-grid","data-table","file-upload","gauge","key-value","mention","phone-input","prompt-library","qr-code","segmented-input","swap","tags-input","terminal-animation","timeline","tour","ring-loader","api-response-viewer","env-editor","error-boundary-ui","json-viewer","og-image-explorer","og-category-section","og-image-card","pdf-utils","pdf-viewer","webhook-tester","evil-area-chart","evil-bar-chart","evil-line-chart","evil-pie-chart","evil-radar-chart","evil-composed-chart","animated-shiny-button","browser","border-beam","bottom-navigation","commit-graph","marquee","reui-badge","floating-panel","signature-pad","download-trigger","liquid-metal-button","snail-timer","creatable-combobox"],
+  examples: ["button-size","button-default","button-outline","button-secondary","button-ghost","button-destructive","button-link","button-icon","button-with-icon","button-rounded","button-spinner","button-button-group","button-as-child","button-group-default","button-group-orientation","button-group-size","button-group-nested","button-group-separator","button-group-split","button-group-input","button-group-input-group","button-group-dropdown-menu","button-group-select","button-group-popover","toggle-default","toggle-outline","toggle-with-text","toggle-size","toggle-disabled","toggle-group-default","toggle-group-outline","toggle-group-size","toggle-group-spacing","toggle-group-vertical","toggle-group-disabled","toggle-group-custom","avatar-default","avatar-basic","avatar-badge","avatar-badge-with-icon","avatar-avatar-group","avatar-avatar-group-count","avatar-avatar-group-with-icon","avatar-sizes","avatar-dropdown","badge-default","badge-variants","badge-with-icon","badge-with-spinner","badge-link","badge-custom-colors","calendar-default","calendar-basic","calendar-range-calendar","calendar-month-and-year-selector","calendar-presets","calendar-date-and-time-picker","calendar-booked-dates","calendar-custom-cell-size","calendar-week-numbers","calendar-with-timezone","calendar-hijri","chart-default","chart-your-first-chart","chart-chart-config","chart-tooltip","chart-legend","chart-bar-chart","chart-with-grid","chart-with-axis","chart-with-tooltip","chart-with-legend","chart-tooltip-demo","data-table-default","data-table-basic-table","data-table-cell-formatting","data-table-row-actions","data-table-pagination","data-table-sorting","data-table-filtering","data-table-visibility","data-table-row-selection","skeleton-default","skeleton-avatar","skeleton-card","skeleton-text","skeleton-form","skeleton-table","table-default","table-footer","table-actions","typography-h1","typography-h2","typography-h3","typography-h4","typography-p","typography-blockquote","typography-table","typography-list","typography-inline-code","typography-lead","typography-large","typography-small","typography-muted","typography-demo","noise-background-default","noise-background-card","stateful-button-default","multi-step-loader-default","separator-extended-default","separator-extended-dashed","separator-extended-dotted","separator-extended-double","card-styles-shadow","card-styles-lines","card-styles-hatched","card-styles-aurora","card-styles-tilted","card-styles-stacked","autocomplete-default","action-bar-default","banner-default","border-beam-button-default","circular-progress-default","color-picker-default","color-swatch-default","cropper-default","cropper-circular","cropper-with-controls","data-grid-default","file-upload-default","gauge-default","key-value-default","mention-default","phone-input-default","prompt-library-default","qr-code-default","segmented-input-default","swap-default","tags-input-default","terminal-animation-default","timeline-default","tour-default","ring-loader-default","api-response-viewer-default","env-editor-default","error-boundary-ui-default","json-viewer-default","og-image-explorer-default","pdf-utils-default","pdf-viewer-default","webhook-tester-default","evil-area-chart-default","evil-bar-chart-default","evil-line-chart-default","evil-pie-chart-default","evil-radar-chart-default","evil-composed-chart-default","animated-shiny-button-default","browser-default","border-beam-default","bottom-navigation-default","commit-graph-default","empty-state-marquee","command-popover-default","data-table-draggable","data-table-expandable","breadcrumb-icons","breadcrumb-bordered","breadcrumb-bullet","breadcrumb-slash","breadcrumb-select","c-button-39","c-button-48","c-button-group-47","c-button-group-53","c-calendar-4","c-calendar-10","c-calendar-17","c-calendar-28","c-calendar-29","c-card-5","c-card-13","c-card-15","c-card-18","c-collapsible-4","c-collapsible-5","c-combobox-19","c-command-7","c-command-8","floating-panel-default","signature-pad-default","download-trigger-default","liquid-metal-button-default","snail-timer-default","creatable-combobox-default","alert-default","alert-basic","alert-destructive","alert-action","alert-custom-colors","progress-default","progress-label","progress-controlled","sonner-default","sonner-types","sonner-description","sonner-position","spinner-default","spinner-size","spinner-button","spinner-badge","spinner-input-group","spinner-empty","checkbox-default","checkbox-basic","checkbox-description","checkbox-disabled","checkbox-group","checkbox-table","checkbox-indeterminate-select-all","combobox-default","combobox-basic","combobox-multiple","combobox-clear-button","combobox-groups","combobox-custom-items","combobox-invalid","combobox-disabled","combobox-auto-highlight","combobox-popup","combobox-input-group","date-picker-default","date-picker-basic","date-picker-range-picker","date-picker-date-of-birth","date-picker-input","date-picker-time-picker","date-picker-natural-language-picker","field-default","field-input","field-textarea","field-select","field-slider","field-fieldset","field-checkbox","field-radio","field-switch","field-choice-card","field-field-group","input-default","input-basic","input-field","input-field-group","input-disabled","input-invalid","input-file","input-inline","input-grid","input-required","input-badge","input-input-group","input-button-group","input-form","input-group-default","input-group-icon","input-group-text","input-group-button","input-group-kbd","input-group-dropdown","input-group-spinner","input-group-textarea","input-group-custom-input","input-group-credit-card","input-group-locked-password","input-otp-default","input-otp-separator","input-otp-disabled","input-otp-controlled","input-otp-invalid","input-otp-four-digits","input-otp-alphanumeric","input-otp-form","label-label-in-field","label-default","label-in-field-component","native-select-groups","native-select-disabled","native-select-invalid","native-select-default","radio-group-description","radio-group-choice-card","radio-group-fieldset","radio-group-disabled","radio-group-invalid","radio-group-default","select-default","select-align-item-with-trigger","select-groups","select-scrollable","select-disabled","select-invalid","slider-default","slider-range","slider-multiple-thumbs","slider-vertical","slider-controlled","slider-disabled","switch-default","switch-description","switch-choice-card","switch-disabled","switch-invalid","switch-size","textarea-default","textarea-field","textarea-disabled","textarea-invalid","textarea-button","aspect-ratio-default","aspect-ratio-square","aspect-ratio-portrait","card-default","card-size","card-image","card-with-form","collapsible-default","collapsible-basic","collapsible-settings-panel","collapsible-file-tree","resizable-default","resizable-vertical","resizable-handle","scroll-area-default","scroll-area-horizontal","separator-default","separator-vertical","separator-menu","separator-list","sidebar-default","sidebar-offcanvas","sidebar-none","sidebar-floating","sidebar-inset","sidebar-right","command-default","command-basic","command-shortcuts","command-groups","command-scrollable","context-menu-default","context-menu-basic","context-menu-submenu","context-menu-shortcuts","context-menu-groups","context-menu-icons","context-menu-checkboxes","context-menu-radio","context-menu-destructive","dropdown-menu-default","dropdown-menu-basic","dropdown-menu-submenu","dropdown-menu-shortcuts","dropdown-menu-icons","dropdown-menu-checkboxes","dropdown-menu-checkboxes-icons","dropdown-menu-radio-group","dropdown-menu-radio-icons","dropdown-menu-destructive","dropdown-menu-avatar","dropdown-menu-complex","breadcrumb-default","breadcrumb-basic","breadcrumb-custom-separator","breadcrumb-dropdown","breadcrumb-collapsed","breadcrumb-link-component","menubar-default","menubar-checkbox","menubar-radio","menubar-submenu","menubar-with-icons","navigation-menu-default","navigation-menu-link-component","pagination-default","pagination-simple","pagination-icons-only","tabs-default","tabs-line","tabs-vertical","tabs-disabled","tabs-icons","alert-dialog-default","alert-dialog-basic","alert-dialog-small","alert-dialog-media","alert-dialog-small-with-media","alert-dialog-destructive","dialog-default","dialog-custom-close-button","dialog-no-close-button","dialog-sticky-footer","dialog-scrollable-content","drawer-default","drawer-scrollable-content","drawer-sides","drawer-responsive-dialog","hover-card-default","hover-card-basic","hover-card-sides","popover-default","popover-basic","popover-align","popover-with-form","sheet-default","sheet-side","sheet-no-close-button","tooltip-default","tooltip-side","tooltip-with-keyboard-shortcut","tooltip-disabled-button","accordion-default","accordion-basic","accordion-multiple","accordion-disabled","accordion-borders","accordion-card","carousel-default","carousel-sizes","carousel-spacing","carousel-orientation","carousel-api-slide-n-of-m","carousel-plugins","empty-default","empty-outline","empty-background","empty-avatar","empty-avatar-group","empty-input-group","item-default","item-variants","item-sizes","item-icon","item-avatar","item-image","item-group","item-header","item-link","item-dropdown","kbd-default","kbd-group","kbd-button","kbd-tooltip","kbd-input-group"],
   blocks: ["login-card","login-card-2","login-card-3","signup-card","forgot-password-card"],
 };
 
@@ -14730,6 +15033,24 @@ export const ExamplesBySlug: Record<string, string[]> = {
     "combobox-auto-highlight",
     "combobox-popup",
     "combobox-input-group"
+  ],
+  "floating-panel": [
+    "floating-panel-default"
+  ],
+  "signature-pad": [
+    "signature-pad-default"
+  ],
+  "download-trigger": [
+    "download-trigger-default"
+  ],
+  "liquid-metal-button": [
+    "liquid-metal-button-default"
+  ],
+  "snail-timer": [
+    "snail-timer-default"
+  ],
+  "creatable-combobox": [
+    "creatable-combobox-default"
   ],
   "alert": [
     "alert-default",
