@@ -1451,6 +1451,35 @@ export const items = defineItems([
     ],
   },
   {
+    name: "data-table-tablecn-style",
+    type: "registry:example",
+    title: "Tablecn style",
+    description:
+      "Composite data-table with search, bazza chip filters, multi-sort popover, view options, CSV export, row selection, sticky bulk-action toolbar, column resize, and URL state via nuqs (q, p, sort, dir).",
+    slug: "data-table",
+    variant: "tablecn-style",
+    isFlagged: false,
+    span: 3,
+    height: "tall",
+    upstreamUrl: "https://github.com/sadmann7/tablecn",
+    registryDependencies: [
+      "data-table",
+      "data-table-filter",
+      "button",
+      "input",
+      "checkbox",
+      "table",
+      "badge",
+    ],
+    files: [
+      {
+        path: "components/examples/data-table-tablecn-style.tsx",
+        type: "registry:example",
+      },
+    ],
+    categories: ["data"],
+  },
+  {
     name: "typography-demo",
     type: "registry:example",
     title: "Demo",
