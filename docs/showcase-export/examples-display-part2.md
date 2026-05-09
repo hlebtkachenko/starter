@@ -807,12 +807,7 @@ import {
   TrashIcon,
   XIcon,
 } from "lucide-react";
-import {
-  parseAsArrayOf,
-  parseAsInteger,
-  parseAsString,
-  useQueryState,
-} from "nuqs";
+import { parseAsArrayOf, parseAsInteger, parseAsString, useQueryState } from "nuqs";
 import { NuqsAdapter } from "nuqs/adapters/next/app";
 import * as React from "react";
 
@@ -1011,16 +1006,12 @@ function applyChipFilters(rows: Invoice[], filters: FiltersState): Invoice[] {
     filters.every((f) => {
       if (f.columnId === "vendor") {
         const v = row.vendor.toLowerCase();
-        return (f.values as string[]).some((q) =>
-          v.includes(String(q).toLowerCase()),
-        );
+        return (f.values as string[]).some((q) => v.includes(String(q).toLowerCase()));
       }
       if (f.columnId === "status") {
         const vals = f.values as InvoiceStatus[];
         const matches = row.status.some((s) => vals.includes(s));
-        return f.operator === "exclude" || f.operator === "exclude if any of"
-          ? !matches
-          : matches;
+        return f.operator === "exclude" || f.operator === "exclude if any of" ? !matches : matches;
       }
       if (f.columnId === "taxJurisdiction") {
         const vals = f.values as string[];
@@ -1029,9 +1020,7 @@ function applyChipFilters(rows: Invoice[], filters: FiltersState): Invoice[] {
           : vals.includes(row.taxJurisdiction);
       }
       if (f.columnId === "issuedOn") {
-        const dates = (f.values as Array<Date | string>).map(
-          (d) => new Date(d),
-        );
+        const dates = (f.values as Array<Date | string>).map((d) => new Date(d));
         if (f.operator === "is between" && dates.length === 2)
           return row.issuedOn >= dates[0]! && row.issuedOn <= dates[1]!;
         if (f.operator === "is on or after") return row.issuedOn >= dates[0]!;
@@ -1098,8 +1087,7 @@ function DataTableTablecnStyleInner() {
   const [data, setData] = React.useState<Invoice[]>(SEED);
   const [filters, setFilters] = React.useState<FiltersState>([]);
   const [rowSelection, setRowSelection] = React.useState<RowSelectionState>({});
-  const [columnVisibility, setColumnVisibility] =
-    React.useState<VisibilityState>({});
+  const [columnVisibility, setColumnVisibility] = React.useState<VisibilityState>({});
   const [columnSizing, setColumnSizing] = React.useState<ColumnSizingState>({});
 
   const sorting: SortingState = React.useMemo(
@@ -1121,9 +1109,7 @@ function DataTableTablecnStyleInner() {
     if (!search.trim()) return chipFiltered;
     const q = search.toLowerCase();
     return chipFiltered.filter(
-      (r) =>
-        r.vendor.toLowerCase().includes(q) ||
-        r.number.toLowerCase().includes(q),
+      (r) => r.vendor.toLowerCase().includes(q) || r.number.toLowerCase().includes(q),
     );
   }, [data, filters, search]);
 
@@ -1153,32 +1139,22 @@ function DataTableTablecnStyleInner() {
       {
         accessorKey: "number",
         meta: { label: "Number" },
-        header: ({ column }) => (
-          <DataTableColumnHeader column={column} label="Number" />
-        ),
-        cell: ({ row }) => (
-          <span className="font-mono text-xs">{row.original.number}</span>
-        ),
+        header: ({ column }) => <DataTableColumnHeader column={column} label="Number" />,
+        cell: ({ row }) => <span className="font-mono text-xs">{row.original.number}</span>,
         size: 130,
       },
       {
         accessorKey: "vendor",
         meta: { label: "Vendor" },
-        header: ({ column }) => (
-          <DataTableColumnHeader column={column} label="Vendor" />
-        ),
-        cell: ({ row }) => (
-          <span className="font-medium">{row.original.vendor}</span>
-        ),
+        header: ({ column }) => <DataTableColumnHeader column={column} label="Vendor" />,
+        cell: ({ row }) => <span className="font-medium">{row.original.vendor}</span>,
         size: 240,
       },
       {
         id: "status",
         accessorFn: (row) => row.status.join(","),
         meta: { label: "Status" },
-        header: ({ column }) => (
-          <DataTableColumnHeader column={column} label="Status" />
-        ),
+        header: ({ column }) => <DataTableColumnHeader column={column} label="Status" />,
         cell: ({ row }) => (
           <div className="flex flex-wrap gap-1">
             {row.original.status.map((s) => (
@@ -1193,9 +1169,7 @@ function DataTableTablecnStyleInner() {
       {
         accessorKey: "issuedOn",
         meta: { label: "Issued" },
-        header: ({ column }) => (
-          <DataTableColumnHeader column={column} label="Issued" />
-        ),
+        header: ({ column }) => <DataTableColumnHeader column={column} label="Issued" />,
         cell: ({ row }) => (
           <span className="text-muted-foreground">
             {row.original.issuedOn.toLocaleDateString("en-US", {
@@ -1205,37 +1179,26 @@ function DataTableTablecnStyleInner() {
             })}
           </span>
         ),
-        sortingFn: (a, b) =>
-          a.original.issuedOn.getTime() - b.original.issuedOn.getTime(),
+        sortingFn: (a, b) => a.original.issuedOn.getTime() - b.original.issuedOn.getTime(),
         size: 130,
       },
       {
         accessorKey: "amount",
         meta: { label: "Amount" },
         header: ({ column }) => (
-          <DataTableColumnHeader
-            column={column}
-            label="Amount"
-            className="justify-end"
-          />
+          <DataTableColumnHeader column={column} label="Amount" className="justify-end" />
         ),
         cell: ({ row }) => (
-          <div className="text-right font-mono">
-            {row.original.amount.toLocaleString("en-US")}
-          </div>
+          <div className="text-right font-mono">{row.original.amount.toLocaleString("en-US")}</div>
         ),
         size: 110,
       },
       {
         accessorKey: "taxJurisdiction",
         meta: { label: "Tax" },
-        header: ({ column }) => (
-          <DataTableColumnHeader column={column} label="Tax" />
-        ),
+        header: ({ column }) => <DataTableColumnHeader column={column} label="Tax" />,
         cell: ({ row }) => (
-          <span className="text-muted-foreground">
-            {row.original.taxJurisdiction}
-          </span>
+          <span className="text-muted-foreground">{row.original.taxJurisdiction}</span>
         ),
         size: 80,
       },
@@ -1263,9 +1226,7 @@ function DataTableTablecnStyleInner() {
     onColumnSizingChange: setColumnSizing,
     onPaginationChange: (updater) => {
       const next =
-        typeof updater === "function"
-          ? updater({ pageIndex: page, pageSize: 5 })
-          : updater;
+        typeof updater === "function" ? updater({ pageIndex: page, pageSize: 5 }) : updater;
       setPage(next.pageIndex);
     },
     getCoreRowModel: getCoreRowModel(),
@@ -1289,17 +1250,13 @@ function DataTableTablecnStyleInner() {
   const selectedCount = table.getFilteredSelectedRowModel().rows.length;
 
   function bulkDelete() {
-    const selectedIds = new Set(
-      table.getFilteredSelectedRowModel().rows.map((r) => r.original.id),
-    );
+    const selectedIds = new Set(table.getFilteredSelectedRowModel().rows.map((r) => r.original.id));
     setData((prev) => prev.filter((row) => !selectedIds.has(row.id)));
     setRowSelection({});
   }
 
   function bulkExport() {
-    const rows = table
-      .getFilteredSelectedRowModel()
-      .rows.map((r) => r.original);
+    const rows = table.getFilteredSelectedRowModel().rows.map((r) => r.original);
     exportCsv(rows);
   }
 
@@ -1321,11 +1278,7 @@ function DataTableTablecnStyleInner() {
         <div className="ml-auto flex items-center gap-2">
           <DataTableMultiSort table={table} />
           <DataTableViewOptions table={table} />
-          <Button
-            size="sm"
-            variant="outline"
-            onClick={() => exportCsv(filteredData)}
-          >
+          <Button size="sm" variant="outline" onClick={() => exportCsv(filteredData)}>
             <Download className="mr-1 size-3.5" />
             Export
           </Button>
@@ -1345,10 +1298,7 @@ function DataTableTablecnStyleInner() {
                   >
                     {header.isPlaceholder
                       ? null
-                      : flexRender(
-                          header.column.columnDef.header,
-                          header.getContext(),
-                        )}
+                      : flexRender(header.column.columnDef.header, header.getContext())}
                     {header.column.getCanResize() && (
                       <button
                         type="button"
@@ -1356,9 +1306,7 @@ function DataTableTablecnStyleInner() {
                         onMouseDown={header.getResizeHandler()}
                         onTouchStart={header.getResizeHandler()}
                         className={`absolute right-0 top-0 h-full w-1 cursor-col-resize select-none touch-none bg-border opacity-0 transition-opacity hover:opacity-100 ${
-                          header.column.getIsResizing()
-                            ? "bg-primary opacity-100"
-                            : ""
+                          header.column.getIsResizing() ? "bg-primary opacity-100" : ""
                         }`}
                       />
                     )}
@@ -1370,29 +1318,17 @@ function DataTableTablecnStyleInner() {
           <TableBody>
             {table.getRowModel().rows.length > 0 ? (
               table.getRowModel().rows.map((row) => (
-                <TableRow
-                  key={row.id}
-                  data-state={row.getIsSelected() ? "selected" : undefined}
-                >
+                <TableRow key={row.id} data-state={row.getIsSelected() ? "selected" : undefined}>
                   {row.getVisibleCells().map((cell) => (
-                    <TableCell
-                      key={cell.id}
-                      style={{ width: cell.column.getSize() }}
-                    >
-                      {flexRender(
-                        cell.column.columnDef.cell,
-                        cell.getContext(),
-                      )}
+                    <TableCell key={cell.id} style={{ width: cell.column.getSize() }}>
+                      {flexRender(cell.column.columnDef.cell, cell.getContext())}
                     </TableCell>
                   ))}
                 </TableRow>
               ))
             ) : (
               <TableRow>
-                <TableCell
-                  colSpan={columns.length}
-                  className="h-24 text-center"
-                >
+                <TableCell colSpan={columns.length} className="h-24 text-center">
                   No invoices.
                 </TableCell>
               </TableRow>
@@ -1403,10 +1339,7 @@ function DataTableTablecnStyleInner() {
 
       <DataTablePagination table={table} />
 
-      <ActionBar
-        open={selectedCount > 0}
-        onOpenChange={(open) => !open && setRowSelection({})}
-      >
+      <ActionBar open={selectedCount > 0} onOpenChange={(open) => !open && setRowSelection({})}>
         <ActionBarGroup>
           <ActionBarSelection>
             {selectedCount} selected
@@ -1638,13 +1571,10 @@ function exportCsv(rows: Invoice[]) {
 
 export default function DataTableTablecnFilters() {
   const [data, setData] = React.useState<Invoice[]>(SEED);
-  const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(
-    [],
-  );
+  const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>([]);
   const [sorting, setSorting] = React.useState<SortingState>([]);
   const [rowSelection, setRowSelection] = React.useState<RowSelectionState>({});
-  const [columnVisibility, setColumnVisibility] =
-    React.useState<VisibilityState>({});
+  const [columnVisibility, setColumnVisibility] = React.useState<VisibilityState>({});
   const [globalFilter, setGlobalFilter] = React.useState("");
 
   const columns = React.useMemo<ColumnDef<Invoice>[]>(
@@ -1675,12 +1605,8 @@ export default function DataTableTablecnFilters() {
       {
         accessorKey: "number",
         meta: { label: "Number" },
-        header: ({ column }) => (
-          <DataTableColumnHeader column={column} label="Number" />
-        ),
-        cell: ({ row }) => (
-          <span className="font-mono text-xs">{row.original.number}</span>
-        ),
+        header: ({ column }) => <DataTableColumnHeader column={column} label="Number" />,
+        cell: ({ row }) => <span className="font-mono text-xs">{row.original.number}</span>,
         size: 130,
       },
       {
@@ -1691,12 +1617,8 @@ export default function DataTableTablecnFilters() {
           placeholder: "Search vendor...",
           icon: FileText,
         },
-        header: ({ column }) => (
-          <DataTableColumnHeader column={column} label="Vendor" />
-        ),
-        cell: ({ row }) => (
-          <span className="font-medium">{row.original.vendor}</span>
-        ),
+        header: ({ column }) => <DataTableColumnHeader column={column} label="Vendor" />,
+        cell: ({ row }) => <span className="font-medium">{row.original.vendor}</span>,
         size: 240,
         enableColumnFilter: true,
       },
@@ -1715,9 +1637,7 @@ export default function DataTableTablecnFilters() {
             { value: "void", label: "Void" },
           ],
         },
-        header: ({ column }) => (
-          <DataTableColumnHeader column={column} label="Status" />
-        ),
+        header: ({ column }) => <DataTableColumnHeader column={column} label="Status" />,
         cell: ({ row }) => (
           <div className="flex flex-wrap gap-1">
             {row.original.status.map((s) => (
@@ -1729,9 +1649,7 @@ export default function DataTableTablecnFilters() {
         ),
         filterFn: (row, _id, value) => {
           if (!Array.isArray(value) || value.length === 0) return true;
-          return row.original.status.some((s) =>
-            (value as string[]).includes(s),
-          );
+          return row.original.status.some((s) => (value as string[]).includes(s));
         },
         size: 180,
         enableColumnFilter: true,
@@ -1750,13 +1668,9 @@ export default function DataTableTablecnFilters() {
             { value: "PL", label: "Poland" },
           ],
         },
-        header: ({ column }) => (
-          <DataTableColumnHeader column={column} label="Tax" />
-        ),
+        header: ({ column }) => <DataTableColumnHeader column={column} label="Tax" />,
         cell: ({ row }) => (
-          <span className="text-muted-foreground">
-            {row.original.taxJurisdiction}
-          </span>
+          <span className="text-muted-foreground">{row.original.taxJurisdiction}</span>
         ),
         filterFn: (row, _id, value) => {
           if (!Array.isArray(value) || value.length === 0) return true;
@@ -1768,9 +1682,7 @@ export default function DataTableTablecnFilters() {
       {
         accessorKey: "issuedOn",
         meta: { label: "Issued", variant: "dateRange", icon: CalendarIcon },
-        header: ({ column }) => (
-          <DataTableColumnHeader column={column} label="Issued" />
-        ),
+        header: ({ column }) => <DataTableColumnHeader column={column} label="Issued" />,
         cell: ({ row }) => (
           <span className="text-muted-foreground">
             {row.original.issuedOn.toLocaleDateString("en-US", {
@@ -1780,15 +1692,11 @@ export default function DataTableTablecnFilters() {
             })}
           </span>
         ),
-        sortingFn: (a, b) =>
-          a.original.issuedOn.getTime() - b.original.issuedOn.getTime(),
+        sortingFn: (a, b) => a.original.issuedOn.getTime() - b.original.issuedOn.getTime(),
         filterFn: (row, _id, value) => {
           if (!Array.isArray(value) || value.length === 0) return true;
           const time = row.original.issuedOn.getTime();
-          const [start, end] = value as [
-            number | undefined,
-            number | undefined,
-          ];
+          const [start, end] = value as [number | undefined, number | undefined];
           if (start && time < start) return false;
           if (end && time > end) return false;
           return true;
@@ -1806,16 +1714,10 @@ export default function DataTableTablecnFilters() {
           unit: "Kč",
         },
         header: ({ column }) => (
-          <DataTableColumnHeader
-            column={column}
-            label="Amount"
-            className="justify-end"
-          />
+          <DataTableColumnHeader column={column} label="Amount" className="justify-end" />
         ),
         cell: ({ row }) => (
-          <div className="text-right font-mono">
-            {row.original.amount.toLocaleString("en-US")}
-          </div>
+          <div className="text-right font-mono">{row.original.amount.toLocaleString("en-US")}</div>
         ),
         filterFn: (row, _id, value) => {
           if (!Array.isArray(value) || value.length !== 2) return true;
@@ -1881,9 +1783,7 @@ export default function DataTableTablecnFilters() {
   function bulkMarkPaid() {
     const ids = new Set(selectedRows.map((r) => r.original.id));
     setData((prev) =>
-      prev.map((row) =>
-        ids.has(row.id) ? { ...row, status: ["paid"] as InvoiceStatus[] } : row,
-      ),
+      prev.map((row) => (ids.has(row.id) ? { ...row, status: ["paid"] as InvoiceStatus[] } : row)),
     );
     setRowSelection({});
   }
@@ -1903,9 +1803,7 @@ export default function DataTableTablecnFilters() {
           <Button
             size="sm"
             variant="outline"
-            onClick={() =>
-              exportCsv(table.getFilteredRowModel().rows.map((r) => r.original))
-            }
+            onClick={() => exportCsv(table.getFilteredRowModel().rows.map((r) => r.original))}
           >
             <Download className="mr-1 size-3.5" />
             Export
@@ -1921,16 +1819,10 @@ export default function DataTableTablecnFilters() {
             {table.getHeaderGroups().map((hg) => (
               <TableRow key={hg.id}>
                 {hg.headers.map((header) => (
-                  <TableHead
-                    key={header.id}
-                    style={{ width: header.getSize() }}
-                  >
+                  <TableHead key={header.id} style={{ width: header.getSize() }}>
                     {header.isPlaceholder
                       ? null
-                      : flexRender(
-                          header.column.columnDef.header,
-                          header.getContext(),
-                        )}
+                      : flexRender(header.column.columnDef.header, header.getContext())}
                   </TableHead>
                 ))}
               </TableRow>
@@ -1939,29 +1831,17 @@ export default function DataTableTablecnFilters() {
           <TableBody>
             {table.getRowModel().rows.length > 0 ? (
               table.getRowModel().rows.map((row) => (
-                <TableRow
-                  key={row.id}
-                  data-state={row.getIsSelected() ? "selected" : undefined}
-                >
+                <TableRow key={row.id} data-state={row.getIsSelected() ? "selected" : undefined}>
                   {row.getVisibleCells().map((cell) => (
-                    <TableCell
-                      key={cell.id}
-                      style={{ width: cell.column.getSize() }}
-                    >
-                      {flexRender(
-                        cell.column.columnDef.cell,
-                        cell.getContext(),
-                      )}
+                    <TableCell key={cell.id} style={{ width: cell.column.getSize() }}>
+                      {flexRender(cell.column.columnDef.cell, cell.getContext())}
                     </TableCell>
                   ))}
                 </TableRow>
               ))
             ) : (
               <TableRow>
-                <TableCell
-                  colSpan={columns.length}
-                  className="h-24 text-center"
-                >
+                <TableCell colSpan={columns.length} className="h-24 text-center">
                   No invoices match the active filters.
                 </TableCell>
               </TableRow>
@@ -1972,10 +1852,7 @@ export default function DataTableTablecnFilters() {
 
       <DataTablePagination table={table} />
 
-      <ActionBar
-        open={selectedCount > 0}
-        onOpenChange={(open) => !open && setRowSelection({})}
-      >
+      <ActionBar open={selectedCount > 0} onOpenChange={(open) => !open && setRowSelection({})}>
         <ActionBarGroup>
           <ActionBarSelection>
             {selectedCount} selected
