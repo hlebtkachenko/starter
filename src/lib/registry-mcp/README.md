@@ -31,7 +31,7 @@ Add to the `mcpServers` object in `~/.claude.json`:
 "starter-registry": {
   "command": "pnpm",
   "args": ["mcp:registry-server"],
-  "cwd": "/Users/hleb/Desktop/workspace/conductor/workspaces/starter/gwangju"
+  "cwd": "/path/to/project"
 }
 ```
 
@@ -43,7 +43,7 @@ Full example `mcpServers` block:
     "starter-registry": {
       "command": "pnpm",
       "args": ["mcp:registry-server"],
-      "cwd": "/Users/hleb/Desktop/workspace/conductor/workspaces/starter/gwangju"
+      "cwd": "/path/to/project"
     }
   }
 }

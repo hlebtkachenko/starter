@@ -28,7 +28,7 @@ check "pgmq extension loaded"   bash -c 'docker compose exec -T postgres psql -U
 check "mailpit up"              bash -c 'docker compose ps mailpit | grep -q "healthy\|running"'
 check ".env.local present"      bash -c 'test -e .env.local || test -L .env.local'
 check "port 3000 free"          bash -c '! lsof -i :3000'
-check "git remote reachable"    bash -c 'ssh -T git@github.com 2>&1 | grep -q "successfully authenticated\|hlebtkachenko"'
+check "git remote reachable"    bash -c 'ssh -T git@github.com 2>&1 | grep -q "successfully authenticated"'
 check "gh authenticated"        gh auth status
 
 echo

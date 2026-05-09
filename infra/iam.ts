@@ -4,7 +4,7 @@
 // `sub` claim scopes role assumption to this repo + ref pattern.
 
 // REPO slot — owner/name pair scopes the OIDC sub claim. Change when forking template.
-const repo = "hlebtkachenko/starter";
+const repo = "<git-user>/<repo>";
 
 const oidcProvider = new aws.iam.OpenIdConnectProvider("GitHubOidc", {
   url: "https://token.actions.githubusercontent.com",

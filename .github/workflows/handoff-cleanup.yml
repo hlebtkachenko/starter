@@ -14,7 +14,7 @@ permissions:
 jobs:
   prune:
     if: github.event.pull_request.merged == true
-    runs-on: [self-hosted, linux, ovh, starter]
+    runs-on: [self-hosted, linux]
     steps:
       - uses: actions/checkout@v4
         with:
