@@ -2557,12 +2557,12 @@ export default function IconButtonNotificationBadge() {
  * @slug floating-panel
  * @variant default
  * @upstream https://shark.vini.one/docs/components/floating-panel
- * @deviations ["Token classes used throughout. Self-hosts on project design system."]
+ * @deviations ["State-aware controls via useFloatingPanel API to bypass Ark's StageTrigger hidden logic that only allows transitions through default state."]
  */
 "use client";
 
 import { useState } from "react";
-import { Minus, Maximize2, X } from "lucide-react";
+import { Maximize2, Minus, Square, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   FloatingPanel,
@@ -2574,8 +2574,49 @@ import {
   FloatingPanelHeader,
   FloatingPanelTitle,
   FloatingPanelTrigger,
-  FloatingPanelStageTrigger,
+  useFloatingPanel,
 } from "@/components/ui/floating-panel";
+
+function PanelControls() {
+  const api = useFloatingPanel();
+
+  return (
+    <FloatingPanelControl>
+      <Button
+        size="icon-xs"
+        variant="ghost"
+        aria-label="Minimize"
+        onClick={() => api.minimize()}
+        className="group-data-minimized/floating-panel:hidden"
+      >
+        <Minus className="size-3" />
+      </Button>
+      <Button
+        size="icon-xs"
+        variant="ghost"
+        aria-label="Restore default size"
+        onClick={() => api.restore()}
+        className="hidden group-data-maximized/floating-panel:inline-flex group-data-minimized/floating-panel:inline-flex"
+      >
+        <Square className="size-3" />
+      </Button>
+      <Button
+        size="icon-xs"
+        variant="ghost"
+        aria-label="Maximize"
+        onClick={() => api.maximize()}
+        className="group-data-maximized/floating-panel:hidden"
+      >
+        <Maximize2 className="size-3" />
+      </Button>
+      <FloatingPanelCloseTrigger asChild>
+        <Button size="icon-xs" variant="ghost" aria-label="Close">
+          <X className="size-3" />
+        </Button>
+      </FloatingPanelCloseTrigger>
+    </FloatingPanelControl>
+  );
+}
 
 export default function FloatingPanelDefault() {
   const [notes, setNotes] = useState(
@@ -2590,23 +2631,7 @@ export default function FloatingPanelDefault() {
       <FloatingPanelContent>
         <FloatingPanelHeader>
           <FloatingPanelTitle>Quick Notes</FloatingPanelTitle>
-          <FloatingPanelControl>
-            <FloatingPanelStageTrigger stage="minimized" asChild>
-              <Button size="icon-xs" variant="ghost" aria-label="Minimize">
-                <Minus className="size-3" />
-              </Button>
-            </FloatingPanelStageTrigger>
-            <FloatingPanelStageTrigger stage="maximized" asChild>
-              <Button size="icon-xs" variant="ghost" aria-label="Maximize">
-                <Maximize2 className="size-3" />
-              </Button>
-            </FloatingPanelStageTrigger>
-            <FloatingPanelCloseTrigger asChild>
-              <Button size="icon-xs" variant="ghost" aria-label="Close">
-                <X className="size-3" />
-              </Button>
-            </FloatingPanelCloseTrigger>
-          </FloatingPanelControl>
+          <PanelControls />
         </FloatingPanelHeader>
         <FloatingPanelBody>
           <textarea

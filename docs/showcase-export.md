@@ -21,7 +21,7 @@
 | Examples: navigation | [docs/showcase-export/examples-navigation.md](showcase-export/examples-navigation.md) | 26 | 47,404 |
 | Examples: overlays | [docs/showcase-export/examples-overlays.md](showcase-export/examples-overlays.md) | 23 | 40,967 |
 | Examples: utility | [docs/showcase-export/examples-utility.md](showcase-export/examples-utility.md) | 34 | 52,899 |
-| Examples: other | [docs/showcase-export/examples-other.md](showcase-export/examples-other.md) | 56 | 83,326 |
+| Examples: other | [docs/showcase-export/examples-other.md](showcase-export/examples-other.md) | 56 | 83,794 |
 | Blocks | [docs/showcase-export/blocks.md](showcase-export/blocks.md) | 5 | 15,187 |
 
 ## UI Primitives TOC
