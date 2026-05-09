@@ -4673,6 +4673,51 @@
   },
   {
     "categories": [
+      "forms"
+    ],
+    "description": "Combobox extension with autocomplete and dynamic item creation, built on Base UI and project Combobox primitive.",
+    "files": [
+      {
+        "path": "components/ui/creatable-combobox.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "name": "creatable-combobox",
+    "proposedGroup": "forms",
+    "registryDependencies": [
+      "combobox"
+    ],
+    "title": "Creatable Combobox",
+    "type": "registry:ui",
+    "upstreamUrl": "https://flowkit-ui.vzkiss.com/docs/components/creatable-combobox"
+  },
+  {
+    "categories": [
+      "forms"
+    ],
+    "description": "Combobox with autocomplete filtering and dynamic item creation for picking or adding new fruit entries.",
+    "files": [
+      {
+        "path": "components/examples/creatable-combobox-default.tsx",
+        "type": "registry:example"
+      }
+    ],
+    "isDefault": true,
+    "isFlagged": false,
+    "name": "creatable-combobox-default",
+    "registryDependencies": [
+      "creatable-combobox",
+      "combobox"
+    ],
+    "slug": "creatable-combobox",
+    "span": 2,
+    "title": "Default",
+    "type": "registry:example",
+    "upstreamUrl": "https://flowkit-ui.vzkiss.com/docs/components/creatable-combobox",
+    "variant": "default"
+  },
+  {
+    "categories": [
       "forms",
       "display"
     ],
@@ -5430,6 +5475,48 @@
     "type": "registry:example",
     "upstreamUrl": "https://ui.shadcn.com/docs/components/dialog",
     "variant": "sticky-footer"
+  },
+  {
+    "categories": [
+      "actions"
+    ],
+    "description": "Programmatic file download utility supporting string, Blob, File, and async data sources via Ark UI.",
+    "files": [
+      {
+        "path": "components/ui/download-trigger.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "name": "download-trigger",
+    "proposedGroup": "actions",
+    "title": "Download Trigger",
+    "type": "registry:ui",
+    "upstreamUrl": "https://shark.vini.one/docs/utilities/download-trigger"
+  },
+  {
+    "categories": [
+      "actions"
+    ],
+    "description": "Download trigger with JSON file export and async text generation demonstrating sync and async data sources.",
+    "files": [
+      {
+        "path": "components/examples/download-trigger-default.tsx",
+        "type": "registry:example"
+      }
+    ],
+    "isDefault": true,
+    "isFlagged": false,
+    "name": "download-trigger-default",
+    "registryDependencies": [
+      "download-trigger",
+      "button"
+    ],
+    "slug": "download-trigger",
+    "span": 1,
+    "title": "Default",
+    "type": "registry:example",
+    "upstreamUrl": "https://shark.vini.one/docs/utilities/download-trigger",
+    "variant": "default"
   },
   {
     "categories": [
@@ -6717,6 +6804,53 @@
     "title": "Default",
     "type": "registry:example",
     "upstreamUrl": "https://www.diceui.com/docs/components/radix/file-upload",
+    "variant": "default"
+  },
+  {
+    "categories": [
+      "overlay"
+    ],
+    "description": "Non-modal floating window with drag, resize, minimize, maximize, and restore controls built on Ark UI.",
+    "files": [
+      {
+        "path": "components/ui/floating-panel.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "name": "floating-panel",
+    "proposedGroup": "overlay",
+    "registryDependencies": [
+      "button",
+      "scroll-area"
+    ],
+    "title": "Floating Panel",
+    "type": "registry:ui",
+    "upstreamUrl": "https://shark.vini.one/docs/components/floating-panel"
+  },
+  {
+    "categories": [
+      "overlay"
+    ],
+    "description": "Floating panel with draggable header, scrollable body, minimize/maximize controls, and footer actions.",
+    "files": [
+      {
+        "path": "components/examples/floating-panel-default.tsx",
+        "type": "registry:example"
+      }
+    ],
+    "height": "tall",
+    "isDefault": true,
+    "isFlagged": false,
+    "name": "floating-panel-default",
+    "registryDependencies": [
+      "floating-panel",
+      "button"
+    ],
+    "slug": "floating-panel",
+    "span": 2,
+    "title": "Default",
+    "type": "registry:example",
+    "upstreamUrl": "https://shark.vini.one/docs/components/floating-panel",
     "variant": "default"
   },
   {
@@ -8096,6 +8230,47 @@
     "title": "Label in Field",
     "type": "registry:example",
     "variant": "label-in-field"
+  },
+  {
+    "categories": [
+      "buttons"
+    ],
+    "description": "WebGL shader-powered button with 3D metallic liquid animation, ripple effects, and text or icon view modes.",
+    "files": [
+      {
+        "path": "components/ui/liquid-metal-button.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "name": "liquid-metal-button",
+    "proposedGroup": "buttons",
+    "title": "Liquid Metal Button",
+    "type": "registry:ui",
+    "upstreamUrl": "https://www.jolyui.dev/docs/components/buttons/liquid-metal-button"
+  },
+  {
+    "categories": [
+      "buttons"
+    ],
+    "description": "WebGL liquid metal button in text and icon view modes with 3D shader animation and ripple click effects.",
+    "files": [
+      {
+        "path": "components/examples/liquid-metal-button-default.tsx",
+        "type": "registry:example"
+      }
+    ],
+    "isDefault": true,
+    "isFlagged": false,
+    "name": "liquid-metal-button-default",
+    "registryDependencies": [
+      "liquid-metal-button"
+    ],
+    "slug": "liquid-metal-button",
+    "span": 2,
+    "title": "Default",
+    "type": "registry:example",
+    "upstreamUrl": "https://www.jolyui.dev/docs/components/buttons/liquid-metal-button",
+    "variant": "default"
   },
   {
     "categories": [
@@ -10380,6 +10555,51 @@
   },
   {
     "categories": [
+      "forms"
+    ],
+    "description": "Canvas-based hand-drawn signature capture with clear button, guide line, and image export via Ark UI.",
+    "files": [
+      {
+        "path": "components/ui/signature-pad.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "name": "signature-pad",
+    "proposedGroup": "forms",
+    "registryDependencies": [
+      "button"
+    ],
+    "title": "Signature Pad",
+    "type": "registry:ui",
+    "upstreamUrl": "https://shark.vini.one/docs/components/signature-pad"
+  },
+  {
+    "categories": [
+      "forms"
+    ],
+    "description": "Canvas signature pad with guide line, clear button, and descriptive label for hand-drawn input capture.",
+    "files": [
+      {
+        "path": "components/examples/signature-pad-default.tsx",
+        "type": "registry:example"
+      }
+    ],
+    "height": "tall",
+    "isDefault": true,
+    "isFlagged": false,
+    "name": "signature-pad-default",
+    "registryDependencies": [
+      "signature-pad"
+    ],
+    "slug": "signature-pad",
+    "span": 2,
+    "title": "Default",
+    "type": "registry:example",
+    "upstreamUrl": "https://shark.vini.one/docs/components/signature-pad",
+    "variant": "default"
+  },
+  {
+    "categories": [
       "auth"
     ],
     "description": "Centered signup form with full name, email, and password fields, plus a link back to sign-in. Scaffold following the login-card pattern; wire submit handler to Better Auth sign-up when implementing. Composes Field, Input, Button.",
@@ -10736,6 +10956,53 @@
     "type": "registry:example",
     "upstreamUrl": "https://ui.shadcn.com/docs/components/slider",
     "variant": "vertical"
+  },
+  {
+    "categories": [
+      "feedback"
+    ],
+    "description": "Animated countdown timer with a snail character traversing the screen, dust trail, and configurable duration.",
+    "files": [
+      {
+        "path": "components/ui/snail-timer.tsx",
+        "type": "registry:ui"
+      },
+      {
+        "path": "components/ui/snail-timer.css",
+        "type": "registry:ui"
+      }
+    ],
+    "name": "snail-timer",
+    "proposedGroup": "feedback",
+    "title": "Snail Timer",
+    "type": "registry:ui",
+    "upstreamUrl": "https://www.uicapsule.com"
+  },
+  {
+    "categories": [
+      "feedback"
+    ],
+    "description": "Animated snail countdown timer with start/pause controls, dust trail animation, and configurable duration.",
+    "files": [
+      {
+        "path": "components/examples/snail-timer-default.tsx",
+        "type": "registry:example"
+      }
+    ],
+    "height": "tall",
+    "isDefault": true,
+    "isFlagged": false,
+    "name": "snail-timer-default",
+    "registryDependencies": [
+      "snail-timer",
+      "button"
+    ],
+    "slug": "snail-timer",
+    "span": 3,
+    "title": "Default",
+    "type": "registry:example",
+    "upstreamUrl": "https://www.uicapsule.com",
+    "variant": "default"
   },
   {
     "categories": [

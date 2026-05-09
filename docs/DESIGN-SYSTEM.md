@@ -99,6 +99,12 @@ Components imported from third-party shadcn-compatible registries. Each is adapt
 | Terminal Animation | effects | [terminal-animation](https://www.cult-ui.com/docs/components/terminal-animation) |
 | Timeline | display | [timeline](https://www.diceui.com/docs/components/radix/timeline) |
 | Tour | overlay | [tour](https://www.diceui.com/docs/components/radix/tour) |
+| Floating Panel | overlay | [floating-panel](https://shark.vini.one/docs/components/floating-panel) |
+| Signature Pad | forms | [signature-pad](https://shark.vini.one/docs/components/signature-pad) |
+| Download Trigger | actions | [download-trigger](https://shark.vini.one/docs/utilities/download-trigger) |
+| Liquid Metal Button | buttons | [liquid-metal-button](https://www.jolyui.dev/docs/components/buttons/liquid-metal-button) |
+| Snail Timer | feedback | [snail-timer](https://www.uicapsule.com) |
+| Creatable Combobox | forms | [creatable-combobox](https://flowkit-ui.vzkiss.com/docs/components/creatable-combobox) |
 
 ## Motion
 

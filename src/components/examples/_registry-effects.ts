@@ -1728,4 +1728,133 @@ export const items = defineItems([
     files: [{ path: "components/examples/c-command-8.tsx", type: "registry:example" }],
     categories: ["overlay"],
   },
+  {
+    name: "floating-panel-default",
+    type: "registry:example",
+    title: "Default",
+    description:
+      "Floating panel with draggable header, scrollable body, minimize/maximize controls, and footer actions.",
+    slug: "floating-panel",
+    variant: "default",
+    isDefault: true,
+    isFlagged: false,
+    span: 2,
+    height: "tall",
+    upstreamUrl: "https://shark.vini.one/docs/components/floating-panel",
+    registryDependencies: ["floating-panel", "button"],
+    files: [
+      {
+        path: "components/examples/floating-panel-default.tsx",
+        type: "registry:example",
+      },
+    ],
+    categories: ["overlay"],
+  },
+  {
+    name: "signature-pad-default",
+    type: "registry:example",
+    title: "Default",
+    description:
+      "Canvas signature pad with guide line, clear button, and descriptive label for hand-drawn input capture.",
+    slug: "signature-pad",
+    variant: "default",
+    isDefault: true,
+    isFlagged: false,
+    span: 2,
+    height: "tall",
+    upstreamUrl: "https://shark.vini.one/docs/components/signature-pad",
+    registryDependencies: ["signature-pad"],
+    files: [
+      {
+        path: "components/examples/signature-pad-default.tsx",
+        type: "registry:example",
+      },
+    ],
+    categories: ["forms"],
+  },
+  {
+    name: "download-trigger-default",
+    type: "registry:example",
+    title: "Default",
+    description:
+      "Download trigger with JSON file export and async text generation demonstrating sync and async data sources.",
+    slug: "download-trigger",
+    variant: "default",
+    isDefault: true,
+    isFlagged: false,
+    span: 1,
+    upstreamUrl: "https://shark.vini.one/docs/utilities/download-trigger",
+    registryDependencies: ["download-trigger", "button"],
+    files: [
+      {
+        path: "components/examples/download-trigger-default.tsx",
+        type: "registry:example",
+      },
+    ],
+    categories: ["actions"],
+  },
+  {
+    name: "liquid-metal-button-default",
+    type: "registry:example",
+    title: "Default",
+    description:
+      "WebGL liquid metal button in text and icon view modes with 3D shader animation and ripple click effects.",
+    slug: "liquid-metal-button",
+    variant: "default",
+    isDefault: true,
+    isFlagged: false,
+    span: 2,
+    upstreamUrl: "https://www.jolyui.dev/docs/components/buttons/liquid-metal-button",
+    registryDependencies: ["liquid-metal-button"],
+    files: [
+      {
+        path: "components/examples/liquid-metal-button-default.tsx",
+        type: "registry:example",
+      },
+    ],
+    categories: ["buttons"],
+  },
+  {
+    name: "snail-timer-default",
+    type: "registry:example",
+    title: "Default",
+    description:
+      "Animated snail countdown timer with start/pause controls, dust trail animation, and configurable duration.",
+    slug: "snail-timer",
+    variant: "default",
+    isDefault: true,
+    isFlagged: false,
+    span: 3,
+    height: "tall",
+    upstreamUrl: "https://www.uicapsule.com",
+    registryDependencies: ["snail-timer", "button"],
+    files: [
+      {
+        path: "components/examples/snail-timer-default.tsx",
+        type: "registry:example",
+      },
+    ],
+    categories: ["feedback"],
+  },
+  {
+    name: "creatable-combobox-default",
+    type: "registry:example",
+    title: "Default",
+    description:
+      "Combobox with autocomplete filtering and dynamic item creation for picking or adding new fruit entries.",
+    slug: "creatable-combobox",
+    variant: "default",
+    isDefault: true,
+    isFlagged: false,
+    span: 2,
+    upstreamUrl: "https://flowkit-ui.vzkiss.com/docs/components/creatable-combobox",
+    registryDependencies: ["creatable-combobox", "combobox"],
+    files: [
+      {
+        path: "components/examples/creatable-combobox-default.tsx",
+        type: "registry:example",
+      },
+    ],
+    categories: ["forms"],
+  },
 ]);

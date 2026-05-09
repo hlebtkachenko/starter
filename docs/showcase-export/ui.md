@@ -667,3 +667,42 @@
 **Description:** Enhanced badge with 20+ semantic variants (success, warning, info, destructive, light, outline), sizes, and radius.
 **Upstream:** https://reui.io/components
 **Categories:** display
+## Floating Panel
+
+**Name:** `floating-panel`
+**Description:** Non-modal floating window with drag, resize, minimize, maximize, and restore controls built on Ark UI.
+**Upstream:** https://shark.vini.one/docs/components/floating-panel
+**Depends on:** button, scroll-area
+**Categories:** overlay
+## Signature Pad
+
+**Name:** `signature-pad`
+**Description:** Canvas-based hand-drawn signature capture with clear button, guide line, and image export via Ark UI.
+**Upstream:** https://shark.vini.one/docs/components/signature-pad
+**Depends on:** button
+**Categories:** forms
+## Download Trigger
+
+**Name:** `download-trigger`
+**Description:** Programmatic file download utility supporting string, Blob, File, and async data sources via Ark UI.
+**Upstream:** https://shark.vini.one/docs/utilities/download-trigger
+**Categories:** actions
+## Liquid Metal Button
+
+**Name:** `liquid-metal-button`
+**Description:** WebGL shader-powered button with 3D metallic liquid animation, ripple effects, and text or icon view modes.
+**Upstream:** https://www.jolyui.dev/docs/components/buttons/liquid-metal-button
+**Categories:** buttons
+## Snail Timer
+
+**Name:** `snail-timer`
+**Description:** Animated countdown timer with a snail character traversing the screen, dust trail, and configurable duration.
+**Upstream:** https://www.uicapsule.com
+**Categories:** feedback
+## Creatable Combobox
+
+**Name:** `creatable-combobox`
+**Description:** Combobox extension with autocomplete and dynamic item creation, built on Base UI and project Combobox primitive.
+**Upstream:** https://flowkit-ui.vzkiss.com/docs/components/creatable-combobox
+**Depends on:** combobox
+**Categories:** forms

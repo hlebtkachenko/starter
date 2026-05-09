@@ -33,6 +33,8 @@
     "@magicui": "https://magicui.design/r/{name}.json",
     "@reui": "https://reui.io/r/{name}.json",
     "@shadcnblocks": "https://shadcnblocks.com/r/{name}.json",
-    "@shark": "https://shark.vini.one/r/{name}.json"
+    "@shark": "https://shark.vini.one/r/{name}.json",
+    "@uicapsule": "https://uicapsule.com/r/{name}.json",
+    "@flowkit-ui": "https://flowkit-ui.vzkiss.com/r/{name}.json"
   }
 }

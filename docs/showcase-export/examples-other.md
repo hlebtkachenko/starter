@@ -2545,3 +2545,323 @@ export default function IconButtonNotificationBadge() {
   );
 }
 ```
+## Default
+
+**Slug:** `floating-panel`
+**Variant:** `default`
+**Upstream:** https://shark.vini.one/docs/components/floating-panel
+**Description:** Floating panel with draggable header, scrollable body, minimize/maximize controls, and footer actions.
+**Depends on:** floating-panel, button
+
+```tsx
+/**
+ * @slug floating-panel
+ * @variant default
+ * @upstream https://shark.vini.one/docs/components/floating-panel
+ * @deviations ["Token classes used throughout. Self-hosts on project design system."]
+ */
+"use client";
+
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import {
+  FloatingPanel,
+  FloatingPanelBody,
+  FloatingPanelCloseTrigger,
+  FloatingPanelContent,
+  FloatingPanelControl,
+  FloatingPanelFooter,
+  FloatingPanelHeader,
+  FloatingPanelMaximize,
+  FloatingPanelMinimize,
+  FloatingPanelRestore,
+  FloatingPanelTitle,
+  FloatingPanelTrigger,
+} from "@/components/ui/floating-panel";
+
+export default function FloatingPanelDefault() {
+  const [notes, setNotes] = useState(
+    "Meeting notes from standup:\n- Deploy v2 by Friday\n- Review auth flow PR\n- Update onboarding docs",
+  );
+
+  return (
+    <FloatingPanel>
+      <FloatingPanelTrigger asChild>
+        <Button variant="outline">Open Notes</Button>
+      </FloatingPanelTrigger>
+      <FloatingPanelContent>
+        <FloatingPanelHeader>
+          <FloatingPanelTitle>Quick Notes</FloatingPanelTitle>
+          <FloatingPanelControl>
+            <FloatingPanelMinimize />
+            <FloatingPanelMaximize />
+            <FloatingPanelRestore />
+            <FloatingPanelCloseTrigger asChild>
+              <Button size="icon-xs" variant="ghost" aria-label="Close">
+                &times;
+              </Button>
+            </FloatingPanelCloseTrigger>
+          </FloatingPanelControl>
+        </FloatingPanelHeader>
+        <FloatingPanelBody>
+          <textarea
+            className="min-h-32 w-full resize-none bg-transparent text-sm outline-none"
+            value={notes}
+            onChange={(e) => setNotes(e.target.value)}
+          />
+        </FloatingPanelBody>
+        <FloatingPanelFooter>
+          <Button size="sm" variant="outline">
+            Discard
+          </Button>
+          <Button size="sm">Save</Button>
+        </FloatingPanelFooter>
+      </FloatingPanelContent>
+    </FloatingPanel>
+  );
+}
+```
+## Default
+
+**Slug:** `signature-pad`
+**Variant:** `default`
+**Upstream:** https://shark.vini.one/docs/components/signature-pad
+**Description:** Canvas signature pad with guide line, clear button, and descriptive label for hand-drawn input capture.
+**Depends on:** signature-pad
+
+```tsx
+/**
+ * @slug signature-pad
+ * @variant default
+ * @upstream https://shark.vini.one/docs/components/signature-pad
+ * @deviations ["Token classes used throughout."]
+ */
+"use client";
+
+import { SignaturePad } from "@/components/ui/signature-pad";
+
+export default function SignaturePadDefault() {
+  return (
+    <div className="flex w-full max-w-sm flex-col gap-2">
+      <label className="text-sm font-medium">Signature</label>
+      <SignaturePad />
+      <p className="text-xs text-muted-foreground">
+        Draw your signature above. Click the reset icon to clear.
+      </p>
+    </div>
+  );
+}
+```
+## Default
+
+**Slug:** `download-trigger`
+**Variant:** `default`
+**Upstream:** https://shark.vini.one/docs/utilities/download-trigger
+**Description:** Download trigger with JSON file export and async text generation demonstrating sync and async data sources.
+**Depends on:** download-trigger, button
+
+```tsx
+/**
+ * @slug download-trigger
+ * @variant default
+ * @upstream https://shark.vini.one/docs/utilities/download-trigger
+ * @deviations ["Token classes on wrapper. Uses shadcn Button as trigger."]
+ */
+"use client";
+
+import { Download } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { DownloadTrigger } from "@/components/ui/download-trigger";
+
+export default function DownloadTriggerDefault() {
+  const sampleJson = JSON.stringify(
+    { name: "Sun Valley", version: "0.0.3", framework: "Next.js" },
+    null,
+    2,
+  );
+
+  return (
+    <div className="flex flex-col items-start gap-3">
+      <DownloadTrigger
+        data={sampleJson}
+        fileName="sample.json"
+        mimeType="application/json"
+        asChild
+      >
+        <Button variant="outline">
+          <Download className="mr-2 size-4" />
+          Download JSON
+        </Button>
+      </DownloadTrigger>
+
+      <DownloadTrigger
+        data={async () => {
+          await new Promise((r) => setTimeout(r, 500));
+          return "Generated at: " + new Date().toISOString();
+        }}
+        fileName="timestamp.txt"
+        mimeType="text/plain"
+        asChild
+      >
+        <Button variant="outline">
+          <Download className="mr-2 size-4" />
+          Async Download
+        </Button>
+      </DownloadTrigger>
+    </div>
+  );
+}
+```
+## Default
+
+**Slug:** `liquid-metal-button`
+**Variant:** `default`
+**Upstream:** https://www.jolyui.dev/docs/components/buttons/liquid-metal-button
+**Description:** WebGL liquid metal button in text and icon view modes with 3D shader animation and ripple click effects.
+**Depends on:** liquid-metal-button
+
+```tsx
+/**
+ * @slug liquid-metal-button
+ * @variant default
+ * @upstream https://www.jolyui.dev/docs/components/buttons/liquid-metal-button
+ * @deviations ["Inline styles retained for WebGL shader positioning."]
+ */
+"use client";
+
+import { LiquidMetalButton } from "@/components/ui/liquid-metal-button";
+
+export default function LiquidMetalButtonDefault() {
+  return (
+    <div className="flex items-center gap-6">
+      <LiquidMetalButton label="Get Started" />
+      <LiquidMetalButton viewMode="icon" />
+    </div>
+  );
+}
+```
+## Default
+
+**Slug:** `snail-timer`
+**Variant:** `default`
+**Upstream:** https://www.uicapsule.com
+**Description:** Animated snail countdown timer with start/pause controls, dust trail animation, and configurable duration.
+**Depends on:** snail-timer, button
+
+```tsx
+/**
+ * @slug snail-timer
+ * @variant default
+ * @upstream https://www.uicapsule.com
+ * @deviations ["Dust sprite self-hosted from /snail-dust.svg. Token classes on text."]
+ */
+"use client";
+
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { SnailTimer } from "@/components/ui/snail-timer";
+
+export default function SnailTimerDefault() {
+  const [started, setStarted] = useState(false);
+
+  return (
+    <div className="relative h-40 w-full overflow-hidden">
+      <div className="absolute inset-x-0 top-2 flex justify-center">
+        <Button
+          variant="outline"
+          size="sm"
+          onClick={() => setStarted((p) => !p)}
+        >
+          {started ? "Pause" : "Start Countdown"}
+        </Button>
+      </div>
+      <SnailTimer started={started} initialSeconds={15} />
+    </div>
+  );
+}
+```
+## Default
+
+**Slug:** `creatable-combobox`
+**Variant:** `default`
+**Upstream:** https://flowkit-ui.vzkiss.com/docs/components/creatable-combobox
+**Description:** Combobox with autocomplete filtering and dynamic item creation for picking or adding new fruit entries.
+**Depends on:** creatable-combobox, combobox
+
+```tsx
+/**
+ * @slug creatable-combobox
+ * @variant default
+ * @upstream https://flowkit-ui.vzkiss.com/docs/components/creatable-combobox
+ * @deviations ["Uses project Combobox primitives. Token classes throughout."]
+ */
+"use client";
+
+import { useState } from "react";
+import {
+  CreatableCombobox,
+  ComboboxItemCreatable,
+  type CreatableItem,
+  isCreatableItem,
+} from "@/components/ui/creatable-combobox";
+import {
+  ComboboxContent,
+  ComboboxInput,
+  ComboboxItem,
+  ComboboxList,
+} from "@/components/ui/combobox";
+
+type Fruit = { label: string; value: string };
+
+const INITIAL_FRUITS: Fruit[] = [
+  { label: "Apple", value: "apple" },
+  { label: "Banana", value: "banana" },
+  { label: "Cherry", value: "cherry" },
+  { label: "Grape", value: "grape" },
+  { label: "Orange", value: "orange" },
+];
+
+export default function CreatableComboboxDefault() {
+  const [fruits, setFruits] = useState<Fruit[]>(INITIAL_FRUITS);
+  const [selected, setSelected] = useState<Fruit | null>(null);
+
+  return (
+    <div className="flex w-full max-w-xs flex-col gap-2">
+      <label className="text-sm font-medium">Pick or create a fruit</label>
+      <CreatableCombobox
+        items={fruits}
+        value={selected}
+        onValueChange={(val) => setSelected(val as Fruit | null)}
+        onCreateValue={(value) => {
+          const newFruit = {
+            label: value,
+            value: value.toLowerCase().replace(/\s+/g, "-"),
+          };
+          setFruits((prev) => [...prev, newFruit]);
+          setSelected(newFruit);
+        }}
+      >
+        <ComboboxInput placeholder="Search fruits..." showClear />
+        <ComboboxContent>
+          <ComboboxList>
+            {(item: Fruit | CreatableItem) =>
+              isCreatableItem(item) ? (
+                <ComboboxItemCreatable key="__create__" value={item} />
+              ) : (
+                <ComboboxItem key={item.value} value={item}>
+                  {item.label}
+                </ComboboxItem>
+              )
+            }
+          </ComboboxList>
+        </ComboboxContent>
+      </CreatableCombobox>
+      {selected && (
+        <p className="text-xs text-muted-foreground">
+          Selected: {(selected as Fruit).label}
+        </p>
+      )}
+    </div>
+  );
+}
+```
