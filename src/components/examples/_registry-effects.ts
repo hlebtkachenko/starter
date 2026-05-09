@@ -1879,4 +1879,46 @@ export const items = defineItems([
     ],
     categories: ["data"],
   },
+  {
+    name: "data-table-filter-quick-filters",
+    type: "registry:example",
+    title: "Quick filters",
+    description:
+      "Saved filter presets bar above the chip filter. Save the current state under a name, click to re-apply, persist across reloads via localStorage.",
+    slug: "data-table-filter",
+    variant: "quick-filters",
+    isFlagged: false,
+    span: 3,
+    height: "tall",
+    upstreamUrl: "https://ui.bazza.dev/docs/data-table-filter",
+    registryDependencies: ["data-table-filter", "button", "input"],
+    files: [
+      {
+        path: "components/examples/data-table-filter-quick-filters.tsx",
+        type: "registry:example",
+      },
+    ],
+    categories: ["data"],
+  },
+  {
+    name: "data-table-filter-or-groups",
+    type: "registry:example",
+    title: "OR groups",
+    description:
+      "Multiple bazza filter rows joined with OR. Each row is AND internally; the table matches invoices that satisfy at least one row.",
+    slug: "data-table-filter",
+    variant: "or-groups",
+    isFlagged: false,
+    span: 3,
+    height: "tall",
+    upstreamUrl: "https://ui.bazza.dev/docs/data-table-filter",
+    registryDependencies: ["data-table-filter", "button"],
+    files: [
+      {
+        path: "components/examples/data-table-filter-or-groups.tsx",
+        type: "registry:example",
+      },
+    ],
+    categories: ["data"],
+  },
 ]);

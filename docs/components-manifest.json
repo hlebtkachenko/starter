@@ -5086,6 +5086,57 @@
   },
   {
     "categories": [
+      "data"
+    ],
+    "description": "Multiple bazza filter rows joined with OR. Each row is AND internally; the table matches invoices that satisfy at least one row.",
+    "files": [
+      {
+        "path": "components/examples/data-table-filter-or-groups.tsx",
+        "type": "registry:example"
+      }
+    ],
+    "height": "tall",
+    "isFlagged": false,
+    "name": "data-table-filter-or-groups",
+    "registryDependencies": [
+      "data-table-filter",
+      "button"
+    ],
+    "slug": "data-table-filter",
+    "span": 3,
+    "title": "OR groups",
+    "type": "registry:example",
+    "upstreamUrl": "https://ui.bazza.dev/docs/data-table-filter",
+    "variant": "or-groups"
+  },
+  {
+    "categories": [
+      "data"
+    ],
+    "description": "Saved filter presets bar above the chip filter. Save the current state under a name, click to re-apply, persist across reloads via localStorage.",
+    "files": [
+      {
+        "path": "components/examples/data-table-filter-quick-filters.tsx",
+        "type": "registry:example"
+      }
+    ],
+    "height": "tall",
+    "isFlagged": false,
+    "name": "data-table-filter-quick-filters",
+    "registryDependencies": [
+      "data-table-filter",
+      "button",
+      "input"
+    ],
+    "slug": "data-table-filter",
+    "span": 3,
+    "title": "Quick filters",
+    "type": "registry:example",
+    "upstreamUrl": "https://ui.bazza.dev/docs/data-table-filter",
+    "variant": "quick-filters"
+  },
+  {
+    "categories": [
       "display",
       "data"
     ],
