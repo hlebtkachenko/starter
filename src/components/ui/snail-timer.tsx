@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import "./snail-timer.css";
 
@@ -12,25 +12,28 @@ type Props = {
 export const SnailTimer = ({ initialSeconds = 45, onTimeout }: Props) => {
   const [seconds, setSeconds] = useState(initialSeconds);
   const [finished, setFinished] = useState(false);
+
+  const onTimeoutRef = useRef(onTimeout);
+  useEffect(() => {
+    onTimeoutRef.current = onTimeout;
+  }, [onTimeout]);
+
   useEffect(() => {
     if (finished) return;
-
     const interval = setInterval(() => {
-      setSeconds((prev) => {
-        if (prev <= 1) {
-          clearInterval(interval);
-          setFinished(true);
-          onTimeout?.();
-          return 0;
-        }
-        return prev - 1;
-      });
+      setSeconds((prev) => Math.max(prev - 1, 0));
     }, 1000);
-
     return () => clearInterval(interval);
-    // onTimeout identity is stable (example passes inline arrow closed over setState)
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [finished]);
+
+  useEffect(() => {
+    if (seconds !== 0 || finished) return;
+    const id = setTimeout(() => {
+      setFinished(true);
+      onTimeoutRef.current?.();
+    }, 0);
+    return () => clearTimeout(id);
+  }, [seconds, finished]);
 
   return (
     <div
