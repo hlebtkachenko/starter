@@ -5288,6 +5288,36 @@
   },
   {
     "categories": [
+      "data"
+    ],
+    "description": "Composite data-table with search, bazza chip filters, multi-sort popover, view options, CSV export, row selection, sticky bulk-action toolbar, column resize, and URL state via nuqs (q, p, sort, dir).",
+    "files": [
+      {
+        "path": "components/examples/data-table-tablecn-style.tsx",
+        "type": "registry:example"
+      }
+    ],
+    "height": "tall",
+    "isFlagged": false,
+    "name": "data-table-tablecn-style",
+    "registryDependencies": [
+      "data-table",
+      "data-table-filter",
+      "button",
+      "input",
+      "checkbox",
+      "table",
+      "badge"
+    ],
+    "slug": "data-table",
+    "span": 3,
+    "title": "Tablecn style",
+    "type": "registry:example",
+    "upstreamUrl": "https://github.com/sadmann7/tablecn",
+    "variant": "tablecn-style"
+  },
+  {
+    "categories": [
       "display",
       "data"
     ],
