@@ -22,7 +22,7 @@ import {
   useFloatingPanel,
 } from "@/components/ui/floating-panel";
 
-function PanelControls() {
+function PanelControls({ stage }: { stage: "default" | "minimized" | "maximized" }) {
   const api = useFloatingPanel();
 
   return (
@@ -31,7 +31,17 @@ function PanelControls() {
         size="icon-xs"
         variant="ghost"
         aria-label="Minimize"
-        onClick={() => api.minimize()}
+        onClick={() => {
+          // From maximized, restore default size before minimizing so
+          // minimized state shows compact panel, not full-screen header.
+          // Defer minimize so zag-js machine applies restore size first.
+          if (stage === "maximized") {
+            api.restore();
+            requestAnimationFrame(() => api.minimize());
+          } else {
+            api.minimize();
+          }
+        }}
         className="group-data-minimized/floating-panel:hidden"
       >
         <Minus className="size-3" />
@@ -67,16 +77,17 @@ export default function FloatingPanelDefault() {
   const [notes, setNotes] = useState(
     "Meeting notes from standup:\n- Deploy v2 by Friday\n- Review auth flow PR\n- Update onboarding docs",
   );
+  const [stage, setStage] = useState<"default" | "minimized" | "maximized">("default");
 
   return (
-    <FloatingPanel>
+    <FloatingPanel onStageChange={(d) => setStage(d.stage)}>
       <FloatingPanelTrigger asChild>
         <Button variant="outline">Open Notes</Button>
       </FloatingPanelTrigger>
       <FloatingPanelContent>
         <FloatingPanelHeader>
           <FloatingPanelTitle>Quick Notes</FloatingPanelTitle>
-          <PanelControls />
+          <PanelControls stage={stage} />
         </FloatingPanelHeader>
         <FloatingPanelBody>
           <textarea
