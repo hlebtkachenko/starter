@@ -1,27 +1,30 @@
 /**
  * @slug data-table
- * @variant tablecn-style
+ * @variant tablecn-filters
  * @upstream https://github.com/sadmann7/tablecn
- * @deviations ["Composite example wiring search + bazza chip filters + multi-sort popover + view-options + URL state via nuqs + column resize + row selection. Bulk actions surface through the project's ActionBar primitive instead of an inline sticky toolbar. Invoice dataset."]
+ * @deviations ["Tablecn-style popover filter chips (DataTableToolbar with column meta variants: text, multiSelect, select, dateRange, range) wired to local DataTable + DataTableMultiSort. Bulk actions delivered via the project's ActionBar primitive (not tablecn's inline toolbar). Invoice dataset shared with tablecn-style variant for direct visual comparison."]
  */
 "use client";
 
 import {
   type ColumnDef,
-  type ColumnSizingState,
+  type ColumnFiltersState,
   flexRender,
   getCoreRowModel,
+  getFacetedMinMaxValues,
+  getFacetedRowModel,
+  getFacetedUniqueValues,
   getFilteredRowModel,
   getPaginationRowModel,
   getSortedRowModel,
   type RowSelectionState,
   type SortingState,
-  type Updater,
-  type VisibilityState,
   useReactTable,
+  type VisibilityState,
 } from "@tanstack/react-table";
 import {
-  Calendar as CalendarIcon,
+  CalendarIcon,
+  CheckCircle2,
   CircleDollarSign,
   CopyIcon,
   Download,
@@ -31,8 +34,6 @@ import {
   TrashIcon,
   XIcon,
 } from "lucide-react";
-import { parseAsArrayOf, parseAsInteger, parseAsString, useQueryState } from "nuqs";
-import { NuqsAdapter } from "nuqs/adapters/next/app";
 import * as React from "react";
 
 import {
@@ -55,15 +56,10 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import {
-  DataTableFilter,
-  createColumnConfigHelper,
-  useDataTableFilters,
-} from "@/components/data-table-filter";
-import type { FiltersState } from "@/components/data-table-filter/core/types";
 import { DataTableColumnHeader } from "@/components/data-table/data-table-column-header";
 import { DataTableMultiSort } from "@/components/data-table/data-table-multi-sort";
 import { DataTablePagination } from "@/components/data-table/data-table-pagination";
+import { DataTableToolbar } from "@/components/data-table/data-table-toolbar";
 import { DataTableViewOptions } from "@/components/data-table/data-table-view-options";
 
 type InvoiceStatus = "draft" | "sent" | "paid" | "overdue" | "void";
@@ -171,99 +167,6 @@ const SEED: Invoice[] = [
   },
 ];
 
-const dtf = createColumnConfigHelper<Invoice>();
-const columnsConfig = [
-  dtf
-    .text()
-    .id("vendor")
-    .accessor((r) => r.vendor)
-    .displayName("Vendor")
-    .icon(FileText)
-    .build(),
-  dtf
-    .multiOption()
-    .id("status")
-    .accessor((r) => r.status)
-    .displayName("Status")
-    .icon(ListChecks)
-    .options([
-      { value: "draft", label: "Draft" },
-      { value: "sent", label: "Sent" },
-      { value: "paid", label: "Paid" },
-      { value: "overdue", label: "Overdue" },
-      { value: "void", label: "Void" },
-    ])
-    .build(),
-  dtf
-    .date()
-    .id("issuedOn")
-    .accessor((r) => r.issuedOn)
-    .displayName("Issued on")
-    .icon(CalendarIcon)
-    .build(),
-  dtf
-    .number()
-    .id("amount")
-    .accessor((r) => r.amount)
-    .displayName("Amount")
-    .icon(CircleDollarSign)
-    .build(),
-  dtf
-    .option()
-    .id("taxJurisdiction")
-    .accessor((r) => r.taxJurisdiction)
-    .displayName("Tax")
-    .icon(Globe)
-    .options([
-      { value: "CZ", label: "Czech Republic" },
-      { value: "SK", label: "Slovakia" },
-      { value: "DE", label: "Germany" },
-      { value: "AT", label: "Austria" },
-      { value: "PL", label: "Poland" },
-    ])
-    .build(),
-] as const;
-
-function applyChipFilters(rows: Invoice[], filters: FiltersState): Invoice[] {
-  if (filters.length === 0) return rows;
-  return rows.filter((row) =>
-    filters.every((f) => {
-      if (f.columnId === "vendor") {
-        const v = row.vendor.toLowerCase();
-        return (f.values as string[]).some((q) => v.includes(String(q).toLowerCase()));
-      }
-      if (f.columnId === "status") {
-        const vals = f.values as InvoiceStatus[];
-        const matches = row.status.some((s) => vals.includes(s));
-        return f.operator === "exclude" || f.operator === "exclude if any of" ? !matches : matches;
-      }
-      if (f.columnId === "taxJurisdiction") {
-        const vals = f.values as string[];
-        return f.operator === "is none of"
-          ? !vals.includes(row.taxJurisdiction)
-          : vals.includes(row.taxJurisdiction);
-      }
-      if (f.columnId === "issuedOn") {
-        const dates = (f.values as Array<Date | string>).map((d) => new Date(d));
-        if (f.operator === "is between" && dates.length === 2)
-          return row.issuedOn >= dates[0]! && row.issuedOn <= dates[1]!;
-        if (f.operator === "is on or after") return row.issuedOn >= dates[0]!;
-        if (f.operator === "is on or before") return row.issuedOn <= dates[0]!;
-        return true;
-      }
-      if (f.columnId === "amount") {
-        const vals = (f.values as number[]).map(Number);
-        if (f.operator === "is between" && vals.length === 2)
-          return row.amount >= vals[0]! && row.amount <= vals[1]!;
-        if (f.operator === "is greater than") return row.amount > vals[0]!;
-        if (f.operator === "is less than") return row.amount < vals[0]!;
-        return row.amount === vals[0];
-      }
-      return true;
-    }),
-  );
-}
-
 function exportCsv(rows: Invoice[]) {
   const header = ["Number", "Vendor", "Status", "Issued", "Amount", "Tax"];
   const lines = [header.join(",")].concat(
@@ -287,55 +190,13 @@ function exportCsv(rows: Invoice[]) {
   URL.revokeObjectURL(url);
 }
 
-export default function DataTableTablecnStyle() {
-  return (
-    <NuqsAdapter>
-      <DataTableTablecnStyleInner />
-    </NuqsAdapter>
-  );
-}
-
-function DataTableTablecnStyleInner() {
-  // URL state via nuqs
-  const [search, setSearch] = useQueryState("q", parseAsString.withDefault(""));
-  const [page, setPage] = useQueryState("p", parseAsInteger.withDefault(0));
-  const [sortIds, setSortIds] = useQueryState(
-    "sort",
-    parseAsArrayOf(parseAsString).withDefault([]),
-  );
-  const [sortDirs, setSortDirs] = useQueryState(
-    "dir",
-    parseAsArrayOf(parseAsString).withDefault([]),
-  );
-
+export default function DataTableTablecnFilters() {
   const [data, setData] = React.useState<Invoice[]>(SEED);
-  const [filters, setFilters] = React.useState<FiltersState>([]);
+  const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>([]);
+  const [sorting, setSorting] = React.useState<SortingState>([]);
   const [rowSelection, setRowSelection] = React.useState<RowSelectionState>({});
   const [columnVisibility, setColumnVisibility] = React.useState<VisibilityState>({});
-  const [columnSizing, setColumnSizing] = React.useState<ColumnSizingState>({});
-
-  const sorting: SortingState = React.useMemo(
-    () => sortIds.map((id, i) => ({ id, desc: sortDirs[i] === "desc" })),
-    [sortIds, sortDirs],
-  );
-
-  const handleSortingChange = React.useCallback(
-    (updater: Updater<SortingState>) => {
-      const next = typeof updater === "function" ? updater(sorting) : updater;
-      setSortIds(next.map((s) => s.id));
-      setSortDirs(next.map((s) => (s.desc ? "desc" : "asc")));
-    },
-    [sorting, setSortIds, setSortDirs],
-  );
-
-  const filteredData = React.useMemo(() => {
-    const chipFiltered = applyChipFilters(data, filters);
-    if (!search.trim()) return chipFiltered;
-    const q = search.toLowerCase();
-    return chipFiltered.filter(
-      (r) => r.vendor.toLowerCase().includes(q) || r.number.toLowerCase().includes(q),
-    );
-  }, [data, filters, search]);
+  const [globalFilter, setGlobalFilter] = React.useState("");
 
   const columns = React.useMemo<ColumnDef<Invoice>[]>(
     () => [
@@ -343,7 +204,10 @@ function DataTableTablecnStyleInner() {
         id: "select",
         header: ({ table }) => (
           <Checkbox
-            checked={table.getIsAllPageRowsSelected()}
+            checked={
+              table.getIsAllPageRowsSelected() ||
+              (table.getIsSomePageRowsSelected() && "indeterminate")
+            }
             onCheckedChange={(v) => table.toggleAllPageRowsSelected(!!v)}
             aria-label="Select all"
           />
@@ -358,7 +222,6 @@ function DataTableTablecnStyleInner() {
         size: 32,
         enableSorting: false,
         enableHiding: false,
-        enableResizing: false,
       },
       {
         accessorKey: "number",
@@ -369,15 +232,32 @@ function DataTableTablecnStyleInner() {
       },
       {
         accessorKey: "vendor",
-        meta: { label: "Vendor" },
+        meta: {
+          label: "Vendor",
+          variant: "text",
+          placeholder: "Search vendor...",
+          icon: FileText,
+        },
         header: ({ column }) => <DataTableColumnHeader column={column} label="Vendor" />,
         cell: ({ row }) => <span className="font-medium">{row.original.vendor}</span>,
         size: 240,
+        enableColumnFilter: true,
       },
       {
         id: "status",
-        accessorFn: (row) => row.status.join(","),
-        meta: { label: "Status" },
+        accessorKey: "status",
+        meta: {
+          label: "Status",
+          variant: "multiSelect",
+          icon: ListChecks,
+          options: [
+            { value: "draft", label: "Draft" },
+            { value: "sent", label: "Sent" },
+            { value: "paid", label: "Paid" },
+            { value: "overdue", label: "Overdue" },
+            { value: "void", label: "Void" },
+          ],
+        },
         header: ({ column }) => <DataTableColumnHeader column={column} label="Status" />,
         cell: ({ row }) => (
           <div className="flex flex-wrap gap-1">
@@ -388,11 +268,41 @@ function DataTableTablecnStyleInner() {
             ))}
           </div>
         ),
-        size: 160,
+        filterFn: (row, _id, value) => {
+          if (!Array.isArray(value) || value.length === 0) return true;
+          return row.original.status.some((s) => (value as string[]).includes(s));
+        },
+        size: 180,
+        enableColumnFilter: true,
+      },
+      {
+        accessorKey: "taxJurisdiction",
+        meta: {
+          label: "Tax",
+          variant: "select",
+          icon: Globe,
+          options: [
+            { value: "CZ", label: "Czech Republic" },
+            { value: "SK", label: "Slovakia" },
+            { value: "DE", label: "Germany" },
+            { value: "AT", label: "Austria" },
+            { value: "PL", label: "Poland" },
+          ],
+        },
+        header: ({ column }) => <DataTableColumnHeader column={column} label="Tax" />,
+        cell: ({ row }) => (
+          <span className="text-muted-foreground">{row.original.taxJurisdiction}</span>
+        ),
+        filterFn: (row, _id, value) => {
+          if (!Array.isArray(value) || value.length === 0) return true;
+          return (value as string[]).includes(row.original.taxJurisdiction);
+        },
+        size: 100,
+        enableColumnFilter: true,
       },
       {
         accessorKey: "issuedOn",
-        meta: { label: "Issued" },
+        meta: { label: "Issued", variant: "dateRange", icon: CalendarIcon },
         header: ({ column }) => <DataTableColumnHeader column={column} label="Issued" />,
         cell: ({ row }) => (
           <span className="text-muted-foreground">
@@ -404,110 +314,125 @@ function DataTableTablecnStyleInner() {
           </span>
         ),
         sortingFn: (a, b) => a.original.issuedOn.getTime() - b.original.issuedOn.getTime(),
-        size: 130,
+        filterFn: (row, _id, value) => {
+          if (!Array.isArray(value) || value.length === 0) return true;
+          const time = row.original.issuedOn.getTime();
+          const [start, end] = value as [number | undefined, number | undefined];
+          if (start && time < start) return false;
+          if (end && time > end) return false;
+          return true;
+        },
+        size: 140,
+        enableColumnFilter: true,
       },
       {
         accessorKey: "amount",
-        meta: { label: "Amount" },
+        meta: {
+          label: "Amount",
+          variant: "range",
+          icon: CircleDollarSign,
+          range: [0, 150_000] as [number, number],
+          unit: "Kč",
+        },
         header: ({ column }) => (
           <DataTableColumnHeader column={column} label="Amount" className="justify-end" />
         ),
         cell: ({ row }) => (
           <div className="text-right font-mono">{row.original.amount.toLocaleString("en-US")}</div>
         ),
-        size: 110,
-      },
-      {
-        accessorKey: "taxJurisdiction",
-        meta: { label: "Tax" },
-        header: ({ column }) => <DataTableColumnHeader column={column} label="Tax" />,
-        cell: ({ row }) => (
-          <span className="text-muted-foreground">{row.original.taxJurisdiction}</span>
-        ),
-        size: 80,
+        filterFn: (row, _id, value) => {
+          if (!Array.isArray(value) || value.length !== 2) return true;
+          const [min, max] = value as [number, number];
+          return row.original.amount >= min && row.original.amount <= max;
+        },
+        size: 120,
+        enableColumnFilter: true,
       },
     ],
     [],
   );
 
   const table = useReactTable({
-    data: filteredData,
+    data,
     columns,
     state: {
       sorting,
       rowSelection,
       columnVisibility,
-      columnSizing,
-      pagination: { pageIndex: page, pageSize: 5 },
+      columnFilters,
+      globalFilter,
     },
     enableRowSelection: true,
     enableMultiSort: true,
-    enableColumnResizing: true,
-    columnResizeMode: "onChange",
-    onSortingChange: handleSortingChange,
+    onSortingChange: setSorting,
     onRowSelectionChange: setRowSelection,
     onColumnVisibilityChange: setColumnVisibility,
-    onColumnSizingChange: setColumnSizing,
-    onPaginationChange: (updater) => {
-      const next =
-        typeof updater === "function" ? updater({ pageIndex: page, pageSize: 5 }) : updater;
-      setPage(next.pageIndex);
+    onColumnFiltersChange: setColumnFilters,
+    onGlobalFilterChange: setGlobalFilter,
+    globalFilterFn: (row, _id, value) => {
+      if (!value) return true;
+      const q = String(value).toLowerCase();
+      return (
+        row.original.vendor.toLowerCase().includes(q) ||
+        row.original.number.toLowerCase().includes(q)
+      );
     },
     getCoreRowModel: getCoreRowModel(),
     getSortedRowModel: getSortedRowModel(),
     getFilteredRowModel: getFilteredRowModel(),
     getPaginationRowModel: getPaginationRowModel(),
+    getFacetedRowModel: getFacetedRowModel(),
+    getFacetedUniqueValues: getFacetedUniqueValues(),
+    getFacetedMinMaxValues: getFacetedMinMaxValues(),
+    initialState: { pagination: { pageSize: 5 } },
   });
 
-  const {
-    columns: filterColumns,
-    actions,
-    strategy,
-  } = useDataTableFilters({
-    strategy: "client",
-    data,
-    columnsConfig,
-    filters,
-    onFiltersChange: setFilters,
-  });
-
-  const selectedCount = table.getFilteredSelectedRowModel().rows.length;
+  const selectedRows = table.getFilteredSelectedRowModel().rows;
+  const selectedCount = selectedRows.length;
 
   function bulkDelete() {
-    const selectedIds = new Set(table.getFilteredSelectedRowModel().rows.map((r) => r.original.id));
-    setData((prev) => prev.filter((row) => !selectedIds.has(row.id)));
+    const ids = new Set(selectedRows.map((r) => r.original.id));
+    setData((prev) => prev.filter((row) => !ids.has(row.id)));
     setRowSelection({});
   }
 
   function bulkExport() {
-    const rows = table.getFilteredSelectedRowModel().rows.map((r) => r.original);
-    exportCsv(rows);
+    exportCsv(selectedRows.map((r) => r.original));
+    setRowSelection({});
+  }
+
+  function bulkMarkPaid() {
+    const ids = new Set(selectedRows.map((r) => r.original.id));
+    setData((prev) =>
+      prev.map((row) => (ids.has(row.id) ? { ...row, status: ["paid"] as InvoiceStatus[] } : row)),
+    );
+    setRowSelection({});
   }
 
   return (
     <div className="flex w-full flex-col gap-3">
-      <div className="flex flex-wrap items-center gap-2">
+      <div className="flex items-center gap-2">
         <Input
-          value={search}
-          onChange={(e) => setSearch(e.target.value)}
+          value={globalFilter}
+          onChange={(e) => setGlobalFilter(e.target.value)}
           placeholder="Search vendors or numbers..."
           className="h-8 w-64"
-        />
-        <DataTableFilter
-          filters={filters}
-          columns={filterColumns}
-          actions={actions}
-          strategy={strategy}
         />
         <div className="ml-auto flex items-center gap-2">
           <DataTableMultiSort table={table} />
           <DataTableViewOptions table={table} />
-          <Button size="sm" variant="outline" onClick={() => exportCsv(filteredData)}>
+          <Button
+            size="sm"
+            variant="outline"
+            onClick={() => exportCsv(table.getFilteredRowModel().rows.map((r) => r.original))}
+          >
             <Download className="mr-1 size-3.5" />
             Export
           </Button>
         </div>
       </div>
+
+      <DataTableToolbar table={table} className="px-0" />
 
       <div className="overflow-hidden rounded-md border">
         <Table>
@@ -515,25 +440,10 @@ function DataTableTablecnStyleInner() {
             {table.getHeaderGroups().map((hg) => (
               <TableRow key={hg.id}>
                 {hg.headers.map((header) => (
-                  <TableHead
-                    key={header.id}
-                    style={{ width: header.getSize() }}
-                    className="relative"
-                  >
+                  <TableHead key={header.id} style={{ width: header.getSize() }}>
                     {header.isPlaceholder
                       ? null
                       : flexRender(header.column.columnDef.header, header.getContext())}
-                    {header.column.getCanResize() && (
-                      <button
-                        type="button"
-                        aria-label="Resize column"
-                        onMouseDown={header.getResizeHandler()}
-                        onTouchStart={header.getResizeHandler()}
-                        className={`absolute right-0 top-0 h-full w-1 cursor-col-resize select-none touch-none bg-border opacity-0 transition-opacity hover:opacity-100 ${
-                          header.column.getIsResizing() ? "bg-primary opacity-100" : ""
-                        }`}
-                      />
-                    )}
                   </TableHead>
                 ))}
               </TableRow>
@@ -553,7 +463,7 @@ function DataTableTablecnStyleInner() {
             ) : (
               <TableRow>
                 <TableCell colSpan={columns.length} className="h-24 text-center">
-                  No invoices.
+                  No invoices match the active filters.
                 </TableCell>
               </TableRow>
             )}
@@ -573,7 +483,11 @@ function DataTableTablecnStyleInner() {
             <Download />
             Export
           </ActionBarItem>
-          <ActionBarItem onSelect={() => setRowSelection({})}>
+          <ActionBarItem onSelect={bulkMarkPaid}>
+            <CheckCircle2 />
+            Mark paid
+          </ActionBarItem>
+          <ActionBarItem onSelect={bulkExport}>
             <CopyIcon />
             Copy
           </ActionBarItem>

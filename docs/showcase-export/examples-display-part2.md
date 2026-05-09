@@ -770,15 +770,15 @@ export default function TypographyMuted() {
 **Slug:** `data-table`
 **Variant:** `tablecn-style`
 **Upstream:** https://github.com/sadmann7/tablecn
-**Description:** Composite data-table with search, bazza chip filters, multi-sort popover, view options, CSV export, row selection, sticky bulk-action toolbar, column resize, and URL state via nuqs (q, p, sort, dir).
-**Depends on:** data-table, data-table-filter, button, input, checkbox, table, badge
+**Description:** Composite data-table with search, bazza chip filters, multi-sort popover, view options, CSV export, row selection, ActionBar bulk actions, column resize, and URL state via nuqs (q, p, sort, dir).
+**Depends on:** data-table, data-table-filter, action-bar, button, input, checkbox, table, badge
 
 ```tsx
 /**
  * @slug data-table
  * @variant tablecn-style
  * @upstream https://github.com/sadmann7/tablecn
- * @deviations ["Composite example wiring search + bazza chip filters + multi-sort popover + view-options + bulk-action toolbar + URL state via nuqs + column resize + row selection. Invoice dataset."]
+ * @deviations ["Composite example wiring search + bazza chip filters + multi-sort popover + view-options + URL state via nuqs + column resize + row selection. Bulk actions surface through the project's ActionBar primitive instead of an inline sticky toolbar. Invoice dataset."]
  */
 "use client";
 
@@ -799,17 +799,31 @@ import {
 import {
   Calendar as CalendarIcon,
   CircleDollarSign,
+  CopyIcon,
   Download,
   FileText,
   Globe,
   ListChecks,
-  Trash2,
-  X,
+  TrashIcon,
+  XIcon,
 } from "lucide-react";
-import { parseAsArrayOf, parseAsInteger, parseAsString, useQueryState } from "nuqs";
+import {
+  parseAsArrayOf,
+  parseAsInteger,
+  parseAsString,
+  useQueryState,
+} from "nuqs";
 import { NuqsAdapter } from "nuqs/adapters/next/app";
 import * as React from "react";
 
+import {
+  ActionBar,
+  ActionBarClose,
+  ActionBarGroup,
+  ActionBarItem,
+  ActionBarSelection,
+  ActionBarSeparator,
+} from "@/components/ui/action-bar";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
@@ -997,12 +1011,16 @@ function applyChipFilters(rows: Invoice[], filters: FiltersState): Invoice[] {
     filters.every((f) => {
       if (f.columnId === "vendor") {
         const v = row.vendor.toLowerCase();
-        return (f.values as string[]).some((q) => v.includes(String(q).toLowerCase()));
+        return (f.values as string[]).some((q) =>
+          v.includes(String(q).toLowerCase()),
+        );
       }
       if (f.columnId === "status") {
         const vals = f.values as InvoiceStatus[];
         const matches = row.status.some((s) => vals.includes(s));
-        return f.operator === "exclude" || f.operator === "exclude if any of" ? !matches : matches;
+        return f.operator === "exclude" || f.operator === "exclude if any of"
+          ? !matches
+          : matches;
       }
       if (f.columnId === "taxJurisdiction") {
         const vals = f.values as string[];
@@ -1011,7 +1029,9 @@ function applyChipFilters(rows: Invoice[], filters: FiltersState): Invoice[] {
           : vals.includes(row.taxJurisdiction);
       }
       if (f.columnId === "issuedOn") {
-        const dates = (f.values as Array<Date | string>).map((d) => new Date(d));
+        const dates = (f.values as Array<Date | string>).map(
+          (d) => new Date(d),
+        );
         if (f.operator === "is between" && dates.length === 2)
           return row.issuedOn >= dates[0]! && row.issuedOn <= dates[1]!;
         if (f.operator === "is on or after") return row.issuedOn >= dates[0]!;
@@ -1078,7 +1098,8 @@ function DataTableTablecnStyleInner() {
   const [data, setData] = React.useState<Invoice[]>(SEED);
   const [filters, setFilters] = React.useState<FiltersState>([]);
   const [rowSelection, setRowSelection] = React.useState<RowSelectionState>({});
-  const [columnVisibility, setColumnVisibility] = React.useState<VisibilityState>({});
+  const [columnVisibility, setColumnVisibility] =
+    React.useState<VisibilityState>({});
   const [columnSizing, setColumnSizing] = React.useState<ColumnSizingState>({});
 
   const sorting: SortingState = React.useMemo(
@@ -1100,7 +1121,9 @@ function DataTableTablecnStyleInner() {
     if (!search.trim()) return chipFiltered;
     const q = search.toLowerCase();
     return chipFiltered.filter(
-      (r) => r.vendor.toLowerCase().includes(q) || r.number.toLowerCase().includes(q),
+      (r) =>
+        r.vendor.toLowerCase().includes(q) ||
+        r.number.toLowerCase().includes(q),
     );
   }, [data, filters, search]);
 
@@ -1130,22 +1153,32 @@ function DataTableTablecnStyleInner() {
       {
         accessorKey: "number",
         meta: { label: "Number" },
-        header: ({ column }) => <DataTableColumnHeader column={column} label="Number" />,
-        cell: ({ row }) => <span className="font-mono text-xs">{row.original.number}</span>,
+        header: ({ column }) => (
+          <DataTableColumnHeader column={column} label="Number" />
+        ),
+        cell: ({ row }) => (
+          <span className="font-mono text-xs">{row.original.number}</span>
+        ),
         size: 130,
       },
       {
         accessorKey: "vendor",
         meta: { label: "Vendor" },
-        header: ({ column }) => <DataTableColumnHeader column={column} label="Vendor" />,
-        cell: ({ row }) => <span className="font-medium">{row.original.vendor}</span>,
+        header: ({ column }) => (
+          <DataTableColumnHeader column={column} label="Vendor" />
+        ),
+        cell: ({ row }) => (
+          <span className="font-medium">{row.original.vendor}</span>
+        ),
         size: 240,
       },
       {
         id: "status",
         accessorFn: (row) => row.status.join(","),
         meta: { label: "Status" },
-        header: ({ column }) => <DataTableColumnHeader column={column} label="Status" />,
+        header: ({ column }) => (
+          <DataTableColumnHeader column={column} label="Status" />
+        ),
         cell: ({ row }) => (
           <div className="flex flex-wrap gap-1">
             {row.original.status.map((s) => (
@@ -1160,7 +1193,9 @@ function DataTableTablecnStyleInner() {
       {
         accessorKey: "issuedOn",
         meta: { label: "Issued" },
-        header: ({ column }) => <DataTableColumnHeader column={column} label="Issued" />,
+        header: ({ column }) => (
+          <DataTableColumnHeader column={column} label="Issued" />
+        ),
         cell: ({ row }) => (
           <span className="text-muted-foreground">
             {row.original.issuedOn.toLocaleDateString("en-US", {
@@ -1170,26 +1205,37 @@ function DataTableTablecnStyleInner() {
             })}
           </span>
         ),
-        sortingFn: (a, b) => a.original.issuedOn.getTime() - b.original.issuedOn.getTime(),
+        sortingFn: (a, b) =>
+          a.original.issuedOn.getTime() - b.original.issuedOn.getTime(),
         size: 130,
       },
       {
         accessorKey: "amount",
         meta: { label: "Amount" },
         header: ({ column }) => (
-          <DataTableColumnHeader column={column} label="Amount" className="justify-end" />
+          <DataTableColumnHeader
+            column={column}
+            label="Amount"
+            className="justify-end"
+          />
         ),
         cell: ({ row }) => (
-          <div className="text-right font-mono">{row.original.amount.toLocaleString("en-US")}</div>
+          <div className="text-right font-mono">
+            {row.original.amount.toLocaleString("en-US")}
+          </div>
         ),
         size: 110,
       },
       {
         accessorKey: "taxJurisdiction",
         meta: { label: "Tax" },
-        header: ({ column }) => <DataTableColumnHeader column={column} label="Tax" />,
+        header: ({ column }) => (
+          <DataTableColumnHeader column={column} label="Tax" />
+        ),
         cell: ({ row }) => (
-          <span className="text-muted-foreground">{row.original.taxJurisdiction}</span>
+          <span className="text-muted-foreground">
+            {row.original.taxJurisdiction}
+          </span>
         ),
         size: 80,
       },
@@ -1217,7 +1263,9 @@ function DataTableTablecnStyleInner() {
     onColumnSizingChange: setColumnSizing,
     onPaginationChange: (updater) => {
       const next =
-        typeof updater === "function" ? updater({ pageIndex: page, pageSize: 5 }) : updater;
+        typeof updater === "function"
+          ? updater({ pageIndex: page, pageSize: 5 })
+          : updater;
       setPage(next.pageIndex);
     },
     getCoreRowModel: getCoreRowModel(),
@@ -1241,13 +1289,17 @@ function DataTableTablecnStyleInner() {
   const selectedCount = table.getFilteredSelectedRowModel().rows.length;
 
   function bulkDelete() {
-    const selectedIds = new Set(table.getFilteredSelectedRowModel().rows.map((r) => r.original.id));
+    const selectedIds = new Set(
+      table.getFilteredSelectedRowModel().rows.map((r) => r.original.id),
+    );
     setData((prev) => prev.filter((row) => !selectedIds.has(row.id)));
     setRowSelection({});
   }
 
   function bulkExport() {
-    const rows = table.getFilteredSelectedRowModel().rows.map((r) => r.original);
+    const rows = table
+      .getFilteredSelectedRowModel()
+      .rows.map((r) => r.original);
     exportCsv(rows);
   }
 
@@ -1269,7 +1321,11 @@ function DataTableTablecnStyleInner() {
         <div className="ml-auto flex items-center gap-2">
           <DataTableMultiSort table={table} />
           <DataTableViewOptions table={table} />
-          <Button size="sm" variant="outline" onClick={() => exportCsv(filteredData)}>
+          <Button
+            size="sm"
+            variant="outline"
+            onClick={() => exportCsv(filteredData)}
+          >
             <Download className="mr-1 size-3.5" />
             Export
           </Button>
@@ -1289,7 +1345,10 @@ function DataTableTablecnStyleInner() {
                   >
                     {header.isPlaceholder
                       ? null
-                      : flexRender(header.column.columnDef.header, header.getContext())}
+                      : flexRender(
+                          header.column.columnDef.header,
+                          header.getContext(),
+                        )}
                     {header.column.getCanResize() && (
                       <button
                         type="button"
@@ -1297,7 +1356,9 @@ function DataTableTablecnStyleInner() {
                         onMouseDown={header.getResizeHandler()}
                         onTouchStart={header.getResizeHandler()}
                         className={`absolute right-0 top-0 h-full w-1 cursor-col-resize select-none touch-none bg-border opacity-0 transition-opacity hover:opacity-100 ${
-                          header.column.getIsResizing() ? "bg-primary opacity-100" : ""
+                          header.column.getIsResizing()
+                            ? "bg-primary opacity-100"
+                            : ""
                         }`}
                       />
                     )}
@@ -1309,17 +1370,29 @@ function DataTableTablecnStyleInner() {
           <TableBody>
             {table.getRowModel().rows.length > 0 ? (
               table.getRowModel().rows.map((row) => (
-                <TableRow key={row.id} data-state={row.getIsSelected() ? "selected" : undefined}>
+                <TableRow
+                  key={row.id}
+                  data-state={row.getIsSelected() ? "selected" : undefined}
+                >
                   {row.getVisibleCells().map((cell) => (
-                    <TableCell key={cell.id} style={{ width: cell.column.getSize() }}>
-                      {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                    <TableCell
+                      key={cell.id}
+                      style={{ width: cell.column.getSize() }}
+                    >
+                      {flexRender(
+                        cell.column.columnDef.cell,
+                        cell.getContext(),
+                      )}
                     </TableCell>
                   ))}
                 </TableRow>
               ))
             ) : (
               <TableRow>
-                <TableCell colSpan={columns.length} className="h-24 text-center">
+                <TableCell
+                  colSpan={columns.length}
+                  className="h-24 text-center"
+                >
                   No invoices.
                 </TableCell>
               </TableRow>
@@ -1330,27 +1403,607 @@ function DataTableTablecnStyleInner() {
 
       <DataTablePagination table={table} />
 
-      {selectedCount > 0 && (
-        <div className="sticky bottom-4 mx-auto flex items-center gap-2 rounded-full border bg-background px-3 py-1.5 shadow-lg">
-          <span className="text-xs text-muted-foreground">{selectedCount} selected</span>
-          <Button size="xs" variant="outline" onClick={bulkExport}>
-            <Download className="mr-1 size-3" />
+      <ActionBar
+        open={selectedCount > 0}
+        onOpenChange={(open) => !open && setRowSelection({})}
+      >
+        <ActionBarGroup>
+          <ActionBarSelection>
+            {selectedCount} selected
+            <ActionBarSeparator />
+          </ActionBarSelection>
+          <ActionBarItem onSelect={bulkExport}>
+            <Download />
+            Export
+          </ActionBarItem>
+          <ActionBarItem onSelect={() => setRowSelection({})}>
+            <CopyIcon />
+            Copy
+          </ActionBarItem>
+          <ActionBarSeparator />
+          <ActionBarItem variant="destructive" onSelect={bulkDelete}>
+            <TrashIcon />
+            Delete
+          </ActionBarItem>
+          <ActionBarSeparator />
+          <ActionBarClose>
+            <XIcon />
+          </ActionBarClose>
+        </ActionBarGroup>
+      </ActionBar>
+    </div>
+  );
+}
+```
+## Tablecn filters
+
+**Slug:** `data-table`
+**Variant:** `tablecn-filters`
+**Upstream:** https://github.com/sadmann7/tablecn
+**Description:** Tablecn-native filter design: per-column popover chips ([icon] Title [Value badge]) for text, multiSelect, select, dateRange, and range columns. Includes Reset, multi-sort popover, view options, and ActionBar bulk actions.
+**Depends on:** data-table, action-bar, button, input, checkbox, table, badge, popover, command, calendar, slider
+
+```tsx
+/**
+ * @slug data-table
+ * @variant tablecn-filters
+ * @upstream https://github.com/sadmann7/tablecn
+ * @deviations ["Tablecn-style popover filter chips (DataTableToolbar with column meta variants: text, multiSelect, select, dateRange, range) wired to local DataTable + DataTableMultiSort. Bulk actions delivered via the project's ActionBar primitive (not tablecn's inline toolbar). Invoice dataset shared with tablecn-style variant for direct visual comparison."]
+ */
+"use client";
+
+import {
+  type ColumnDef,
+  type ColumnFiltersState,
+  flexRender,
+  getCoreRowModel,
+  getFacetedMinMaxValues,
+  getFacetedRowModel,
+  getFacetedUniqueValues,
+  getFilteredRowModel,
+  getPaginationRowModel,
+  getSortedRowModel,
+  type RowSelectionState,
+  type SortingState,
+  useReactTable,
+  type VisibilityState,
+} from "@tanstack/react-table";
+import {
+  CalendarIcon,
+  CheckCircle2,
+  CircleDollarSign,
+  CopyIcon,
+  Download,
+  FileText,
+  Globe,
+  ListChecks,
+  TrashIcon,
+  XIcon,
+} from "lucide-react";
+import * as React from "react";
+
+import {
+  ActionBar,
+  ActionBarClose,
+  ActionBarGroup,
+  ActionBarItem,
+  ActionBarSelection,
+  ActionBarSeparator,
+} from "@/components/ui/action-bar";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { Checkbox } from "@/components/ui/checkbox";
+import { Input } from "@/components/ui/input";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table";
+import { DataTableColumnHeader } from "@/components/data-table/data-table-column-header";
+import { DataTableMultiSort } from "@/components/data-table/data-table-multi-sort";
+import { DataTablePagination } from "@/components/data-table/data-table-pagination";
+import { DataTableToolbar } from "@/components/data-table/data-table-toolbar";
+import { DataTableViewOptions } from "@/components/data-table/data-table-view-options";
+
+type InvoiceStatus = "draft" | "sent" | "paid" | "overdue" | "void";
+
+type Invoice = {
+  id: string;
+  number: string;
+  vendor: string;
+  status: InvoiceStatus[];
+  issuedOn: Date;
+  amount: number;
+  taxJurisdiction: "CZ" | "SK" | "DE" | "AT" | "PL";
+};
+
+const SEED: Invoice[] = [
+  {
+    id: "1",
+    number: "INV-2026-0001",
+    vendor: "Acme Suppliers s.r.o.",
+    status: ["paid"],
+    issuedOn: new Date("2026-04-12"),
+    amount: 12_450,
+    taxJurisdiction: "CZ",
+  },
+  {
+    id: "2",
+    number: "INV-2026-0002",
+    vendor: "Globex GmbH",
+    status: ["sent", "overdue"],
+    issuedOn: new Date("2026-03-28"),
+    amount: 47_890,
+    taxJurisdiction: "DE",
+  },
+  {
+    id: "3",
+    number: "INV-2026-0003",
+    vendor: "Initech a.s.",
+    status: ["draft"],
+    issuedOn: new Date("2026-05-02"),
+    amount: 3_120,
+    taxJurisdiction: "CZ",
+  },
+  {
+    id: "4",
+    number: "INV-2026-0004",
+    vendor: "Soylent SK s.r.o.",
+    status: ["paid"],
+    issuedOn: new Date("2026-04-30"),
+    amount: 88_500,
+    taxJurisdiction: "SK",
+  },
+  {
+    id: "5",
+    number: "INV-2026-0005",
+    vendor: "Umbrella AG",
+    status: ["void"],
+    issuedOn: new Date("2026-02-14"),
+    amount: 0,
+    taxJurisdiction: "AT",
+  },
+  {
+    id: "6",
+    number: "INV-2026-0006",
+    vendor: "Wayne Polska sp. z o.o.",
+    status: ["sent"],
+    issuedOn: new Date("2026-05-08"),
+    amount: 21_000,
+    taxJurisdiction: "PL",
+  },
+  {
+    id: "7",
+    number: "INV-2026-0007",
+    vendor: "Tyrell s.r.o.",
+    status: ["overdue"],
+    issuedOn: new Date("2026-03-04"),
+    amount: 15_750,
+    taxJurisdiction: "CZ",
+  },
+  {
+    id: "8",
+    number: "INV-2026-0008",
+    vendor: "Wonka Industries",
+    status: ["paid"],
+    issuedOn: new Date("2026-04-19"),
+    amount: 9_800,
+    taxJurisdiction: "DE",
+  },
+  {
+    id: "9",
+    number: "INV-2026-0009",
+    vendor: "LexCorp s.r.o.",
+    status: ["sent"],
+    issuedOn: new Date("2026-05-01"),
+    amount: 33_400,
+    taxJurisdiction: "CZ",
+  },
+  {
+    id: "10",
+    number: "INV-2026-0010",
+    vendor: "Stark Industries",
+    status: ["draft"],
+    issuedOn: new Date("2026-05-09"),
+    amount: 120_000,
+    taxJurisdiction: "DE",
+  },
+];
+
+function exportCsv(rows: Invoice[]) {
+  const header = ["Number", "Vendor", "Status", "Issued", "Amount", "Tax"];
+  const lines = [header.join(",")].concat(
+    rows.map((r) =>
+      [
+        r.number,
+        `"${r.vendor.replace(/"/g, '""')}"`,
+        r.status.join("|"),
+        r.issuedOn.toISOString().slice(0, 10),
+        r.amount,
+        r.taxJurisdiction,
+      ].join(","),
+    ),
+  );
+  const blob = new Blob([lines.join("\n")], { type: "text/csv;charset=utf-8" });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = `invoices-${Date.now()}.csv`;
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
+export default function DataTableTablecnFilters() {
+  const [data, setData] = React.useState<Invoice[]>(SEED);
+  const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(
+    [],
+  );
+  const [sorting, setSorting] = React.useState<SortingState>([]);
+  const [rowSelection, setRowSelection] = React.useState<RowSelectionState>({});
+  const [columnVisibility, setColumnVisibility] =
+    React.useState<VisibilityState>({});
+  const [globalFilter, setGlobalFilter] = React.useState("");
+
+  const columns = React.useMemo<ColumnDef<Invoice>[]>(
+    () => [
+      {
+        id: "select",
+        header: ({ table }) => (
+          <Checkbox
+            checked={
+              table.getIsAllPageRowsSelected() ||
+              (table.getIsSomePageRowsSelected() && "indeterminate")
+            }
+            onCheckedChange={(v) => table.toggleAllPageRowsSelected(!!v)}
+            aria-label="Select all"
+          />
+        ),
+        cell: ({ row }) => (
+          <Checkbox
+            checked={row.getIsSelected()}
+            onCheckedChange={(v) => row.toggleSelected(!!v)}
+            aria-label="Select row"
+          />
+        ),
+        size: 32,
+        enableSorting: false,
+        enableHiding: false,
+      },
+      {
+        accessorKey: "number",
+        meta: { label: "Number" },
+        header: ({ column }) => (
+          <DataTableColumnHeader column={column} label="Number" />
+        ),
+        cell: ({ row }) => (
+          <span className="font-mono text-xs">{row.original.number}</span>
+        ),
+        size: 130,
+      },
+      {
+        accessorKey: "vendor",
+        meta: {
+          label: "Vendor",
+          variant: "text",
+          placeholder: "Search vendor...",
+          icon: FileText,
+        },
+        header: ({ column }) => (
+          <DataTableColumnHeader column={column} label="Vendor" />
+        ),
+        cell: ({ row }) => (
+          <span className="font-medium">{row.original.vendor}</span>
+        ),
+        size: 240,
+        enableColumnFilter: true,
+      },
+      {
+        id: "status",
+        accessorKey: "status",
+        meta: {
+          label: "Status",
+          variant: "multiSelect",
+          icon: ListChecks,
+          options: [
+            { value: "draft", label: "Draft" },
+            { value: "sent", label: "Sent" },
+            { value: "paid", label: "Paid" },
+            { value: "overdue", label: "Overdue" },
+            { value: "void", label: "Void" },
+          ],
+        },
+        header: ({ column }) => (
+          <DataTableColumnHeader column={column} label="Status" />
+        ),
+        cell: ({ row }) => (
+          <div className="flex flex-wrap gap-1">
+            {row.original.status.map((s) => (
+              <Badge key={s} variant="secondary" className="text-xs">
+                {s}
+              </Badge>
+            ))}
+          </div>
+        ),
+        filterFn: (row, _id, value) => {
+          if (!Array.isArray(value) || value.length === 0) return true;
+          return row.original.status.some((s) =>
+            (value as string[]).includes(s),
+          );
+        },
+        size: 180,
+        enableColumnFilter: true,
+      },
+      {
+        accessorKey: "taxJurisdiction",
+        meta: {
+          label: "Tax",
+          variant: "select",
+          icon: Globe,
+          options: [
+            { value: "CZ", label: "Czech Republic" },
+            { value: "SK", label: "Slovakia" },
+            { value: "DE", label: "Germany" },
+            { value: "AT", label: "Austria" },
+            { value: "PL", label: "Poland" },
+          ],
+        },
+        header: ({ column }) => (
+          <DataTableColumnHeader column={column} label="Tax" />
+        ),
+        cell: ({ row }) => (
+          <span className="text-muted-foreground">
+            {row.original.taxJurisdiction}
+          </span>
+        ),
+        filterFn: (row, _id, value) => {
+          if (!Array.isArray(value) || value.length === 0) return true;
+          return (value as string[]).includes(row.original.taxJurisdiction);
+        },
+        size: 100,
+        enableColumnFilter: true,
+      },
+      {
+        accessorKey: "issuedOn",
+        meta: { label: "Issued", variant: "dateRange", icon: CalendarIcon },
+        header: ({ column }) => (
+          <DataTableColumnHeader column={column} label="Issued" />
+        ),
+        cell: ({ row }) => (
+          <span className="text-muted-foreground">
+            {row.original.issuedOn.toLocaleDateString("en-US", {
+              year: "numeric",
+              month: "short",
+              day: "numeric",
+            })}
+          </span>
+        ),
+        sortingFn: (a, b) =>
+          a.original.issuedOn.getTime() - b.original.issuedOn.getTime(),
+        filterFn: (row, _id, value) => {
+          if (!Array.isArray(value) || value.length === 0) return true;
+          const time = row.original.issuedOn.getTime();
+          const [start, end] = value as [
+            number | undefined,
+            number | undefined,
+          ];
+          if (start && time < start) return false;
+          if (end && time > end) return false;
+          return true;
+        },
+        size: 140,
+        enableColumnFilter: true,
+      },
+      {
+        accessorKey: "amount",
+        meta: {
+          label: "Amount",
+          variant: "range",
+          icon: CircleDollarSign,
+          range: [0, 150_000] as [number, number],
+          unit: "Kč",
+        },
+        header: ({ column }) => (
+          <DataTableColumnHeader
+            column={column}
+            label="Amount"
+            className="justify-end"
+          />
+        ),
+        cell: ({ row }) => (
+          <div className="text-right font-mono">
+            {row.original.amount.toLocaleString("en-US")}
+          </div>
+        ),
+        filterFn: (row, _id, value) => {
+          if (!Array.isArray(value) || value.length !== 2) return true;
+          const [min, max] = value as [number, number];
+          return row.original.amount >= min && row.original.amount <= max;
+        },
+        size: 120,
+        enableColumnFilter: true,
+      },
+    ],
+    [],
+  );
+
+  const table = useReactTable({
+    data,
+    columns,
+    state: {
+      sorting,
+      rowSelection,
+      columnVisibility,
+      columnFilters,
+      globalFilter,
+    },
+    enableRowSelection: true,
+    enableMultiSort: true,
+    onSortingChange: setSorting,
+    onRowSelectionChange: setRowSelection,
+    onColumnVisibilityChange: setColumnVisibility,
+    onColumnFiltersChange: setColumnFilters,
+    onGlobalFilterChange: setGlobalFilter,
+    globalFilterFn: (row, _id, value) => {
+      if (!value) return true;
+      const q = String(value).toLowerCase();
+      return (
+        row.original.vendor.toLowerCase().includes(q) ||
+        row.original.number.toLowerCase().includes(q)
+      );
+    },
+    getCoreRowModel: getCoreRowModel(),
+    getSortedRowModel: getSortedRowModel(),
+    getFilteredRowModel: getFilteredRowModel(),
+    getPaginationRowModel: getPaginationRowModel(),
+    getFacetedRowModel: getFacetedRowModel(),
+    getFacetedUniqueValues: getFacetedUniqueValues(),
+    getFacetedMinMaxValues: getFacetedMinMaxValues(),
+    initialState: { pagination: { pageSize: 5 } },
+  });
+
+  const selectedRows = table.getFilteredSelectedRowModel().rows;
+  const selectedCount = selectedRows.length;
+
+  function bulkDelete() {
+    const ids = new Set(selectedRows.map((r) => r.original.id));
+    setData((prev) => prev.filter((row) => !ids.has(row.id)));
+    setRowSelection({});
+  }
+
+  function bulkExport() {
+    exportCsv(selectedRows.map((r) => r.original));
+    setRowSelection({});
+  }
+
+  function bulkMarkPaid() {
+    const ids = new Set(selectedRows.map((r) => r.original.id));
+    setData((prev) =>
+      prev.map((row) =>
+        ids.has(row.id) ? { ...row, status: ["paid"] as InvoiceStatus[] } : row,
+      ),
+    );
+    setRowSelection({});
+  }
+
+  return (
+    <div className="flex w-full flex-col gap-3">
+      <div className="flex items-center gap-2">
+        <Input
+          value={globalFilter}
+          onChange={(e) => setGlobalFilter(e.target.value)}
+          placeholder="Search vendors or numbers..."
+          className="h-8 w-64"
+        />
+        <div className="ml-auto flex items-center gap-2">
+          <DataTableMultiSort table={table} />
+          <DataTableViewOptions table={table} />
+          <Button
+            size="sm"
+            variant="outline"
+            onClick={() =>
+              exportCsv(table.getFilteredRowModel().rows.map((r) => r.original))
+            }
+          >
+            <Download className="mr-1 size-3.5" />
             Export
           </Button>
-          <Button size="xs" variant="destructive" onClick={bulkDelete}>
-            <Trash2 className="mr-1 size-3" />
-            Delete
-          </Button>
-          <Button
-            size="icon-xs"
-            variant="ghost"
-            aria-label="Clear selection"
-            onClick={() => setRowSelection({})}
-          >
-            <X className="size-3" />
-          </Button>
         </div>
-      )}
+      </div>
+
+      <DataTableToolbar table={table} className="px-0" />
+
+      <div className="overflow-hidden rounded-md border">
+        <Table>
+          <TableHeader>
+            {table.getHeaderGroups().map((hg) => (
+              <TableRow key={hg.id}>
+                {hg.headers.map((header) => (
+                  <TableHead
+                    key={header.id}
+                    style={{ width: header.getSize() }}
+                  >
+                    {header.isPlaceholder
+                      ? null
+                      : flexRender(
+                          header.column.columnDef.header,
+                          header.getContext(),
+                        )}
+                  </TableHead>
+                ))}
+              </TableRow>
+            ))}
+          </TableHeader>
+          <TableBody>
+            {table.getRowModel().rows.length > 0 ? (
+              table.getRowModel().rows.map((row) => (
+                <TableRow
+                  key={row.id}
+                  data-state={row.getIsSelected() ? "selected" : undefined}
+                >
+                  {row.getVisibleCells().map((cell) => (
+                    <TableCell
+                      key={cell.id}
+                      style={{ width: cell.column.getSize() }}
+                    >
+                      {flexRender(
+                        cell.column.columnDef.cell,
+                        cell.getContext(),
+                      )}
+                    </TableCell>
+                  ))}
+                </TableRow>
+              ))
+            ) : (
+              <TableRow>
+                <TableCell
+                  colSpan={columns.length}
+                  className="h-24 text-center"
+                >
+                  No invoices match the active filters.
+                </TableCell>
+              </TableRow>
+            )}
+          </TableBody>
+        </Table>
+      </div>
+
+      <DataTablePagination table={table} />
+
+      <ActionBar
+        open={selectedCount > 0}
+        onOpenChange={(open) => !open && setRowSelection({})}
+      >
+        <ActionBarGroup>
+          <ActionBarSelection>
+            {selectedCount} selected
+            <ActionBarSeparator />
+          </ActionBarSelection>
+          <ActionBarItem onSelect={bulkExport}>
+            <Download />
+            Export
+          </ActionBarItem>
+          <ActionBarItem onSelect={bulkMarkPaid}>
+            <CheckCircle2 />
+            Mark paid
+          </ActionBarItem>
+          <ActionBarItem onSelect={bulkExport}>
+            <CopyIcon />
+            Copy
+          </ActionBarItem>
+          <ActionBarSeparator />
+          <ActionBarItem variant="destructive" onSelect={bulkDelete}>
+            <TrashIcon />
+            Delete
+          </ActionBarItem>
+          <ActionBarSeparator />
+          <ActionBarClose>
+            <XIcon />
+          </ActionBarClose>
+        </ActionBarGroup>
+      </ActionBar>
     </div>
   );
 }
@@ -1479,2129 +2132,6 @@ export default function TypographyDemo() {
         The moral of the story is: never underestimate the power of a good laugh and always be
         careful of bad ideas.
       </p>
-    </div>
-  );
-}
-```
-## Draggable Columns
-
-**Slug:** `data-table`
-**Variant:** `draggable`
-**Upstream:** https://shadcnstudio.com/docs/components/data-table
-**Description:** Data table with drag-and-drop column reordering using DnD Kit, sorting toggles, and currency formatting.
-**Depends on:** table, button
-
-```tsx
-/**
- * @slug data-table
- * @variant draggable
- * @upstream https://shadcnstudio.com/docs/components/data-table
- * @deviations ["Uses @dnd-kit for drag-and-drop column reordering."]
- */
-"use client";
-
-import type { CSSProperties } from "react";
-import { useState, useId } from "react";
-
-import { ChevronDownIcon, ChevronUpIcon, GripVerticalIcon } from "lucide-react";
-
-import {
-  closestCenter,
-  DndContext,
-  KeyboardSensor,
-  MouseSensor,
-  TouchSensor,
-  useSensor,
-  useSensors,
-  type DragEndEvent,
-} from "@dnd-kit/core";
-import { restrictToHorizontalAxis } from "@dnd-kit/modifiers";
-import {
-  arrayMove,
-  horizontalListSortingStrategy,
-  SortableContext,
-  useSortable,
-} from "@dnd-kit/sortable";
-import { CSS } from "@dnd-kit/utilities";
-import type { Cell, ColumnDef, Header, SortingState } from "@tanstack/react-table";
-import {
-  flexRender,
-  getCoreRowModel,
-  getSortedRowModel,
-  useReactTable,
-} from "@tanstack/react-table";
-
-import { Button } from "@/components/ui/button";
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from "@/components/ui/table";
-
-type Employee = {
-  employeeId: number;
-  firstName: string;
-  lastName: string;
-  jobTitle: string;
-  department: string;
-  salary: number;
-};
-
-const data: Employee[] = [
-  {
-    employeeId: 1,
-    firstName: "John",
-    lastName: "Doe",
-    jobTitle: "Software Engineer",
-    department: "Engineering",
-    salary: 80000,
-  },
-  {
-    employeeId: 2,
-    firstName: "Jane",
-    lastName: "Smith",
-    jobTitle: "Product Manager",
-    department: "Product",
-    salary: 95000,
-  },
-  {
-    employeeId: 3,
-    firstName: "Alice",
-    lastName: "Johnson",
-    jobTitle: "UX Designer",
-    department: "Design",
-    salary: 70000,
-  },
-  {
-    employeeId: 4,
-    firstName: "Bob",
-    lastName: "Brown",
-    jobTitle: "Data Analyst",
-    department: "Analytics",
-    salary: 75000,
-  },
-];
-
-const columns: ColumnDef<Employee>[] = [
-  {
-    id: "firstName",
-    header: "First Name",
-    accessorKey: "firstName",
-    cell: ({ row }) => <div className="font-medium">{row.getValue("firstName")}</div>,
-    sortUndefined: "last",
-    sortDescFirst: false,
-  },
-  {
-    id: "lastName",
-    header: "Last Name",
-    accessorKey: "lastName",
-    cell: ({ row }) => <div>{row.getValue("lastName")}</div>,
-  },
-  {
-    id: "jobTitle",
-    header: "Job Title",
-    accessorKey: "jobTitle",
-    cell: ({ row }) => <div>{row.getValue("jobTitle")}</div>,
-  },
-  {
-    id: "department",
-    header: "Department",
-    accessorKey: "department",
-    cell: ({ row }) => <div>{row.getValue("department")}</div>,
-  },
-  {
-    id: "salary",
-    header: "Salary",
-    accessorKey: "salary",
-    cell: ({ row }) => {
-      const salary = parseFloat(row.getValue("salary"));
-      return (
-        <div>
-          {new Intl.NumberFormat("en-US", { style: "currency", currency: "USD" }).format(salary)}
-        </div>
-      );
-    },
-  },
-];
-
-function DraggableTableHeader({ header }: { header: Header<Employee, unknown> }) {
-  const { attributes, isDragging, listeners, setNodeRef, transform, transition } = useSortable({
-    id: header.column.id,
-  });
-
-  const style: CSSProperties = {
-    opacity: isDragging ? 0.8 : 1,
-    position: "relative",
-    transform: CSS.Translate.toString(transform),
-    transition,
-    whiteSpace: "nowrap",
-    width: header.column.getSize(),
-    zIndex: isDragging ? 1 : 0,
-  };
-
-  return (
-    <TableHead
-      ref={setNodeRef}
-      className="before:bg-border relative h-10 border-t before:absolute before:inset-y-0 before:left-0 before:w-px first:before:bg-transparent"
-      style={style}
-    >
-      <div className="flex items-center justify-start gap-0.5">
-        <Button
-          size="icon"
-          variant="ghost"
-          className="-ml-2 size-7"
-          {...attributes}
-          {...listeners}
-          aria-label="Drag to reorder"
-        >
-          <GripVerticalIcon className="opacity-60" aria-hidden="true" />
-        </Button>
-        <span className="grow truncate">
-          {header.isPlaceholder
-            ? null
-            : flexRender(header.column.columnDef.header, header.getContext())}
-        </span>
-        <Button
-          size="icon"
-          variant="ghost"
-          className="group -mr-1 size-7"
-          onClick={header.column.getToggleSortingHandler()}
-          onKeyDown={(e) => {
-            if (header.column.getCanSort() && (e.key === "Enter" || e.key === " ")) {
-              e.preventDefault();
-              header.column.getToggleSortingHandler()?.(e);
-            }
-          }}
-          aria-label="Toggle sorting"
-        >
-          {{
-            asc: <ChevronUpIcon className="shrink-0 opacity-60" size={16} aria-hidden="true" />,
-            desc: <ChevronDownIcon className="shrink-0 opacity-60" size={16} aria-hidden="true" />,
-          }[header.column.getIsSorted() as string] ?? (
-            <ChevronUpIcon
-              className="shrink-0 opacity-0 group-hover:opacity-60"
-              size={16}
-              aria-hidden="true"
-            />
-          )}
-        </Button>
-      </div>
-    </TableHead>
-  );
-}
-
-function DragAlongCell({ cell }: { cell: Cell<Employee, unknown> }) {
-  const { isDragging, setNodeRef, transform, transition } = useSortable({ id: cell.column.id });
-
-  const style: CSSProperties = {
-    opacity: isDragging ? 0.8 : 1,
-    position: "relative",
-    transform: CSS.Translate.toString(transform),
-    transition,
-    width: cell.column.getSize(),
-    zIndex: isDragging ? 1 : 0,
-  };
-
-  return (
-    <TableCell ref={setNodeRef} className="truncate" style={style}>
-      {flexRender(cell.column.columnDef.cell, cell.getContext())}
-    </TableCell>
-  );
-}
-
-export default function DataTableDraggable() {
-  const [sorting, setSorting] = useState<SortingState>([]);
-  const [columnOrder, setColumnOrder] = useState<string[]>(
-    columns.map((column) => column.id as string),
-  );
-
-  const table = useReactTable({
-    data,
-    columns,
-    columnResizeMode: "onChange",
-    getCoreRowModel: getCoreRowModel(),
-    getSortedRowModel: getSortedRowModel(),
-    onSortingChange: setSorting,
-    state: { sorting, columnOrder },
-    onColumnOrderChange: setColumnOrder,
-    enableSortingRemoval: false,
-  });
-
-  function handleDragEnd(event: DragEndEvent) {
-    const { active, over } = event;
-    if (active && over && active.id !== over.id) {
-      setColumnOrder((columnOrder) => {
-        const oldIndex = columnOrder.indexOf(active.id as string);
-        const newIndex = columnOrder.indexOf(over.id as string);
-        return arrayMove(columnOrder, oldIndex, newIndex);
-      });
-    }
-  }
-
-  const sensors = useSensors(
-    useSensor(MouseSensor, {}),
-    useSensor(TouchSensor, {}),
-    useSensor(KeyboardSensor, {}),
-  );
-
-  return (
-    <div className="w-full">
-      <div className="rounded-md border">
-        <DndContext
-          id={useId()}
-          collisionDetection={closestCenter}
-          modifiers={[restrictToHorizontalAxis]}
-          onDragEnd={handleDragEnd}
-          sensors={sensors}
-        >
-          <Table>
-            <TableHeader>
-              {table.getHeaderGroups().map((headerGroup) => (
-                <TableRow key={headerGroup.id} className="bg-muted/50 [&>th]:border-t-0">
-                  <SortableContext items={columnOrder} strategy={horizontalListSortingStrategy}>
-                    {headerGroup.headers.map((header) => (
-                      <DraggableTableHeader key={header.id} header={header} />
-                    ))}
-                  </SortableContext>
-                </TableRow>
-              ))}
-            </TableHeader>
-            <TableBody>
-              {table.getRowModel().rows?.length ? (
-                table.getRowModel().rows.map((row) => (
-                  <TableRow key={row.id} data-state={row.getIsSelected() && "selected"}>
-                    {row.getVisibleCells().map((cell) => (
-                      <SortableContext
-                        key={cell.id}
-                        items={columnOrder}
-                        strategy={horizontalListSortingStrategy}
-                      >
-                        <DragAlongCell key={cell.id} cell={cell} />
-                      </SortableContext>
-                    ))}
-                  </TableRow>
-                ))
-              ) : (
-                <TableRow>
-                  <TableCell colSpan={columns.length} className="h-24 text-center">
-                    No results.
-                  </TableCell>
-                </TableRow>
-              )}
-            </TableBody>
-          </Table>
-        </DndContext>
-      </div>
-    </div>
-  );
-}
-```
-## Expandable Rows
-
-**Slug:** `data-table`
-**Variant:** `expandable`
-**Upstream:** https://shadcnstudio.com/docs/components/data-table
-**Description:** Data table with expandable sub-rows showing nested team member details, row selection, and budget formatting.
-**Depends on:** table, button, checkbox
-
-```tsx
-/**
- * @slug data-table
- * @variant expandable
- * @upstream https://shadcnstudio.com/docs/components/data-table
- * @deviations ["Sub-rows rendered as nested table."]
- */
-"use client";
-
-import { Fragment } from "react";
-
-import { ChevronDownIcon, ChevronUpIcon } from "lucide-react";
-
-import type { ColumnDef } from "@tanstack/react-table";
-import {
-  flexRender,
-  getCoreRowModel,
-  getExpandedRowModel,
-  useReactTable,
-} from "@tanstack/react-table";
-
-import { Button } from "@/components/ui/button";
-import { Checkbox } from "@/components/ui/checkbox";
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from "@/components/ui/table";
-
-type Member = { name: string; role: string; email: string; hireDate: string };
-
-type Team = {
-  teamName: string;
-  department: string;
-  location: string;
-  nextMilestone: string;
-  budget: number;
-  members: Member[];
-};
-
-const data: Team[] = [
-  {
-    teamName: "Digital Marketing",
-    department: "Marketing",
-    location: "London",
-    nextMilestone: "Launch New Campaign",
-    budget: 30000,
-    members: [
-      {
-        name: "Alice Johnson",
-        role: "Lead Strategist",
-        email: "alice.johnson@example.com",
-        hireDate: "2020-01-15",
-      },
-      {
-        name: "Bob Smith",
-        role: "Content Creator",
-        email: "bob.smith@example.com",
-        hireDate: "2021-03-22",
-      },
-    ],
-  },
-  {
-    teamName: "Product Development",
-    department: "Engineering",
-    location: "San Francisco",
-    nextMilestone: "Release Version 2.0",
-    budget: 50000,
-    members: [
-      {
-        name: "David Wilson",
-        role: "Product Manager",
-        email: "david.wilson@example.com",
-        hireDate: "2019-05-10",
-      },
-      {
-        name: "Emma Johnson",
-        role: "UX Designer",
-        email: "emma.johnson@example.com",
-        hireDate: "2020-08-15",
-      },
-    ],
-  },
-  {
-    teamName: "Sales Team",
-    department: "Sales",
-    location: "New York",
-    nextMilestone: "Close Q3 Deals",
-    budget: 40000,
-    members: [
-      {
-        name: "Grace Lee",
-        role: "Sales Executive",
-        email: "grace.lee@example.com",
-        hireDate: "2021-05-12",
-      },
-      {
-        name: "Henry Davis",
-        role: "Account Manager",
-        email: "henry.davis@example.com",
-        hireDate: "2020-11-01",
-      },
-    ],
-  },
-];
-
-const columns: ColumnDef<Team>[] = [
-  {
-    id: "expander",
-    header: () => null,
-    cell: ({ row }) =>
-      row.getCanExpand() ? (
-        <Button
-          className="size-7 text-muted-foreground"
-          onClick={row.getToggleExpandedHandler()}
-          aria-expanded={row.getIsExpanded()}
-          aria-label={
-            row.getIsExpanded()
-              ? `Collapse ${row.original.teamName}`
-              : `Expand ${row.original.teamName}`
-          }
-          size="icon"
-          variant="ghost"
-        >
-          {row.getIsExpanded() ? (
-            <ChevronUpIcon className="opacity-60" aria-hidden="true" />
-          ) : (
-            <ChevronDownIcon className="opacity-60" aria-hidden="true" />
-          )}
-        </Button>
-      ) : undefined,
-  },
-  {
-    id: "select",
-    header: ({ table }) => (
-      <Checkbox
-        checked={
-          table.getIsAllPageRowsSelected() || (table.getIsSomePageRowsSelected() && "indeterminate")
-        }
-        onCheckedChange={(value) => table.toggleAllPageRowsSelected(!!value)}
-        aria-label="Select all"
-      />
-    ),
-    cell: ({ row }) => (
-      <Checkbox
-        checked={row.getIsSelected()}
-        onCheckedChange={(value) => row.toggleSelected(!!value)}
-        aria-label="Select row"
-      />
-    ),
-  },
-  {
-    header: "Team Name",
-    accessorKey: "teamName",
-    cell: ({ row }) => <div className="font-medium">{row.getValue("teamName")}</div>,
-  },
-  {
-    header: "Department",
-    accessorKey: "department",
-    cell: ({ row }) => row.getValue("department"),
-  },
-  { header: "Location", accessorKey: "location", cell: ({ row }) => row.getValue("location") },
-  {
-    header: "Next Milestone",
-    accessorKey: "nextMilestone",
-    cell: ({ row }) => row.getValue("nextMilestone"),
-  },
-  {
-    header: () => <div>Budget</div>,
-    accessorKey: "budget",
-    cell: ({ row }) => (
-      <div>
-        {new Intl.NumberFormat("en-US", { style: "currency", currency: "USD" }).format(
-          parseFloat(row.getValue("budget")),
-        )}
-      </div>
-    ),
-  },
-];
-
-export default function DataTableExpandable() {
-  const table = useReactTable({
-    data,
-    columns,
-    getRowCanExpand: (row) => Boolean(row.original.members),
-    getCoreRowModel: getCoreRowModel(),
-    getExpandedRowModel: getExpandedRowModel(),
-  });
-
-  return (
-    <div className="w-full">
-      <div className="rounded-md border">
-        <Table>
-          <TableHeader>
-            {table.getHeaderGroups().map((headerGroup) => (
-              <TableRow key={headerGroup.id} className="hover:bg-transparent">
-                {headerGroup.headers.map((header) => (
-                  <TableHead key={header.id}>
-                    {header.isPlaceholder
-                      ? null
-                      : flexRender(header.column.columnDef.header, header.getContext())}
-                  </TableHead>
-                ))}
-              </TableRow>
-            ))}
-          </TableHeader>
-          <TableBody>
-            {table.getRowModel().rows?.length ? (
-              table.getRowModel().rows.map((row) => (
-                <Fragment key={row.id}>
-                  <TableRow data-state={row.getIsSelected() && "selected"}>
-                    {row.getVisibleCells().map((cell) => (
-                      <TableCell
-                        key={cell.id}
-                        className="[&:has([aria-expanded])]:w-px [&:has([aria-expanded])]:py-0"
-                      >
-                        {flexRender(cell.column.columnDef.cell, cell.getContext())}
-                      </TableCell>
-                    ))}
-                  </TableRow>
-                  {row.getIsExpanded() && (
-                    <TableRow className="hover:bg-transparent">
-                      <TableCell colSpan={row.getVisibleCells().length} className="p-0">
-                        <Table>
-                          <TableHeader className="border-b">
-                            <TableRow className="hover:bg-muted/30!">
-                              <TableHead className="w-23.5" />
-                              <TableHead>Member Name</TableHead>
-                              <TableHead>Role</TableHead>
-                              <TableHead>Email</TableHead>
-                              <TableHead>Hire Date</TableHead>
-                            </TableRow>
-                          </TableHeader>
-                          <TableBody>
-                            {row.original.members.map((member) => (
-                              <TableRow key={member.email}>
-                                <TableCell />
-                                <TableCell>{member.name}</TableCell>
-                                <TableCell>{member.role}</TableCell>
-                                <TableCell>{member.email}</TableCell>
-                                <TableCell>{member.hireDate}</TableCell>
-                              </TableRow>
-                            ))}
-                          </TableBody>
-                        </Table>
-                      </TableCell>
-                    </TableRow>
-                  )}
-                </Fragment>
-              ))
-            ) : (
-              <TableRow>
-                <TableCell colSpan={columns.length} className="h-24 text-center">
-                  No results.
-                </TableCell>
-              </TableRow>
-            )}
-          </TableBody>
-        </Table>
-      </div>
-    </div>
-  );
-}
-```
-## Multiple day selection
-
-**Slug:** `calendar`
-**Variant:** `reui-multiple`
-**Upstream:** https://reui.io/components
-**Description:** Calendar demonstrating multi-day selection mode with pre-selected dates, from ReUI registry.
-**Depends on:** calendar, card
-
-```tsx
-"use client";
-
-import { useState } from "react";
-import { addDays, subDays } from "date-fns";
-
-import { Calendar } from "@/components/ui/calendar";
-import { Card, CardContent } from "@/components/ui/card";
-
-export default function CalendarMultipleDaySelection() {
-  const today = new Date();
-  const [date, setDate] = useState<Date[] | undefined>([
-    subDays(today, 17),
-    addDays(today, 2),
-    addDays(today, 6),
-    addDays(today, 8),
-  ]);
-
-  return (
-    <Card className="p-0">
-      <CardContent className="p-0">
-        <Calendar mode="multiple" onSelect={setDate} selected={date} />
-      </CardContent>
-    </Card>
-  );
-}
-```
-## Calendar with week numbers
-
-**Slug:** `calendar`
-**Variant:** `reui-week-numbers`
-**Upstream:** https://reui.io/components
-**Description:** Calendar displaying ISO week numbers alongside each row using custom WeekNumber component.
-**Depends on:** calendar, card
-
-```tsx
-"use client";
-
-import { useState } from "react";
-import type { WeekNumberProps } from "react-day-picker";
-
-import { Calendar } from "@/components/ui/calendar";
-import { Card, CardContent } from "@/components/ui/card";
-
-export default function CalendarWeekNumbers() {
-  const [date, setDate] = useState<Date | undefined>(new Date());
-
-  return (
-    <Card className="p-0">
-      <CardContent className="p-0">
-        <Calendar
-          components={{
-            WeekNumber: ({ week, ...props }: WeekNumberProps) => {
-              return (
-                <th {...props}>
-                  <span className="text-muted-foreground inline-flex size-8 items-center justify-center text-sm font-normal">
-                    {week.weekNumber}
-                  </span>
-                </th>
-              );
-            },
-          }}
-          fixedWeeks
-          mode="single"
-          onSelect={setDate}
-          selected={date}
-          showWeekNumber
-        />
-      </CardContent>
-    </Card>
-  );
-}
-```
-## Calendar with pricing
-
-**Slug:** `calendar`
-**Variant:** `reui-pricing`
-**Upstream:** https://reui.io/components
-**Description:** Calendar with per-day dynamic pricing using custom DayButton, prices under $100 highlighted green.
-**Depends on:** calendar
-
-```tsx
-"use client";
-
-import { useState } from "react";
-
-import { Calendar, CalendarDayButton } from "@/components/ui/calendar";
-
-function getPriceForDate(date: Date) {
-  const seed = date.getFullYear() * 10000 + (date.getMonth() + 1) * 100 + date.getDate();
-
-  const val = (seed * 9301 + 49297) % 233280;
-
-  return Math.floor(50 + (val / 233280) * 200);
-}
-
-export default function CalendarWithPricing() {
-  const [date, setDate] = useState<Date | undefined>(new Date());
-
-  return (
-    <Calendar
-      mode="single"
-      selected={date}
-      onSelect={setDate}
-      showOutsideDays={false}
-      className="rounded-lg border [--cell-size:--spacing(12)]"
-      components={{
-        DayButton: ({ children, modifiers, day, ...props }) => {
-          const price = getPriceForDate(day.date);
-          const isGreen = price < 100;
-
-          return (
-            <CalendarDayButton day={day} modifiers={modifiers} {...props}>
-              {children}
-              {!modifiers.outside && (
-                <span className={isGreen ? "text-green-600 dark:text-green-400" : ""}>
-                  ${price}
-                </span>
-              )}
-            </CalendarDayButton>
-          );
-        },
-      }}
-    />
-  );
-}
-```
-## Date picker with presets
-
-**Slug:** `calendar`
-**Variant:** `reui-date-picker-presets`
-**Upstream:** https://reui.io/components
-**Description:** Popover date picker with sidebar preset buttons (Today, Yesterday, Last week, etc.) and calendar.
-**Depends on:** button, calendar, card, popover
-
-```tsx
-"use client";
-
-import { useId, useState } from "react";
-import { format, subDays, subMonths, subYears } from "date-fns";
-import { CalendarIcon } from "lucide-react";
-
-import { cn } from "@/lib/utils";
-import { Button } from "@/components/ui/button";
-import { Calendar } from "@/components/ui/calendar";
-import { Card, CardContent } from "@/components/ui/card";
-import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
-
-export default function CalendarDatePickerPresets() {
-  const id = useId();
-  const today = new Date();
-  const yesterday = subDays(today, 1);
-  const lastWeek = subDays(today, 7);
-  const lastMonth = subMonths(today, 1);
-  const lastYear = subYears(today, 1);
-  const [month, setMonth] = useState(today);
-  const [date, setDate] = useState<Date>(today);
-
-  return (
-    <Popover>
-      <PopoverTrigger asChild>
-        <Button className="group/pick-date w-60 justify-between" id={id} variant={"outline"}>
-          <span className={cn("truncate", date && "text-muted-foreground")}>
-            {date ? format(date, "LLL dd, y") : "Pick a date"}
-          </span>
-          <CalendarIcon
-            aria-hidden="true"
-            className="text-muted-foreground/80 group-hover:text-foreground shrink-0 transition-colors size-4"
-          />
-        </Button>
-      </PopoverTrigger>
-      <PopoverContent align="start" className="w-auto p-0">
-        <Card className="p-0">
-          <CardContent className="p-0">
-            <div className="flex max-sm:flex-col">
-              <div className="relative py-4 max-sm:order-1 max-sm:border-t sm:w-32">
-                <div className="h-full sm:border-e">
-                  <div className="flex flex-col px-2">
-                    <Button
-                      className="w-full justify-start"
-                      onClick={() => {
-                        setDate(today);
-                        setMonth(today);
-                      }}
-                      size="sm"
-                      variant="ghost"
-                    >
-                      Today
-                    </Button>
-                    <Button
-                      className="w-full justify-start"
-                      onClick={() => {
-                        setDate(yesterday);
-                        setMonth(yesterday);
-                      }}
-                      size="sm"
-                      variant="ghost"
-                    >
-                      Yesterday
-                    </Button>
-                    <Button
-                      className="w-full justify-start"
-                      onClick={() => {
-                        setDate(lastWeek);
-                        setMonth(lastWeek);
-                      }}
-                      size="sm"
-                      variant="ghost"
-                    >
-                      Last week
-                    </Button>
-                    <Button
-                      className="w-full justify-start"
-                      onClick={() => {
-                        setDate(lastMonth);
-                        setMonth(lastMonth);
-                      }}
-                      size="sm"
-                      variant="ghost"
-                    >
-                      Last month
-                    </Button>
-                    <Button
-                      className="w-full justify-start"
-                      onClick={() => {
-                        setDate(lastYear);
-                        setMonth(lastYear);
-                      }}
-                      size="sm"
-                      variant="ghost"
-                    >
-                      Last year
-                    </Button>
-                  </div>
-                </div>
-              </div>
-              <Calendar
-                disabled={[{ after: today }]}
-                mode="single"
-                month={month}
-                onMonthChange={setMonth}
-                onSelect={(newDate) => {
-                  if (newDate) {
-                    setDate(newDate);
-                  }
-                }}
-                selected={date}
-              />
-            </div>
-          </CardContent>
-        </Card>
-      </PopoverContent>
-    </Popover>
-  );
-}
-```
-## Range date picker with presets
-
-**Slug:** `calendar`
-**Variant:** `reui-range-presets`
-**Upstream:** https://reui.io/components
-**Description:** Popover date range picker with 8 preset ranges and dual-mode calendar selection.
-**Depends on:** button, calendar, card, popover
-
-```tsx
-"use client";
-
-import { useId, useState } from "react";
-import {
-  endOfMonth,
-  endOfYear,
-  format,
-  startOfMonth,
-  startOfYear,
-  subDays,
-  subMonths,
-  subYears,
-} from "date-fns";
-import type { DateRange } from "react-day-picker";
-import { CalendarIcon } from "lucide-react";
-
-import { cn } from "@/lib/utils";
-import { Button } from "@/components/ui/button";
-import { Calendar } from "@/components/ui/calendar";
-import { Card, CardContent } from "@/components/ui/card";
-import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
-
-export default function CalendarRangePresets() {
-  const id = useId();
-  const today = new Date();
-  const yesterday = {
-    from: subDays(today, 1),
-    to: subDays(today, 1),
-  };
-  const last7Days = {
-    from: subDays(today, 6),
-    to: today,
-  };
-  const last30Days = {
-    from: subDays(today, 29),
-    to: today,
-  };
-  const monthToDate = {
-    from: startOfMonth(today),
-    to: today,
-  };
-  const lastMonth = {
-    from: startOfMonth(subMonths(today, 1)),
-    to: endOfMonth(subMonths(today, 1)),
-  };
-  const yearToDate = {
-    from: startOfYear(today),
-    to: today,
-  };
-  const lastYear = {
-    from: startOfYear(subYears(today, 1)),
-    to: endOfYear(subYears(today, 1)),
-  };
-  const [month, setMonth] = useState(today);
-  const [date, setDate] = useState<DateRange | undefined>(last7Days);
-
-  return (
-    <Popover>
-      <PopoverTrigger asChild>
-        <Button className="group/pick-date w-60 justify-between" id={id} variant={"outline"}>
-          <span className={cn("truncate", date && "text-muted-foreground")}>
-            {date?.from
-              ? date.to
-                ? `${format(date.from, "LLL dd, y")} - ${format(date.to, "LLL dd, y")}`
-                : format(date.from, "LLL dd, y")
-              : "Pick a date range"}
-          </span>
-          <CalendarIcon
-            aria-hidden="true"
-            className="text-muted-foreground/80 group-hover:text-foreground shrink-0 transition-colors size-4"
-          />
-        </Button>
-      </PopoverTrigger>
-      <PopoverContent align="start" className="w-auto p-0">
-        <Card className="p-0">
-          <CardContent className="p-0">
-            <div className="flex max-sm:flex-col">
-              <div className="relative py-4 max-sm:order-1 max-sm:border-t sm:w-32">
-                <div className="h-full sm:border-e">
-                  <div className="flex flex-col px-2">
-                    <Button
-                      className="w-full justify-start"
-                      onClick={() => {
-                        setDate({
-                          from: today,
-                          to: today,
-                        });
-                        setMonth(today);
-                      }}
-                      size="sm"
-                      variant="ghost"
-                    >
-                      Today
-                    </Button>
-                    <Button
-                      className="w-full justify-start"
-                      onClick={() => {
-                        setDate(yesterday);
-                        setMonth(yesterday.to);
-                      }}
-                      size="sm"
-                      variant="ghost"
-                    >
-                      Yesterday
-                    </Button>
-                    <Button
-                      className="w-full justify-start"
-                      onClick={() => {
-                        setDate(last7Days);
-                        setMonth(last7Days.to);
-                      }}
-                      size="sm"
-                      variant="ghost"
-                    >
-                      Last 7 days
-                    </Button>
-                    <Button
-                      className="w-full justify-start"
-                      onClick={() => {
-                        setDate(last30Days);
-                        setMonth(last30Days.to);
-                      }}
-                      size="sm"
-                      variant="ghost"
-                    >
-                      Last 30 days
-                    </Button>
-                    <Button
-                      className="w-full justify-start"
-                      onClick={() => {
-                        setDate(monthToDate);
-                        setMonth(monthToDate.to);
-                      }}
-                      size="sm"
-                      variant="ghost"
-                    >
-                      Month to date
-                    </Button>
-                    <Button
-                      className="w-full justify-start"
-                      onClick={() => {
-                        setDate(lastMonth);
-                        setMonth(lastMonth.to);
-                      }}
-                      size="sm"
-                      variant="ghost"
-                    >
-                      Last month
-                    </Button>
-                    <Button
-                      className="w-full justify-start"
-                      onClick={() => {
-                        setDate(yearToDate);
-                        setMonth(yearToDate.to);
-                      }}
-                      size="sm"
-                      variant="ghost"
-                    >
-                      Year to date
-                    </Button>
-                    <Button
-                      className="w-full justify-start"
-                      onClick={() => {
-                        setDate(lastYear);
-                        setMonth(lastYear.to);
-                      }}
-                      size="sm"
-                      variant="ghost"
-                    >
-                      Last year
-                    </Button>
-                  </div>
-                </div>
-              </div>
-              <Calendar
-                disabled={[{ after: today }]}
-                mode="range"
-                month={month}
-                onMonthChange={setMonth}
-                onSelect={(newDate) => {
-                  if (newDate) {
-                    setDate(newDate);
-                  }
-                }}
-                selected={date}
-              />
-            </div>
-          </CardContent>
-        </Card>
-      </PopoverContent>
-    </Popover>
-  );
-}
-```
-## Default
-
-**Slug:** `data-table-filter`
-**Variant:** `default`
-**Upstream:** https://ui.bazza.dev/docs/data-table-filter
-**Description:** Linear-style filter bar with text, option, and number columns. Filter pills show subject, operator, and value. Live filtering across an employee table.
-**Depends on:** data-table-filter
-
-```tsx
-/**
- * @slug data-table-filter
- * @variant default
- * @upstream https://ui.bazza.dev/docs/data-table-filter
- * @deviations ["Finance/accounting flavor: invoice ledger with text, multi-select status, date, currency, and tax-jurisdiction columns. Demonstrates all 5 bazza/ui column types in one screen."]
- */
-"use client";
-
-import { useMemo, useState } from "react";
-import {
-  Calendar as CalendarIcon,
-  CircleDollarSign,
-  FileText,
-  Globe,
-  ListChecks,
-} from "lucide-react";
-import {
-  DataTableFilter,
-  createColumnConfigHelper,
-  useDataTableFilters,
-} from "@/components/data-table-filter";
-
-type InvoiceStatus = "draft" | "sent" | "paid" | "overdue" | "void";
-
-type Invoice = {
-  id: string;
-  number: string;
-  vendor: string;
-  status: InvoiceStatus[];
-  issuedOn: Date;
-  amount: number;
-  taxJurisdiction: "CZ" | "SK" | "DE" | "AT" | "PL";
-};
-
-const SEED: Invoice[] = [
-  {
-    id: "1",
-    number: "INV-2026-0001",
-    vendor: "Acme Suppliers s.r.o.",
-    status: ["paid"],
-    issuedOn: new Date("2026-04-12"),
-    amount: 12_450,
-    taxJurisdiction: "CZ",
-  },
-  {
-    id: "2",
-    number: "INV-2026-0002",
-    vendor: "Globex GmbH",
-    status: ["sent", "overdue"],
-    issuedOn: new Date("2026-03-28"),
-    amount: 47_890,
-    taxJurisdiction: "DE",
-  },
-  {
-    id: "3",
-    number: "INV-2026-0003",
-    vendor: "Initech a.s.",
-    status: ["draft"],
-    issuedOn: new Date("2026-05-02"),
-    amount: 3_120,
-    taxJurisdiction: "CZ",
-  },
-  {
-    id: "4",
-    number: "INV-2026-0004",
-    vendor: "Soylent SK s.r.o.",
-    status: ["paid"],
-    issuedOn: new Date("2026-04-30"),
-    amount: 88_500,
-    taxJurisdiction: "SK",
-  },
-  {
-    id: "5",
-    number: "INV-2026-0005",
-    vendor: "Umbrella AG",
-    status: ["void"],
-    issuedOn: new Date("2026-02-14"),
-    amount: 0,
-    taxJurisdiction: "AT",
-  },
-  {
-    id: "6",
-    number: "INV-2026-0006",
-    vendor: "Wayne Polska sp. z o.o.",
-    status: ["sent"],
-    issuedOn: new Date("2026-05-08"),
-    amount: 21_000,
-    taxJurisdiction: "PL",
-  },
-  {
-    id: "7",
-    number: "INV-2026-0007",
-    vendor: "Tyrell s.r.o.",
-    status: ["overdue"],
-    issuedOn: new Date("2026-03-04"),
-    amount: 15_750,
-    taxJurisdiction: "CZ",
-  },
-];
-
-const dtf = createColumnConfigHelper<Invoice>();
-
-const columnsConfig = [
-  dtf
-    .text()
-    .id("vendor")
-    .accessor((row) => row.vendor)
-    .displayName("Vendor")
-    .icon(FileText)
-    .build(),
-  dtf
-    .multiOption()
-    .id("status")
-    .accessor((row) => row.status)
-    .displayName("Status")
-    .icon(ListChecks)
-    .options([
-      { value: "draft", label: "Draft" },
-      { value: "sent", label: "Sent" },
-      { value: "paid", label: "Paid" },
-      { value: "overdue", label: "Overdue" },
-      { value: "void", label: "Void" },
-    ])
-    .build(),
-  dtf
-    .date()
-    .id("issuedOn")
-    .accessor((row) => row.issuedOn)
-    .displayName("Issued on")
-    .icon(CalendarIcon)
-    .build(),
-  dtf
-    .number()
-    .id("amount")
-    .accessor((row) => row.amount)
-    .displayName("Amount (CZK)")
-    .icon(CircleDollarSign)
-    .build(),
-  dtf
-    .option()
-    .id("taxJurisdiction")
-    .accessor((row) => row.taxJurisdiction)
-    .displayName("Tax jurisdiction")
-    .icon(Globe)
-    .options([
-      { value: "CZ", label: "Czech Republic" },
-      { value: "SK", label: "Slovakia" },
-      { value: "DE", label: "Germany" },
-      { value: "AT", label: "Austria" },
-      { value: "PL", label: "Poland" },
-    ])
-    .build(),
-] as const;
-
-export default function DataTableFilterDefault() {
-  const [data] = useState<Invoice[]>(SEED);
-
-  const { columns, filters, actions, strategy } = useDataTableFilters({
-    strategy: "client",
-    data,
-    columnsConfig,
-  });
-
-  const filteredData = useMemo(() => {
-    if (filters.length === 0) return data;
-    return data.filter((row) => {
-      return filters.every((f) => {
-        if (f.columnId === "vendor") {
-          const v = row.vendor.toLowerCase();
-          return (f.values as string[]).some((q) => v.includes(String(q).toLowerCase()));
-        }
-        if (f.columnId === "status") {
-          const vals = f.values as InvoiceStatus[];
-          const matches = row.status.some((s) => vals.includes(s));
-          return f.operator === "exclude" || f.operator === "exclude if any of"
-            ? !matches
-            : matches;
-        }
-        if (f.columnId === "taxJurisdiction") {
-          const vals = f.values as string[];
-          return f.operator === "is none of"
-            ? !vals.includes(row.taxJurisdiction)
-            : vals.includes(row.taxJurisdiction);
-        }
-        if (f.columnId === "issuedOn") {
-          const dates = (f.values as Array<Date | string>).map((d) => new Date(d));
-          if (f.operator === "is between" && dates.length === 2)
-            return row.issuedOn >= dates[0]! && row.issuedOn <= dates[1]!;
-          if (f.operator === "is on or after") return row.issuedOn >= dates[0]!;
-          if (f.operator === "is on or before") return row.issuedOn <= dates[0]!;
-          if (f.operator === "is before") return row.issuedOn < dates[0]!;
-          if (f.operator === "is after") return row.issuedOn > dates[0]!;
-          return row.issuedOn.toDateString() === dates[0]?.toDateString();
-        }
-        if (f.columnId === "amount") {
-          const vals = (f.values as number[]).map(Number);
-          if (f.operator === "is between" && vals.length === 2)
-            return row.amount >= vals[0]! && row.amount <= vals[1]!;
-          if (f.operator === "is greater than") return row.amount > vals[0]!;
-          if (f.operator === "is less than") return row.amount < vals[0]!;
-          return row.amount === vals[0];
-        }
-        return true;
-      });
-    });
-  }, [data, filters]);
-
-  return (
-    <div className="flex w-full flex-col gap-4">
-      <DataTableFilter filters={filters} columns={columns} actions={actions} strategy={strategy} />
-
-      <div className="overflow-hidden rounded-lg border">
-        <table className="w-full text-sm">
-          <thead className="bg-muted/50">
-            <tr className="text-left">
-              <th className="px-3 py-2 font-medium">Vendor</th>
-              <th className="px-3 py-2 font-medium">Status</th>
-              <th className="px-3 py-2 font-medium">Issued</th>
-              <th className="px-3 py-2 text-right font-medium">Amount</th>
-              <th className="px-3 py-2 font-medium">Tax</th>
-            </tr>
-          </thead>
-          <tbody>
-            {filteredData.map((row) => (
-              <tr key={row.id} className="border-t">
-                <td className="px-3 py-2">
-                  <div className="font-medium">{row.vendor}</div>
-                  <div className="text-xs text-muted-foreground">{row.number}</div>
-                </td>
-                <td className="px-3 py-2">
-                  <div className="flex flex-wrap gap-1">
-                    {row.status.map((s) => (
-                      <span
-                        key={s}
-                        className="rounded-md bg-muted px-1.5 py-0.5 text-xs text-muted-foreground"
-                      >
-                        {s}
-                      </span>
-                    ))}
-                  </div>
-                </td>
-                <td className="px-3 py-2 text-muted-foreground">
-                  {row.issuedOn.toLocaleDateString("en-US", {
-                    year: "numeric",
-                    month: "short",
-                    day: "numeric",
-                  })}
-                </td>
-                <td className="px-3 py-2 text-right font-mono">
-                  {row.amount.toLocaleString("en-US")}
-                </td>
-                <td className="px-3 py-2 text-muted-foreground">{row.taxJurisdiction}</td>
-              </tr>
-            ))}
-            {filteredData.length === 0 && (
-              <tr>
-                <td colSpan={5} className="px-3 py-6 text-center text-muted-foreground">
-                  No invoices match.
-                </td>
-              </tr>
-            )}
-          </tbody>
-        </table>
-      </div>
-    </div>
-  );
-}
-```
-## Quick filters
-
-**Slug:** `data-table-filter`
-**Variant:** `quick-filters`
-**Upstream:** https://ui.bazza.dev/docs/data-table-filter
-**Description:** Saved filter presets bar above the chip filter. Save the current state under a name, click to re-apply, persist across reloads via localStorage.
-**Depends on:** data-table-filter, button, input
-
-```tsx
-/**
- * @slug data-table-filter
- * @variant quick-filters
- * @upstream https://ui.bazza.dev/docs/data-table-filter
- * @deviations ["Adds a preset bar above the filter chips. Save the current filter state as a named quick filter, persist to localStorage, click to re-apply, x to remove."]
- */
-"use client";
-
-import { Bookmark, Plus, X } from "lucide-react";
-import { useEffect, useMemo, useState } from "react";
-import {
-  Calendar as CalendarIcon,
-  CircleDollarSign,
-  FileText,
-  Globe,
-  ListChecks,
-} from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import {
-  DataTableFilter,
-  createColumnConfigHelper,
-  useDataTableFilters,
-} from "@/components/data-table-filter";
-import type { FiltersState } from "@/components/data-table-filter/core/types";
-
-type InvoiceStatus = "draft" | "sent" | "paid" | "overdue" | "void";
-
-type Invoice = {
-  id: string;
-  number: string;
-  vendor: string;
-  status: InvoiceStatus[];
-  issuedOn: Date;
-  amount: number;
-  taxJurisdiction: "CZ" | "SK" | "DE" | "AT" | "PL";
-};
-
-const SEED: Invoice[] = [
-  {
-    id: "1",
-    number: "INV-2026-0001",
-    vendor: "Acme Suppliers s.r.o.",
-    status: ["paid"],
-    issuedOn: new Date("2026-04-12"),
-    amount: 12_450,
-    taxJurisdiction: "CZ",
-  },
-  {
-    id: "2",
-    number: "INV-2026-0002",
-    vendor: "Globex GmbH",
-    status: ["sent", "overdue"],
-    issuedOn: new Date("2026-03-28"),
-    amount: 47_890,
-    taxJurisdiction: "DE",
-  },
-  {
-    id: "3",
-    number: "INV-2026-0003",
-    vendor: "Initech a.s.",
-    status: ["draft"],
-    issuedOn: new Date("2026-05-02"),
-    amount: 3_120,
-    taxJurisdiction: "CZ",
-  },
-  {
-    id: "4",
-    number: "INV-2026-0004",
-    vendor: "Soylent SK s.r.o.",
-    status: ["paid"],
-    issuedOn: new Date("2026-04-30"),
-    amount: 88_500,
-    taxJurisdiction: "SK",
-  },
-  {
-    id: "5",
-    number: "INV-2026-0005",
-    vendor: "Umbrella AG",
-    status: ["void"],
-    issuedOn: new Date("2026-02-14"),
-    amount: 0,
-    taxJurisdiction: "AT",
-  },
-  {
-    id: "6",
-    number: "INV-2026-0006",
-    vendor: "Wayne Polska sp. z o.o.",
-    status: ["sent"],
-    issuedOn: new Date("2026-05-08"),
-    amount: 21_000,
-    taxJurisdiction: "PL",
-  },
-  {
-    id: "7",
-    number: "INV-2026-0007",
-    vendor: "Tyrell s.r.o.",
-    status: ["overdue"],
-    issuedOn: new Date("2026-03-04"),
-    amount: 15_750,
-    taxJurisdiction: "CZ",
-  },
-];
-
-const dtf = createColumnConfigHelper<Invoice>();
-const columnsConfig = [
-  dtf
-    .text()
-    .id("vendor")
-    .accessor((r) => r.vendor)
-    .displayName("Vendor")
-    .icon(FileText)
-    .build(),
-  dtf
-    .multiOption()
-    .id("status")
-    .accessor((r) => r.status)
-    .displayName("Status")
-    .icon(ListChecks)
-    .options([
-      { value: "draft", label: "Draft" },
-      { value: "sent", label: "Sent" },
-      { value: "paid", label: "Paid" },
-      { value: "overdue", label: "Overdue" },
-      { value: "void", label: "Void" },
-    ])
-    .build(),
-  dtf
-    .date()
-    .id("issuedOn")
-    .accessor((r) => r.issuedOn)
-    .displayName("Issued on")
-    .icon(CalendarIcon)
-    .build(),
-  dtf
-    .number()
-    .id("amount")
-    .accessor((r) => r.amount)
-    .displayName("Amount (CZK)")
-    .icon(CircleDollarSign)
-    .build(),
-  dtf
-    .option()
-    .id("taxJurisdiction")
-    .accessor((r) => r.taxJurisdiction)
-    .displayName("Tax jurisdiction")
-    .icon(Globe)
-    .options([
-      { value: "CZ", label: "Czech Republic" },
-      { value: "SK", label: "Slovakia" },
-      { value: "DE", label: "Germany" },
-      { value: "AT", label: "Austria" },
-      { value: "PL", label: "Poland" },
-    ])
-    .build(),
-] as const;
-
-type QuickFilter = { id: string; name: string; filters: FiltersState };
-
-const STORAGE_KEY = "showcase.dtf.quick-filters";
-
-const STARTER: QuickFilter[] = [
-  {
-    id: "overdue-large",
-    name: "Overdue & large",
-    filters: [
-      {
-        columnId: "status",
-        type: "multiOption",
-        operator: "include",
-        values: ["overdue"],
-      },
-      {
-        columnId: "amount",
-        type: "number",
-        operator: "is greater than",
-        values: [10_000],
-      },
-    ],
-  },
-  {
-    id: "cz-paid",
-    name: "Paid CZ",
-    filters: [
-      {
-        columnId: "taxJurisdiction",
-        type: "option",
-        operator: "is",
-        values: ["CZ"],
-      },
-      {
-        columnId: "status",
-        type: "multiOption",
-        operator: "include",
-        values: ["paid"],
-      },
-    ],
-  },
-];
-
-function loadSaved(): QuickFilter[] {
-  if (typeof window === "undefined") return STARTER;
-  try {
-    const raw = window.localStorage.getItem(STORAGE_KEY);
-    if (!raw) return STARTER;
-    const parsed = JSON.parse(raw) as QuickFilter[];
-    return Array.isArray(parsed) ? parsed : STARTER;
-  } catch {
-    return STARTER;
-  }
-}
-
-export default function DataTableFilterQuickFilters() {
-  const [data] = useState<Invoice[]>(SEED);
-  const [filters, setFilters] = useState<FiltersState>([]);
-  const [presets, setPresets] = useState<QuickFilter[]>(STARTER);
-  const [activeId, setActiveId] = useState<string | null>(null);
-  const [naming, setNaming] = useState(false);
-  const [draftName, setDraftName] = useState("");
-
-  useEffect(() => {
-    // Hydrate presets from localStorage on mount. Synchronous setState here
-    // is the documented pattern for external-store hydration.
-    // eslint-disable-next-line react-hooks/set-state-in-effect
-    setPresets(loadSaved());
-  }, []);
-
-  useEffect(() => {
-    if (typeof window === "undefined") return;
-    window.localStorage.setItem(STORAGE_KEY, JSON.stringify(presets));
-  }, [presets]);
-
-  const { columns, actions, strategy } = useDataTableFilters({
-    strategy: "client",
-    data,
-    columnsConfig,
-    filters,
-    onFiltersChange: setFilters,
-  });
-
-  function applyPreset(p: QuickFilter) {
-    setFilters(p.filters);
-    setActiveId(p.id);
-  }
-
-  function saveCurrent() {
-    const name = draftName.trim();
-    if (!name || filters.length === 0) {
-      setNaming(false);
-      setDraftName("");
-      return;
-    }
-    const preset: QuickFilter = {
-      id: `${Date.now()}`,
-      name,
-      filters: filters.map((f) => ({ ...f })),
-    };
-    setPresets((prev) => [...prev, preset]);
-    setActiveId(preset.id);
-    setDraftName("");
-    setNaming(false);
-  }
-
-  function deletePreset(id: string) {
-    setPresets((prev) => prev.filter((p) => p.id !== id));
-    if (activeId === id) setActiveId(null);
-  }
-
-  const filteredData = useMemo(() => {
-    if (filters.length === 0) return data;
-    return data.filter((row) =>
-      filters.every((f) => {
-        if (f.columnId === "vendor") {
-          const v = row.vendor.toLowerCase();
-          return (f.values as string[]).some((q) => v.includes(String(q).toLowerCase()));
-        }
-        if (f.columnId === "status") {
-          const vals = f.values as InvoiceStatus[];
-          const matches = row.status.some((s) => vals.includes(s));
-          return f.operator === "exclude" || f.operator === "exclude if any of"
-            ? !matches
-            : matches;
-        }
-        if (f.columnId === "taxJurisdiction") {
-          const vals = f.values as string[];
-          return f.operator === "is none of"
-            ? !vals.includes(row.taxJurisdiction)
-            : vals.includes(row.taxJurisdiction);
-        }
-        if (f.columnId === "issuedOn") {
-          const dates = (f.values as Array<Date | string>).map((d) => new Date(d));
-          if (f.operator === "is between" && dates.length === 2)
-            return row.issuedOn >= dates[0]! && row.issuedOn <= dates[1]!;
-          if (f.operator === "is on or after") return row.issuedOn >= dates[0]!;
-          if (f.operator === "is on or before") return row.issuedOn <= dates[0]!;
-          return true;
-        }
-        if (f.columnId === "amount") {
-          const vals = (f.values as number[]).map(Number);
-          if (f.operator === "is between" && vals.length === 2)
-            return row.amount >= vals[0]! && row.amount <= vals[1]!;
-          if (f.operator === "is greater than") return row.amount > vals[0]!;
-          if (f.operator === "is less than") return row.amount < vals[0]!;
-          return row.amount === vals[0];
-        }
-        return true;
-      }),
-    );
-  }, [data, filters]);
-
-  return (
-    <div className="flex w-full flex-col gap-4">
-      <div className="flex flex-wrap items-center gap-2">
-        <span className="inline-flex items-center gap-1 text-xs font-medium text-muted-foreground">
-          <Bookmark className="size-3.5" /> Quick filters
-        </span>
-        {presets.map((p) => (
-          <span
-            key={p.id}
-            className="inline-flex items-center overflow-hidden rounded-full border bg-background"
-          >
-            <button
-              type="button"
-              onClick={() => applyPreset(p)}
-              className={`px-3 py-1 text-xs ${activeId === p.id ? "bg-muted font-medium" : "hover:bg-muted"}`}
-            >
-              {p.name}
-            </button>
-            <button
-              type="button"
-              aria-label={`Delete ${p.name}`}
-              onClick={() => deletePreset(p.id)}
-              className="border-l px-1.5 py-1 text-muted-foreground hover:bg-muted hover:text-foreground"
-            >
-              <X className="size-3" />
-            </button>
-          </span>
-        ))}
-        {naming ? (
-          <span className="inline-flex items-center gap-1">
-            <Input
-              value={draftName}
-              onChange={(e) => setDraftName(e.target.value)}
-              onKeyDown={(e) => {
-                if (e.key === "Enter") saveCurrent();
-                if (e.key === "Escape") {
-                  setNaming(false);
-                  setDraftName("");
-                }
-              }}
-              placeholder="Preset name"
-              className="h-7 w-40 text-xs"
-              autoFocus
-            />
-            <Button size="xs" onClick={saveCurrent}>
-              Save
-            </Button>
-          </span>
-        ) : (
-          <Button
-            size="xs"
-            variant="outline"
-            disabled={filters.length === 0}
-            onClick={() => setNaming(true)}
-          >
-            <Plus className="mr-1 size-3" />
-            Save current
-          </Button>
-        )}
-      </div>
-
-      <DataTableFilter filters={filters} columns={columns} actions={actions} strategy={strategy} />
-
-      <div className="overflow-hidden rounded-lg border">
-        <table className="w-full text-sm">
-          <thead className="bg-muted/50">
-            <tr className="text-left">
-              <th className="px-3 py-2 font-medium">Vendor</th>
-              <th className="px-3 py-2 font-medium">Status</th>
-              <th className="px-3 py-2 text-right font-medium">Amount</th>
-            </tr>
-          </thead>
-          <tbody>
-            {filteredData.map((row) => (
-              <tr key={row.id} className="border-t">
-                <td className="px-3 py-2">
-                  <div className="font-medium">{row.vendor}</div>
-                  <div className="text-xs text-muted-foreground">{row.number}</div>
-                </td>
-                <td className="px-3 py-2 text-muted-foreground">{row.status.join(", ")}</td>
-                <td className="px-3 py-2 text-right font-mono">
-                  {row.amount.toLocaleString("en-US")}
-                </td>
-              </tr>
-            ))}
-            {filteredData.length === 0 && (
-              <tr>
-                <td colSpan={3} className="px-3 py-6 text-center text-muted-foreground">
-                  No matches.
-                </td>
-              </tr>
-            )}
-          </tbody>
-        </table>
-      </div>
-    </div>
-  );
-}
-```
-## OR groups
-
-**Slug:** `data-table-filter`
-**Variant:** `or-groups`
-**Upstream:** https://ui.bazza.dev/docs/data-table-filter
-**Description:** Multiple bazza filter rows joined with OR. Each row is AND internally; the table matches invoices that satisfy at least one row.
-**Depends on:** data-table-filter, button
-
-```tsx
-/**
- * @slug data-table-filter
- * @variant or-groups
- * @upstream https://ui.bazza.dev/docs/data-table-filter
- * @deviations ["Composes multiple bazza filter bars into OR groups. Each bar is AND internally; rows are joined by ANY (OR). Add/remove rows; rows operate independently."]
- */
-"use client";
-
-import { Plus, Trash2 } from "lucide-react";
-import { useMemo, useState } from "react";
-import {
-  Calendar as CalendarIcon,
-  CircleDollarSign,
-  FileText,
-  Globe,
-  ListChecks,
-} from "lucide-react";
-import { Button } from "@/components/ui/button";
-import {
-  DataTableFilter,
-  createColumnConfigHelper,
-  useDataTableFilters,
-} from "@/components/data-table-filter";
-import type { FiltersState } from "@/components/data-table-filter/core/types";
-
-type InvoiceStatus = "draft" | "sent" | "paid" | "overdue" | "void";
-
-type Invoice = {
-  id: string;
-  number: string;
-  vendor: string;
-  status: InvoiceStatus[];
-  issuedOn: Date;
-  amount: number;
-  taxJurisdiction: "CZ" | "SK" | "DE" | "AT" | "PL";
-};
-
-const SEED: Invoice[] = [
-  {
-    id: "1",
-    number: "INV-2026-0001",
-    vendor: "Acme Suppliers s.r.o.",
-    status: ["paid"],
-    issuedOn: new Date("2026-04-12"),
-    amount: 12_450,
-    taxJurisdiction: "CZ",
-  },
-  {
-    id: "2",
-    number: "INV-2026-0002",
-    vendor: "Globex GmbH",
-    status: ["sent", "overdue"],
-    issuedOn: new Date("2026-03-28"),
-    amount: 47_890,
-    taxJurisdiction: "DE",
-  },
-  {
-    id: "3",
-    number: "INV-2026-0003",
-    vendor: "Initech a.s.",
-    status: ["draft"],
-    issuedOn: new Date("2026-05-02"),
-    amount: 3_120,
-    taxJurisdiction: "CZ",
-  },
-  {
-    id: "4",
-    number: "INV-2026-0004",
-    vendor: "Soylent SK s.r.o.",
-    status: ["paid"],
-    issuedOn: new Date("2026-04-30"),
-    amount: 88_500,
-    taxJurisdiction: "SK",
-  },
-  {
-    id: "5",
-    number: "INV-2026-0005",
-    vendor: "Umbrella AG",
-    status: ["void"],
-    issuedOn: new Date("2026-02-14"),
-    amount: 0,
-    taxJurisdiction: "AT",
-  },
-  {
-    id: "6",
-    number: "INV-2026-0006",
-    vendor: "Wayne Polska sp. z o.o.",
-    status: ["sent"],
-    issuedOn: new Date("2026-05-08"),
-    amount: 21_000,
-    taxJurisdiction: "PL",
-  },
-  {
-    id: "7",
-    number: "INV-2026-0007",
-    vendor: "Tyrell s.r.o.",
-    status: ["overdue"],
-    issuedOn: new Date("2026-03-04"),
-    amount: 15_750,
-    taxJurisdiction: "CZ",
-  },
-];
-
-const dtf = createColumnConfigHelper<Invoice>();
-const columnsConfig = [
-  dtf
-    .text()
-    .id("vendor")
-    .accessor((r) => r.vendor)
-    .displayName("Vendor")
-    .icon(FileText)
-    .build(),
-  dtf
-    .multiOption()
-    .id("status")
-    .accessor((r) => r.status)
-    .displayName("Status")
-    .icon(ListChecks)
-    .options([
-      { value: "draft", label: "Draft" },
-      { value: "sent", label: "Sent" },
-      { value: "paid", label: "Paid" },
-      { value: "overdue", label: "Overdue" },
-      { value: "void", label: "Void" },
-    ])
-    .build(),
-  dtf
-    .date()
-    .id("issuedOn")
-    .accessor((r) => r.issuedOn)
-    .displayName("Issued on")
-    .icon(CalendarIcon)
-    .build(),
-  dtf
-    .number()
-    .id("amount")
-    .accessor((r) => r.amount)
-    .displayName("Amount (CZK)")
-    .icon(CircleDollarSign)
-    .build(),
-  dtf
-    .option()
-    .id("taxJurisdiction")
-    .accessor((r) => r.taxJurisdiction)
-    .displayName("Tax jurisdiction")
-    .icon(Globe)
-    .options([
-      { value: "CZ", label: "Czech Republic" },
-      { value: "SK", label: "Slovakia" },
-      { value: "DE", label: "Germany" },
-      { value: "AT", label: "Austria" },
-      { value: "PL", label: "Poland" },
-    ])
-    .build(),
-] as const;
-
-function matchInvoice(row: Invoice, filters: FiltersState): boolean {
-  return filters.every((f) => {
-    if (f.columnId === "vendor") {
-      const v = row.vendor.toLowerCase();
-      return (f.values as string[]).some((q) => v.includes(String(q).toLowerCase()));
-    }
-    if (f.columnId === "status") {
-      const vals = f.values as InvoiceStatus[];
-      const matches = row.status.some((s) => vals.includes(s));
-      return f.operator === "exclude" || f.operator === "exclude if any of" ? !matches : matches;
-    }
-    if (f.columnId === "taxJurisdiction") {
-      const vals = f.values as string[];
-      return f.operator === "is none of"
-        ? !vals.includes(row.taxJurisdiction)
-        : vals.includes(row.taxJurisdiction);
-    }
-    if (f.columnId === "issuedOn") {
-      const dates = (f.values as Array<Date | string>).map((d) => new Date(d));
-      if (f.operator === "is between" && dates.length === 2)
-        return row.issuedOn >= dates[0]! && row.issuedOn <= dates[1]!;
-      if (f.operator === "is on or after") return row.issuedOn >= dates[0]!;
-      if (f.operator === "is on or before") return row.issuedOn <= dates[0]!;
-      return true;
-    }
-    if (f.columnId === "amount") {
-      const vals = (f.values as number[]).map(Number);
-      if (f.operator === "is between" && vals.length === 2)
-        return row.amount >= vals[0]! && row.amount <= vals[1]!;
-      if (f.operator === "is greater than") return row.amount > vals[0]!;
-      if (f.operator === "is less than") return row.amount < vals[0]!;
-      return row.amount === vals[0];
-    }
-    return true;
-  });
-}
-
-function FilterGroupRow({
-  data,
-  filters,
-  onChange,
-  onRemove,
-  removable,
-}: {
-  data: Invoice[];
-  filters: FiltersState;
-  onChange: React.Dispatch<React.SetStateAction<FiltersState>>;
-  onRemove: () => void;
-  removable: boolean;
-}) {
-  const { columns, actions, strategy } = useDataTableFilters({
-    strategy: "client",
-    data,
-    columnsConfig,
-    filters,
-    onFiltersChange: onChange as React.Dispatch<React.SetStateAction<FiltersState>>,
-  });
-  return (
-    <div className="flex items-start gap-2 rounded-lg border bg-muted/30 p-2">
-      <div className="flex-1">
-        <DataTableFilter
-          filters={filters}
-          columns={columns}
-          actions={actions}
-          strategy={strategy}
-        />
-      </div>
-      {removable && (
-        <Button
-          size="icon-sm"
-          variant="ghost"
-          aria-label="Remove group"
-          onClick={onRemove}
-          className="text-muted-foreground hover:text-foreground"
-        >
-          <Trash2 className="size-4" />
-        </Button>
-      )}
-    </div>
-  );
-}
-
-type Group = { id: string; filters: FiltersState };
-
-let nextGroupId = 1;
-const newGroup = (filters: FiltersState = []): Group => ({
-  id: `g${nextGroupId++}`,
-  filters,
-});
-
-export default function DataTableFilterOrGroups() {
-  const [data] = useState<Invoice[]>(SEED);
-  const [groups, setGroups] = useState<Group[]>(() => [
-    newGroup([
-      {
-        columnId: "status",
-        type: "multiOption",
-        operator: "include",
-        values: ["overdue"],
-      },
-    ]),
-    newGroup([
-      {
-        columnId: "amount",
-        type: "number",
-        operator: "is greater than",
-        values: [50_000],
-      },
-    ]),
-  ]);
-
-  const filteredData = useMemo(() => {
-    const active = groups.filter((g) => g.filters.length > 0);
-    if (active.length === 0) return data;
-    return data.filter((row) => active.some((g) => matchInvoice(row, g.filters)));
-  }, [data, groups]);
-
-  function updateGroup(id: string, update: React.SetStateAction<FiltersState>) {
-    setGroups((prev) =>
-      prev.map((g) => {
-        if (g.id !== id) return g;
-        const next = typeof update === "function" ? update(g.filters) : update;
-        return { ...g, filters: Array.isArray(next) ? next : [] };
-      }),
-    );
-  }
-  function removeGroup(id: string) {
-    setGroups((prev) => prev.filter((g) => g.id !== id));
-  }
-  function addGroup() {
-    setGroups((prev) => [...prev, newGroup()]);
-  }
-
-  return (
-    <div className="flex w-full flex-col gap-3">
-      <div className="text-xs text-muted-foreground">
-        Each row is <span className="font-medium text-foreground">AND</span> inside; rows are joined
-        by <span className="font-medium text-foreground">OR</span>. A row matches one criteria; the
-        table shows invoices matching at least one row.
-      </div>
-
-      <div className="flex flex-col gap-2">
-        {groups.map((g, i) => (
-          <div key={g.id} className="flex items-stretch gap-2">
-            {i > 0 && (
-              <div className="flex flex-col items-center justify-center px-1">
-                <span className="rounded-md bg-muted px-2 py-0.5 text-xs font-medium text-muted-foreground">
-                  OR
-                </span>
-              </div>
-            )}
-            <div className="flex-1">
-              <FilterGroupRow
-                data={data}
-                filters={g.filters}
-                onChange={(next) => updateGroup(g.id, next)}
-                onRemove={() => removeGroup(g.id)}
-                removable={groups.length > 1}
-              />
-            </div>
-          </div>
-        ))}
-      </div>
-
-      <Button size="sm" variant="outline" onClick={addGroup} className="self-start">
-        <Plus className="mr-1 size-3.5" />
-        Add OR group
-      </Button>
-
-      <div className="overflow-hidden rounded-lg border">
-        <table className="w-full text-sm">
-          <thead className="bg-muted/50">
-            <tr className="text-left">
-              <th className="px-3 py-2 font-medium">Vendor</th>
-              <th className="px-3 py-2 font-medium">Status</th>
-              <th className="px-3 py-2 text-right font-medium">Amount</th>
-            </tr>
-          </thead>
-          <tbody>
-            {filteredData.map((row) => (
-              <tr key={row.id} className="border-t">
-                <td className="px-3 py-2">
-                  <div className="font-medium">{row.vendor}</div>
-                  <div className="text-xs text-muted-foreground">{row.number}</div>
-                </td>
-                <td className="px-3 py-2 text-muted-foreground">{row.status.join(", ")}</td>
-                <td className="px-3 py-2 text-right font-mono">
-                  {row.amount.toLocaleString("en-US")}
-                </td>
-              </tr>
-            ))}
-            {filteredData.length === 0 && (
-              <tr>
-                <td colSpan={3} className="px-3 py-6 text-center text-muted-foreground">
-                  No matches.
-                </td>
-              </tr>
-            )}
-          </tbody>
-        </table>
-      </div>
     </div>
   );
 }
