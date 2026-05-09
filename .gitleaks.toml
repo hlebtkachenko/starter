@@ -26,6 +26,12 @@ description = "Stripe restricted secret"
 regex = '''rk_live_[0-9a-zA-Z]{24,}'''
 tags = ["stripe", "secret"]
 
+[[rules]]
+id = "self-hosted-runner-infra"
+description = "Self-hosted runner labels exposing infrastructure provider or machine identity"
+regex = '''runs-on:\s*\[self-hosted.*(?:ovh|starter|wsl)'''
+tags = ["infra", "runner"]
+
 [allowlist]
 description = "False positives — each entry must reference a justifying commit hash."
 paths = [
