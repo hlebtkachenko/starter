@@ -11,6 +11,9 @@ description = "Inline SMTP password in env / config"
 regex = '''(?i)(SMTP[A-Z_]*PASS|smtp[_-]?password)\s*[:=]\s*["']?[^"'\s]{8,}["']?'''
 tags = ["smtp", "secret"]
 
+[rules.allowlist]
+paths = ['''src/lib/env\.ts$''']
+
 [[rules]]
 id = "stripe-secret-key"
 description = "Stripe live secret key"
@@ -29,8 +32,10 @@ paths = [
   '''\.env\.example$''',
   '''docs/specs/.*\.md$''',
   '''docs/api/openapi\.yaml$''',
+  '''parking-app/\.next/''',
 ]
 regexes = [
   '''<random-32-bytes-base64>''',
   '''<sentry-dsn>''',
+  '''sk_live_abc123def456''',
 ]

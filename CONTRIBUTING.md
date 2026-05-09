@@ -1,3 +1,6 @@
+> **This project is not open to external contributions.**
+> This document describes the internal development workflow for maintainers.
+
 # Contributing
 
 > Self-onboarding for the maintainer + future collaborators. Not OSS guidelines.
@@ -9,7 +12,7 @@ git clone git@github.com:<git-user>/<repo>.git
 cd <repo>
 mise install                                  # node 24, pnpm, postgres-cli
 pnpm install                                  # also runs `lefthook install` via prepare
-cp .env.example .env.local                    # or symlink (Conductor)
+cp .env.example .env.local                    # or symlink your .env.local from a shared secrets location
 docker compose up --wait                      # postgres + mailpit
 pnpm db:migrate && pnpm db:seed
 pnpm dev

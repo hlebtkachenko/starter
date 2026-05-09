@@ -195,7 +195,7 @@ updated: 2026-05-03
 
 ├── .github/
 │   ├── README.md                          # .github/ structure overview, navigation, paths-ignore policy
-│   ├── CODEOWNERS                         # auto-assign reviewers; "* @hlebtkachenko"
+│   ├── CODEOWNERS                         # auto-assign reviewers; "* @<git-user>"
 │   ├── dependabot.yml                     # weekly bumps, conventional commit prefix, ecosystem groups
 │   ├── related-files.yml                  # paired-files rule (single source of truth, referenced by CLAUDE.md + docs + .claude/rules)
 │   │
@@ -262,7 +262,7 @@ updated: 2026-05-03
 ├── lefthook.yml                          # orchestrator
 │                                         #   pre-commit: biome format (staged), eslint --fix (staged), gitleaks protect (staged)
 │                                         #   commit-msg: commitlint --edit $1
-│                                         #   pre-push: pnpm typecheck (full), branch-name regex (hlebtkachenko/<short>), .github/scripts/check-paired-files.sh
+│                                         #   pre-push: pnpm typecheck (full), branch-name regex (<git-user>/<short>), .github/scripts/check-paired-files.sh
 │                                         #   post-merge: pnpm install --frozen-lockfile (auto-run on pnpm-lock.yaml change)
 ├── commitlint.config.ts                  # @commitlint/config-conventional + scope list (mirrors docs/conventions/commit-conventions.md)
 └── .gitleaks.toml                        # secret-scan rules + allowlist (each false positive justified by commit hash); consumed by lefthook pre-commit + Area 3 security workflow

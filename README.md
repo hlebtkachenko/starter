@@ -9,7 +9,7 @@
 ```bash
 mise install                 # node 24, pnpm, postgres-cli
 pnpm install
-cp .env.example .env.local   # or symlink (Conductor)
+cp .env.example .env.local   # or symlink your .env.local from a shared secrets location
 docker compose up --wait     # postgres + mailpit
 pnpm db:migrate && pnpm db:seed
 pnpm dev                     # http://localhost:3000

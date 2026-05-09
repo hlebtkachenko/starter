@@ -11,7 +11,7 @@ import { EnvEditor, type EnvVariable } from "@/components/ui/env-editor";
 
 const INITIAL_VARS: EnvVariable[] = [
   { key: "DATABASE_URL", value: "postgresql://localhost:5432/provo" },
-  { key: "API_KEY", value: "sk_live_abc123def456" },
+  { key: "API_KEY", value: "sk_live_abc123def456" }, // gitleaks:allow
   { key: "DEBUG", value: "false" },
   { key: "NODE_ENV", value: "development" },
 ];

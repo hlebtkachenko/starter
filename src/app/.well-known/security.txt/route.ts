@@ -2,12 +2,12 @@
 //
 // DOMAIN slot — replace `<domain>` (3 sites in body) with the apex domain
 //   when forking this template (matches infra/dns.ts, infra/storage.ts, etc).
-// REPO slot — `hlebtkachenko/starter` already concrete; change when forking.
+// REPO slot — replace `<git-user>/<repo>` with the actual owner/name pair when forking.
 const body = `Contact: mailto:security@<domain>
 Expires: 2027-01-01T00:00:00.000Z
 Preferred-Languages: en
 Canonical: https://app.<domain>/.well-known/security.txt
-Policy: https://github.com/hlebtkachenko/starter/blob/master/SECURITY.md
+Policy: https://github.com/<git-user>/<repo>/blob/master/SECURITY.md
 `;
 
 export const dynamic = "force-static";
