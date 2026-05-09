@@ -12,7 +12,7 @@
 | UI Primitives | [docs/showcase-export/ui.md](showcase-export/ui.md) | 113 | 28,073 |
 | Examples: buttons | [docs/showcase-export/examples-buttons.md](showcase-export/examples-buttons.md) | 38 | 53,743 |
 | Examples: display-part1 | [docs/showcase-export/examples-display-part1.md](showcase-export/examples-display-part1.md) | 41 | 79,363 |
-| Examples: display-part2 | [docs/showcase-export/examples-display-part2.md](showcase-export/examples-display-part2.md) | 27 | 91,572 |
+| Examples: display-part2 | [docs/showcase-export/examples-display-part2.md](showcase-export/examples-display-part2.md) | 27 | 91,778 |
 | Examples: feedback | [docs/showcase-export/examples-feedback.md](showcase-export/examples-feedback.md) | 24 | 27,984 |
 | Examples: forms-part1 | [docs/showcase-export/examples-forms-part1.md](showcase-export/examples-forms-part1.md) | 45 | 73,424 |
 | Examples: forms-part2 | [docs/showcase-export/examples-forms-part2.md](showcase-export/examples-forms-part2.md) | 46 | 67,670 |
