@@ -5044,6 +5044,48 @@
   },
   {
     "categories": [
+      "data"
+    ],
+    "description": "Linear-style data table filter bar with subject + operator + value pill chips. Library-agnostic, supports client and server filtering strategies.",
+    "files": [
+      {
+        "path": "components/ui/data-table-filter.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "name": "data-table-filter",
+    "proposedGroup": "data",
+    "title": "Data Table Filter",
+    "type": "registry:ui",
+    "upstreamUrl": "https://ui.bazza.dev/docs/data-table-filter"
+  },
+  {
+    "categories": [
+      "data"
+    ],
+    "description": "Linear-style filter bar with text, option, and number columns. Filter pills show subject, operator, and value. Live filtering across an employee table.",
+    "files": [
+      {
+        "path": "components/examples/data-table-filter-default.tsx",
+        "type": "registry:example"
+      }
+    ],
+    "height": "tall",
+    "isDefault": true,
+    "isFlagged": false,
+    "name": "data-table-filter-default",
+    "registryDependencies": [
+      "data-table-filter"
+    ],
+    "slug": "data-table-filter",
+    "span": 3,
+    "title": "Default",
+    "type": "registry:example",
+    "upstreamUrl": "https://ui.bazza.dev/docs/data-table-filter",
+    "variant": "default"
+  },
+  {
+    "categories": [
       "display",
       "data"
     ],

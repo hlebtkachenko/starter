@@ -706,3 +706,9 @@
 **Upstream:** https://flowkit-ui.vzkiss.com/docs/components/creatable-combobox
 **Depends on:** combobox
 **Categories:** forms
+## Data Table Filter
+
+**Name:** `data-table-filter`
+**Description:** Linear-style data table filter bar with subject + operator + value pill chips. Library-agnostic, supports client and server filtering strategies.
+**Upstream:** https://ui.bazza.dev/docs/data-table-filter
+**Categories:** data

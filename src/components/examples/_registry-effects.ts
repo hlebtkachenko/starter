@@ -1857,4 +1857,26 @@ export const items = defineItems([
     ],
     categories: ["forms"],
   },
+  {
+    name: "data-table-filter-default",
+    type: "registry:example",
+    title: "Default",
+    description:
+      "Linear-style filter bar with text, option, and number columns. Filter pills show subject, operator, and value. Live filtering across an employee table.",
+    slug: "data-table-filter",
+    variant: "default",
+    isDefault: true,
+    isFlagged: false,
+    span: 3,
+    height: "tall",
+    upstreamUrl: "https://ui.bazza.dev/docs/data-table-filter",
+    registryDependencies: ["data-table-filter"],
+    files: [
+      {
+        path: "components/examples/data-table-filter-default.tsx",
+        type: "registry:example",
+      },
+    ],
+    categories: ["data"],
+  },
 ]);

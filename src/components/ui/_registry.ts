@@ -1221,4 +1221,15 @@ export const items = defineItems([
     categories: ["forms"],
     proposedGroup: "forms",
   },
+  {
+    name: "data-table-filter",
+    type: "registry:ui",
+    title: "Data Table Filter",
+    description:
+      "Linear-style data table filter bar with subject + operator + value pill chips. Library-agnostic, supports client and server filtering strategies.",
+    files: [{ path: "components/ui/data-table-filter.tsx", type: "registry:ui" }],
+    upstreamUrl: "https://ui.bazza.dev/docs/data-table-filter",
+    categories: ["data"],
+    proposedGroup: "data",
+  },
 ]);
