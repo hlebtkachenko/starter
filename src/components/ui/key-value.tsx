@@ -5,7 +5,7 @@ import { Slot as SlotPrimitive } from "radix-ui";
 import * as React from "react";
 import { useComposedRefs } from "@/lib/compose-refs";
 import { cn } from "@/lib/utils";
-import { VisuallyHiddenInput } from "@/components/visually-hidden-input";
+import { VisuallyHiddenInput } from "@/components/ui/visually-hidden-input";
 import { useAsRef } from "@/hooks/use-as-ref";
 import { useIsomorphicLayoutEffect } from "@/hooks/use-isomorphic-layout-effect";
 import { useLazyRef } from "@/hooks/use-lazy-ref";

@@ -9,7 +9,7 @@
 
 | Area | File | Items | Chars |
 |---|---|---|---|
-| UI Primitives | [docs/showcase-export/ui.md](showcase-export/ui.md) | 113 | 28,073 |
+| UI Primitives | [docs/showcase-export/ui.md](showcase-export/ui.md) | 114 | 28,337 |
 | Examples: buttons | [docs/showcase-export/examples-buttons.md](showcase-export/examples-buttons.md) | 38 | 53,743 |
 | Examples: display-part1 | [docs/showcase-export/examples-display-part1.md](showcase-export/examples-display-part1.md) | 41 | 79,363 |
 | Examples: display-part2 | [docs/showcase-export/examples-display-part2.md](showcase-export/examples-display-part2.md) | 20 | 63,393 |
@@ -23,7 +23,7 @@
 | Examples: overlays | [docs/showcase-export/examples-overlays.md](showcase-export/examples-overlays.md) | 23 | 40,967 |
 | Examples: utility | [docs/showcase-export/examples-utility.md](showcase-export/examples-utility.md) | 34 | 52,899 |
 | Examples: other | [docs/showcase-export/examples-other.md](showcase-export/examples-other.md) | 56 | 84,334 |
-| Blocks | [docs/showcase-export/blocks.md](showcase-export/blocks.md) | 5 | 15,187 |
+| Blocks | [docs/showcase-export/blocks.md](showcase-export/blocks.md) | 5 | 15,235 |
 
 ## UI Primitives TOC
 
@@ -52,6 +52,7 @@
 - [`field`](showcase-export/ui.md#field) — Composable form field wrapper: label, control, description, error.
 - [`hover-card`](showcase-export/ui.md#hover-card) — Preview content available behind a link on hover (sighted users only).
 - [`input`](showcase-export/ui.md#input) — Text input. Supports type variants, disabled, invalid (aria-invalid), file.
+- [`visually-hidden-input`](showcase-export/ui.md#visually-hidden-input) — Hidden native input that mirrors a visible custom control's value/checked so the surrounding form picks it up. Used by composed primitives (key-value, phone-input).
 - [`input-group`](showcase-export/ui.md#input-group) — Composed input layout with addons, buttons, and helper content.
 - [`input-otp`](showcase-export/ui.md#input-otp) — One-time password input with copy-paste, separators, patterns. ALWAYS controlled — never use defaultValue (library bug).
 - [`item`](showcase-export/ui.md#item) — Versatile list/row component with media, title, description, and actions slots.
@@ -143,8 +144,8 @@
 
 ## Quick counts
 
-- UI primitives: **113**
+- UI primitives: **114**
 - Example variants: **459**
 - Example files: **13**
 - Blocks: **5**
-- Total registry items: **577**
+- Total registry items: **578**

@@ -13051,6 +13051,21 @@
   },
   {
     "categories": [
+      "forms"
+    ],
+    "description": "Hidden native input that mirrors a visible custom control's value/checked so the surrounding form picks it up. Used by composed primitives (key-value, phone-input).",
+    "files": [
+      {
+        "path": "components/ui/visually-hidden-input.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "name": "visually-hidden-input",
+    "title": "Visually Hidden Input",
+    "type": "registry:ui"
+  },
+  {
+    "categories": [
       "forms",
       "data"
     ],
