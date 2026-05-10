@@ -15,8 +15,8 @@ import { useState } from "react";
 import { GridBg } from "@/components/login-3/grid-bg";
 import { I18nProvider, useI18n } from "@/components/login-3/i18n";
 import { LocaleToggle } from "@/components/login-3/locale-toggle";
-import { LoginFormMaintenance } from "@/components/login-form-maintenance";
-import { MaintenanceDialog } from "@/components/maintenance-acknowledge";
+import { LoginFormMaintenance } from "@/components/login-cards/login-form-maintenance";
+import { MaintenanceDialog } from "@/components/login-cards/maintenance-acknowledge";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 

@@ -8,7 +8,7 @@
  */
 import { GalleryVerticalEndIcon } from "lucide-react";
 
-import { LoginFormV2 } from "@/components/login-form-v2";
+import { LoginFormV2 } from "@/components/login-cards/login-form-v2";
 
 export type LoginCard2Props = {
   logoHref?: string;

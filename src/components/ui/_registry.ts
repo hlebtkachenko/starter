@@ -249,6 +249,15 @@ export const items = defineItems([
     categories: ["forms"],
   },
   {
+    name: "visually-hidden-input",
+    type: "registry:ui",
+    title: "Visually Hidden Input",
+    description:
+      "Hidden native input that mirrors a visible custom control's value/checked so the surrounding form picks it up. Used by composed primitives (key-value, phone-input).",
+    files: [{ path: "components/ui/visually-hidden-input.tsx", type: "registry:ui" }],
+    categories: ["forms"],
+  },
+  {
     name: "input-group",
     type: "registry:ui",
     title: "Input Group",

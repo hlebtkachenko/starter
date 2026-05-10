@@ -157,6 +157,11 @@
 **Description:** Text input. Supports type variants, disabled, invalid (aria-invalid), file.
 **Upstream:** https://ui.shadcn.com/docs/components/input
 **Categories:** forms
+## Visually Hidden Input
+
+**Name:** `visually-hidden-input`
+**Description:** Hidden native input that mirrors a visible custom control's value/checked so the surrounding form picks it up. Used by composed primitives (key-value, phone-input).
+**Categories:** forms
 ## Input Group
 
 **Name:** `input-group`
