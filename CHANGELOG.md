@@ -6,6 +6,37 @@ Versioning: [SemVer 2.0](https://semver.org/spec/v2.0.0.html).
 
 <!-- release-please-managed: do not hand-edit below this line once release.yml is wired -->
 
+## [0.0.4](https://github.com/hlebtkachenko/starter/compare/v0.0.3...v0.0.4) (2026-05-10)
+
+
+### Added
+
+* **docs:** catalog external variants and flag those under shadcn slugs ([#44](https://github.com/hlebtkachenko/starter/issues/44)) ([c8aa466](https://github.com/hlebtkachenko/starter/commit/c8aa46657bfb427c976da7e6fb6a297a4d3d2df4))
+* **ui:** add 6 components + lint guards against button-in-button & locale hydration ([#33](https://github.com/hlebtkachenko/starter/issues/33)) ([3092ce7](https://github.com/hlebtkachenko/starter/commit/3092ce756f012d7a95b92f787ceb693e80057ef7))
+* **ui:** add bazza/ui data-table-filter (Linear-style chip filters) ([#34](https://github.com/hlebtkachenko/starter/issues/34)) ([69ed5aa](https://github.com/hlebtkachenko/starter/commit/69ed5aafeaffcc0ce75728d7a50b19b53e9f8853))
+* **ui:** data-table-filter OR groups + saved quick filters variants ([#36](https://github.com/hlebtkachenko/starter/issues/36)) ([e409149](https://github.com/hlebtkachenko/starter/commit/e409149c3ccef3c14fe8f682e7a08f268d71434a))
+* **ui:** tablecn-filters variant + ActionBar for tablecn-style ([#39](https://github.com/hlebtkachenko/starter/issues/39)) ([40785c6](https://github.com/hlebtkachenko/starter/commit/40785c6e8726be35646b8ab15180546732f611c8))
+* **ui:** tablecn-style data-table example + multi-sort popover ([#38](https://github.com/hlebtkachenko/starter/issues/38)) ([9f54e30](https://github.com/hlebtkachenko/starter/commit/9f54e30e7b24ecbded0abc098dc379ad090525d7))
+
+
+### Fixed
+
+* **ui:** cmdk scrollIntoView yanking document scroll ([#41](https://github.com/hlebtkachenko/starter/issues/41)) ([a476e77](https://github.com/hlebtkachenko/starter/commit/a476e77d55cadbc66956aab69dc1209dab0fb8a4))
+* **ui:** commit-graph relative-time hydration mismatch ([#42](https://github.com/hlebtkachenko/starter/issues/42)) ([126f821](https://github.com/hlebtkachenko/starter/commit/126f8216e1a11e8375e2884042f4ea8263e521ea))
+* **ui:** data-table-filter popover position + finance flavor example ([#35](https://github.com/hlebtkachenko/starter/issues/35)) ([5e87a60](https://github.com/hlebtkachenko/starter/commit/5e87a604a2c4e331ef7f62671e99fe120ecb09c6))
+* **ui:** or-groups crash when editing chip ([#37](https://github.com/hlebtkachenko/starter/issues/37)) ([f941244](https://github.com/hlebtkachenko/starter/commit/f941244b7cf5e0cad1b2a970d377209548e30661))
+* **ui:** snail-timer setState-in-render warning ([#40](https://github.com/hlebtkachenko/starter/issues/40)) ([c3f123c](https://github.com/hlebtkachenko/starter/commit/c3f123c2e076d61d9c9f51c4ffe9a532066f5511))
+
+
+### Changed
+
+* **ui:** move stray components/ files to proper layers ([#43](https://github.com/hlebtkachenko/starter/issues/43)) ([bb9f650](https://github.com/hlebtkachenko/starter/commit/bb9f6508bd8794e0119e261fea0f99081988448b))
+
+
+### Documentation
+
+* move component guides to tracked locations + add enforcement rule ([c2885ec](https://github.com/hlebtkachenko/starter/commit/c2885ecd42d635f42b92a014384cf82d4f358084))
+
 ## [0.0.3](https://github.com/hlebtkachenko/starter/compare/v0.0.2...v0.0.3) (2026-05-09)
 
 
