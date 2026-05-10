@@ -8,19 +8,36 @@
 
 **Groups in this doc:** [actions](#actions) · [buttons](#buttons) · [charts](#charts) · [data](#data) · [devtools](#devtools) · [display](#display) · [effects](#effects) · [feedback](#feedback) · [forms](#forms) · [layout](#layout) · [navigation](#navigation) · [overlay](#overlay) · [pdf](#pdf)
 
+## How to copy a component into another project
+
+Each entry below lists exactly what is needed:
+
+1. **shadcn primitives required** — install in target project first via `pnpm dlx shadcn@latest add <name>` (e.g. `button`, `popover`).
+2. **npm deps** — `pnpm add` the listed packages.
+3. **files to copy** — copy each file listed (preserving directory structure under `src/components/`). The first file is the entry; the rest are companion files imported transitively. Canonical shadcn primitives (`src/components/ui/<name>.tsx`) are NOT listed here because step 1 already provides them.
+4. **token bypass** — if the target project lacks the design token CSS vars in `:root` (`--background`, `--foreground`, `--primary`, etc.), copy them from `src/app/globals.css` first. All components reference tokens, not hex.
+
+If a component appears under "External variants under shadcn slugs" (bottom of this doc), you only copy the example file and rely on the existing canonical shadcn primitive.
+
+
 ---
 ## actions
 
 ### Action Bar
 
 **name** `action-bar`
-**upstream** [https://www.diceui.com/docs/components/radix/action-bar](https://www.diceui.com/docs/components/radix/action-bar)
-**files** `src/components/ui/action-bar.tsx`
+**upstream** https://www.diceui.com/docs/components/radix/action-bar
 
 Floating toolbar that appears on selection with keyboard navigation, item actions, close button, and separator. Portal-mounted with configurable position.
 
-**deps** `button`
 **categories** actions, overlay
+
+**files to copy** (1)
+- `src/components/ui/action-bar.tsx`
+
+**shadcn primitives required** `button`
+
+**npm deps** `class-variance-authority`, `radix-ui`
 
 **variants** (1)
 
@@ -31,11 +48,16 @@ Floating toolbar that appears on selection with keyboard navigation, item action
 ### Download Trigger
 
 **name** `download-trigger`
-**upstream** [https://shark.vini.one/docs/utilities/download-trigger](https://shark.vini.one/docs/utilities/download-trigger)
-**files** `src/components/ui/download-trigger.tsx`
+**upstream** https://shark.vini.one/docs/utilities/download-trigger
 
 Programmatic file download utility supporting string, Blob, File, and async data sources via Ark UI.
+
 **categories** actions
+
+**files to copy** (1)
+- `src/components/ui/download-trigger.tsx`
+
+**npm deps** `@ark-ui/react`
 
 **variants** (1)
 
@@ -46,11 +68,16 @@ Programmatic file download utility supporting string, Blob, File, and async data
 ### Swap
 
 **name** `swap`
-**upstream** [https://www.diceui.com/docs/components/radix/swap](https://www.diceui.com/docs/components/radix/swap)
-**files** `src/components/ui/swap.tsx`
+**upstream** https://www.diceui.com/docs/components/radix/swap
 
 Animated toggle between two content states with configurable transition effects.
+
 **categories** actions, effects
+
+**files to copy** (1)
+- `src/components/ui/swap.tsx`
+
+**npm deps** `radix-ui`
 
 **variants** (1)
 
@@ -63,11 +90,16 @@ Animated toggle between two content states with configurable transition effects.
 ### Animated Shiny Button
 
 **name** `animated-shiny-button`
-**upstream** [https://www.eldoraui.site/docs/components/animated-shiny-button](https://www.eldoraui.site/docs/components/animated-shiny-button)
-**files** `src/components/ui/animated-shiny-button.tsx`
+**upstream** https://www.eldoraui.site/docs/components/animated-shiny-button
 
 Button with animated conic-gradient border, dot pattern, shimmer effect, and breathe animation.
+
 **categories** actions, effects
+
+**files to copy** (1)
+- `src/components/ui/animated-shiny-button.tsx`
+
+**npm deps** `lucide-react`
 
 **variants** (1)
 
@@ -78,13 +110,18 @@ Button with animated conic-gradient border, dot pattern, shimmer effect, and bre
 ### Border Beam Button
 
 **name** `border-beam-button`
-**upstream** [https://www.cult-ui.com/docs/components/border-beam-button](https://www.cult-ui.com/docs/components/border-beam-button)
-**files** `src/components/ui/border-beam-button.tsx`
+**upstream** https://www.cult-ui.com/docs/components/border-beam-button
 
 Button wrapped with animated beam border effect. Standard and icon-only variants.
 
-**deps** `button`
 **categories** actions, effects
+
+**files to copy** (1)
+- `src/components/ui/border-beam-button.tsx`
+
+**shadcn primitives required** `button`
+
+**npm deps** `border-beam`, `class-variance-authority`, `radix-ui`
 
 **variants** (1)
 
@@ -95,11 +132,16 @@ Button wrapped with animated beam border effect. Standard and icon-only variants
 ### Liquid Metal Button
 
 **name** `liquid-metal-button`
-**upstream** [https://www.jolyui.dev/docs/components/buttons/liquid-metal-button](https://www.jolyui.dev/docs/components/buttons/liquid-metal-button)
-**files** `src/components/ui/liquid-metal-button.tsx`
+**upstream** https://www.jolyui.dev/docs/components/buttons/liquid-metal-button
 
 WebGL shader-powered button with 3D metallic liquid animation, ripple effects, and text or icon view modes.
+
 **categories** buttons
+
+**files to copy** (1)
+- `src/components/ui/liquid-metal-button.tsx`
+
+**npm deps** `lucide-react`
 
 **variants** (1)
 
@@ -110,13 +152,18 @@ WebGL shader-powered button with 3D metallic liquid animation, ripple effects, a
 ### Stateful Button
 
 **name** `stateful-button`
-**upstream** [https://ui.aceternity.com/components/stateful-button](https://ui.aceternity.com/components/stateful-button)
-**files** `src/components/ui/stateful-button.tsx`
+**upstream** https://ui.aceternity.com/components/stateful-button
 
 Action button with built-in loading spinner and success check animation sequence driven by motion/react.
 
-**deps** `button`
 **categories** actions, effects
+
+**files to copy** (1)
+- `src/components/ui/stateful-button.tsx`
+
+**shadcn primitives required** `button`
+
+**npm deps** `motion`
 
 **variants** (1)
 
@@ -129,11 +176,23 @@ Action button with built-in loading spinner and success check animation sequence
 ### Evil Area Chart
 
 **name** `evil-area-chart`
-**upstream** [https://evilcharts.com/docs/components/area-chart](https://evilcharts.com/docs/components/area-chart)
-**files** `src/components/ui/evil-area-chart.tsx`
+**upstream** https://evilcharts.com/docs/components/area-chart
 
 Feature-rich area chart with gradient fill, animated skeleton, brush zoom, and glow support.
+
 **categories** charts
+
+**files to copy** (8)
+- `src/components/evilcharts/charts/area-chart.tsx`
+- `src/components/evilcharts/ui/background.tsx`
+- `src/components/evilcharts/ui/chart.tsx`
+- `src/components/evilcharts/ui/dot.tsx`
+- `src/components/evilcharts/ui/evil-brush.tsx`
+- `src/components/evilcharts/ui/legend.tsx`
+- `src/components/evilcharts/ui/tooltip.tsx`
+- `src/components/ui/evil-area-chart.tsx`
+
+**npm deps** `motion`, `recharts`
 
 **variants** (1)
 
@@ -144,11 +203,22 @@ Feature-rich area chart with gradient fill, animated skeleton, brush zoom, and g
 ### Evil Bar Chart
 
 **name** `evil-bar-chart`
-**upstream** [https://evilcharts.com/docs/components/bar-chart](https://evilcharts.com/docs/components/bar-chart)
-**files** `src/components/ui/evil-bar-chart.tsx`
+**upstream** https://evilcharts.com/docs/components/bar-chart
 
 Feature-rich bar chart with stacked, grouped, percent variants, animated skeleton, and glow effects.
+
 **categories** charts
+
+**files to copy** (7)
+- `src/components/evilcharts/charts/bar-chart.tsx`
+- `src/components/evilcharts/ui/background.tsx`
+- `src/components/evilcharts/ui/chart.tsx`
+- `src/components/evilcharts/ui/evil-brush.tsx`
+- `src/components/evilcharts/ui/legend.tsx`
+- `src/components/evilcharts/ui/tooltip.tsx`
+- `src/components/ui/evil-bar-chart.tsx`
+
+**npm deps** `motion`, `recharts`
 
 **variants** (1)
 
@@ -159,11 +229,23 @@ Feature-rich bar chart with stacked, grouped, percent variants, animated skeleto
 ### Evil Composed Chart
 
 **name** `evil-composed-chart`
-**upstream** [https://evilcharts.com/docs/components/composed-chart](https://evilcharts.com/docs/components/composed-chart)
-**files** `src/components/ui/evil-composed-chart.tsx`
+**upstream** https://evilcharts.com/docs/components/composed-chart
 
 Feature-rich composed chart overlaying bars and lines on shared axis with glow effects and skeleton.
+
 **categories** charts
+
+**files to copy** (8)
+- `src/components/evilcharts/charts/composed-chart.tsx`
+- `src/components/evilcharts/ui/background.tsx`
+- `src/components/evilcharts/ui/chart.tsx`
+- `src/components/evilcharts/ui/dot.tsx`
+- `src/components/evilcharts/ui/evil-brush.tsx`
+- `src/components/evilcharts/ui/legend.tsx`
+- `src/components/evilcharts/ui/tooltip.tsx`
+- `src/components/ui/evil-composed-chart.tsx`
+
+**npm deps** `motion`, `recharts`
 
 **variants** (1)
 
@@ -174,11 +256,23 @@ Feature-rich composed chart overlaying bars and lines on shared axis with glow e
 ### Evil Line Chart
 
 **name** `evil-line-chart`
-**upstream** [https://evilcharts.com/docs/components/line-chart](https://evilcharts.com/docs/components/line-chart)
-**files** `src/components/ui/evil-line-chart.tsx`
+**upstream** https://evilcharts.com/docs/components/line-chart
 
 Feature-rich line chart with monotone, step, linear curves, animated skeleton, and glow effects.
+
 **categories** charts
+
+**files to copy** (8)
+- `src/components/evilcharts/charts/line-chart.tsx`
+- `src/components/evilcharts/ui/background.tsx`
+- `src/components/evilcharts/ui/chart.tsx`
+- `src/components/evilcharts/ui/dot.tsx`
+- `src/components/evilcharts/ui/evil-brush.tsx`
+- `src/components/evilcharts/ui/legend.tsx`
+- `src/components/evilcharts/ui/tooltip.tsx`
+- `src/components/ui/evil-line-chart.tsx`
+
+**npm deps** `motion`, `recharts`
 
 **variants** (1)
 
@@ -189,11 +283,21 @@ Feature-rich line chart with monotone, step, linear curves, animated skeleton, a
 ### Evil Pie Chart
 
 **name** `evil-pie-chart`
-**upstream** [https://evilcharts.com/docs/components/pie-chart](https://evilcharts.com/docs/components/pie-chart)
-**files** `src/components/ui/evil-pie-chart.tsx`
+**upstream** https://evilcharts.com/docs/components/pie-chart
 
 Feature-rich pie and donut chart with configurable radius, padding angle, and animated skeleton.
+
 **categories** charts
+
+**files to copy** (6)
+- `src/components/evilcharts/charts/pie-chart.tsx`
+- `src/components/evilcharts/ui/background.tsx`
+- `src/components/evilcharts/ui/chart.tsx`
+- `src/components/evilcharts/ui/legend.tsx`
+- `src/components/evilcharts/ui/tooltip.tsx`
+- `src/components/ui/evil-pie-chart.tsx`
+
+**npm deps** `motion`, `recharts`
 
 **variants** (1)
 
@@ -204,11 +308,22 @@ Feature-rich pie and donut chart with configurable radius, padding angle, and an
 ### Evil Radar Chart
 
 **name** `evil-radar-chart`
-**upstream** [https://evilcharts.com/docs/components/radar-chart](https://evilcharts.com/docs/components/radar-chart)
-**files** `src/components/ui/evil-radar-chart.tsx`
+**upstream** https://evilcharts.com/docs/components/radar-chart
 
 Feature-rich radar chart with filled, lines variants, polygon grid, radial gradients, and glow effects.
+
 **categories** charts
+
+**files to copy** (7)
+- `src/components/evilcharts/charts/radar-chart.tsx`
+- `src/components/evilcharts/ui/background.tsx`
+- `src/components/evilcharts/ui/chart.tsx`
+- `src/components/evilcharts/ui/dot.tsx`
+- `src/components/evilcharts/ui/legend.tsx`
+- `src/components/evilcharts/ui/tooltip.tsx`
+- `src/components/ui/evil-radar-chart.tsx`
+
+**npm deps** `recharts`
 
 **variants** (1)
 
@@ -221,13 +336,27 @@ Feature-rich radar chart with filled, lines variants, polygon grid, radial gradi
 ### Data Grid
 
 **name** `data-grid`
-**upstream** [https://www.diceui.com/docs/components/radix/data-grid](https://www.diceui.com/docs/components/radix/data-grid)
-**files** `src/components/ui/data-grid.tsx`
+**upstream** https://www.diceui.com/docs/components/radix/data-grid
 
 High-performance editable spreadsheet with virtualization, 9 cell types, clipboard, undo/redo, search, sorting, and column management.
 
-**deps** `button`, `checkbox`, `command`, `context-menu`, `dialog`, `dropdown-menu`, `input`, `popover`, `select`, `separator`, `table`, `tooltip`
 **categories** data, forms
+
+**files to copy** (10)
+- `src/components/data-grid/data-grid-cell-variants.tsx`
+- `src/components/data-grid/data-grid-cell-wrapper.tsx`
+- `src/components/data-grid/data-grid-cell.tsx`
+- `src/components/data-grid/data-grid-column-header.tsx`
+- `src/components/data-grid/data-grid-context-menu.tsx`
+- `src/components/data-grid/data-grid-paste-dialog.tsx`
+- `src/components/data-grid/data-grid-row.tsx`
+- `src/components/data-grid/data-grid-search.tsx`
+- `src/components/data-grid/data-grid.tsx`
+- `src/components/ui/data-grid.tsx`
+
+**shadcn primitives required** `button`, `checkbox`, `command`, `context-menu`, `dialog`, `dropdown-menu`, `input`, `popover`, `select`, `separator`, `table`, `tooltip`
+
+**npm deps** `@tanstack/react-table`, `@tanstack/react-virtual`, `class-variance-authority`, `cmdk`, `lucide-react`, `radix-ui`, `react-day-picker`, `sonner`
 
 **variants** (1)
 
@@ -238,13 +367,20 @@ High-performance editable spreadsheet with virtualization, 9 cell types, clipboa
 ### Data Table
 
 **name** `data-table`
-**upstream** [https://www.diceui.com/docs/components/radix/data-table](https://www.diceui.com/docs/components/radix/data-table)
-**files** `src/components/ui/data-table.tsx`
+**upstream** https://www.diceui.com/docs/components/radix/data-table
 
 Feature-rich data table with advanced filtering, URL state sync, multi-column sorting, pagination, column visibility, row selection, and action bar.
 
-**deps** `button`, `badge`, `calendar`, `checkbox`, `command`, `dialog`, `dropdown-menu`, `input`, `popover`, `select`, `separator`, `skeleton`, `slider`, `table`, `tooltip`
 **categories** data, display
+
+**files to copy** (3)
+- `src/components/data-table/data-table-pagination.tsx`
+- `src/components/data-table/data-table.tsx`
+- `src/components/ui/data-table.tsx`
+
+**shadcn primitives required** `button`, `badge`, `calendar`, `checkbox`, `command`, `dialog`, `dropdown-menu`, `input`, `popover`, `select`, `separator`, `skeleton`, `slider`, `table`, `tooltip`
+
+**npm deps** `@tanstack/react-table`, `class-variance-authority`, `lucide-react`, `radix-ui`
 
 **variants** (13)
 
@@ -267,11 +403,37 @@ Feature-rich data table with advanced filtering, URL state sync, multi-column so
 ### Data Table Filter
 
 **name** `data-table-filter`
-**upstream** [https://ui.bazza.dev/docs/data-table-filter](https://ui.bazza.dev/docs/data-table-filter)
-**files** `src/components/ui/data-table-filter.tsx`
+**upstream** https://ui.bazza.dev/docs/data-table-filter
 
 Linear-style data table filter bar with subject + operator + value pill chips. Library-agnostic, supports client and server filtering strategies.
+
 **categories** data
+
+**files to copy** (22)
+- `src/components/data-table-filter/components/active-filters.tsx`
+- `src/components/data-table-filter/components/data-table-filter.tsx`
+- `src/components/data-table-filter/components/filter-actions.tsx`
+- `src/components/data-table-filter/components/filter-operator.tsx`
+- `src/components/data-table-filter/components/filter-selector.tsx`
+- `src/components/data-table-filter/components/filter-subject.tsx`
+- `src/components/data-table-filter/components/filter-value.tsx`
+- `src/components/data-table-filter/core/filters.ts`
+- `src/components/data-table-filter/core/operators.ts`
+- `src/components/data-table-filter/core/types.ts`
+- `src/components/data-table-filter/hooks/use-data-table-filters.tsx`
+- `src/components/data-table-filter/hooks/use-debounce-callback.tsx`
+- `src/components/data-table-filter/hooks/use-unmount.tsx`
+- `src/components/data-table-filter/index.tsx`
+- `src/components/data-table-filter/lib/array.ts`
+- `src/components/data-table-filter/lib/debounce.ts`
+- `src/components/data-table-filter/lib/helpers.ts`
+- `src/components/data-table-filter/lib/i18n.ts`
+- `src/components/data-table-filter/lib/memo.ts`
+- `src/components/data-table-filter/locales/en.json`
+- `src/components/data-table-filter/ui/debounced-input.tsx`
+- `src/components/ui/data-table-filter.tsx`
+
+**npm deps** `class-variance-authority`, `cmdk`, `date-fns`, `lucide-react`, `radix-ui`, `react-day-picker`
 
 **variants** (3)
 
@@ -286,13 +448,18 @@ Linear-style data table filter bar with subject + operator + value pill chips. L
 ### API Response Viewer
 
 **name** `api-response-viewer`
-**upstream** [https://www.tryelements.dev/docs/devtools/api-response-viewer](https://www.tryelements.dev/docs/devtools/api-response-viewer)
-**files** `src/components/ui/api-response-viewer.tsx`
+**upstream** https://www.tryelements.dev/docs/devtools/api-response-viewer
 
 Tabbed HTTP response inspector with status badge, collapsible JSON body, headers table, and timing waterfall breakdown.
 
-**deps** `button`, `tabs`
 **categories** data, display
+
+**files to copy** (1)
+- `src/components/ui/api-response-viewer.tsx`
+
+**shadcn primitives required** `button`, `tabs`
+
+**npm deps** `class-variance-authority`, `radix-ui`
 
 **variants** (1)
 
@@ -303,13 +470,18 @@ Tabbed HTTP response inspector with status badge, collapsible JSON body, headers
 ### Env Editor
 
 **name** `env-editor`
-**upstream** [https://www.tryelements.dev/docs/devtools/env-editor](https://www.tryelements.dev/docs/devtools/env-editor)
-**files** `src/components/ui/env-editor.tsx`
+**upstream** https://www.tryelements.dev/docs/devtools/env-editor
 
 Key-value grid editor for environment variables with masked values, add/remove rows, and .env file import/export.
 
-**deps** `button`
 **categories** forms, data
+
+**files to copy** (1)
+- `src/components/ui/env-editor.tsx`
+
+**shadcn primitives required** `button`
+
+**npm deps** `class-variance-authority`, `lucide-react`, `radix-ui`
 
 **variants** (1)
 
@@ -320,13 +492,18 @@ Key-value grid editor for environment variables with masked values, add/remove r
 ### Error Boundary UI
 
 **name** `error-boundary-ui`
-**upstream** [https://www.tryelements.dev/docs/devtools/error-boundary-ui](https://www.tryelements.dev/docs/devtools/error-boundary-ui)
-**files** `src/components/ui/error-boundary-ui.tsx`
+**upstream** https://www.tryelements.dev/docs/devtools/error-boundary-ui
 
 Error fallback display with stack trace parsing, copy-to-clipboard, retry button, and dev/prod verbosity modes.
 
-**deps** `button`
 **categories** feedback
+
+**files to copy** (1)
+- `src/components/ui/error-boundary-ui.tsx`
+
+**shadcn primitives required** `button`
+
+**npm deps** `class-variance-authority`, `lucide-react`, `radix-ui`
 
 **variants** (1)
 
@@ -337,13 +514,18 @@ Error fallback display with stack trace parsing, copy-to-clipboard, retry button
 ### JSON Viewer
 
 **name** `json-viewer`
-**upstream** [https://www.tryelements.dev/docs/devtools/json-viewer](https://www.tryelements.dev/docs/devtools/json-viewer)
-**files** `src/components/ui/json-viewer.tsx`
+**upstream** https://www.tryelements.dev/docs/devtools/json-viewer
 
 Collapsible JSON tree with syntax-highlighted types, configurable depth, search filter, and copy-path-on-hover.
 
-**deps** `button`, `input`
 **categories** data, display
+
+**files to copy** (1)
+- `src/components/ui/json-viewer.tsx`
+
+**shadcn primitives required** `button`, `input`
+
+**npm deps** `class-variance-authority`, `radix-ui`
 
 **variants** (1)
 
@@ -354,33 +536,48 @@ Collapsible JSON tree with syntax-highlighted types, configurable depth, search 
 ### OG Category Section
 
 **name** `og-category-section`
-**upstream** [https://www.tryelements.dev/docs/devtools/og-image-explorer](https://www.tryelements.dev/docs/devtools/og-image-explorer)
-**files** `src/components/ui/og-category-section.tsx`
+**upstream** https://www.tryelements.dev/docs/devtools/og-image-explorer
 
 Internal sub-component of OG Image Explorer: collapsible category group with expand/collapse and item count.
 
-**deps** `og-image-card`
 **categories** display
+
+**files to copy** (1)
+- `src/components/ui/og-category-section.tsx`
+
+**shadcn primitives required** `og-image-card`
+
+**npm deps** `class-variance-authority`, `lucide-react`, `radix-ui`
 
 ### OG Image Card
 
 **name** `og-image-card`
-**upstream** [https://www.tryelements.dev/docs/devtools/og-image-explorer](https://www.tryelements.dev/docs/devtools/og-image-explorer)
-**files** `src/components/ui/og-image-card.tsx`
+**upstream** https://www.tryelements.dev/docs/devtools/og-image-explorer
 
 Internal sub-component of OG Image Explorer: single OG image preview card with load/error status border indicator.
+
 **categories** display
+
+**files to copy** (1)
+- `src/components/ui/og-image-card.tsx`
+
+**npm deps** `class-variance-authority`, `lucide-react`, `radix-ui`
 
 ### OG Image Explorer
 
 **name** `og-image-explorer`
-**upstream** [https://www.tryelements.dev/docs/devtools/og-image-explorer](https://www.tryelements.dev/docs/devtools/og-image-explorer)
-**files** `src/components/ui/og-image-explorer.tsx`
+**upstream** https://www.tryelements.dev/docs/devtools/og-image-explorer
 
 Visual gallery grid for auditing Open Graph images across app routes, with status borders and category grouping.
 
-**deps** `og-category-section`, `og-image-card`
 **categories** display
+
+**files to copy** (1)
+- `src/components/ui/og-image-explorer.tsx`
+
+**shadcn primitives required** `og-category-section`, `og-image-card`
+
+**npm deps** `class-variance-authority`, `lucide-react`, `radix-ui`
 
 **variants** (1)
 
@@ -391,13 +588,18 @@ Visual gallery grid for auditing Open Graph images across app routes, with statu
 ### Webhook Tester
 
 **name** `webhook-tester`
-**upstream** [https://www.tryelements.dev/docs/devtools/webhook-tester](https://www.tryelements.dev/docs/devtools/webhook-tester)
-**files** `src/components/ui/webhook-tester.tsx`
+**upstream** https://www.tryelements.dev/docs/devtools/webhook-tester
 
 HTTP request builder with method selector, URL input, headers editor, JSON body, and color-coded response display.
 
-**deps** `button`, `input`, `native-select`, `textarea`
 **categories** forms, data
+
+**files to copy** (1)
+- `src/components/ui/webhook-tester.tsx`
+
+**shadcn primitives required** `button`, `input`, `native-select`, `textarea`
+
+**npm deps** `class-variance-authority`, `lucide-react`, `radix-ui`
 
 **variants** (1)
 
@@ -410,13 +612,18 @@ HTTP request builder with method selector, URL input, headers editor, JSON body,
 ### Browser
 
 **name** `browser`
-**upstream** [https://www.eldoraui.site/docs/components/browser](https://www.eldoraui.site/docs/components/browser)
-**files** `src/components/ui/browser.tsx`
+**upstream** https://www.eldoraui.site/docs/components/browser
 
 Interactive browser simulator with tab management, address bar, navigation, bookmarks, history, and downloads.
 
-**deps** `button`, `badge`, `card`, `separator`, `input`
 **categories** display
+
+**files to copy** (1)
+- `src/components/ui/browser.tsx`
+
+**shadcn primitives required** `button`, `badge`, `card`, `separator`, `input`
+
+**npm deps** `class-variance-authority`, `lucide-react`, `next`, `radix-ui`
 
 **variants** (1)
 
@@ -427,13 +634,16 @@ Interactive browser simulator with tab management, address bar, navigation, book
 ### Card Styles
 
 **name** `card-styles`
-**upstream** [https://cardcn.dev/cards/basic-cards/](https://cardcn.dev/cards/basic-cards/)
-**files** `src/components/ui/card-styles.tsx`
+**upstream** https://cardcn.dev/cards/basic-cards/
 
 Creative card style variants: retro shadow, line borders, hatched pattern, aurora glow, tilted layer, and stacked depth.
 
-**deps** `card`
 **categories** display, layout
+
+**files to copy** (1)
+- `src/components/ui/card-styles.tsx`
+
+**shadcn primitives required** `card`
 
 **variants** (6)
 
@@ -449,11 +659,16 @@ Creative card style variants: retro shadow, line borders, hatched pattern, auror
 ### Color Swatch
 
 **name** `color-swatch`
-**upstream** [https://www.diceui.com/docs/components/radix/color-swatch](https://www.diceui.com/docs/components/radix/color-swatch)
-**files** `src/components/ui/color-swatch.tsx`
+**upstream** https://www.diceui.com/docs/components/radix/color-swatch
 
 Color preview swatch with configurable size, radius, and optional checkered background for transparency.
+
 **categories** display
+
+**files to copy** (1)
+- `src/components/ui/color-swatch.tsx`
+
+**npm deps** `class-variance-authority`, `radix-ui`
 
 **variants** (1)
 
@@ -464,11 +679,16 @@ Color preview swatch with configurable size, radius, and optional checkered back
 ### Commit Graph
 
 **name** `commit-graph`
-**upstream** [https://ui.justinlevine.me/docs/components/commit-graph](https://ui.justinlevine.me/docs/components/commit-graph)
-**files** `src/components/ui/commit-graph.tsx`
+**upstream** https://ui.justinlevine.me/docs/components/commit-graph
 
 Topological git graph with SVG rail lines showing branch forks, merges, and commit ancestry with interactive popovers.
+
 **categories** display, data
+
+**files to copy** (1)
+- `src/components/ui/commit-graph.tsx`
+
+**npm deps** `radix-ui`
 
 **variants** (1)
 
@@ -479,11 +699,16 @@ Topological git graph with SVG rail lines showing branch forks, merges, and comm
 ### Gauge
 
 **name** `gauge`
-**upstream** [https://www.diceui.com/docs/components/radix/gauge](https://www.diceui.com/docs/components/radix/gauge)
-**files** `src/components/ui/gauge.tsx`
+**upstream** https://www.diceui.com/docs/components/radix/gauge
 
 SVG gauge/meter component with configurable min/max, segments, labels, and needle indicator.
+
 **categories** display, feedback
+
+**files to copy** (1)
+- `src/components/ui/gauge.tsx`
+
+**npm deps** `radix-ui`
 
 **variants** (1)
 
@@ -494,11 +719,16 @@ SVG gauge/meter component with configurable min/max, segments, labels, and needl
 ### Key Value
 
 **name** `key-value`
-**upstream** [https://www.diceui.com/docs/components/radix/key-value](https://www.diceui.com/docs/components/radix/key-value)
-**files** `src/components/ui/key-value.tsx`
+**upstream** https://www.diceui.com/docs/components/radix/key-value
 
 Editable key-value pair input with add/remove/reorder, validation, and clipboard support.
+
 **categories** display, forms
+
+**files to copy** (1)
+- `src/components/ui/key-value.tsx`
+
+**npm deps** `class-variance-authority`, `lucide-react`, `radix-ui`
 
 **variants** (1)
 
@@ -509,11 +739,16 @@ Editable key-value pair input with add/remove/reorder, validation, and clipboard
 ### QR Code
 
 **name** `qr-code`
-**upstream** [https://www.diceui.com/docs/components/radix/qr-code](https://www.diceui.com/docs/components/radix/qr-code)
-**files** `src/components/ui/qr-code.tsx`
+**upstream** https://www.diceui.com/docs/components/radix/qr-code
 
 QR code generator with customizable size, error correction, colors, and optional logo overlay.
+
 **categories** display
+
+**files to copy** (1)
+- `src/components/ui/qr-code.tsx`
+
+**npm deps** `radix-ui`
 
 **variants** (1)
 
@@ -524,11 +759,16 @@ QR code generator with customizable size, error correction, colors, and optional
 ### ReUI Badge
 
 **name** `reui-badge`
-**upstream** [https://reui.io/components](https://reui.io/components)
-**files** `src/components/ui/reui-badge.tsx`
+**upstream** https://reui.io/components
 
 Enhanced badge with 20+ semantic variants (success, warning, info, destructive, light, outline), sizes, and radius.
+
 **categories** display
+
+**files to copy** (1)
+- `src/components/ui/reui-badge.tsx`
+
+**npm deps** `class-variance-authority`, `radix-ui`
 
 **variants** (2)
 
@@ -540,11 +780,16 @@ Enhanced badge with 20+ semantic variants (success, warning, info, destructive, 
 ### Timeline
 
 **name** `timeline`
-**upstream** [https://www.diceui.com/docs/components/radix/timeline](https://www.diceui.com/docs/components/radix/timeline)
-**files** `src/components/ui/timeline.tsx`
+**upstream** https://www.diceui.com/docs/components/radix/timeline
 
 Vertical or horizontal timeline with active step tracking, connector lines, and customizable content per step.
+
 **categories** display
+
+**files to copy** (1)
+- `src/components/ui/timeline.tsx`
+
+**npm deps** `class-variance-authority`, `radix-ui`
 
 **variants** (1)
 
@@ -557,11 +802,16 @@ Vertical or horizontal timeline with active step tracking, connector lines, and 
 ### Border Beam
 
 **name** `border-beam`
-**upstream** [https://magicui.design/docs/components/border-beam](https://magicui.design/docs/components/border-beam)
-**files** `src/components/ui/border-beam.tsx`
+**upstream** https://magicui.design/docs/components/border-beam
 
 Animated border effect where a glowing beam travels around an element perimeter in a continuous loop.
+
 **categories** effects
+
+**files to copy** (1)
+- `src/components/ui/border-beam.tsx`
+
+**npm deps** `motion`
 
 **variants** (1)
 
@@ -572,20 +822,28 @@ Animated border effect where a glowing beam travels around an element perimeter 
 ### Marquee
 
 **name** `marquee`
-**upstream** [https://magicui.design/docs/components/marquee](https://magicui.design/docs/components/marquee)
-**files** `src/components/ui/marquee.tsx`
+**upstream** https://magicui.design/docs/components/marquee
 
 Horizontal or vertical scrolling marquee animation with pause-on-hover, reverse direction, and configurable speed.
+
 **categories** effects
+
+**files to copy** (1)
+- `src/components/ui/marquee.tsx`
 
 ### Noise Background
 
 **name** `noise-background`
-**upstream** [https://ui.aceternity.com/components/noise-background](https://ui.aceternity.com/components/noise-background)
-**files** `src/components/ui/noise-background.tsx`
+**upstream** https://ui.aceternity.com/components/noise-background
 
 Animated gradient background with noise texture overlay, spring physics, adjustable speed, and optional backdrop blur.
+
 **categories** display, effects
+
+**files to copy** (1)
+- `src/components/ui/noise-background.tsx`
+
+**npm deps** `motion`
 
 **variants** (2)
 
@@ -597,11 +855,16 @@ Animated gradient background with noise texture overlay, spring physics, adjusta
 ### Terminal Animation
 
 **name** `terminal-animation`
-**upstream** [https://www.cult-ui.com/docs/components/terminal-animation](https://www.cult-ui.com/docs/components/terminal-animation)
-**files** `src/components/ui/terminal-animation.tsx`
+**upstream** https://www.cult-ui.com/docs/components/terminal-animation
 
 Animated terminal/CLI output with typing effect, tab navigation, command bar, blinking cursor, and line-by-line reveal.
+
 **categories** display, effects
+
+**files to copy** (1)
+- `src/components/ui/terminal-animation.tsx`
+
+**npm deps** `@radix-ui/react-slot`
 
 **variants** (1)
 
@@ -614,11 +877,16 @@ Animated terminal/CLI output with typing effect, tab navigation, command bar, bl
 ### Banner
 
 **name** `banner`
-**upstream** [https://www.diceui.com/docs/components/radix/banner](https://www.diceui.com/docs/components/radix/banner)
-**files** `src/components/ui/banner.tsx`
+**upstream** https://www.diceui.com/docs/components/radix/banner
 
 Dismissible notification banner with variant styles, icon, action button, and close. Supports top/bottom layout.
+
 **categories** feedback
+
+**files to copy** (1)
+- `src/components/ui/banner.tsx`
+
+**npm deps** `class-variance-authority`, `lucide-react`, `radix-ui`
 
 **variants** (1)
 
@@ -629,11 +897,16 @@ Dismissible notification banner with variant styles, icon, action button, and cl
 ### Circular Progress
 
 **name** `circular-progress`
-**upstream** [https://www.diceui.com/docs/components/radix/circular-progress](https://www.diceui.com/docs/components/radix/circular-progress)
-**files** `src/components/ui/circular-progress.tsx`
+**upstream** https://www.diceui.com/docs/components/radix/circular-progress
 
 SVG-based circular progress indicator with configurable size, thickness, and value display.
+
 **categories** feedback, display
+
+**files to copy** (1)
+- `src/components/ui/circular-progress.tsx`
+
+**npm deps** `radix-ui`
 
 **variants** (1)
 
@@ -644,11 +917,16 @@ SVG-based circular progress indicator with configurable size, thickness, and val
 ### Multi Step Loader
 
 **name** `multi-step-loader`
-**upstream** [https://ui.aceternity.com/components/multi-step-loader](https://ui.aceternity.com/components/multi-step-loader)
-**files** `src/components/ui/multi-step-loader.tsx`
+**upstream** https://ui.aceternity.com/components/multi-step-loader
 
 Full-screen loading overlay that cycles through a list of steps with animated check marks and progress indicators.
+
 **categories** feedback, effects
+
+**files to copy** (1)
+- `src/components/ui/multi-step-loader.tsx`
+
+**npm deps** `motion`
 
 **variants** (1)
 
@@ -659,11 +937,14 @@ Full-screen loading overlay that cycles through a list of steps with animated ch
 ### Ring Loader
 
 **name** `ring-loader`
-**upstream** [https://loading-ui.com](https://loading-ui.com)
-**files** `src/components/ui/ring-loader.tsx`
+**upstream** https://loading-ui.com
 
 Lightweight SVG spinning ring indicator with configurable size and speed via --duration CSS variable, uses currentColor.
+
 **categories** feedback
+
+**files to copy** (1)
+- `src/components/ui/ring-loader.tsx`
 
 **variants** (1)
 
@@ -674,11 +955,14 @@ Lightweight SVG spinning ring indicator with configurable size and speed via --d
 ### Snail Timer
 
 **name** `snail-timer`
-**upstream** [https://www.uicapsule.com](https://www.uicapsule.com)
-**files** `src/components/ui/snail-timer.tsx`, `src/components/ui/snail-timer.css`
+**upstream** https://www.uicapsule.com
 
 Animated countdown timer with a snail character traversing the screen, dust trail, and configurable duration.
+
 **categories** feedback
+
+**files to copy** (1)
+- `src/components/ui/snail-timer.tsx`
 
 **variants** (1)
 
@@ -691,13 +975,18 @@ Animated countdown timer with a snail character traversing the screen, dust trai
 ### Autocomplete
 
 **name** `autocomplete`
-**upstream** [https://coss.com/ui/docs/components/autocomplete](https://coss.com/ui/docs/components/autocomplete)
-**files** `src/components/ui/autocomplete.tsx`
+**upstream** https://coss.com/ui/docs/components/autocomplete
 
 Input that suggests options as you type. Inline autofill, auto-highlight, async search, groups, clear button, and trigger toggle.
 
-**deps** `scroll-area`
 **categories** forms
+
+**files to copy** (1)
+- `src/components/ui/autocomplete.tsx`
+
+**shadcn primitives required** `scroll-area`
+
+**npm deps** `@base-ui/react`, `lucide-react`, `radix-ui`
 
 **variants** (1)
 
@@ -708,13 +997,18 @@ Input that suggests options as you type. Inline autofill, auto-highlight, async 
 ### Color Picker
 
 **name** `color-picker`
-**upstream** [https://www.diceui.com/docs/components/radix/color-picker](https://www.diceui.com/docs/components/radix/color-picker)
-**files** `src/components/ui/color-picker.tsx`
+**upstream** https://www.diceui.com/docs/components/radix/color-picker
 
 HSL color area picker with hue slider, hex/HSL input, and preset swatches in a popover.
 
-**deps** `button`, `input`, `label`, `popover`
 **categories** forms
+
+**files to copy** (1)
+- `src/components/ui/color-picker.tsx`
+
+**shadcn primitives required** `button`, `input`, `label`, `popover`
+
+**npm deps** `class-variance-authority`, `lucide-react`, `motion`, `radix-ui`
 
 **variants** (1)
 
@@ -725,13 +1019,18 @@ HSL color area picker with hue slider, hex/HSL input, and preset swatches in a p
 ### Creatable Combobox
 
 **name** `creatable-combobox`
-**upstream** [https://flowkit-ui.vzkiss.com/docs/components/creatable-combobox](https://flowkit-ui.vzkiss.com/docs/components/creatable-combobox)
-**files** `src/components/ui/creatable-combobox.tsx`
+**upstream** https://flowkit-ui.vzkiss.com/docs/components/creatable-combobox
 
 Combobox extension with autocomplete and dynamic item creation, built on Base UI and project Combobox primitive.
 
-**deps** `combobox`
 **categories** forms
+
+**files to copy** (1)
+- `src/components/ui/creatable-combobox.tsx`
+
+**shadcn primitives required** `combobox`
+
+**npm deps** `@base-ui/react`, `class-variance-authority`, `lucide-react`, `radix-ui`
 
 **variants** (1)
 
@@ -742,11 +1041,16 @@ Combobox extension with autocomplete and dynamic item creation, built on Base UI
 ### Cropper
 
 **name** `cropper`
-**upstream** [https://www.diceui.com/docs/components/radix/cropper](https://www.diceui.com/docs/components/radix/cropper)
-**files** `src/components/ui/cropper.tsx`
+**upstream** https://www.diceui.com/docs/components/radix/cropper
 
 Image cropper with zoom, rotation, aspect ratio lock, and crop area selection. Touch and keyboard support.
+
 **categories** forms, display
+
+**files to copy** (1)
+- `src/components/ui/cropper.tsx`
+
+**npm deps** `class-variance-authority`, `radix-ui`
 
 **variants** (3)
 
@@ -759,11 +1063,16 @@ Image cropper with zoom, rotation, aspect ratio lock, and crop area selection. T
 ### File Upload
 
 **name** `file-upload`
-**upstream** [https://www.diceui.com/docs/components/radix/file-upload](https://www.diceui.com/docs/components/radix/file-upload)
-**files** `src/components/ui/file-upload.tsx`
+**upstream** https://www.diceui.com/docs/components/radix/file-upload
 
 Drag-and-drop file upload with progress tracking, file type validation, size limits, and preview thumbnails.
+
 **categories** forms
+
+**files to copy** (1)
+- `src/components/ui/file-upload.tsx`
+
+**npm deps** `lucide-react`, `radix-ui`
 
 **variants** (1)
 
@@ -774,11 +1083,16 @@ Drag-and-drop file upload with progress tracking, file type validation, size lim
 ### Mention
 
 **name** `mention`
-**upstream** [https://www.diceui.com/docs/components/radix/mention](https://www.diceui.com/docs/components/radix/mention)
-**files** `src/components/ui/mention.tsx`
+**upstream** https://www.diceui.com/docs/components/radix/mention
 
 Text input with @mention autocomplete suggestions triggered by a configurable character.
+
 **categories** forms
+
+**files to copy** (1)
+- `src/components/ui/mention.tsx`
+
+**npm deps** `@diceui/mention`
 
 **variants** (1)
 
@@ -789,11 +1103,16 @@ Text input with @mention autocomplete suggestions triggered by a configurable ch
 ### Phone Input
 
 **name** `phone-input`
-**upstream** [https://www.diceui.com/docs/components/radix/phone-input](https://www.diceui.com/docs/components/radix/phone-input)
-**files** `src/components/ui/phone-input.tsx`
+**upstream** https://www.diceui.com/docs/components/radix/phone-input
 
 International phone number input with country code selector, flag display, and format validation.
+
 **categories** forms
+
+**files to copy** (1)
+- `src/components/ui/phone-input.tsx`
+
+**npm deps** `class-variance-authority`, `cmdk`, `lucide-react`, `radix-ui`
 
 **variants** (1)
 
@@ -804,11 +1123,16 @@ International phone number input with country code selector, flag display, and f
 ### Segmented Input
 
 **name** `segmented-input`
-**upstream** [https://www.diceui.com/docs/components/radix/segmented-input](https://www.diceui.com/docs/components/radix/segmented-input)
-**files** `src/components/ui/segmented-input.tsx`
+**upstream** https://www.diceui.com/docs/components/radix/segmented-input
 
 Multi-segment input (date, time, code) with individual segment focus, keyboard navigation, and validation.
+
 **categories** forms
+
+**files to copy** (1)
+- `src/components/ui/segmented-input.tsx`
+
+**npm deps** `class-variance-authority`, `radix-ui`
 
 **variants** (1)
 
@@ -819,13 +1143,18 @@ Multi-segment input (date, time, code) with individual segment focus, keyboard n
 ### Signature Pad
 
 **name** `signature-pad`
-**upstream** [https://shark.vini.one/docs/components/signature-pad](https://shark.vini.one/docs/components/signature-pad)
-**files** `src/components/ui/signature-pad.tsx`
+**upstream** https://shark.vini.one/docs/components/signature-pad
 
 Canvas-based hand-drawn signature capture with clear button, guide line, and image export via Ark UI.
 
-**deps** `button`
 **categories** forms
+
+**files to copy** (1)
+- `src/components/ui/signature-pad.tsx`
+
+**shadcn primitives required** `button`
+
+**npm deps** `@ark-ui/react`, `class-variance-authority`, `lucide-react`, `radix-ui`
 
 **variants** (1)
 
@@ -836,11 +1165,16 @@ Canvas-based hand-drawn signature capture with clear button, guide line, and ima
 ### Tags Input
 
 **name** `tags-input`
-**upstream** [https://www.diceui.com/docs/components/radix/tags-input](https://www.diceui.com/docs/components/radix/tags-input)
-**files** `src/components/ui/tags-input.tsx`
+**upstream** https://www.diceui.com/docs/components/radix/tags-input
 
 Input field for adding and removing tags/chips with keyboard support and validation.
+
 **categories** forms
+
+**files to copy** (1)
+- `src/components/ui/tags-input.tsx`
+
+**npm deps** `@diceui/tags-input`, `lucide-react`
 
 **variants** (1)
 
@@ -853,13 +1187,18 @@ Input field for adding and removing tags/chips with keyboard support and validat
 ### Separator Extended
 
 **name** `separator-extended`
-**upstream** [https://basecn.dev/docs/components/separator-extended](https://basecn.dev/docs/components/separator-extended)
-**files** `src/components/ui/separator-extended.tsx`
+**upstream** https://basecn.dev/docs/components/separator-extended
 
 Separator with variant styles: solid (default), dashed, dotted, and double. Supports horizontal and vertical orientation.
 
-**deps** `separator`
 **categories** layout
+
+**files to copy** (1)
+- `src/components/ui/separator-extended.tsx`
+
+**shadcn primitives required** `separator`
+
+**npm deps** `@base-ui/react`, `class-variance-authority`
 
 **variants** (4)
 
@@ -875,11 +1214,16 @@ Separator with variant styles: solid (default), dashed, dotted, and double. Supp
 ### Bottom Navigation
 
 **name** `bottom-navigation`
-**upstream** [https://shark.vini.one/docs/components/bottom-navigation](https://shark.vini.one/docs/components/bottom-navigation)
-**files** `src/components/ui/bottom-navigation.tsx`
+**upstream** https://shark.vini.one/docs/components/bottom-navigation
 
 Mobile-first bottom navigation bar with icon and label items, fixed positioning, and safe-area support.
+
 **categories** navigation
+
+**files to copy** (1)
+- `src/components/ui/bottom-navigation.tsx`
+
+**npm deps** `@ark-ui/react`
 
 **variants** (1)
 
@@ -892,13 +1236,18 @@ Mobile-first bottom navigation bar with icon and label items, fixed positioning,
 ### Floating Panel
 
 **name** `floating-panel`
-**upstream** [https://shark.vini.one/docs/components/floating-panel](https://shark.vini.one/docs/components/floating-panel)
-**files** `src/components/ui/floating-panel.tsx`
+**upstream** https://shark.vini.one/docs/components/floating-panel
 
 Non-modal floating window with drag, resize, minimize, maximize, and restore controls built on Ark UI.
 
-**deps** `button`, `scroll-area`
 **categories** overlay
+
+**files to copy** (1)
+- `src/components/ui/floating-panel.tsx`
+
+**shadcn primitives required** `button`, `scroll-area`
+
+**npm deps** `@ark-ui/react`, `class-variance-authority`, `lucide-react`, `radix-ui`
 
 **variants** (1)
 
@@ -909,13 +1258,18 @@ Non-modal floating window with drag, resize, minimize, maximize, and restore con
 ### Prompt Library
 
 **name** `prompt-library`
-**upstream** [https://www.cult-ui.com/docs/components/prompt-library](https://www.cult-ui.com/docs/components/prompt-library)
-**files** `src/components/ui/prompt-library.tsx`
+**upstream** https://www.cult-ui.com/docs/components/prompt-library
 
 AI prompt template library in a popover with search, categories, hover preview, and custom prompt creation.
 
-**deps** `button`, `command`, `dialog`, `hover-card`, `input`, `popover`, `textarea`
 **categories** overlay, forms
+
+**files to copy** (1)
+- `src/components/ui/prompt-library.tsx`
+
+**shadcn primitives required** `button`, `command`, `dialog`, `hover-card`, `input`, `popover`, `textarea`
+
+**npm deps** `@hugeicons/core-free-icons`, `@hugeicons/react`, `class-variance-authority`, `cmdk`, `lucide-react`, `radix-ui`
 
 **variants** (1)
 
@@ -926,11 +1280,16 @@ AI prompt template library in a popover with search, categories, hover preview, 
 ### Tour
 
 **name** `tour`
-**upstream** [https://www.diceui.com/docs/components/radix/tour](https://www.diceui.com/docs/components/radix/tour)
-**files** `src/components/ui/tour.tsx`
+**upstream** https://www.diceui.com/docs/components/radix/tour
 
 Multi-step guided tour overlay with spotlight highlighting, step navigation, keyboard support, and scroll-to-target.
+
 **categories** overlay, navigation
+
+**files to copy** (1)
+- `src/components/ui/tour.tsx`
+
+**npm deps** `@floating-ui/react-dom`, `class-variance-authority`, `lucide-react`, `radix-ui`
 
 **variants** (1)
 
@@ -943,11 +1302,16 @@ Multi-step guided tour overlay with spotlight highlighting, step navigation, key
 ### PDF Utils
 
 **name** `pdf-utils`
-**upstream** [https://www.tryelements.dev/docs/pdf/pdf-utils](https://www.tryelements.dev/docs/pdf/pdf-utils)
-**files** `src/components/ui/pdf-utils.tsx`
+**upstream** https://www.tryelements.dev/docs/pdf/pdf-utils
 
 Client-side PDF utility library: extract metadata, screenshot pages, search text, generate thumbnails, and split page ranges.
+
 **categories** data
+
+**files to copy** (1)
+- `src/components/ui/pdf-utils.tsx`
+
+**npm deps** `pdf-lib`, `pdfjs-dist`, `react-pdf`
 
 **variants** (1)
 
@@ -958,13 +1322,18 @@ Client-side PDF utility library: extract metadata, screenshot pages, search text
 ### PDF Viewer
 
 **name** `pdf-viewer`
-**upstream** [https://www.tryelements.dev/docs/pdf/pdf-viewer](https://www.tryelements.dev/docs/pdf/pdf-viewer)
-**files** `src/components/ui/pdf-viewer.tsx`
+**upstream** https://www.tryelements.dev/docs/pdf/pdf-viewer
 
 Full-featured PDF viewer with single-page, continuous-scroll, and book layout modes, zoom controls, and page navigation.
 
-**deps** `pdf-utils`, `button`, `input`
 **categories** display
+
+**files to copy** (1)
+- `src/components/ui/pdf-viewer.tsx`
+
+**shadcn primitives required** `pdf-utils`, `button`, `input`
+
+**npm deps** `class-variance-authority`, `radix-ui`, `react-pdf`
 
 **variants** (1)
 
@@ -976,68 +1345,68 @@ Full-featured PDF viewer with single-page, continuous-scroll, and book layout mo
 
 ## External variants under shadcn slugs
 
-> 23 variants from external registries that share a slug with a canonical shadcn primitive. These render under their shadcn section on `/showcase` (with a red "Not in spec" pill, `isFlagged: true`), not under "New Components". Listed here for completeness.
+> 23 example variants from external registries that share a slug with a canonical shadcn primitive. They render under their shadcn section on `/showcase` with a red "Not in spec" pill (`isFlagged: true`). Copy: install the canonical shadcn primitive, then copy the example file.
 
 ### breadcrumb (5)
 
 | name | upstream | file |
 |---|---|---|
-| `breadcrumb-bordered` | [https://www.shadcnblocks.com/components/breadcrumb](https://www.shadcnblocks.com/components/breadcrumb) | `src/components/examples/breadcrumb-bordered.tsx` |
-| `breadcrumb-bullet` | [https://www.shadcnblocks.com/components/breadcrumb](https://www.shadcnblocks.com/components/breadcrumb) | `src/components/examples/breadcrumb-bullet.tsx` |
-| `breadcrumb-icons` | [https://www.shadcnblocks.com/components/breadcrumb](https://www.shadcnblocks.com/components/breadcrumb) | `src/components/examples/breadcrumb-icons.tsx` |
-| `breadcrumb-select` | [https://www.shadcnblocks.com/components/breadcrumb](https://www.shadcnblocks.com/components/breadcrumb) | `src/components/examples/breadcrumb-select.tsx` |
-| `breadcrumb-slash` | [https://www.shadcnblocks.com/components/breadcrumb](https://www.shadcnblocks.com/components/breadcrumb) | `src/components/examples/breadcrumb-slash.tsx` |
+| `breadcrumb-bordered` | https://www.shadcnblocks.com/components/breadcrumb | `src/components/examples/breadcrumb-bordered.tsx` |
+| `breadcrumb-bullet` | https://www.shadcnblocks.com/components/breadcrumb | `src/components/examples/breadcrumb-bullet.tsx` |
+| `breadcrumb-icons` | https://www.shadcnblocks.com/components/breadcrumb | `src/components/examples/breadcrumb-icons.tsx` |
+| `breadcrumb-select` | https://www.shadcnblocks.com/components/breadcrumb | `src/components/examples/breadcrumb-select.tsx` |
+| `breadcrumb-slash` | https://www.shadcnblocks.com/components/breadcrumb | `src/components/examples/breadcrumb-slash.tsx` |
 
 ### button-group (2)
 
 | name | upstream | file |
 |---|---|---|
-| `c-button-group-47` | [https://reui.io/components](https://reui.io/components) | `src/components/examples/c-button-group-47.tsx` |
-| `c-button-group-53` | [https://reui.io/components](https://reui.io/components) | `src/components/examples/c-button-group-53.tsx` |
+| `c-button-group-47` | https://reui.io/components | `src/components/examples/c-button-group-47.tsx` |
+| `c-button-group-53` | https://reui.io/components | `src/components/examples/c-button-group-53.tsx` |
 
 ### calendar (5)
 
 | name | upstream | file |
 |---|---|---|
-| `c-calendar-10` | [https://reui.io/components](https://reui.io/components) | `src/components/examples/c-calendar-10.tsx` |
-| `c-calendar-17` | [https://reui.io/components](https://reui.io/components) | `src/components/examples/c-calendar-17.tsx` |
-| `c-calendar-28` | [https://reui.io/components](https://reui.io/components) | `src/components/examples/c-calendar-28.tsx` |
-| `c-calendar-29` | [https://reui.io/components](https://reui.io/components) | `src/components/examples/c-calendar-29.tsx` |
-| `c-calendar-4` | [https://reui.io/components](https://reui.io/components) | `src/components/examples/c-calendar-4.tsx` |
+| `c-calendar-10` | https://reui.io/components | `src/components/examples/c-calendar-10.tsx` |
+| `c-calendar-17` | https://reui.io/components | `src/components/examples/c-calendar-17.tsx` |
+| `c-calendar-28` | https://reui.io/components | `src/components/examples/c-calendar-28.tsx` |
+| `c-calendar-29` | https://reui.io/components | `src/components/examples/c-calendar-29.tsx` |
+| `c-calendar-4` | https://reui.io/components | `src/components/examples/c-calendar-4.tsx` |
 
 ### card (4)
 
 | name | upstream | file |
 |---|---|---|
-| `c-card-13` | [https://reui.io/components](https://reui.io/components) | `src/components/examples/c-card-13.tsx` |
-| `c-card-15` | [https://reui.io/components](https://reui.io/components) | `src/components/examples/c-card-15.tsx` |
-| `c-card-18` | [https://reui.io/components](https://reui.io/components) | `src/components/examples/c-card-18.tsx` |
-| `c-card-5` | [https://reui.io/components](https://reui.io/components) | `src/components/examples/c-card-5.tsx` |
+| `c-card-13` | https://reui.io/components | `src/components/examples/c-card-13.tsx` |
+| `c-card-15` | https://reui.io/components | `src/components/examples/c-card-15.tsx` |
+| `c-card-18` | https://reui.io/components | `src/components/examples/c-card-18.tsx` |
+| `c-card-5` | https://reui.io/components | `src/components/examples/c-card-5.tsx` |
 
 ### collapsible (2)
 
 | name | upstream | file |
 |---|---|---|
-| `c-collapsible-4` | [https://reui.io/components](https://reui.io/components) | `src/components/examples/c-collapsible-4.tsx` |
-| `c-collapsible-5` | [https://reui.io/components](https://reui.io/components) | `src/components/examples/c-collapsible-5.tsx` |
+| `c-collapsible-4` | https://reui.io/components | `src/components/examples/c-collapsible-4.tsx` |
+| `c-collapsible-5` | https://reui.io/components | `src/components/examples/c-collapsible-5.tsx` |
 
 ### combobox (1)
 
 | name | upstream | file |
 |---|---|---|
-| `c-combobox-19` | [https://reui.io/components](https://reui.io/components) | `src/components/examples/c-combobox-19.tsx` |
+| `c-combobox-19` | https://reui.io/components | `src/components/examples/c-combobox-19.tsx` |
 
 ### command (3)
 
 | name | upstream | file |
 |---|---|---|
-| `c-command-7` | [https://reui.io/components](https://reui.io/components) | `src/components/examples/c-command-7.tsx` |
-| `c-command-8` | [https://reui.io/components](https://reui.io/components) | `src/components/examples/c-command-8.tsx` |
-| `command-popover-default` | [https://www.shadcnblocks.com/component/command/command-popover-5](https://www.shadcnblocks.com/component/command/command-popover-5) | `src/components/examples/command-popover-default.tsx` |
+| `c-command-7` | https://reui.io/components | `src/components/examples/c-command-7.tsx` |
+| `c-command-8` | https://reui.io/components | `src/components/examples/c-command-8.tsx` |
+| `command-popover-default` | https://www.shadcnblocks.com/component/command/command-popover-5 | `src/components/examples/command-popover-default.tsx` |
 
 ### empty (1)
 
 | name | upstream | file |
 |---|---|---|
-| `empty-state-marquee` | [https://shadcnui-blocks.com/block/empty-state-04](https://shadcnui-blocks.com/block/empty-state-04) | `src/components/examples/empty-state-marquee.tsx` |
+| `empty-state-marquee` | https://shadcnui-blocks.com/block/empty-state-04 | `src/components/examples/empty-state-marquee.tsx` |
 
