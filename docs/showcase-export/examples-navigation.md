@@ -10,6 +10,7 @@ Each entry includes slug, variant, upstream URL, deviations, and JSX source.
 **Variant:** `icons`
 **Upstream:** https://www.shadcnblocks.com/components/breadcrumb
 **Description:** Breadcrumb with folder and file icons on every item, distinguishing parent directories from the current page.
+**Flagged:** not in upstream Examples block
 **Depends on:** breadcrumb
 
 ```tsx
@@ -66,6 +67,7 @@ export default function BreadcrumbIcons() {
 **Variant:** `bordered`
 **Upstream:** https://www.shadcnblocks.com/components/breadcrumb
 **Description:** Breadcrumb wrapped in a rounded bordered container with padding, creating a pill-style navigation element.
+**Flagged:** not in upstream Examples block
 **Depends on:** breadcrumb
 
 ```tsx
@@ -111,6 +113,7 @@ export default function BreadcrumbBordered() {
 **Variant:** `bullet`
 **Upstream:** https://www.shadcnblocks.com/components/breadcrumb
 **Description:** Breadcrumb with bullet dot separators instead of the default chevron, providing a compact visual alternative.
+**Flagged:** not in upstream Examples block
 **Depends on:** breadcrumb
 
 ```tsx
@@ -156,6 +159,7 @@ export default function BreadcrumbBullet() {
 **Variant:** `slash`
 **Upstream:** https://www.shadcnblocks.com/components/breadcrumb
 **Description:** Breadcrumb with slash icon separators using the Lucide Slash icon for a traditional path-style appearance.
+**Flagged:** not in upstream Examples block
 **Depends on:** breadcrumb
 
 ```tsx
@@ -207,6 +211,7 @@ export default function BreadcrumbSlash() {
 **Variant:** `select`
 **Upstream:** https://www.shadcnblocks.com/components/breadcrumb
 **Description:** Breadcrumb with a Select dropdown for path segment navigation, allowing users to switch between sections inline.
+**Flagged:** not in upstream Examples block
 **Depends on:** breadcrumb, select
 
 ```tsx

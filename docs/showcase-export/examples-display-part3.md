@@ -601,6 +601,7 @@ export default function DataTableExpandable() {
 **Variant:** `reui-multiple`
 **Upstream:** https://reui.io/components
 **Description:** Calendar demonstrating multi-day selection mode with pre-selected dates, from ReUI registry.
+**Flagged:** not in upstream Examples block
 **Depends on:** calendar, card
 
 ```tsx
@@ -636,6 +637,7 @@ export default function CalendarMultipleDaySelection() {
 **Variant:** `reui-week-numbers`
 **Upstream:** https://reui.io/components
 **Description:** Calendar displaying ISO week numbers alongside each row using custom WeekNumber component.
+**Flagged:** not in upstream Examples block
 **Depends on:** calendar, card
 
 ```tsx
@@ -682,6 +684,7 @@ export default function CalendarWeekNumbers() {
 **Variant:** `reui-pricing`
 **Upstream:** https://reui.io/components
 **Description:** Calendar with per-day dynamic pricing using custom DayButton, prices under $100 highlighted green.
+**Flagged:** not in upstream Examples block
 **Depends on:** calendar
 
 ```tsx
@@ -736,6 +739,7 @@ export default function CalendarWithPricing() {
 **Variant:** `reui-date-picker-presets`
 **Upstream:** https://reui.io/components
 **Description:** Popover date picker with sidebar preset buttons (Today, Yesterday, Last week, etc.) and calendar.
+**Flagged:** not in upstream Examples block
 **Depends on:** button, calendar, card, popover
 
 ```tsx
@@ -865,6 +869,7 @@ export default function CalendarDatePickerPresets() {
 **Variant:** `reui-range-presets`
 **Upstream:** https://reui.io/components
 **Description:** Popover date range picker with 8 preset ranges and dual-mode calendar selection.
+**Flagged:** not in upstream Examples block
 **Depends on:** button, calendar, card, popover
 
 ```tsx

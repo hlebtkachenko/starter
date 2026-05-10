@@ -10,6 +10,7 @@ Each entry includes slug, variant, upstream URL, deviations, and JSX source.
 **Variant:** `marquee`
 **Upstream:** https://shadcnui-blocks.com/block/empty-state-04
 **Description:** Empty state with animated vertical marquee backdrop showing placeholder project items and two action buttons.
+**Flagged:** not in upstream Examples block
 **Depends on:** empty, marquee, button
 
 ```tsx

@@ -10,6 +10,7 @@ Each entry includes slug, variant, upstream URL, deviations, and JSX source.
 **Variant:** `reui-multi-select-users`
 **Upstream:** https://reui.io/components
 **Description:** Combobox with avatar-decorated chips, searchable dropdown, removable selections, and member info.
+**Flagged:** not in upstream Examples block
 **Depends on:** avatar, combobox, field, item
 
 ```tsx

@@ -1308,7 +1308,7 @@
       }
     ],
     "isDefault": false,
-    "isFlagged": false,
+    "isFlagged": true,
     "name": "breadcrumb-bordered",
     "registryDependencies": [
       "breadcrumb"
@@ -1331,7 +1331,7 @@
       }
     ],
     "isDefault": false,
-    "isFlagged": false,
+    "isFlagged": true,
     "name": "breadcrumb-bullet",
     "registryDependencies": [
       "breadcrumb"
@@ -1461,7 +1461,7 @@
       }
     ],
     "isDefault": false,
-    "isFlagged": false,
+    "isFlagged": true,
     "name": "breadcrumb-icons",
     "registryDependencies": [
       "breadcrumb"
@@ -1508,7 +1508,7 @@
       }
     ],
     "isDefault": false,
-    "isFlagged": false,
+    "isFlagged": true,
     "name": "breadcrumb-select",
     "registryDependencies": [
       "breadcrumb",
@@ -1532,7 +1532,7 @@
       }
     ],
     "isDefault": false,
-    "isFlagged": false,
+    "isFlagged": true,
     "name": "breadcrumb-slash",
     "registryDependencies": [
       "breadcrumb"
@@ -2249,7 +2249,7 @@
         "type": "registry:example"
       }
     ],
-    "isFlagged": false,
+    "isFlagged": true,
     "name": "c-button-group-47",
     "registryDependencies": [
       "button",
@@ -2274,7 +2274,7 @@
         "type": "registry:example"
       }
     ],
-    "isFlagged": false,
+    "isFlagged": true,
     "name": "c-button-group-53",
     "registryDependencies": [
       "avatar",
@@ -2301,7 +2301,7 @@
         "type": "registry:example"
       }
     ],
-    "isFlagged": false,
+    "isFlagged": true,
     "name": "c-calendar-10",
     "registryDependencies": [
       "calendar",
@@ -2325,7 +2325,7 @@
         "type": "registry:example"
       }
     ],
-    "isFlagged": false,
+    "isFlagged": true,
     "name": "c-calendar-17",
     "registryDependencies": [
       "calendar"
@@ -2348,7 +2348,7 @@
         "type": "registry:example"
       }
     ],
-    "isFlagged": false,
+    "isFlagged": true,
     "name": "c-calendar-28",
     "registryDependencies": [
       "button",
@@ -2374,7 +2374,7 @@
         "type": "registry:example"
       }
     ],
-    "isFlagged": false,
+    "isFlagged": true,
     "name": "c-calendar-29",
     "registryDependencies": [
       "button",
@@ -2400,7 +2400,7 @@
         "type": "registry:example"
       }
     ],
-    "isFlagged": false,
+    "isFlagged": true,
     "name": "c-calendar-4",
     "registryDependencies": [
       "calendar",
@@ -2425,7 +2425,7 @@
       }
     ],
     "height": "tall",
-    "isFlagged": false,
+    "isFlagged": true,
     "name": "c-card-13",
     "registryDependencies": [
       "button",
@@ -2450,7 +2450,7 @@
         "type": "registry:example"
       }
     ],
-    "isFlagged": false,
+    "isFlagged": true,
     "name": "c-card-15",
     "registryDependencies": [
       "reui-badge",
@@ -2477,7 +2477,7 @@
         "type": "registry:example"
       }
     ],
-    "isFlagged": false,
+    "isFlagged": true,
     "name": "c-card-18",
     "registryDependencies": [
       "card"
@@ -2500,7 +2500,7 @@
         "type": "registry:example"
       }
     ],
-    "isFlagged": false,
+    "isFlagged": true,
     "name": "c-card-5",
     "registryDependencies": [
       "button",
@@ -2525,7 +2525,7 @@
       }
     ],
     "height": "tall",
-    "isFlagged": false,
+    "isFlagged": true,
     "name": "c-collapsible-4",
     "registryDependencies": [
       "button",
@@ -2551,7 +2551,7 @@
         "type": "registry:example"
       }
     ],
-    "isFlagged": false,
+    "isFlagged": true,
     "name": "c-collapsible-5",
     "registryDependencies": [
       "button",
@@ -2578,7 +2578,7 @@
         "type": "registry:example"
       }
     ],
-    "isFlagged": false,
+    "isFlagged": true,
     "name": "c-combobox-19",
     "registryDependencies": [
       "avatar",
@@ -2604,7 +2604,7 @@
         "type": "registry:example"
       }
     ],
-    "isFlagged": false,
+    "isFlagged": true,
     "name": "c-command-7",
     "registryDependencies": [
       "button",
@@ -2628,7 +2628,7 @@
         "type": "registry:example"
       }
     ],
-    "isFlagged": false,
+    "isFlagged": true,
     "name": "c-command-8",
     "registryDependencies": [
       "button",
@@ -4393,7 +4393,7 @@
       }
     ],
     "isDefault": false,
-    "isFlagged": false,
+    "isFlagged": true,
     "name": "command-popover-default",
     "registryDependencies": [
       "command",
@@ -6355,7 +6355,7 @@
     ],
     "height": "tall",
     "isDefault": false,
-    "isFlagged": false,
+    "isFlagged": true,
     "name": "empty-state-marquee",
     "registryDependencies": [
       "empty",
