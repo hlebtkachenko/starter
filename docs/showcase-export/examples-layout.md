@@ -481,6 +481,7 @@ export default function CardStylesStacked() {
 **Variant:** `reui-with-link`
 **Upstream:** https://reui.io/components
 **Description:** Compact help card with title, descriptive text, and link button with external link icon.
+**Flagged:** not in upstream Examples block
 **Depends on:** button, card
 
 ```tsx
@@ -513,6 +514,7 @@ export default function CardWithLink() {
 **Variant:** `reui-expandable-billing`
 **Upstream:** https://reui.io/components
 **Description:** Billing card with credit usage progress bar, collapsible line items, and gradient fade toggle.
+**Flagged:** not in upstream Examples block
 **Depends on:** button, card, progress
 
 ```tsx
@@ -612,6 +614,7 @@ export default function CardExpandableBilling() {
 **Variant:** `reui-stat-trend`
 **Upstream:** https://reui.io/components
 **Description:** Revenue stat card with trend badge, delta percentage, comparison, and dropdown settings menu.
+**Flagged:** not in upstream Examples block
 **Depends on:** reui-badge, button, card, dropdown-menu, separator
 
 ```tsx
@@ -711,6 +714,7 @@ export default function CardStatWithTrend() {
 **Variant:** `reui-header-label`
 **Upstream:** https://reui.io/components
 **Description:** Documentation card with icon-labeled header section, descriptive text, and inline link.
+**Flagged:** not in upstream Examples block
 **Depends on:** card
 
 ```tsx
@@ -755,6 +759,7 @@ export default function CardHeaderLabelLink() {
 **Variant:** `reui-bottom-trigger`
 **Upstream:** https://reui.io/components
 **Description:** Billing summary card with collapsible line items expanded by centered chevron button at bottom.
+**Flagged:** not in upstream Examples block
 **Depends on:** button, card, collapsible, progress
 
 ```tsx
@@ -830,6 +835,7 @@ export default function CollapsibleCardBottomTrigger() {
 **Variant:** `reui-form-fields`
 **Upstream:** https://reui.io/components
 **Description:** Unit pricing form with base price input and collapsible tax/discount fields toggled by settings button.
+**Flagged:** not in upstream Examples block
 **Depends on:** button, card, collapsible, field, input-group
 
 ```tsx

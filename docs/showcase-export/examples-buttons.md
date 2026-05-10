@@ -1566,6 +1566,7 @@ export default function ToggleGroupCustom() {
 **Variant:** `reui-review-actions`
 **Upstream:** https://reui.io/components
 **Description:** Split button group with approve action and dropdown for conditional approval and rejection.
+**Flagged:** not in upstream Examples block
 **Depends on:** button, button-group, dropdown-menu
 
 ```tsx
@@ -1635,6 +1636,7 @@ export default function ReviewActionsSplitButton() {
 **Variant:** `reui-publish-controls`
 **Upstream:** https://reui.io/components
 **Description:** Toolbar with avatar group, preview button, split publish dropdown, and overflow menu.
+**Flagged:** not in upstream Examples block
 **Depends on:** avatar, button, button-group, dropdown-menu, separator
 
 ```tsx

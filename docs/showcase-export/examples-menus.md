@@ -10,6 +10,7 @@ Each entry includes slug, variant, upstream URL, deviations, and JSX source.
 **Variant:** `popover`
 **Upstream:** https://www.shadcnblocks.com/component/command/command-popover-5
 **Description:** Command palette embedded in a popover with searchable contact list, icons, and description subtext per item.
+**Flagged:** not in upstream Examples block
 **Depends on:** command, popover, button
 
 ```tsx
@@ -87,6 +88,7 @@ export default function CommandPopoverDefault() {
 **Variant:** `reui-action-palette`
 **Upstream:** https://reui.io/components
 **Description:** Command dialog with grouped actions (Create, Navigate, System) and keyboard shortcut indicators.
+**Flagged:** not in upstream Examples block
 **Depends on:** button, command
 
 ```tsx
@@ -185,6 +187,7 @@ export default function CommandActionPalette() {
 **Variant:** `reui-recent-favorites`
 **Upstream:** https://reui.io/components
 **Description:** Search dialog with starred favorites, timestamped recent pages, and quick links for navigation.
+**Flagged:** not in upstream Examples block
 **Depends on:** button, command
 
 ```tsx

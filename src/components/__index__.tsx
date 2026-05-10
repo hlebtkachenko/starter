@@ -7013,7 +7013,7 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "slug": "empty",
     "variant": "marquee",
     "isDefault": false,
-    "isFlagged": false,
+    "isFlagged": true,
     "span": 2,
     "height": "tall",
     "upstreamUrl": "https://shadcnui-blocks.com/block/empty-state-04",
@@ -7043,7 +7043,7 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "slug": "command",
     "variant": "popover",
     "isDefault": false,
-    "isFlagged": false,
+    "isFlagged": true,
     "span": 2,
     "upstreamUrl": "https://www.shadcnblocks.com/component/command/command-popover-5",
     "registryDependencies": [
@@ -7131,7 +7131,7 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "slug": "breadcrumb",
     "variant": "icons",
     "isDefault": false,
-    "isFlagged": false,
+    "isFlagged": true,
     "upstreamUrl": "https://www.shadcnblocks.com/components/breadcrumb",
     "registryDependencies": [
       "breadcrumb"
@@ -7157,7 +7157,7 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "slug": "breadcrumb",
     "variant": "bordered",
     "isDefault": false,
-    "isFlagged": false,
+    "isFlagged": true,
     "upstreamUrl": "https://www.shadcnblocks.com/components/breadcrumb",
     "registryDependencies": [
       "breadcrumb"
@@ -7183,7 +7183,7 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "slug": "breadcrumb",
     "variant": "bullet",
     "isDefault": false,
-    "isFlagged": false,
+    "isFlagged": true,
     "upstreamUrl": "https://www.shadcnblocks.com/components/breadcrumb",
     "registryDependencies": [
       "breadcrumb"
@@ -7209,7 +7209,7 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "slug": "breadcrumb",
     "variant": "slash",
     "isDefault": false,
-    "isFlagged": false,
+    "isFlagged": true,
     "upstreamUrl": "https://www.shadcnblocks.com/components/breadcrumb",
     "registryDependencies": [
       "breadcrumb"
@@ -7235,7 +7235,7 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "slug": "breadcrumb",
     "variant": "select",
     "isDefault": false,
-    "isFlagged": false,
+    "isFlagged": true,
     "upstreamUrl": "https://www.shadcnblocks.com/components/breadcrumb",
     "registryDependencies": [
       "breadcrumb",
@@ -7316,7 +7316,7 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "description": "Split button group with approve action and dropdown for conditional approval and rejection.",
     "slug": "button-group",
     "variant": "reui-review-actions",
-    "isFlagged": false,
+    "isFlagged": true,
     "span": 1,
     "upstreamUrl": "https://reui.io/components",
     "registryDependencies": [
@@ -7344,7 +7344,7 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "description": "Toolbar with avatar group, preview button, split publish dropdown, and overflow menu.",
     "slug": "button-group",
     "variant": "reui-publish-controls",
-    "isFlagged": false,
+    "isFlagged": true,
     "span": 2,
     "upstreamUrl": "https://reui.io/components",
     "registryDependencies": [
@@ -7374,7 +7374,7 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "description": "Calendar demonstrating multi-day selection mode with pre-selected dates, from ReUI registry.",
     "slug": "calendar",
     "variant": "reui-multiple",
-    "isFlagged": false,
+    "isFlagged": true,
     "span": 1,
     "upstreamUrl": "https://reui.io/components",
     "registryDependencies": [
@@ -7401,7 +7401,7 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "description": "Calendar displaying ISO week numbers alongside each row using custom WeekNumber component.",
     "slug": "calendar",
     "variant": "reui-week-numbers",
-    "isFlagged": false,
+    "isFlagged": true,
     "span": 1,
     "upstreamUrl": "https://reui.io/components",
     "registryDependencies": [
@@ -7428,7 +7428,7 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "description": "Calendar with per-day dynamic pricing using custom DayButton, prices under $100 highlighted green.",
     "slug": "calendar",
     "variant": "reui-pricing",
-    "isFlagged": false,
+    "isFlagged": true,
     "span": 1,
     "upstreamUrl": "https://reui.io/components",
     "registryDependencies": [
@@ -7454,7 +7454,7 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "description": "Popover date picker with sidebar preset buttons (Today, Yesterday, Last week, etc.) and calendar.",
     "slug": "calendar",
     "variant": "reui-date-picker-presets",
-    "isFlagged": false,
+    "isFlagged": true,
     "span": 2,
     "upstreamUrl": "https://reui.io/components",
     "registryDependencies": [
@@ -7483,7 +7483,7 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "description": "Popover date range picker with 8 preset ranges and dual-mode calendar selection.",
     "slug": "calendar",
     "variant": "reui-range-presets",
-    "isFlagged": false,
+    "isFlagged": true,
     "span": 2,
     "upstreamUrl": "https://reui.io/components",
     "registryDependencies": [
@@ -7512,7 +7512,7 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "description": "Compact help card with title, descriptive text, and link button with external link icon.",
     "slug": "card",
     "variant": "reui-with-link",
-    "isFlagged": false,
+    "isFlagged": true,
     "span": 1,
     "upstreamUrl": "https://reui.io/components",
     "registryDependencies": [
@@ -7539,7 +7539,7 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "description": "Billing card with credit usage progress bar, collapsible line items, and gradient fade toggle.",
     "slug": "card",
     "variant": "reui-expandable-billing",
-    "isFlagged": false,
+    "isFlagged": true,
     "span": 2,
     "height": "tall",
     "upstreamUrl": "https://reui.io/components",
@@ -7568,7 +7568,7 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "description": "Revenue stat card with trend badge, delta percentage, comparison, and dropdown settings menu.",
     "slug": "card",
     "variant": "reui-stat-trend",
-    "isFlagged": false,
+    "isFlagged": true,
     "span": 1,
     "upstreamUrl": "https://reui.io/components",
     "registryDependencies": [
@@ -7598,7 +7598,7 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "description": "Documentation card with icon-labeled header section, descriptive text, and inline link.",
     "slug": "card",
     "variant": "reui-header-label",
-    "isFlagged": false,
+    "isFlagged": true,
     "span": 1,
     "upstreamUrl": "https://reui.io/components",
     "registryDependencies": [
@@ -7624,7 +7624,7 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "description": "Billing summary card with collapsible line items expanded by centered chevron button at bottom.",
     "slug": "collapsible",
     "variant": "reui-bottom-trigger",
-    "isFlagged": false,
+    "isFlagged": true,
     "span": 1,
     "height": "tall",
     "upstreamUrl": "https://reui.io/components",
@@ -7654,7 +7654,7 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "description": "Unit pricing form with base price input and collapsible tax/discount fields toggled by settings button.",
     "slug": "collapsible",
     "variant": "reui-form-fields",
-    "isFlagged": false,
+    "isFlagged": true,
     "span": 1,
     "upstreamUrl": "https://reui.io/components",
     "registryDependencies": [
@@ -7684,7 +7684,7 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "description": "Combobox with avatar-decorated chips, searchable dropdown, removable selections, and member info.",
     "slug": "combobox",
     "variant": "reui-multi-select-users",
-    "isFlagged": false,
+    "isFlagged": true,
     "span": 2,
     "upstreamUrl": "https://reui.io/components",
     "registryDependencies": [
@@ -7713,7 +7713,7 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "description": "Command dialog with grouped actions (Create, Navigate, System) and keyboard shortcut indicators.",
     "slug": "command",
     "variant": "reui-action-palette",
-    "isFlagged": false,
+    "isFlagged": true,
     "span": 2,
     "upstreamUrl": "https://reui.io/components",
     "registryDependencies": [
@@ -7740,7 +7740,7 @@ export const Index: Record<string, RegistryIndexEntry> = {
     "description": "Search dialog with starred favorites, timestamped recent pages, and quick links for navigation.",
     "slug": "command",
     "variant": "reui-recent-favorites",
-    "isFlagged": false,
+    "isFlagged": true,
     "span": 2,
     "upstreamUrl": "https://reui.io/components",
     "registryDependencies": [
